@@ -233,7 +233,7 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -244,7 +244,7 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -255,7 +255,7 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -421,7 +421,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -432,7 +432,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -443,7 +443,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -454,7 +454,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -806,7 +806,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -817,7 +817,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -828,7 +828,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -839,7 +839,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -850,7 +850,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -861,7 +861,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -872,7 +872,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -883,7 +883,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -894,7 +894,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -905,7 +905,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -916,7 +916,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -927,7 +927,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -938,7 +938,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -412,7 +412,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -423,7 +423,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -523,7 +523,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -622,7 +622,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -797,7 +797,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -808,7 +808,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -819,7 +819,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -830,7 +830,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

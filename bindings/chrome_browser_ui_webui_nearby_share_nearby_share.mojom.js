@@ -626,7 +626,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -637,7 +637,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -648,7 +648,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -659,7 +659,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -799,7 +799,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -810,7 +810,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -821,7 +821,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1191,7 +1191,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1202,7 +1202,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1213,7 +1213,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1224,7 +1224,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1235,7 +1235,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

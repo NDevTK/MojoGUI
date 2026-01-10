@@ -159,7 +159,7 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -175,7 +175,7 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

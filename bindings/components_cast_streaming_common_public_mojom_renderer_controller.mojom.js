@@ -97,7 +97,7 @@ cast_streaming.mojom.RendererControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

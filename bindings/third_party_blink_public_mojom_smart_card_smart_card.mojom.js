@@ -97,7 +97,7 @@ blink.mojom.SmartCardServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

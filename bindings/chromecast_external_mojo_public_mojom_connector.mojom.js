@@ -298,7 +298,7 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -249,7 +249,7 @@ policy.local_user_files.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

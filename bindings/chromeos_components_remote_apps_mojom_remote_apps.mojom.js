@@ -237,7 +237,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -248,7 +248,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -259,7 +259,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -270,7 +270,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -281,7 +281,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -726,7 +726,7 @@ blink.mojom.AuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -737,7 +737,7 @@ blink.mojom.AuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_GetCredential_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -748,7 +748,7 @@ blink.mojom.AuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -759,7 +759,7 @@ blink.mojom.AuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -770,7 +770,7 @@ blink.mojom.AuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_Report_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -781,7 +781,7 @@ blink.mojom.AuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -713,7 +713,7 @@ on_device_model.mojom.SessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -724,7 +724,7 @@ on_device_model.mojom.SessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.Session_Score_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -740,7 +740,7 @@ on_device_model.mojom.SessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -916,7 +916,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -927,7 +927,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -938,7 +938,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1075,7 +1075,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1086,7 +1086,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

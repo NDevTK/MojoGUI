@@ -253,7 +253,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -269,7 +269,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

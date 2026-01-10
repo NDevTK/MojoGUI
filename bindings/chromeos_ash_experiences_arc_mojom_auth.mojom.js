@@ -577,7 +577,7 @@ arc.mojom.AuthHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -588,7 +588,7 @@ arc.mojom.AuthHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -599,7 +599,7 @@ arc.mojom.AuthHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -610,7 +610,7 @@ arc.mojom.AuthHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -803,7 +803,7 @@ arc.mojom.AuthInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -819,7 +819,7 @@ arc.mojom.AuthInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -830,7 +830,7 @@ arc.mojom.AuthInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

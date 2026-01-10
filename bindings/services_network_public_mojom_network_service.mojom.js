@@ -1077,7 +1077,7 @@ network.mojom.NetworkServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1113,7 +1113,7 @@ network.mojom.NetworkServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1134,7 +1134,7 @@ network.mojom.NetworkServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkService_UpdateCtLogList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1145,7 +1145,7 @@ network.mojom.NetworkServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1156,7 +1156,7 @@ network.mojom.NetworkServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1192,7 +1192,7 @@ network.mojom.NetworkServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1233,7 +1233,7 @@ network.mojom.NetworkServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1405,7 +1405,7 @@ network.mojom.DurableMessageCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DurableMessageCollector_Configure_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1416,7 +1416,7 @@ network.mojom.DurableMessageCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DurableMessageCollector_EnableForProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1427,7 +1427,7 @@ network.mojom.DurableMessageCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DurableMessageCollector_DisableForProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1438,7 +1438,7 @@ network.mojom.DurableMessageCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

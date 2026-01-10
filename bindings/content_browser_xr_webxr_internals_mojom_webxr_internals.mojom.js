@@ -209,7 +209,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -220,7 +220,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

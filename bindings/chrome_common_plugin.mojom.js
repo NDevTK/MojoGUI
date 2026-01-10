@@ -315,7 +315,7 @@ chrome.mojom.PluginInfoHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -543,7 +543,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -554,7 +554,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -565,7 +565,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -576,7 +576,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -587,7 +587,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -598,7 +598,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -609,7 +609,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -620,7 +620,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -631,7 +631,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -642,7 +642,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -653,7 +653,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -674,7 +674,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -685,7 +685,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

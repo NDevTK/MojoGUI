@@ -139,7 +139,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

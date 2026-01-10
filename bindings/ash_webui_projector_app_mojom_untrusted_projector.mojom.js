@@ -350,7 +350,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -361,7 +361,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -372,7 +372,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -383,7 +383,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -394,7 +394,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -405,7 +405,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -416,7 +416,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -427,7 +427,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -438,7 +438,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -449,7 +449,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -460,7 +460,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

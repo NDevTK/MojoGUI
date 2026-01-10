@@ -100,7 +100,7 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

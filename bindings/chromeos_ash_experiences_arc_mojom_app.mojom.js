@@ -1446,7 +1446,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1487,7 +1487,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1498,7 +1498,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1509,7 +1509,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1520,7 +1520,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1531,7 +1531,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1542,7 +1542,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1583,7 +1583,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1609,7 +1609,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1620,7 +1620,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1631,7 +1631,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1642,7 +1642,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1653,7 +1653,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1664,7 +1664,7 @@ arc.mojom.AppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

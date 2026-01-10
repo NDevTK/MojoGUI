@@ -802,7 +802,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -813,7 +813,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -824,7 +824,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -835,7 +835,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -846,7 +846,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -857,7 +857,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -868,7 +868,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -879,7 +879,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -890,7 +890,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -901,7 +901,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -912,7 +912,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -923,7 +923,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -934,7 +934,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -945,7 +945,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -956,7 +956,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -967,7 +967,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -978,7 +978,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -989,7 +989,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1000,7 +1000,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1011,7 +1011,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1022,7 +1022,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1033,7 +1033,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1044,7 +1044,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1055,7 +1055,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1066,7 +1066,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1077,7 +1077,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1088,7 +1088,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1099,7 +1099,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1110,7 +1110,7 @@ content.mojom.MojoEchoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -157,7 +157,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -168,7 +168,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -366,7 +366,7 @@ blink.mojom.NotificationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -387,7 +387,7 @@ blink.mojom.NotificationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -403,7 +403,7 @@ blink.mojom.NotificationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

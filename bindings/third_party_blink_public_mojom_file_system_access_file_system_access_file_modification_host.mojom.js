@@ -113,7 +113,7 @@ blink.mojom.FileSystemAccessFileModificationHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

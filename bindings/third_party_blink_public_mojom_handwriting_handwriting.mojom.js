@@ -215,7 +215,7 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -337,7 +337,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -348,7 +348,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

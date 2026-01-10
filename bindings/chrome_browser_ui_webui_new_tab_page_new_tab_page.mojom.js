@@ -953,7 +953,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -964,7 +964,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1020,7 +1020,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1031,7 +1031,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1047,7 +1047,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1113,7 +1113,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

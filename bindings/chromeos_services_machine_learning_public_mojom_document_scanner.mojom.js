@@ -184,7 +184,7 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -195,7 +195,7 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -206,7 +206,7 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -266,7 +266,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -292,7 +292,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -303,7 +303,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -314,7 +314,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -325,7 +325,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

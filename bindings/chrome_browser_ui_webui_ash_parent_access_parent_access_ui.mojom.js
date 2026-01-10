@@ -309,7 +309,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -320,7 +320,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -331,7 +331,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -342,7 +342,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -353,7 +353,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -364,7 +364,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

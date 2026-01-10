@@ -233,7 +233,7 @@ chrome_urls.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -244,7 +244,7 @@ chrome_urls.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

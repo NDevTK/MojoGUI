@@ -103,7 +103,7 @@ quick_answers.mojom.SpellCheckServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -202,7 +202,7 @@ quick_answers.mojom.SpellCheckDictionaryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

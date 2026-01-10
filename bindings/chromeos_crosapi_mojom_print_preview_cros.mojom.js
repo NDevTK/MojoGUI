@@ -228,7 +228,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -239,7 +239,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -361,7 +361,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -372,7 +372,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

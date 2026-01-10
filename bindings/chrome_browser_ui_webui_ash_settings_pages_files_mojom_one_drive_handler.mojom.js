@@ -262,7 +262,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -273,7 +273,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -284,7 +284,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -295,7 +295,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

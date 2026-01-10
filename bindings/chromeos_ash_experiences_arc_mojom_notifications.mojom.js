@@ -791,7 +791,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NotificationsInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

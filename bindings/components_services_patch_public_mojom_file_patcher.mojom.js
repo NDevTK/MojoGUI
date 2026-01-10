@@ -143,7 +143,7 @@ patch.mojom.FilePatcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -154,7 +154,7 @@ patch.mojom.FilePatcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

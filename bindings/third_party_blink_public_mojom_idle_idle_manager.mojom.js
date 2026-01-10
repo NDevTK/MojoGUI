@@ -208,7 +208,7 @@ blink.mojom.IdleManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

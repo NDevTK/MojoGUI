@@ -155,7 +155,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -171,7 +171,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -294,7 +294,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -305,7 +305,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -403,7 +403,7 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

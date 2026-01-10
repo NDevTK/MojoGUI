@@ -1622,7 +1622,7 @@ blink.mojom.RemoteMainFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

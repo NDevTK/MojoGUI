@@ -874,7 +874,7 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

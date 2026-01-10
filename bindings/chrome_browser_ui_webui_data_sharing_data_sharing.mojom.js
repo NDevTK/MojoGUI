@@ -469,7 +469,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -480,7 +480,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -491,7 +491,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -697,7 +697,7 @@ data_sharing.mojom.PageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -708,7 +708,7 @@ data_sharing.mojom.PageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -719,7 +719,7 @@ data_sharing.mojom.PageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -730,7 +730,7 @@ data_sharing.mojom.PageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

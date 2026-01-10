@@ -123,7 +123,7 @@ chromecast.mojom.ApiBindingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

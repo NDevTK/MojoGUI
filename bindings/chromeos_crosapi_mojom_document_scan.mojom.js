@@ -589,7 +589,7 @@ crosapi.mojom.DocumentScanReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -600,7 +600,7 @@ crosapi.mojom.DocumentScanReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -611,7 +611,7 @@ crosapi.mojom.DocumentScanReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -622,7 +622,7 @@ crosapi.mojom.DocumentScanReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -633,7 +633,7 @@ crosapi.mojom.DocumentScanReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -644,7 +644,7 @@ crosapi.mojom.DocumentScanReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -655,7 +655,7 @@ crosapi.mojom.DocumentScanReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -189,7 +189,7 @@ updater_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

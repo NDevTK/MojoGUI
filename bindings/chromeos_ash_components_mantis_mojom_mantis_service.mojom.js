@@ -232,7 +232,7 @@ mantis.mojom.MantisServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -243,7 +243,7 @@ mantis.mojom.MantisServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisService_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

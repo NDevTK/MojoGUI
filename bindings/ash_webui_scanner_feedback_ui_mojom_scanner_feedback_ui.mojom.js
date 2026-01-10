@@ -140,7 +140,7 @@ ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

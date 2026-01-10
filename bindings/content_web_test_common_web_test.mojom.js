@@ -460,7 +460,7 @@ content.mojom.WebTestRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -471,7 +471,7 @@ content.mojom.WebTestRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1336,7 +1336,7 @@ content.mojom.WebTestControlHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1372,7 +1372,7 @@ content.mojom.WebTestControlHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1388,7 +1388,7 @@ content.mojom.WebTestControlHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1404,7 +1404,7 @@ content.mojom.WebTestControlHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1415,7 +1415,7 @@ content.mojom.WebTestControlHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1446,7 +1446,7 @@ content.mojom.WebTestControlHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -565,7 +565,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetVersion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -576,7 +576,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -587,7 +587,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -598,7 +598,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -609,7 +609,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -620,7 +620,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -631,7 +631,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_Update_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -642,7 +642,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_Install_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -658,7 +658,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -669,7 +669,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -680,7 +680,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -691,7 +691,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -702,7 +702,7 @@ updater.mojom.UpdateServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -104,7 +104,7 @@ content.mojom.TestInterfaceForDeferReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

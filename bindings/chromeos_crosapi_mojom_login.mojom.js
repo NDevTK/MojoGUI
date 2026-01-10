@@ -384,7 +384,7 @@ crosapi.mojom.LoginReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -395,7 +395,7 @@ crosapi.mojom.LoginReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -406,7 +406,7 @@ crosapi.mojom.LoginReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -417,7 +417,7 @@ crosapi.mojom.LoginReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -428,7 +428,7 @@ crosapi.mojom.LoginReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -439,7 +439,7 @@ crosapi.mojom.LoginReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -450,7 +450,7 @@ crosapi.mojom.LoginReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

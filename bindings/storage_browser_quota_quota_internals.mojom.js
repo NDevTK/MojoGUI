@@ -225,7 +225,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -236,7 +236,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -252,7 +252,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -263,7 +263,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -274,7 +274,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

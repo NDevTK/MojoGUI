@@ -142,7 +142,7 @@ media.mojom.DemuxerStreamReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.DemuxerStream_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -153,7 +153,7 @@ media.mojom.DemuxerStreamReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.DemuxerStream_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

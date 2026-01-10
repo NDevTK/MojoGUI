@@ -100,7 +100,7 @@ viz.mojom.InputTargetClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -351,7 +351,7 @@ printing.mojom.PrintCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -362,7 +362,7 @@ printing.mojom.PrintCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -373,7 +373,7 @@ printing.mojom.PrintCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -384,7 +384,7 @@ printing.mojom.PrintCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -132,7 +132,7 @@ arc.mojom.VideoHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -143,7 +143,7 @@ arc.mojom.VideoHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -241,7 +241,7 @@ arc.mojom.VideoInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

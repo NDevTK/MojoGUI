@@ -165,7 +165,7 @@ sharing.mojom.FirewallHoleFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

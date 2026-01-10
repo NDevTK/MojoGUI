@@ -97,7 +97,7 @@ network.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

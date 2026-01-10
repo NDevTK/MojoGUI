@@ -151,7 +151,7 @@ network.mojom.FileEnumeratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.FileEnumerator_GetNext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -425,7 +425,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -436,7 +436,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -447,7 +447,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -458,7 +458,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -469,7 +469,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -480,7 +480,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -491,7 +491,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -507,7 +507,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

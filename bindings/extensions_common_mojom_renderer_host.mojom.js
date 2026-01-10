@@ -176,7 +176,7 @@ extensions.mojom.RendererHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

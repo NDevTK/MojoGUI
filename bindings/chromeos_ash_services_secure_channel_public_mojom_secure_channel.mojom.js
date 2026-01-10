@@ -269,7 +269,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -280,7 +280,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -291,7 +291,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -792,7 +792,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

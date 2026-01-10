@@ -670,7 +670,7 @@ attribution_internals.mojom.HandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -681,7 +681,7 @@ attribution_internals.mojom.HandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -692,7 +692,7 @@ attribution_internals.mojom.HandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

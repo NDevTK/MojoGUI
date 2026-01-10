@@ -798,7 +798,7 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -918,7 +918,7 @@ remoting.mojom.FileWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -929,7 +929,7 @@ remoting.mojom.FileWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1028,7 +1028,7 @@ remoting.mojom.FileReaderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1341,7 +1341,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1402,7 +1402,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1413,7 +1413,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

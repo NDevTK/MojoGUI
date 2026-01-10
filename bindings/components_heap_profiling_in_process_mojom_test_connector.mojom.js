@@ -136,7 +136,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -147,7 +147,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

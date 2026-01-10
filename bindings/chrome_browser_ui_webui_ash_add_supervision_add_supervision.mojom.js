@@ -199,7 +199,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -210,7 +210,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -221,7 +221,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

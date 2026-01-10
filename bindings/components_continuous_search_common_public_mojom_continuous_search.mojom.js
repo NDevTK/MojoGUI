@@ -149,7 +149,7 @@ continuous_search.mojom.SearchResultExtractorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

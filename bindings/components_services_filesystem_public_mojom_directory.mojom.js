@@ -433,7 +433,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -444,7 +444,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -455,7 +455,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -466,7 +466,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -477,7 +477,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Rename_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -488,7 +488,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Replace_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -499,7 +499,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Delete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -510,7 +510,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Exists_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -521,7 +521,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_IsWritable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -532,7 +532,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Flush_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -543,7 +543,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_StatFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -559,7 +559,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -570,7 +570,7 @@ filesystem.mojom.DirectoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_WriteFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

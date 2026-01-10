@@ -323,7 +323,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

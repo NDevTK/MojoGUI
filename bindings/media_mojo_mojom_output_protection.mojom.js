@@ -142,7 +142,7 @@ media.mojom.OutputProtectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -153,7 +153,7 @@ media.mojom.OutputProtectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

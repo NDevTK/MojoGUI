@@ -110,7 +110,7 @@ chrome.mojom.UtilReadIconReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -420,7 +420,7 @@ media.mojom.MediaPlayerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -523,7 +523,7 @@ media.mojom.MediaPlayerObserverClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

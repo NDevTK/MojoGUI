@@ -1540,7 +1540,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1601,7 +1601,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1612,7 +1612,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1623,7 +1623,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1634,7 +1634,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1645,7 +1645,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1656,7 +1656,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1677,7 +1677,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

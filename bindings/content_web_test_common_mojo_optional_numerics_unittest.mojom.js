@@ -1291,7 +1291,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1302,7 +1302,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1313,7 +1313,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1324,7 +1324,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1335,7 +1335,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1346,7 +1346,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1357,7 +1357,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1368,7 +1368,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1379,7 +1379,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1390,7 +1390,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1401,7 +1401,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1412,7 +1412,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1423,7 +1423,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1434,7 +1434,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1445,7 +1445,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1456,7 +1456,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1467,7 +1467,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1478,7 +1478,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1489,7 +1489,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1500,7 +1500,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1511,7 +1511,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1522,7 +1522,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1533,7 +1533,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1544,7 +1544,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1555,7 +1555,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1566,7 +1566,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1577,7 +1577,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1588,7 +1588,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1599,7 +1599,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1610,7 +1610,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1621,7 +1621,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1632,7 +1632,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1643,7 +1643,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1654,7 +1654,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1665,7 +1665,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1676,7 +1676,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1687,7 +1687,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1698,7 +1698,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1709,7 +1709,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1720,7 +1720,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1731,7 +1731,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1742,7 +1742,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1753,7 +1753,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2790,7 +2790,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2801,7 +2801,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2812,7 +2812,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2823,7 +2823,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2834,7 +2834,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2845,7 +2845,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2856,7 +2856,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2867,7 +2867,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2878,7 +2878,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2889,7 +2889,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2900,7 +2900,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2911,7 +2911,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2922,7 +2922,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2933,7 +2933,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2944,7 +2944,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2955,7 +2955,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2966,7 +2966,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2977,7 +2977,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2988,7 +2988,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2999,7 +2999,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3010,7 +3010,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3021,7 +3021,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3032,7 +3032,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3043,7 +3043,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3054,7 +3054,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3065,7 +3065,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3076,7 +3076,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3087,7 +3087,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3098,7 +3098,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3109,7 +3109,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3120,7 +3120,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3131,7 +3131,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3142,7 +3142,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3153,7 +3153,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3164,7 +3164,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3175,7 +3175,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3186,7 +3186,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3197,7 +3197,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3208,7 +3208,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3219,7 +3219,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3230,7 +3230,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3241,7 +3241,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3252,7 +3252,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3371,7 +3371,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3382,7 +3382,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3547,7 +3547,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3558,7 +3558,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

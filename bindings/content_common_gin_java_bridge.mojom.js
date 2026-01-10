@@ -301,7 +301,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -312,7 +312,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -323,7 +323,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

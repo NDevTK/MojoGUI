@@ -167,7 +167,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -178,7 +178,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -189,7 +189,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -200,7 +200,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

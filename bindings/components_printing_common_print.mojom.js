@@ -315,7 +315,7 @@ printing.mojom.PrintRendererReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -873,7 +873,7 @@ printing.mojom.PrintRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1219,7 +1219,7 @@ printing.mojom.PrintManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1235,7 +1235,7 @@ printing.mojom.PrintManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1246,7 +1246,7 @@ printing.mojom.PrintManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1257,7 +1257,7 @@ printing.mojom.PrintManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1273,7 +1273,7 @@ printing.mojom.PrintManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1284,7 +1284,7 @@ printing.mojom.PrintManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1305,7 +1305,7 @@ printing.mojom.PrintManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -279,7 +279,7 @@ device.mojom.SensorProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_GetSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -290,7 +290,7 @@ device.mojom.SensorProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -301,7 +301,7 @@ device.mojom.SensorProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -312,7 +312,7 @@ device.mojom.SensorProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -323,7 +323,7 @@ device.mojom.SensorProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

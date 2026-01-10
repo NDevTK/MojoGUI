@@ -151,7 +151,7 @@ suggest_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -403,7 +403,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -414,7 +414,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -425,7 +425,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -436,7 +436,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -457,7 +457,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -478,7 +478,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

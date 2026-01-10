@@ -161,7 +161,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -172,7 +172,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -183,7 +183,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -194,7 +194,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

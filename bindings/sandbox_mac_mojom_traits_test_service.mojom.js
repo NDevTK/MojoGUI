@@ -98,7 +98,7 @@ sandbox.mac.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

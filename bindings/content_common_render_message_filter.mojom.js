@@ -132,7 +132,7 @@ content.mojom.RenderMessageFilterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -143,7 +143,7 @@ content.mojom.RenderMessageFilterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

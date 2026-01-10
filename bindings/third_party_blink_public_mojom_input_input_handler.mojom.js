@@ -609,7 +609,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1281,7 +1281,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1372,7 +1372,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1393,7 +1393,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1419,7 +1419,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1813,7 +1813,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1824,7 +1824,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1850,7 +1850,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1866,7 +1866,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1877,7 +1877,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

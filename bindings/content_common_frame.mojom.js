@@ -624,7 +624,7 @@ content.mojom.FrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -665,7 +665,7 @@ content.mojom.FrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1249,7 +1249,7 @@ content.mojom.FrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

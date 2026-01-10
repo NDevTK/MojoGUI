@@ -242,7 +242,7 @@ blink.mojom.HidServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_GetDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -253,7 +253,7 @@ blink.mojom.HidServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_RequestDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -264,7 +264,7 @@ blink.mojom.HidServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -275,7 +275,7 @@ blink.mojom.HidServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_Forget_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

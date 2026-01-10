@@ -925,7 +925,7 @@ media_session.mojom.MediaSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -936,7 +936,7 @@ media_session.mojom.MediaSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -997,7 +997,7 @@ media_session.mojom.MediaSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1078,7 +1078,7 @@ media_session.mojom.MediaSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

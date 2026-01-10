@@ -366,7 +366,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -377,7 +377,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -388,7 +388,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -399,7 +399,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -410,7 +410,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

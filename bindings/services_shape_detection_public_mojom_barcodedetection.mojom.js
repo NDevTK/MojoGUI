@@ -129,7 +129,7 @@ shape_detection.mojom.BarcodeDetectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

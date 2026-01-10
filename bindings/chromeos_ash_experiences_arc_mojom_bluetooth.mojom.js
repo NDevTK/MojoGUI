@@ -1837,7 +1837,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1848,7 +1848,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1894,7 +1894,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1935,7 +1935,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1946,7 +1946,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1957,7 +1957,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1968,7 +1968,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1979,7 +1979,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1990,7 +1990,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2001,7 +2001,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2012,7 +2012,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2023,7 +2023,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_AddService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2034,7 +2034,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2045,7 +2045,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2056,7 +2056,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_StartService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2067,7 +2067,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_StopService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2078,7 +2078,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_DeleteService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2089,7 +2089,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_SendIndication_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2105,7 +2105,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2116,7 +2116,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2127,7 +2127,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2138,7 +2138,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2149,7 +2149,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2160,7 +2160,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2171,7 +2171,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2182,7 +2182,7 @@ arc.mojom.BluetoothHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2617,7 +2617,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2693,7 +2693,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2704,7 +2704,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2715,7 +2715,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

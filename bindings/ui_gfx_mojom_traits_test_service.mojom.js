@@ -169,7 +169,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -180,7 +180,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -191,7 +191,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -202,7 +202,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -253,7 +253,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -264,7 +264,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -275,7 +275,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -286,7 +286,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -297,7 +297,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -308,7 +308,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

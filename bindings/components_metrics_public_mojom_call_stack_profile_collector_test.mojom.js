@@ -97,7 +97,7 @@ metrics.mojom.CallStackProfileCollectorTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

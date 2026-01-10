@@ -1059,7 +1059,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1188,7 +1188,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

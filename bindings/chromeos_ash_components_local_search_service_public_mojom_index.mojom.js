@@ -240,7 +240,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -251,7 +251,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -262,7 +262,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -273,7 +273,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -284,7 +284,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.Index_Find_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -295,7 +295,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -306,7 +306,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

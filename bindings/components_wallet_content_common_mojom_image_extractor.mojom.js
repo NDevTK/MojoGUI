@@ -97,7 +97,7 @@ wallet.mojom.ImageExtractorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

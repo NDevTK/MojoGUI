@@ -97,7 +97,7 @@ wl.mojom.ConfigTraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

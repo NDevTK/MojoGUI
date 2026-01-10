@@ -125,7 +125,7 @@ ash.ime.mojom.ConnectionFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -136,7 +136,7 @@ ash.ime.mojom.ConnectionFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

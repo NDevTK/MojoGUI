@@ -409,7 +409,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -420,7 +420,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -436,7 +436,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -628,7 +628,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -639,7 +639,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -650,7 +650,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -661,7 +661,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -672,7 +672,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

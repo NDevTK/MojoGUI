@@ -335,7 +335,7 @@ arc.mojom.ProcessInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -346,7 +346,7 @@ arc.mojom.ProcessInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -357,7 +357,7 @@ arc.mojom.ProcessInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -368,7 +368,7 @@ arc.mojom.ProcessInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -379,7 +379,7 @@ arc.mojom.ProcessInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -390,7 +390,7 @@ arc.mojom.ProcessInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

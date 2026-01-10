@@ -121,7 +121,7 @@ gfx.mojom.RangeTraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ gfx.mojom.RangeTraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

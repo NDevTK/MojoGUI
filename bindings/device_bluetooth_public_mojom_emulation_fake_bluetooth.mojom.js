@@ -313,7 +313,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeBluetooth_SetLESupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -324,7 +324,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -335,7 +335,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1039,7 +1039,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1050,7 +1050,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1061,7 +1061,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1072,7 +1072,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1083,7 +1083,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1094,7 +1094,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1105,7 +1105,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1116,7 +1116,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1127,7 +1127,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1138,7 +1138,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1149,7 +1149,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1160,7 +1160,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1171,7 +1171,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1182,7 +1182,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1193,7 +1193,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1204,7 +1204,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1215,7 +1215,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1226,7 +1226,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1237,7 +1237,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1248,7 +1248,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1259,7 +1259,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1270,7 +1270,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1281,7 +1281,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1292,7 +1292,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1303,7 +1303,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

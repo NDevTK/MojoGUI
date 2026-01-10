@@ -189,7 +189,7 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -200,7 +200,7 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

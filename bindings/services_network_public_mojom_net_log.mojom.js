@@ -150,7 +150,7 @@ network.mojom.NetLogExporterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetLogExporter_Start_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -161,7 +161,7 @@ network.mojom.NetLogExporterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetLogExporter_Stop_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

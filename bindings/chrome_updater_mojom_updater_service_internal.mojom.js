@@ -117,7 +117,7 @@ updater.mojom.UpdateServiceInternalReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -128,7 +128,7 @@ updater.mojom.UpdateServiceInternalReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

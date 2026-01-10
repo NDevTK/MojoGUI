@@ -408,7 +408,7 @@ reading_list.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -464,7 +464,7 @@ reading_list.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

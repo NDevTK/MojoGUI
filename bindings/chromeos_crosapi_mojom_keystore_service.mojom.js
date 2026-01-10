@@ -916,7 +916,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -927,7 +927,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -938,7 +938,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -949,7 +949,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -960,7 +960,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -971,7 +971,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -982,7 +982,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -993,7 +993,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1004,7 +1004,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1015,7 +1015,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1026,7 +1026,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1037,7 +1037,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1048,7 +1048,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1059,7 +1059,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1070,7 +1070,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1081,7 +1081,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1092,7 +1092,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1103,7 +1103,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1114,7 +1114,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1125,7 +1125,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1136,7 +1136,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1147,7 +1147,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

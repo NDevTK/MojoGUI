@@ -354,7 +354,7 @@ extensions.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -375,7 +375,7 @@ extensions.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -699,7 +699,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -710,7 +710,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -721,7 +721,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

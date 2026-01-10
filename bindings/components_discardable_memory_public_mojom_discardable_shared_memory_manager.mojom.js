@@ -116,7 +116,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

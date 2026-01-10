@@ -379,7 +379,7 @@ coral.mojom.CoralProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralProcessor_Group_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -390,7 +390,7 @@ coral.mojom.CoralProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -545,7 +545,7 @@ coral.mojom.CoralServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -556,7 +556,7 @@ coral.mojom.CoralServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

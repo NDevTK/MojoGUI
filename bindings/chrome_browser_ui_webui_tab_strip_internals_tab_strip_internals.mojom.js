@@ -464,7 +464,7 @@ tab_strip_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -701,7 +701,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -712,7 +712,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -723,7 +723,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -734,7 +734,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -745,7 +745,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -756,7 +756,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -767,7 +767,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -778,7 +778,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -789,7 +789,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -800,7 +800,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -816,7 +816,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -827,7 +827,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -843,7 +843,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -859,7 +859,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

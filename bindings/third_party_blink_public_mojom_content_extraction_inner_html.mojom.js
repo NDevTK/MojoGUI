@@ -96,7 +96,7 @@ blink.mojom.InnerHtmlAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

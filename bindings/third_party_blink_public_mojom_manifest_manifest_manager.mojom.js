@@ -175,7 +175,7 @@ blink.mojom.ManifestManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -191,7 +191,7 @@ blink.mojom.ManifestManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -202,7 +202,7 @@ blink.mojom.ManifestManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

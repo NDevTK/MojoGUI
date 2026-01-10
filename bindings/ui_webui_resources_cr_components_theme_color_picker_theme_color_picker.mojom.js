@@ -325,7 +325,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

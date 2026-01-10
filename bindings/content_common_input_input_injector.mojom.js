@@ -317,7 +317,7 @@ content.mojom.InputInjectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -328,7 +328,7 @@ content.mojom.InputInjectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -339,7 +339,7 @@ content.mojom.InputInjectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -350,7 +350,7 @@ content.mojom.InputInjectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -361,7 +361,7 @@ content.mojom.InputInjectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -331,7 +331,7 @@ ash.cellular_setup.mojom.CellularSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

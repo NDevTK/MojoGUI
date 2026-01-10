@@ -235,7 +235,7 @@ media.mojom.FuchsiaMediaCodecProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

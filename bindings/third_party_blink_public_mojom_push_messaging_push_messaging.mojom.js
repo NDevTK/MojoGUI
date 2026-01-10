@@ -186,7 +186,7 @@ blink.mojom.PushMessagingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -197,7 +197,7 @@ blink.mojom.PushMessagingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -208,7 +208,7 @@ blink.mojom.PushMessagingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

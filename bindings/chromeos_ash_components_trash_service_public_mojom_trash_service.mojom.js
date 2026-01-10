@@ -102,7 +102,7 @@ ash.trash_service.mojom.TrashServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

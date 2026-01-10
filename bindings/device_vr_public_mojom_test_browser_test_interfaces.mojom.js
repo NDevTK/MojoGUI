@@ -391,7 +391,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -402,7 +402,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -413,7 +413,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -424,7 +424,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -435,7 +435,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -446,7 +446,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -457,7 +457,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -468,7 +468,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -479,7 +479,7 @@ device_test.mojom.XRTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -597,7 +597,7 @@ device_test.mojom.XRServiceTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -608,7 +608,7 @@ device_test.mojom.XRServiceTestHookReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

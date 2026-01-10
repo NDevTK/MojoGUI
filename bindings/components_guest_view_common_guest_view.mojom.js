@@ -186,7 +186,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

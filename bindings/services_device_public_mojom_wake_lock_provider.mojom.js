@@ -171,7 +171,7 @@ device.mojom.WakeLockProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

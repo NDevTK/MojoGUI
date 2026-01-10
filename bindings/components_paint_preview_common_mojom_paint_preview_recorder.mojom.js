@@ -193,7 +193,7 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

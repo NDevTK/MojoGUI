@@ -364,7 +364,7 @@ arc.mojom.KeymasterHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -462,7 +462,7 @@ arc.mojom.KeymasterInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -846,7 +846,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -857,7 +857,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -868,7 +868,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -879,7 +879,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -890,7 +890,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -901,7 +901,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -912,7 +912,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -923,7 +923,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -934,7 +934,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -945,7 +945,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Begin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -956,7 +956,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Update_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -967,7 +967,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Finish_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -978,7 +978,7 @@ arc.mojom.KeymasterServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Abort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

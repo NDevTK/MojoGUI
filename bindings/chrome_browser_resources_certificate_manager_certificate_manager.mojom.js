@@ -424,7 +424,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -435,7 +435,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -456,7 +456,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -467,7 +467,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -478,7 +478,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -640,7 +640,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -651,7 +651,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

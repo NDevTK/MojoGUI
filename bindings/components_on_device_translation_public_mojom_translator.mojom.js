@@ -121,7 +121,7 @@ on_device_translation.mojom.TranslatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.Translator_Translate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ on_device_translation.mojom.TranslatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -499,7 +499,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -510,7 +510,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -521,7 +521,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -542,7 +542,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -553,7 +553,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -564,7 +564,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -575,7 +575,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -586,7 +586,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -612,7 +612,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -623,7 +623,7 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

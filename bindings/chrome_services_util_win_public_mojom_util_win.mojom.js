@@ -362,7 +362,7 @@ chrome.mojom.UtilWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -373,7 +373,7 @@ chrome.mojom.UtilWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -384,7 +384,7 @@ chrome.mojom.UtilWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -395,7 +395,7 @@ chrome.mojom.UtilWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -406,7 +406,7 @@ chrome.mojom.UtilWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -417,7 +417,7 @@ chrome.mojom.UtilWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -428,7 +428,7 @@ chrome.mojom.UtilWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -525,7 +525,7 @@ chrome.mojom.ProcessorMetricsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

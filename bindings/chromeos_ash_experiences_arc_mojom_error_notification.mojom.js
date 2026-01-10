@@ -127,7 +127,7 @@ arc.mojom.ErrorNotificationHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -225,7 +225,7 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

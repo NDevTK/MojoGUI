@@ -156,7 +156,7 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

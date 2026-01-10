@@ -471,7 +471,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -482,7 +482,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -493,7 +493,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -504,7 +504,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -664,7 +664,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -680,7 +680,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -205,7 +205,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -216,7 +216,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -227,7 +227,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -238,7 +238,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -249,7 +249,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

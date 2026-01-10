@@ -420,7 +420,7 @@ blink.mojom.StorageAreaReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_Put_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -431,7 +431,7 @@ blink.mojom.StorageAreaReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_Delete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -442,7 +442,7 @@ blink.mojom.StorageAreaReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -453,7 +453,7 @@ blink.mojom.StorageAreaReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_Get_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -464,7 +464,7 @@ blink.mojom.StorageAreaReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_GetAll_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

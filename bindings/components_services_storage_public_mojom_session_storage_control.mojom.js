@@ -308,7 +308,7 @@ storage.mojom.SessionStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -319,7 +319,7 @@ storage.mojom.SessionStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -330,7 +330,7 @@ storage.mojom.SessionStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

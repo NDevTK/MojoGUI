@@ -424,7 +424,7 @@ blink.mojom.RemoteObjectReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -435,7 +435,7 @@ blink.mojom.RemoteObjectReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -446,7 +446,7 @@ blink.mojom.RemoteObjectReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

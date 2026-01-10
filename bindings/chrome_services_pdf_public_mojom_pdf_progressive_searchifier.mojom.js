@@ -142,7 +142,7 @@ pdf.mojom.PdfProgressiveSearchifierReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

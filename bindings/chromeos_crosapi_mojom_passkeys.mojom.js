@@ -223,7 +223,7 @@ crosapi.mojom.PasskeyAuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -234,7 +234,7 @@ crosapi.mojom.PasskeyAuthenticatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

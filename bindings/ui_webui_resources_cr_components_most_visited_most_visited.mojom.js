@@ -508,7 +508,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -549,7 +549,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -580,7 +580,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

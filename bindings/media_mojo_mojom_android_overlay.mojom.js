@@ -350,7 +350,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

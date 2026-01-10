@@ -169,7 +169,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -180,7 +180,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -191,7 +191,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -202,7 +202,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -133,7 +133,7 @@ unzip.mojom.UnzipFilterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -390,7 +390,7 @@ unzip.mojom.UnzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_Unzip_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -401,7 +401,7 @@ unzip.mojom.UnzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -412,7 +412,7 @@ unzip.mojom.UnzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -423,7 +423,7 @@ unzip.mojom.UnzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -163,7 +163,7 @@ heap_profiling.mojom.ProfilingClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -174,7 +174,7 @@ heap_profiling.mojom.ProfilingClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

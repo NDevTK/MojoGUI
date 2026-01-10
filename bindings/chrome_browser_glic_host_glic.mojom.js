@@ -1395,7 +1395,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1846,7 +1846,7 @@ glic.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1862,7 +1862,7 @@ glic.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1888,7 +1888,7 @@ glic.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1909,7 +1909,7 @@ glic.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3673,7 +3673,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3694,7 +3694,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3750,7 +3750,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3761,7 +3761,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3772,7 +3772,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3783,7 +3783,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3794,7 +3794,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3805,7 +3805,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3816,7 +3816,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3832,7 +3832,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3843,7 +3843,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3854,7 +3854,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3880,7 +3880,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3901,7 +3901,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3922,7 +3922,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3938,7 +3938,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3949,7 +3949,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3965,7 +3965,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3976,7 +3976,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3992,7 +3992,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4003,7 +4003,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4014,7 +4014,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4025,7 +4025,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4036,7 +4036,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4047,7 +4047,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4058,7 +4058,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4074,7 +4074,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4085,7 +4085,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4116,7 +4116,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4202,7 +4202,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4228,7 +4228,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4239,7 +4239,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4250,7 +4250,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4266,7 +4266,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4282,7 +4282,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4293,7 +4293,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4304,7 +4304,7 @@ glic.mojom.WebClientHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -5043,7 +5043,7 @@ glic.mojom.WebClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -5054,7 +5054,7 @@ glic.mojom.WebClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -5180,7 +5180,7 @@ glic.mojom.WebClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -5191,7 +5191,7 @@ glic.mojom.WebClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -5202,7 +5202,7 @@ glic.mojom.WebClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -5213,7 +5213,7 @@ glic.mojom.WebClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

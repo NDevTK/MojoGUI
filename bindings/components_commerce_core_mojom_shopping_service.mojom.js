@@ -734,7 +734,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -745,7 +745,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -756,7 +756,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -767,7 +767,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -778,7 +778,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -789,7 +789,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -800,7 +800,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -811,7 +811,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -822,7 +822,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -833,7 +833,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -854,7 +854,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -865,7 +865,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -876,7 +876,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -892,7 +892,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -903,7 +903,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -919,7 +919,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -431,7 +431,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -442,7 +442,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -458,7 +458,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -479,7 +479,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -490,7 +490,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

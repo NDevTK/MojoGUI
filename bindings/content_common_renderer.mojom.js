@@ -500,7 +500,7 @@ content.mojom.RendererReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -521,7 +521,7 @@ content.mojom.RendererReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

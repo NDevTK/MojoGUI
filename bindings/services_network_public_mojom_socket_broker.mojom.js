@@ -123,7 +123,7 @@ network.mojom.SocketBrokerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -134,7 +134,7 @@ network.mojom.SocketBrokerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

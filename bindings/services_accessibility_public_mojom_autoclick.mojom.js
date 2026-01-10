@@ -209,7 +209,7 @@ ax.mojom.AutoclickClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -353,7 +353,7 @@ blink.mojom.PageBroadcastReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -369,7 +369,7 @@ blink.mojom.PageBroadcastReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

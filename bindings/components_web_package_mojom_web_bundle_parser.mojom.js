@@ -476,7 +476,7 @@ web_package.mojom.WebBundleParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -487,7 +487,7 @@ web_package.mojom.WebBundleParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -498,7 +498,7 @@ web_package.mojom.WebBundleParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -509,7 +509,7 @@ web_package.mojom.WebBundleParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -671,7 +671,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -682,7 +682,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Length_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -693,7 +693,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -704,7 +704,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

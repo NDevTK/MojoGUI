@@ -98,7 +98,7 @@ blink.mojom.FileUtilitiesHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

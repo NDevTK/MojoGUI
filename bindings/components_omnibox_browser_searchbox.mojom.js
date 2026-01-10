@@ -793,7 +793,7 @@ searchbox.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -804,7 +804,7 @@ searchbox.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -815,7 +815,7 @@ searchbox.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -836,7 +836,7 @@ searchbox.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -847,7 +847,7 @@ searchbox.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

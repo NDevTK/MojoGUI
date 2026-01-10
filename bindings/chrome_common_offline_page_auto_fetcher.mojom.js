@@ -122,7 +122,7 @@ chrome.mojom.OfflinePageAutoFetcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

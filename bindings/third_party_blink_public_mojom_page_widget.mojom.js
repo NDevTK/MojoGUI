@@ -518,7 +518,7 @@ blink.mojom.FrameWidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -529,7 +529,7 @@ blink.mojom.FrameWidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -545,7 +545,7 @@ blink.mojom.FrameWidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -556,7 +556,7 @@ blink.mojom.FrameWidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -572,7 +572,7 @@ blink.mojom.FrameWidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -618,7 +618,7 @@ blink.mojom.FrameWidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -996,7 +996,7 @@ blink.mojom.PopupWidgetHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1007,7 +1007,7 @@ blink.mojom.PopupWidgetHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

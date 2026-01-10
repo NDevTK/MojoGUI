@@ -96,7 +96,7 @@ web.mojom.WebUsageControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

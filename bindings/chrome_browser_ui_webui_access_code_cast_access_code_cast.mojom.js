@@ -242,7 +242,7 @@ access_code_cast.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -253,7 +253,7 @@ access_code_cast.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

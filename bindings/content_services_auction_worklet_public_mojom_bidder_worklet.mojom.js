@@ -269,7 +269,7 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -579,7 +579,7 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -101,7 +101,7 @@ ash.printing.print_preview.mojom.DestinationProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

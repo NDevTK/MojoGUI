@@ -125,7 +125,7 @@ data_decoder.mojom.XmlParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

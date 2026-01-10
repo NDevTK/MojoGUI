@@ -121,7 +121,7 @@ blink.mojom.FontUniqueNameLookupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ blink.mojom.FontUniqueNameLookupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -186,7 +186,7 @@ blink.mojom.CredentialManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CredentialManager_Store_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -197,7 +197,7 @@ blink.mojom.CredentialManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -208,7 +208,7 @@ blink.mojom.CredentialManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CredentialManager_Get_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

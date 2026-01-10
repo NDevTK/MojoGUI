@@ -320,7 +320,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -336,7 +336,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -352,7 +352,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -373,7 +373,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -389,7 +389,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -400,7 +400,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

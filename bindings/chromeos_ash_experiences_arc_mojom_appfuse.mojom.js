@@ -154,7 +154,7 @@ arc.mojom.AppfuseHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseHost_Mount_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -165,7 +165,7 @@ arc.mojom.AppfuseHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -176,7 +176,7 @@ arc.mojom.AppfuseHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -274,7 +274,7 @@ arc.mojom.AppfuseInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

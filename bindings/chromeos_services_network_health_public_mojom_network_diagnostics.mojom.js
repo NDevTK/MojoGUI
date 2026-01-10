@@ -886,7 +886,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -897,7 +897,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -908,7 +908,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -919,7 +919,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -930,7 +930,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -941,7 +941,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -952,7 +952,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -963,7 +963,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -974,7 +974,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -985,7 +985,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -996,7 +996,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1007,7 +1007,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1018,7 +1018,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1029,7 +1029,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1040,7 +1040,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1051,7 +1051,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1062,7 +1062,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1073,7 +1073,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

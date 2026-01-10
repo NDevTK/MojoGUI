@@ -120,7 +120,7 @@ mojom.WebEngineMediaResourceProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

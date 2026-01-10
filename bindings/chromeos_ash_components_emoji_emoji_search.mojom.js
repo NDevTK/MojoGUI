@@ -125,7 +125,7 @@ emoji_search.mojom.EmojiSearchReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

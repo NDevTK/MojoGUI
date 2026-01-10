@@ -122,7 +122,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -133,7 +133,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

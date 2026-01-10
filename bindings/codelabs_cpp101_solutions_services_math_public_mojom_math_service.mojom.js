@@ -98,7 +98,7 @@ math.mojom.MathServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, math.mojom.MathService_Divide_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

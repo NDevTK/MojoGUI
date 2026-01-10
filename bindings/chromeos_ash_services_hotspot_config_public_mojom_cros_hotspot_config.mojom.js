@@ -330,7 +330,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -341,7 +341,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -352,7 +352,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -363,7 +363,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

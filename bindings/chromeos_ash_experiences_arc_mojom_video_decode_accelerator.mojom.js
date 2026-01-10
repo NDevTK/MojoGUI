@@ -282,7 +282,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -313,7 +313,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -324,7 +324,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -97,7 +97,7 @@ blink.mojom.CallStackGeneratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

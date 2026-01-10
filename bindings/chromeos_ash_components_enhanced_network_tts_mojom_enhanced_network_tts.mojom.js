@@ -161,7 +161,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -578,7 +578,7 @@ whats_new.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

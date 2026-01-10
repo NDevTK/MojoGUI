@@ -131,7 +131,7 @@ media_router.mojom.DebuggerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

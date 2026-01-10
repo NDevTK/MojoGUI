@@ -159,7 +159,7 @@ blink.mojom.BlobURLStoreReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BlobURLStore_Register_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -293,7 +293,7 @@ blink.mojom.BlobURLTokenReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

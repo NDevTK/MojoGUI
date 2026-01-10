@@ -140,7 +140,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -151,7 +151,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -141,7 +141,7 @@ content.mojom.MhtmlFileWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

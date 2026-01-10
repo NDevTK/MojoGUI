@@ -502,7 +502,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -513,7 +513,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -524,7 +524,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -570,7 +570,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -581,7 +581,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -909,7 +909,7 @@ media_router.mojom.MediaRouterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -930,7 +930,7 @@ media_router.mojom.MediaRouterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

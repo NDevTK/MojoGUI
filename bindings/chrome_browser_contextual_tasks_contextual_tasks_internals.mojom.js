@@ -221,7 +221,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver = c
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

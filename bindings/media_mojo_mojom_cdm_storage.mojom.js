@@ -119,7 +119,7 @@ media.mojom.CdmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmStorage_Open_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -240,7 +240,7 @@ media.mojom.CdmFileReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmFile_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -251,7 +251,7 @@ media.mojom.CdmFileReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmFile_Write_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

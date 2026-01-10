@@ -1541,7 +1541,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1552,7 +1552,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1568,7 +1568,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1579,7 +1579,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1590,7 +1590,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1616,7 +1616,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1627,7 +1627,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1638,7 +1638,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1679,7 +1679,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1690,7 +1690,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1701,7 +1701,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1712,7 +1712,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1723,7 +1723,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1739,7 +1739,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1750,7 +1750,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1761,7 +1761,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1777,7 +1777,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1788,7 +1788,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1799,7 +1799,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1810,7 +1810,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1821,7 +1821,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1832,7 +1832,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1843,7 +1843,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1854,7 +1854,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1865,7 +1865,7 @@ drivefs.mojom.DriveFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2299,7 +2299,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2355,7 +2355,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2366,7 +2366,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2382,7 +2382,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2408,7 +2408,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2517,7 +2517,7 @@ drivefs.mojom.SearchQueryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

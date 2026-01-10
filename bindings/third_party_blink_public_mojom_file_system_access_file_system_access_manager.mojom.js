@@ -329,7 +329,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -340,7 +340,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -351,7 +351,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -372,7 +372,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

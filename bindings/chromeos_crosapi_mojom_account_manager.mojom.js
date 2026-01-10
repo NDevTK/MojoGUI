@@ -556,7 +556,7 @@ crosapi.mojom.AccountManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -567,7 +567,7 @@ crosapi.mojom.AccountManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -578,7 +578,7 @@ crosapi.mojom.AccountManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -589,7 +589,7 @@ crosapi.mojom.AccountManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -600,7 +600,7 @@ crosapi.mojom.AccountManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -616,7 +616,7 @@ crosapi.mojom.AccountManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -627,7 +627,7 @@ crosapi.mojom.AccountManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -731,7 +731,7 @@ crosapi.mojom.AccessTokenFetcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

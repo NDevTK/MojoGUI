@@ -1184,7 +1184,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1195,7 +1195,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1206,7 +1206,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1217,7 +1217,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1228,7 +1228,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1239,7 +1239,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1250,7 +1250,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1261,7 +1261,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1272,7 +1272,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1283,7 +1283,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1294,7 +1294,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1305,7 +1305,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1316,7 +1316,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1327,7 +1327,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1338,7 +1338,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1349,7 +1349,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1360,7 +1360,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1371,7 +1371,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1382,7 +1382,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1393,7 +1393,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1404,7 +1404,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1415,7 +1415,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1426,7 +1426,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1437,7 +1437,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1448,7 +1448,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1459,7 +1459,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1470,7 +1470,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1481,7 +1481,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1492,7 +1492,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1503,7 +1503,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1514,7 +1514,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

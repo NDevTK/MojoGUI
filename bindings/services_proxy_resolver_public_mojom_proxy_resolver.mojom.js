@@ -740,7 +740,7 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

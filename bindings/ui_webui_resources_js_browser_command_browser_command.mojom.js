@@ -249,7 +249,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -260,7 +260,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

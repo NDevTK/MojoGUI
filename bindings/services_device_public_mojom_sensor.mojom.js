@@ -229,7 +229,7 @@ device.mojom.SensorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -240,7 +240,7 @@ device.mojom.SensorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Sensor_AddConfiguration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

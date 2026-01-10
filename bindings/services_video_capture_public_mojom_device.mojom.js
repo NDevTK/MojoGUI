@@ -242,7 +242,7 @@ video_capture.mojom.DeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -253,7 +253,7 @@ video_capture.mojom.DeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -264,7 +264,7 @@ video_capture.mojom.DeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.Device_TakePhoto_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

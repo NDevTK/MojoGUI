@@ -594,7 +594,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -605,7 +605,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -616,7 +616,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -627,7 +627,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -638,7 +638,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -649,7 +649,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -660,7 +660,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -671,7 +671,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -682,7 +682,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -693,7 +693,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -704,7 +704,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -715,7 +715,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -726,7 +726,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

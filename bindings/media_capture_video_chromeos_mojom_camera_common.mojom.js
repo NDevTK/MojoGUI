@@ -385,7 +385,7 @@ cros.mojom.VendorTagOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -396,7 +396,7 @@ cros.mojom.VendorTagOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -407,7 +407,7 @@ cros.mojom.VendorTagOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -418,7 +418,7 @@ cros.mojom.VendorTagOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -429,7 +429,7 @@ cros.mojom.VendorTagOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -682,7 +682,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -693,7 +693,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -704,7 +704,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -715,7 +715,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -726,7 +726,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -737,7 +737,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -748,7 +748,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -759,7 +759,7 @@ cros.mojom.CameraModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

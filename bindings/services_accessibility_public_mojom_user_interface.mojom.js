@@ -227,7 +227,7 @@ ax.mojom.UserInterfaceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

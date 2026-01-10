@@ -119,7 +119,7 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -221,7 +221,7 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

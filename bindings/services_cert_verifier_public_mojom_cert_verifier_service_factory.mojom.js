@@ -368,7 +368,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -379,7 +379,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -390,7 +390,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -401,7 +401,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -412,7 +412,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -423,7 +423,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -434,7 +434,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -445,7 +445,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

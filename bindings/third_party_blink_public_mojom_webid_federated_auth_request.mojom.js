@@ -454,7 +454,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -465,7 +465,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -481,7 +481,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -492,7 +492,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -503,7 +503,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -514,7 +514,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -530,7 +530,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -541,7 +541,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

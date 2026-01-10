@@ -1131,7 +1131,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1172,7 +1172,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1183,7 +1183,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1194,7 +1194,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1205,7 +1205,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1216,7 +1216,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1227,7 +1227,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1238,7 +1238,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1249,7 +1249,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1350,7 +1350,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1361,7 +1361,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1372,7 +1372,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1383,7 +1383,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1394,7 +1394,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1405,7 +1405,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1416,7 +1416,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1437,7 +1437,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1448,7 +1448,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1459,7 +1459,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1470,7 +1470,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1481,7 +1481,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

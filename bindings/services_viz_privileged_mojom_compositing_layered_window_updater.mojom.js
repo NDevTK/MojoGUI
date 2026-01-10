@@ -120,7 +120,7 @@ viz.mojom.LayeredWindowUpdaterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

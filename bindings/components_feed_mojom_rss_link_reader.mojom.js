@@ -106,7 +106,7 @@ feed.mojom.RssLinkReaderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -178,7 +178,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -189,7 +189,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -200,7 +200,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

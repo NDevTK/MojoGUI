@@ -155,7 +155,7 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

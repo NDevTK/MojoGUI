@@ -553,7 +553,7 @@ payments.mojom.PaymentRequestClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

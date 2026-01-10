@@ -322,7 +322,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Start_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -333,7 +333,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

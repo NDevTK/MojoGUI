@@ -100,7 +100,7 @@ guest_contents.mojom.GuestContentsHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -378,7 +378,7 @@ chrome.mojom.AppShimReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -757,7 +757,7 @@ chrome.mojom.AppShimHostBootstrapReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

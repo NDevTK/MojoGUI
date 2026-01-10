@@ -219,7 +219,7 @@ blink.mojom.BlobRegistryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BlobRegistry_Register_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -230,7 +230,7 @@ blink.mojom.BlobRegistryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

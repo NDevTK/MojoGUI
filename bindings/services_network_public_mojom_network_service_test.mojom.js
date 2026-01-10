@@ -306,7 +306,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -317,7 +317,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -328,7 +328,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -339,7 +339,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -350,7 +350,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -448,7 +448,7 @@ network.mojom.SimpleCacheEntryEnumeratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -650,7 +650,7 @@ network.mojom.SimpleCacheReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -661,7 +661,7 @@ network.mojom.SimpleCacheReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -672,7 +672,7 @@ network.mojom.SimpleCacheReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -683,7 +683,7 @@ network.mojom.SimpleCacheReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -699,7 +699,7 @@ network.mojom.SimpleCacheReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SimpleCache_Detach_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1376,7 +1376,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_AddRules_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1387,7 +1387,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SimulateNetworkChange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1398,7 +1398,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1409,7 +1409,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1425,7 +1425,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1436,7 +1436,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1447,7 +1447,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1458,7 +1458,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1469,7 +1469,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1480,7 +1480,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetTestDohConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1501,7 +1501,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1512,7 +1512,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1523,7 +1523,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1534,7 +1534,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_Log_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1550,7 +1550,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1561,7 +1561,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1572,7 +1572,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1583,7 +1583,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1594,7 +1594,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1605,7 +1605,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1616,7 +1616,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1627,7 +1627,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1638,7 +1638,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1649,7 +1649,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1660,7 +1660,7 @@ network.mojom.NetworkServiceTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -139,7 +139,7 @@ viz.mojom.GpuReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -199,7 +199,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -210,7 +210,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -329,7 +329,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -340,7 +340,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -454,7 +454,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

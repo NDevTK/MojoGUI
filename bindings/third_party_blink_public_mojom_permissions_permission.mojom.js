@@ -606,7 +606,7 @@ blink.mojom.PermissionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_HasPermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -622,7 +622,7 @@ blink.mojom.PermissionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -633,7 +633,7 @@ blink.mojom.PermissionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -644,7 +644,7 @@ blink.mojom.PermissionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -655,7 +655,7 @@ blink.mojom.PermissionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

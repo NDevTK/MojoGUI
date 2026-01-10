@@ -288,7 +288,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -696,7 +696,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -717,7 +717,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -728,7 +728,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -739,7 +739,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -755,7 +755,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

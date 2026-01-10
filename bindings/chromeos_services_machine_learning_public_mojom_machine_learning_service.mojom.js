@@ -405,7 +405,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -416,7 +416,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -427,7 +427,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -438,7 +438,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -449,7 +449,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -460,7 +460,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -471,7 +471,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -482,7 +482,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -493,7 +493,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -504,7 +504,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -515,7 +515,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -526,7 +526,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

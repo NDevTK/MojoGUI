@@ -206,7 +206,7 @@ history_clusters_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

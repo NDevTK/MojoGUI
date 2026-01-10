@@ -145,7 +145,7 @@ remoting.mojom.WebAuthnRequestCancellerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -289,7 +289,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -300,7 +300,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -311,7 +311,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

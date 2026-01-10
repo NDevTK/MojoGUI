@@ -175,7 +175,7 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -186,7 +186,7 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -197,7 +197,7 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -208,7 +208,7 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

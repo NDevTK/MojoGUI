@@ -199,7 +199,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -210,7 +210,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -221,7 +221,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -232,7 +232,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

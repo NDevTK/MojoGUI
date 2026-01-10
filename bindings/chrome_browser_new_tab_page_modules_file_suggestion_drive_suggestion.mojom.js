@@ -128,7 +128,7 @@ file_suggestion.mojom.DriveSuggestionHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

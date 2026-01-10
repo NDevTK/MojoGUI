@@ -100,7 +100,7 @@ media.mojom.ProvisionFetcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

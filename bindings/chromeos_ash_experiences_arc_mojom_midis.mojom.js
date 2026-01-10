@@ -279,7 +279,7 @@ arc.mojom.MidisServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MidisServer_ListDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -290,7 +290,7 @@ arc.mojom.MidisServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MidisServer_RequestPort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -481,7 +481,7 @@ arc.mojom.MidisInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MidisInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

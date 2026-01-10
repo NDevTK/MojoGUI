@@ -166,7 +166,7 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -177,7 +177,7 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -188,7 +188,7 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

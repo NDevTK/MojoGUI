@@ -330,7 +330,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -341,7 +341,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -352,7 +352,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -363,7 +363,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -374,7 +374,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -385,7 +385,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -396,7 +396,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

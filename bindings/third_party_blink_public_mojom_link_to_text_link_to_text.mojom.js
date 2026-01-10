@@ -233,7 +233,7 @@ blink.mojom.TextFragmentReceiverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -249,7 +249,7 @@ blink.mojom.TextFragmentReceiverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -260,7 +260,7 @@ blink.mojom.TextFragmentReceiverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -271,7 +271,7 @@ blink.mojom.TextFragmentReceiverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

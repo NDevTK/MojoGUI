@@ -145,7 +145,7 @@ arc.keymint.mojom.CertStoreInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

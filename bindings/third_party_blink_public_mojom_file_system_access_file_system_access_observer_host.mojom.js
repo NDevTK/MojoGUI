@@ -116,7 +116,7 @@ blink.mojom.FileSystemAccessObserverHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

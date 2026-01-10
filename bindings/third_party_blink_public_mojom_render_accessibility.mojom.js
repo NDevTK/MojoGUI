@@ -137,7 +137,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -317,7 +317,7 @@ blink.mojom.RenderAccessibilityReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

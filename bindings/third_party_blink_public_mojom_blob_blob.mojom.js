@@ -376,7 +376,7 @@ blink.mojom.BlobReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Blob_ReadSideData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -387,7 +387,7 @@ blink.mojom.BlobReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -398,7 +398,7 @@ blink.mojom.BlobReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

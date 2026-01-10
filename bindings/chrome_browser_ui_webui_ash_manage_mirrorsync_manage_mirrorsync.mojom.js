@@ -221,7 +221,7 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -232,7 +232,7 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

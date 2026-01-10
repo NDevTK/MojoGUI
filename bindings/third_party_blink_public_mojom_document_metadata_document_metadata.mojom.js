@@ -108,7 +108,7 @@ blink.mojom.DocumentMetadataReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

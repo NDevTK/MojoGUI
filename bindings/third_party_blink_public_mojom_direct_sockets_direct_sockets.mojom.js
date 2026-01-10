@@ -250,7 +250,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -261,7 +261,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -272,7 +272,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -283,7 +283,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

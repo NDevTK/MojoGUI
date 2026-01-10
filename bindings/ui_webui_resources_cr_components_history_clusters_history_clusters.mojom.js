@@ -461,7 +461,7 @@ history_clusters.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -482,7 +482,7 @@ history_clusters.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -493,7 +493,7 @@ history_clusters.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -504,7 +504,7 @@ history_clusters.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -164,7 +164,7 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -175,7 +175,7 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

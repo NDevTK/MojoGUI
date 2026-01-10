@@ -113,7 +113,7 @@ ai.mojom.ZeroStateSuggestionsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

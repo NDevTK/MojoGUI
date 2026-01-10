@@ -600,7 +600,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -636,7 +636,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -697,7 +697,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManager_EvictBackBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -946,7 +946,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

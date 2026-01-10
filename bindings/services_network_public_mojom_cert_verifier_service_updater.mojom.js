@@ -169,7 +169,7 @@ cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -1048,7 +1048,7 @@ device.mojom.VRServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_RequestSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1059,7 +1059,7 @@ device.mojom.VRServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_SupportsSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1070,7 +1070,7 @@ device.mojom.VRServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_ExitPresent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1086,7 +1086,7 @@ device.mojom.VRServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1440,7 +1440,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1451,7 +1451,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1467,7 +1467,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1587,7 +1587,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2156,7 +2156,7 @@ device.mojom.XRLayerManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

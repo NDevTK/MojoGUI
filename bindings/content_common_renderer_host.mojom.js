@@ -171,7 +171,7 @@ content.mojom.RendererHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -197,7 +197,7 @@ content.mojom.RendererHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

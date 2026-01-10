@@ -129,7 +129,7 @@ chrome.mojom.NetworkEasterEggReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

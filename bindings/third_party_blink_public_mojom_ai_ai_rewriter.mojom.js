@@ -161,7 +161,7 @@ blink.mojom.AIRewriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -159,7 +159,7 @@ translate.mojom.TranslateAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

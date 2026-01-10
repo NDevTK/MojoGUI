@@ -180,7 +180,7 @@ chromeos.machine_learning.mojom.TextSuggesterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

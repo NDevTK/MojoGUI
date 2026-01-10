@@ -130,7 +130,7 @@ arc.mojom.ArcShellExecutionInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

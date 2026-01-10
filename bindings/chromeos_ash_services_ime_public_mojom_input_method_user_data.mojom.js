@@ -346,7 +346,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -357,7 +357,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -368,7 +368,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -379,7 +379,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -390,7 +390,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -401,7 +401,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -412,7 +412,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -423,7 +423,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -434,7 +434,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -445,7 +445,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

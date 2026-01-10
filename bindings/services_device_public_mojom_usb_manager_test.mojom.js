@@ -158,7 +158,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -169,7 +169,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -180,7 +180,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

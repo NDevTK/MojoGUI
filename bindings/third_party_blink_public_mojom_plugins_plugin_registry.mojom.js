@@ -120,7 +120,7 @@ blink.mojom.PluginRegistryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

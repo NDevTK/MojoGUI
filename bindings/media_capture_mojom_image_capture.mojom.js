@@ -310,7 +310,7 @@ media.mojom.ImageCaptureReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -321,7 +321,7 @@ media.mojom.ImageCaptureReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -332,7 +332,7 @@ media.mojom.ImageCaptureReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

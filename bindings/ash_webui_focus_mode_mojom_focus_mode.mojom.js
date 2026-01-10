@@ -278,7 +278,7 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

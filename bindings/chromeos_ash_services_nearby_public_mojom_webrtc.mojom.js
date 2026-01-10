@@ -122,7 +122,7 @@ sharing.mojom.IceConfigFetcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -278,7 +278,7 @@ network.mojom.P2PSocketManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

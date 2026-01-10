@@ -143,7 +143,7 @@ passage_embeddings.mojom.PassageEmbedderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -244,7 +244,7 @@ passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

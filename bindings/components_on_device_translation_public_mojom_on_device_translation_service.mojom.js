@@ -168,7 +168,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -179,7 +179,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -324,7 +324,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -335,7 +335,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

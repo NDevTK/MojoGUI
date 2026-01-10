@@ -416,7 +416,7 @@ updater.mojom.FetchServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.FetchService_PostRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -427,7 +427,7 @@ updater.mojom.FetchServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

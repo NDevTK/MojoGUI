@@ -185,7 +185,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -476,7 +476,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

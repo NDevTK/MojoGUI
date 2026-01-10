@@ -256,7 +256,7 @@ ash.help_app.mojom.SearchHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -267,7 +267,7 @@ ash.help_app.mojom.SearchHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

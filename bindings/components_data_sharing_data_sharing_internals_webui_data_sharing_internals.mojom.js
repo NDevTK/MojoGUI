@@ -217,7 +217,7 @@ data_sharing_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -228,7 +228,7 @@ data_sharing_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

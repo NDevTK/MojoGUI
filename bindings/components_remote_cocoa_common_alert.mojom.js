@@ -137,7 +137,7 @@ remote_cocoa.mojom.AlertBridgeReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

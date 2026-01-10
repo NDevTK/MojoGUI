@@ -129,7 +129,7 @@ ntp.calendar.mojom.OutlookCalendarPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

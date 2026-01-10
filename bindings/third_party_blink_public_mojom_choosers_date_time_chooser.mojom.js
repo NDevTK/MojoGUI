@@ -139,7 +139,7 @@ blink.mojom.DateTimeChooserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -100,7 +100,7 @@ ash.quick_start.mojom.QuickStartDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

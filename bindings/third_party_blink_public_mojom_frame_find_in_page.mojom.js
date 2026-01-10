@@ -263,7 +263,7 @@ blink.mojom.FindInPageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -279,7 +279,7 @@ blink.mojom.FindInPageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

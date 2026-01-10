@@ -170,7 +170,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -181,7 +181,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -192,7 +192,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -203,7 +203,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

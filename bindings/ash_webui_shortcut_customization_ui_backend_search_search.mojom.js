@@ -216,7 +216,7 @@ ash.shortcut_customization.mojom.SearchHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

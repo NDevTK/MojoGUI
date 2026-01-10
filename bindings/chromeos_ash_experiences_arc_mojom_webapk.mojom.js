@@ -174,7 +174,7 @@ arc.mojom.WebApkInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -185,7 +185,7 @@ arc.mojom.WebApkInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -276,7 +276,7 @@ media.mojom.DecryptorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_Decrypt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -292,7 +292,7 @@ media.mojom.DecryptorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -303,7 +303,7 @@ media.mojom.DecryptorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -314,7 +314,7 @@ media.mojom.DecryptorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -325,7 +325,7 @@ media.mojom.DecryptorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

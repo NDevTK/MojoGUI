@@ -163,7 +163,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -174,7 +174,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -338,7 +338,7 @@ storage.mojom.BlobStorageContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

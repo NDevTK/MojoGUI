@@ -134,7 +134,7 @@ storage.mojom.FileSystemAccessContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

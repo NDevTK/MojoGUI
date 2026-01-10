@@ -99,7 +99,7 @@ blink.mojom.QuotaManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

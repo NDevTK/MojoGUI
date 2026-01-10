@@ -139,7 +139,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -242,7 +242,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

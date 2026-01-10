@@ -221,7 +221,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -232,7 +232,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_Add_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -243,7 +243,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_Delete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -254,7 +254,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

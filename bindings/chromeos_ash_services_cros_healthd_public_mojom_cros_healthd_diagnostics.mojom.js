@@ -289,7 +289,7 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

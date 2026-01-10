@@ -124,7 +124,7 @@ blink.mojom.WebOTPServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebOTPService_Receive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

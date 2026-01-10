@@ -352,7 +352,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -363,7 +363,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -374,7 +374,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -385,7 +385,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -396,7 +396,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -407,7 +407,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -418,7 +418,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -429,7 +429,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -527,7 +527,7 @@ mojom.BluetoothBtsnoopReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

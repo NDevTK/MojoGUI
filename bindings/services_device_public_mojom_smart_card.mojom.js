@@ -408,7 +408,7 @@ device.mojom.SmartCardTransactionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -640,7 +640,7 @@ device.mojom.SmartCardConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -651,7 +651,7 @@ device.mojom.SmartCardConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -662,7 +662,7 @@ device.mojom.SmartCardConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Control_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -673,7 +673,7 @@ device.mojom.SmartCardConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -684,7 +684,7 @@ device.mojom.SmartCardConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -695,7 +695,7 @@ device.mojom.SmartCardConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Status_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -706,7 +706,7 @@ device.mojom.SmartCardConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -959,7 +959,7 @@ device.mojom.SmartCardContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -970,7 +970,7 @@ device.mojom.SmartCardContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -981,7 +981,7 @@ device.mojom.SmartCardContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_Cancel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -992,7 +992,7 @@ device.mojom.SmartCardContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1090,7 +1090,7 @@ device.mojom.SmartCardContextFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

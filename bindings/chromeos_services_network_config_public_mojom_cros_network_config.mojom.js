@@ -1924,7 +1924,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1935,7 +1935,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1946,7 +1946,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1957,7 +1957,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1968,7 +1968,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1979,7 +1979,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1990,7 +1990,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2001,7 +2001,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2012,7 +2012,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2023,7 +2023,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2039,7 +2039,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2050,7 +2050,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2061,7 +2061,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2077,7 +2077,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2088,7 +2088,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2099,7 +2099,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2115,7 +2115,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2126,7 +2126,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2142,7 +2142,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2153,7 +2153,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2164,7 +2164,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

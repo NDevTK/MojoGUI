@@ -573,7 +573,7 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -589,7 +589,7 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -600,7 +600,7 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -611,7 +611,7 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

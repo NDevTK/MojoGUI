@@ -236,7 +236,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -445,7 +445,7 @@ media.mojom.RemoterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -251,7 +251,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -262,7 +262,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -412,7 +412,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -423,7 +423,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -434,7 +434,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

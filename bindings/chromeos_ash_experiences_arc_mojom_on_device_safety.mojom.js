@@ -114,7 +114,7 @@ arc.mojom.OnDeviceSafetyHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -234,7 +234,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -245,7 +245,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

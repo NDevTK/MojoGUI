@@ -129,7 +129,7 @@ page_image_service.mojom.PageImageServiceHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

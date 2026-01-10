@@ -177,7 +177,7 @@ arc.mojom.ArcWifiHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -188,7 +188,7 @@ arc.mojom.ArcWifiHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -204,7 +204,7 @@ arc.mojom.ArcWifiHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -333,7 +333,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

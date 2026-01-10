@@ -179,7 +179,7 @@ webui_browser.mojom.PageHandlerFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -608,7 +608,7 @@ webui_browser.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -619,7 +619,7 @@ webui_browser.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -900,7 +900,7 @@ webui_browser.mojom.GuestHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -916,7 +916,7 @@ webui_browser.mojom.GuestHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -947,7 +947,7 @@ webui_browser.mojom.GuestHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

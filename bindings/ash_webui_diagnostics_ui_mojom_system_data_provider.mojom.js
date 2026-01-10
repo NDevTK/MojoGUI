@@ -651,7 +651,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -662,7 +662,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

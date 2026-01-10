@@ -187,7 +187,7 @@ crosapi.mojom.GuestOsSkForwarderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

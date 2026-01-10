@@ -214,7 +214,7 @@ media.mojom.MediaFoundationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -335,7 +335,7 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -2320,7 +2320,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2331,7 +2331,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2342,7 +2342,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2353,7 +2353,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2364,7 +2364,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2375,7 +2375,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2386,7 +2386,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2397,7 +2397,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2408,7 +2408,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2419,7 +2419,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2430,7 +2430,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2441,7 +2441,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2452,7 +2452,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2463,7 +2463,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2474,7 +2474,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2485,7 +2485,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2496,7 +2496,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2507,7 +2507,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2518,7 +2518,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2529,7 +2529,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2540,7 +2540,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2551,7 +2551,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2562,7 +2562,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2573,7 +2573,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2584,7 +2584,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2595,7 +2595,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2606,7 +2606,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2617,7 +2617,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2628,7 +2628,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2639,7 +2639,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2650,7 +2650,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2661,7 +2661,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2672,7 +2672,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2683,7 +2683,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2694,7 +2694,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2705,7 +2705,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2716,7 +2716,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2727,7 +2727,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2738,7 +2738,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2749,7 +2749,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2760,7 +2760,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2771,7 +2771,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2782,7 +2782,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2793,7 +2793,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2804,7 +2804,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2815,7 +2815,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2826,7 +2826,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2837,7 +2837,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2848,7 +2848,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2859,7 +2859,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2870,7 +2870,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2881,7 +2881,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2892,7 +2892,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2903,7 +2903,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2914,7 +2914,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2925,7 +2925,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2936,7 +2936,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2947,7 +2947,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2958,7 +2958,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2969,7 +2969,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2980,7 +2980,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2991,7 +2991,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3002,7 +3002,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3013,7 +3013,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3024,7 +3024,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3035,7 +3035,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3046,7 +3046,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3057,7 +3057,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3068,7 +3068,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3079,7 +3079,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3090,7 +3090,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3101,7 +3101,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3112,7 +3112,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3123,7 +3123,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3134,7 +3134,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3145,7 +3145,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3156,7 +3156,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3341,7 +3341,7 @@ arc.mojom.OemCryptoInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

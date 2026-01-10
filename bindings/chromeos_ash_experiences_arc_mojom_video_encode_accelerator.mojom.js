@@ -327,7 +327,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -338,7 +338,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -349,7 +349,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -360,7 +360,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -381,7 +381,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

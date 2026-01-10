@@ -160,7 +160,7 @@ blink.mojom.CookieStoreReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -171,7 +171,7 @@ blink.mojom.CookieStoreReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -182,7 +182,7 @@ blink.mojom.CookieStoreReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

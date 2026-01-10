@@ -191,7 +191,7 @@ chromeos.machine_learning.mojom.ModelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -202,7 +202,7 @@ chromeos.machine_learning.mojom.ModelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

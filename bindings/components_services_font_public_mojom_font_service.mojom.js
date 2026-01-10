@@ -306,7 +306,7 @@ font_service.mojom.FontServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -317,7 +317,7 @@ font_service.mojom.FontServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_service.mojom.FontService_OpenStream_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -328,7 +328,7 @@ font_service.mojom.FontServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -339,7 +339,7 @@ font_service.mojom.FontServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -350,7 +350,7 @@ font_service.mojom.FontServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -361,7 +361,7 @@ font_service.mojom.FontServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_service.mojom.FontService_ListFamilies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -372,7 +372,7 @@ font_service.mojom.FontServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

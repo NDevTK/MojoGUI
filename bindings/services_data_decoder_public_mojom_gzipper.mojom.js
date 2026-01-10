@@ -171,7 +171,7 @@ data_decoder.mojom.GzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -182,7 +182,7 @@ data_decoder.mojom.GzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -193,7 +193,7 @@ data_decoder.mojom.GzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -204,7 +204,7 @@ data_decoder.mojom.GzipperReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

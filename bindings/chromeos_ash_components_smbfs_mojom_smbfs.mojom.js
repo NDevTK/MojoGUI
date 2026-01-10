@@ -200,7 +200,7 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -320,7 +320,7 @@ smbfs.mojom.SmbFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -331,7 +331,7 @@ smbfs.mojom.SmbFsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -429,7 +429,7 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -265,7 +265,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -276,7 +276,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -287,7 +287,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -298,7 +298,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

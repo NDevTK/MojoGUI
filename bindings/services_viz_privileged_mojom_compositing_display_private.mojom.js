@@ -406,7 +406,7 @@ viz.mojom.DisplayPrivateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

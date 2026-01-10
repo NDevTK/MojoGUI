@@ -146,7 +146,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -157,7 +157,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -168,7 +168,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

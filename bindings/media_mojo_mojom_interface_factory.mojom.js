@@ -352,7 +352,7 @@ media.mojom.InterfaceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

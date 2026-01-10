@@ -210,7 +210,7 @@ media.mojom.WebrtcVideoPerfHistoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -96,7 +96,7 @@ media.mojom.MediaFoundationPreferencesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

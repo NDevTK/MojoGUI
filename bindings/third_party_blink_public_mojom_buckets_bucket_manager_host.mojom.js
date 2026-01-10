@@ -350,7 +350,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Persist_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -361,7 +361,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Persisted_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -372,7 +372,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Estimate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -383,7 +383,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Durability_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -394,7 +394,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_SetExpires_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -405,7 +405,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Expires_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -431,7 +431,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -442,7 +442,7 @@ blink.mojom.BucketHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -604,7 +604,7 @@ blink.mojom.BucketManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -620,7 +620,7 @@ blink.mojom.BucketManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -631,7 +631,7 @@ blink.mojom.BucketManagerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

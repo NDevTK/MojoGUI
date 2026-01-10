@@ -417,7 +417,7 @@ device.mojom.GamepadMonitorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -428,7 +428,7 @@ device.mojom.GamepadMonitorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -556,7 +556,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -567,7 +567,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

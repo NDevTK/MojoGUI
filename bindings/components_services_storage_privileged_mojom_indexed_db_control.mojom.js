@@ -410,7 +410,7 @@ storage.mojom.IndexedDBControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -421,7 +421,7 @@ storage.mojom.IndexedDBControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -432,7 +432,7 @@ storage.mojom.IndexedDBControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -443,7 +443,7 @@ storage.mojom.IndexedDBControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -454,7 +454,7 @@ storage.mojom.IndexedDBControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

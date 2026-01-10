@@ -235,7 +235,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -246,7 +246,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -257,7 +257,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

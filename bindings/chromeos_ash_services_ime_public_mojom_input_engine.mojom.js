@@ -98,7 +98,7 @@ ash.ime.mojom.InputChannelReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -160,7 +160,7 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -285,7 +285,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

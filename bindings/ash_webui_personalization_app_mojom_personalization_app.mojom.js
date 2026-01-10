@@ -1213,7 +1213,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1224,7 +1224,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1235,7 +1235,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1246,7 +1246,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1257,7 +1257,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1268,7 +1268,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1279,7 +1279,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1290,7 +1290,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1301,7 +1301,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1317,7 +1317,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1328,7 +1328,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1339,7 +1339,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1350,7 +1350,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1361,7 +1361,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1372,7 +1372,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1388,7 +1388,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1399,7 +1399,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1410,7 +1410,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1421,7 +1421,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1442,7 +1442,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2006,7 +2006,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2017,7 +2017,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2028,7 +2028,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2039,7 +2039,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2050,7 +2050,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2061,7 +2061,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2072,7 +2072,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2439,7 +2439,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2450,7 +2450,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3102,7 +3102,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3163,7 +3163,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3179,7 +3179,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3190,7 +3190,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3480,7 +3480,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

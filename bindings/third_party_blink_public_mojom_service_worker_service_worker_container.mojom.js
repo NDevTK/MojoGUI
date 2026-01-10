@@ -287,7 +287,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -298,7 +298,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -309,7 +309,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -320,7 +320,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -346,7 +346,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

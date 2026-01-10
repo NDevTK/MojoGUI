@@ -97,7 +97,7 @@ commerce_web_extractor.mojom.CommerceWebExtractorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

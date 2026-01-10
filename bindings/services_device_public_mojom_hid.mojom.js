@@ -631,7 +631,7 @@ device.mojom.HidManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -642,7 +642,7 @@ device.mojom.HidManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidManager_GetDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -653,7 +653,7 @@ device.mojom.HidManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidManager_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -827,7 +827,7 @@ device.mojom.HidConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -838,7 +838,7 @@ device.mojom.HidConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_Write_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -849,7 +849,7 @@ device.mojom.HidConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -860,7 +860,7 @@ device.mojom.HidConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

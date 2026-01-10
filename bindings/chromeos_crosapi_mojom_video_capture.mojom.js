@@ -811,7 +811,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -822,7 +822,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -833,7 +833,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -964,7 +964,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -975,7 +975,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

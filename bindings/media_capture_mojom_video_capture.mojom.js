@@ -508,7 +508,7 @@ media.mojom.VideoCaptureHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -519,7 +519,7 @@ media.mojom.VideoCaptureHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

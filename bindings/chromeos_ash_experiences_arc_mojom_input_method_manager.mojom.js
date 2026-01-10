@@ -279,7 +279,7 @@ arc.mojom.InputConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -634,7 +634,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -645,7 +645,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -656,7 +656,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

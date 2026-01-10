@@ -371,7 +371,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -387,7 +387,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -403,7 +403,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -414,7 +414,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -425,7 +425,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -436,7 +436,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -447,7 +447,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -458,7 +458,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -469,7 +469,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -485,7 +485,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

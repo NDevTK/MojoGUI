@@ -786,7 +786,7 @@ downloads.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

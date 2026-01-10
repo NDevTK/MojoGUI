@@ -185,7 +185,7 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

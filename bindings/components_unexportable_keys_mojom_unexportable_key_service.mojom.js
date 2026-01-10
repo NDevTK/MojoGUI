@@ -259,7 +259,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

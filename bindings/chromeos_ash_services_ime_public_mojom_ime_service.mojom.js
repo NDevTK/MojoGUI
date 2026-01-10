@@ -137,7 +137,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -148,7 +148,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -248,7 +248,7 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

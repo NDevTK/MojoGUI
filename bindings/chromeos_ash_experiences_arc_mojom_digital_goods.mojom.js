@@ -254,7 +254,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -265,7 +265,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -276,7 +276,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -287,7 +287,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -298,7 +298,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -309,7 +309,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

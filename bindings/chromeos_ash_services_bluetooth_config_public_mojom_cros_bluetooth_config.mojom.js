@@ -766,7 +766,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -777,7 +777,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -798,7 +798,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -809,7 +809,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -931,7 +931,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -942,7 +942,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1376,7 +1376,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1387,7 +1387,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1398,7 +1398,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -172,7 +172,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -183,7 +183,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -194,7 +194,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -205,7 +205,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

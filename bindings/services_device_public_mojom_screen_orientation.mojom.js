@@ -117,7 +117,7 @@ device.mojom.ScreenOrientationReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -220,7 +220,7 @@ device.mojom.ScreenOrientationListenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

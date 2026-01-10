@@ -694,7 +694,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -705,7 +705,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -716,7 +716,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -727,7 +727,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_ForgetDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -738,7 +738,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -754,7 +754,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -765,7 +765,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -776,7 +776,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -787,7 +787,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -798,7 +798,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -809,7 +809,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -820,7 +820,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -831,7 +831,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -842,7 +842,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -853,7 +853,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -864,7 +864,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

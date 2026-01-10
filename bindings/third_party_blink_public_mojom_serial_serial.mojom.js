@@ -224,7 +224,7 @@ blink.mojom.SerialServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_GetPorts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -235,7 +235,7 @@ blink.mojom.SerialServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_RequestPort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -246,7 +246,7 @@ blink.mojom.SerialServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_OpenPort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -257,7 +257,7 @@ blink.mojom.SerialServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_ForgetPort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
