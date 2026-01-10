@@ -7,36 +7,49 @@
 // Module namespace
 var payments = payments || {};
 payments.facilitated = payments.facilitated || {};
-payments.facilitated.facilitated.mojom = payments.facilitated.facilitated.mojom || {};
+payments.facilitated.mojom = payments.facilitated.mojom || {};
 
 
 // Enum: PixQrCodeType
-payments.facilitated.facilitated.mojom.mojom.PixQrCodeType = {
+payments.facilitated.mojom.PixQrCodeType = {
   kInvalid: 0,
   kDynamic: 1,
   kStatic: 2,
 };
-payments.facilitated.facilitated.mojom.mojom.PixQrCodeTypeSpec = { $: mojo.internal.Enum() };
+payments.facilitated.mojom.PixQrCodeTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: PixCodeValidator
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidator = {};
+payments.facilitated.mojom.PixCodeValidator = {};
 
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorPendingReceiver = class {
+payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'input_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.facilitated.mojom.PixCodeValidatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRemote = class {
+payments.facilitated.mojom.PixCodeValidatorRemote = class {
   static get $interfaceName() {
     return 'payments.facilitated.mojom.PixCodeValidator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorPendingReceiver,
+      payments.facilitated.mojom.PixCodeValidatorPendingReceiver,
       handle);
-    this.$ = new payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRemoteCallHandler(this.proxy);
+    this.$ = new payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +61,7 @@ payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRemote = class {
   }
 };
 
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRemoteCallHandler = class {
+payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,15 +70,15 @@ payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.facilitated.facilitated.mojom.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec,
-      payments.facilitated.facilitated.mojom.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec,
+      payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec,
+      payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec,
       [input_text]);
   }
 
 };
 
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidator.getRemote = function() {
-  let remote = new payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRemote();
+payments.facilitated.mojom.PixCodeValidator.getRemote = function() {
+  let remote = new payments.facilitated.mojom.PixCodeValidatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +88,7 @@ payments.facilitated.facilitated.mojom.mojom.PixCodeValidator.getRemote = functi
 };
 
 // ParamsSpec for ValidatePixCode
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
+payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.facilitated.mojom.PixCodeValidator.ValidatePixCode_Params',
@@ -88,7 +101,7 @@ payments.facilitated.facilitated.mojom.mojom.PixCodeValidator_ValidatePixCode_Pa
   }
 };
 
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec = {
+payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.facilitated.mojom.PixCodeValidator.ValidatePixCode_ResponseParams',
@@ -102,6 +115,6 @@ payments.facilitated.facilitated.mojom.mojom.PixCodeValidator_ValidatePixCode_Re
 };
 
 // Legacy compatibility
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorPtr = payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRemote;
-payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorRequest = payments.facilitated.facilitated.mojom.mojom.PixCodeValidatorPendingReceiver;
+payments.facilitated.mojom.PixCodeValidatorPtr = payments.facilitated.mojom.PixCodeValidatorRemote;
+payments.facilitated.mojom.PixCodeValidatorRequest = payments.facilitated.mojom.PixCodeValidatorPendingReceiver;
 

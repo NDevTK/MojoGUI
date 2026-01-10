@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Union: TimingAllowOrigin
-network.mojom.mojom.TimingAllowOriginSpec = { $: mojo.internal.Union(
+network.mojom.TimingAllowOriginSpec = { $: mojo.internal.Union(
     'network.mojom.TimingAllowOrigin', {
       'serialized_origins': {
         'ordinal': 0,

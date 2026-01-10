@@ -7,64 +7,64 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.ime.mojom = ash.ime.ime.mojom || {};
+ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Enum: JpUnusedEnum0
-ash.ime.ime.mojom.mojom.JpUnusedEnum0 = {
+ash.ime.mojom.JpUnusedEnum0 = {
   kValue1: 0,
 };
-ash.ime.ime.mojom.mojom.JpUnusedEnum0Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum0Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum1
-ash.ime.ime.mojom.mojom.JpUnusedEnum1 = {
+ash.ime.mojom.JpUnusedEnum1 = {
   kValue1: 0,
   kValue2: 1,
   kValue3: 2,
 };
-ash.ime.ime.mojom.mojom.JpUnusedEnum1Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum1Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum2
-ash.ime.ime.mojom.mojom.JpUnusedEnum2 = {
+ash.ime.mojom.JpUnusedEnum2 = {
   kValue1: 0,
   kValue2: 1,
   kValue3: 2,
 };
-ash.ime.ime.mojom.mojom.JpUnusedEnum2Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum2Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum3
-ash.ime.ime.mojom.mojom.JpUnusedEnum3 = {
+ash.ime.mojom.JpUnusedEnum3 = {
   kValue1: 0,
   kValue2: 1,
 };
-ash.ime.ime.mojom.mojom.JpUnusedEnum3Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum3Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum4
-ash.ime.ime.mojom.mojom.JpUnusedEnum4 = {
+ash.ime.mojom.JpUnusedEnum4 = {
   kValue0: 0,
   kValue2: 1,
 };
-ash.ime.ime.mojom.mojom.JpUnusedEnum4Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum4Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum5
-ash.ime.ime.mojom.mojom.JpUnusedEnum5 = {
+ash.ime.mojom.JpUnusedEnum5 = {
   kValue1: 0,
   kValue2: 1,
   kValue3: 2,
   kValue4: 3,
   kValue5: 4,
 };
-ash.ime.ime.mojom.mojom.JpUnusedEnum5Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum5Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum6
-ash.ime.ime.mojom.mojom.JpUnusedEnum6 = {
+ash.ime.mojom.JpUnusedEnum6 = {
   kValue0: 0,
   kValue2: 1,
 };
-ash.ime.ime.mojom.mojom.JpUnusedEnum6Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum6Spec = { $: mojo.internal.Enum() };
 
 // Struct: JpUnusedStruct
-ash.ime.ime.mojom.mojom.JpUnusedStructSpec = {
+ash.ime.mojom.JpUnusedStructSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JpUnusedStruct',
@@ -90,24 +90,36 @@ ash.ime.ime.mojom.mojom.JpUnusedStructSpec = {
 };
 
 // Interface: JpUnused
-ash.ime.ime.mojom.mojom.JpUnused = {};
+ash.ime.mojom.JpUnused = {};
 
-ash.ime.ime.mojom.mojom.JpUnusedPendingReceiver = class {
+ash.ime.mojom.JpUnused_Unused_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.JpUnused_Unused_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.ime.mojom.JpUnusedPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.ime.mojom.mojom.JpUnusedRemote = class {
+ash.ime.mojom.JpUnusedRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.JpUnused';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.ime.mojom.mojom.JpUnusedPendingReceiver,
+      ash.ime.mojom.JpUnusedPendingReceiver,
       handle);
-    this.$ = new ash.ime.ime.mojom.mojom.JpUnusedRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.mojom.JpUnusedRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -119,7 +131,7 @@ ash.ime.ime.mojom.mojom.JpUnusedRemote = class {
   }
 };
 
-ash.ime.ime.mojom.mojom.JpUnusedRemoteCallHandler = class {
+ash.ime.mojom.JpUnusedRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -128,15 +140,15 @@ ash.ime.ime.mojom.mojom.JpUnusedRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.ime.mojom.mojom.JpUnused_Unused_ParamsSpec,
-      ash.ime.ime.mojom.mojom.JpUnused_Unused_ResponseParamsSpec,
+      ash.ime.mojom.JpUnused_Unused_ParamsSpec,
+      ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.ime.ime.mojom.mojom.JpUnused.getRemote = function() {
-  let remote = new ash.ime.ime.mojom.mojom.JpUnusedRemote();
+ash.ime.mojom.JpUnused.getRemote = function() {
+  let remote = new ash.ime.mojom.JpUnusedRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -146,7 +158,7 @@ ash.ime.ime.mojom.mojom.JpUnused.getRemote = function() {
 };
 
 // ParamsSpec for Unused
-ash.ime.ime.mojom.mojom.JpUnused_Unused_ParamsSpec = {
+ash.ime.mojom.JpUnused_Unused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JpUnused.Unused_Params',
@@ -158,7 +170,7 @@ ash.ime.ime.mojom.mojom.JpUnused_Unused_ParamsSpec = {
   }
 };
 
-ash.ime.ime.mojom.mojom.JpUnused_Unused_ResponseParamsSpec = {
+ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JpUnused.Unused_ResponseParams',
@@ -172,6 +184,6 @@ ash.ime.ime.mojom.mojom.JpUnused_Unused_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.ime.ime.mojom.mojom.JpUnusedPtr = ash.ime.ime.mojom.mojom.JpUnusedRemote;
-ash.ime.ime.mojom.mojom.JpUnusedRequest = ash.ime.ime.mojom.mojom.JpUnusedPendingReceiver;
+ash.ime.mojom.JpUnusedPtr = ash.ime.mojom.JpUnusedRemote;
+ash.ime.mojom.JpUnusedRequest = ash.ime.mojom.JpUnusedPendingReceiver;
 

@@ -7,29 +7,42 @@
 // Module namespace
 var ash = ash || {};
 ash.mall = ash.mall || {};
-ash.mall.mall.mojom = ash.mall.mall.mojom || {};
+ash.mall.mojom = ash.mall.mojom || {};
 var url = url || {};
 
 
 // Interface: PageHandler
-ash.mall.mall.mojom.mojom.PageHandler = {};
+ash.mall.mojom.PageHandler = {};
 
-ash.mall.mall.mojom.mojom.PageHandlerPendingReceiver = class {
+ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mall.mojom.PageHandler_GetMallEmbedUrl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.mall.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mall.mall.mojom.mojom.PageHandlerRemote = class {
+ash.mall.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.mall.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mall.mall.mojom.mojom.PageHandlerPendingReceiver,
+      ash.mall.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.mall.mall.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.mall.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +54,7 @@ ash.mall.mall.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.mall.mall.mojom.mojom.PageHandlerRemoteCallHandler = class {
+ash.mall.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,15 +63,15 @@ ash.mall.mall.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mall.mall.mojom.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec,
-      ash.mall.mall.mojom.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
+      ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec,
+      ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-ash.mall.mall.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.mall.mall.mojom.mojom.PageHandlerRemote();
+ash.mall.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.mall.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -68,7 +81,7 @@ ash.mall.mall.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetMallEmbedUrl
-ash.mall.mall.mojom.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
+ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mall.mojom.PageHandler.GetMallEmbedUrl_Params',
@@ -81,7 +94,7 @@ ash.mall.mall.mojom.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
   }
 };
 
-ash.mall.mall.mojom.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
+ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mall.mojom.PageHandler.GetMallEmbedUrl_ResponseParams',
@@ -95,6 +108,6 @@ ash.mall.mall.mojom.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.mall.mall.mojom.mojom.PageHandlerPtr = ash.mall.mall.mojom.mojom.PageHandlerRemote;
-ash.mall.mall.mojom.mojom.PageHandlerRequest = ash.mall.mall.mojom.mojom.PageHandlerPendingReceiver;
+ash.mall.mojom.PageHandlerPtr = ash.mall.mojom.PageHandlerRemote;
+ash.mall.mojom.PageHandlerRequest = ash.mall.mojom.PageHandlerPendingReceiver;
 

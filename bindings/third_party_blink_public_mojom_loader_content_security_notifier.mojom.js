@@ -11,24 +11,62 @@ var url = url || {};
 
 
 // Interface: ContentSecurityNotifier
-blink.mojom.mojom.ContentSecurityNotifier = {};
+blink.mojom.ContentSecurityNotifier = {};
 
-blink.mojom.mojom.ContentSecurityNotifierPendingReceiver = class {
+blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'insecure_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ContentSecurityNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ContentSecurityNotifierRemote = class {
+blink.mojom.ContentSecurityNotifierRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ContentSecurityNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ContentSecurityNotifierPendingReceiver,
+      blink.mojom.ContentSecurityNotifierPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ContentSecurityNotifierRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ContentSecurityNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +78,7 @@ blink.mojom.mojom.ContentSecurityNotifierRemote = class {
   }
 };
 
-blink.mojom.mojom.ContentSecurityNotifierRemoteCallHandler = class {
+blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +87,7 @@ blink.mojom.mojom.ContentSecurityNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec,
+      blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +96,7 @@ blink.mojom.mojom.ContentSecurityNotifierRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec,
+      blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec,
       null,
       []);
   }
@@ -67,15 +105,15 @@ blink.mojom.mojom.ContentSecurityNotifierRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec,
+      blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec,
       null,
       [origin, insecure_url]);
   }
 
 };
 
-blink.mojom.mojom.ContentSecurityNotifier.getRemote = function() {
-  let remote = new blink.mojom.mojom.ContentSecurityNotifierRemote();
+blink.mojom.ContentSecurityNotifier.getRemote = function() {
+  let remote = new blink.mojom.ContentSecurityNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -85,7 +123,7 @@ blink.mojom.mojom.ContentSecurityNotifier.getRemote = function() {
 };
 
 // ParamsSpec for NotifyContentWithCertificateErrorsRan
-blink.mojom.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec = {
+blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentSecurityNotifier.NotifyContentWithCertificateErrorsRan_Params',
@@ -98,7 +136,7 @@ blink.mojom.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_
 };
 
 // ParamsSpec for NotifyContentWithCertificateErrorsDisplayed
-blink.mojom.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec = {
+blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentSecurityNotifier.NotifyContentWithCertificateErrorsDisplayed_Params',
@@ -111,7 +149,7 @@ blink.mojom.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisp
 };
 
 // ParamsSpec for NotifyInsecureContentRan
-blink.mojom.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
+blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentSecurityNotifier.NotifyInsecureContentRan_Params',
@@ -126,6 +164,6 @@ blink.mojom.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ContentSecurityNotifierPtr = blink.mojom.mojom.ContentSecurityNotifierRemote;
-blink.mojom.mojom.ContentSecurityNotifierRequest = blink.mojom.mojom.ContentSecurityNotifierPendingReceiver;
+blink.mojom.ContentSecurityNotifierPtr = blink.mojom.ContentSecurityNotifierRemote;
+blink.mojom.ContentSecurityNotifierRequest = blink.mojom.ContentSecurityNotifierPendingReceiver;
 

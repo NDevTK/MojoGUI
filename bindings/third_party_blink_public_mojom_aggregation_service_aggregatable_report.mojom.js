@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: AggregatableReportHistogramContribution
-blink.mojom.mojom.AggregatableReportHistogramContributionSpec = {
+blink.mojom.AggregatableReportHistogramContributionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AggregatableReportHistogramContribution',

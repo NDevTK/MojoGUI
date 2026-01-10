@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Union: DeviceIdFilter
-blink.mojom.mojom.DeviceIdFilterSpec = { $: mojo.internal.Union(
+blink.mojom.DeviceIdFilterSpec = { $: mojo.internal.Union(
     'blink.mojom.DeviceIdFilter', {
       'vendor': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ blink.mojom.mojom.DeviceIdFilterSpec = { $: mojo.internal.Union(
 };
 
 // Union: UsageFilter
-blink.mojom.mojom.UsageFilterSpec = { $: mojo.internal.Union(
+blink.mojom.UsageFilterSpec = { $: mojo.internal.Union(
     'blink.mojom.UsageFilter', {
       'page': {
         'ordinal': 0,
@@ -38,7 +38,7 @@ blink.mojom.mojom.UsageFilterSpec = { $: mojo.internal.Union(
 };
 
 // Struct: VendorAndProduct
-blink.mojom.mojom.VendorAndProductSpec = {
+blink.mojom.VendorAndProductSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.VendorAndProduct',
@@ -53,7 +53,7 @@ blink.mojom.mojom.VendorAndProductSpec = {
 };
 
 // Struct: HidDeviceFilter
-blink.mojom.mojom.HidDeviceFilterSpec = {
+blink.mojom.HidDeviceFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidDeviceFilter',
@@ -68,24 +68,90 @@ blink.mojom.mojom.HidDeviceFilterSpec = {
 };
 
 // Interface: HidService
-blink.mojom.mojom.HidService = {};
+blink.mojom.HidService = {};
 
-blink.mojom.mojom.HidServicePendingReceiver = class {
+blink.mojom.HidService_RegisterClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HidService_RegisterClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.HidService_GetDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HidService_GetDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.HidService_RequestDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HidService_RequestDevice_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.HidService_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HidService_Connect_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.HidService_Forget_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HidService_Forget_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.HidServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.HidServiceRemote = class {
+blink.mojom.HidServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.HidService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.HidServicePendingReceiver,
+      blink.mojom.HidServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.HidServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.HidServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -97,7 +163,7 @@ blink.mojom.mojom.HidServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.HidServiceRemoteCallHandler = class {
+blink.mojom.HidServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -106,7 +172,7 @@ blink.mojom.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.HidService_RegisterClient_ParamsSpec,
+      blink.mojom.HidService_RegisterClient_ParamsSpec,
       null,
       [client]);
   }
@@ -115,8 +181,8 @@ blink.mojom.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.HidService_GetDevices_ParamsSpec,
-      blink.mojom.mojom.HidService_GetDevices_ResponseParamsSpec,
+      blink.mojom.HidService_GetDevices_ParamsSpec,
+      blink.mojom.HidService_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -124,8 +190,8 @@ blink.mojom.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.HidService_RequestDevice_ParamsSpec,
-      blink.mojom.mojom.HidService_RequestDevice_ResponseParamsSpec,
+      blink.mojom.HidService_RequestDevice_ParamsSpec,
+      blink.mojom.HidService_RequestDevice_ResponseParamsSpec,
       [filters, exclusion_filters]);
   }
 
@@ -133,8 +199,8 @@ blink.mojom.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.HidService_Connect_ParamsSpec,
-      blink.mojom.mojom.HidService_Connect_ResponseParamsSpec,
+      blink.mojom.HidService_Connect_ParamsSpec,
+      blink.mojom.HidService_Connect_ResponseParamsSpec,
       [device_guid, client]);
   }
 
@@ -142,15 +208,15 @@ blink.mojom.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.HidService_Forget_ParamsSpec,
+      blink.mojom.HidService_Forget_ParamsSpec,
       null,
       [device_info]);
   }
 
 };
 
-blink.mojom.mojom.HidService.getRemote = function() {
-  let remote = new blink.mojom.mojom.HidServiceRemote();
+blink.mojom.HidService.getRemote = function() {
+  let remote = new blink.mojom.HidServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -160,7 +226,7 @@ blink.mojom.mojom.HidService.getRemote = function() {
 };
 
 // ParamsSpec for RegisterClient
-blink.mojom.mojom.HidService_RegisterClient_ParamsSpec = {
+blink.mojom.HidService_RegisterClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.RegisterClient_Params',
@@ -174,7 +240,7 @@ blink.mojom.mojom.HidService_RegisterClient_ParamsSpec = {
 };
 
 // ParamsSpec for GetDevices
-blink.mojom.mojom.HidService_GetDevices_ParamsSpec = {
+blink.mojom.HidService_GetDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.GetDevices_Params',
@@ -186,7 +252,7 @@ blink.mojom.mojom.HidService_GetDevices_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.HidService_GetDevices_ResponseParamsSpec = {
+blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.GetDevices_ResponseParams',
@@ -200,7 +266,7 @@ blink.mojom.mojom.HidService_GetDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestDevice
-blink.mojom.mojom.HidService_RequestDevice_ParamsSpec = {
+blink.mojom.HidService_RequestDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.RequestDevice_Params',
@@ -214,7 +280,7 @@ blink.mojom.mojom.HidService_RequestDevice_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.HidService_RequestDevice_ResponseParamsSpec = {
+blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.RequestDevice_ResponseParams',
@@ -228,7 +294,7 @@ blink.mojom.mojom.HidService_RequestDevice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Connect
-blink.mojom.mojom.HidService_Connect_ParamsSpec = {
+blink.mojom.HidService_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.Connect_Params',
@@ -242,7 +308,7 @@ blink.mojom.mojom.HidService_Connect_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.HidService_Connect_ResponseParamsSpec = {
+blink.mojom.HidService_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.Connect_ResponseParams',
@@ -256,7 +322,7 @@ blink.mojom.mojom.HidService_Connect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Forget
-blink.mojom.mojom.HidService_Forget_ParamsSpec = {
+blink.mojom.HidService_Forget_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidService.Forget_Params',
@@ -270,6 +336,6 @@ blink.mojom.mojom.HidService_Forget_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.HidServicePtr = blink.mojom.mojom.HidServiceRemote;
-blink.mojom.mojom.HidServiceRequest = blink.mojom.mojom.HidServicePendingReceiver;
+blink.mojom.HidServicePtr = blink.mojom.HidServiceRemote;
+blink.mojom.HidServiceRequest = blink.mojom.HidServicePendingReceiver;
 

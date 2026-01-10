@@ -10,24 +10,36 @@ network.mojom = network.mojom || {};
 
 
 // Interface: CookieEncryptionProvider
-network.mojom.mojom.CookieEncryptionProvider = {};
+network.mojom.CookieEncryptionProvider = {};
 
-network.mojom.mojom.CookieEncryptionProviderPendingReceiver = class {
+network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieEncryptionProvider_GetEncryptor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.CookieEncryptionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.CookieEncryptionProviderRemote = class {
+network.mojom.CookieEncryptionProviderRemote = class {
   static get $interfaceName() {
     return 'network.mojom.CookieEncryptionProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.CookieEncryptionProviderPendingReceiver,
+      network.mojom.CookieEncryptionProviderPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.CookieEncryptionProviderRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.CookieEncryptionProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ network.mojom.mojom.CookieEncryptionProviderRemote = class {
   }
 };
 
-network.mojom.mojom.CookieEncryptionProviderRemoteCallHandler = class {
+network.mojom.CookieEncryptionProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ network.mojom.mojom.CookieEncryptionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec,
-      network.mojom.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec,
+      network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec,
+      network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec,
       []);
   }
 
 };
 
-network.mojom.mojom.CookieEncryptionProvider.getRemote = function() {
-  let remote = new network.mojom.mojom.CookieEncryptionProviderRemote();
+network.mojom.CookieEncryptionProvider.getRemote = function() {
+  let remote = new network.mojom.CookieEncryptionProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ network.mojom.mojom.CookieEncryptionProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetEncryptor
-network.mojom.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
+network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieEncryptionProvider.GetEncryptor_Params',
@@ -78,7 +90,7 @@ network.mojom.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
+network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieEncryptionProvider.GetEncryptor_ResponseParams',
@@ -92,6 +104,6 @@ network.mojom.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.CookieEncryptionProviderPtr = network.mojom.mojom.CookieEncryptionProviderRemote;
-network.mojom.mojom.CookieEncryptionProviderRequest = network.mojom.mojom.CookieEncryptionProviderPendingReceiver;
+network.mojom.CookieEncryptionProviderPtr = network.mojom.CookieEncryptionProviderRemote;
+network.mojom.CookieEncryptionProviderRequest = network.mojom.CookieEncryptionProviderPendingReceiver;
 

@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ShareError
-blink.mojom.mojom.ShareError = {
+blink.mojom.ShareError = {
   OK: 0,
   INTERNAL_ERROR: 1,
   PERMISSION_DENIED: 2,
   CANCELED: 3,
 };
-blink.mojom.mojom.ShareErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.ShareErrorSpec = { $: mojo.internal.Enum() };

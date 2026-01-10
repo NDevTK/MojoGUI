@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Enum: ClientId
-page_image_service.mojom.mojom.ClientId = {
+page_image_service.mojom.ClientId = {
   Journeys: 0,
   JourneysSidePanel: 1,
   NtpRealbox: 2,
@@ -20,10 +20,10 @@ page_image_service.mojom.mojom.ClientId = {
   NtpTabResumption: 5,
   HistoryEmbeddings: 6,
 };
-page_image_service.mojom.mojom.ClientIdSpec = { $: mojo.internal.Enum() };
+page_image_service.mojom.ClientIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: Options
-page_image_service.mojom.mojom.OptionsSpec = {
+page_image_service.mojom.OptionsSpec = {
   $: {
     structSpec: {
       name: 'page_image_service.mojom.Options',
@@ -38,7 +38,7 @@ page_image_service.mojom.mojom.OptionsSpec = {
 };
 
 // Struct: ImageResult
-page_image_service.mojom.mojom.ImageResultSpec = {
+page_image_service.mojom.ImageResultSpec = {
   $: {
     structSpec: {
       name: 'page_image_service.mojom.ImageResult',
@@ -52,24 +52,39 @@ page_image_service.mojom.mojom.ImageResultSpec = {
 };
 
 // Interface: PageImageServiceHandler
-page_image_service.mojom.mojom.PageImageServiceHandler = {};
+page_image_service.mojom.PageImageServiceHandler = {};
 
-page_image_service.mojom.mojom.PageImageServiceHandlerPendingReceiver = class {
+page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: page_image_service.mojom.ClientIdSpec, nullable: false, minVersion: 0 },
+        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: page_image_service.mojom.OptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+page_image_service.mojom.PageImageServiceHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-page_image_service.mojom.mojom.PageImageServiceHandlerRemote = class {
+page_image_service.mojom.PageImageServiceHandlerRemote = class {
   static get $interfaceName() {
     return 'page_image_service.mojom.PageImageServiceHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      page_image_service.mojom.mojom.PageImageServiceHandlerPendingReceiver,
+      page_image_service.mojom.PageImageServiceHandlerPendingReceiver,
       handle);
-    this.$ = new page_image_service.mojom.mojom.PageImageServiceHandlerRemoteCallHandler(this.proxy);
+    this.$ = new page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -81,7 +96,7 @@ page_image_service.mojom.mojom.PageImageServiceHandlerRemote = class {
   }
 };
 
-page_image_service.mojom.mojom.PageImageServiceHandlerRemoteCallHandler = class {
+page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -90,15 +105,15 @@ page_image_service.mojom.mojom.PageImageServiceHandlerRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      page_image_service.mojom.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec,
-      page_image_service.mojom.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec,
+      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec,
+      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec,
       [client_id, page_url, options]);
   }
 
 };
 
-page_image_service.mojom.mojom.PageImageServiceHandler.getRemote = function() {
-  let remote = new page_image_service.mojom.mojom.PageImageServiceHandlerRemote();
+page_image_service.mojom.PageImageServiceHandler.getRemote = function() {
+  let remote = new page_image_service.mojom.PageImageServiceHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -108,7 +123,7 @@ page_image_service.mojom.mojom.PageImageServiceHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetPageImageUrl
-page_image_service.mojom.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
+page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_Params',
@@ -123,7 +138,7 @@ page_image_service.mojom.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpe
   }
 };
 
-page_image_service.mojom.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = {
+page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_ResponseParams',
@@ -137,6 +152,6 @@ page_image_service.mojom.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseP
 };
 
 // Legacy compatibility
-page_image_service.mojom.mojom.PageImageServiceHandlerPtr = page_image_service.mojom.mojom.PageImageServiceHandlerRemote;
-page_image_service.mojom.mojom.PageImageServiceHandlerRequest = page_image_service.mojom.mojom.PageImageServiceHandlerPendingReceiver;
+page_image_service.mojom.PageImageServiceHandlerPtr = page_image_service.mojom.PageImageServiceHandlerRemote;
+page_image_service.mojom.PageImageServiceHandlerRequest = page_image_service.mojom.PageImageServiceHandlerPendingReceiver;
 

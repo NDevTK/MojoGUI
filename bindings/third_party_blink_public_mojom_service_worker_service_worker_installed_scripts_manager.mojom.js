@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: ServiceWorkerInstalledScriptsInfo
-blink.mojom.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
+blink.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerInstalledScriptsInfo',
@@ -27,7 +27,7 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
 };
 
 // Struct: ServiceWorkerScriptInfo
-blink.mojom.mojom.ServiceWorkerScriptInfoSpec = {
+blink.mojom.ServiceWorkerScriptInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerScriptInfo',
@@ -47,24 +47,37 @@ blink.mojom.mojom.ServiceWorkerScriptInfoSpec = {
 };
 
 // Interface: ServiceWorkerInstalledScriptsManagerHost
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHost = {};
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost = {};
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver = class {
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRemote = class {
+blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver,
+      blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -76,7 +89,7 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
+blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -85,15 +98,15 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec,
+      blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec,
       null,
       [script_url]);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRemote();
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +116,7 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function(
 };
 
 // ParamsSpec for RequestInstalledScript
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = {
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost.RequestInstalledScript_Params',
@@ -117,29 +130,42 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScrip
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostPtr = blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRemote;
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostRequest = blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver;
+blink.mojom.ServiceWorkerInstalledScriptsManagerHostPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote;
+blink.mojom.ServiceWorkerInstalledScriptsManagerHostRequest = blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver;
 
 
 // Interface: ServiceWorkerInstalledScriptsManager
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManager = {};
+blink.mojom.ServiceWorkerInstalledScriptsManager = {};
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver = class {
+blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerScriptInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRemote = class {
+blink.mojom.ServiceWorkerInstalledScriptsManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerInstalledScriptsManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver,
+      blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -151,7 +177,7 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class {
+blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -160,15 +186,15 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec,
+      blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec,
       null,
       [script_info]);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRemote();
+blink.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerInstalledScriptsManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -178,7 +204,7 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
 };
 
 // ParamsSpec for TransferInstalledScript
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = {
+blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManager.TransferInstalledScript_Params',
@@ -192,6 +218,6 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_P
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerPtr = blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRemote;
-blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerRequest = blink.mojom.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver;
+blink.mojom.ServiceWorkerInstalledScriptsManagerPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerRemote;
+blink.mojom.ServiceWorkerInstalledScriptsManagerRequest = blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver;
 

@@ -10,7 +10,7 @@ ai.mojom = ai.mojom || {};
 
 
 // Union: ZeroStateSuggestionsResponseResult
-ai.mojom.mojom.ZeroStateSuggestionsResponseResultSpec = { $: mojo.internal.Union(
+ai.mojom.ZeroStateSuggestionsResponseResultSpec = { $: mojo.internal.Union(
     'ai.mojom.ZeroStateSuggestionsResponseResult', {
       'response': {
         'ordinal': 0,
@@ -24,24 +24,36 @@ ai.mojom.mojom.ZeroStateSuggestionsResponseResultSpec = { $: mojo.internal.Union
 };
 
 // Interface: ZeroStateSuggestionsService
-ai.mojom.mojom.ZeroStateSuggestionsService = {};
+ai.mojom.ZeroStateSuggestionsService = {};
 
-ai.mojom.mojom.ZeroStateSuggestionsServicePendingReceiver = class {
+ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ai.mojom.ZeroStateSuggestionsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ai.mojom.mojom.ZeroStateSuggestionsServiceRemote = class {
+ai.mojom.ZeroStateSuggestionsServiceRemote = class {
   static get $interfaceName() {
     return 'ai.mojom.ZeroStateSuggestionsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ai.mojom.mojom.ZeroStateSuggestionsServicePendingReceiver,
+      ai.mojom.ZeroStateSuggestionsServicePendingReceiver,
       handle);
-    this.$ = new ai.mojom.mojom.ZeroStateSuggestionsServiceRemoteCallHandler(this.proxy);
+    this.$ = new ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +65,7 @@ ai.mojom.mojom.ZeroStateSuggestionsServiceRemote = class {
   }
 };
 
-ai.mojom.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
+ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +74,15 @@ ai.mojom.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec,
-      ai.mojom.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
+      ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec,
+      ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
       []);
   }
 
 };
 
-ai.mojom.mojom.ZeroStateSuggestionsService.getRemote = function() {
-  let remote = new ai.mojom.mojom.ZeroStateSuggestionsServiceRemote();
+ai.mojom.ZeroStateSuggestionsService.getRemote = function() {
+  let remote = new ai.mojom.ZeroStateSuggestionsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +92,7 @@ ai.mojom.mojom.ZeroStateSuggestionsService.getRemote = function() {
 };
 
 // ParamsSpec for FetchZeroStateSuggestions
-ai.mojom.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
+ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.ZeroStateSuggestionsService.FetchZeroStateSuggestions_Params',
@@ -92,7 +104,7 @@ ai.mojom.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec 
   }
 };
 
-ai.mojom.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = {
+ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.ZeroStateSuggestionsService.FetchZeroStateSuggestions_ResponseParams',
@@ -106,6 +118,6 @@ ai.mojom.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponsePar
 };
 
 // Legacy compatibility
-ai.mojom.mojom.ZeroStateSuggestionsServicePtr = ai.mojom.mojom.ZeroStateSuggestionsServiceRemote;
-ai.mojom.mojom.ZeroStateSuggestionsServiceRequest = ai.mojom.mojom.ZeroStateSuggestionsServicePendingReceiver;
+ai.mojom.ZeroStateSuggestionsServicePtr = ai.mojom.ZeroStateSuggestionsServiceRemote;
+ai.mojom.ZeroStateSuggestionsServiceRequest = ai.mojom.ZeroStateSuggestionsServicePendingReceiver;
 

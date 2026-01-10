@@ -17,14 +17,14 @@ var url = url || {};
 
 
 // Enum: RenderProcessVisibleState
-content.mojom.mojom.RenderProcessVisibleState = {
+content.mojom.RenderProcessVisibleState = {
   kVisible: 0,
   kHidden: 1,
 };
-content.mojom.mojom.RenderProcessVisibleStateSpec = { $: mojo.internal.Enum() };
+content.mojom.RenderProcessVisibleStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: UpdateScrollbarThemeParams
-content.mojom.mojom.UpdateScrollbarThemeParamsSpec = {
+content.mojom.UpdateScrollbarThemeParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.UpdateScrollbarThemeParams',
@@ -45,7 +45,7 @@ content.mojom.mojom.UpdateScrollbarThemeParamsSpec = {
 };
 
 // Struct: UpdateSystemColorInfoParams
-content.mojom.mojom.UpdateSystemColorInfoParamsSpec = {
+content.mojom.UpdateSystemColorInfoParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.UpdateSystemColorInfoParams',
@@ -60,24 +60,277 @@ content.mojom.mojom.UpdateSystemColorInfoParamsSpec = {
 };
 
 // Interface: Renderer
-content.mojom.mojom.Renderer = {};
+content.mojom.Renderer = {};
 
-content.mojom.mojom.RendererPendingReceiver = class {
+content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_CreateAgentSchedulingGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bootstrap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(IPC.mojom.ChannelBootstrapRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'agent_scheduling_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(content.mojom.AgentSchedulingGroupRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_TransferSharedLastForegroundTime_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'last_foreground_time_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_OnNetworkConnectionChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NetworkConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_bandwidth_mbps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_OnNetworkQualityChanged_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'effective_connection_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_SetWebKitSharedTimersSuspended_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'suspend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_UpdateScrollbarTheme_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.UpdateScrollbarThemeParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_OnSystemColorsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'aqua_color_variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_UpdateSystemColorInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.UpdateSystemColorInfoParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_PurgePluginListCache_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_PurgeResourceCache_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.Renderer_SetProcessState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_SetProcessState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'process_priority', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessPrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'visible_state', packedOffset: 4, packedBitOffset: 0, type: content.mojom.RenderProcessVisibleStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_SetIsLockedToSite_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_WriteClangProfilingProfile_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_SetIsCrossOriginIsolated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_SetIsWebSecurityDisabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_SetIsIsolatedContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'resource_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.UrlSpec, mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.Renderer_InitializeRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.Renderer_InitializeRenderer_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UserAgentMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'cors_exempt_header_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'origin_trials_settings', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.OriginTrialsSettingsSpec, nullable: true, minVersion: 0 },
+        { name: 'cpu_performance_tier', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PerformanceTierSpec, nullable: false, minVersion: 0 },
+        { name: 'trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+content.mojom.RendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.RendererRemote = class {
+content.mojom.RendererRemote = class {
   static get $interfaceName() {
     return 'content.mojom.Renderer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.RendererPendingReceiver,
+      content.mojom.RendererPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.RendererRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.RendererRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -89,7 +342,7 @@ content.mojom.mojom.RendererRemote = class {
   }
 };
 
-content.mojom.mojom.RendererRemoteCallHandler = class {
+content.mojom.RendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -98,7 +351,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec,
+      content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec,
       null,
       [bootstrap]);
   }
@@ -107,7 +360,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec,
+      content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec,
       null,
       [agent_scheduling_group]);
   }
@@ -116,7 +369,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec,
+      content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec,
       null,
       [last_foreground_time_region]);
   }
@@ -125,7 +378,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec,
+      content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec,
       null,
       [connection_type, max_bandwidth_mbps]);
   }
@@ -134,7 +387,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec,
+      content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec,
       null,
       [effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps]);
   }
@@ -143,7 +396,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec,
+      content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec,
       null,
       [suspend]);
   }
@@ -152,7 +405,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec,
+      content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec,
       null,
       [params]);
   }
@@ -161,7 +414,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.mojom.Renderer_OnSystemColorsChanged_ParamsSpec,
+      content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec,
       null,
       [aqua_color_variant]);
   }
@@ -170,7 +423,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec,
+      content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec,
       null,
       [params]);
   }
@@ -179,7 +432,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.mojom.mojom.Renderer_PurgePluginListCache_ParamsSpec,
+      content.mojom.Renderer_PurgePluginListCache_ParamsSpec,
       null,
       []);
   }
@@ -188,7 +441,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.mojom.mojom.Renderer_PurgeResourceCache_ParamsSpec,
+      content.mojom.Renderer_PurgeResourceCache_ParamsSpec,
       null,
       []);
   }
@@ -197,7 +450,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.mojom.mojom.Renderer_SetProcessState_ParamsSpec,
+      content.mojom.Renderer_SetProcessState_ParamsSpec,
       null,
       [process_priority, visible_state]);
   }
@@ -206,7 +459,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.mojom.mojom.Renderer_SetIsLockedToSite_ParamsSpec,
+      content.mojom.Renderer_SetIsLockedToSite_ParamsSpec,
       null,
       []);
   }
@@ -215,7 +468,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.mojom.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec,
+      content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec,
       null,
       []);
   }
@@ -224,7 +477,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      content.mojom.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec,
+      content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec,
       null,
       [value]);
   }
@@ -233,7 +486,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      content.mojom.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec,
+      content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec,
       null,
       [value]);
   }
@@ -242,7 +495,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      content.mojom.mojom.Renderer_SetIsIsolatedContext_ParamsSpec,
+      content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec,
       null,
       [value]);
   }
@@ -251,7 +504,7 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      content.mojom.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec,
+      content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec,
       null,
       [resource_map]);
   }
@@ -260,15 +513,15 @@ content.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      content.mojom.mojom.Renderer_InitializeRenderer_ParamsSpec,
+      content.mojom.Renderer_InitializeRenderer_ParamsSpec,
       null,
       [user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id]);
   }
 
 };
 
-content.mojom.mojom.Renderer.getRemote = function() {
-  let remote = new content.mojom.mojom.RendererRemote();
+content.mojom.Renderer.getRemote = function() {
+  let remote = new content.mojom.RendererRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -278,7 +531,7 @@ content.mojom.mojom.Renderer.getRemote = function() {
 };
 
 // ParamsSpec for CreateAgentSchedulingGroup
-content.mojom.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
+content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.CreateAgentSchedulingGroup_Params',
@@ -292,7 +545,7 @@ content.mojom.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
 };
 
 // ParamsSpec for CreateAssociatedAgentSchedulingGroup
-content.mojom.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
+content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.CreateAssociatedAgentSchedulingGroup_Params',
@@ -306,7 +559,7 @@ content.mojom.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
 };
 
 // ParamsSpec for TransferSharedLastForegroundTime
-content.mojom.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
+content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.TransferSharedLastForegroundTime_Params',
@@ -320,7 +573,7 @@ content.mojom.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
 };
 
 // ParamsSpec for OnNetworkConnectionChanged
-content.mojom.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
+content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.OnNetworkConnectionChanged_Params',
@@ -335,7 +588,7 @@ content.mojom.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnNetworkQualityChanged
-content.mojom.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
+content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.OnNetworkQualityChanged_Params',
@@ -352,7 +605,7 @@ content.mojom.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
 };
 
 // ParamsSpec for SetWebKitSharedTimersSuspended
-content.mojom.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
+content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.SetWebKitSharedTimersSuspended_Params',
@@ -366,7 +619,7 @@ content.mojom.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateScrollbarTheme
-content.mojom.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
+content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.UpdateScrollbarTheme_Params',
@@ -380,7 +633,7 @@ content.mojom.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
 };
 
 // ParamsSpec for OnSystemColorsChanged
-content.mojom.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
+content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.OnSystemColorsChanged_Params',
@@ -394,7 +647,7 @@ content.mojom.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateSystemColorInfo
-content.mojom.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
+content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.UpdateSystemColorInfo_Params',
@@ -408,7 +661,7 @@ content.mojom.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
 };
 
 // ParamsSpec for PurgePluginListCache
-content.mojom.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
+content.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.PurgePluginListCache_Params',
@@ -421,7 +674,7 @@ content.mojom.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
 };
 
 // ParamsSpec for PurgeResourceCache
-content.mojom.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
+content.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.PurgeResourceCache_Params',
@@ -434,7 +687,7 @@ content.mojom.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
 };
 
 // ParamsSpec for SetProcessState
-content.mojom.mojom.Renderer_SetProcessState_ParamsSpec = {
+content.mojom.Renderer_SetProcessState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.SetProcessState_Params',
@@ -449,7 +702,7 @@ content.mojom.mojom.Renderer_SetProcessState_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsLockedToSite
-content.mojom.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
+content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.SetIsLockedToSite_Params',
@@ -462,7 +715,7 @@ content.mojom.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
 };
 
 // ParamsSpec for WriteClangProfilingProfile
-content.mojom.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
+content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.WriteClangProfilingProfile_Params',
@@ -475,7 +728,7 @@ content.mojom.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsCrossOriginIsolated
-content.mojom.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
+content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.SetIsCrossOriginIsolated_Params',
@@ -489,7 +742,7 @@ content.mojom.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsWebSecurityDisabled
-content.mojom.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
+content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.SetIsWebSecurityDisabled_Params',
@@ -503,7 +756,7 @@ content.mojom.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsIsolatedContext
-content.mojom.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
+content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.SetIsIsolatedContext_Params',
@@ -517,7 +770,7 @@ content.mojom.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
 };
 
 // ParamsSpec for SetWebUIResourceUrlToCodeCacheMap
-content.mojom.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
+content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.SetWebUIResourceUrlToCodeCacheMap_Params',
@@ -531,7 +784,7 @@ content.mojom.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
 };
 
 // ParamsSpec for InitializeRenderer
-content.mojom.mojom.Renderer_InitializeRenderer_ParamsSpec = {
+content.mojom.Renderer_InitializeRenderer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.Renderer.InitializeRenderer_Params',
@@ -550,6 +803,6 @@ content.mojom.mojom.Renderer_InitializeRenderer_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.RendererPtr = content.mojom.mojom.RendererRemote;
-content.mojom.mojom.RendererRequest = content.mojom.mojom.RendererPendingReceiver;
+content.mojom.RendererPtr = content.mojom.RendererRemote;
+content.mojom.RendererRequest = content.mojom.RendererPendingReceiver;
 

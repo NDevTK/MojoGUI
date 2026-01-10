@@ -10,24 +10,39 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: RendererAudioOutputStreamFactory
-blink.mojom.mojom.RendererAudioOutputStreamFactory = {};
+blink.mojom.RendererAudioOutputStreamFactory = {};
 
-blink.mojom.mojom.RendererAudioOutputStreamFactoryPendingReceiver = class {
+blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'stream_provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioOutputStreamProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.RendererAudioOutputStreamFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.RendererAudioOutputStreamFactoryRemote = class {
+blink.mojom.RendererAudioOutputStreamFactoryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RendererAudioOutputStreamFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.RendererAudioOutputStreamFactoryPendingReceiver,
+      blink.mojom.RendererAudioOutputStreamFactoryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +54,7 @@ blink.mojom.mojom.RendererAudioOutputStreamFactoryRemote = class {
   }
 };
 
-blink.mojom.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
+blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +63,15 @@ blink.mojom.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec,
-      blink.mojom.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
+      blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec,
+      blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
       [stream_provider_receiver, session_id, device_id]);
   }
 
 };
 
-blink.mojom.mojom.RendererAudioOutputStreamFactory.getRemote = function() {
-  let remote = new blink.mojom.mojom.RendererAudioOutputStreamFactoryRemote();
+blink.mojom.RendererAudioOutputStreamFactory.getRemote = function() {
+  let remote = new blink.mojom.RendererAudioOutputStreamFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +81,7 @@ blink.mojom.mojom.RendererAudioOutputStreamFactory.getRemote = function() {
 };
 
 // ParamsSpec for RequestDeviceAuthorization
-blink.mojom.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec = {
+blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererAudioOutputStreamFactory.RequestDeviceAuthorization_Params',
@@ -81,7 +96,7 @@ blink.mojom.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Pa
   }
 };
 
-blink.mojom.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec = {
+blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererAudioOutputStreamFactory.RequestDeviceAuthorization_ResponseParams',
@@ -97,6 +112,6 @@ blink.mojom.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Re
 };
 
 // Legacy compatibility
-blink.mojom.mojom.RendererAudioOutputStreamFactoryPtr = blink.mojom.mojom.RendererAudioOutputStreamFactoryRemote;
-blink.mojom.mojom.RendererAudioOutputStreamFactoryRequest = blink.mojom.mojom.RendererAudioOutputStreamFactoryPendingReceiver;
+blink.mojom.RendererAudioOutputStreamFactoryPtr = blink.mojom.RendererAudioOutputStreamFactoryRemote;
+blink.mojom.RendererAudioOutputStreamFactoryRequest = blink.mojom.RendererAudioOutputStreamFactoryPendingReceiver;
 

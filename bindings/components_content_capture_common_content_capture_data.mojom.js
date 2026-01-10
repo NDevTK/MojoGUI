@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: ContentCaptureData
-content_capture.mojom.mojom.ContentCaptureDataSpec = {
+content_capture.mojom.ContentCaptureDataSpec = {
   $: {
     structSpec: {
       name: 'content_capture.mojom.ContentCaptureData',

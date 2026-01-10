@@ -10,24 +10,285 @@ device.mojom = device.mojom || {};
 
 
 // Interface: DeviceService
-device.mojom.mojom.DeviceService = {};
+device.mojom.DeviceService = {};
 
-device.mojom.mojom.DeviceServicePendingReceiver = class {
+device.mojom.DeviceService_BindFingerprint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindFingerprint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.FingerprintRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindGeolocationContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationContextRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindGeolocationControl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationControlRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindGeolocationInternals_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindInputDeviceManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.InputDeviceManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindBatteryMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.BatteryMonitorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindPressureManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindPressureManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PressureManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindNFCProvider_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.NFCProviderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindVibrationManager_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.VibrationManagerRemote), nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.VibrationManagerListenerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindHidManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindHidManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindMtpManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindMtpManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.MtpManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindPowerMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PowerMonitorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PublicIpAddressGeolocationProviderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindScreenOrientationListener_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.ScreenOrientationListenerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindSensorProvider_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.SensorProviderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindSerialPortManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.SerialPortManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindTimeZoneMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.TimeZoneMonitorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindWakeLockProvider_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockProviderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindUsbDeviceManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.DeviceService_BindUsbDeviceManagerTest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.DeviceServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.DeviceServiceRemote = class {
+device.mojom.DeviceServiceRemote = class {
   static get $interfaceName() {
     return 'device.mojom.DeviceService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.DeviceServicePendingReceiver,
+      device.mojom.DeviceServicePendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.DeviceServiceRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.DeviceServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +300,7 @@ device.mojom.mojom.DeviceServiceRemote = class {
   }
 };
 
-device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
+device.mojom.DeviceServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +309,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.DeviceService_BindFingerprint_ParamsSpec,
+      device.mojom.DeviceService_BindFingerprint_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +318,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.DeviceService_BindGeolocationContext_ParamsSpec,
+      device.mojom.DeviceService_BindGeolocationContext_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +327,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.DeviceService_BindGeolocationControl_ParamsSpec,
+      device.mojom.DeviceService_BindGeolocationControl_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +336,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.DeviceService_BindGeolocationInternals_ParamsSpec,
+      device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec,
       null,
       [receiver]);
   }
@@ -84,7 +345,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.mojom.DeviceService_BindInputDeviceManager_ParamsSpec,
+      device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -93,7 +354,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.mojom.DeviceService_BindBatteryMonitor_ParamsSpec,
+      device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -102,7 +363,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.mojom.DeviceService_BindPressureManager_ParamsSpec,
+      device.mojom.DeviceService_BindPressureManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -111,7 +372,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.mojom.DeviceService_BindNFCProvider_ParamsSpec,
+      device.mojom.DeviceService_BindNFCProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -120,7 +381,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.mojom.DeviceService_BindVibrationManager_ParamsSpec,
+      device.mojom.DeviceService_BindVibrationManager_ParamsSpec,
       null,
       [receiver, listener]);
   }
@@ -129,7 +390,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      device.mojom.mojom.DeviceService_BindHidManager_ParamsSpec,
+      device.mojom.DeviceService_BindHidManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -138,7 +399,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      device.mojom.mojom.DeviceService_BindMtpManager_ParamsSpec,
+      device.mojom.DeviceService_BindMtpManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -147,7 +408,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      device.mojom.mojom.DeviceService_BindPowerMonitor_ParamsSpec,
+      device.mojom.DeviceService_BindPowerMonitor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -156,7 +417,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      device.mojom.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec,
+      device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -165,7 +426,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      device.mojom.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec,
+      device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec,
       null,
       [receiver]);
   }
@@ -174,7 +435,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      device.mojom.mojom.DeviceService_BindSensorProvider_ParamsSpec,
+      device.mojom.DeviceService_BindSensorProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -183,7 +444,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      device.mojom.mojom.DeviceService_BindSerialPortManager_ParamsSpec,
+      device.mojom.DeviceService_BindSerialPortManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -192,7 +453,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      device.mojom.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec,
+      device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -201,7 +462,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      device.mojom.mojom.DeviceService_BindWakeLockProvider_ParamsSpec,
+      device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -210,7 +471,7 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      device.mojom.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec,
+      device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -219,15 +480,15 @@ device.mojom.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      device.mojom.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec,
+      device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-device.mojom.mojom.DeviceService.getRemote = function() {
-  let remote = new device.mojom.mojom.DeviceServiceRemote();
+device.mojom.DeviceService.getRemote = function() {
+  let remote = new device.mojom.DeviceServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -237,7 +498,7 @@ device.mojom.mojom.DeviceService.getRemote = function() {
 };
 
 // ParamsSpec for BindFingerprint
-device.mojom.mojom.DeviceService_BindFingerprint_ParamsSpec = {
+device.mojom.DeviceService_BindFingerprint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindFingerprint_Params',
@@ -251,7 +512,7 @@ device.mojom.mojom.DeviceService_BindFingerprint_ParamsSpec = {
 };
 
 // ParamsSpec for BindGeolocationContext
-device.mojom.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
+device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindGeolocationContext_Params',
@@ -265,7 +526,7 @@ device.mojom.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
 };
 
 // ParamsSpec for BindGeolocationControl
-device.mojom.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
+device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindGeolocationControl_Params',
@@ -279,7 +540,7 @@ device.mojom.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
 };
 
 // ParamsSpec for BindGeolocationInternals
-device.mojom.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
+device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindGeolocationInternals_Params',
@@ -293,7 +554,7 @@ device.mojom.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
 };
 
 // ParamsSpec for BindInputDeviceManager
-device.mojom.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
+device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindInputDeviceManager_Params',
@@ -307,7 +568,7 @@ device.mojom.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindBatteryMonitor
-device.mojom.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
+device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindBatteryMonitor_Params',
@@ -321,7 +582,7 @@ device.mojom.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
 };
 
 // ParamsSpec for BindPressureManager
-device.mojom.mojom.DeviceService_BindPressureManager_ParamsSpec = {
+device.mojom.DeviceService_BindPressureManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindPressureManager_Params',
@@ -335,7 +596,7 @@ device.mojom.mojom.DeviceService_BindPressureManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindNFCProvider
-device.mojom.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
+device.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindNFCProvider_Params',
@@ -349,7 +610,7 @@ device.mojom.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
 };
 
 // ParamsSpec for BindVibrationManager
-device.mojom.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
+device.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindVibrationManager_Params',
@@ -364,7 +625,7 @@ device.mojom.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindHidManager
-device.mojom.mojom.DeviceService_BindHidManager_ParamsSpec = {
+device.mojom.DeviceService_BindHidManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindHidManager_Params',
@@ -378,7 +639,7 @@ device.mojom.mojom.DeviceService_BindHidManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindMtpManager
-device.mojom.mojom.DeviceService_BindMtpManager_ParamsSpec = {
+device.mojom.DeviceService_BindMtpManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindMtpManager_Params',
@@ -392,7 +653,7 @@ device.mojom.mojom.DeviceService_BindMtpManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindPowerMonitor
-device.mojom.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
+device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindPowerMonitor_Params',
@@ -406,7 +667,7 @@ device.mojom.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
 };
 
 // ParamsSpec for BindPublicIpAddressGeolocationProvider
-device.mojom.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
+device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindPublicIpAddressGeolocationProvider_Params',
@@ -420,7 +681,7 @@ device.mojom.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSp
 };
 
 // ParamsSpec for BindScreenOrientationListener
-device.mojom.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
+device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindScreenOrientationListener_Params',
@@ -434,7 +695,7 @@ device.mojom.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
 };
 
 // ParamsSpec for BindSensorProvider
-device.mojom.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
+device.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindSensorProvider_Params',
@@ -448,7 +709,7 @@ device.mojom.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
 };
 
 // ParamsSpec for BindSerialPortManager
-device.mojom.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
+device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindSerialPortManager_Params',
@@ -462,7 +723,7 @@ device.mojom.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindTimeZoneMonitor
-device.mojom.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
+device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindTimeZoneMonitor_Params',
@@ -476,7 +737,7 @@ device.mojom.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
 };
 
 // ParamsSpec for BindWakeLockProvider
-device.mojom.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
+device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindWakeLockProvider_Params',
@@ -490,7 +751,7 @@ device.mojom.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
 };
 
 // ParamsSpec for BindUsbDeviceManager
-device.mojom.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
+device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindUsbDeviceManager_Params',
@@ -504,7 +765,7 @@ device.mojom.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindUsbDeviceManagerTest
-device.mojom.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
+device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.DeviceService.BindUsbDeviceManagerTest_Params',
@@ -518,6 +779,6 @@ device.mojom.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.DeviceServicePtr = device.mojom.mojom.DeviceServiceRemote;
-device.mojom.mojom.DeviceServiceRequest = device.mojom.mojom.DeviceServicePendingReceiver;
+device.mojom.DeviceServicePtr = device.mojom.DeviceServiceRemote;
+device.mojom.DeviceServiceRequest = device.mojom.DeviceServicePendingReceiver;
 

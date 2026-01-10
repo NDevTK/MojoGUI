@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: AcceleratedWidget
-gfx.mojom.mojom.AcceleratedWidgetSpec = {
+gfx.mojom.AcceleratedWidgetSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.AcceleratedWidget',

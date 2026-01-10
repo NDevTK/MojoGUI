@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Union: NetworkAnonymizationKey
-network.mojom.mojom.NetworkAnonymizationKeySpec = { $: mojo.internal.Union(
+network.mojom.NetworkAnonymizationKeySpec = { $: mojo.internal.Union(
     'network.mojom.NetworkAnonymizationKey', {
       'empty': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ network.mojom.mojom.NetworkAnonymizationKeySpec = { $: mojo.internal.Union(
 };
 
 // Struct: EmptyNetworkAnonymizationKey
-network.mojom.mojom.EmptyNetworkAnonymizationKeySpec = {
+network.mojom.EmptyNetworkAnonymizationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EmptyNetworkAnonymizationKey',
@@ -37,7 +37,7 @@ network.mojom.mojom.EmptyNetworkAnonymizationKeySpec = {
 };
 
 // Struct: NonEmptyNetworkAnonymizationKey
-network.mojom.mojom.NonEmptyNetworkAnonymizationKeySpec = {
+network.mojom.NonEmptyNetworkAnonymizationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NonEmptyNetworkAnonymizationKey',

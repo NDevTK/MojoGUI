@@ -7,29 +7,65 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.cros_healthd.connectivity = ash.cros_healthd.cros_healthd.connectivity || {};
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom = ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom || {};
+ash.cros_healthd.connectivity = ash.cros_healthd.connectivity || {};
+ash.cros_healthd.connectivity.mojom = ash.cros_healthd.connectivity.mojom || {};
 
 
 // Interface: State
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State = {};
+ash.cros_healthd.connectivity.mojom.State = {};
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StatePendingReceiver = class {
+ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.connectivity.mojom.State_WaitLastCall_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.connectivity.mojom.StatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemote = class {
+ash.cros_healthd.connectivity.mojom.StateRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.connectivity.mojom.State';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StatePendingReceiver,
+      ash.cros_healthd.connectivity.mojom.StatePendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +77,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemote 
   }
 };
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemoteCallHandler = class {
+ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +86,8 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemoteC
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_LastCallHasNext_ParamsSpec,
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_LastCallHasNext_ResponseParamsSpec,
+      ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec,
+      ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec,
       []);
   }
 
@@ -59,7 +95,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemoteC
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_WaitLastCall_ParamsSpec,
+      ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec,
       null,
       []);
   }
@@ -68,15 +104,15 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemoteC
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_FulfillLastCallCallback_ParamsSpec,
+      ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemote();
+ash.cros_healthd.connectivity.mojom.State.getRemote = function() {
+  let remote = new ash.cros_healthd.connectivity.mojom.StateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -86,7 +122,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State.getRem
 };
 
 // ParamsSpec for LastCallHasNext
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_LastCallHasNext_ParamsSpec = {
+ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.connectivity.mojom.State.LastCallHasNext_Params',
@@ -98,7 +134,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_LastCa
   }
 };
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_LastCallHasNext_ResponseParamsSpec = {
+ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.connectivity.mojom.State.LastCallHasNext_ResponseParams',
@@ -112,7 +148,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_LastCa
 };
 
 // ParamsSpec for WaitLastCall
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_WaitLastCall_ParamsSpec = {
+ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.connectivity.mojom.State.WaitLastCall_Params',
@@ -125,7 +161,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_WaitLa
 };
 
 // ParamsSpec for FulfillLastCallCallback
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_FulfillLastCallCallback_ParamsSpec = {
+ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.connectivity.mojom.State.FulfillLastCallCallback_Params',
@@ -138,29 +174,57 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.State_Fulfil
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StatePtr = ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRemote;
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StateRequest = ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.StatePendingReceiver;
+ash.cros_healthd.connectivity.mojom.StatePtr = ash.cros_healthd.connectivity.mojom.StateRemote;
+ash.cros_healthd.connectivity.mojom.StateRequest = ash.cros_healthd.connectivity.mojom.StatePendingReceiver;
 
 
 // Interface: ConnectivityTestProvider
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProvider = {};
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider = {};
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderPendingReceiver = class {
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.connectivity.mojom.StateRemote), nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cros_healthd.connectivity.mojom.StateRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderRemote = class {
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderPendingReceiver,
+      ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -172,7 +236,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.Connectivity
   }
 };
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderRemoteCallHandler = class {
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -181,7 +245,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.Connectivity
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProvider_BindContext_ParamsSpec,
+      ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec,
       null,
       [remote, receiver]);
   }
@@ -190,15 +254,15 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.Connectivity
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec,
+      ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec,
       null,
       [interface_name, receiver]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProvider.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderRemote();
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.getRemote = function() {
+  let remote = new ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -208,7 +272,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.Connectivity
 };
 
 // ParamsSpec for BindContext
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProvider_BindContext_ParamsSpec = {
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.BindContext_Params',
@@ -223,7 +287,7 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.Connectivity
 };
 
 // ParamsSpec for BindTestProvider
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec = {
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.BindTestProvider_Params',
@@ -238,6 +302,6 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.Connectivity
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderPtr = ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderRemote;
-ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderRequest = ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.ConnectivityTestProviderPendingReceiver;
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPtr = ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote;
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRequest = ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPendingReceiver;
 

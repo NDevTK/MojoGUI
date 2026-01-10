@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: ByteSize
-mojo_base.mojom.mojom.ByteSizeSpec = {
+mojo_base.mojom.ByteSizeSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ByteSize',
@@ -24,7 +24,7 @@ mojo_base.mojom.mojom.ByteSizeSpec = {
 };
 
 // Struct: ByteSizeDelta
-mojo_base.mojom.mojom.ByteSizeDeltaSpec = {
+mojo_base.mojom.ByteSizeDeltaSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ByteSizeDelta',

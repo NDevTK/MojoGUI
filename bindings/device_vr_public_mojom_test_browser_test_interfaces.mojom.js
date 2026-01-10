@@ -14,34 +14,34 @@ var gfx = gfx || {};
 
 
 // Enum: Eye
-device_test.mojom.mojom.Eye = {
+device_test.mojom.Eye = {
   LEFT: 0,
   RIGHT: 1,
   NONE: 2,
 };
-device_test.mojom.mojom.EyeSpec = { $: mojo.internal.Enum() };
+device_test.mojom.EyeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ControllerRole
-device_test.mojom.mojom.ControllerRole = {
+device_test.mojom.ControllerRole = {
   kControllerRoleInvalid: 0,
   kControllerRoleLeft: 1,
   kControllerRoleRight: 2,
   kControllerRoleVoice: 3,
 };
-device_test.mojom.mojom.ControllerRoleSpec = { $: mojo.internal.Enum() };
+device_test.mojom.ControllerRoleSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventType
-device_test.mojom.mojom.EventType = {
+device_test.mojom.EventType = {
   kSessionLost: 0,
   kVisibilityVisibleBlurred: 1,
   kInstanceLost: 2,
   kInteractionProfileChanged: 3,
   kNoEvent: 4,
 };
-device_test.mojom.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+device_test.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Color
-device_test.mojom.mojom.ColorSpec = {
+device_test.mojom.ColorSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.Color',
@@ -58,7 +58,7 @@ device_test.mojom.mojom.ColorSpec = {
 };
 
 // Struct: ViewData
-device_test.mojom.mojom.ViewDataSpec = {
+device_test.mojom.ViewDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.ViewData',
@@ -74,7 +74,7 @@ device_test.mojom.mojom.ViewDataSpec = {
 };
 
 // Struct: DeviceConfig
-device_test.mojom.mojom.DeviceConfigSpec = {
+device_test.mojom.DeviceConfigSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.DeviceConfig',
@@ -88,7 +88,7 @@ device_test.mojom.mojom.DeviceConfigSpec = {
 };
 
 // Struct: ControllerAxisData
-device_test.mojom.mojom.ControllerAxisDataSpec = {
+device_test.mojom.ControllerAxisDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.ControllerAxisData',
@@ -104,7 +104,7 @@ device_test.mojom.mojom.ControllerAxisDataSpec = {
 };
 
 // Struct: ControllerFrameData
-device_test.mojom.mojom.ControllerFrameDataSpec = {
+device_test.mojom.ControllerFrameDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.ControllerFrameData',
@@ -126,7 +126,7 @@ device_test.mojom.mojom.ControllerFrameDataSpec = {
 };
 
 // Struct: EventData
-device_test.mojom.mojom.EventDataSpec = {
+device_test.mojom.EventDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.EventData',
@@ -141,7 +141,7 @@ device_test.mojom.mojom.EventDataSpec = {
 };
 
 // Struct: XRVisibilityMask
-device_test.mojom.mojom.XRVisibilityMaskSpec = {
+device_test.mojom.XRVisibilityMaskSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRVisibilityMask',
@@ -156,24 +156,136 @@ device_test.mojom.mojom.XRVisibilityMaskSpec = {
 };
 
 // Interface: XRTestHook
-device_test.mojom.mojom.XRTestHook = {};
+device_test.mojom.XRTestHook = {};
 
-device_test.mojom.mojom.XRTestHookPendingReceiver = class {
+device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_OnFrameSubmitted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_test.mojom.ViewDataSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetDeviceConfig_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetPresentingPose_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetMagicWindowPose_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetControllerData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetEventData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetCanCreateSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook_WaitGetVisibilityMask_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device_test.mojom.XRTestHookPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device_test.mojom.mojom.XRTestHookRemote = class {
+device_test.mojom.XRTestHookRemote = class {
   static get $interfaceName() {
     return 'device_test.mojom.XRTestHook';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device_test.mojom.mojom.XRTestHookPendingReceiver,
+      device_test.mojom.XRTestHookPendingReceiver,
       handle);
-    this.$ = new device_test.mojom.mojom.XRTestHookRemoteCallHandler(this.proxy);
+    this.$ = new device_test.mojom.XRTestHookRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -185,7 +297,7 @@ device_test.mojom.mojom.XRTestHookRemote = class {
   }
 };
 
-device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
+device_test.mojom.XRTestHookRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -194,7 +306,7 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device_test.mojom.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
+      device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
       null,
       [frame_data]);
   }
@@ -203,8 +315,8 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
       []);
   }
 
@@ -212,8 +324,8 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
       []);
   }
 
@@ -221,8 +333,8 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
       []);
   }
 
@@ -230,8 +342,8 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
       [index]);
   }
 
@@ -239,8 +351,8 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetControllerData_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
       [index]);
   }
 
@@ -248,8 +360,8 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetEventData_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
       []);
   }
 
@@ -257,8 +369,8 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
       []);
   }
 
@@ -266,15 +378,15 @@ device_test.mojom.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device_test.mojom.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec,
-      device_test.mojom.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
       [view_index]);
   }
 
 };
 
-device_test.mojom.mojom.XRTestHook.getRemote = function() {
-  let remote = new device_test.mojom.mojom.XRTestHookRemote();
+device_test.mojom.XRTestHook.getRemote = function() {
+  let remote = new device_test.mojom.XRTestHookRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -284,7 +396,7 @@ device_test.mojom.mojom.XRTestHook.getRemote = function() {
 };
 
 // ParamsSpec for OnFrameSubmitted
-device_test.mojom.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
+device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.OnFrameSubmitted_Params',
@@ -298,7 +410,7 @@ device_test.mojom.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
 };
 
 // ParamsSpec for WaitGetDeviceConfig
-device_test.mojom.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_Params',
@@ -310,7 +422,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_ResponseParams',
@@ -324,7 +436,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitGetPresentingPose
-device_test.mojom.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_Params',
@@ -336,7 +448,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_ResponseParams',
@@ -350,7 +462,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitGetMagicWindowPose
-device_test.mojom.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_Params',
@@ -362,7 +474,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_ResponseParams',
@@ -376,7 +488,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitGetControllerRoleForTrackedDeviceIndex
-device_test.mojom.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_Params',
@@ -389,7 +501,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Pa
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams',
@@ -403,7 +515,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Re
 };
 
 // ParamsSpec for WaitGetControllerData
-device_test.mojom.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerData_Params',
@@ -416,7 +528,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerData_ResponseParams',
@@ -430,7 +542,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitGetEventData
-device_test.mojom.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetEventData_Params',
@@ -442,7 +554,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetEventData_ResponseParams',
@@ -456,7 +568,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitGetCanCreateSession
-device_test.mojom.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_Params',
@@ -468,7 +580,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_ResponseParams',
@@ -482,7 +594,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = 
 };
 
 // ParamsSpec for WaitGetVisibilityMask
-device_test.mojom.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_Params',
@@ -495,7 +607,7 @@ device_test.mojom.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
   }
 };
 
-device_test.mojom.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
+device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_ResponseParams',
@@ -509,29 +621,54 @@ device_test.mojom.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device_test.mojom.mojom.XRTestHookPtr = device_test.mojom.mojom.XRTestHookRemote;
-device_test.mojom.mojom.XRTestHookRequest = device_test.mojom.mojom.XRTestHookPendingReceiver;
+device_test.mojom.XRTestHookPtr = device_test.mojom.XRTestHookRemote;
+device_test.mojom.XRTestHookRequest = device_test.mojom.XRTestHookPendingReceiver;
 
 
 // Interface: XRServiceTestHook
-device_test.mojom.mojom.XRServiceTestHook = {};
+device_test.mojom.XRServiceTestHook = {};
 
-device_test.mojom.mojom.XRServiceTestHookPendingReceiver = class {
+device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRServiceTestHook_SetTestHook_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device_test.mojom.XRTestHookRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device_test.mojom.XRServiceTestHookPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device_test.mojom.mojom.XRServiceTestHookRemote = class {
+device_test.mojom.XRServiceTestHookRemote = class {
   static get $interfaceName() {
     return 'device_test.mojom.XRServiceTestHook';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device_test.mojom.mojom.XRServiceTestHookPendingReceiver,
+      device_test.mojom.XRServiceTestHookPendingReceiver,
       handle);
-    this.$ = new device_test.mojom.mojom.XRServiceTestHookRemoteCallHandler(this.proxy);
+    this.$ = new device_test.mojom.XRServiceTestHookRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -543,7 +680,7 @@ device_test.mojom.mojom.XRServiceTestHookRemote = class {
   }
 };
 
-device_test.mojom.mojom.XRServiceTestHookRemoteCallHandler = class {
+device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -552,7 +689,7 @@ device_test.mojom.mojom.XRServiceTestHookRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device_test.mojom.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
+      device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
       null,
       [hook]);
   }
@@ -561,15 +698,15 @@ device_test.mojom.mojom.XRServiceTestHookRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device_test.mojom.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
+      device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device_test.mojom.mojom.XRServiceTestHook.getRemote = function() {
-  let remote = new device_test.mojom.mojom.XRServiceTestHookRemote();
+device_test.mojom.XRServiceTestHook.getRemote = function() {
+  let remote = new device_test.mojom.XRServiceTestHookRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -579,7 +716,7 @@ device_test.mojom.mojom.XRServiceTestHook.getRemote = function() {
 };
 
 // ParamsSpec for SetTestHook
-device_test.mojom.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
+device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRServiceTestHook.SetTestHook_Params',
@@ -593,7 +730,7 @@ device_test.mojom.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
 };
 
 // ParamsSpec for TerminateDeviceServiceProcessForTesting
-device_test.mojom.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = {
+device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRServiceTestHook.TerminateDeviceServiceProcessForTesting_Params',
@@ -606,6 +743,6 @@ device_test.mojom.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTestin
 };
 
 // Legacy compatibility
-device_test.mojom.mojom.XRServiceTestHookPtr = device_test.mojom.mojom.XRServiceTestHookRemote;
-device_test.mojom.mojom.XRServiceTestHookRequest = device_test.mojom.mojom.XRServiceTestHookPendingReceiver;
+device_test.mojom.XRServiceTestHookPtr = device_test.mojom.XRServiceTestHookRemote;
+device_test.mojom.XRServiceTestHookRequest = device_test.mojom.XRServiceTestHookPendingReceiver;
 

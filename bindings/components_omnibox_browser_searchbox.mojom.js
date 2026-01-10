@@ -13,39 +13,39 @@ var url = url || {};
 
 
 // Enum: ToolMode
-searchbox.mojom.mojom.ToolMode = {
+searchbox.mojom.ToolMode = {
   kDefault: 0,
   kDeepSearch: 1,
   kCreateImage: 2,
 };
-searchbox.mojom.mojom.ToolModeSpec = { $: mojo.internal.Enum() };
+searchbox.mojom.ToolModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SideType
-searchbox.mojom.mojom.SideType = {
+searchbox.mojom.SideType = {
   kDefaultPrimary: 0,
   kSecondary: 1,
 };
-searchbox.mojom.mojom.SideTypeSpec = { $: mojo.internal.Enum() };
+searchbox.mojom.SideTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RenderType
-searchbox.mojom.mojom.RenderType = {
+searchbox.mojom.RenderType = {
   kDefaultVertical: 0,
   kHorizontal: 1,
   kGrid: 2,
 };
-searchbox.mojom.mojom.RenderTypeSpec = { $: mojo.internal.Enum() };
+searchbox.mojom.RenderTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SelectionLineState
-searchbox.mojom.mojom.SelectionLineState = {
+searchbox.mojom.SelectionLineState = {
   kNormal: 0,
   kKeywordMode: 1,
   kFocusedButtonAction: 2,
   kFocusedButtonRemoveSuggestion: 3,
 };
-searchbox.mojom.mojom.SelectionLineStateSpec = { $: mojo.internal.Enum() };
+searchbox.mojom.SelectionLineStateSpec = { $: mojo.internal.Enum() };
 
 // Union: SearchContextAttachment
-searchbox.mojom.mojom.SearchContextAttachmentSpec = { $: mojo.internal.Union(
+searchbox.mojom.SearchContextAttachmentSpec = { $: mojo.internal.Union(
     'searchbox.mojom.SearchContextAttachment', {
       'file_attachment': {
         'ordinal': 0,
@@ -59,7 +59,7 @@ searchbox.mojom.mojom.SearchContextAttachmentSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ACMatchClassification
-searchbox.mojom.mojom.ACMatchClassificationSpec = {
+searchbox.mojom.ACMatchClassificationSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.ACMatchClassification',
@@ -74,7 +74,7 @@ searchbox.mojom.mojom.ACMatchClassificationSpec = {
 };
 
 // Struct: Action
-searchbox.mojom.mojom.ActionSpec = {
+searchbox.mojom.ActionSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Action',
@@ -91,7 +91,7 @@ searchbox.mojom.mojom.ActionSpec = {
 };
 
 // Struct: SuggestionAnswer
-searchbox.mojom.mojom.SuggestionAnswerSpec = {
+searchbox.mojom.SuggestionAnswerSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.SuggestionAnswer',
@@ -106,7 +106,7 @@ searchbox.mojom.mojom.SuggestionAnswerSpec = {
 };
 
 // Struct: AutocompleteMatch
-searchbox.mojom.mojom.AutocompleteMatchSpec = {
+searchbox.mojom.AutocompleteMatchSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.AutocompleteMatch',
@@ -150,7 +150,7 @@ searchbox.mojom.mojom.AutocompleteMatchSpec = {
 };
 
 // Struct: TabInfo
-searchbox.mojom.mojom.TabInfoSpec = {
+searchbox.mojom.TabInfoSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.TabInfo',
@@ -169,7 +169,7 @@ searchbox.mojom.mojom.TabInfoSpec = {
 };
 
 // Struct: FileAttachment
-searchbox.mojom.mojom.FileAttachmentSpec = {
+searchbox.mojom.FileAttachmentSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.FileAttachment',
@@ -186,7 +186,7 @@ searchbox.mojom.mojom.FileAttachmentSpec = {
 };
 
 // Struct: TabAttachment
-searchbox.mojom.mojom.TabAttachmentSpec = {
+searchbox.mojom.TabAttachmentSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.TabAttachment',
@@ -202,7 +202,7 @@ searchbox.mojom.mojom.TabAttachmentSpec = {
 };
 
 // Struct: SearchContext
-searchbox.mojom.mojom.SearchContextSpec = {
+searchbox.mojom.SearchContextSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.SearchContext',
@@ -218,7 +218,7 @@ searchbox.mojom.mojom.SearchContextSpec = {
 };
 
 // Struct: SelectedFileInfo
-searchbox.mojom.mojom.SelectedFileInfoSpec = {
+searchbox.mojom.SelectedFileInfoSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.SelectedFileInfo',
@@ -236,7 +236,7 @@ searchbox.mojom.mojom.SelectedFileInfoSpec = {
 };
 
 // Struct: SuggestionGroup
-searchbox.mojom.mojom.SuggestionGroupSpec = {
+searchbox.mojom.SuggestionGroupSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.SuggestionGroup',
@@ -252,7 +252,7 @@ searchbox.mojom.mojom.SuggestionGroupSpec = {
 };
 
 // Struct: AutocompleteResult
-searchbox.mojom.mojom.AutocompleteResultSpec = {
+searchbox.mojom.AutocompleteResultSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.AutocompleteResult',
@@ -269,7 +269,7 @@ searchbox.mojom.mojom.AutocompleteResultSpec = {
 };
 
 // Struct: OmniboxPopupSelection
-searchbox.mojom.mojom.OmniboxPopupSelectionSpec = {
+searchbox.mojom.OmniboxPopupSelectionSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.OmniboxPopupSelection',
@@ -285,7 +285,7 @@ searchbox.mojom.mojom.OmniboxPopupSelectionSpec = {
 };
 
 // Struct: PlaceholderConfig
-searchbox.mojom.mojom.PlaceholderConfigSpec = {
+searchbox.mojom.PlaceholderConfigSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PlaceholderConfig',
@@ -301,24 +301,333 @@ searchbox.mojom.mojom.PlaceholderConfigSpec = {
 };
 
 // Interface: PageHandler
-searchbox.mojom.mojom.PageHandler = {};
+searchbox.mojom.PageHandler = {};
 
-searchbox.mojom.mojom.PageHandlerPendingReceiver = class {
+searchbox.mojom.PageHandler_SetPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_SetPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(searchbox.mojom.PageRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_OnFocusChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'focused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_QueryAutocomplete_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'prevent_inline_autocomplete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_StopAutocomplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'clear_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_OpenAutocompleteMatch_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'are_matches_showing', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mouse_button', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'alt_key', packedOffset: 9, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ctrl_key', packedOffset: 9, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'meta_key', packedOffset: 9, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shift_key', packedOffset: 9, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_OnNavigationLikely_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'line', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'navigation_predictor', packedOffset: 8, packedBitOffset: 0, type: omnibox.mojom.NavigationPredictorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_DeleteAutocompleteMatch_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_ActivateKeyword_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'match_selection_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'is_mouse_event', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_ShowContextMenu_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_ExecuteAction_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'action_index', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'match_selection_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'mouse_button', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'alt_key', packedOffset: 19, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ctrl_key', packedOffset: 19, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'meta_key', packedOffset: 19, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shift_key', packedOffset: 19, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_OnThumbnailRemoved_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_GetPlaceholderConfig_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_GetRecentTabs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_GetTabPreview_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_NotifySessionStarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_NotifySessionAbandoned_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_AddFileContext_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'file_info', packedOffset: 16, packedBitOffset: 0, type: searchbox.mojom.SelectedFileInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'file_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_AddTabContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'delay_upload', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_DeleteContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_DeleteContext_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'from_automatic_chip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_ClearFiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_ClearFiles_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_SubmitQuery_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mouse_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'alt_key', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ctrl_key', packedOffset: 9, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'meta_key', packedOffset: 9, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shift_key', packedOffset: 9, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.PageHandler_OpenLensSearch_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-searchbox.mojom.mojom.PageHandlerRemote = class {
+searchbox.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'searchbox.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      searchbox.mojom.mojom.PageHandlerPendingReceiver,
+      searchbox.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new searchbox.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new searchbox.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -330,7 +639,7 @@ searchbox.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
+searchbox.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -339,7 +648,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      searchbox.mojom.mojom.PageHandler_SetPage_ParamsSpec,
+      searchbox.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
@@ -348,7 +657,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      searchbox.mojom.mojom.PageHandler_OnFocusChanged_ParamsSpec,
+      searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec,
       null,
       [focused]);
   }
@@ -357,7 +666,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      searchbox.mojom.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
+      searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
       null,
       [input, prevent_inline_autocomplete]);
   }
@@ -366,7 +675,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      searchbox.mojom.mojom.PageHandler_StopAutocomplete_ParamsSpec,
+      searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec,
       null,
       [clear_result]);
   }
@@ -375,7 +684,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      searchbox.mojom.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec,
+      searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec,
       null,
       [line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
@@ -384,7 +693,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      searchbox.mojom.mojom.PageHandler_OnNavigationLikely_ParamsSpec,
+      searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec,
       null,
       [line, url, navigation_predictor]);
   }
@@ -393,7 +702,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      searchbox.mojom.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec,
+      searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec,
       null,
       [line, url]);
   }
@@ -402,7 +711,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      searchbox.mojom.mojom.PageHandler_ActivateKeyword_ParamsSpec,
+      searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec,
       null,
       [line, url, match_selection_timestamp, is_mouse_event]);
   }
@@ -411,7 +720,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      searchbox.mojom.mojom.PageHandler_ShowContextMenu_ParamsSpec,
+      searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
       [point]);
   }
@@ -420,7 +729,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      searchbox.mojom.mojom.PageHandler_ExecuteAction_ParamsSpec,
+      searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec,
       null,
       [line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
@@ -429,7 +738,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      searchbox.mojom.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec,
+      searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec,
       null,
       []);
   }
@@ -438,8 +747,8 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      searchbox.mojom.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec,
-      searchbox.mojom.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec,
+      searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec,
+      searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec,
       []);
   }
 
@@ -447,8 +756,8 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      searchbox.mojom.mojom.PageHandler_GetRecentTabs_ParamsSpec,
-      searchbox.mojom.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec,
+      searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec,
+      searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec,
       []);
   }
 
@@ -456,8 +765,8 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      searchbox.mojom.mojom.PageHandler_GetTabPreview_ParamsSpec,
-      searchbox.mojom.mojom.PageHandler_GetTabPreview_ResponseParamsSpec,
+      searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec,
+      searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec,
       [tab_id]);
   }
 
@@ -465,7 +774,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      searchbox.mojom.mojom.PageHandler_NotifySessionStarted_ParamsSpec,
+      searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec,
       null,
       []);
   }
@@ -474,7 +783,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      searchbox.mojom.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec,
+      searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec,
       null,
       []);
   }
@@ -483,8 +792,8 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      searchbox.mojom.mojom.PageHandler_AddFileContext_ParamsSpec,
-      searchbox.mojom.mojom.PageHandler_AddFileContext_ResponseParamsSpec,
+      searchbox.mojom.PageHandler_AddFileContext_ParamsSpec,
+      searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec,
       [file_info, file_bytes]);
   }
 
@@ -492,8 +801,8 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      searchbox.mojom.mojom.PageHandler_AddTabContext_ParamsSpec,
-      searchbox.mojom.mojom.PageHandler_AddTabContext_ResponseParamsSpec,
+      searchbox.mojom.PageHandler_AddTabContext_ParamsSpec,
+      searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec,
       [tab_id, delay_upload]);
   }
 
@@ -501,7 +810,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      searchbox.mojom.mojom.PageHandler_DeleteContext_ParamsSpec,
+      searchbox.mojom.PageHandler_DeleteContext_ParamsSpec,
       null,
       [token, from_automatic_chip]);
   }
@@ -510,7 +819,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      searchbox.mojom.mojom.PageHandler_ClearFiles_ParamsSpec,
+      searchbox.mojom.PageHandler_ClearFiles_ParamsSpec,
       null,
       []);
   }
@@ -519,7 +828,7 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      searchbox.mojom.mojom.PageHandler_SubmitQuery_ParamsSpec,
+      searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec,
       null,
       [query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
@@ -528,15 +837,15 @@ searchbox.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      searchbox.mojom.mojom.PageHandler_OpenLensSearch_ParamsSpec,
+      searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec,
       null,
       []);
   }
 
 };
 
-searchbox.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new searchbox.mojom.mojom.PageHandlerRemote();
+searchbox.mojom.PageHandler.getRemote = function() {
+  let remote = new searchbox.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -546,7 +855,7 @@ searchbox.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for SetPage
-searchbox.mojom.mojom.PageHandler_SetPage_ParamsSpec = {
+searchbox.mojom.PageHandler_SetPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.SetPage_Params',
@@ -560,7 +869,7 @@ searchbox.mojom.mojom.PageHandler_SetPage_ParamsSpec = {
 };
 
 // ParamsSpec for OnFocusChanged
-searchbox.mojom.mojom.PageHandler_OnFocusChanged_ParamsSpec = {
+searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.OnFocusChanged_Params',
@@ -574,7 +883,7 @@ searchbox.mojom.mojom.PageHandler_OnFocusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for QueryAutocomplete
-searchbox.mojom.mojom.PageHandler_QueryAutocomplete_ParamsSpec = {
+searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.QueryAutocomplete_Params',
@@ -589,7 +898,7 @@ searchbox.mojom.mojom.PageHandler_QueryAutocomplete_ParamsSpec = {
 };
 
 // ParamsSpec for StopAutocomplete
-searchbox.mojom.mojom.PageHandler_StopAutocomplete_ParamsSpec = {
+searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.StopAutocomplete_Params',
@@ -603,7 +912,7 @@ searchbox.mojom.mojom.PageHandler_StopAutocomplete_ParamsSpec = {
 };
 
 // ParamsSpec for OpenAutocompleteMatch
-searchbox.mojom.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
+searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.OpenAutocompleteMatch_Params',
@@ -624,7 +933,7 @@ searchbox.mojom.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
 };
 
 // ParamsSpec for OnNavigationLikely
-searchbox.mojom.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
+searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.OnNavigationLikely_Params',
@@ -640,7 +949,7 @@ searchbox.mojom.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
 };
 
 // ParamsSpec for DeleteAutocompleteMatch
-searchbox.mojom.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
+searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.DeleteAutocompleteMatch_Params',
@@ -655,7 +964,7 @@ searchbox.mojom.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
 };
 
 // ParamsSpec for ActivateKeyword
-searchbox.mojom.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
+searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.ActivateKeyword_Params',
@@ -672,7 +981,7 @@ searchbox.mojom.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
 };
 
 // ParamsSpec for ShowContextMenu
-searchbox.mojom.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
+searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.ShowContextMenu_Params',
@@ -686,7 +995,7 @@ searchbox.mojom.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteAction
-searchbox.mojom.mojom.PageHandler_ExecuteAction_ParamsSpec = {
+searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.ExecuteAction_Params',
@@ -708,7 +1017,7 @@ searchbox.mojom.mojom.PageHandler_ExecuteAction_ParamsSpec = {
 };
 
 // ParamsSpec for OnThumbnailRemoved
-searchbox.mojom.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = {
+searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.OnThumbnailRemoved_Params',
@@ -721,7 +1030,7 @@ searchbox.mojom.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = {
 };
 
 // ParamsSpec for GetPlaceholderConfig
-searchbox.mojom.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = {
+searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.GetPlaceholderConfig_Params',
@@ -733,7 +1042,7 @@ searchbox.mojom.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = {
   }
 };
 
-searchbox.mojom.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = {
+searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.GetPlaceholderConfig_ResponseParams',
@@ -747,7 +1056,7 @@ searchbox.mojom.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetRecentTabs
-searchbox.mojom.mojom.PageHandler_GetRecentTabs_ParamsSpec = {
+searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.GetRecentTabs_Params',
@@ -759,7 +1068,7 @@ searchbox.mojom.mojom.PageHandler_GetRecentTabs_ParamsSpec = {
   }
 };
 
-searchbox.mojom.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = {
+searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.GetRecentTabs_ResponseParams',
@@ -773,7 +1082,7 @@ searchbox.mojom.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetTabPreview
-searchbox.mojom.mojom.PageHandler_GetTabPreview_ParamsSpec = {
+searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.GetTabPreview_Params',
@@ -786,7 +1095,7 @@ searchbox.mojom.mojom.PageHandler_GetTabPreview_ParamsSpec = {
   }
 };
 
-searchbox.mojom.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = {
+searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.GetTabPreview_ResponseParams',
@@ -800,7 +1109,7 @@ searchbox.mojom.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = {
 };
 
 // ParamsSpec for NotifySessionStarted
-searchbox.mojom.mojom.PageHandler_NotifySessionStarted_ParamsSpec = {
+searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.NotifySessionStarted_Params',
@@ -813,7 +1122,7 @@ searchbox.mojom.mojom.PageHandler_NotifySessionStarted_ParamsSpec = {
 };
 
 // ParamsSpec for NotifySessionAbandoned
-searchbox.mojom.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = {
+searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.NotifySessionAbandoned_Params',
@@ -826,7 +1135,7 @@ searchbox.mojom.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = {
 };
 
 // ParamsSpec for AddFileContext
-searchbox.mojom.mojom.PageHandler_AddFileContext_ParamsSpec = {
+searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.AddFileContext_Params',
@@ -840,7 +1149,7 @@ searchbox.mojom.mojom.PageHandler_AddFileContext_ParamsSpec = {
   }
 };
 
-searchbox.mojom.mojom.PageHandler_AddFileContext_ResponseParamsSpec = {
+searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.AddFileContext_ResponseParams',
@@ -854,7 +1163,7 @@ searchbox.mojom.mojom.PageHandler_AddFileContext_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddTabContext
-searchbox.mojom.mojom.PageHandler_AddTabContext_ParamsSpec = {
+searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.AddTabContext_Params',
@@ -868,7 +1177,7 @@ searchbox.mojom.mojom.PageHandler_AddTabContext_ParamsSpec = {
   }
 };
 
-searchbox.mojom.mojom.PageHandler_AddTabContext_ResponseParamsSpec = {
+searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.AddTabContext_ResponseParams',
@@ -882,7 +1191,7 @@ searchbox.mojom.mojom.PageHandler_AddTabContext_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteContext
-searchbox.mojom.mojom.PageHandler_DeleteContext_ParamsSpec = {
+searchbox.mojom.PageHandler_DeleteContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.DeleteContext_Params',
@@ -897,7 +1206,7 @@ searchbox.mojom.mojom.PageHandler_DeleteContext_ParamsSpec = {
 };
 
 // ParamsSpec for ClearFiles
-searchbox.mojom.mojom.PageHandler_ClearFiles_ParamsSpec = {
+searchbox.mojom.PageHandler_ClearFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.ClearFiles_Params',
@@ -910,7 +1219,7 @@ searchbox.mojom.mojom.PageHandler_ClearFiles_ParamsSpec = {
 };
 
 // ParamsSpec for SubmitQuery
-searchbox.mojom.mojom.PageHandler_SubmitQuery_ParamsSpec = {
+searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.SubmitQuery_Params',
@@ -929,7 +1238,7 @@ searchbox.mojom.mojom.PageHandler_SubmitQuery_ParamsSpec = {
 };
 
 // ParamsSpec for OpenLensSearch
-searchbox.mojom.mojom.PageHandler_OpenLensSearch_ParamsSpec = {
+searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.OpenLensSearch_Params',
@@ -942,29 +1251,214 @@ searchbox.mojom.mojom.PageHandler_OpenLensSearch_ParamsSpec = {
 };
 
 // Legacy compatibility
-searchbox.mojom.mojom.PageHandlerPtr = searchbox.mojom.mojom.PageHandlerRemote;
-searchbox.mojom.mojom.PageHandlerRequest = searchbox.mojom.mojom.PageHandlerPendingReceiver;
+searchbox.mojom.PageHandlerPtr = searchbox.mojom.PageHandlerRemote;
+searchbox.mojom.PageHandlerRequest = searchbox.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-searchbox.mojom.mojom.Page = {};
+searchbox.mojom.Page = {};
 
-searchbox.mojom.mojom.PagePendingReceiver = class {
+searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_AutocompleteResultChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.AutocompleteResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.Page_UpdateSelection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_UpdateSelection_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'old_selection', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.OmniboxPopupSelectionSpec, nullable: false, minVersion: 0 },
+        { name: 'selection', packedOffset: 8, packedBitOffset: 0, type: searchbox.mojom.OmniboxPopupSelectionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.Page_SetKeywordSelected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_SetKeywordSelected_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_keyword_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.Page_OnShow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_OnShow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.Page_SetInputText_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_SetInputText_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.Page_SetThumbnail_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_SetThumbnail_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'thumbnail_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_deletable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_OnContextualInputStatusChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: composebox_query.mojom.FileUploadStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'error_type', packedOffset: 12, packedBitOffset: 0, type: composebox_query.mojom.FileUploadErrorTypeSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.Page_OnTabStripChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_OnTabStripChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+searchbox.mojom.Page_AddFileContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_AddFileContext_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'file_info', packedOffset: 8, packedBitOffset: 0, type: searchbox.mojom.SelectedFileInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_UpdateAutoSuggestedTabContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.TabInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_UpdateLensSearchEligibility_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_UpdateContentSharingPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_UpdateAimEligibility_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'searchbox.mojom.Page_OnShowAiModePrefChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'canShow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+searchbox.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-searchbox.mojom.mojom.PageRemote = class {
+searchbox.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'searchbox.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      searchbox.mojom.mojom.PagePendingReceiver,
+      searchbox.mojom.PagePendingReceiver,
       handle);
-    this.$ = new searchbox.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new searchbox.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -976,7 +1470,7 @@ searchbox.mojom.mojom.PageRemote = class {
   }
 };
 
-searchbox.mojom.mojom.PageRemoteCallHandler = class {
+searchbox.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -985,7 +1479,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      searchbox.mojom.mojom.Page_AutocompleteResultChanged_ParamsSpec,
+      searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec,
       null,
       [result]);
   }
@@ -994,7 +1488,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      searchbox.mojom.mojom.Page_UpdateSelection_ParamsSpec,
+      searchbox.mojom.Page_UpdateSelection_ParamsSpec,
       null,
       [old_selection, selection]);
   }
@@ -1003,7 +1497,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      searchbox.mojom.mojom.Page_SetKeywordSelected_ParamsSpec,
+      searchbox.mojom.Page_SetKeywordSelected_ParamsSpec,
       null,
       [is_keyword_selected]);
   }
@@ -1012,7 +1506,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      searchbox.mojom.mojom.Page_OnShow_ParamsSpec,
+      searchbox.mojom.Page_OnShow_ParamsSpec,
       null,
       []);
   }
@@ -1021,7 +1515,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      searchbox.mojom.mojom.Page_SetInputText_ParamsSpec,
+      searchbox.mojom.Page_SetInputText_ParamsSpec,
       null,
       [input]);
   }
@@ -1030,7 +1524,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      searchbox.mojom.mojom.Page_SetThumbnail_ParamsSpec,
+      searchbox.mojom.Page_SetThumbnail_ParamsSpec,
       null,
       [thumbnail_url, is_deletable]);
   }
@@ -1039,7 +1533,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      searchbox.mojom.mojom.Page_OnContextualInputStatusChanged_ParamsSpec,
+      searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec,
       null,
       [token, status, error_type]);
   }
@@ -1048,7 +1542,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      searchbox.mojom.mojom.Page_OnTabStripChanged_ParamsSpec,
+      searchbox.mojom.Page_OnTabStripChanged_ParamsSpec,
       null,
       []);
   }
@@ -1057,7 +1551,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      searchbox.mojom.mojom.Page_AddFileContext_ParamsSpec,
+      searchbox.mojom.Page_AddFileContext_ParamsSpec,
       null,
       [token, file_info]);
   }
@@ -1066,7 +1560,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      searchbox.mojom.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec,
+      searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec,
       null,
       [tab]);
   }
@@ -1075,7 +1569,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      searchbox.mojom.mojom.Page_UpdateLensSearchEligibility_ParamsSpec,
+      searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec,
       null,
       [eligible]);
   }
@@ -1084,7 +1578,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      searchbox.mojom.mojom.Page_UpdateContentSharingPolicy_ParamsSpec,
+      searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1093,7 +1587,7 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      searchbox.mojom.mojom.Page_UpdateAimEligibility_ParamsSpec,
+      searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec,
       null,
       [eligible]);
   }
@@ -1102,15 +1596,15 @@ searchbox.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      searchbox.mojom.mojom.Page_OnShowAiModePrefChanged_ParamsSpec,
+      searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec,
       null,
       [canShow]);
   }
 
 };
 
-searchbox.mojom.mojom.Page.getRemote = function() {
-  let remote = new searchbox.mojom.mojom.PageRemote();
+searchbox.mojom.Page.getRemote = function() {
+  let remote = new searchbox.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1120,7 +1614,7 @@ searchbox.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for AutocompleteResultChanged
-searchbox.mojom.mojom.Page_AutocompleteResultChanged_ParamsSpec = {
+searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.AutocompleteResultChanged_Params',
@@ -1134,7 +1628,7 @@ searchbox.mojom.mojom.Page_AutocompleteResultChanged_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateSelection
-searchbox.mojom.mojom.Page_UpdateSelection_ParamsSpec = {
+searchbox.mojom.Page_UpdateSelection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.UpdateSelection_Params',
@@ -1149,7 +1643,7 @@ searchbox.mojom.mojom.Page_UpdateSelection_ParamsSpec = {
 };
 
 // ParamsSpec for SetKeywordSelected
-searchbox.mojom.mojom.Page_SetKeywordSelected_ParamsSpec = {
+searchbox.mojom.Page_SetKeywordSelected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.SetKeywordSelected_Params',
@@ -1163,7 +1657,7 @@ searchbox.mojom.mojom.Page_SetKeywordSelected_ParamsSpec = {
 };
 
 // ParamsSpec for OnShow
-searchbox.mojom.mojom.Page_OnShow_ParamsSpec = {
+searchbox.mojom.Page_OnShow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.OnShow_Params',
@@ -1176,7 +1670,7 @@ searchbox.mojom.mojom.Page_OnShow_ParamsSpec = {
 };
 
 // ParamsSpec for SetInputText
-searchbox.mojom.mojom.Page_SetInputText_ParamsSpec = {
+searchbox.mojom.Page_SetInputText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.SetInputText_Params',
@@ -1190,7 +1684,7 @@ searchbox.mojom.mojom.Page_SetInputText_ParamsSpec = {
 };
 
 // ParamsSpec for SetThumbnail
-searchbox.mojom.mojom.Page_SetThumbnail_ParamsSpec = {
+searchbox.mojom.Page_SetThumbnail_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.SetThumbnail_Params',
@@ -1205,7 +1699,7 @@ searchbox.mojom.mojom.Page_SetThumbnail_ParamsSpec = {
 };
 
 // ParamsSpec for OnContextualInputStatusChanged
-searchbox.mojom.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = {
+searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.OnContextualInputStatusChanged_Params',
@@ -1221,7 +1715,7 @@ searchbox.mojom.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnTabStripChanged
-searchbox.mojom.mojom.Page_OnTabStripChanged_ParamsSpec = {
+searchbox.mojom.Page_OnTabStripChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.OnTabStripChanged_Params',
@@ -1234,7 +1728,7 @@ searchbox.mojom.mojom.Page_OnTabStripChanged_ParamsSpec = {
 };
 
 // ParamsSpec for AddFileContext
-searchbox.mojom.mojom.Page_AddFileContext_ParamsSpec = {
+searchbox.mojom.Page_AddFileContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.AddFileContext_Params',
@@ -1249,7 +1743,7 @@ searchbox.mojom.mojom.Page_AddFileContext_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateAutoSuggestedTabContext
-searchbox.mojom.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = {
+searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.UpdateAutoSuggestedTabContext_Params',
@@ -1263,7 +1757,7 @@ searchbox.mojom.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateLensSearchEligibility
-searchbox.mojom.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = {
+searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.UpdateLensSearchEligibility_Params',
@@ -1277,7 +1771,7 @@ searchbox.mojom.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateContentSharingPolicy
-searchbox.mojom.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = {
+searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.UpdateContentSharingPolicy_Params',
@@ -1291,7 +1785,7 @@ searchbox.mojom.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateAimEligibility
-searchbox.mojom.mojom.Page_UpdateAimEligibility_ParamsSpec = {
+searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.UpdateAimEligibility_Params',
@@ -1305,7 +1799,7 @@ searchbox.mojom.mojom.Page_UpdateAimEligibility_ParamsSpec = {
 };
 
 // ParamsSpec for OnShowAiModePrefChanged
-searchbox.mojom.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = {
+searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.Page.OnShowAiModePrefChanged_Params',
@@ -1319,6 +1813,6 @@ searchbox.mojom.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-searchbox.mojom.mojom.PagePtr = searchbox.mojom.mojom.PageRemote;
-searchbox.mojom.mojom.PageRequest = searchbox.mojom.mojom.PagePendingReceiver;
+searchbox.mojom.PagePtr = searchbox.mojom.PageRemote;
+searchbox.mojom.PageRequest = searchbox.mojom.PagePendingReceiver;
 

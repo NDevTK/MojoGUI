@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Enum: ScanResult
-device.mojom.mojom.ScanResult = {
+device.mojom.ScanResult = {
   SUCCESS: 0,
   PARTIAL: 1,
   INSUFFICIENT: 2,
@@ -20,10 +20,10 @@ device.mojom.mojom.ScanResult = {
   IMMOBILE: 6,
   NO_MATCH: 7,
 };
-device.mojom.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
+device.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: FingerprintError
-device.mojom.mojom.FingerprintError = {
+device.mojom.FingerprintError = {
   UNKNOWN: 0,
   HW_UNAVAILABLE: 1,
   UNABLE_TO_PROCESS: 2,
@@ -34,24 +34,24 @@ device.mojom.mojom.FingerprintError = {
   LOCKOUT: 7,
   NO_TEMPLATES: 8,
 };
-device.mojom.mojom.FingerprintErrorSpec = { $: mojo.internal.Enum() };
+device.mojom.FingerprintErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: BiometricType
-device.mojom.mojom.BiometricType = {
+device.mojom.BiometricType = {
   UNKNOWN: 0,
   FINGERPRINT: 1,
 };
-device.mojom.mojom.BiometricTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.BiometricTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BiometricsManagerStatus
-device.mojom.mojom.BiometricsManagerStatus = {
+device.mojom.BiometricsManagerStatus = {
   UNKNOWN: 0,
   INITIALIZED: 1,
 };
-device.mojom.mojom.BiometricsManagerStatusSpec = { $: mojo.internal.Enum() };
+device.mojom.BiometricsManagerStatusSpec = { $: mojo.internal.Enum() };
 
 // Union: FingerprintMessage
-device.mojom.mojom.FingerprintMessageSpec = { $: mojo.internal.Union(
+device.mojom.FingerprintMessageSpec = { $: mojo.internal.Union(
     'device.mojom.FingerprintMessage', {
       'fingerprint_error': {
         'ordinal': 0,
@@ -65,24 +65,90 @@ device.mojom.mojom.FingerprintMessageSpec = { $: mojo.internal.Union(
 };
 
 // Interface: FingerprintObserver
-device.mojom.mojom.FingerprintObserver = {};
+device.mojom.FingerprintObserver = {};
 
-device.mojom.mojom.FingerprintObserverPendingReceiver = class {
+device.mojom.FingerprintObserver_OnRestarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.FingerprintObserver_OnRestarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.FingerprintObserver_OnStatusChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.BiometricsManagerStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.FingerprintObserver_OnEnrollScanDone_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'scan_result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
+        { name: 'is_complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'percent_complete', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.FingerprintObserver_OnAuthScanDone_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: device.mojom.FingerprintMessageSpec, nullable: false, minVersion: 0 },
+        { name: 'matches', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.FingerprintObserver_OnSessionFailed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.FingerprintObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.FingerprintObserverRemote = class {
+device.mojom.FingerprintObserverRemote = class {
   static get $interfaceName() {
     return 'device.mojom.FingerprintObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.FingerprintObserverPendingReceiver,
+      device.mojom.FingerprintObserverPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.FingerprintObserverRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.FingerprintObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -94,7 +160,7 @@ device.mojom.mojom.FingerprintObserverRemote = class {
   }
 };
 
-device.mojom.mojom.FingerprintObserverRemoteCallHandler = class {
+device.mojom.FingerprintObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -103,7 +169,7 @@ device.mojom.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.FingerprintObserver_OnRestarted_ParamsSpec,
+      device.mojom.FingerprintObserver_OnRestarted_ParamsSpec,
       null,
       []);
   }
@@ -112,7 +178,7 @@ device.mojom.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec,
+      device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec,
       null,
       [status]);
   }
@@ -121,7 +187,7 @@ device.mojom.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec,
+      device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec,
       null,
       [scan_result, is_complete, percent_complete]);
   }
@@ -130,7 +196,7 @@ device.mojom.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec,
+      device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec,
       null,
       [msg, matches]);
   }
@@ -139,15 +205,15 @@ device.mojom.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec,
+      device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.mojom.FingerprintObserver.getRemote = function() {
-  let remote = new device.mojom.mojom.FingerprintObserverRemote();
+device.mojom.FingerprintObserver.getRemote = function() {
+  let remote = new device.mojom.FingerprintObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -157,7 +223,7 @@ device.mojom.mojom.FingerprintObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnRestarted
-device.mojom.mojom.FingerprintObserver_OnRestarted_ParamsSpec = {
+device.mojom.FingerprintObserver_OnRestarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.FingerprintObserver.OnRestarted_Params',
@@ -170,7 +236,7 @@ device.mojom.mojom.FingerprintObserver_OnRestarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnStatusChanged
-device.mojom.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = {
+device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.FingerprintObserver.OnStatusChanged_Params',
@@ -184,7 +250,7 @@ device.mojom.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnEnrollScanDone
-device.mojom.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = {
+device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.FingerprintObserver.OnEnrollScanDone_Params',
@@ -200,7 +266,7 @@ device.mojom.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = {
 };
 
 // ParamsSpec for OnAuthScanDone
-device.mojom.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = {
+device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.FingerprintObserver.OnAuthScanDone_Params',
@@ -215,7 +281,7 @@ device.mojom.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = {
 };
 
 // ParamsSpec for OnSessionFailed
-device.mojom.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec = {
+device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.FingerprintObserver.OnSessionFailed_Params',
@@ -228,29 +294,169 @@ device.mojom.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.FingerprintObserverPtr = device.mojom.mojom.FingerprintObserverRemote;
-device.mojom.mojom.FingerprintObserverRequest = device.mojom.mojom.FingerprintObserverPendingReceiver;
+device.mojom.FingerprintObserverPtr = device.mojom.FingerprintObserverRemote;
+device.mojom.FingerprintObserverRequest = device.mojom.FingerprintObserverPendingReceiver;
 
 
 // Interface: Fingerprint
-device.mojom.mojom.Fingerprint = {};
+device.mojom.Fingerprint = {};
 
-device.mojom.mojom.FingerprintPendingReceiver = class {
+device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_GetRecordsForUser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_StartEnrollSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_StartEnrollSession_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_CancelCurrentEnrollSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_RequestRecordLabel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_SetRecordLabel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_SetRecordLabel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'new_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_RemoveRecord_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_RemoveRecord_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_StartAuthSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_StartAuthSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_EndCurrentAuthSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_DestroyAllRecords_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_AddFingerprintObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.FingerprintObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.Fingerprint_RequestType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Fingerprint_RequestType_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.FingerprintPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.FingerprintRemote = class {
+device.mojom.FingerprintRemote = class {
   static get $interfaceName() {
     return 'device.mojom.Fingerprint';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.FingerprintPendingReceiver,
+      device.mojom.FingerprintPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.FingerprintRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.FingerprintRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -262,7 +468,7 @@ device.mojom.mojom.FingerprintRemote = class {
   }
 };
 
-device.mojom.mojom.FingerprintRemoteCallHandler = class {
+device.mojom.FingerprintRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -271,8 +477,8 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.Fingerprint_GetRecordsForUser_ParamsSpec,
-      device.mojom.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec,
+      device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec,
+      device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec,
       [user_id]);
   }
 
@@ -280,7 +486,7 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.Fingerprint_StartEnrollSession_ParamsSpec,
+      device.mojom.Fingerprint_StartEnrollSession_ParamsSpec,
       null,
       [user_id, label]);
   }
@@ -289,8 +495,8 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec,
-      device.mojom.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec,
+      device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec,
+      device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec,
       []);
   }
 
@@ -298,8 +504,8 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.Fingerprint_RequestRecordLabel_ParamsSpec,
-      device.mojom.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec,
+      device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec,
+      device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec,
       [record_path]);
   }
 
@@ -307,8 +513,8 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.mojom.Fingerprint_SetRecordLabel_ParamsSpec,
-      device.mojom.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec,
+      device.mojom.Fingerprint_SetRecordLabel_ParamsSpec,
+      device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec,
       [record_path, new_label]);
   }
 
@@ -316,8 +522,8 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.mojom.Fingerprint_RemoveRecord_ParamsSpec,
-      device.mojom.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec,
+      device.mojom.Fingerprint_RemoveRecord_ParamsSpec,
+      device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec,
       [record_path]);
   }
 
@@ -325,7 +531,7 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.mojom.Fingerprint_StartAuthSession_ParamsSpec,
+      device.mojom.Fingerprint_StartAuthSession_ParamsSpec,
       null,
       []);
   }
@@ -334,8 +540,8 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec,
-      device.mojom.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec,
+      device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec,
+      device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec,
       []);
   }
 
@@ -343,8 +549,8 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.mojom.Fingerprint_DestroyAllRecords_ParamsSpec,
-      device.mojom.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec,
+      device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec,
+      device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec,
       []);
   }
 
@@ -352,7 +558,7 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      device.mojom.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec,
+      device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -361,15 +567,15 @@ device.mojom.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      device.mojom.mojom.Fingerprint_RequestType_ParamsSpec,
-      device.mojom.mojom.Fingerprint_RequestType_ResponseParamsSpec,
+      device.mojom.Fingerprint_RequestType_ParamsSpec,
+      device.mojom.Fingerprint_RequestType_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.mojom.Fingerprint.getRemote = function() {
-  let remote = new device.mojom.mojom.FingerprintRemote();
+device.mojom.Fingerprint.getRemote = function() {
+  let remote = new device.mojom.FingerprintRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -379,7 +585,7 @@ device.mojom.mojom.Fingerprint.getRemote = function() {
 };
 
 // ParamsSpec for GetRecordsForUser
-device.mojom.mojom.Fingerprint_GetRecordsForUser_ParamsSpec = {
+device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.GetRecordsForUser_Params',
@@ -392,7 +598,7 @@ device.mojom.mojom.Fingerprint_GetRecordsForUser_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec = {
+device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.GetRecordsForUser_ResponseParams',
@@ -407,7 +613,7 @@ device.mojom.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartEnrollSession
-device.mojom.mojom.Fingerprint_StartEnrollSession_ParamsSpec = {
+device.mojom.Fingerprint_StartEnrollSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.StartEnrollSession_Params',
@@ -422,7 +628,7 @@ device.mojom.mojom.Fingerprint_StartEnrollSession_ParamsSpec = {
 };
 
 // ParamsSpec for CancelCurrentEnrollSession
-device.mojom.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec = {
+device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.CancelCurrentEnrollSession_Params',
@@ -434,7 +640,7 @@ device.mojom.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec = {
+device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.CancelCurrentEnrollSession_ResponseParams',
@@ -448,7 +654,7 @@ device.mojom.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestRecordLabel
-device.mojom.mojom.Fingerprint_RequestRecordLabel_ParamsSpec = {
+device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.RequestRecordLabel_Params',
@@ -461,7 +667,7 @@ device.mojom.mojom.Fingerprint_RequestRecordLabel_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec = {
+device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.RequestRecordLabel_ResponseParams',
@@ -475,7 +681,7 @@ device.mojom.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetRecordLabel
-device.mojom.mojom.Fingerprint_SetRecordLabel_ParamsSpec = {
+device.mojom.Fingerprint_SetRecordLabel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.SetRecordLabel_Params',
@@ -489,7 +695,7 @@ device.mojom.mojom.Fingerprint_SetRecordLabel_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec = {
+device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.SetRecordLabel_ResponseParams',
@@ -503,7 +709,7 @@ device.mojom.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveRecord
-device.mojom.mojom.Fingerprint_RemoveRecord_ParamsSpec = {
+device.mojom.Fingerprint_RemoveRecord_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.RemoveRecord_Params',
@@ -516,7 +722,7 @@ device.mojom.mojom.Fingerprint_RemoveRecord_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec = {
+device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.RemoveRecord_ResponseParams',
@@ -530,7 +736,7 @@ device.mojom.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartAuthSession
-device.mojom.mojom.Fingerprint_StartAuthSession_ParamsSpec = {
+device.mojom.Fingerprint_StartAuthSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.StartAuthSession_Params',
@@ -543,7 +749,7 @@ device.mojom.mojom.Fingerprint_StartAuthSession_ParamsSpec = {
 };
 
 // ParamsSpec for EndCurrentAuthSession
-device.mojom.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec = {
+device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.EndCurrentAuthSession_Params',
@@ -555,7 +761,7 @@ device.mojom.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec = {
+device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.EndCurrentAuthSession_ResponseParams',
@@ -569,7 +775,7 @@ device.mojom.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DestroyAllRecords
-device.mojom.mojom.Fingerprint_DestroyAllRecords_ParamsSpec = {
+device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.DestroyAllRecords_Params',
@@ -581,7 +787,7 @@ device.mojom.mojom.Fingerprint_DestroyAllRecords_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec = {
+device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.DestroyAllRecords_ResponseParams',
@@ -595,7 +801,7 @@ device.mojom.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddFingerprintObserver
-device.mojom.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = {
+device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.AddFingerprintObserver_Params',
@@ -609,7 +815,7 @@ device.mojom.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = {
 };
 
 // ParamsSpec for RequestType
-device.mojom.mojom.Fingerprint_RequestType_ParamsSpec = {
+device.mojom.Fingerprint_RequestType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.RequestType_Params',
@@ -621,7 +827,7 @@ device.mojom.mojom.Fingerprint_RequestType_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Fingerprint_RequestType_ResponseParamsSpec = {
+device.mojom.Fingerprint_RequestType_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Fingerprint.RequestType_ResponseParams',
@@ -635,6 +841,6 @@ device.mojom.mojom.Fingerprint_RequestType_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.FingerprintPtr = device.mojom.mojom.FingerprintRemote;
-device.mojom.mojom.FingerprintRequest = device.mojom.mojom.FingerprintPendingReceiver;
+device.mojom.FingerprintPtr = device.mojom.FingerprintRemote;
+device.mojom.FingerprintRequest = device.mojom.FingerprintPendingReceiver;
 

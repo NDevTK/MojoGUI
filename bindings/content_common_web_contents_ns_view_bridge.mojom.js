@@ -18,23 +18,23 @@ var url = url || {};
 
 
 // Enum: SelectionDirection
-remote_cocoa.mojom.mojom.SelectionDirection = {
+remote_cocoa.mojom.SelectionDirection = {
   kDirect: 0,
   kForward: 1,
   kReverse: 2,
 };
-remote_cocoa.mojom.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Visibility
-remote_cocoa.mojom.mojom.Visibility = {
+remote_cocoa.mojom.Visibility = {
   kVisible: 0,
   kOccluded: 1,
   kHidden: 2,
 };
-remote_cocoa.mojom.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: DraggingInfo
-remote_cocoa.mojom.mojom.DraggingInfoSpec = {
+remote_cocoa.mojom.DraggingInfoSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.DraggingInfo',
@@ -51,24 +51,130 @@ remote_cocoa.mojom.mojom.DraggingInfoSpec = {
 };
 
 // Interface: WebContentsNSView
-remote_cocoa.mojom.mojom.WebContentsNSView = {};
+remote_cocoa.mojom.WebContentsNSView = {};
 
-remote_cocoa.mojom.mojom.WebContentsNSViewPendingReceiver = class {
+remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_SetParentNSView_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'parent_ns_view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_SetBounds_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bounds_in_superview', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_SetVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_TakeFocus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reverse', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_StartDrag_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
+        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'operation_mask', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
+        { name: 'image_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
+        { name: 'is_privileged', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSView_Destroy_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewRemote = class {
+remote_cocoa.mojom.WebContentsNSViewRemote = class {
   static get $interfaceName() {
     return 'remote_cocoa.mojom.WebContentsNSView';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remote_cocoa.mojom.mojom.WebContentsNSViewPendingReceiver,
+      remote_cocoa.mojom.WebContentsNSViewPendingReceiver,
       handle);
-    this.$ = new remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler(this.proxy);
+    this.$ = new remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -80,7 +186,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemote = class {
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
+remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -89,7 +195,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_SetParentNSView_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec,
       null,
       [parent_ns_view_id]);
   }
@@ -98,7 +204,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec,
       null,
       []);
   }
@@ -107,7 +213,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_SetBounds_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec,
       null,
       [bounds_in_superview]);
   }
@@ -116,7 +222,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_SetVisible_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -125,7 +231,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec,
       null,
       []);
   }
@@ -134,7 +240,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_TakeFocus_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec,
       null,
       [reverse]);
   }
@@ -143,7 +249,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_StartDrag_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec,
       null,
       [drop_data, source_origin, operation_mask, image, image_offset, is_privileged]);
   }
@@ -152,15 +258,15 @@ remote_cocoa.mojom.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSView_Destroy_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec,
       null,
       []);
   }
 
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSView.getRemote = function() {
-  let remote = new remote_cocoa.mojom.mojom.WebContentsNSViewRemote();
+remote_cocoa.mojom.WebContentsNSView.getRemote = function() {
+  let remote = new remote_cocoa.mojom.WebContentsNSViewRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -170,7 +276,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView.getRemote = function() {
 };
 
 // ParamsSpec for SetParentNSView
-remote_cocoa.mojom.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.SetParentNSView_Params',
@@ -184,7 +290,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
 };
 
 // ParamsSpec for ResetParentNSView
-remote_cocoa.mojom.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.ResetParentNSView_Params',
@@ -197,7 +303,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
 };
 
 // ParamsSpec for SetBounds
-remote_cocoa.mojom.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.SetBounds_Params',
@@ -211,7 +317,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
 };
 
 // ParamsSpec for SetVisible
-remote_cocoa.mojom.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.SetVisible_Params',
@@ -225,7 +331,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
 };
 
 // ParamsSpec for MakeFirstResponder
-remote_cocoa.mojom.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.MakeFirstResponder_Params',
@@ -238,7 +344,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
 };
 
 // ParamsSpec for TakeFocus
-remote_cocoa.mojom.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.TakeFocus_Params',
@@ -252,7 +358,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
 };
 
 // ParamsSpec for StartDrag
-remote_cocoa.mojom.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.StartDrag_Params',
@@ -271,7 +377,7 @@ remote_cocoa.mojom.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
 };
 
 // ParamsSpec for Destroy
-remote_cocoa.mojom.mojom.WebContentsNSView_Destroy_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.Destroy_Params',
@@ -284,29 +390,163 @@ remote_cocoa.mojom.mojom.WebContentsNSView_Destroy_ParamsSpec = {
 };
 
 // Legacy compatibility
-remote_cocoa.mojom.mojom.WebContentsNSViewPtr = remote_cocoa.mojom.mojom.WebContentsNSViewRemote;
-remote_cocoa.mojom.mojom.WebContentsNSViewRequest = remote_cocoa.mojom.mojom.WebContentsNSViewPendingReceiver;
+remote_cocoa.mojom.WebContentsNSViewPtr = remote_cocoa.mojom.WebContentsNSViewRemote;
+remote_cocoa.mojom.WebContentsNSViewRequest = remote_cocoa.mojom.WebContentsNSViewPendingReceiver;
 
 
 // Interface: WebContentsNSViewHost
-remote_cocoa.mojom.mojom.WebContentsNSViewHost = {};
+remote_cocoa.mojom.WebContentsNSViewHost = {};
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHostPendingReceiver = class {
+remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.SelectionDirectionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.VisibilitySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
+        { name: 'download_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'local_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHostRemote = class {
+remote_cocoa.mojom.WebContentsNSViewHostRemote = class {
   static get $interfaceName() {
     return 'remote_cocoa.mojom.WebContentsNSViewHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remote_cocoa.mojom.mojom.WebContentsNSViewHostPendingReceiver,
+      remote_cocoa.mojom.WebContentsNSViewHostPendingReceiver,
       handle);
-    this.$ = new remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler(this.proxy);
+    this.$ = new remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -318,7 +558,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemote = class {
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
+remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -327,7 +567,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -336,7 +576,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec,
       null,
       [direction]);
   }
@@ -345,7 +585,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec,
       null,
       [visibility]);
   }
@@ -354,7 +594,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec,
       null,
       [drop_data]);
   }
@@ -363,8 +603,8 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec,
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec,
       [dragging_info]);
   }
 
@@ -372,7 +612,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec,
       null,
       []);
   }
@@ -381,8 +621,8 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec,
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec,
       [dragging_info]);
   }
 
@@ -390,8 +630,8 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec,
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec,
       [dragging_info]);
   }
 
@@ -399,8 +639,8 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec,
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec,
       [file_path, drop_data, download_url, source_origin]);
   }
 
@@ -408,15 +648,15 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remote_cocoa.mojom.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec,
       null,
       [drag_operation, local_point, screen_point]);
   }
 
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHost.getRemote = function() {
-  let remote = new remote_cocoa.mojom.mojom.WebContentsNSViewHostRemote();
+remote_cocoa.mojom.WebContentsNSViewHost.getRemote = function() {
+  let remote = new remote_cocoa.mojom.WebContentsNSViewHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -426,7 +666,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost.getRemote = function() {
 };
 
 // ParamsSpec for OnMouseEvent
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnMouseEvent_Params',
@@ -440,7 +680,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
 };
 
 // ParamsSpec for OnBecameFirstResponder
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnBecameFirstResponder_Params',
@@ -454,7 +694,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec
 };
 
 // ParamsSpec for OnWindowVisibilityChanged
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnWindowVisibilityChanged_Params',
@@ -468,7 +708,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsS
 };
 
 // ParamsSpec for SetDropData
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.SetDropData_Params',
@@ -482,7 +722,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
 };
 
 // ParamsSpec for DraggingEntered
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingEntered_Params',
@@ -495,7 +735,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingEntered_ResponseParams',
@@ -509,7 +749,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpe
 };
 
 // ParamsSpec for DraggingExited
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingExited_Params',
@@ -522,7 +762,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
 };
 
 // ParamsSpec for DraggingUpdated
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingUpdated_Params',
@@ -535,7 +775,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingUpdated_ResponseParams',
@@ -549,7 +789,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpe
 };
 
 // ParamsSpec for PerformDragOperation
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.PerformDragOperation_Params',
@@ -562,7 +802,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec =
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.PerformDragOperation_ResponseParams',
@@ -576,7 +816,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_PerformDragOperation_ResponsePara
 };
 
 // ParamsSpec for DragPromisedFileTo
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_Params',
@@ -592,7 +832,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
   }
 };
 
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_ResponseParams',
@@ -606,7 +846,7 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParams
 };
 
 // ParamsSpec for EndDrag
-remote_cocoa.mojom.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
+remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.EndDrag_Params',
@@ -622,6 +862,6 @@ remote_cocoa.mojom.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
 };
 
 // Legacy compatibility
-remote_cocoa.mojom.mojom.WebContentsNSViewHostPtr = remote_cocoa.mojom.mojom.WebContentsNSViewHostRemote;
-remote_cocoa.mojom.mojom.WebContentsNSViewHostRequest = remote_cocoa.mojom.mojom.WebContentsNSViewHostPendingReceiver;
+remote_cocoa.mojom.WebContentsNSViewHostPtr = remote_cocoa.mojom.WebContentsNSViewHostRemote;
+remote_cocoa.mojom.WebContentsNSViewHostRequest = remote_cocoa.mojom.WebContentsNSViewHostPendingReceiver;
 

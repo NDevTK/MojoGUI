@@ -10,7 +10,7 @@ IPC.mojom = IPC.mojom || {};
 
 
 // Struct: Message
-IPC.mojom.mojom.MessageSpec = {
+IPC.mojom.MessageSpec = {
   $: {
     structSpec: {
       name: 'IPC.mojom.Message',
@@ -25,24 +25,50 @@ IPC.mojom.mojom.MessageSpec = {
 };
 
 // Interface: Channel
-IPC.mojom.mojom.Channel = {};
+IPC.mojom.Channel = {};
 
-IPC.mojom.mojom.ChannelPendingReceiver = class {
+IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'IPC.mojom.Channel_SetPeerPid_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'IPC.mojom.Channel_GetAssociatedInterface_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingAssociatedReceiverSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+IPC.mojom.ChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-IPC.mojom.mojom.ChannelRemote = class {
+IPC.mojom.ChannelRemote = class {
   static get $interfaceName() {
     return 'IPC.mojom.Channel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      IPC.mojom.mojom.ChannelPendingReceiver,
+      IPC.mojom.ChannelPendingReceiver,
       handle);
-    this.$ = new IPC.mojom.mojom.ChannelRemoteCallHandler(this.proxy);
+    this.$ = new IPC.mojom.ChannelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +80,7 @@ IPC.mojom.mojom.ChannelRemote = class {
   }
 };
 
-IPC.mojom.mojom.ChannelRemoteCallHandler = class {
+IPC.mojom.ChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +89,7 @@ IPC.mojom.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      IPC.mojom.mojom.Channel_SetPeerPid_ParamsSpec,
+      IPC.mojom.Channel_SetPeerPid_ParamsSpec,
       null,
       [pid]);
   }
@@ -72,15 +98,15 @@ IPC.mojom.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      IPC.mojom.mojom.Channel_GetAssociatedInterface_ParamsSpec,
+      IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-IPC.mojom.mojom.Channel.getRemote = function() {
-  let remote = new IPC.mojom.mojom.ChannelRemote();
+IPC.mojom.Channel.getRemote = function() {
+  let remote = new IPC.mojom.ChannelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +116,7 @@ IPC.mojom.mojom.Channel.getRemote = function() {
 };
 
 // ParamsSpec for SetPeerPid
-IPC.mojom.mojom.Channel_SetPeerPid_ParamsSpec = {
+IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'IPC.mojom.Channel.SetPeerPid_Params',
@@ -104,7 +130,7 @@ IPC.mojom.mojom.Channel_SetPeerPid_ParamsSpec = {
 };
 
 // ParamsSpec for GetAssociatedInterface
-IPC.mojom.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
+IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'IPC.mojom.Channel.GetAssociatedInterface_Params',
@@ -118,29 +144,29 @@ IPC.mojom.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
 };
 
 // Legacy compatibility
-IPC.mojom.mojom.ChannelPtr = IPC.mojom.mojom.ChannelRemote;
-IPC.mojom.mojom.ChannelRequest = IPC.mojom.mojom.ChannelPendingReceiver;
+IPC.mojom.ChannelPtr = IPC.mojom.ChannelRemote;
+IPC.mojom.ChannelRequest = IPC.mojom.ChannelPendingReceiver;
 
 
 // Interface: ChannelBootstrap
-IPC.mojom.mojom.ChannelBootstrap = {};
+IPC.mojom.ChannelBootstrap = {};
 
-IPC.mojom.mojom.ChannelBootstrapPendingReceiver = class {
+IPC.mojom.ChannelBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-IPC.mojom.mojom.ChannelBootstrapRemote = class {
+IPC.mojom.ChannelBootstrapRemote = class {
   static get $interfaceName() {
     return 'IPC.mojom.ChannelBootstrap';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      IPC.mojom.mojom.ChannelBootstrapPendingReceiver,
+      IPC.mojom.ChannelBootstrapPendingReceiver,
       handle);
-    this.$ = new IPC.mojom.mojom.ChannelBootstrapRemoteCallHandler(this.proxy);
+    this.$ = new IPC.mojom.ChannelBootstrapRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -152,15 +178,15 @@ IPC.mojom.mojom.ChannelBootstrapRemote = class {
   }
 };
 
-IPC.mojom.mojom.ChannelBootstrapRemoteCallHandler = class {
+IPC.mojom.ChannelBootstrapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-IPC.mojom.mojom.ChannelBootstrap.getRemote = function() {
-  let remote = new IPC.mojom.mojom.ChannelBootstrapRemote();
+IPC.mojom.ChannelBootstrap.getRemote = function() {
+  let remote = new IPC.mojom.ChannelBootstrapRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -170,6 +196,6 @@ IPC.mojom.mojom.ChannelBootstrap.getRemote = function() {
 };
 
 // Legacy compatibility
-IPC.mojom.mojom.ChannelBootstrapPtr = IPC.mojom.mojom.ChannelBootstrapRemote;
-IPC.mojom.mojom.ChannelBootstrapRequest = IPC.mojom.mojom.ChannelBootstrapPendingReceiver;
+IPC.mojom.ChannelBootstrapPtr = IPC.mojom.ChannelBootstrapRemote;
+IPC.mojom.ChannelBootstrapRequest = IPC.mojom.ChannelBootstrapPendingReceiver;
 

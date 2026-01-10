@@ -7,14 +7,14 @@
 // Module namespace
 var ash = ash || {};
 ash.app_install = ash.app_install || {};
-ash.app_install.app_install.mojom = ash.app_install.app_install.mojom || {};
+ash.app_install.mojom = ash.app_install.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
 
 // Union: DialogArgs
-ash.app_install.app_install.mojom.mojom.DialogArgsSpec = { $: mojo.internal.Union(
+ash.app_install.mojom.DialogArgsSpec = { $: mojo.internal.Union(
     'ash.app_install.mojom.DialogArgs', {
       'app_info_args': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ ash.app_install.app_install.mojom.mojom.DialogArgsSpec = { $: mojo.internal.Unio
 };
 
 // Struct: AppInfoArgs
-ash.app_install.app_install.mojom.mojom.AppInfoArgsSpec = {
+ash.app_install.mojom.AppInfoArgsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.AppInfoArgs',
@@ -47,7 +47,7 @@ ash.app_install.app_install.mojom.mojom.AppInfoArgsSpec = {
 };
 
 // Struct: AppInfoData
-ash.app_install.app_install.mojom.mojom.AppInfoDataSpec = {
+ash.app_install.mojom.AppInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.AppInfoData',
@@ -66,7 +66,7 @@ ash.app_install.app_install.mojom.mojom.AppInfoDataSpec = {
 };
 
 // Struct: Screenshot
-ash.app_install.app_install.mojom.mojom.ScreenshotSpec = {
+ash.app_install.mojom.ScreenshotSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.Screenshot',
@@ -81,7 +81,7 @@ ash.app_install.app_install.mojom.mojom.ScreenshotSpec = {
 };
 
 // Struct: NoAppErrorArgs
-ash.app_install.app_install.mojom.mojom.NoAppErrorArgsSpec = {
+ash.app_install.mojom.NoAppErrorArgsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.NoAppErrorArgs',
@@ -94,24 +94,48 @@ ash.app_install.app_install.mojom.mojom.NoAppErrorArgsSpec = {
 };
 
 // Interface: AppInfoActions
-ash.app_install.app_install.mojom.mojom.AppInfoActions = {};
+ash.app_install.mojom.AppInfoActions = {};
 
-ash.app_install.app_install.mojom.mojom.AppInfoActionsPendingReceiver = class {
+ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.AppInfoActions_InstallApp_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.app_install.mojom.AppInfoActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.app_install.mojom.mojom.AppInfoActionsRemote = class {
+ash.app_install.mojom.AppInfoActionsRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.AppInfoActions';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.app_install.mojom.mojom.AppInfoActionsPendingReceiver,
+      ash.app_install.mojom.AppInfoActionsPendingReceiver,
       handle);
-    this.$ = new ash.app_install.app_install.mojom.mojom.AppInfoActionsRemoteCallHandler(this.proxy);
+    this.$ = new ash.app_install.mojom.AppInfoActionsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -123,7 +147,7 @@ ash.app_install.app_install.mojom.mojom.AppInfoActionsRemote = class {
   }
 };
 
-ash.app_install.app_install.mojom.mojom.AppInfoActionsRemoteCallHandler = class {
+ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -132,8 +156,8 @@ ash.app_install.app_install.mojom.mojom.AppInfoActionsRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.app_install.mojom.mojom.AppInfoActions_InstallApp_ParamsSpec,
-      ash.app_install.app_install.mojom.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
+      ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec,
+      ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
       []);
   }
 
@@ -141,15 +165,15 @@ ash.app_install.app_install.mojom.mojom.AppInfoActionsRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.app_install.app_install.mojom.mojom.AppInfoActions_LaunchApp_ParamsSpec,
+      ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.app_install.app_install.mojom.mojom.AppInfoActions.getRemote = function() {
-  let remote = new ash.app_install.app_install.mojom.mojom.AppInfoActionsRemote();
+ash.app_install.mojom.AppInfoActions.getRemote = function() {
+  let remote = new ash.app_install.mojom.AppInfoActionsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +183,7 @@ ash.app_install.app_install.mojom.mojom.AppInfoActions.getRemote = function() {
 };
 
 // ParamsSpec for InstallApp
-ash.app_install.app_install.mojom.mojom.AppInfoActions_InstallApp_ParamsSpec = {
+ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.AppInfoActions.InstallApp_Params',
@@ -171,7 +195,7 @@ ash.app_install.app_install.mojom.mojom.AppInfoActions_InstallApp_ParamsSpec = {
   }
 };
 
-ash.app_install.app_install.mojom.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
+ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.AppInfoActions.InstallApp_ResponseParams',
@@ -185,7 +209,7 @@ ash.app_install.app_install.mojom.mojom.AppInfoActions_InstallApp_ResponseParams
 };
 
 // ParamsSpec for LaunchApp
-ash.app_install.app_install.mojom.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
+ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.AppInfoActions.LaunchApp_Params',
@@ -198,29 +222,41 @@ ash.app_install.app_install.mojom.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.app_install.app_install.mojom.mojom.AppInfoActionsPtr = ash.app_install.app_install.mojom.mojom.AppInfoActionsRemote;
-ash.app_install.app_install.mojom.mojom.AppInfoActionsRequest = ash.app_install.app_install.mojom.mojom.AppInfoActionsPendingReceiver;
+ash.app_install.mojom.AppInfoActionsPtr = ash.app_install.mojom.AppInfoActionsRemote;
+ash.app_install.mojom.AppInfoActionsRequest = ash.app_install.mojom.AppInfoActionsPendingReceiver;
 
 
 // Interface: ConnectionErrorActions
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActions = {};
+ash.app_install.mojom.ConnectionErrorActions = {};
 
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsPendingReceiver = class {
+ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.app_install.mojom.ConnectionErrorActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRemote = class {
+ash.app_install.mojom.ConnectionErrorActionsRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.ConnectionErrorActions';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsPendingReceiver,
+      ash.app_install.mojom.ConnectionErrorActionsPendingReceiver,
       handle);
-    this.$ = new ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRemoteCallHandler(this.proxy);
+    this.$ = new ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -232,7 +268,7 @@ ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRemote = class {
   }
 };
 
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRemoteCallHandler = class {
+ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -241,15 +277,15 @@ ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRemoteCallHandler 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.app_install.mojom.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
+      ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActions.getRemote = function() {
-  let remote = new ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRemote();
+ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
+  let remote = new ash.app_install.mojom.ConnectionErrorActionsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -259,7 +295,7 @@ ash.app_install.app_install.mojom.mojom.ConnectionErrorActions.getRemote = funct
 };
 
 // ParamsSpec for TryAgain
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
+ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.ConnectionErrorActions.TryAgain_Params',
@@ -272,29 +308,42 @@ ash.app_install.app_install.mojom.mojom.ConnectionErrorActions_TryAgain_ParamsSp
 };
 
 // Legacy compatibility
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsPtr = ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRemote;
-ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsRequest = ash.app_install.app_install.mojom.mojom.ConnectionErrorActionsPendingReceiver;
+ash.app_install.mojom.ConnectionErrorActionsPtr = ash.app_install.mojom.ConnectionErrorActionsRemote;
+ash.app_install.mojom.ConnectionErrorActionsRequest = ash.app_install.mojom.ConnectionErrorActionsPendingReceiver;
 
 
 // Interface: PageHandlerFactory
-ash.app_install.app_install.mojom.mojom.PageHandlerFactory = {};
+ash.app_install.mojom.PageHandlerFactory = {};
 
-ash.app_install.app_install.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.app_install.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRemote = class {
+ash.app_install.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.app_install.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      ash.app_install.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -306,7 +355,7 @@ ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -315,15 +364,15 @@ ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.app_install.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-ash.app_install.app_install.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRemote();
+ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new ash.app_install.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -333,7 +382,7 @@ ash.app_install.app_install.mojom.mojom.PageHandlerFactory.getRemote = function(
 };
 
 // ParamsSpec for CreatePageHandler
-ash.app_install.app_install.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -347,29 +396,53 @@ ash.app_install.app_install.mojom.mojom.PageHandlerFactory_CreatePageHandler_Par
 };
 
 // Legacy compatibility
-ash.app_install.app_install.mojom.mojom.PageHandlerFactoryPtr = ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRemote;
-ash.app_install.app_install.mojom.mojom.PageHandlerFactoryRequest = ash.app_install.app_install.mojom.mojom.PageHandlerFactoryPendingReceiver;
+ash.app_install.mojom.PageHandlerFactoryPtr = ash.app_install.mojom.PageHandlerFactoryRemote;
+ash.app_install.mojom.PageHandlerFactoryRequest = ash.app_install.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.app_install.app_install.mojom.mojom.PageHandler = {};
+ash.app_install.mojom.PageHandler = {};
 
-ash.app_install.app_install.mojom.mojom.PageHandlerPendingReceiver = class {
+ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.PageHandler_CloseDialog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.app_install.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.app_install.mojom.mojom.PageHandlerRemote = class {
+ash.app_install.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.app_install.mojom.mojom.PageHandlerPendingReceiver,
+      ash.app_install.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.app_install.app_install.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.app_install.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -381,7 +454,7 @@ ash.app_install.app_install.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.app_install.app_install.mojom.mojom.PageHandlerRemoteCallHandler = class {
+ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -390,8 +463,8 @@ ash.app_install.app_install.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.app_install.mojom.mojom.PageHandler_GetDialogArgs_ParamsSpec,
-      ash.app_install.app_install.mojom.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
+      ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec,
+      ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
       []);
   }
 
@@ -399,15 +472,15 @@ ash.app_install.app_install.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.app_install.app_install.mojom.mojom.PageHandler_CloseDialog_ParamsSpec,
+      ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.app_install.app_install.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.app_install.app_install.mojom.mojom.PageHandlerRemote();
+ash.app_install.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.app_install.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -417,7 +490,7 @@ ash.app_install.app_install.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetDialogArgs
-ash.app_install.app_install.mojom.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
+ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_Params',
@@ -429,7 +502,7 @@ ash.app_install.app_install.mojom.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
   }
 };
 
-ash.app_install.app_install.mojom.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
+ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_ResponseParams',
@@ -443,7 +516,7 @@ ash.app_install.app_install.mojom.mojom.PageHandler_GetDialogArgs_ResponseParams
 };
 
 // ParamsSpec for CloseDialog
-ash.app_install.app_install.mojom.mojom.PageHandler_CloseDialog_ParamsSpec = {
+ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.PageHandler.CloseDialog_Params',
@@ -456,6 +529,6 @@ ash.app_install.app_install.mojom.mojom.PageHandler_CloseDialog_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.app_install.app_install.mojom.mojom.PageHandlerPtr = ash.app_install.app_install.mojom.mojom.PageHandlerRemote;
-ash.app_install.app_install.mojom.mojom.PageHandlerRequest = ash.app_install.app_install.mojom.mojom.PageHandlerPendingReceiver;
+ash.app_install.mojom.PageHandlerPtr = ash.app_install.mojom.PageHandlerRemote;
+ash.app_install.mojom.PageHandlerRequest = ash.app_install.mojom.PageHandlerPendingReceiver;
 

@@ -10,24 +10,37 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BrowserInterfaceBroker
-blink.mojom.mojom.BrowserInterfaceBroker = {};
+blink.mojom.BrowserInterfaceBroker = {};
 
-blink.mojom.mojom.BrowserInterfaceBrokerPendingReceiver = class {
+blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BrowserInterfaceBroker_GetInterface_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.BrowserInterfaceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.BrowserInterfaceBrokerRemote = class {
+blink.mojom.BrowserInterfaceBrokerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BrowserInterfaceBroker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.BrowserInterfaceBrokerPendingReceiver,
+      blink.mojom.BrowserInterfaceBrokerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.BrowserInterfaceBrokerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.BrowserInterfaceBrokerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ blink.mojom.mojom.BrowserInterfaceBrokerRemote = class {
   }
 };
 
-blink.mojom.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {
+blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ blink.mojom.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec,
+      blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-blink.mojom.mojom.BrowserInterfaceBroker.getRemote = function() {
-  let remote = new blink.mojom.mojom.BrowserInterfaceBrokerRemote();
+blink.mojom.BrowserInterfaceBroker.getRemote = function() {
+  let remote = new blink.mojom.BrowserInterfaceBrokerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ blink.mojom.mojom.BrowserInterfaceBroker.getRemote = function() {
 };
 
 // ParamsSpec for GetInterface
-blink.mojom.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
+blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BrowserInterfaceBroker.GetInterface_Params',
@@ -80,6 +93,6 @@ blink.mojom.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.BrowserInterfaceBrokerPtr = blink.mojom.mojom.BrowserInterfaceBrokerRemote;
-blink.mojom.mojom.BrowserInterfaceBrokerRequest = blink.mojom.mojom.BrowserInterfaceBrokerPendingReceiver;
+blink.mojom.BrowserInterfaceBrokerPtr = blink.mojom.BrowserInterfaceBrokerRemote;
+blink.mojom.BrowserInterfaceBrokerRequest = blink.mojom.BrowserInterfaceBrokerPendingReceiver;
 

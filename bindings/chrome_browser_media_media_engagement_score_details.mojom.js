@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: MediaEngagementScoreDetails
-media.mojom.mojom.MediaEngagementScoreDetailsSpec = {
+media.mojom.MediaEngagementScoreDetailsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetails',
@@ -30,7 +30,7 @@ media.mojom.mojom.MediaEngagementScoreDetailsSpec = {
 };
 
 // Struct: MediaEngagementConfig
-media.mojom.mojom.MediaEngagementConfigSpec = {
+media.mojom.MediaEngagementConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementConfig',
@@ -55,24 +55,48 @@ media.mojom.mojom.MediaEngagementConfigSpec = {
 };
 
 // Interface: MediaEngagementScoreDetailsProvider
-media.mojom.mojom.MediaEngagementScoreDetailsProvider = {};
+media.mojom.MediaEngagementScoreDetailsProvider = {};
 
-media.mojom.mojom.MediaEngagementScoreDetailsProviderPendingReceiver = class {
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.MediaEngagementScoreDetailsProviderRemote = class {
+media.mojom.MediaEngagementScoreDetailsProviderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaEngagementScoreDetailsProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.MediaEngagementScoreDetailsProviderPendingReceiver,
+      media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -84,7 +108,7 @@ media.mojom.mojom.MediaEngagementScoreDetailsProviderRemote = class {
   }
 };
 
-media.mojom.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
+media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -93,8 +117,8 @@ media.mojom.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
-      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
+      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
+      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
       []);
   }
 
@@ -102,15 +126,15 @@ media.mojom.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
-      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
+      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
+      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
       []);
   }
 
 };
 
-media.mojom.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
-  let remote = new media.mojom.mojom.MediaEngagementScoreDetailsProviderRemote();
+media.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
+  let remote = new media.mojom.MediaEngagementScoreDetailsProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +144,7 @@ media.mojom.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetMediaEngagementScoreDetails
-media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_Params',
@@ -132,7 +156,7 @@ media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDet
   }
 };
 
-media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = {
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_ResponseParams',
@@ -146,7 +170,7 @@ media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDet
 };
 
 // ParamsSpec for GetMediaEngagementConfig
-media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_Params',
@@ -158,7 +182,7 @@ media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_P
   }
 };
 
-media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = {
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_ResponseParams',
@@ -172,6 +196,6 @@ media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_R
 };
 
 // Legacy compatibility
-media.mojom.mojom.MediaEngagementScoreDetailsProviderPtr = media.mojom.mojom.MediaEngagementScoreDetailsProviderRemote;
-media.mojom.mojom.MediaEngagementScoreDetailsProviderRequest = media.mojom.mojom.MediaEngagementScoreDetailsProviderPendingReceiver;
+media.mojom.MediaEngagementScoreDetailsProviderPtr = media.mojom.MediaEngagementScoreDetailsProviderRemote;
+media.mojom.MediaEngagementScoreDetailsProviderRequest = media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver;
 

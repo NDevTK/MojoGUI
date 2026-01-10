@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: JavaScriptFramework
-blink.mojom.mojom.JavaScriptFramework = {
+blink.mojom.JavaScriptFramework = {
   kNuxt: 0,
   kVuePress: 1,
   kSapper: 2,
@@ -28,10 +28,10 @@ blink.mojom.mojom.JavaScriptFramework = {
   kWix: 14,
   kWordPress: 15,
 };
-blink.mojom.mojom.JavaScriptFrameworkSpec = { $: mojo.internal.Enum() };
+blink.mojom.JavaScriptFrameworkSpec = { $: mojo.internal.Enum() };
 
 // Struct: JavaScriptFrameworkDetectionResult
-blink.mojom.mojom.JavaScriptFrameworkDetectionResultSpec = {
+blink.mojom.JavaScriptFrameworkDetectionResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.JavaScriptFrameworkDetectionResult',

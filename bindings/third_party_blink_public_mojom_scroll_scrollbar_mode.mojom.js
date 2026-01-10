@@ -10,9 +10,9 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ScrollbarMode
-blink.mojom.mojom.ScrollbarMode = {
+blink.mojom.ScrollbarMode = {
   kAuto: 0,
   kAlwaysOff: 1,
   kAlwaysOn: 2,
 };
-blink.mojom.mojom.ScrollbarModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ScrollbarModeSpec = { $: mojo.internal.Enum() };

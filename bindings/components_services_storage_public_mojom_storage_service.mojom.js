@@ -9,29 +9,96 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 
 
-storage.mojom.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kUtility;
+storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kUtility;
 
-storage.mojom.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kService;
+storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kService;
 
 // Interface: StorageService
-storage.mojom.mojom.StorageService = {};
+storage.mojom.StorageService = {};
 
-storage.mojom.mojom.StorageServicePendingReceiver = class {
+storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.StorageService_SetDataDirectory_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.StorageService_BindSessionStorageControl_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.SessionStorageControlRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.StorageService_BindLocalStorageControl_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.LocalStorageControlRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.StorageService_BindTestApi_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.StorageService_BindTestApi_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'test_api_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.StorageServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.StorageServiceRemote = class {
+storage.mojom.StorageServiceRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.StorageService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.StorageServicePendingReceiver,
+      storage.mojom.StorageServicePendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.StorageServiceRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.StorageServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -43,7 +110,7 @@ storage.mojom.mojom.StorageServiceRemote = class {
   }
 };
 
-storage.mojom.mojom.StorageServiceRemoteCallHandler = class {
+storage.mojom.StorageServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -52,7 +119,7 @@ storage.mojom.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec,
+      storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec,
       null,
       []);
   }
@@ -61,7 +128,7 @@ storage.mojom.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.StorageService_SetDataDirectory_ParamsSpec,
+      storage.mojom.StorageService_SetDataDirectory_ParamsSpec,
       null,
       [path, directory]);
   }
@@ -70,7 +137,7 @@ storage.mojom.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
+      storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
       null,
       [path, receiver]);
   }
@@ -79,7 +146,7 @@ storage.mojom.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.mojom.StorageService_BindLocalStorageControl_ParamsSpec,
+      storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec,
       null,
       [path, receiver]);
   }
@@ -88,15 +155,15 @@ storage.mojom.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.mojom.StorageService_BindTestApi_ParamsSpec,
+      storage.mojom.StorageService_BindTestApi_ParamsSpec,
       null,
       [test_api_receiver]);
   }
 
 };
 
-storage.mojom.mojom.StorageService.getRemote = function() {
-  let remote = new storage.mojom.mojom.StorageServiceRemote();
+storage.mojom.StorageService.getRemote = function() {
+  let remote = new storage.mojom.StorageServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -106,7 +173,7 @@ storage.mojom.mojom.StorageService.getRemote = function() {
 };
 
 // ParamsSpec for EnableAggressiveDomStorageFlushing
-storage.mojom.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
+storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageService.EnableAggressiveDomStorageFlushing_Params',
@@ -119,7 +186,7 @@ storage.mojom.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec
 };
 
 // ParamsSpec for SetDataDirectory
-storage.mojom.mojom.StorageService_SetDataDirectory_ParamsSpec = {
+storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageService.SetDataDirectory_Params',
@@ -134,7 +201,7 @@ storage.mojom.mojom.StorageService_SetDataDirectory_ParamsSpec = {
 };
 
 // ParamsSpec for BindSessionStorageControl
-storage.mojom.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
+storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageService.BindSessionStorageControl_Params',
@@ -149,7 +216,7 @@ storage.mojom.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
 };
 
 // ParamsSpec for BindLocalStorageControl
-storage.mojom.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
+storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageService.BindLocalStorageControl_Params',
@@ -164,7 +231,7 @@ storage.mojom.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
 };
 
 // ParamsSpec for BindTestApi
-storage.mojom.mojom.StorageService_BindTestApi_ParamsSpec = {
+storage.mojom.StorageService_BindTestApi_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageService.BindTestApi_Params',
@@ -178,6 +245,6 @@ storage.mojom.mojom.StorageService_BindTestApi_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.StorageServicePtr = storage.mojom.mojom.StorageServiceRemote;
-storage.mojom.mojom.StorageServiceRequest = storage.mojom.mojom.StorageServicePendingReceiver;
+storage.mojom.StorageServicePtr = storage.mojom.StorageServiceRemote;
+storage.mojom.StorageServiceRequest = storage.mojom.StorageServicePendingReceiver;
 

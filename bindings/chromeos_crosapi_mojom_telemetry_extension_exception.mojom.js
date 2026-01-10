@@ -10,15 +10,15 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: Reason
-crosapi.mojom.mojom.Reason = {
+crosapi.mojom.Reason = {
   kMojoDisconnectWithoutReason: 0,
   kUnexpected: 1,
   kUnsupported: 2,
 };
-crosapi.mojom.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: TelemetryExtensionSupportStatus
-crosapi.mojom.mojom.TelemetryExtensionSupportStatusSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryExtensionSupportStatusSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryExtensionSupportStatus', {
       'unmapped_union_field': {
         'ordinal': 0,
@@ -40,7 +40,7 @@ crosapi.mojom.mojom.TelemetryExtensionSupportStatusSpec = { $: mojo.internal.Uni
 };
 
 // Union: TelemetryExtensionUnsupportedReason
-crosapi.mojom.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryExtensionUnsupportedReason', {
       'unmapped_union_field': {
         'ordinal': 0,
@@ -50,7 +50,7 @@ crosapi.mojom.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: mojo.internal
 };
 
 // Struct: TelemetryExtensionException
-crosapi.mojom.mojom.TelemetryExtensionExceptionSpec = {
+crosapi.mojom.TelemetryExtensionExceptionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExtensionException',
@@ -64,7 +64,7 @@ crosapi.mojom.mojom.TelemetryExtensionExceptionSpec = {
 };
 
 // Struct: TelemetryExtensionSupported
-crosapi.mojom.mojom.TelemetryExtensionSupportedSpec = {
+crosapi.mojom.TelemetryExtensionSupportedSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExtensionSupported',
@@ -77,7 +77,7 @@ crosapi.mojom.mojom.TelemetryExtensionSupportedSpec = {
 };
 
 // Struct: TelemetryExtensionUnsupported
-crosapi.mojom.mojom.TelemetryExtensionUnsupportedSpec = {
+crosapi.mojom.TelemetryExtensionUnsupportedSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExtensionUnsupported',

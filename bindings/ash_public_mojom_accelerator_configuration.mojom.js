@@ -10,7 +10,7 @@ ash.mojom = ash.mojom || {};
 
 
 // Enum: AcceleratorConfigResult
-ash.mojom.mojom.AcceleratorConfigResult = {
+ash.mojom.AcceleratorConfigResult = {
   kSuccess: 0,
   kActionLocked: 1,
   kAcceleratorLocked: 2,
@@ -28,4 +28,4 @@ ash.mojom.mojom.AcceleratorConfigResult = {
   kNonStandardWithSearch: 14,
   kBlockQuickInsert: 15,
 };
-ash.mojom.mojom.AcceleratorConfigResultSpec = { $: mojo.internal.Enum() };
+ash.mojom.AcceleratorConfigResultSpec = { $: mojo.internal.Enum() };

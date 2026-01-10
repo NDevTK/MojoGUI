@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: FileInfo
-mojo_base.mojom.mojom.FileInfoSpec = {
+mojo_base.mojom.FileInfoSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.FileInfo',

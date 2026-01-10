@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: PinSet
-network.mojom.mojom.PinSetSpec = {
+network.mojom.PinSetSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PinSet',
@@ -26,7 +26,7 @@ network.mojom.mojom.PinSetSpec = {
 };
 
 // Struct: PinSetInfo
-network.mojom.mojom.PinSetInfoSpec = {
+network.mojom.PinSetInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PinSetInfo',
@@ -42,7 +42,7 @@ network.mojom.mojom.PinSetInfoSpec = {
 };
 
 // Struct: PinList
-network.mojom.mojom.PinListSpec = {
+network.mojom.PinListSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PinList',

@@ -10,14 +10,14 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Enum: Code
-webnn.mojom.mojom.Code = {
+webnn.mojom.Code = {
   kUnknownError: 0,
   kNotSupportedError: 1,
 };
-webnn.mojom.mojom.CodeSpec = { $: mojo.internal.Enum() };
+webnn.mojom.CodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Error
-webnn.mojom.mojom.ErrorSpec = {
+webnn.mojom.ErrorSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Error',

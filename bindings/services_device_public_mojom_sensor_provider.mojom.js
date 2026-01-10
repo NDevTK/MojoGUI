@@ -9,38 +9,38 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
-device.mojom.mojom.kReadBufferSizeForTests = 48;
+device.mojom.kReadBufferSizeForTests = 48;
 
 // Enum: SensorCreationResult
-device.mojom.mojom.SensorCreationResult = {
+device.mojom.SensorCreationResult = {
   SUCCESS: 0,
   ERROR_NOT_AVAILABLE: 1,
   ERROR_NOT_ALLOWED: 2,
 };
-device.mojom.mojom.SensorCreationResultSpec = { $: mojo.internal.Enum() };
+device.mojom.SensorCreationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateVirtualSensorResult
-device.mojom.mojom.CreateVirtualSensorResult = {
+device.mojom.CreateVirtualSensorResult = {
   kSuccess: 0,
   kSensorTypeAlreadyOverridden: 1,
 };
-device.mojom.mojom.CreateVirtualSensorResultSpec = { $: mojo.internal.Enum() };
+device.mojom.CreateVirtualSensorResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateVirtualSensorResult
-device.mojom.mojom.UpdateVirtualSensorResult = {
+device.mojom.UpdateVirtualSensorResult = {
   kSuccess: 0,
   kSensorTypeNotOverridden: 1,
 };
-device.mojom.mojom.UpdateVirtualSensorResultSpec = { $: mojo.internal.Enum() };
+device.mojom.UpdateVirtualSensorResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetVirtualSensorInformationError
-device.mojom.mojom.GetVirtualSensorInformationError = {
+device.mojom.GetVirtualSensorInformationError = {
   kSensorTypeNotOverridden: 0,
 };
-device.mojom.mojom.GetVirtualSensorInformationErrorSpec = { $: mojo.internal.Enum() };
+device.mojom.GetVirtualSensorInformationErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: GetVirtualSensorInformationResult
-device.mojom.mojom.GetVirtualSensorInformationResultSpec = { $: mojo.internal.Union(
+device.mojom.GetVirtualSensorInformationResultSpec = { $: mojo.internal.Union(
     'device.mojom.GetVirtualSensorInformationResult', {
       'info': {
         'ordinal': 0,
@@ -54,7 +54,7 @@ device.mojom.mojom.GetVirtualSensorInformationResultSpec = { $: mojo.internal.Un
 };
 
 // Struct: SensorInitParams
-device.mojom.mojom.SensorInitParamsSpec = {
+device.mojom.SensorInitParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorInitParams',
@@ -76,7 +76,7 @@ device.mojom.mojom.SensorInitParamsSpec = {
 };
 
 // Struct: VirtualSensorMetadata
-device.mojom.mojom.VirtualSensorMetadataSpec = {
+device.mojom.VirtualSensorMetadataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VirtualSensorMetadata',
@@ -95,7 +95,7 @@ device.mojom.mojom.VirtualSensorMetadataSpec = {
 };
 
 // Struct: VirtualSensorInformation
-device.mojom.mojom.VirtualSensorInformationSpec = {
+device.mojom.VirtualSensorInformationSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VirtualSensorInformation',
@@ -109,24 +109,91 @@ device.mojom.mojom.VirtualSensorInformationSpec = {
 };
 
 // Interface: SensorProvider
-device.mojom.mojom.SensorProvider = {};
+device.mojom.SensorProvider = {};
 
-device.mojom.mojom.SensorProviderPendingReceiver = class {
+device.mojom.SensorProvider_GetSensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorProvider_GetSensor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorProvider_CreateVirtualSensor_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: device.mojom.VirtualSensorMetadataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorProvider_UpdateVirtualSensor_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'reading', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorReadingRawSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorProvider_RemoveVirtualSensor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorProvider_GetVirtualSensorInformation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.SensorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.SensorProviderRemote = class {
+device.mojom.SensorProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SensorProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.SensorProviderPendingReceiver,
+      device.mojom.SensorProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.SensorProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.SensorProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -138,7 +205,7 @@ device.mojom.mojom.SensorProviderRemote = class {
   }
 };
 
-device.mojom.mojom.SensorProviderRemoteCallHandler = class {
+device.mojom.SensorProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -147,8 +214,8 @@ device.mojom.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.SensorProvider_GetSensor_ParamsSpec,
-      device.mojom.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
+      device.mojom.SensorProvider_GetSensor_ParamsSpec,
+      device.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
       [type]);
   }
 
@@ -156,8 +223,8 @@ device.mojom.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec,
-      device.mojom.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
+      device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec,
+      device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
       [type, metadata]);
   }
 
@@ -165,8 +232,8 @@ device.mojom.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec,
-      device.mojom.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
+      device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec,
+      device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
       [type, reading]);
   }
 
@@ -174,7 +241,7 @@ device.mojom.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec,
+      device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec,
       null,
       [type]);
   }
@@ -183,15 +250,15 @@ device.mojom.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec,
-      device.mojom.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
+      device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec,
+      device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
       [type]);
   }
 
 };
 
-device.mojom.mojom.SensorProvider.getRemote = function() {
-  let remote = new device.mojom.mojom.SensorProviderRemote();
+device.mojom.SensorProvider.getRemote = function() {
+  let remote = new device.mojom.SensorProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -201,7 +268,7 @@ device.mojom.mojom.SensorProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetSensor
-device.mojom.mojom.SensorProvider_GetSensor_ParamsSpec = {
+device.mojom.SensorProvider_GetSensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.GetSensor_Params',
@@ -214,7 +281,7 @@ device.mojom.mojom.SensorProvider_GetSensor_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
+device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.GetSensor_ResponseParams',
@@ -229,7 +296,7 @@ device.mojom.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateVirtualSensor
-device.mojom.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
+device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.CreateVirtualSensor_Params',
@@ -243,7 +310,7 @@ device.mojom.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
+device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.CreateVirtualSensor_ResponseParams',
@@ -257,7 +324,7 @@ device.mojom.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpdateVirtualSensor
-device.mojom.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
+device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.UpdateVirtualSensor_Params',
@@ -271,7 +338,7 @@ device.mojom.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
+device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.UpdateVirtualSensor_ResponseParams',
@@ -285,7 +352,7 @@ device.mojom.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveVirtualSensor
-device.mojom.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
+device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.RemoveVirtualSensor_Params',
@@ -299,7 +366,7 @@ device.mojom.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
 };
 
 // ParamsSpec for GetVirtualSensorInformation
-device.mojom.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
+device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.GetVirtualSensorInformation_Params',
@@ -312,7 +379,7 @@ device.mojom.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = {
+device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorProvider.GetVirtualSensorInformation_ResponseParams',
@@ -326,6 +393,6 @@ device.mojom.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec
 };
 
 // Legacy compatibility
-device.mojom.mojom.SensorProviderPtr = device.mojom.mojom.SensorProviderRemote;
-device.mojom.mojom.SensorProviderRequest = device.mojom.mojom.SensorProviderPendingReceiver;
+device.mojom.SensorProviderPtr = device.mojom.SensorProviderRemote;
+device.mojom.SensorProviderRequest = device.mojom.SensorProviderPendingReceiver;
 

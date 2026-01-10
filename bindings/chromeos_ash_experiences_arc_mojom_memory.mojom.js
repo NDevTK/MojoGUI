@@ -10,14 +10,14 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ReclaimType
-arc.mojom.mojom.ReclaimType = {
+arc.mojom.ReclaimType = {
   ANON: 0,
   ALL: 1,
 };
-arc.mojom.mojom.ReclaimTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ReclaimTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ReclaimRequest
-arc.mojom.mojom.ReclaimRequestSpec = {
+arc.mojom.ReclaimRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ReclaimRequest',
@@ -31,7 +31,7 @@ arc.mojom.mojom.ReclaimRequestSpec = {
 };
 
 // Struct: ReclaimResult
-arc.mojom.mojom.ReclaimResultSpec = {
+arc.mojom.ReclaimResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ReclaimResult',
@@ -46,24 +46,49 @@ arc.mojom.mojom.ReclaimResultSpec = {
 };
 
 // Interface: MemoryInstance
-arc.mojom.mojom.MemoryInstance = {};
+arc.mojom.MemoryInstance = {};
 
-arc.mojom.mojom.MemoryInstancePendingReceiver = class {
+arc.mojom.MemoryInstance_DropCaches_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MemoryInstance_DropCaches_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.MemoryInstance_Reclaim_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MemoryInstance_Reclaim_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ReclaimRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.MemoryInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.MemoryInstanceRemote = class {
+arc.mojom.MemoryInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.MemoryInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.MemoryInstancePendingReceiver,
+      arc.mojom.MemoryInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.MemoryInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.MemoryInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -75,7 +100,7 @@ arc.mojom.mojom.MemoryInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.MemoryInstanceRemoteCallHandler = class {
+arc.mojom.MemoryInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -84,8 +109,8 @@ arc.mojom.mojom.MemoryInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.MemoryInstance_DropCaches_ParamsSpec,
-      arc.mojom.mojom.MemoryInstance_DropCaches_ResponseParamsSpec,
+      arc.mojom.MemoryInstance_DropCaches_ParamsSpec,
+      arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec,
       []);
   }
 
@@ -93,15 +118,15 @@ arc.mojom.mojom.MemoryInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.MemoryInstance_Reclaim_ParamsSpec,
-      arc.mojom.mojom.MemoryInstance_Reclaim_ResponseParamsSpec,
+      arc.mojom.MemoryInstance_Reclaim_ParamsSpec,
+      arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-arc.mojom.mojom.MemoryInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.MemoryInstanceRemote();
+arc.mojom.MemoryInstance.getRemote = function() {
+  let remote = new arc.mojom.MemoryInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -111,7 +136,7 @@ arc.mojom.mojom.MemoryInstance.getRemote = function() {
 };
 
 // ParamsSpec for DropCaches
-arc.mojom.mojom.MemoryInstance_DropCaches_ParamsSpec = {
+arc.mojom.MemoryInstance_DropCaches_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MemoryInstance.DropCaches_Params',
@@ -123,7 +148,7 @@ arc.mojom.mojom.MemoryInstance_DropCaches_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.MemoryInstance_DropCaches_ResponseParamsSpec = {
+arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MemoryInstance.DropCaches_ResponseParams',
@@ -137,7 +162,7 @@ arc.mojom.mojom.MemoryInstance_DropCaches_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Reclaim
-arc.mojom.mojom.MemoryInstance_Reclaim_ParamsSpec = {
+arc.mojom.MemoryInstance_Reclaim_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MemoryInstance.Reclaim_Params',
@@ -150,7 +175,7 @@ arc.mojom.mojom.MemoryInstance_Reclaim_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.MemoryInstance_Reclaim_ResponseParamsSpec = {
+arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MemoryInstance.Reclaim_ResponseParams',
@@ -164,6 +189,6 @@ arc.mojom.mojom.MemoryInstance_Reclaim_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.MemoryInstancePtr = arc.mojom.mojom.MemoryInstanceRemote;
-arc.mojom.mojom.MemoryInstanceRequest = arc.mojom.mojom.MemoryInstancePendingReceiver;
+arc.mojom.MemoryInstancePtr = arc.mojom.MemoryInstanceRemote;
+arc.mojom.MemoryInstanceRequest = arc.mojom.MemoryInstancePendingReceiver;
 

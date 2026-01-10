@@ -12,24 +12,38 @@ var blink = blink || {};
 
 
 // Interface: RouteProvider
-content.mojom.mojom.RouteProvider = {};
+content.mojom.RouteProvider = {};
 
-content.mojom.mojom.RouteProviderPendingReceiver = class {
+content.mojom.RouteProvider_GetRoute_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RouteProvider_GetRoute_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.RouteProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.RouteProviderRemote = class {
+content.mojom.RouteProviderRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RouteProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.RouteProviderPendingReceiver,
+      content.mojom.RouteProviderPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.RouteProviderRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.RouteProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +55,7 @@ content.mojom.mojom.RouteProviderRemote = class {
   }
 };
 
-content.mojom.mojom.RouteProviderRemoteCallHandler = class {
+content.mojom.RouteProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,15 +64,15 @@ content.mojom.mojom.RouteProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.RouteProvider_GetRoute_ParamsSpec,
+      content.mojom.RouteProvider_GetRoute_ParamsSpec,
       null,
       [frame_token, receiver]);
   }
 
 };
 
-content.mojom.mojom.RouteProvider.getRemote = function() {
-  let remote = new content.mojom.mojom.RouteProviderRemote();
+content.mojom.RouteProvider.getRemote = function() {
+  let remote = new content.mojom.RouteProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -68,7 +82,7 @@ content.mojom.mojom.RouteProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetRoute
-content.mojom.mojom.RouteProvider_GetRoute_ParamsSpec = {
+content.mojom.RouteProvider_GetRoute_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RouteProvider.GetRoute_Params',
@@ -83,6 +97,6 @@ content.mojom.mojom.RouteProvider_GetRoute_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.RouteProviderPtr = content.mojom.mojom.RouteProviderRemote;
-content.mojom.mojom.RouteProviderRequest = content.mojom.mojom.RouteProviderPendingReceiver;
+content.mojom.RouteProviderPtr = content.mojom.RouteProviderRemote;
+content.mojom.RouteProviderRequest = content.mojom.RouteProviderPendingReceiver;
 

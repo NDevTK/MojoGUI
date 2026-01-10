@@ -10,24 +10,37 @@ content.mojom = content.mojom || {};
 
 
 // Interface: MediaInternalLogRecords
-content.mojom.mojom.MediaInternalLogRecords = {};
+content.mojom.MediaInternalLogRecords = {};
 
-content.mojom.mojom.MediaInternalLogRecordsPendingReceiver = class {
+content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.MediaInternalLogRecords_Log_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MediaLogRecordSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.MediaInternalLogRecordsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.MediaInternalLogRecordsRemote = class {
+content.mojom.MediaInternalLogRecordsRemote = class {
   static get $interfaceName() {
     return 'content.mojom.MediaInternalLogRecords';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.MediaInternalLogRecordsPendingReceiver,
+      content.mojom.MediaInternalLogRecordsPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.MediaInternalLogRecordsRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.MediaInternalLogRecordsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ content.mojom.mojom.MediaInternalLogRecordsRemote = class {
   }
 };
 
-content.mojom.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
+content.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ content.mojom.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.MediaInternalLogRecords_Log_ParamsSpec,
+      content.mojom.MediaInternalLogRecords_Log_ParamsSpec,
       null,
       [events]);
   }
 
 };
 
-content.mojom.mojom.MediaInternalLogRecords.getRemote = function() {
-  let remote = new content.mojom.mojom.MediaInternalLogRecordsRemote();
+content.mojom.MediaInternalLogRecords.getRemote = function() {
+  let remote = new content.mojom.MediaInternalLogRecordsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ content.mojom.mojom.MediaInternalLogRecords.getRemote = function() {
 };
 
 // ParamsSpec for Log
-content.mojom.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
+content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MediaInternalLogRecords.Log_Params',
@@ -80,6 +93,6 @@ content.mojom.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.MediaInternalLogRecordsPtr = content.mojom.mojom.MediaInternalLogRecordsRemote;
-content.mojom.mojom.MediaInternalLogRecordsRequest = content.mojom.mojom.MediaInternalLogRecordsPendingReceiver;
+content.mojom.MediaInternalLogRecordsPtr = content.mojom.MediaInternalLogRecordsRemote;
+content.mojom.MediaInternalLogRecordsRequest = content.mojom.MediaInternalLogRecordsPendingReceiver;
 

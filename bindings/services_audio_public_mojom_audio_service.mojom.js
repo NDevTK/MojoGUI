@@ -10,24 +10,115 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: AudioService
-audio.mojom.mojom.AudioService = {};
+audio.mojom.AudioService = {};
 
-audio.mojom.mojom.AudioServicePendingReceiver = class {
+audio.mojom.AudioService_BindSystemInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioService_BindSystemInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.SystemInfoRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.AudioService_BindDebugRecording_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioService_BindDebugRecording_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.DebugRecordingRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.AudioService_BindStreamFactory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioService_BindStreamFactory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioService_BindDeviceNotifier_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.DeviceNotifierRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioService_BindLogFactoryManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.LogFactoryManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.AudioService_BindTestingApi_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioService_BindTestingApi_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.TestingApiRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.AudioService_BindMlModelManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioService_BindMlModelManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.MlModelManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.AudioServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.mojom.AudioServiceRemote = class {
+audio.mojom.AudioServiceRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.AudioService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.mojom.AudioServicePendingReceiver,
+      audio.mojom.AudioServicePendingReceiver,
       handle);
-    this.$ = new audio.mojom.mojom.AudioServiceRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.AudioServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +130,7 @@ audio.mojom.mojom.AudioServiceRemote = class {
   }
 };
 
-audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
+audio.mojom.AudioServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +139,7 @@ audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.mojom.AudioService_BindSystemInfo_ParamsSpec,
+      audio.mojom.AudioService_BindSystemInfo_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +148,7 @@ audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.mojom.AudioService_BindDebugRecording_ParamsSpec,
+      audio.mojom.AudioService_BindDebugRecording_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +157,7 @@ audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      audio.mojom.mojom.AudioService_BindStreamFactory_ParamsSpec,
+      audio.mojom.AudioService_BindStreamFactory_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +166,7 @@ audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      audio.mojom.mojom.AudioService_BindDeviceNotifier_ParamsSpec,
+      audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec,
       null,
       [receiver]);
   }
@@ -84,7 +175,7 @@ audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      audio.mojom.mojom.AudioService_BindLogFactoryManager_ParamsSpec,
+      audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -93,7 +184,7 @@ audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      audio.mojom.mojom.AudioService_BindTestingApi_ParamsSpec,
+      audio.mojom.AudioService_BindTestingApi_ParamsSpec,
       null,
       [receiver]);
   }
@@ -102,15 +193,15 @@ audio.mojom.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      audio.mojom.mojom.AudioService_BindMlModelManager_ParamsSpec,
+      audio.mojom.AudioService_BindMlModelManager_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-audio.mojom.mojom.AudioService.getRemote = function() {
-  let remote = new audio.mojom.mojom.AudioServiceRemote();
+audio.mojom.AudioService.getRemote = function() {
+  let remote = new audio.mojom.AudioServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +211,7 @@ audio.mojom.mojom.AudioService.getRemote = function() {
 };
 
 // ParamsSpec for BindSystemInfo
-audio.mojom.mojom.AudioService_BindSystemInfo_ParamsSpec = {
+audio.mojom.AudioService_BindSystemInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioService.BindSystemInfo_Params',
@@ -134,7 +225,7 @@ audio.mojom.mojom.AudioService_BindSystemInfo_ParamsSpec = {
 };
 
 // ParamsSpec for BindDebugRecording
-audio.mojom.mojom.AudioService_BindDebugRecording_ParamsSpec = {
+audio.mojom.AudioService_BindDebugRecording_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioService.BindDebugRecording_Params',
@@ -148,7 +239,7 @@ audio.mojom.mojom.AudioService_BindDebugRecording_ParamsSpec = {
 };
 
 // ParamsSpec for BindStreamFactory
-audio.mojom.mojom.AudioService_BindStreamFactory_ParamsSpec = {
+audio.mojom.AudioService_BindStreamFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioService.BindStreamFactory_Params',
@@ -162,7 +253,7 @@ audio.mojom.mojom.AudioService_BindStreamFactory_ParamsSpec = {
 };
 
 // ParamsSpec for BindDeviceNotifier
-audio.mojom.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
+audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioService.BindDeviceNotifier_Params',
@@ -176,7 +267,7 @@ audio.mojom.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
 };
 
 // ParamsSpec for BindLogFactoryManager
-audio.mojom.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
+audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioService.BindLogFactoryManager_Params',
@@ -190,7 +281,7 @@ audio.mojom.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindTestingApi
-audio.mojom.mojom.AudioService_BindTestingApi_ParamsSpec = {
+audio.mojom.AudioService_BindTestingApi_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioService.BindTestingApi_Params',
@@ -204,7 +295,7 @@ audio.mojom.mojom.AudioService_BindTestingApi_ParamsSpec = {
 };
 
 // ParamsSpec for BindMlModelManager
-audio.mojom.mojom.AudioService_BindMlModelManager_ParamsSpec = {
+audio.mojom.AudioService_BindMlModelManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioService.BindMlModelManager_Params',
@@ -218,6 +309,6 @@ audio.mojom.mojom.AudioService_BindMlModelManager_ParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.mojom.AudioServicePtr = audio.mojom.mojom.AudioServiceRemote;
-audio.mojom.mojom.AudioServiceRequest = audio.mojom.mojom.AudioServicePendingReceiver;
+audio.mojom.AudioServicePtr = audio.mojom.AudioServiceRemote;
+audio.mojom.AudioServiceRequest = audio.mojom.AudioServicePendingReceiver;
 

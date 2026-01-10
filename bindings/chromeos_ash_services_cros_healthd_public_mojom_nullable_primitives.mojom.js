@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.cros_healthd.mojom = ash.cros_healthd.cros_healthd.mojom || {};
+ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Struct: NullableUint8
-ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint8Spec = {
+ash.cros_healthd.mojom.NullableUint8Spec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NullableUint8',
@@ -25,7 +25,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint8Spec = {
 };
 
 // Struct: NullableInt16
-ash.cros_healthd.cros_healthd.mojom.mojom.NullableInt16Spec = {
+ash.cros_healthd.mojom.NullableInt16Spec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NullableInt16',
@@ -39,7 +39,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NullableInt16Spec = {
 };
 
 // Struct: NullableUint16
-ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint16Spec = {
+ash.cros_healthd.mojom.NullableUint16Spec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NullableUint16',
@@ -53,7 +53,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint16Spec = {
 };
 
 // Struct: NullableUint32
-ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint32Spec = {
+ash.cros_healthd.mojom.NullableUint32Spec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NullableUint32',
@@ -67,7 +67,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint32Spec = {
 };
 
 // Struct: NullableUint64
-ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint64Spec = {
+ash.cros_healthd.mojom.NullableUint64Spec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NullableUint64',
@@ -81,7 +81,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NullableUint64Spec = {
 };
 
 // Struct: NullableDouble
-ash.cros_healthd.cros_healthd.mojom.mojom.NullableDoubleSpec = {
+ash.cros_healthd.mojom.NullableDoubleSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NullableDouble',

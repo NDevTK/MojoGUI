@@ -12,24 +12,66 @@ var gfx = gfx || {};
 
 
 // Interface: ScreenCaptureHost
-arc.mojom.mojom.ScreenCaptureHost = {};
+arc.mojom.ScreenCaptureHost = {};
 
-arc.mojom.mojom.ScreenCaptureHostPendingReceiver = class {
+arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ScreenCaptureHost_RequestPermission_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ScreenCaptureHost_OpenSession_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierRemote), nullable: false, minVersion: 0 },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.ScreenCaptureHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.ScreenCaptureHostRemote = class {
+arc.mojom.ScreenCaptureHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ScreenCaptureHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.ScreenCaptureHostPendingReceiver,
+      arc.mojom.ScreenCaptureHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.ScreenCaptureHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.ScreenCaptureHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +83,7 @@ arc.mojom.mojom.ScreenCaptureHostRemote = class {
   }
 };
 
-arc.mojom.mojom.ScreenCaptureHostRemoteCallHandler = class {
+arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +92,8 @@ arc.mojom.mojom.ScreenCaptureHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec,
-      arc.mojom.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec,
+      arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec,
+      arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec,
       [display_name, package_name]);
   }
 
@@ -59,7 +101,7 @@ arc.mojom.mojom.ScreenCaptureHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec,
+      arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec,
       null,
       [package_name]);
   }
@@ -68,15 +110,15 @@ arc.mojom.mojom.ScreenCaptureHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.ScreenCaptureHost_OpenSession_ParamsSpec,
-      arc.mojom.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec,
+      arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec,
+      arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec,
       [notifier, package_name, size]);
   }
 
 };
 
-arc.mojom.mojom.ScreenCaptureHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.ScreenCaptureHostRemote();
+arc.mojom.ScreenCaptureHost.getRemote = function() {
+  let remote = new arc.mojom.ScreenCaptureHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -86,7 +128,7 @@ arc.mojom.mojom.ScreenCaptureHost.getRemote = function() {
 };
 
 // ParamsSpec for RequestPermission
-arc.mojom.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = {
+arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureHost.RequestPermission_Params',
@@ -100,7 +142,7 @@ arc.mojom.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec = {
+arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureHost.RequestPermission_ResponseParams',
@@ -114,7 +156,7 @@ arc.mojom.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec = {
 };
 
 // ParamsSpec for TestModeAcceptPermission
-arc.mojom.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec = {
+arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureHost.TestModeAcceptPermission_Params',
@@ -128,7 +170,7 @@ arc.mojom.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec = {
 };
 
 // ParamsSpec for OpenSession
-arc.mojom.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
+arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureHost.OpenSession_Params',
@@ -143,7 +185,7 @@ arc.mojom.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec = {
+arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureHost.OpenSession_ResponseParams',
@@ -157,29 +199,59 @@ arc.mojom.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.ScreenCaptureHostPtr = arc.mojom.mojom.ScreenCaptureHostRemote;
-arc.mojom.mojom.ScreenCaptureHostRequest = arc.mojom.mojom.ScreenCaptureHostPendingReceiver;
+arc.mojom.ScreenCaptureHostPtr = arc.mojom.ScreenCaptureHostRemote;
+arc.mojom.ScreenCaptureHostRequest = arc.mojom.ScreenCaptureHostPendingReceiver;
 
 
 // Interface: ScreenCaptureSession
-arc.mojom.mojom.ScreenCaptureSession = {};
+arc.mojom.ScreenCaptureSession = {};
 
-arc.mojom.mojom.ScreenCaptureSessionPendingReceiver = class {
+arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'graphics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'graphics_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'buffer_format', packedOffset: 12, packedBitOffset: 0, type: gfx.mojom.BufferFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer_format_modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'stride', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.ScreenCaptureSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.ScreenCaptureSessionRemote = class {
+arc.mojom.ScreenCaptureSessionRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ScreenCaptureSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.ScreenCaptureSessionPendingReceiver,
+      arc.mojom.ScreenCaptureSessionPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.ScreenCaptureSessionRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.ScreenCaptureSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -191,7 +263,7 @@ arc.mojom.mojom.ScreenCaptureSessionRemote = class {
   }
 };
 
-arc.mojom.mojom.ScreenCaptureSessionRemoteCallHandler = class {
+arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -200,7 +272,7 @@ arc.mojom.mojom.ScreenCaptureSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec,
+      arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec,
       null,
       [graphics_buffer, stride]);
   }
@@ -209,15 +281,15 @@ arc.mojom.mojom.ScreenCaptureSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec,
+      arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec,
       null,
       [graphics_buffer, buffer_format, buffer_format_modifier, stride]);
   }
 
 };
 
-arc.mojom.mojom.ScreenCaptureSession.getRemote = function() {
-  let remote = new arc.mojom.mojom.ScreenCaptureSessionRemote();
+arc.mojom.ScreenCaptureSession.getRemote = function() {
+  let remote = new arc.mojom.ScreenCaptureSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -227,7 +299,7 @@ arc.mojom.mojom.ScreenCaptureSession.getRemote = function() {
 };
 
 // ParamsSpec for SetOutputBufferDeprecated
-arc.mojom.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec = {
+arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureSession.SetOutputBufferDeprecated_Params',
@@ -242,7 +314,7 @@ arc.mojom.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec = {
 };
 
 // ParamsSpec for SetOutputBuffer
-arc.mojom.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec = {
+arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureSession.SetOutputBuffer_Params',
@@ -259,29 +331,42 @@ arc.mojom.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.ScreenCaptureSessionPtr = arc.mojom.mojom.ScreenCaptureSessionRemote;
-arc.mojom.mojom.ScreenCaptureSessionRequest = arc.mojom.mojom.ScreenCaptureSessionPendingReceiver;
+arc.mojom.ScreenCaptureSessionPtr = arc.mojom.ScreenCaptureSessionRemote;
+arc.mojom.ScreenCaptureSessionRequest = arc.mojom.ScreenCaptureSessionPendingReceiver;
 
 
 // Interface: ScreenCaptureInstance
-arc.mojom.mojom.ScreenCaptureInstance = {};
+arc.mojom.ScreenCaptureInstance = {};
 
-arc.mojom.mojom.ScreenCaptureInstancePendingReceiver = class {
+arc.mojom.ScreenCaptureInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ScreenCaptureInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ScreenCaptureInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.ScreenCaptureInstanceRemote = class {
+arc.mojom.ScreenCaptureInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ScreenCaptureInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.ScreenCaptureInstancePendingReceiver,
+      arc.mojom.ScreenCaptureInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.ScreenCaptureInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.ScreenCaptureInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -293,7 +378,7 @@ arc.mojom.mojom.ScreenCaptureInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
+arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -302,15 +387,15 @@ arc.mojom.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.ScreenCaptureInstance_Init_ParamsSpec,
+      arc.mojom.ScreenCaptureInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.mojom.ScreenCaptureInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.ScreenCaptureInstanceRemote();
+arc.mojom.ScreenCaptureInstance.getRemote = function() {
+  let remote = new arc.mojom.ScreenCaptureInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -320,7 +405,7 @@ arc.mojom.mojom.ScreenCaptureInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.ScreenCaptureInstance_Init_ParamsSpec = {
+arc.mojom.ScreenCaptureInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureInstance.Init_Params',
@@ -334,29 +419,41 @@ arc.mojom.mojom.ScreenCaptureInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.ScreenCaptureInstancePtr = arc.mojom.mojom.ScreenCaptureInstanceRemote;
-arc.mojom.mojom.ScreenCaptureInstanceRequest = arc.mojom.mojom.ScreenCaptureInstancePendingReceiver;
+arc.mojom.ScreenCaptureInstancePtr = arc.mojom.ScreenCaptureInstanceRemote;
+arc.mojom.ScreenCaptureInstanceRequest = arc.mojom.ScreenCaptureInstancePendingReceiver;
 
 
 // Interface: ScreenCaptureSessionNotifier
-arc.mojom.mojom.ScreenCaptureSessionNotifier = {};
+arc.mojom.ScreenCaptureSessionNotifier = {};
 
-arc.mojom.mojom.ScreenCaptureSessionNotifierPendingReceiver = class {
+arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.ScreenCaptureSessionNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.ScreenCaptureSessionNotifierRemote = class {
+arc.mojom.ScreenCaptureSessionNotifierRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ScreenCaptureSessionNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.ScreenCaptureSessionNotifierPendingReceiver,
+      arc.mojom.ScreenCaptureSessionNotifierPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.ScreenCaptureSessionNotifierRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.ScreenCaptureSessionNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -368,7 +465,7 @@ arc.mojom.mojom.ScreenCaptureSessionNotifierRemote = class {
   }
 };
 
-arc.mojom.mojom.ScreenCaptureSessionNotifierRemoteCallHandler = class {
+arc.mojom.ScreenCaptureSessionNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -377,15 +474,15 @@ arc.mojom.mojom.ScreenCaptureSessionNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec,
+      arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
-  let remote = new arc.mojom.mojom.ScreenCaptureSessionNotifierRemote();
+arc.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
+  let remote = new arc.mojom.ScreenCaptureSessionNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -395,7 +492,7 @@ arc.mojom.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
 };
 
 // ParamsSpec for ForceUpdate
-arc.mojom.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec = {
+arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ScreenCaptureSessionNotifier.ForceUpdate_Params',
@@ -408,6 +505,6 @@ arc.mojom.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.ScreenCaptureSessionNotifierPtr = arc.mojom.mojom.ScreenCaptureSessionNotifierRemote;
-arc.mojom.mojom.ScreenCaptureSessionNotifierRequest = arc.mojom.mojom.ScreenCaptureSessionNotifierPendingReceiver;
+arc.mojom.ScreenCaptureSessionNotifierPtr = arc.mojom.ScreenCaptureSessionNotifierRemote;
+arc.mojom.ScreenCaptureSessionNotifierRequest = arc.mojom.ScreenCaptureSessionNotifierPendingReceiver;
 

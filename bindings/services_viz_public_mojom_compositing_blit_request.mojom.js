@@ -12,14 +12,14 @@ var gfx = gfx || {};
 
 
 // Enum: LetterboxingBehavior
-viz.mojom.mojom.LetterboxingBehavior = {
+viz.mojom.LetterboxingBehavior = {
   kDoNotLetterbox: 0,
   kLetterbox: 1,
 };
-viz.mojom.mojom.LetterboxingBehaviorSpec = { $: mojo.internal.Enum() };
+viz.mojom.LetterboxingBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Struct: BlitRequest
-viz.mojom.mojom.BlitRequestSpec = {
+viz.mojom.BlitRequestSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BlitRequest',

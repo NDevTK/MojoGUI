@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ServiceWorkerFetchHandlerBypassOption
-blink.mojom.mojom.ServiceWorkerFetchHandlerBypassOption = {
+blink.mojom.ServiceWorkerFetchHandlerBypassOption = {
   kDefault: 0,
   kBypassOnlyIfServiceWorkerNotStarted: 1,
   kRaceNetworkRequest: 2,
@@ -19,4 +19,4 @@ blink.mojom.mojom.ServiceWorkerFetchHandlerBypassOption = {
   kSyntheticResponse: 5,
   kSyntheticResponseDryRunMode: 6,
 };
-blink.mojom.mojom.ServiceWorkerFetchHandlerBypassOptionSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec = { $: mojo.internal.Enum() };

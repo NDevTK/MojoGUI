@@ -10,24 +10,49 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessFileModificationHost
-blink.mojom.mojom.FileSystemAccessFileModificationHost = {};
+blink.mojom.FileSystemAccessFileModificationHost = {};
 
-blink.mojom.mojom.FileSystemAccessFileModificationHostPendingReceiver = class {
+blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileModificationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileModificationHostRemote = class {
+blink.mojom.FileSystemAccessFileModificationHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessFileModificationHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.FileSystemAccessFileModificationHostPendingReceiver,
+      blink.mojom.FileSystemAccessFileModificationHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.FileSystemAccessFileModificationHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +64,7 @@ blink.mojom.mojom.FileSystemAccessFileModificationHostRemote = class {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
+blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +73,8 @@ blink.mojom.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec,
+      blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
       [capacity_delta]);
   }
 
@@ -57,15 +82,15 @@ blink.mojom.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec,
+      blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.FileSystemAccessFileModificationHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.FileSystemAccessFileModificationHostRemote();
+blink.mojom.FileSystemAccessFileModificationHost.getRemote = function() {
+  let remote = new blink.mojom.FileSystemAccessFileModificationHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +100,7 @@ blink.mojom.mojom.FileSystemAccessFileModificationHost.getRemote = function() {
 };
 
 // ParamsSpec for RequestCapacityChange
-blink.mojom.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec = {
+blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_Params',
@@ -88,7 +113,7 @@ blink.mojom.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_Par
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_ResponseParams',
@@ -102,7 +127,7 @@ blink.mojom.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_Res
 };
 
 // ParamsSpec for OnContentsModified
-blink.mojom.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = {
+blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileModificationHost.OnContentsModified_Params',
@@ -115,6 +140,6 @@ blink.mojom.mojom.FileSystemAccessFileModificationHost_OnContentsModified_Params
 };
 
 // Legacy compatibility
-blink.mojom.mojom.FileSystemAccessFileModificationHostPtr = blink.mojom.mojom.FileSystemAccessFileModificationHostRemote;
-blink.mojom.mojom.FileSystemAccessFileModificationHostRequest = blink.mojom.mojom.FileSystemAccessFileModificationHostPendingReceiver;
+blink.mojom.FileSystemAccessFileModificationHostPtr = blink.mojom.FileSystemAccessFileModificationHostRemote;
+blink.mojom.FileSystemAccessFileModificationHostRequest = blink.mojom.FileSystemAccessFileModificationHostPendingReceiver;
 

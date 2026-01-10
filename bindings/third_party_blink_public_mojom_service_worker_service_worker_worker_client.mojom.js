@@ -11,24 +11,37 @@ var blink = blink || {};
 
 
 // Interface: ServiceWorkerWorkerClient
-blink.mojom.mojom.ServiceWorkerWorkerClient = {};
+blink.mojom.ServiceWorkerWorkerClient = {};
 
-blink.mojom.mojom.ServiceWorkerWorkerClientPendingReceiver = class {
+blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerWorkerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerWorkerClientRemote = class {
+blink.mojom.ServiceWorkerWorkerClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerWorkerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerWorkerClientPendingReceiver,
+      blink.mojom.ServiceWorkerWorkerClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerWorkerClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerWorkerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ blink.mojom.mojom.ServiceWorkerWorkerClientRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerWorkerClientRemoteCallHandler = class {
+blink.mojom.ServiceWorkerWorkerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ blink.mojom.mojom.ServiceWorkerWorkerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec,
+      blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec,
       null,
       [mode]);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerWorkerClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerWorkerClientRemote();
+blink.mojom.ServiceWorkerWorkerClient.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerWorkerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ blink.mojom.mojom.ServiceWorkerWorkerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnControllerChanged
-blink.mojom.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
+blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerWorkerClient.OnControllerChanged_Params',
@@ -81,6 +94,6 @@ blink.mojom.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerWorkerClientPtr = blink.mojom.mojom.ServiceWorkerWorkerClientRemote;
-blink.mojom.mojom.ServiceWorkerWorkerClientRequest = blink.mojom.mojom.ServiceWorkerWorkerClientPendingReceiver;
+blink.mojom.ServiceWorkerWorkerClientPtr = blink.mojom.ServiceWorkerWorkerClientRemote;
+blink.mojom.ServiceWorkerWorkerClientRequest = blink.mojom.ServiceWorkerWorkerClientPendingReceiver;
 

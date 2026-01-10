@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Struct: URLPattern
-extensions.mojom.mojom.URLPatternSpec = {
+extensions.mojom.URLPatternSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.URLPattern',
@@ -25,7 +25,7 @@ extensions.mojom.mojom.URLPatternSpec = {
 };
 
 // Struct: URLPatternSet
-extensions.mojom.mojom.URLPatternSetSpec = {
+extensions.mojom.URLPatternSetSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.URLPatternSet',

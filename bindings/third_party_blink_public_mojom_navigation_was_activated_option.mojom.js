@@ -10,9 +10,9 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: WasActivatedOption
-blink.mojom.mojom.WasActivatedOption = {
+blink.mojom.WasActivatedOption = {
   kUnknown: 0,
   kYes: 1,
   kNo: 2,
 };
-blink.mojom.mojom.WasActivatedOptionSpec = { $: mojo.internal.Enum() };
+blink.mojom.WasActivatedOptionSpec = { $: mojo.internal.Enum() };

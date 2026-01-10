@@ -7,19 +7,19 @@
 // Module namespace
 var ash = ash || {};
 ash.babelorca = ash.babelorca || {};
-ash.babelorca.babelorca.mojom = ash.babelorca.babelorca.mojom || {};
+ash.babelorca.mojom = ash.babelorca.mojom || {};
 
 
 // Enum: ParsingState
-ash.babelorca.babelorca.mojom.mojom.ParsingState = {
+ash.babelorca.mojom.ParsingState = {
   kOk: 0,
   kError: 1,
   kClosed: 2,
 };
-ash.babelorca.babelorca.mojom.mojom.ParsingStateSpec = { $: mojo.internal.Enum() };
+ash.babelorca.mojom.ParsingStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: TranscriptPart
-ash.babelorca.babelorca.mojom.mojom.TranscriptPartSpec = {
+ash.babelorca.mojom.TranscriptPartSpec = {
   $: {
     structSpec: {
       name: 'ash.babelorca.mojom.TranscriptPart',
@@ -37,7 +37,7 @@ ash.babelorca.babelorca.mojom.mojom.TranscriptPartSpec = {
 };
 
 // Struct: BabelOrcaMessage
-ash.babelorca.babelorca.mojom.mojom.BabelOrcaMessageSpec = {
+ash.babelorca.mojom.BabelOrcaMessageSpec = {
   $: {
     structSpec: {
       name: 'ash.babelorca.mojom.BabelOrcaMessage',
@@ -56,7 +56,7 @@ ash.babelorca.babelorca.mojom.mojom.BabelOrcaMessageSpec = {
 };
 
 // Struct: StreamStatus
-ash.babelorca.babelorca.mojom.mojom.StreamStatusSpec = {
+ash.babelorca.mojom.StreamStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.babelorca.mojom.StreamStatus',
@@ -71,24 +71,37 @@ ash.babelorca.babelorca.mojom.mojom.StreamStatusSpec = {
 };
 
 // Interface: TachyonParsingService
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingService = {};
+ash.babelorca.mojom.TachyonParsingService = {};
 
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingServicePendingReceiver = class {
+ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.babelorca.mojom.TachyonParsingService_Parse_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.babelorca.mojom.TachyonParsingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRemote = class {
+ash.babelorca.mojom.TachyonParsingServiceRemote = class {
   static get $interfaceName() {
     return 'ash.babelorca.mojom.TachyonParsingService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.babelorca.babelorca.mojom.mojom.TachyonParsingServicePendingReceiver,
+      ash.babelorca.mojom.TachyonParsingServicePendingReceiver,
       handle);
-    this.$ = new ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -100,7 +113,7 @@ ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRemote = class {
   }
 };
 
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRemoteCallHandler = class {
+ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -109,15 +122,15 @@ ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.babelorca.babelorca.mojom.mojom.TachyonParsingService_Parse_ParamsSpec,
-      ash.babelorca.babelorca.mojom.mojom.TachyonParsingService_Parse_ResponseParamsSpec,
+      ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec,
+      ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec,
       [stream_data]);
   }
 
 };
 
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingService.getRemote = function() {
-  let remote = new ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRemote();
+ash.babelorca.mojom.TachyonParsingService.getRemote = function() {
+  let remote = new ash.babelorca.mojom.TachyonParsingServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -127,7 +140,7 @@ ash.babelorca.babelorca.mojom.mojom.TachyonParsingService.getRemote = function()
 };
 
 // ParamsSpec for Parse
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingService_Parse_ParamsSpec = {
+ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.babelorca.mojom.TachyonParsingService.Parse_Params',
@@ -140,7 +153,7 @@ ash.babelorca.babelorca.mojom.mojom.TachyonParsingService_Parse_ParamsSpec = {
   }
 };
 
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
+ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.babelorca.mojom.TachyonParsingService.Parse_ResponseParams',
@@ -156,6 +169,6 @@ ash.babelorca.babelorca.mojom.mojom.TachyonParsingService_Parse_ResponseParamsSp
 };
 
 // Legacy compatibility
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingServicePtr = ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRemote;
-ash.babelorca.babelorca.mojom.mojom.TachyonParsingServiceRequest = ash.babelorca.babelorca.mojom.mojom.TachyonParsingServicePendingReceiver;
+ash.babelorca.mojom.TachyonParsingServicePtr = ash.babelorca.mojom.TachyonParsingServiceRemote;
+ash.babelorca.mojom.TachyonParsingServiceRequest = ash.babelorca.mojom.TachyonParsingServicePendingReceiver;
 

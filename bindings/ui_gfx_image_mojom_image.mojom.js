@@ -11,7 +11,7 @@ var skia = skia || {};
 
 
 // Struct: ImageSkiaRep
-gfx.mojom.mojom.ImageSkiaRepSpec = {
+gfx.mojom.ImageSkiaRepSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageSkiaRep',
@@ -26,7 +26,7 @@ gfx.mojom.mojom.ImageSkiaRepSpec = {
 };
 
 // Struct: ImageSkia
-gfx.mojom.mojom.ImageSkiaSpec = {
+gfx.mojom.ImageSkiaSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageSkia',

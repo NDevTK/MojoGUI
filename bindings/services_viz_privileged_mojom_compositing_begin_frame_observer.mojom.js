@@ -10,24 +10,37 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: BeginFrameObserver
-viz.mojom.mojom.BeginFrameObserver = {};
+viz.mojom.BeginFrameObserver = {};
 
-viz.mojom.mojom.BeginFrameObserverPendingReceiver = class {
+viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.BeginFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.BeginFrameObserverRemote = class {
+viz.mojom.BeginFrameObserverRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.BeginFrameObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.BeginFrameObserverPendingReceiver,
+      viz.mojom.BeginFrameObserverPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.BeginFrameObserverRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.BeginFrameObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ viz.mojom.mojom.BeginFrameObserverRemote = class {
   }
 };
 
-viz.mojom.mojom.BeginFrameObserverRemoteCallHandler = class {
+viz.mojom.BeginFrameObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ viz.mojom.mojom.BeginFrameObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec,
+      viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec,
       null,
       [args]);
   }
 
 };
 
-viz.mojom.mojom.BeginFrameObserver.getRemote = function() {
-  let remote = new viz.mojom.mojom.BeginFrameObserverRemote();
+viz.mojom.BeginFrameObserver.getRemote = function() {
+  let remote = new viz.mojom.BeginFrameObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ viz.mojom.mojom.BeginFrameObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnStandaloneBeginFrame
-viz.mojom.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
+viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BeginFrameObserver.OnStandaloneBeginFrame_Params',
@@ -80,6 +93,6 @@ viz.mojom.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.BeginFrameObserverPtr = viz.mojom.mojom.BeginFrameObserverRemote;
-viz.mojom.mojom.BeginFrameObserverRequest = viz.mojom.mojom.BeginFrameObserverPendingReceiver;
+viz.mojom.BeginFrameObserverPtr = viz.mojom.BeginFrameObserverRemote;
+viz.mojom.BeginFrameObserverRequest = viz.mojom.BeginFrameObserverPendingReceiver;
 

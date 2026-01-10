@@ -10,7 +10,7 @@ cros.mojom = cros.mojom || {};
 
 
 // Enum: EntryType
-cros.mojom.mojom.EntryType = {
+cros.mojom.EntryType = {
   TYPE_BYTE: 0,
   TYPE_INT32: 1,
   TYPE_FLOAT: 2,
@@ -19,10 +19,10 @@ cros.mojom.mojom.EntryType = {
   TYPE_RATIONAL: 5,
   NUM_TYPES: 6,
 };
-cros.mojom.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CameraMetadataEntry
-cros.mojom.mojom.CameraMetadataEntrySpec = {
+cros.mojom.CameraMetadataEntrySpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraMetadataEntry',
@@ -40,7 +40,7 @@ cros.mojom.mojom.CameraMetadataEntrySpec = {
 };
 
 // Struct: CameraMetadata
-cros.mojom.mojom.CameraMetadataSpec = {
+cros.mojom.CameraMetadataSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraMetadata',

@@ -10,24 +10,60 @@ file_suggestion.mojom = file_suggestion.mojom || {};
 
 
 // Interface: MicrosoftFilesPageHandler
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandler = {};
+file_suggestion.mojom.MicrosoftFilesPageHandler = {};
 
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerPendingReceiver = class {
+file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+file_suggestion.mojom.MicrosoftFilesPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemote = class {
+file_suggestion.mojom.MicrosoftFilesPageHandlerRemote = class {
   static get $interfaceName() {
     return 'file_suggestion.mojom.MicrosoftFilesPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerPendingReceiver,
+      file_suggestion.mojom.MicrosoftFilesPageHandlerPendingReceiver,
       handle);
-    this.$ = new file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +75,7 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemote = class {
   }
 };
 
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
+file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +84,8 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec,
-      file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec,
+      file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec,
+      file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +93,7 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec,
+      file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -66,15 +102,15 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec,
+      file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }
 
 };
 
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandler.getRemote = function() {
-  let remote = new file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemote();
+file_suggestion.mojom.MicrosoftFilesPageHandler.getRemote = function() {
+  let remote = new file_suggestion.mojom.MicrosoftFilesPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +120,7 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetFiles
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
+file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.GetFiles_Params',
@@ -96,7 +132,7 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
   }
 };
 
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec = {
+file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.GetFiles_ResponseParams',
@@ -110,7 +146,7 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpe
 };
 
 // ParamsSpec for DismissModule
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = {
+file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.DismissModule_Params',
@@ -123,7 +159,7 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec =
 };
 
 // ParamsSpec for RestoreModule
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = {
+file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.RestoreModule_Params',
@@ -136,6 +172,6 @@ file_suggestion.mojom.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec =
 };
 
 // Legacy compatibility
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerPtr = file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRemote;
-file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerRequest = file_suggestion.mojom.mojom.MicrosoftFilesPageHandlerPendingReceiver;
+file_suggestion.mojom.MicrosoftFilesPageHandlerPtr = file_suggestion.mojom.MicrosoftFilesPageHandlerRemote;
+file_suggestion.mojom.MicrosoftFilesPageHandlerRequest = file_suggestion.mojom.MicrosoftFilesPageHandlerPendingReceiver;
 

@@ -10,19 +10,19 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: GestureDevice
-blink.mojom.mojom.GestureDevice = {
+blink.mojom.GestureDevice = {
   kUninitialized: 0,
   kTouchpad: 1,
   kTouchscreen: 2,
   kSyntheticAutoscroll: 3,
   kScrollbar: 4,
 };
-blink.mojom.mojom.GestureDeviceSpec = { $: mojo.internal.Enum() };
+blink.mojom.GestureDeviceSpec = { $: mojo.internal.Enum() };
 
 // Enum: InertialPhaseState
-blink.mojom.mojom.InertialPhaseState = {
+blink.mojom.InertialPhaseState = {
   kUnknownMomentum: 0,
   kNonMomentum: 1,
   kMomentum: 2,
 };
-blink.mojom.mojom.InertialPhaseStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.InertialPhaseStateSpec = { $: mojo.internal.Enum() };

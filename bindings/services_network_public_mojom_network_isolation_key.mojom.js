@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Union: NetworkIsolationKey
-network.mojom.mojom.NetworkIsolationKeySpec = { $: mojo.internal.Union(
+network.mojom.NetworkIsolationKeySpec = { $: mojo.internal.Union(
     'network.mojom.NetworkIsolationKey', {
       'empty': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ network.mojom.mojom.NetworkIsolationKeySpec = { $: mojo.internal.Union(
 };
 
 // Struct: EmptyNetworkIsolationKey
-network.mojom.mojom.EmptyNetworkIsolationKeySpec = {
+network.mojom.EmptyNetworkIsolationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EmptyNetworkIsolationKey',
@@ -37,7 +37,7 @@ network.mojom.mojom.EmptyNetworkIsolationKeySpec = {
 };
 
 // Struct: NonEmptyNetworkIsolationKey
-network.mojom.mojom.NonEmptyNetworkIsolationKeySpec = {
+network.mojom.NonEmptyNetworkIsolationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NonEmptyNetworkIsolationKey',

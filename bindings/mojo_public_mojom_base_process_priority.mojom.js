@@ -10,9 +10,9 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: ProcessPriority
-mojo_base.mojom.mojom.ProcessPriority = {
+mojo_base.mojom.ProcessPriority = {
   kBestEffort: 0,
   kUserVisible: 1,
   kUserBlocking: 2,
 };
-mojo_base.mojom.mojom.ProcessPrioritySpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.ProcessPrioritySpec = { $: mojo.internal.Enum() };

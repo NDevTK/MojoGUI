@@ -11,24 +11,87 @@ var url = url || {};
 
 
 // Interface: RendererHost
-extensions.mojom.mojom.RendererHost = {};
+extensions.mojom.RendererHost = {};
 
-extensions.mojom.mojom.RendererHostPendingReceiver = class {
+extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.RendererHost_AddAPIActionToActivityLog_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
+        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.RendererHost_AddEventToActivityLog_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
+        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.RendererHost_AddDOMActionToActivityLog_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'url_title', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'call_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.RendererHost_GetMessageBundle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.RendererHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.RendererHostRemote = class {
+extensions.mojom.RendererHostRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.RendererHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.RendererHostPendingReceiver,
+      extensions.mojom.RendererHostPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.RendererHostRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.RendererHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +103,7 @@ extensions.mojom.mojom.RendererHostRemote = class {
   }
 };
 
-extensions.mojom.mojom.RendererHostRemoteCallHandler = class {
+extensions.mojom.RendererHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +112,7 @@ extensions.mojom.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec,
+      extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec,
       null,
       [extension_id, call_name, args, extra]);
   }
@@ -58,7 +121,7 @@ extensions.mojom.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.mojom.RendererHost_AddEventToActivityLog_ParamsSpec,
+      extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec,
       null,
       [extension_id, call_name, args, extra]);
   }
@@ -67,7 +130,7 @@ extensions.mojom.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec,
+      extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec,
       null,
       [extension_id, call_name, args, url, url_title, call_type]);
   }
@@ -76,15 +139,15 @@ extensions.mojom.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.mojom.RendererHost_GetMessageBundle_ParamsSpec,
-      extensions.mojom.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
+      extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec,
+      extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
       [extension_id]);
   }
 
 };
 
-extensions.mojom.mojom.RendererHost.getRemote = function() {
-  let remote = new extensions.mojom.mojom.RendererHostRemote();
+extensions.mojom.RendererHost.getRemote = function() {
+  let remote = new extensions.mojom.RendererHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +157,7 @@ extensions.mojom.mojom.RendererHost.getRemote = function() {
 };
 
 // ParamsSpec for AddAPIActionToActivityLog
-extensions.mojom.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
+extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RendererHost.AddAPIActionToActivityLog_Params',
@@ -111,7 +174,7 @@ extensions.mojom.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
 };
 
 // ParamsSpec for AddEventToActivityLog
-extensions.mojom.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
+extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RendererHost.AddEventToActivityLog_Params',
@@ -128,7 +191,7 @@ extensions.mojom.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
 };
 
 // ParamsSpec for AddDOMActionToActivityLog
-extensions.mojom.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
+extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RendererHost.AddDOMActionToActivityLog_Params',
@@ -147,7 +210,7 @@ extensions.mojom.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
 };
 
 // ParamsSpec for GetMessageBundle
-extensions.mojom.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
+extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RendererHost.GetMessageBundle_Params',
@@ -160,7 +223,7 @@ extensions.mojom.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
   }
 };
 
-extensions.mojom.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
+extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RendererHost.GetMessageBundle_ResponseParams',
@@ -174,6 +237,6 @@ extensions.mojom.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.RendererHostPtr = extensions.mojom.mojom.RendererHostRemote;
-extensions.mojom.mojom.RendererHostRequest = extensions.mojom.mojom.RendererHostPendingReceiver;
+extensions.mojom.RendererHostPtr = extensions.mojom.RendererHostRemote;
+extensions.mojom.RendererHostRequest = extensions.mojom.RendererHostPendingReceiver;
 

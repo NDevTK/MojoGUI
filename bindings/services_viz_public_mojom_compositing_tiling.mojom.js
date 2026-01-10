@@ -13,7 +13,7 @@ var gfx = gfx || {};
 
 
 // Union: TileContents
-viz.mojom.mojom.TileContentsSpec = { $: mojo.internal.Union(
+viz.mojom.TileContentsSpec = { $: mojo.internal.Union(
     'viz.mojom.TileContents', {
       'missing_reason': {
         'ordinal': 0,
@@ -31,7 +31,7 @@ viz.mojom.mojom.TileContentsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TileResource
-viz.mojom.mojom.TileResourceSpec = {
+viz.mojom.TileResourceSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TileResource',
@@ -46,7 +46,7 @@ viz.mojom.mojom.TileResourceSpec = {
 };
 
 // Struct: Tile
-viz.mojom.mojom.TileSpec = {
+viz.mojom.TileSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tile',
@@ -63,7 +63,7 @@ viz.mojom.mojom.TileSpec = {
 };
 
 // Struct: Tiling
-viz.mojom.mojom.TilingSpec = {
+viz.mojom.TilingSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tiling',

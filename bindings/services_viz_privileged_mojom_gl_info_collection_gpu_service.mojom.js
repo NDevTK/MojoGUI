@@ -10,24 +10,48 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: InfoCollectionGpuService
-viz.mojom.mojom.InfoCollectionGpuService = {};
+viz.mojom.InfoCollectionGpuService = {};
 
-viz.mojom.mojom.InfoCollectionGpuServicePendingReceiver = class {
+viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.InfoCollectionGpuServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.InfoCollectionGpuServiceRemote = class {
+viz.mojom.InfoCollectionGpuServiceRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.InfoCollectionGpuService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.InfoCollectionGpuServicePendingReceiver,
+      viz.mojom.InfoCollectionGpuServicePendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.InfoCollectionGpuServiceRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.InfoCollectionGpuServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +63,7 @@ viz.mojom.mojom.InfoCollectionGpuServiceRemote = class {
   }
 };
 
-viz.mojom.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
+viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +72,8 @@ viz.mojom.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec,
-      viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec,
+      viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec,
+      viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec,
       []);
   }
 
@@ -57,15 +81,15 @@ viz.mojom.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec,
-      viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec,
+      viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec,
+      viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec,
       []);
   }
 
 };
 
-viz.mojom.mojom.InfoCollectionGpuService.getRemote = function() {
-  let remote = new viz.mojom.mojom.InfoCollectionGpuServiceRemote();
+viz.mojom.InfoCollectionGpuService.getRemote = function() {
+  let remote = new viz.mojom.InfoCollectionGpuServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +99,7 @@ viz.mojom.mojom.InfoCollectionGpuService.getRemote = function() {
 };
 
 // ParamsSpec for GetGpuSupportedDirectXVersionAndDevicePerfInfo
-viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec = {
+viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.InfoCollectionGpuService.GetGpuSupportedDirectXVersionAndDevicePerfInfo_Params',
@@ -87,7 +111,7 @@ viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDeviceP
   }
 };
 
-viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec = {
+viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.InfoCollectionGpuService.GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams',
@@ -104,7 +128,7 @@ viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDeviceP
 };
 
 // ParamsSpec for GetGpuSupportedVulkanVersionInfo
-viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec = {
+viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.InfoCollectionGpuService.GetGpuSupportedVulkanVersionInfo_Params',
@@ -116,7 +140,7 @@ viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_Params
   }
 };
 
-viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec = {
+viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.InfoCollectionGpuService.GetGpuSupportedVulkanVersionInfo_ResponseParams',
@@ -130,6 +154,6 @@ viz.mojom.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_Respon
 };
 
 // Legacy compatibility
-viz.mojom.mojom.InfoCollectionGpuServicePtr = viz.mojom.mojom.InfoCollectionGpuServiceRemote;
-viz.mojom.mojom.InfoCollectionGpuServiceRequest = viz.mojom.mojom.InfoCollectionGpuServicePendingReceiver;
+viz.mojom.InfoCollectionGpuServicePtr = viz.mojom.InfoCollectionGpuServiceRemote;
+viz.mojom.InfoCollectionGpuServiceRequest = viz.mojom.InfoCollectionGpuServicePendingReceiver;
 

@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: ScanFailureMode
-crosapi.mojom.mojom.ScanFailureMode = {
+crosapi.mojom.ScanFailureMode = {
   kUnknown: 0,
   kDeviceBusy: 1,
   kAdfJammed: 2,
@@ -18,10 +18,10 @@ crosapi.mojom.mojom.ScanFailureMode = {
   kFlatbedOpen: 4,
   kIoError: 5,
 };
-crosapi.mojom.mojom.ScanFailureModeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ScanFailureModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScannerOperationResult
-crosapi.mojom.mojom.ScannerOperationResult = {
+crosapi.mojom.ScannerOperationResult = {
   kSuccess: 0,
   kUnsupported: 1,
   kCancelled: 2,
@@ -39,17 +39,17 @@ crosapi.mojom.mojom.ScannerOperationResult = {
   kDeviceMissing: 14,
   kInternalError: 15,
 };
-crosapi.mojom.mojom.ScannerOperationResultSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ScannerOperationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionType
-crosapi.mojom.mojom.ConnectionType = {
+crosapi.mojom.ConnectionType = {
   kUsb: 0,
   kNetwork: 1,
 };
-crosapi.mojom.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionType
-crosapi.mojom.mojom.OptionType = {
+crosapi.mojom.OptionType = {
   kBool: 0,
   kInt: 1,
   kFixed: 2,
@@ -57,10 +57,10 @@ crosapi.mojom.mojom.OptionType = {
   kButton: 4,
   kGroup: 5,
 };
-crosapi.mojom.mojom.OptionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionUnit
-crosapi.mojom.mojom.OptionUnit = {
+crosapi.mojom.OptionUnit = {
   kPixel: 0,
   kBit: 1,
   kMm: 2,
@@ -68,27 +68,27 @@ crosapi.mojom.mojom.OptionUnit = {
   kPercent: 4,
   kMicrosecond: 5,
 };
-crosapi.mojom.mojom.OptionUnitSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionUnitSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionConstraintType
-crosapi.mojom.mojom.OptionConstraintType = {
+crosapi.mojom.OptionConstraintType = {
   kIntRange: 0,
   kFixedRange: 1,
   kIntList: 2,
   kFixedList: 3,
   kStringList: 4,
 };
-crosapi.mojom.mojom.OptionConstraintTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionConstraintTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionConfigurability
-crosapi.mojom.mojom.OptionConfigurability = {
+crosapi.mojom.OptionConfigurability = {
   kNotConfigurable: 0,
   kHardwareConfigurable: 1,
 };
-crosapi.mojom.mojom.OptionConfigurabilitySpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionConfigurabilitySpec = { $: mojo.internal.Enum() };
 
 // Union: OptionValue
-crosapi.mojom.mojom.OptionValueSpec = { $: mojo.internal.Union(
+crosapi.mojom.OptionValueSpec = { $: mojo.internal.Union(
     'crosapi.mojom.OptionValue', {
       'bool_value': {
         'ordinal': 0,
@@ -118,7 +118,7 @@ crosapi.mojom.mojom.OptionValueSpec = { $: mojo.internal.Union(
 };
 
 // Union: OptionConstraintRestriction
-crosapi.mojom.mojom.OptionConstraintRestrictionSpec = { $: mojo.internal.Union(
+crosapi.mojom.OptionConstraintRestrictionSpec = { $: mojo.internal.Union(
     'crosapi.mojom.OptionConstraintRestriction', {
       'int_range': {
         'ordinal': 0,
@@ -144,7 +144,7 @@ crosapi.mojom.mojom.OptionConstraintRestrictionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ScannerInfo
-crosapi.mojom.mojom.ScannerInfoSpec = {
+crosapi.mojom.ScannerInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ScannerInfo',
@@ -166,7 +166,7 @@ crosapi.mojom.mojom.ScannerInfoSpec = {
 };
 
 // Struct: ScannerEnumFilter
-crosapi.mojom.mojom.ScannerEnumFilterSpec = {
+crosapi.mojom.ScannerEnumFilterSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ScannerEnumFilter',
@@ -181,7 +181,7 @@ crosapi.mojom.mojom.ScannerEnumFilterSpec = {
 };
 
 // Struct: IntRange
-crosapi.mojom.mojom.IntRangeSpec = {
+crosapi.mojom.IntRangeSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.IntRange',
@@ -197,7 +197,7 @@ crosapi.mojom.mojom.IntRangeSpec = {
 };
 
 // Struct: FixedRange
-crosapi.mojom.mojom.FixedRangeSpec = {
+crosapi.mojom.FixedRangeSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.FixedRange',
@@ -213,7 +213,7 @@ crosapi.mojom.mojom.FixedRangeSpec = {
 };
 
 // Struct: OptionConstraint
-crosapi.mojom.mojom.OptionConstraintSpec = {
+crosapi.mojom.OptionConstraintSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.OptionConstraint',
@@ -228,7 +228,7 @@ crosapi.mojom.mojom.OptionConstraintSpec = {
 };
 
 // Struct: ScannerOption
-crosapi.mojom.mojom.ScannerOptionSpec = {
+crosapi.mojom.ScannerOptionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ScannerOption',
@@ -255,7 +255,7 @@ crosapi.mojom.mojom.ScannerOptionSpec = {
 };
 
 // Struct: GetScannerListResponse
-crosapi.mojom.mojom.GetScannerListResponseSpec = {
+crosapi.mojom.GetScannerListResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.GetScannerListResponse',
@@ -270,7 +270,7 @@ crosapi.mojom.mojom.GetScannerListResponseSpec = {
 };
 
 // Struct: OpenScannerResponse
-crosapi.mojom.mojom.OpenScannerResponseSpec = {
+crosapi.mojom.OpenScannerResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.OpenScannerResponse',
@@ -287,7 +287,7 @@ crosapi.mojom.mojom.OpenScannerResponseSpec = {
 };
 
 // Struct: CloseScannerResponse
-crosapi.mojom.mojom.CloseScannerResponseSpec = {
+crosapi.mojom.CloseScannerResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.CloseScannerResponse',
@@ -302,7 +302,7 @@ crosapi.mojom.mojom.CloseScannerResponseSpec = {
 };
 
 // Struct: StartScanOptions
-crosapi.mojom.mojom.StartScanOptionsSpec = {
+crosapi.mojom.StartScanOptionsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.StartScanOptions',
@@ -318,7 +318,7 @@ crosapi.mojom.mojom.StartScanOptionsSpec = {
 };
 
 // Struct: StartPreparedScanResponse
-crosapi.mojom.mojom.StartPreparedScanResponseSpec = {
+crosapi.mojom.StartPreparedScanResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.StartPreparedScanResponse',
@@ -334,7 +334,7 @@ crosapi.mojom.mojom.StartPreparedScanResponseSpec = {
 };
 
 // Struct: ReadScanDataResponse
-crosapi.mojom.mojom.ReadScanDataResponseSpec = {
+crosapi.mojom.ReadScanDataResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ReadScanDataResponse',
@@ -352,7 +352,7 @@ crosapi.mojom.mojom.ReadScanDataResponseSpec = {
 };
 
 // Struct: OptionSetting
-crosapi.mojom.mojom.OptionSettingSpec = {
+crosapi.mojom.OptionSettingSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.OptionSetting',
@@ -368,7 +368,7 @@ crosapi.mojom.mojom.OptionSettingSpec = {
 };
 
 // Struct: OptionGroup
-crosapi.mojom.mojom.OptionGroupSpec = {
+crosapi.mojom.OptionGroupSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.OptionGroup',
@@ -383,7 +383,7 @@ crosapi.mojom.mojom.OptionGroupSpec = {
 };
 
 // Struct: SetOptionResult
-crosapi.mojom.mojom.SetOptionResultSpec = {
+crosapi.mojom.SetOptionResultSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SetOptionResult',
@@ -398,7 +398,7 @@ crosapi.mojom.mojom.SetOptionResultSpec = {
 };
 
 // Struct: SetOptionsResponse
-crosapi.mojom.mojom.SetOptionsResponseSpec = {
+crosapi.mojom.SetOptionsResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SetOptionsResponse',
@@ -414,7 +414,7 @@ crosapi.mojom.mojom.SetOptionsResponseSpec = {
 };
 
 // Struct: GetOptionGroupsResponse
-crosapi.mojom.mojom.GetOptionGroupsResponseSpec = {
+crosapi.mojom.GetOptionGroupsResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.GetOptionGroupsResponse',
@@ -430,7 +430,7 @@ crosapi.mojom.mojom.GetOptionGroupsResponseSpec = {
 };
 
 // Struct: CancelScanResponse
-crosapi.mojom.mojom.CancelScanResponseSpec = {
+crosapi.mojom.CancelScanResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.CancelScanResponse',
@@ -445,24 +445,118 @@ crosapi.mojom.mojom.CancelScanResponseSpec = {
 };
 
 // Interface: DocumentScan
-crosapi.mojom.mojom.DocumentScan = {};
+crosapi.mojom.DocumentScan = {};
 
-crosapi.mojom.mojom.DocumentScanPendingReceiver = class {
+crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DocumentScan_OpenScanner_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'scanner_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DocumentScan_CloseScanner_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DocumentScan_StartPreparedScan_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.StartScanOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DocumentScan_ReadScanData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DocumentScan_SetOptions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DocumentScan_SetOptions_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.OptionSettingSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DocumentScan_GetOptionGroups_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DocumentScan_CancelScan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DocumentScan_CancelScan_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DocumentScanPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.DocumentScanRemote = class {
+crosapi.mojom.DocumentScanRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.DocumentScan';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.DocumentScanPendingReceiver,
+      crosapi.mojom.DocumentScanPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.DocumentScanRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.DocumentScanRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -474,7 +568,7 @@ crosapi.mojom.mojom.DocumentScanRemote = class {
   }
 };
 
-crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
+crosapi.mojom.DocumentScanRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -483,8 +577,8 @@ crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      crosapi.mojom.mojom.DocumentScan_OpenScanner_ParamsSpec,
-      crosapi.mojom.mojom.DocumentScan_OpenScanner_ResponseParamsSpec,
+      crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec,
+      crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec,
       [client_id, scanner_id]);
   }
 
@@ -492,8 +586,8 @@ crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      crosapi.mojom.mojom.DocumentScan_CloseScanner_ParamsSpec,
-      crosapi.mojom.mojom.DocumentScan_CloseScanner_ResponseParamsSpec,
+      crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec,
+      crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec,
       [scanner_handle]);
   }
 
@@ -501,8 +595,8 @@ crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      crosapi.mojom.mojom.DocumentScan_StartPreparedScan_ParamsSpec,
-      crosapi.mojom.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec,
+      crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec,
+      crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec,
       [scanner_handle, options]);
   }
 
@@ -510,8 +604,8 @@ crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      crosapi.mojom.mojom.DocumentScan_ReadScanData_ParamsSpec,
-      crosapi.mojom.mojom.DocumentScan_ReadScanData_ResponseParamsSpec,
+      crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec,
+      crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec,
       [job_handle]);
   }
 
@@ -519,8 +613,8 @@ crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      crosapi.mojom.mojom.DocumentScan_SetOptions_ParamsSpec,
-      crosapi.mojom.mojom.DocumentScan_SetOptions_ResponseParamsSpec,
+      crosapi.mojom.DocumentScan_SetOptions_ParamsSpec,
+      crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec,
       [scanner_handle, options]);
   }
 
@@ -528,8 +622,8 @@ crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      crosapi.mojom.mojom.DocumentScan_GetOptionGroups_ParamsSpec,
-      crosapi.mojom.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec,
+      crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec,
+      crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec,
       [scanner_handle]);
   }
 
@@ -537,15 +631,15 @@ crosapi.mojom.mojom.DocumentScanRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      crosapi.mojom.mojom.DocumentScan_CancelScan_ParamsSpec,
-      crosapi.mojom.mojom.DocumentScan_CancelScan_ResponseParamsSpec,
+      crosapi.mojom.DocumentScan_CancelScan_ParamsSpec,
+      crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec,
       [job_handle]);
   }
 
 };
 
-crosapi.mojom.mojom.DocumentScan.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.DocumentScanRemote();
+crosapi.mojom.DocumentScan.getRemote = function() {
+  let remote = new crosapi.mojom.DocumentScanRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -555,7 +649,7 @@ crosapi.mojom.mojom.DocumentScan.getRemote = function() {
 };
 
 // ParamsSpec for OpenScanner
-crosapi.mojom.mojom.DocumentScan_OpenScanner_ParamsSpec = {
+crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.OpenScanner_Params',
@@ -569,7 +663,7 @@ crosapi.mojom.mojom.DocumentScan_OpenScanner_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DocumentScan_OpenScanner_ResponseParamsSpec = {
+crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.OpenScanner_ResponseParams',
@@ -583,7 +677,7 @@ crosapi.mojom.mojom.DocumentScan_OpenScanner_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CloseScanner
-crosapi.mojom.mojom.DocumentScan_CloseScanner_ParamsSpec = {
+crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.CloseScanner_Params',
@@ -596,7 +690,7 @@ crosapi.mojom.mojom.DocumentScan_CloseScanner_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DocumentScan_CloseScanner_ResponseParamsSpec = {
+crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.CloseScanner_ResponseParams',
@@ -610,7 +704,7 @@ crosapi.mojom.mojom.DocumentScan_CloseScanner_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartPreparedScan
-crosapi.mojom.mojom.DocumentScan_StartPreparedScan_ParamsSpec = {
+crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.StartPreparedScan_Params',
@@ -624,7 +718,7 @@ crosapi.mojom.mojom.DocumentScan_StartPreparedScan_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec = {
+crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.StartPreparedScan_ResponseParams',
@@ -638,7 +732,7 @@ crosapi.mojom.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadScanData
-crosapi.mojom.mojom.DocumentScan_ReadScanData_ParamsSpec = {
+crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.ReadScanData_Params',
@@ -651,7 +745,7 @@ crosapi.mojom.mojom.DocumentScan_ReadScanData_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DocumentScan_ReadScanData_ResponseParamsSpec = {
+crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.ReadScanData_ResponseParams',
@@ -665,7 +759,7 @@ crosapi.mojom.mojom.DocumentScan_ReadScanData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetOptions
-crosapi.mojom.mojom.DocumentScan_SetOptions_ParamsSpec = {
+crosapi.mojom.DocumentScan_SetOptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.SetOptions_Params',
@@ -679,7 +773,7 @@ crosapi.mojom.mojom.DocumentScan_SetOptions_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DocumentScan_SetOptions_ResponseParamsSpec = {
+crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.SetOptions_ResponseParams',
@@ -693,7 +787,7 @@ crosapi.mojom.mojom.DocumentScan_SetOptions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetOptionGroups
-crosapi.mojom.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
+crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.GetOptionGroups_Params',
@@ -706,7 +800,7 @@ crosapi.mojom.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = {
+crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.GetOptionGroups_ResponseParams',
@@ -720,7 +814,7 @@ crosapi.mojom.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelScan
-crosapi.mojom.mojom.DocumentScan_CancelScan_ParamsSpec = {
+crosapi.mojom.DocumentScan_CancelScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.CancelScan_Params',
@@ -733,7 +827,7 @@ crosapi.mojom.mojom.DocumentScan_CancelScan_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DocumentScan_CancelScan_ResponseParamsSpec = {
+crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DocumentScan.CancelScan_ResponseParams',
@@ -747,6 +841,6 @@ crosapi.mojom.mojom.DocumentScan_CancelScan_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.DocumentScanPtr = crosapi.mojom.mojom.DocumentScanRemote;
-crosapi.mojom.mojom.DocumentScanRequest = crosapi.mojom.mojom.DocumentScanPendingReceiver;
+crosapi.mojom.DocumentScanPtr = crosapi.mojom.DocumentScanRemote;
+crosapi.mojom.DocumentScanRequest = crosapi.mojom.DocumentScanPendingReceiver;
 

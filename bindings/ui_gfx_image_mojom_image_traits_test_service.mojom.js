@@ -12,24 +12,50 @@ var gfx = gfx || {};
 
 
 // Interface: ImageTraitsTestService
-gfx.mojom.mojom.ImageTraitsTestService = {};
+gfx.mojom.ImageTraitsTestService = {};
 
-gfx.mojom.mojom.ImageTraitsTestServicePendingReceiver = class {
+gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gfx.mojom.ImageTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gfx.mojom.mojom.ImageTraitsTestServiceRemote = class {
+gfx.mojom.ImageTraitsTestServiceRemote = class {
   static get $interfaceName() {
     return 'gfx.mojom.ImageTraitsTestService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gfx.mojom.mojom.ImageTraitsTestServicePendingReceiver,
+      gfx.mojom.ImageTraitsTestServicePendingReceiver,
       handle);
-    this.$ = new gfx.mojom.mojom.ImageTraitsTestServiceRemoteCallHandler(this.proxy);
+    this.$ = new gfx.mojom.ImageTraitsTestServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +67,7 @@ gfx.mojom.mojom.ImageTraitsTestServiceRemote = class {
   }
 };
 
-gfx.mojom.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
+gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +76,8 @@ gfx.mojom.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec,
-      gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
       [in]);
   }
 
@@ -59,15 +85,15 @@ gfx.mojom.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec,
-      gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
       [in]);
   }
 
 };
 
-gfx.mojom.mojom.ImageTraitsTestService.getRemote = function() {
-  let remote = new gfx.mojom.mojom.ImageTraitsTestServiceRemote();
+gfx.mojom.ImageTraitsTestService.getRemote = function() {
+  let remote = new gfx.mojom.ImageTraitsTestServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -77,7 +103,7 @@ gfx.mojom.mojom.ImageTraitsTestService.getRemote = function() {
 };
 
 // ParamsSpec for EchoImageSkiaRep
-gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
+gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_Params',
@@ -90,7 +116,7 @@ gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
   }
 };
 
-gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
+gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_ResponseParams',
@@ -104,7 +130,7 @@ gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoImageSkia
-gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
+gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_Params',
@@ -117,7 +143,7 @@ gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
   }
 };
 
-gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
+gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_ResponseParams',
@@ -131,6 +157,6 @@ gfx.mojom.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-gfx.mojom.mojom.ImageTraitsTestServicePtr = gfx.mojom.mojom.ImageTraitsTestServiceRemote;
-gfx.mojom.mojom.ImageTraitsTestServiceRequest = gfx.mojom.mojom.ImageTraitsTestServicePendingReceiver;
+gfx.mojom.ImageTraitsTestServicePtr = gfx.mojom.ImageTraitsTestServiceRemote;
+gfx.mojom.ImageTraitsTestServiceRequest = gfx.mojom.ImageTraitsTestServicePendingReceiver;
 

@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: VideoMemoryProcessStats
-gpu.mojom.mojom.VideoMemoryProcessStatsSpec = {
+gpu.mojom.VideoMemoryProcessStatsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoMemoryProcessStats',
@@ -25,7 +25,7 @@ gpu.mojom.mojom.VideoMemoryProcessStatsSpec = {
 };
 
 // Struct: VideoMemoryUsageStats
-gpu.mojom.mojom.VideoMemoryUsageStatsSpec = {
+gpu.mojom.VideoMemoryUsageStatsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoMemoryUsageStats',

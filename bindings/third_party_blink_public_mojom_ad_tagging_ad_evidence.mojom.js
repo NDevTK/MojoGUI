@@ -10,23 +10,23 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: FilterListResult
-blink.mojom.mojom.FilterListResult = {
+blink.mojom.FilterListResult = {
   kNotChecked: 0,
   kMatchedAllowingRule: 1,
   kMatchedNoRules: 2,
   kMatchedBlockingRule: 3,
 };
-blink.mojom.mojom.FilterListResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.FilterListResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: FrameCreationStackEvidence
-blink.mojom.mojom.FrameCreationStackEvidence = {
+blink.mojom.FrameCreationStackEvidence = {
   kNotCreatedByAdScript: 0,
   kCreatedByAdScript: 1,
 };
-blink.mojom.mojom.FrameCreationStackEvidenceSpec = { $: mojo.internal.Enum() };
+blink.mojom.FrameCreationStackEvidenceSpec = { $: mojo.internal.Enum() };
 
 // Struct: FrameAdEvidence
-blink.mojom.mojom.FrameAdEvidenceSpec = {
+blink.mojom.FrameAdEvidenceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameAdEvidence',

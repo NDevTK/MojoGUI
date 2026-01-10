@@ -10,47 +10,47 @@ media.mojom = media.mojom || {};
 
 
 // Enum: BackgroundBlurMode
-media.mojom.mojom.BackgroundBlurMode = {
+media.mojom.BackgroundBlurMode = {
   OFF: 0,
   BLUR: 1,
 };
-media.mojom.mojom.BackgroundBlurModeSpec = { $: mojo.internal.Enum() };
+media.mojom.BackgroundBlurModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EyeGazeCorrectionMode
-media.mojom.mojom.EyeGazeCorrectionMode = {
+media.mojom.EyeGazeCorrectionMode = {
   OFF: 0,
   ON: 1,
   STARE: 2,
 };
-media.mojom.mojom.EyeGazeCorrectionModeSpec = { $: mojo.internal.Enum() };
+media.mojom.EyeGazeCorrectionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MeteringMode
-media.mojom.mojom.MeteringMode = {
+media.mojom.MeteringMode = {
   NONE: 0,
   MANUAL: 1,
   SINGLE_SHOT: 2,
   CONTINUOUS: 3,
 };
-media.mojom.mojom.MeteringModeSpec = { $: mojo.internal.Enum() };
+media.mojom.MeteringModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RedEyeReduction
-media.mojom.mojom.RedEyeReduction = {
+media.mojom.RedEyeReduction = {
   NEVER: 0,
   ALWAYS: 1,
   CONTROLLABLE: 2,
 };
-media.mojom.mojom.RedEyeReductionSpec = { $: mojo.internal.Enum() };
+media.mojom.RedEyeReductionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FillLightMode
-media.mojom.mojom.FillLightMode = {
+media.mojom.FillLightMode = {
   OFF: 0,
   AUTO: 1,
   FLASH: 2,
 };
-media.mojom.mojom.FillLightModeSpec = { $: mojo.internal.Enum() };
+media.mojom.FillLightModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Range
-media.mojom.mojom.RangeSpec = {
+media.mojom.RangeSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Range',
@@ -67,7 +67,7 @@ media.mojom.mojom.RangeSpec = {
 };
 
 // Struct: PhotoState
-media.mojom.mojom.PhotoStateSpec = {
+media.mojom.PhotoStateSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PhotoState',
@@ -113,7 +113,7 @@ media.mojom.mojom.PhotoStateSpec = {
 };
 
 // Struct: Point2D
-media.mojom.mojom.Point2DSpec = {
+media.mojom.Point2DSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Point2D',
@@ -128,7 +128,7 @@ media.mojom.mojom.Point2DSpec = {
 };
 
 // Struct: PhotoSettings
-media.mojom.mojom.PhotoSettingsSpec = {
+media.mojom.PhotoSettingsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PhotoSettings',
@@ -189,7 +189,7 @@ media.mojom.mojom.PhotoSettingsSpec = {
 };
 
 // Struct: Blob
-media.mojom.mojom.BlobSpec = {
+media.mojom.BlobSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Blob',
@@ -204,24 +204,64 @@ media.mojom.mojom.BlobSpec = {
 };
 
 // Interface: ImageCapture
-media.mojom.mojom.ImageCapture = {};
+media.mojom.ImageCapture = {};
 
-media.mojom.mojom.ImageCapturePendingReceiver = class {
+media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture_GetPhotoState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture_SetPhotoOptions_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture_TakePhoto_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.ImageCapturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.ImageCaptureRemote = class {
+media.mojom.ImageCaptureRemote = class {
   static get $interfaceName() {
     return 'media.mojom.ImageCapture';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.ImageCapturePendingReceiver,
+      media.mojom.ImageCapturePendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.ImageCaptureRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.ImageCaptureRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -233,7 +273,7 @@ media.mojom.mojom.ImageCaptureRemote = class {
   }
 };
 
-media.mojom.mojom.ImageCaptureRemoteCallHandler = class {
+media.mojom.ImageCaptureRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -242,8 +282,8 @@ media.mojom.mojom.ImageCaptureRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.ImageCapture_GetPhotoState_ParamsSpec,
-      media.mojom.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
+      media.mojom.ImageCapture_GetPhotoState_ParamsSpec,
+      media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
       [source_id]);
   }
 
@@ -251,8 +291,8 @@ media.mojom.mojom.ImageCaptureRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.ImageCapture_SetPhotoOptions_ParamsSpec,
-      media.mojom.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
+      media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec,
+      media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
       [source_id, settings]);
   }
 
@@ -260,15 +300,15 @@ media.mojom.mojom.ImageCaptureRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.mojom.ImageCapture_TakePhoto_ParamsSpec,
-      media.mojom.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
+      media.mojom.ImageCapture_TakePhoto_ParamsSpec,
+      media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
       [source_id]);
   }
 
 };
 
-media.mojom.mojom.ImageCapture.getRemote = function() {
-  let remote = new media.mojom.mojom.ImageCaptureRemote();
+media.mojom.ImageCapture.getRemote = function() {
+  let remote = new media.mojom.ImageCaptureRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -278,7 +318,7 @@ media.mojom.mojom.ImageCapture.getRemote = function() {
 };
 
 // ParamsSpec for GetPhotoState
-media.mojom.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
+media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ImageCapture.GetPhotoState_Params',
@@ -291,7 +331,7 @@ media.mojom.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
+media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ImageCapture.GetPhotoState_ResponseParams',
@@ -305,7 +345,7 @@ media.mojom.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetPhotoOptions
-media.mojom.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
+media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ImageCapture.SetPhotoOptions_Params',
@@ -319,7 +359,7 @@ media.mojom.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
+media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ImageCapture.SetPhotoOptions_ResponseParams',
@@ -333,7 +373,7 @@ media.mojom.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for TakePhoto
-media.mojom.mojom.ImageCapture_TakePhoto_ParamsSpec = {
+media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ImageCapture.TakePhoto_Params',
@@ -346,7 +386,7 @@ media.mojom.mojom.ImageCapture_TakePhoto_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
+media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ImageCapture.TakePhoto_ResponseParams',
@@ -360,6 +400,6 @@ media.mojom.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.ImageCapturePtr = media.mojom.mojom.ImageCaptureRemote;
-media.mojom.mojom.ImageCaptureRequest = media.mojom.mojom.ImageCapturePendingReceiver;
+media.mojom.ImageCapturePtr = media.mojom.ImageCaptureRemote;
+media.mojom.ImageCaptureRequest = media.mojom.ImageCapturePendingReceiver;
 

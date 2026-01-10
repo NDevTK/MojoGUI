@@ -10,7 +10,7 @@ certificate_manager.mojom = certificate_manager.mojom || {};
 
 
 // Enum: CertificateSource
-certificate_manager.mojom.mojom.CertificateSource = {
+certificate_manager.mojom.CertificateSource = {
   kChromeRootStore: 0,
   kPlatformClientCert: 1,
   kEnterpriseTrustedCerts: 2,
@@ -20,16 +20,16 @@ certificate_manager.mojom.mojom.CertificateSource = {
   kUserIntermediateCerts: 6,
   kUserDistrustedCerts: 7,
 };
-certificate_manager.mojom.mojom.CertificateSourceSpec = { $: mojo.internal.Enum() };
+certificate_manager.mojom.CertificateSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: SuccessResult
-certificate_manager.mojom.mojom.SuccessResult = {
+certificate_manager.mojom.SuccessResult = {
   kSuccess: 0,
 };
-certificate_manager.mojom.mojom.SuccessResultSpec = { $: mojo.internal.Enum() };
+certificate_manager.mojom.SuccessResultSpec = { $: mojo.internal.Enum() };
 
 // Union: ActionResult
-certificate_manager.mojom.mojom.ActionResultSpec = { $: mojo.internal.Union(
+certificate_manager.mojom.ActionResultSpec = { $: mojo.internal.Union(
     'certificate_manager.mojom.ActionResult', {
       'error': {
         'ordinal': 0,
@@ -43,7 +43,7 @@ certificate_manager.mojom.mojom.ActionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SummaryCertInfo
-certificate_manager.mojom.mojom.SummaryCertInfoSpec = {
+certificate_manager.mojom.SummaryCertInfoSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.SummaryCertInfo',
@@ -59,7 +59,7 @@ certificate_manager.mojom.mojom.SummaryCertInfoSpec = {
 };
 
 // Struct: CertManagementMetadata
-certificate_manager.mojom.mojom.CertManagementMetadataSpec = {
+certificate_manager.mojom.CertManagementMetadataSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertManagementMetadata',
@@ -78,24 +78,38 @@ certificate_manager.mojom.mojom.CertManagementMetadataSpec = {
 };
 
 // Interface: CertificateManagerPageHandlerFactory
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactory = {};
+certificate_manager.mojom.CertificateManagerPageHandlerFactory = {};
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryPendingReceiver = class {
+certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(certificate_manager.mojom.CertificateManagerPageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(certificate_manager.mojom.CertificateManagerPageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRemote = class {
+certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'certificate_manager.mojom.CertificateManagerPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryPendingReceiver,
+      certificate_manager.mojom.CertificateManagerPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -107,7 +121,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRemote = cla
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler = class {
+certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -116,15 +130,15 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRemoteCallHa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactory.getRemote = function() {
-  let remote = new certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRemote();
+certificate_manager.mojom.CertificateManagerPageHandlerFactory.getRemote = function() {
+  let remote = new certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -134,7 +148,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactory.getRemote =
 };
 
 // ParamsSpec for CreateCertificateManagerPageHandler
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandlerFactory.CreateCertificateManagerPageHandler_Params',
@@ -149,29 +163,147 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactory_CreateCerti
 };
 
 // Legacy compatibility
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryPtr = certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRemote;
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryRequest = certificate_manager.mojom.mojom.CertificateManagerPageHandlerFactoryPendingReceiver;
+certificate_manager.mojom.CertificateManagerPageHandlerFactoryPtr = certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote;
+certificate_manager.mojom.CertificateManagerPageHandlerFactoryRequest = certificate_manager.mojom.CertificateManagerPageHandlerFactoryPendingReceiver;
 
 
 // Interface: CertificateManagerPageHandler
-certificate_manager.mojom.mojom.CertificateManagerPageHandler = {};
+certificate_manager.mojom.CertificateManagerPageHandler = {};
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerPendingReceiver = class {
+certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'sha256_hash_hex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sha256_hash_hex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'include', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemote = class {
+certificate_manager.mojom.CertificateManagerPageHandlerRemote = class {
   static get $interfaceName() {
     return 'certificate_manager.mojom.CertificateManagerPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      certificate_manager.mojom.mojom.CertificateManagerPageHandlerPendingReceiver,
+      certificate_manager.mojom.CertificateManagerPageHandlerPendingReceiver,
       handle);
-    this.$ = new certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -183,7 +315,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemote = class {
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler = class {
+certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -192,8 +324,8 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec,
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec,
       [source]);
   }
 
@@ -201,8 +333,8 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec,
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec,
       []);
   }
 
@@ -210,7 +342,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec,
       null,
       [source, sha256_hash_hex]);
   }
@@ -219,7 +351,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec,
       null,
       [source]);
   }
@@ -228,8 +360,8 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec,
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec,
       [source]);
   }
 
@@ -237,8 +369,8 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec,
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec,
       [source]);
   }
 
@@ -246,8 +378,8 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec,
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec,
       [source, display_name, sha256_hash_hex]);
   }
 
@@ -255,7 +387,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec,
       null,
       []);
   }
@@ -264,15 +396,15 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemoteCallHandler =
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec,
       null,
       [include]);
   }
 
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandler.getRemote = function() {
-  let remote = new certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemote();
+certificate_manager.mojom.CertificateManagerPageHandler.getRemote = function() {
+  let remote = new certificate_manager.mojom.CertificateManagerPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -282,7 +414,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler.getRemote = functi
 };
 
 // ParamsSpec for GetCertificates
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertificates_Params',
@@ -295,7 +427,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertificates_Pa
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertificates_ResponseParams',
@@ -309,7 +441,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertificates_Re
 };
 
 // ParamsSpec for GetCertManagementMetadata
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertManagementMetadata_Params',
@@ -321,7 +453,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertManagementM
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertManagementMetadata_ResponseParams',
@@ -335,7 +467,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_GetCertManagementM
 };
 
 // ParamsSpec for ViewCertificate
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ViewCertificate_Params',
@@ -350,7 +482,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_ViewCertificate_Pa
 };
 
 // ParamsSpec for ExportCertificates
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ExportCertificates_Params',
@@ -364,7 +496,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_ExportCertificates
 };
 
 // ParamsSpec for ImportCertificate
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportCertificate_Params',
@@ -377,7 +509,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportCertificate_
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportCertificate_ResponseParams',
@@ -391,7 +523,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportCertificate_
 };
 
 // ParamsSpec for ImportAndBindCertificate
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportAndBindCertificate_Params',
@@ -404,7 +536,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportAndBindCerti
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportAndBindCertificate_ResponseParams',
@@ -418,7 +550,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_ImportAndBindCerti
 };
 
 // ParamsSpec for DeleteCertificate
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.DeleteCertificate_Params',
@@ -433,7 +565,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_DeleteCertificate_
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.DeleteCertificate_ResponseParams',
@@ -447,7 +579,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_DeleteCertificate_
 };
 
 // ParamsSpec for ShowNativeManageCertificates
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ShowNativeManageCertificates_Params',
@@ -460,7 +592,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_ShowNativeManageCe
 };
 
 // ParamsSpec for SetIncludeSystemTrustStore
-certificate_manager.mojom.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.SetIncludeSystemTrustStore_Params',
@@ -474,29 +606,80 @@ certificate_manager.mojom.mojom.CertificateManagerPageHandler_SetIncludeSystemTr
 };
 
 // Legacy compatibility
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerPtr = certificate_manager.mojom.mojom.CertificateManagerPageHandlerRemote;
-certificate_manager.mojom.mojom.CertificateManagerPageHandlerRequest = certificate_manager.mojom.mojom.CertificateManagerPageHandlerPendingReceiver;
+certificate_manager.mojom.CertificateManagerPageHandlerPtr = certificate_manager.mojom.CertificateManagerPageHandlerRemote;
+certificate_manager.mojom.CertificateManagerPageHandlerRequest = certificate_manager.mojom.CertificateManagerPageHandlerPendingReceiver;
 
 
 // Interface: CertificateManagerPage
-certificate_manager.mojom.mojom.CertificateManagerPage = {};
+certificate_manager.mojom.CertificateManagerPage = {};
 
-certificate_manager.mojom.mojom.CertificateManagerPagePendingReceiver = class {
+certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPage_TriggerReload_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(certificate_manager.mojom.CertificateSourceSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageRemote = class {
+certificate_manager.mojom.CertificateManagerPageRemote = class {
   static get $interfaceName() {
     return 'certificate_manager.mojom.CertificateManagerPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      certificate_manager.mojom.mojom.CertificateManagerPagePendingReceiver,
+      certificate_manager.mojom.CertificateManagerPagePendingReceiver,
       handle);
-    this.$ = new certificate_manager.mojom.mojom.CertificateManagerPageRemoteCallHandler(this.proxy);
+    this.$ = new certificate_manager.mojom.CertificateManagerPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -508,7 +691,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageRemote = class {
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPageRemoteCallHandler = class {
+certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -517,8 +700,8 @@ certificate_manager.mojom.mojom.CertificateManagerPageRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec,
-      certificate_manager.mojom.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec,
       []);
   }
 
@@ -526,8 +709,8 @@ certificate_manager.mojom.mojom.CertificateManagerPageRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec,
-      certificate_manager.mojom.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec,
       [title, message]);
   }
 
@@ -535,7 +718,7 @@ certificate_manager.mojom.mojom.CertificateManagerPageRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPage_TriggerReload_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec,
       null,
       [sources]);
   }
@@ -544,15 +727,15 @@ certificate_manager.mojom.mojom.CertificateManagerPageRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      certificate_manager.mojom.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec,
       null,
       []);
   }
 
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPage.getRemote = function() {
-  let remote = new certificate_manager.mojom.mojom.CertificateManagerPageRemote();
+certificate_manager.mojom.CertificateManagerPage.getRemote = function() {
+  let remote = new certificate_manager.mojom.CertificateManagerPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -562,7 +745,7 @@ certificate_manager.mojom.mojom.CertificateManagerPage.getRemote = function() {
 };
 
 // ParamsSpec for AskForImportPassword
-certificate_manager.mojom.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPage.AskForImportPassword_Params',
@@ -574,7 +757,7 @@ certificate_manager.mojom.mojom.CertificateManagerPage_AskForImportPassword_Para
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = {
+certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPage.AskForImportPassword_ResponseParams',
@@ -588,7 +771,7 @@ certificate_manager.mojom.mojom.CertificateManagerPage_AskForImportPassword_Resp
 };
 
 // ParamsSpec for AskForConfirmation
-certificate_manager.mojom.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPage.AskForConfirmation_Params',
@@ -602,7 +785,7 @@ certificate_manager.mojom.mojom.CertificateManagerPage_AskForConfirmation_Params
   }
 };
 
-certificate_manager.mojom.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec = {
+certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPage.AskForConfirmation_ResponseParams',
@@ -616,7 +799,7 @@ certificate_manager.mojom.mojom.CertificateManagerPage_AskForConfirmation_Respon
 };
 
 // ParamsSpec for TriggerReload
-certificate_manager.mojom.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPage.TriggerReload_Params',
@@ -630,7 +813,7 @@ certificate_manager.mojom.mojom.CertificateManagerPage_TriggerReload_ParamsSpec 
 };
 
 // ParamsSpec for TriggerMetadataUpdate
-certificate_manager.mojom.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec = {
+certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertificateManagerPage.TriggerMetadataUpdate_Params',
@@ -643,6 +826,6 @@ certificate_manager.mojom.mojom.CertificateManagerPage_TriggerMetadataUpdate_Par
 };
 
 // Legacy compatibility
-certificate_manager.mojom.mojom.CertificateManagerPagePtr = certificate_manager.mojom.mojom.CertificateManagerPageRemote;
-certificate_manager.mojom.mojom.CertificateManagerPageRequest = certificate_manager.mojom.mojom.CertificateManagerPagePendingReceiver;
+certificate_manager.mojom.CertificateManagerPagePtr = certificate_manager.mojom.CertificateManagerPageRemote;
+certificate_manager.mojom.CertificateManagerPageRequest = certificate_manager.mojom.CertificateManagerPagePendingReceiver;
 

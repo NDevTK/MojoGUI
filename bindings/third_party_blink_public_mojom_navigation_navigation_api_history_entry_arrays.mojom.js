@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: NavigationApiHistoryEntry
-blink.mojom.mojom.NavigationApiHistoryEntrySpec = {
+blink.mojom.NavigationApiHistoryEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationApiHistoryEntry',
@@ -29,7 +29,7 @@ blink.mojom.mojom.NavigationApiHistoryEntrySpec = {
 };
 
 // Struct: NavigationApiHistoryEntryArrays
-blink.mojom.mojom.NavigationApiHistoryEntryArraysSpec = {
+blink.mojom.NavigationApiHistoryEntryArraysSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationApiHistoryEntryArrays',

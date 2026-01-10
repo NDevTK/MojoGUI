@@ -11,15 +11,15 @@ var blink = blink || {};
 
 
 // Enum: PowerPreference
-webnn.mojom.mojom.PowerPreference = {
+webnn.mojom.PowerPreference = {
   kDefault: 0,
   kHighPerformance: 1,
   kLowPower: 2,
 };
-webnn.mojom.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
+webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Union: CreateContextResult
-webnn.mojom.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
+webnn.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
     'webnn.mojom.CreateContextResult', {
       'success': {
         'ordinal': 0,
@@ -33,7 +33,7 @@ webnn.mojom.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: CreateContextOptions
-webnn.mojom.mojom.CreateContextOptionsSpec = {
+webnn.mojom.CreateContextOptionsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateContextOptions',
@@ -47,7 +47,7 @@ webnn.mojom.mojom.CreateContextOptionsSpec = {
 };
 
 // Struct: CreateContextSuccess
-webnn.mojom.mojom.CreateContextSuccessSpec = {
+webnn.mojom.CreateContextSuccessSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateContextSuccess',
@@ -65,24 +65,37 @@ webnn.mojom.mojom.CreateContextSuccessSpec = {
 };
 
 // Interface: WebNNContextProvider
-webnn.mojom.mojom.WebNNContextProvider = {};
+webnn.mojom.WebNNContextProvider = {};
 
-webnn.mojom.mojom.WebNNContextProviderPendingReceiver = class {
+webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webnn.mojom.WebNNContextProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webnn.mojom.mojom.WebNNContextProviderRemote = class {
+webnn.mojom.WebNNContextProviderRemote = class {
   static get $interfaceName() {
     return 'webnn.mojom.WebNNContextProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webnn.mojom.mojom.WebNNContextProviderPendingReceiver,
+      webnn.mojom.WebNNContextProviderPendingReceiver,
       handle);
-    this.$ = new webnn.mojom.mojom.WebNNContextProviderRemoteCallHandler(this.proxy);
+    this.$ = new webnn.mojom.WebNNContextProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -94,7 +107,7 @@ webnn.mojom.mojom.WebNNContextProviderRemote = class {
   }
 };
 
-webnn.mojom.mojom.WebNNContextProviderRemoteCallHandler = class {
+webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -103,15 +116,15 @@ webnn.mojom.mojom.WebNNContextProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
-      webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
+      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
+      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
       [options]);
   }
 
 };
 
-webnn.mojom.mojom.WebNNContextProvider.getRemote = function() {
-  let remote = new webnn.mojom.mojom.WebNNContextProviderRemote();
+webnn.mojom.WebNNContextProvider.getRemote = function() {
+  let remote = new webnn.mojom.WebNNContextProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -121,7 +134,7 @@ webnn.mojom.mojom.WebNNContextProvider.getRemote = function() {
 };
 
 // ParamsSpec for CreateWebNNContext
-webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
+webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_Params',
@@ -134,7 +147,7 @@ webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
   }
 };
 
-webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
+webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
@@ -148,6 +161,6 @@ webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-webnn.mojom.mojom.WebNNContextProviderPtr = webnn.mojom.mojom.WebNNContextProviderRemote;
-webnn.mojom.mojom.WebNNContextProviderRequest = webnn.mojom.mojom.WebNNContextProviderPendingReceiver;
+webnn.mojom.WebNNContextProviderPtr = webnn.mojom.WebNNContextProviderRemote;
+webnn.mojom.WebNNContextProviderRequest = webnn.mojom.WebNNContextProviderPendingReceiver;
 

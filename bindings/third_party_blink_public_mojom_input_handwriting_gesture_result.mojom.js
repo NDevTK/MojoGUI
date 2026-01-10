@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: HandwritingGestureResult
-blink.mojom.mojom.HandwritingGestureResult = {
+blink.mojom.HandwritingGestureResult = {
   kUnknown: 0,
   kSuccess: 1,
   kUnsupported: 2,
@@ -18,4 +18,4 @@ blink.mojom.mojom.HandwritingGestureResult = {
   kCancelled: 4,
   kFallback: 5,
 };
-blink.mojom.mojom.HandwritingGestureResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.HandwritingGestureResultSpec = { $: mojo.internal.Enum() };

@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: WebRtcIpHandlingUrlEntry
-blink.mojom.mojom.WebRtcIpHandlingUrlEntrySpec = {
+blink.mojom.WebRtcIpHandlingUrlEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebRtcIpHandlingUrlEntry',

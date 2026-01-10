@@ -11,24 +11,36 @@ var blink = blink || {};
 
 
 // Interface: QuotaManagerHost
-blink.mojom.mojom.QuotaManagerHost = {};
+blink.mojom.QuotaManagerHost = {};
 
-blink.mojom.mojom.QuotaManagerHostPendingReceiver = class {
+blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.QuotaManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.QuotaManagerHostRemote = class {
+blink.mojom.QuotaManagerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.QuotaManagerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.QuotaManagerHostPendingReceiver,
+      blink.mojom.QuotaManagerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.QuotaManagerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.QuotaManagerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +52,7 @@ blink.mojom.mojom.QuotaManagerHostRemote = class {
   }
 };
 
-blink.mojom.mojom.QuotaManagerHostRemoteCallHandler = class {
+blink.mojom.QuotaManagerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +61,15 @@ blink.mojom.mojom.QuotaManagerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec,
-      blink.mojom.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec,
+      blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec,
+      blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.QuotaManagerHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.QuotaManagerHostRemote();
+blink.mojom.QuotaManagerHost.getRemote = function() {
+  let remote = new blink.mojom.QuotaManagerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +79,7 @@ blink.mojom.mojom.QuotaManagerHost.getRemote = function() {
 };
 
 // ParamsSpec for QueryStorageUsageAndQuota
-blink.mojom.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
+blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.QuotaManagerHost.QueryStorageUsageAndQuota_Params',
@@ -79,7 +91,7 @@ blink.mojom.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
+blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.QuotaManagerHost.QueryStorageUsageAndQuota_ResponseParams',
@@ -96,6 +108,6 @@ blink.mojom.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.QuotaManagerHostPtr = blink.mojom.mojom.QuotaManagerHostRemote;
-blink.mojom.mojom.QuotaManagerHostRequest = blink.mojom.mojom.QuotaManagerHostPendingReceiver;
+blink.mojom.QuotaManagerHostPtr = blink.mojom.QuotaManagerHostRemote;
+blink.mojom.QuotaManagerHostRequest = blink.mojom.QuotaManagerHostPendingReceiver;
 

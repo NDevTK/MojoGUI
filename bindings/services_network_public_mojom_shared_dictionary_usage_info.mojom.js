@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: SharedDictionaryUsageInfo
-network.mojom.mojom.SharedDictionaryUsageInfoSpec = {
+network.mojom.SharedDictionaryUsageInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedDictionaryUsageInfo',

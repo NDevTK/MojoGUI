@@ -12,40 +12,40 @@ var url = url || {};
 var url = url || {};
 
 
-network.mojom.mojom.kWebSocketOptionNone = 0;
+network.mojom.kWebSocketOptionNone = 0;
 
-network.mojom.mojom.kWebSocketOptionBlockAllCookies = 1;
+network.mojom.kWebSocketOptionBlockAllCookies = 1;
 
-network.mojom.mojom.kWebSocketOptionBlockThirdPartyCookies = 2;
+network.mojom.kWebSocketOptionBlockThirdPartyCookies = 2;
 
-network.mojom.mojom.kBrowserProcessId = 0;
+network.mojom.kBrowserProcessId = 0;
 
-network.mojom.mojom.kInvalidProcessId = -1;
+network.mojom.kInvalidProcessId = -1;
 
 // Enum: TrustTokenOperationPolicyVerdict
-network.mojom.mojom.TrustTokenOperationPolicyVerdict = {
+network.mojom.TrustTokenOperationPolicyVerdict = {
   kForbid: 0,
   kPotentiallyPermit: 1,
 };
-network.mojom.mojom.TrustTokenOperationPolicyVerdictSpec = { $: mojo.internal.Enum() };
+network.mojom.TrustTokenOperationPolicyVerdictSpec = { $: mojo.internal.Enum() };
 
 // Enum: SCTAuditingMode
-network.mojom.mojom.SCTAuditingMode = {
+network.mojom.SCTAuditingMode = {
   kDisabled: 0,
   kEnhancedSafeBrowsingReporting: 1,
   kHashdance: 2,
 };
-network.mojom.mojom.SCTAuditingModeSpec = { $: mojo.internal.Enum() };
+network.mojom.SCTAuditingModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DomainReliabilityClearMode
-network.mojom.mojom.DomainReliabilityClearMode = {
+network.mojom.DomainReliabilityClearMode = {
   CLEAR_CONTEXTS: 0,
   CLEAR_BEACONS: 1,
 };
-network.mojom.mojom.DomainReliabilityClearModeSpec = { $: mojo.internal.Enum() };
+network.mojom.DomainReliabilityClearModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CustomProxyConfig
-network.mojom.mojom.CustomProxyConfigSpec = {
+network.mojom.CustomProxyConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CustomProxyConfig',
@@ -62,7 +62,7 @@ network.mojom.mojom.CustomProxyConfigSpec = {
 };
 
 // Struct: CertVerifierServiceRemoteParams
-network.mojom.mojom.CertVerifierServiceRemoteParamsSpec = {
+network.mojom.CertVerifierServiceRemoteParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CertVerifierServiceRemoteParams',
@@ -77,7 +77,7 @@ network.mojom.mojom.CertVerifierServiceRemoteParamsSpec = {
 };
 
 // Struct: HttpAuthStaticNetworkContextParams
-network.mojom.mojom.HttpAuthStaticNetworkContextParamsSpec = {
+network.mojom.HttpAuthStaticNetworkContextParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpAuthStaticNetworkContextParams',
@@ -90,7 +90,7 @@ network.mojom.mojom.HttpAuthStaticNetworkContextParamsSpec = {
 };
 
 // Struct: NetworkContextFilePaths
-network.mojom.mojom.NetworkContextFilePathsSpec = {
+network.mojom.NetworkContextFilePathsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextFilePaths',
@@ -116,7 +116,7 @@ network.mojom.mojom.NetworkContextFilePathsSpec = {
 };
 
 // Struct: SocketBrokerRemotes
-network.mojom.mojom.SocketBrokerRemotesSpec = {
+network.mojom.SocketBrokerRemotesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SocketBrokerRemotes',
@@ -131,7 +131,7 @@ network.mojom.mojom.SocketBrokerRemotesSpec = {
 };
 
 // Struct: NetworkContextParams
-network.mojom.mojom.NetworkContextParamsSpec = {
+network.mojom.NetworkContextParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextParams',
@@ -208,7 +208,7 @@ network.mojom.mojom.NetworkContextParamsSpec = {
 };
 
 // Struct: NetworkConditions
-network.mojom.mojom.NetworkConditionsSpec = {
+network.mojom.NetworkConditionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkConditions',
@@ -229,7 +229,7 @@ network.mojom.mojom.NetworkConditionsSpec = {
 };
 
 // Struct: MatchedNetworkConditions
-network.mojom.mojom.MatchedNetworkConditionsSpec = {
+network.mojom.MatchedNetworkConditionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MatchedNetworkConditions',
@@ -244,7 +244,7 @@ network.mojom.mojom.MatchedNetworkConditionsSpec = {
 };
 
 // Struct: SharedDictionaryInfo
-network.mojom.mojom.SharedDictionaryInfoSpec = {
+network.mojom.SharedDictionaryInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedDictionaryInfo',
@@ -267,7 +267,7 @@ network.mojom.mojom.SharedDictionaryInfoSpec = {
 };
 
 // Struct: SignedExchangeReport
-network.mojom.mojom.SignedExchangeReportSpec = {
+network.mojom.SignedExchangeReportSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SignedExchangeReport',
@@ -291,7 +291,7 @@ network.mojom.mojom.SignedExchangeReportSpec = {
 };
 
 // Struct: URLLoaderFactoryOverride
-network.mojom.mojom.URLLoaderFactoryOverrideSpec = {
+network.mojom.URLLoaderFactoryOverrideSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderFactoryOverride',
@@ -307,7 +307,7 @@ network.mojom.mojom.URLLoaderFactoryOverrideSpec = {
 };
 
 // Struct: URLLoaderFactoryParams
-network.mojom.mojom.URLLoaderFactoryParamsSpec = {
+network.mojom.URLLoaderFactoryParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderFactoryParams',
@@ -351,7 +351,7 @@ network.mojom.mojom.URLLoaderFactoryParamsSpec = {
 };
 
 // Struct: NonceAndAllowlistedPatterns
-network.mojom.mojom.NonceAndAllowlistedPatternsSpec = {
+network.mojom.NonceAndAllowlistedPatternsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NonceAndAllowlistedPatterns',
@@ -366,24 +366,53 @@ network.mojom.mojom.NonceAndAllowlistedPatternsSpec = {
 };
 
 // Interface: CustomProxyConnectionObserver
-network.mojom.mojom.CustomProxyConnectionObserver = {};
+network.mojom.CustomProxyConnectionObserver = {};
 
-network.mojom.mojom.CustomProxyConnectionObserverPendingReceiver = class {
+network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CustomProxyConnectionObserver_OnFallback_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'bad_chain', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyChainSpec, nullable: false, minVersion: 0 },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'proxy_chain', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyChainSpec, nullable: false, minVersion: 0 },
+        { name: 'chain_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'response_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.CustomProxyConnectionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.CustomProxyConnectionObserverRemote = class {
+network.mojom.CustomProxyConnectionObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.CustomProxyConnectionObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.CustomProxyConnectionObserverPendingReceiver,
+      network.mojom.CustomProxyConnectionObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.CustomProxyConnectionObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.CustomProxyConnectionObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -395,7 +424,7 @@ network.mojom.mojom.CustomProxyConnectionObserverRemote = class {
   }
 };
 
-network.mojom.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
+network.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -404,7 +433,7 @@ network.mojom.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec,
+      network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec,
       null,
       [bad_chain, net_error]);
   }
@@ -413,15 +442,15 @@ network.mojom.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec,
+      network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec,
       null,
       [proxy_chain, chain_index, response_headers]);
   }
 
 };
 
-network.mojom.mojom.CustomProxyConnectionObserver.getRemote = function() {
-  let remote = new network.mojom.mojom.CustomProxyConnectionObserverRemote();
+network.mojom.CustomProxyConnectionObserver.getRemote = function() {
+  let remote = new network.mojom.CustomProxyConnectionObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -431,7 +460,7 @@ network.mojom.mojom.CustomProxyConnectionObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnFallback
-network.mojom.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec = {
+network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CustomProxyConnectionObserver.OnFallback_Params',
@@ -446,7 +475,7 @@ network.mojom.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec = {
 };
 
 // ParamsSpec for OnTunnelHeadersReceived
-network.mojom.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec = {
+network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CustomProxyConnectionObserver.OnTunnelHeadersReceived_Params',
@@ -462,29 +491,42 @@ network.mojom.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_Params
 };
 
 // Legacy compatibility
-network.mojom.mojom.CustomProxyConnectionObserverPtr = network.mojom.mojom.CustomProxyConnectionObserverRemote;
-network.mojom.mojom.CustomProxyConnectionObserverRequest = network.mojom.mojom.CustomProxyConnectionObserverPendingReceiver;
+network.mojom.CustomProxyConnectionObserverPtr = network.mojom.CustomProxyConnectionObserverRemote;
+network.mojom.CustomProxyConnectionObserverRequest = network.mojom.CustomProxyConnectionObserverPendingReceiver;
 
 
 // Interface: CustomProxyConfigClient
-network.mojom.mojom.CustomProxyConfigClient = {};
+network.mojom.CustomProxyConfigClient = {};
 
-network.mojom.mojom.CustomProxyConfigClientPendingReceiver = class {
+network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CustomProxyConfigSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.CustomProxyConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.CustomProxyConfigClientRemote = class {
+network.mojom.CustomProxyConfigClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.CustomProxyConfigClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.CustomProxyConfigClientPendingReceiver,
+      network.mojom.CustomProxyConfigClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.CustomProxyConfigClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.CustomProxyConfigClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -496,7 +538,7 @@ network.mojom.mojom.CustomProxyConfigClientRemote = class {
   }
 };
 
-network.mojom.mojom.CustomProxyConfigClientRemoteCallHandler = class {
+network.mojom.CustomProxyConfigClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -505,15 +547,15 @@ network.mojom.mojom.CustomProxyConfigClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec,
+      network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec,
       null,
       [proxy_config]);
   }
 
 };
 
-network.mojom.mojom.CustomProxyConfigClient.getRemote = function() {
-  let remote = new network.mojom.mojom.CustomProxyConfigClientRemote();
+network.mojom.CustomProxyConfigClient.getRemote = function() {
+  let remote = new network.mojom.CustomProxyConfigClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -523,7 +565,7 @@ network.mojom.mojom.CustomProxyConfigClient.getRemote = function() {
 };
 
 // ParamsSpec for OnCustomProxyConfigUpdated
-network.mojom.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec = {
+network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CustomProxyConfigClient.OnCustomProxyConfigUpdated_Params',
@@ -537,29 +579,57 @@ network.mojom.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpe
 };
 
 // Legacy compatibility
-network.mojom.mojom.CustomProxyConfigClientPtr = network.mojom.mojom.CustomProxyConfigClientRemote;
-network.mojom.mojom.CustomProxyConfigClientRequest = network.mojom.mojom.CustomProxyConfigClientPendingReceiver;
+network.mojom.CustomProxyConfigClientPtr = network.mojom.CustomProxyConfigClientRemote;
+network.mojom.CustomProxyConfigClientRequest = network.mojom.CustomProxyConfigClientPendingReceiver;
 
 
 // Interface: TrustedHeaderClient
-network.mojom.mojom.TrustedHeaderClient = {};
+network.mojom.TrustedHeaderClient = {};
 
-network.mojom.mojom.TrustedHeaderClientPendingReceiver = class {
+network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustedHeaderClient_OnHeadersReceived_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'remote_endpoint', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'ssl_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.TrustedHeaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.TrustedHeaderClientRemote = class {
+network.mojom.TrustedHeaderClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.TrustedHeaderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.TrustedHeaderClientPendingReceiver,
+      network.mojom.TrustedHeaderClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.TrustedHeaderClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.TrustedHeaderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -571,7 +641,7 @@ network.mojom.mojom.TrustedHeaderClientRemote = class {
   }
 };
 
-network.mojom.mojom.TrustedHeaderClientRemoteCallHandler = class {
+network.mojom.TrustedHeaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -580,8 +650,8 @@ network.mojom.mojom.TrustedHeaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec,
-      network.mojom.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec,
+      network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec,
+      network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec,
       [headers]);
   }
 
@@ -589,15 +659,15 @@ network.mojom.mojom.TrustedHeaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec,
-      network.mojom.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec,
+      network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec,
+      network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec,
       [headers, remote_endpoint, ssl_info]);
   }
 
 };
 
-network.mojom.mojom.TrustedHeaderClient.getRemote = function() {
-  let remote = new network.mojom.mojom.TrustedHeaderClientRemote();
+network.mojom.TrustedHeaderClient.getRemote = function() {
+  let remote = new network.mojom.TrustedHeaderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -607,7 +677,7 @@ network.mojom.mojom.TrustedHeaderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnBeforeSendHeaders
-network.mojom.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec = {
+network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedHeaderClient.OnBeforeSendHeaders_Params',
@@ -620,7 +690,7 @@ network.mojom.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec = {
+network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedHeaderClient.OnBeforeSendHeaders_ResponseParams',
@@ -635,7 +705,7 @@ network.mojom.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec =
 };
 
 // ParamsSpec for OnHeadersReceived
-network.mojom.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec = {
+network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedHeaderClient.OnHeadersReceived_Params',
@@ -650,7 +720,7 @@ network.mojom.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec = {
+network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedHeaderClient.OnHeadersReceived_ResponseParams',
@@ -666,29 +736,57 @@ network.mojom.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.TrustedHeaderClientPtr = network.mojom.mojom.TrustedHeaderClientRemote;
-network.mojom.mojom.TrustedHeaderClientRequest = network.mojom.mojom.TrustedHeaderClientPendingReceiver;
+network.mojom.TrustedHeaderClientPtr = network.mojom.TrustedHeaderClientRemote;
+network.mojom.TrustedHeaderClientRequest = network.mojom.TrustedHeaderClientPendingReceiver;
 
 
 // Interface: TrustedURLLoaderHeaderClient
-network.mojom.mojom.TrustedURLLoaderHeaderClient = {};
+network.mojom.TrustedURLLoaderHeaderClient = {};
 
-network.mojom.mojom.TrustedURLLoaderHeaderClientPendingReceiver = class {
+network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'header_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TrustedHeaderClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'header_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TrustedHeaderClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.TrustedURLLoaderHeaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.TrustedURLLoaderHeaderClientRemote = class {
+network.mojom.TrustedURLLoaderHeaderClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.TrustedURLLoaderHeaderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.TrustedURLLoaderHeaderClientPendingReceiver,
+      network.mojom.TrustedURLLoaderHeaderClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -700,7 +798,7 @@ network.mojom.mojom.TrustedURLLoaderHeaderClientRemote = class {
   }
 };
 
-network.mojom.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
+network.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -709,7 +807,7 @@ network.mojom.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec,
+      network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec,
       null,
       [request_id, header_client]);
   }
@@ -718,15 +816,15 @@ network.mojom.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec,
+      network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec,
       null,
       [request, header_client]);
   }
 
 };
 
-network.mojom.mojom.TrustedURLLoaderHeaderClient.getRemote = function() {
-  let remote = new network.mojom.mojom.TrustedURLLoaderHeaderClientRemote();
+network.mojom.TrustedURLLoaderHeaderClient.getRemote = function() {
+  let remote = new network.mojom.TrustedURLLoaderHeaderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -736,7 +834,7 @@ network.mojom.mojom.TrustedURLLoaderHeaderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnLoaderCreated
-network.mojom.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec = {
+network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedURLLoaderHeaderClient.OnLoaderCreated_Params',
@@ -751,7 +849,7 @@ network.mojom.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec = {
 };
 
 // ParamsSpec for OnLoaderForCorsPreflightCreated
-network.mojom.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec = {
+network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedURLLoaderHeaderClient.OnLoaderForCorsPreflightCreated_Params',
@@ -766,29 +864,29 @@ network.mojom.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated
 };
 
 // Legacy compatibility
-network.mojom.mojom.TrustedURLLoaderHeaderClientPtr = network.mojom.mojom.TrustedURLLoaderHeaderClientRemote;
-network.mojom.mojom.TrustedURLLoaderHeaderClientRequest = network.mojom.mojom.TrustedURLLoaderHeaderClientPendingReceiver;
+network.mojom.TrustedURLLoaderHeaderClientPtr = network.mojom.TrustedURLLoaderHeaderClientRemote;
+network.mojom.TrustedURLLoaderHeaderClientRequest = network.mojom.TrustedURLLoaderHeaderClientPendingReceiver;
 
 
 // Interface: PreloadedSharedDictionaryInfoHandle
-network.mojom.mojom.PreloadedSharedDictionaryInfoHandle = {};
+network.mojom.PreloadedSharedDictionaryInfoHandle = {};
 
-network.mojom.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver = class {
+network.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.PreloadedSharedDictionaryInfoHandleRemote = class {
+network.mojom.PreloadedSharedDictionaryInfoHandleRemote = class {
   static get $interfaceName() {
     return 'network.mojom.PreloadedSharedDictionaryInfoHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver,
+      network.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.PreloadedSharedDictionaryInfoHandleRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.PreloadedSharedDictionaryInfoHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -800,15 +898,15 @@ network.mojom.mojom.PreloadedSharedDictionaryInfoHandleRemote = class {
   }
 };
 
-network.mojom.mojom.PreloadedSharedDictionaryInfoHandleRemoteCallHandler = class {
+network.mojom.PreloadedSharedDictionaryInfoHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-network.mojom.mojom.PreloadedSharedDictionaryInfoHandle.getRemote = function() {
-  let remote = new network.mojom.mojom.PreloadedSharedDictionaryInfoHandleRemote();
+network.mojom.PreloadedSharedDictionaryInfoHandle.getRemote = function() {
+  let remote = new network.mojom.PreloadedSharedDictionaryInfoHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -818,29 +916,1338 @@ network.mojom.mojom.PreloadedSharedDictionaryInfoHandle.getRemote = function() {
 };
 
 // Legacy compatibility
-network.mojom.mojom.PreloadedSharedDictionaryInfoHandlePtr = network.mojom.mojom.PreloadedSharedDictionaryInfoHandleRemote;
-network.mojom.mojom.PreloadedSharedDictionaryInfoHandleRequest = network.mojom.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver;
+network.mojom.PreloadedSharedDictionaryInfoHandlePtr = network.mojom.PreloadedSharedDictionaryInfoHandleRemote;
+network.mojom.PreloadedSharedDictionaryInfoHandleRequest = network.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver;
 
 
 // Interface: NetworkContext
-network.mojom.mojom.NetworkContext = {};
+network.mojom.NetworkContext = {};
 
-network.mojom.mojom.NetworkContextPendingReceiver = class {
+network.mojom.NetworkContext_SetClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkContextClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateURLLoaderFactory_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderFactoryParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ResetURLLoaderFactories_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetViaObliviousHttp_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ObliviousHttpRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ObliviousHttpClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetCookieManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetCookieManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cookie_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.CookieManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetRestrictedCookieManager_Params',
+      packedSize: 64,
+      fields: [
+        { name: 'restricted_cookie_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.RestrictedCookieManagerRemote), nullable: false, minVersion: 0 },
+        { name: 'role', packedOffset: 48, packedBitOffset: 0, type: network.mojom.RestrictedCookieManagerRoleSpec, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'isolation_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IsolationInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'cookie_setting_overrides', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieSettingOverridesSpec, nullable: false, minVersion: 0 },
+        { name: 'devtools_cookie_setting_overrides', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CookieSettingOverridesSpec, nullable: false, minVersion: 0 },
+        { name: 'cookie_observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.CookieAccessObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 64}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'trust_token_query_answerer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TrustTokenQueryAnswererRemote), nullable: false, minVersion: 0 },
+        { name: 'top_frame_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearTrustTokenData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetStoredTrustTokenCounts_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_DeleteStoredTrustTokens_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetBlockTrustTokens_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearNetworkingHistoryBetween_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearHttpCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearHttpCache_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ComputeHttpCacheSize_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_NotifyBrowserIdle_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_NotifyExternalCacheHit_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'http_method', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkIsolationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'include_credentials', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearHostCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearHostCache_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearHttpAuthCache_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearCorsPreflightCache_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearReportingCacheReports_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearReportingCacheClients_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearNetworkErrorLogging_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearDomainReliability_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DomainReliabilityClearModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearSharedDictionaryCache_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedDictionaryIsolationKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetDocumentReportingEndpoints_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'reporting_source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'isolation_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IsolationInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'endpoints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SendReportsAndRemoveSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reporting_source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_QueueReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_QueueReport_Params',
+      packedSize: 64,
+      fields: [
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'reporting_source', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'body', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 64}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_QueueEnterpriseReport_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_QueueSignedExchangeReport_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'report', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SignedExchangeReportSpec, nullable: false, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CloseAllConnections_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CloseAllConnections_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CloseIdleConnections_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetNetworkConditions_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'throttling_profile_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'conditions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.MatchedNetworkConditionsSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetAcceptLanguage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_accept_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetEnableReferrers_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_referrers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetCTPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetCTPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CTPolicySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateUDPSocket_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.UDPSocketRemote), nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.UDPSocketListenerRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateRestrictedUDPSocket_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 40, packedBitOffset: 0, type: network.mojom.RestrictedUDPSocketModeSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RestrictedUDPSocketParamsSpec, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.RestrictedUDPSocketRemote), nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.UDPSocketListenerRemote), nullable: true, minVersion: 0 },
+        { name: 'allow_multicast', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateTCPServerSocket_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TCPServerSocketOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateTCPConnectedSocket_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
+        { name: 'remote_addr_list', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
+        { name: 'tcp_connected_socket_options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.TCPConnectedSocketOptionsSpec, nullable: true, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPConnectedSocketRemote), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SocketObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateTCPBoundSocket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPBoundSocketRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.ProxyResolvingSocketFactoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_LookUpProxyForURL_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'proxy_lookup_client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ProxyLookupClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ForceReloadProxyConfig_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearBadProxiesCache_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateWebSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateWebSocket_Params',
+      packedSize: 128,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'requested_protocols', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
+        { name: 'storage_access_api_status', packedOffset: 104, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'isolation_info', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IsolationInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'additional_headers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpHeaderSpec, false), nullable: false, minVersion: 0 },
+        { name: 'process_id', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'client_security_state', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 56, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'handshake_client', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebSocketHandshakeClientRemote), nullable: false, minVersion: 0 },
+        { name: 'url_loader_network_observer', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), nullable: true, minVersion: 0 },
+        { name: 'auth_handler', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebSocketAuthenticationHandlerRemote), nullable: true, minVersion: 0 },
+        { name: 'header_client', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.TrustedHeaderClientRemote), nullable: true, minVersion: 0 },
+        { name: 'throttling_profile_id', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 128}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateWebTransport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateWebTransport_Params',
+      packedSize: 80,
+      fields: [
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'fingerprints', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebTransportCertificateFingerprintSpec, false), nullable: false, minVersion: 0 },
+        { name: 'application_protocols', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'handshake_client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportHandshakeClientRemote), nullable: false, minVersion: 0 },
+        { name: 'url_loader_network_observer', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), nullable: true, minVersion: 0 },
+        { name: 'client_security_state', packedOffset: 64, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 80}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateNetLogExporter_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetLogExporterRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_PreconnectSockets_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_PreconnectSockets_Params',
+      packedSize: 64,
+      fields: [
+        { name: 'num_streams', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'credentials_mode', packedOffset: 52, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'keepalive_config', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ConnectionKeepAliveConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'observer_client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ConnectionChangeObserverClientRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 64}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateP2PSocketManager_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PTrustedSocketManagerClientRemote), nullable: false, minVersion: 0 },
+        { name: 'trusted_socket_manager', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.P2PTrustedSocketManagerRemote), nullable: false, minVersion: 0 },
+        { name: 'socket_manager', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.P2PSocketManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateMdnsResponder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.MdnsResponderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ResolveHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ResolveHost_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostResolverHostSpec, nullable: false, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'optional_parameters', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ResolveHostParametersSpec, nullable: true, minVersion: 0 },
+        { name: 'response_client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ResolveHostClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_CreateHostResolver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_CreateHostResolver_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config_overrides', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DnsConfigOverridesSpec, nullable: true, minVersion: 0 },
+        { name: 'host_resolver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.HostResolverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_VerifyCert_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_VerifyCert_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+        { name: 'host_port', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
+        { name: 'ocsp_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sct_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_VerifyCertForSignedExchange_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+        { name: 'host_port', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
+        { name: 'ocsp_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sct_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_Verify2QwacCertBinding_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_AddHSTS_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_AddHSTS_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'expiry', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'include_subdomains', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_IsHSTSActiveForHost_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_top_level_nav', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetHSTSState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetHSTSState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'domain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'source_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'allow_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), nullable: false, minVersion: 0 },
+        { name: 'block_patterns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_DeleteDynamicDataForHost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'split_auth_cache_by_network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cache_key', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_AddAuthCacheEntry_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AuthChallengeInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'credentials', packedOffset: 24, packedBitOffset: 0, type: network.mojom.AuthCredentialsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_LookupProxyAuthCredentials_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'proxy_server', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyServerSpec, nullable: false, minVersion: 0 },
+        { name: 'auth_scheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_VerifyCertificateForTesting_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'ocsp_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sct_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'upload_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetSCTAuditingMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SCTAuditingModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_AddReportingApiObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ReportingApiObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetSharedDictionaryInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedDictionaryIsolationKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cache_max_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'preload_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.PreloadedSharedDictionaryInfoHandleRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
+        { name: 'certificate', packedOffset: 8, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_FlushMatchingCachedClientCert_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_FlushClientCertCache_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_RevokeNetworkForNonces_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'nonces_to_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.NonceAndAllowlistedPatternsSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ClearNonces_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ClearNonces_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'nonces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.UnguessableTokenSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'exempted_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_Prefetch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_Prefetch_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetBoundNetworkForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_GetDeviceBoundSessionManager_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_bound_session_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DeviceBoundSessionManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContext_AddQuicHints_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContext_AddQuicHints_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'origins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.SchemeHostPortSpec, false), nullable: false, minVersion: 0 },
+        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.NetworkContextRemote = class {
+network.mojom.NetworkContextRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.NetworkContextPendingReceiver,
+      network.mojom.NetworkContextPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.NetworkContextRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.NetworkContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -852,7 +2259,7 @@ network.mojom.mojom.NetworkContextRemote = class {
   }
 };
 
-network.mojom.mojom.NetworkContextRemoteCallHandler = class {
+network.mojom.NetworkContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -861,7 +2268,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.NetworkContext_SetClient_ParamsSpec,
+      network.mojom.NetworkContext_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -870,7 +2277,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec,
+      network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec,
       null,
       [url_loader_factory, params]);
   }
@@ -879,7 +2286,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec,
+      network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec,
       null,
       []);
   }
@@ -888,7 +2295,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec,
+      network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec,
       null,
       [request, client]);
   }
@@ -897,7 +2304,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.NetworkContext_GetCookieManager_ParamsSpec,
+      network.mojom.NetworkContext_GetCookieManager_ParamsSpec,
       null,
       [cookie_manager]);
   }
@@ -906,7 +2313,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec,
+      network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec,
       null,
       [restricted_cookie_manager, role, origin, isolation_info, cookie_setting_overrides, devtools_cookie_setting_overrides, cookie_observer]);
   }
@@ -915,7 +2322,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec,
+      network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec,
       null,
       [trust_token_query_answerer, top_frame_origin]);
   }
@@ -924,7 +2331,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec,
+      network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec,
       null,
       [filter]);
   }
@@ -933,8 +2340,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec,
-      network.mojom.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec,
+      network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec,
+      network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec,
       []);
   }
 
@@ -942,8 +2349,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec,
+      network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec,
       []);
   }
 
@@ -951,8 +2358,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec,
+      network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec,
       []);
   }
 
@@ -960,8 +2367,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec,
-      network.mojom.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec,
+      network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec,
+      network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec,
       [issuer]);
   }
 
@@ -969,7 +2376,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      network.mojom.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec,
+      network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec,
       null,
       [block]);
   }
@@ -978,7 +2385,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec,
+      network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec,
       null,
       [start_time, end_time]);
   }
@@ -987,7 +2394,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearHttpCache_ParamsSpec,
+      network.mojom.NetworkContext_ClearHttpCache_ParamsSpec,
       null,
       [start_time, end_time, filter]);
   }
@@ -996,8 +2403,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      network.mojom.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec,
-      network.mojom.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec,
+      network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec,
+      network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec,
       [start_time, end_time]);
   }
 
@@ -1005,7 +2412,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      network.mojom.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec,
+      network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec,
       null,
       []);
   }
@@ -1014,7 +2421,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      network.mojom.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec,
+      network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec,
       null,
       [url, http_method, key, include_credentials]);
   }
@@ -1023,7 +2430,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearHostCache_ParamsSpec,
+      network.mojom.NetworkContext_ClearHostCache_ParamsSpec,
       null,
       [filter]);
   }
@@ -1032,7 +2439,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec,
+      network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec,
       null,
       [start_time, end_time, filter]);
   }
@@ -1041,7 +2448,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec,
+      network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec,
       null,
       [filter]);
   }
@@ -1050,7 +2457,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec,
+      network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec,
       null,
       [filter]);
   }
@@ -1059,7 +2466,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec,
+      network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec,
       null,
       [filter]);
   }
@@ -1068,7 +2475,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec,
+      network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec,
       null,
       [filter]);
   }
@@ -1077,7 +2484,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearDomainReliability_ParamsSpec,
+      network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec,
       null,
       [filter, mode]);
   }
@@ -1086,7 +2493,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec,
+      network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec,
       null,
       [start_time, end_time, filter]);
   }
@@ -1095,7 +2502,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec,
+      network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec,
       null,
       [isolation_key]);
   }
@@ -1104,7 +2511,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      network.mojom.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec,
+      network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec,
       null,
       [reporting_source, origin, isolation_info, endpoints]);
   }
@@ -1113,7 +2520,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      network.mojom.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec,
+      network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec,
       null,
       [endpoints]);
   }
@@ -1122,7 +2529,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      network.mojom.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec,
+      network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec,
       null,
       [reporting_source]);
   }
@@ -1131,7 +2538,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      network.mojom.mojom.NetworkContext_QueueReport_ParamsSpec,
+      network.mojom.NetworkContext_QueueReport_ParamsSpec,
       null,
       [type, group, url, reporting_source, network_anonymization_key, body]);
   }
@@ -1140,7 +2547,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      network.mojom.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec,
+      network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec,
       null,
       [type, group, url, body]);
   }
@@ -1149,7 +2556,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      network.mojom.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec,
+      network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec,
       null,
       [report, network_anonymization_key]);
   }
@@ -1158,7 +2565,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      network.mojom.mojom.NetworkContext_CloseAllConnections_ParamsSpec,
+      network.mojom.NetworkContext_CloseAllConnections_ParamsSpec,
       null,
       []);
   }
@@ -1167,7 +2574,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      network.mojom.mojom.NetworkContext_CloseIdleConnections_ParamsSpec,
+      network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec,
       null,
       []);
   }
@@ -1176,7 +2583,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      network.mojom.mojom.NetworkContext_SetNetworkConditions_ParamsSpec,
+      network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec,
       null,
       [throttling_profile_id, conditions]);
   }
@@ -1185,7 +2592,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      network.mojom.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec,
+      network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec,
       null,
       [new_accept_language]);
   }
@@ -1194,7 +2601,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      network.mojom.mojom.NetworkContext_SetEnableReferrers_ParamsSpec,
+      network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec,
       null,
       [enable_referrers]);
   }
@@ -1203,7 +2610,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      network.mojom.mojom.NetworkContext_SetCTPolicy_ParamsSpec,
+      network.mojom.NetworkContext_SetCTPolicy_ParamsSpec,
       null,
       [ct_policy]);
   }
@@ -1212,7 +2619,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateUDPSocket_ParamsSpec,
+      network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec,
       null,
       [receiver, listener]);
   }
@@ -1221,8 +2628,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec,
-      network.mojom.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec,
+      network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec,
+      network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec,
       [addr, mode, traffic_annotation, params, receiver, listener, allow_multicast]);
   }
 
@@ -1230,8 +2637,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec,
-      network.mojom.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec,
+      network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec,
+      network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec,
       [local_addr, options, traffic_annotation, socket]);
   }
 
@@ -1239,8 +2646,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec,
-      network.mojom.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec,
+      network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec,
+      network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec,
       [local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer]);
   }
 
@@ -1248,8 +2655,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec,
-      network.mojom.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec,
+      network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec,
+      network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec,
       [local_addr, traffic_annotation, socket]);
   }
 
@@ -1257,7 +2664,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec,
+      network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec,
       null,
       [factory]);
   }
@@ -1266,7 +2673,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      network.mojom.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec,
+      network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec,
       null,
       [url, network_anonymization_key, proxy_lookup_client]);
   }
@@ -1275,7 +2682,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      network.mojom.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec,
+      network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec,
       null,
       []);
   }
@@ -1284,7 +2691,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec,
+      network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec,
       null,
       []);
   }
@@ -1293,7 +2700,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateWebSocket_ParamsSpec,
+      network.mojom.NetworkContext_CreateWebSocket_ParamsSpec,
       null,
       [url, requested_protocols, site_for_cookies, storage_access_api_status, isolation_info, additional_headers, process_id, origin, client_security_state, options, traffic_annotation, handshake_client, url_loader_network_observer, auth_handler, header_client, throttling_profile_id]);
   }
@@ -1302,7 +2709,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 49
     return this.proxy.sendMessage(
       49,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateWebTransport_ParamsSpec,
+      network.mojom.NetworkContext_CreateWebTransport_ParamsSpec,
       null,
       [url, origin, network_anonymization_key, fingerprints, application_protocols, handshake_client, url_loader_network_observer, client_security_state]);
   }
@@ -1311,7 +2718,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 50
     return this.proxy.sendMessage(
       50,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec,
+      network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec,
       null,
       [receiver]);
   }
@@ -1320,7 +2727,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 51
     return this.proxy.sendMessage(
       51,  // ordinal
-      network.mojom.mojom.NetworkContext_PreconnectSockets_ParamsSpec,
+      network.mojom.NetworkContext_PreconnectSockets_ParamsSpec,
       null,
       [num_streams, url, credentials_mode, network_anonymization_key, traffic_annotation, keepalive_config, observer_client]);
   }
@@ -1329,7 +2736,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 52
     return this.proxy.sendMessage(
       52,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec,
+      network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec,
       null,
       [network_anonymization_key, client, trusted_socket_manager, socket_manager]);
   }
@@ -1338,7 +2745,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 53
     return this.proxy.sendMessage(
       53,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec,
+      network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec,
       null,
       [responder_receiver]);
   }
@@ -1347,7 +2754,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 54
     return this.proxy.sendMessage(
       54,  // ordinal
-      network.mojom.mojom.NetworkContext_ResolveHost_ParamsSpec,
+      network.mojom.NetworkContext_ResolveHost_ParamsSpec,
       null,
       [host, network_anonymization_key, optional_parameters, response_client]);
   }
@@ -1356,7 +2763,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 55
     return this.proxy.sendMessage(
       55,  // ordinal
-      network.mojom.mojom.NetworkContext_CreateHostResolver_ParamsSpec,
+      network.mojom.NetworkContext_CreateHostResolver_ParamsSpec,
       null,
       [config_overrides, host_resolver]);
   }
@@ -1365,8 +2772,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 56
     return this.proxy.sendMessage(
       56,  // ordinal
-      network.mojom.mojom.NetworkContext_VerifyCert_ParamsSpec,
-      network.mojom.mojom.NetworkContext_VerifyCert_ResponseParamsSpec,
+      network.mojom.NetworkContext_VerifyCert_ParamsSpec,
+      network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec,
       [certificate, host_port, ocsp_response, sct_list]);
   }
 
@@ -1374,8 +2781,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 57
     return this.proxy.sendMessage(
       57,  // ordinal
-      network.mojom.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec,
-      network.mojom.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec,
+      network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec,
+      network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec,
       [certificate, host_port, ocsp_response, sct_list]);
   }
 
@@ -1383,8 +2790,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 58
     return this.proxy.sendMessage(
       58,  // ordinal
-      network.mojom.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec,
-      network.mojom.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec,
+      network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec,
+      network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec,
       [binding, hostname, tls_certificate]);
   }
 
@@ -1392,7 +2799,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 59
     return this.proxy.sendMessage(
       59,  // ordinal
-      network.mojom.mojom.NetworkContext_AddHSTS_ParamsSpec,
+      network.mojom.NetworkContext_AddHSTS_ParamsSpec,
       null,
       [host, expiry, include_subdomains]);
   }
@@ -1401,8 +2808,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 60
     return this.proxy.sendMessage(
       60,  // ordinal
-      network.mojom.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec,
-      network.mojom.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec,
+      network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec,
+      network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec,
       [host, is_top_level_nav]);
   }
 
@@ -1410,8 +2817,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 61
     return this.proxy.sendMessage(
       61,  // ordinal
-      network.mojom.mojom.NetworkContext_GetHSTSState_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetHSTSState_ParamsSpec,
+      network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec,
       [domain]);
   }
 
@@ -1419,7 +2826,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 62
     return this.proxy.sendMessage(
       62,  // ordinal
-      network.mojom.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec,
+      network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec,
       null,
       [source_origin, allow_patterns, block_patterns]);
   }
@@ -1428,8 +2835,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 63
     return this.proxy.sendMessage(
       63,  // ordinal
-      network.mojom.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec,
-      network.mojom.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec,
+      network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec,
+      network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec,
       [host]);
   }
 
@@ -1437,7 +2844,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 64
     return this.proxy.sendMessage(
       64,  // ordinal
-      network.mojom.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec,
+      network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec,
       null,
       [split_auth_cache_by_network_anonymization_key]);
   }
@@ -1446,8 +2853,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 65
     return this.proxy.sendMessage(
       65,  // ordinal
-      network.mojom.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec,
-      network.mojom.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec,
+      network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec,
+      network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec,
       []);
   }
 
@@ -1455,7 +2862,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 66
     return this.proxy.sendMessage(
       66,  // ordinal
-      network.mojom.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec,
+      network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec,
       null,
       [cache_key]);
   }
@@ -1464,7 +2871,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 67
     return this.proxy.sendMessage(
       67,  // ordinal
-      network.mojom.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec,
+      network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec,
       null,
       [challenge, network_anonymization_key, credentials]);
   }
@@ -1473,7 +2880,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 68
     return this.proxy.sendMessage(
       68,  // ordinal
-      network.mojom.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec,
+      network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec,
       null,
       [value]);
   }
@@ -1482,8 +2889,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 69
     return this.proxy.sendMessage(
       69,  // ordinal
-      network.mojom.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec,
-      network.mojom.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec,
+      network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec,
+      network.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec,
       [proxy_server, auth_scheme, realm]);
   }
 
@@ -1491,7 +2898,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 70
     return this.proxy.sendMessage(
       70,  // ordinal
-      network.mojom.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec,
+      network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec,
       null,
       []);
   }
@@ -1500,8 +2907,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 71
     return this.proxy.sendMessage(
       71,  // ordinal
-      network.mojom.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec,
-      network.mojom.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec,
+      network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec,
+      network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec,
       [certificate, hostname, ocsp_response, sct_list]);
   }
 
@@ -1509,8 +2916,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 72
     return this.proxy.sendMessage(
       72,  // ordinal
-      network.mojom.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec,
+      network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -1518,7 +2925,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 73
     return this.proxy.sendMessage(
       73,  // ordinal
-      network.mojom.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec,
+      network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec,
       null,
       [origin, upload_url]);
   }
@@ -1527,7 +2934,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 74
     return this.proxy.sendMessage(
       74,  // ordinal
-      network.mojom.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec,
+      network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec,
       null,
       []);
   }
@@ -1536,7 +2943,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 75
     return this.proxy.sendMessage(
       75,  // ordinal
-      network.mojom.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec,
+      network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec,
       null,
       [mode]);
   }
@@ -1545,7 +2952,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 76
     return this.proxy.sendMessage(
       76,  // ordinal
-      network.mojom.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec,
+      network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1554,8 +2961,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 77
     return this.proxy.sendMessage(
       77,  // ordinal
-      network.mojom.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec,
+      network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec,
       []);
   }
 
@@ -1563,8 +2970,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 78
     return this.proxy.sendMessage(
       78,  // ordinal
-      network.mojom.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec,
+      network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec,
       [isolation_key]);
   }
 
@@ -1572,8 +2979,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 79
     return this.proxy.sendMessage(
       79,  // ordinal
-      network.mojom.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec,
+      network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec,
       [start_time, end_time]);
   }
 
@@ -1581,7 +2988,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 80
     return this.proxy.sendMessage(
       80,  // ordinal
-      network.mojom.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec,
+      network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec,
       null,
       [cache_max_size]);
   }
@@ -1590,7 +2997,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 81
     return this.proxy.sendMessage(
       81,  // ordinal
-      network.mojom.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec,
+      network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec,
       null,
       [urls, preload_handle]);
   }
@@ -1599,8 +3006,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 82
     return this.proxy.sendMessage(
       82,  // ordinal
-      network.mojom.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec,
-      network.mojom.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec,
+      network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec,
+      network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -1608,7 +3015,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 83
     return this.proxy.sendMessage(
       83,  // ordinal
-      network.mojom.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec,
+      network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec,
       null,
       [host, certificate]);
   }
@@ -1617,7 +3024,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 84
     return this.proxy.sendMessage(
       84,  // ordinal
-      network.mojom.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec,
+      network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec,
       null,
       [certificate]);
   }
@@ -1626,7 +3033,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 85
     return this.proxy.sendMessage(
       85,  // ordinal
-      network.mojom.mojom.NetworkContext_FlushClientCertCache_ParamsSpec,
+      network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec,
       null,
       []);
   }
@@ -1635,7 +3042,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 86
     return this.proxy.sendMessage(
       86,  // ordinal
-      network.mojom.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec,
+      network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec,
       null,
       [nonces_to_patterns]);
   }
@@ -1644,7 +3051,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 87
     return this.proxy.sendMessage(
       87,  // ordinal
-      network.mojom.mojom.NetworkContext_ClearNonces_ParamsSpec,
+      network.mojom.NetworkContext_ClearNonces_ParamsSpec,
       null,
       [nonces]);
   }
@@ -1653,7 +3060,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 88
     return this.proxy.sendMessage(
       88,  // ordinal
-      network.mojom.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec,
+      network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec,
       null,
       [exempted_url, nonce]);
   }
@@ -1662,7 +3069,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 89
     return this.proxy.sendMessage(
       89,  // ordinal
-      network.mojom.mojom.NetworkContext_Prefetch_ParamsSpec,
+      network.mojom.NetworkContext_Prefetch_ParamsSpec,
       null,
       [request_id, options, request, traffic_annotation]);
   }
@@ -1671,8 +3078,8 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 90
     return this.proxy.sendMessage(
       90,  // ordinal
-      network.mojom.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec,
-      network.mojom.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec,
+      network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec,
+      network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -1680,7 +3087,7 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 91
     return this.proxy.sendMessage(
       91,  // ordinal
-      network.mojom.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec,
+      network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec,
       null,
       [device_bound_session_manager]);
   }
@@ -1689,15 +3096,15 @@ network.mojom.mojom.NetworkContextRemoteCallHandler = class {
     // Ordinal: 92
     return this.proxy.sendMessage(
       92,  // ordinal
-      network.mojom.mojom.NetworkContext_AddQuicHints_ParamsSpec,
+      network.mojom.NetworkContext_AddQuicHints_ParamsSpec,
       null,
       [origins, network_anonymization_key]);
   }
 
 };
 
-network.mojom.mojom.NetworkContext.getRemote = function() {
-  let remote = new network.mojom.mojom.NetworkContextRemote();
+network.mojom.NetworkContext.getRemote = function() {
+  let remote = new network.mojom.NetworkContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1707,7 +3114,7 @@ network.mojom.mojom.NetworkContext.getRemote = function() {
 };
 
 // ParamsSpec for SetClient
-network.mojom.mojom.NetworkContext_SetClient_ParamsSpec = {
+network.mojom.NetworkContext_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetClient_Params',
@@ -1721,7 +3128,7 @@ network.mojom.mojom.NetworkContext_SetClient_ParamsSpec = {
 };
 
 // ParamsSpec for CreateURLLoaderFactory
-network.mojom.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec = {
+network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateURLLoaderFactory_Params',
@@ -1736,7 +3143,7 @@ network.mojom.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec = {
 };
 
 // ParamsSpec for ResetURLLoaderFactories
-network.mojom.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec = {
+network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ResetURLLoaderFactories_Params',
@@ -1749,7 +3156,7 @@ network.mojom.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec = {
 };
 
 // ParamsSpec for GetViaObliviousHttp
-network.mojom.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec = {
+network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetViaObliviousHttp_Params',
@@ -1764,7 +3171,7 @@ network.mojom.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec = {
 };
 
 // ParamsSpec for GetCookieManager
-network.mojom.mojom.NetworkContext_GetCookieManager_ParamsSpec = {
+network.mojom.NetworkContext_GetCookieManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetCookieManager_Params',
@@ -1778,7 +3185,7 @@ network.mojom.mojom.NetworkContext_GetCookieManager_ParamsSpec = {
 };
 
 // ParamsSpec for GetRestrictedCookieManager
-network.mojom.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec = {
+network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetRestrictedCookieManager_Params',
@@ -1798,7 +3205,7 @@ network.mojom.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec = {
 };
 
 // ParamsSpec for GetTrustTokenQueryAnswerer
-network.mojom.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec = {
+network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetTrustTokenQueryAnswerer_Params',
@@ -1813,7 +3220,7 @@ network.mojom.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec = {
 };
 
 // ParamsSpec for ClearTrustTokenData
-network.mojom.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec = {
+network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearTrustTokenData_Params',
@@ -1827,7 +3234,7 @@ network.mojom.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec = {
 };
 
 // ParamsSpec for ClearTrustTokenSessionOnlyData
-network.mojom.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec = {
+network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearTrustTokenSessionOnlyData_Params',
@@ -1839,7 +3246,7 @@ network.mojom.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec = {
+network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearTrustTokenSessionOnlyData_ResponseParams',
@@ -1853,7 +3260,7 @@ network.mojom.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParams
 };
 
 // ParamsSpec for GetStoredTrustTokenCounts
-network.mojom.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec = {
+network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetStoredTrustTokenCounts_Params',
@@ -1865,7 +3272,7 @@ network.mojom.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetStoredTrustTokenCounts_ResponseParams',
@@ -1879,7 +3286,7 @@ network.mojom.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec 
 };
 
 // ParamsSpec for GetPrivateStateTokenRedemptionRecords
-network.mojom.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec = {
+network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetPrivateStateTokenRedemptionRecords_Params',
@@ -1891,7 +3298,7 @@ network.mojom.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsS
   }
 };
 
-network.mojom.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetPrivateStateTokenRedemptionRecords_ResponseParams',
@@ -1905,7 +3312,7 @@ network.mojom.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_Respons
 };
 
 // ParamsSpec for DeleteStoredTrustTokens
-network.mojom.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec = {
+network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.DeleteStoredTrustTokens_Params',
@@ -1918,7 +3325,7 @@ network.mojom.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec = {
+network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.DeleteStoredTrustTokens_ResponseParams',
@@ -1932,7 +3339,7 @@ network.mojom.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec = 
 };
 
 // ParamsSpec for SetBlockTrustTokens
-network.mojom.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec = {
+network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetBlockTrustTokens_Params',
@@ -1946,7 +3353,7 @@ network.mojom.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec = {
 };
 
 // ParamsSpec for ClearNetworkingHistoryBetween
-network.mojom.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec = {
+network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearNetworkingHistoryBetween_Params',
@@ -1961,7 +3368,7 @@ network.mojom.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec = {
 };
 
 // ParamsSpec for ClearHttpCache
-network.mojom.mojom.NetworkContext_ClearHttpCache_ParamsSpec = {
+network.mojom.NetworkContext_ClearHttpCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearHttpCache_Params',
@@ -1977,7 +3384,7 @@ network.mojom.mojom.NetworkContext_ClearHttpCache_ParamsSpec = {
 };
 
 // ParamsSpec for ComputeHttpCacheSize
-network.mojom.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec = {
+network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ComputeHttpCacheSize_Params',
@@ -1991,7 +3398,7 @@ network.mojom.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec = {
+network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ComputeHttpCacheSize_ResponseParams',
@@ -2006,7 +3413,7 @@ network.mojom.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for NotifyBrowserIdle
-network.mojom.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec = {
+network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.NotifyBrowserIdle_Params',
@@ -2019,7 +3426,7 @@ network.mojom.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyExternalCacheHit
-network.mojom.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec = {
+network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.NotifyExternalCacheHit_Params',
@@ -2036,7 +3443,7 @@ network.mojom.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec = {
 };
 
 // ParamsSpec for ClearHostCache
-network.mojom.mojom.NetworkContext_ClearHostCache_ParamsSpec = {
+network.mojom.NetworkContext_ClearHostCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearHostCache_Params',
@@ -2050,7 +3457,7 @@ network.mojom.mojom.NetworkContext_ClearHostCache_ParamsSpec = {
 };
 
 // ParamsSpec for ClearHttpAuthCache
-network.mojom.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec = {
+network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearHttpAuthCache_Params',
@@ -2066,7 +3473,7 @@ network.mojom.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec = {
 };
 
 // ParamsSpec for ClearCorsPreflightCache
-network.mojom.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec = {
+network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearCorsPreflightCache_Params',
@@ -2080,7 +3487,7 @@ network.mojom.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec = {
 };
 
 // ParamsSpec for ClearReportingCacheReports
-network.mojom.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec = {
+network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearReportingCacheReports_Params',
@@ -2094,7 +3501,7 @@ network.mojom.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec = {
 };
 
 // ParamsSpec for ClearReportingCacheClients
-network.mojom.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec = {
+network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearReportingCacheClients_Params',
@@ -2108,7 +3515,7 @@ network.mojom.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec = {
 };
 
 // ParamsSpec for ClearNetworkErrorLogging
-network.mojom.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec = {
+network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearNetworkErrorLogging_Params',
@@ -2122,7 +3529,7 @@ network.mojom.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec = {
 };
 
 // ParamsSpec for ClearDomainReliability
-network.mojom.mojom.NetworkContext_ClearDomainReliability_ParamsSpec = {
+network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearDomainReliability_Params',
@@ -2137,7 +3544,7 @@ network.mojom.mojom.NetworkContext_ClearDomainReliability_ParamsSpec = {
 };
 
 // ParamsSpec for ClearSharedDictionaryCache
-network.mojom.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec = {
+network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearSharedDictionaryCache_Params',
@@ -2153,7 +3560,7 @@ network.mojom.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec = {
 };
 
 // ParamsSpec for ClearSharedDictionaryCacheForIsolationKey
-network.mojom.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec = {
+network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearSharedDictionaryCacheForIsolationKey_Params',
@@ -2167,7 +3574,7 @@ network.mojom.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_Par
 };
 
 // ParamsSpec for SetDocumentReportingEndpoints
-network.mojom.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec = {
+network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetDocumentReportingEndpoints_Params',
@@ -2184,7 +3591,7 @@ network.mojom.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec = {
 };
 
 // ParamsSpec for SetEnterpriseReportingEndpoints
-network.mojom.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec = {
+network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetEnterpriseReportingEndpoints_Params',
@@ -2198,7 +3605,7 @@ network.mojom.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec = 
 };
 
 // ParamsSpec for SendReportsAndRemoveSource
-network.mojom.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec = {
+network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SendReportsAndRemoveSource_Params',
@@ -2212,7 +3619,7 @@ network.mojom.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec = {
 };
 
 // ParamsSpec for QueueReport
-network.mojom.mojom.NetworkContext_QueueReport_ParamsSpec = {
+network.mojom.NetworkContext_QueueReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.QueueReport_Params',
@@ -2231,7 +3638,7 @@ network.mojom.mojom.NetworkContext_QueueReport_ParamsSpec = {
 };
 
 // ParamsSpec for QueueEnterpriseReport
-network.mojom.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec = {
+network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.QueueEnterpriseReport_Params',
@@ -2248,7 +3655,7 @@ network.mojom.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec = {
 };
 
 // ParamsSpec for QueueSignedExchangeReport
-network.mojom.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec = {
+network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.QueueSignedExchangeReport_Params',
@@ -2263,7 +3670,7 @@ network.mojom.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec = {
 };
 
 // ParamsSpec for CloseAllConnections
-network.mojom.mojom.NetworkContext_CloseAllConnections_ParamsSpec = {
+network.mojom.NetworkContext_CloseAllConnections_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CloseAllConnections_Params',
@@ -2276,7 +3683,7 @@ network.mojom.mojom.NetworkContext_CloseAllConnections_ParamsSpec = {
 };
 
 // ParamsSpec for CloseIdleConnections
-network.mojom.mojom.NetworkContext_CloseIdleConnections_ParamsSpec = {
+network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CloseIdleConnections_Params',
@@ -2289,7 +3696,7 @@ network.mojom.mojom.NetworkContext_CloseIdleConnections_ParamsSpec = {
 };
 
 // ParamsSpec for SetNetworkConditions
-network.mojom.mojom.NetworkContext_SetNetworkConditions_ParamsSpec = {
+network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetNetworkConditions_Params',
@@ -2304,7 +3711,7 @@ network.mojom.mojom.NetworkContext_SetNetworkConditions_ParamsSpec = {
 };
 
 // ParamsSpec for SetAcceptLanguage
-network.mojom.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec = {
+network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetAcceptLanguage_Params',
@@ -2318,7 +3725,7 @@ network.mojom.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec = {
 };
 
 // ParamsSpec for SetEnableReferrers
-network.mojom.mojom.NetworkContext_SetEnableReferrers_ParamsSpec = {
+network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetEnableReferrers_Params',
@@ -2332,7 +3739,7 @@ network.mojom.mojom.NetworkContext_SetEnableReferrers_ParamsSpec = {
 };
 
 // ParamsSpec for SetCTPolicy
-network.mojom.mojom.NetworkContext_SetCTPolicy_ParamsSpec = {
+network.mojom.NetworkContext_SetCTPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetCTPolicy_Params',
@@ -2346,7 +3753,7 @@ network.mojom.mojom.NetworkContext_SetCTPolicy_ParamsSpec = {
 };
 
 // ParamsSpec for CreateUDPSocket
-network.mojom.mojom.NetworkContext_CreateUDPSocket_ParamsSpec = {
+network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateUDPSocket_Params',
@@ -2361,7 +3768,7 @@ network.mojom.mojom.NetworkContext_CreateUDPSocket_ParamsSpec = {
 };
 
 // ParamsSpec for CreateRestrictedUDPSocket
-network.mojom.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec = {
+network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateRestrictedUDPSocket_Params',
@@ -2380,7 +3787,7 @@ network.mojom.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec = {
+network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateRestrictedUDPSocket_ResponseParams',
@@ -2395,7 +3802,7 @@ network.mojom.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec 
 };
 
 // ParamsSpec for CreateTCPServerSocket
-network.mojom.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec = {
+network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateTCPServerSocket_Params',
@@ -2411,7 +3818,7 @@ network.mojom.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec = {
+network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateTCPServerSocket_ResponseParams',
@@ -2426,7 +3833,7 @@ network.mojom.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateTCPConnectedSocket
-network.mojom.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec = {
+network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateTCPConnectedSocket_Params',
@@ -2444,7 +3851,7 @@ network.mojom.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec = {
+network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateTCPConnectedSocket_ResponseParams',
@@ -2462,7 +3869,7 @@ network.mojom.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec =
 };
 
 // ParamsSpec for CreateTCPBoundSocket
-network.mojom.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec = {
+network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateTCPBoundSocket_Params',
@@ -2477,7 +3884,7 @@ network.mojom.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec = {
+network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateTCPBoundSocket_ResponseParams',
@@ -2492,7 +3899,7 @@ network.mojom.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateProxyResolvingSocketFactory
-network.mojom.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec = {
+network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateProxyResolvingSocketFactory_Params',
@@ -2506,7 +3913,7 @@ network.mojom.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec 
 };
 
 // ParamsSpec for LookUpProxyForURL
-network.mojom.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec = {
+network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.LookUpProxyForURL_Params',
@@ -2522,7 +3929,7 @@ network.mojom.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec = {
 };
 
 // ParamsSpec for ForceReloadProxyConfig
-network.mojom.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec = {
+network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ForceReloadProxyConfig_Params',
@@ -2535,7 +3942,7 @@ network.mojom.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec = {
 };
 
 // ParamsSpec for ClearBadProxiesCache
-network.mojom.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec = {
+network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearBadProxiesCache_Params',
@@ -2548,7 +3955,7 @@ network.mojom.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec = {
 };
 
 // ParamsSpec for CreateWebSocket
-network.mojom.mojom.NetworkContext_CreateWebSocket_ParamsSpec = {
+network.mojom.NetworkContext_CreateWebSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateWebSocket_Params',
@@ -2577,7 +3984,7 @@ network.mojom.mojom.NetworkContext_CreateWebSocket_ParamsSpec = {
 };
 
 // ParamsSpec for CreateWebTransport
-network.mojom.mojom.NetworkContext_CreateWebTransport_ParamsSpec = {
+network.mojom.NetworkContext_CreateWebTransport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateWebTransport_Params',
@@ -2598,7 +4005,7 @@ network.mojom.mojom.NetworkContext_CreateWebTransport_ParamsSpec = {
 };
 
 // ParamsSpec for CreateNetLogExporter
-network.mojom.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec = {
+network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateNetLogExporter_Params',
@@ -2612,7 +4019,7 @@ network.mojom.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec = {
 };
 
 // ParamsSpec for PreconnectSockets
-network.mojom.mojom.NetworkContext_PreconnectSockets_ParamsSpec = {
+network.mojom.NetworkContext_PreconnectSockets_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.PreconnectSockets_Params',
@@ -2632,7 +4039,7 @@ network.mojom.mojom.NetworkContext_PreconnectSockets_ParamsSpec = {
 };
 
 // ParamsSpec for CreateP2PSocketManager
-network.mojom.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec = {
+network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateP2PSocketManager_Params',
@@ -2649,7 +4056,7 @@ network.mojom.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec = {
 };
 
 // ParamsSpec for CreateMdnsResponder
-network.mojom.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec = {
+network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateMdnsResponder_Params',
@@ -2663,7 +4070,7 @@ network.mojom.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec = {
 };
 
 // ParamsSpec for ResolveHost
-network.mojom.mojom.NetworkContext_ResolveHost_ParamsSpec = {
+network.mojom.NetworkContext_ResolveHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ResolveHost_Params',
@@ -2680,7 +4087,7 @@ network.mojom.mojom.NetworkContext_ResolveHost_ParamsSpec = {
 };
 
 // ParamsSpec for CreateHostResolver
-network.mojom.mojom.NetworkContext_CreateHostResolver_ParamsSpec = {
+network.mojom.NetworkContext_CreateHostResolver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.CreateHostResolver_Params',
@@ -2695,7 +4102,7 @@ network.mojom.mojom.NetworkContext_CreateHostResolver_ParamsSpec = {
 };
 
 // ParamsSpec for VerifyCert
-network.mojom.mojom.NetworkContext_VerifyCert_ParamsSpec = {
+network.mojom.NetworkContext_VerifyCert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.VerifyCert_Params',
@@ -2711,7 +4118,7 @@ network.mojom.mojom.NetworkContext_VerifyCert_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_VerifyCert_ResponseParamsSpec = {
+network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.VerifyCert_ResponseParams',
@@ -2727,7 +4134,7 @@ network.mojom.mojom.NetworkContext_VerifyCert_ResponseParamsSpec = {
 };
 
 // ParamsSpec for VerifyCertForSignedExchange
-network.mojom.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec = {
+network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.VerifyCertForSignedExchange_Params',
@@ -2743,7 +4150,7 @@ network.mojom.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec = {
+network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.VerifyCertForSignedExchange_ResponseParams',
@@ -2759,7 +4166,7 @@ network.mojom.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpe
 };
 
 // ParamsSpec for Verify2QwacCertBinding
-network.mojom.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec = {
+network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.Verify2QwacCertBinding_Params',
@@ -2774,7 +4181,7 @@ network.mojom.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec = {
+network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.Verify2QwacCertBinding_ResponseParams',
@@ -2788,7 +4195,7 @@ network.mojom.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddHSTS
-network.mojom.mojom.NetworkContext_AddHSTS_ParamsSpec = {
+network.mojom.NetworkContext_AddHSTS_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.AddHSTS_Params',
@@ -2804,7 +4211,7 @@ network.mojom.mojom.NetworkContext_AddHSTS_ParamsSpec = {
 };
 
 // ParamsSpec for IsHSTSActiveForHost
-network.mojom.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec = {
+network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.IsHSTSActiveForHost_Params',
@@ -2818,7 +4225,7 @@ network.mojom.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec = {
+network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.IsHSTSActiveForHost_ResponseParams',
@@ -2832,7 +4239,7 @@ network.mojom.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetHSTSState
-network.mojom.mojom.NetworkContext_GetHSTSState_ParamsSpec = {
+network.mojom.NetworkContext_GetHSTSState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetHSTSState_Params',
@@ -2845,7 +4252,7 @@ network.mojom.mojom.NetworkContext_GetHSTSState_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetHSTSState_ResponseParams',
@@ -2859,7 +4266,7 @@ network.mojom.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetCorsOriginAccessListsForOrigin
-network.mojom.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec = {
+network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetCorsOriginAccessListsForOrigin_Params',
@@ -2875,7 +4282,7 @@ network.mojom.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec 
 };
 
 // ParamsSpec for DeleteDynamicDataForHost
-network.mojom.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec = {
+network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.DeleteDynamicDataForHost_Params',
@@ -2888,7 +4295,7 @@ network.mojom.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec = {
+network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.DeleteDynamicDataForHost_ResponseParams',
@@ -2902,7 +4309,7 @@ network.mojom.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec =
 };
 
 // ParamsSpec for SetSplitAuthCacheByNetworkAnonymizationKey
-network.mojom.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec = {
+network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetSplitAuthCacheByNetworkAnonymizationKey_Params',
@@ -2916,7 +4323,7 @@ network.mojom.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_Pa
 };
 
 // ParamsSpec for SaveHttpAuthCacheProxyEntries
-network.mojom.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec = {
+network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SaveHttpAuthCacheProxyEntries_Params',
@@ -2928,7 +4335,7 @@ network.mojom.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec = {
+network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SaveHttpAuthCacheProxyEntries_ResponseParams',
@@ -2942,7 +4349,7 @@ network.mojom.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsS
 };
 
 // ParamsSpec for LoadHttpAuthCacheProxyEntries
-network.mojom.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec = {
+network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.LoadHttpAuthCacheProxyEntries_Params',
@@ -2956,7 +4363,7 @@ network.mojom.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec = {
 };
 
 // ParamsSpec for AddAuthCacheEntry
-network.mojom.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec = {
+network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.AddAuthCacheEntry_Params',
@@ -2972,7 +4379,7 @@ network.mojom.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec = {
 };
 
 // ParamsSpec for SetCorsNonWildcardRequestHeadersSupport
-network.mojom.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec = {
+network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetCorsNonWildcardRequestHeadersSupport_Params',
@@ -2986,7 +4393,7 @@ network.mojom.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_Param
 };
 
 // ParamsSpec for LookupProxyAuthCredentials
-network.mojom.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec = {
+network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.LookupProxyAuthCredentials_Params',
@@ -3001,7 +4408,7 @@ network.mojom.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec = {
+network.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.LookupProxyAuthCredentials_ResponseParams',
@@ -3015,7 +4422,7 @@ network.mojom.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec
 };
 
 // ParamsSpec for EnableStaticKeyPinningForTesting
-network.mojom.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec = {
+network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.EnableStaticKeyPinningForTesting_Params',
@@ -3028,7 +4435,7 @@ network.mojom.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec =
 };
 
 // ParamsSpec for VerifyCertificateForTesting
-network.mojom.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec = {
+network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.VerifyCertificateForTesting_Params',
@@ -3044,7 +4451,7 @@ network.mojom.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec = {
+network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.VerifyCertificateForTesting_ResponseParams',
@@ -3058,7 +4465,7 @@ network.mojom.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpe
 };
 
 // ParamsSpec for GetTrustAnchorIDsForTesting
-network.mojom.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec = {
+network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetTrustAnchorIDsForTesting_Params',
@@ -3070,7 +4477,7 @@ network.mojom.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetTrustAnchorIDsForTesting_ResponseParams',
@@ -3084,7 +4491,7 @@ network.mojom.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpe
 };
 
 // ParamsSpec for AddDomainReliabilityContextForTesting
-network.mojom.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec = {
+network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.AddDomainReliabilityContextForTesting_Params',
@@ -3099,7 +4506,7 @@ network.mojom.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsS
 };
 
 // ParamsSpec for ForceDomainReliabilityUploadsForTesting
-network.mojom.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec = {
+network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ForceDomainReliabilityUploadsForTesting_Params',
@@ -3112,7 +4519,7 @@ network.mojom.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_Param
 };
 
 // ParamsSpec for SetSCTAuditingMode
-network.mojom.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec = {
+network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetSCTAuditingMode_Params',
@@ -3126,7 +4533,7 @@ network.mojom.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec = {
 };
 
 // ParamsSpec for AddReportingApiObserver
-network.mojom.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec = {
+network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.AddReportingApiObserver_Params',
@@ -3140,7 +4547,7 @@ network.mojom.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec = {
 };
 
 // ParamsSpec for GetSharedDictionaryUsageInfo
-network.mojom.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec = {
+network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetSharedDictionaryUsageInfo_Params',
@@ -3152,7 +4559,7 @@ network.mojom.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetSharedDictionaryUsageInfo_ResponseParams',
@@ -3166,7 +4573,7 @@ network.mojom.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSp
 };
 
 // ParamsSpec for GetSharedDictionaryInfo
-network.mojom.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec = {
+network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetSharedDictionaryInfo_Params',
@@ -3179,7 +4586,7 @@ network.mojom.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetSharedDictionaryInfo_ResponseParams',
@@ -3193,7 +4600,7 @@ network.mojom.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec = 
 };
 
 // ParamsSpec for GetSharedDictionaryOriginsBetween
-network.mojom.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec = {
+network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetSharedDictionaryOriginsBetween_Params',
@@ -3207,7 +4614,7 @@ network.mojom.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec 
   }
 };
 
-network.mojom.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetSharedDictionaryOriginsBetween_ResponseParams',
@@ -3221,7 +4628,7 @@ network.mojom.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponsePar
 };
 
 // ParamsSpec for SetSharedDictionaryCacheMaxSize
-network.mojom.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec = {
+network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.SetSharedDictionaryCacheMaxSize_Params',
@@ -3235,7 +4642,7 @@ network.mojom.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec = 
 };
 
 // ParamsSpec for PreloadSharedDictionaryInfoForDocument
-network.mojom.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec = {
+network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.PreloadSharedDictionaryInfoForDocument_Params',
@@ -3250,7 +4657,7 @@ network.mojom.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_Params
 };
 
 // ParamsSpec for HasPreloadedSharedDictionaryInfoForTesting
-network.mojom.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec = {
+network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.HasPreloadedSharedDictionaryInfoForTesting_Params',
@@ -3262,7 +4669,7 @@ network.mojom.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_Pa
   }
 };
 
-network.mojom.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec = {
+network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.HasPreloadedSharedDictionaryInfoForTesting_ResponseParams',
@@ -3276,7 +4683,7 @@ network.mojom.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_Re
 };
 
 // ParamsSpec for FlushCachedClientCertIfNeeded
-network.mojom.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec = {
+network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.FlushCachedClientCertIfNeeded_Params',
@@ -3291,7 +4698,7 @@ network.mojom.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec = {
 };
 
 // ParamsSpec for FlushMatchingCachedClientCert
-network.mojom.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec = {
+network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.FlushMatchingCachedClientCert_Params',
@@ -3305,7 +4712,7 @@ network.mojom.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec = {
 };
 
 // ParamsSpec for FlushClientCertCache
-network.mojom.mojom.NetworkContext_FlushClientCertCache_ParamsSpec = {
+network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.FlushClientCertCache_Params',
@@ -3318,7 +4725,7 @@ network.mojom.mojom.NetworkContext_FlushClientCertCache_ParamsSpec = {
 };
 
 // ParamsSpec for RevokeNetworkForNonces
-network.mojom.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec = {
+network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.RevokeNetworkForNonces_Params',
@@ -3332,7 +4739,7 @@ network.mojom.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec = {
 };
 
 // ParamsSpec for ClearNonces
-network.mojom.mojom.NetworkContext_ClearNonces_ParamsSpec = {
+network.mojom.NetworkContext_ClearNonces_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ClearNonces_Params',
@@ -3346,7 +4753,7 @@ network.mojom.mojom.NetworkContext_ClearNonces_ParamsSpec = {
 };
 
 // ParamsSpec for ExemptUrlFromNetworkRevocationForNonce
-network.mojom.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec = {
+network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.ExemptUrlFromNetworkRevocationForNonce_Params',
@@ -3361,7 +4768,7 @@ network.mojom.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_Params
 };
 
 // ParamsSpec for Prefetch
-network.mojom.mojom.NetworkContext_Prefetch_ParamsSpec = {
+network.mojom.NetworkContext_Prefetch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.Prefetch_Params',
@@ -3378,7 +4785,7 @@ network.mojom.mojom.NetworkContext_Prefetch_ParamsSpec = {
 };
 
 // ParamsSpec for GetBoundNetworkForTesting
-network.mojom.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec = {
+network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetBoundNetworkForTesting_Params',
@@ -3390,7 +4797,7 @@ network.mojom.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec = {
+network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetBoundNetworkForTesting_ResponseParams',
@@ -3404,7 +4811,7 @@ network.mojom.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec 
 };
 
 // ParamsSpec for GetDeviceBoundSessionManager
-network.mojom.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec = {
+network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.GetDeviceBoundSessionManager_Params',
@@ -3418,7 +4825,7 @@ network.mojom.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec = {
 };
 
 // ParamsSpec for AddQuicHints
-network.mojom.mojom.NetworkContext_AddQuicHints_ParamsSpec = {
+network.mojom.NetworkContext_AddQuicHints_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContext.AddQuicHints_Params',
@@ -3433,6 +4840,6 @@ network.mojom.mojom.NetworkContext_AddQuicHints_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.NetworkContextPtr = network.mojom.mojom.NetworkContextRemote;
-network.mojom.mojom.NetworkContextRequest = network.mojom.mojom.NetworkContextPendingReceiver;
+network.mojom.NetworkContextPtr = network.mojom.NetworkContextRemote;
+network.mojom.NetworkContextRequest = network.mojom.NetworkContextPendingReceiver;
 

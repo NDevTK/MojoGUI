@@ -27,7 +27,7 @@ var skia = skia || {};
 
 
 // Union: TransformUnion
-wl.mojom.mojom.TransformUnionSpec = { $: mojo.internal.Union(
+wl.mojom.TransformUnionSpec = { $: mojo.internal.Union(
     'wl.mojom.TransformUnion', {
       'overlay_transform': {
         'ordinal': 0,
@@ -41,7 +41,7 @@ wl.mojom.mojom.TransformUnionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: WaylandOverlayConfig
-wl.mojom.mojom.WaylandOverlayConfigSpec = {
+wl.mojom.WaylandOverlayConfigSpec = {
   $: {
     structSpec: {
       name: 'wl.mojom.WaylandOverlayConfig',

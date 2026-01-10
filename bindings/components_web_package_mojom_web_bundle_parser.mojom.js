@@ -11,22 +11,22 @@ var url = url || {};
 
 
 // Enum: BundleParseErrorType
-web_package.mojom.mojom.BundleParseErrorType = {
+web_package.mojom.BundleParseErrorType = {
   kParserInternalError: 0,
   kFormatError: 1,
   kVersionError: 2,
 };
-web_package.mojom.mojom.BundleParseErrorTypeSpec = { $: mojo.internal.Enum() };
+web_package.mojom.BundleParseErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BundleFormatVersion
-web_package.mojom.mojom.BundleFormatVersion = {
+web_package.mojom.BundleFormatVersion = {
   kB1: 0,
   kB2: 1,
 };
-web_package.mojom.mojom.BundleFormatVersionSpec = { $: mojo.internal.Enum() };
+web_package.mojom.BundleFormatVersionSpec = { $: mojo.internal.Enum() };
 
 // Union: SignatureInfo
-web_package.mojom.mojom.SignatureInfoSpec = { $: mojo.internal.Union(
+web_package.mojom.SignatureInfoSpec = { $: mojo.internal.Union(
     'web_package.mojom.SignatureInfo', {
       'unknown': {
         'ordinal': 0,
@@ -44,7 +44,7 @@ web_package.mojom.mojom.SignatureInfoSpec = { $: mojo.internal.Union(
 };
 
 // Struct: BundleIntegrityBlockParseError
-web_package.mojom.mojom.BundleIntegrityBlockParseErrorSpec = {
+web_package.mojom.BundleIntegrityBlockParseErrorSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleIntegrityBlockParseError',
@@ -59,7 +59,7 @@ web_package.mojom.mojom.BundleIntegrityBlockParseErrorSpec = {
 };
 
 // Struct: BundleMetadataParseError
-web_package.mojom.mojom.BundleMetadataParseErrorSpec = {
+web_package.mojom.BundleMetadataParseErrorSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleMetadataParseError',
@@ -74,7 +74,7 @@ web_package.mojom.mojom.BundleMetadataParseErrorSpec = {
 };
 
 // Struct: BundleResponseParseError
-web_package.mojom.mojom.BundleResponseParseErrorSpec = {
+web_package.mojom.BundleResponseParseErrorSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleResponseParseError',
@@ -89,7 +89,7 @@ web_package.mojom.mojom.BundleResponseParseErrorSpec = {
 };
 
 // Struct: BundleIntegrityBlockAttributes
-web_package.mojom.mojom.BundleIntegrityBlockAttributesSpec = {
+web_package.mojom.BundleIntegrityBlockAttributesSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleIntegrityBlockAttributes',
@@ -104,7 +104,7 @@ web_package.mojom.mojom.BundleIntegrityBlockAttributesSpec = {
 };
 
 // Struct: BundleIntegrityBlock
-web_package.mojom.mojom.BundleIntegrityBlockSpec = {
+web_package.mojom.BundleIntegrityBlockSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleIntegrityBlock',
@@ -120,7 +120,7 @@ web_package.mojom.mojom.BundleIntegrityBlockSpec = {
 };
 
 // Struct: Ed25519PublicKey
-web_package.mojom.mojom.Ed25519PublicKeySpec = {
+web_package.mojom.Ed25519PublicKeySpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.Ed25519PublicKey',
@@ -134,7 +134,7 @@ web_package.mojom.mojom.Ed25519PublicKeySpec = {
 };
 
 // Struct: Ed25519Signature
-web_package.mojom.mojom.Ed25519SignatureSpec = {
+web_package.mojom.Ed25519SignatureSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.Ed25519Signature',
@@ -148,7 +148,7 @@ web_package.mojom.mojom.Ed25519SignatureSpec = {
 };
 
 // Struct: SignatureInfoEd25519
-web_package.mojom.mojom.SignatureInfoEd25519Spec = {
+web_package.mojom.SignatureInfoEd25519Spec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.SignatureInfoEd25519',
@@ -163,7 +163,7 @@ web_package.mojom.mojom.SignatureInfoEd25519Spec = {
 };
 
 // Struct: EcdsaP256PublicKey
-web_package.mojom.mojom.EcdsaP256PublicKeySpec = {
+web_package.mojom.EcdsaP256PublicKeySpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.EcdsaP256PublicKey',
@@ -177,7 +177,7 @@ web_package.mojom.mojom.EcdsaP256PublicKeySpec = {
 };
 
 // Struct: EcdsaP256SHA256Signature
-web_package.mojom.mojom.EcdsaP256SHA256SignatureSpec = {
+web_package.mojom.EcdsaP256SHA256SignatureSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.EcdsaP256SHA256Signature',
@@ -191,7 +191,7 @@ web_package.mojom.mojom.EcdsaP256SHA256SignatureSpec = {
 };
 
 // Struct: SignatureInfoEcdsaP256SHA256
-web_package.mojom.mojom.SignatureInfoEcdsaP256SHA256Spec = {
+web_package.mojom.SignatureInfoEcdsaP256SHA256Spec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.SignatureInfoEcdsaP256SHA256',
@@ -206,7 +206,7 @@ web_package.mojom.mojom.SignatureInfoEcdsaP256SHA256Spec = {
 };
 
 // Struct: SignatureInfoUnknown
-web_package.mojom.mojom.SignatureInfoUnknownSpec = {
+web_package.mojom.SignatureInfoUnknownSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.SignatureInfoUnknown',
@@ -219,7 +219,7 @@ web_package.mojom.mojom.SignatureInfoUnknownSpec = {
 };
 
 // Struct: BundleIntegrityBlockSignatureStackEntry
-web_package.mojom.mojom.BundleIntegrityBlockSignatureStackEntrySpec = {
+web_package.mojom.BundleIntegrityBlockSignatureStackEntrySpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleIntegrityBlockSignatureStackEntry',
@@ -234,7 +234,7 @@ web_package.mojom.mojom.BundleIntegrityBlockSignatureStackEntrySpec = {
 };
 
 // Struct: BundleMetadata
-web_package.mojom.mojom.BundleMetadataSpec = {
+web_package.mojom.BundleMetadataSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleMetadata',
@@ -250,7 +250,7 @@ web_package.mojom.mojom.BundleMetadataSpec = {
 };
 
 // Struct: BundleResponseLocation
-web_package.mojom.mojom.BundleResponseLocationSpec = {
+web_package.mojom.BundleResponseLocationSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleResponseLocation',
@@ -265,7 +265,7 @@ web_package.mojom.mojom.BundleResponseLocationSpec = {
 };
 
 // Struct: BundleResponse
-web_package.mojom.mojom.BundleResponseSpec = {
+web_package.mojom.BundleResponseSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleResponse',
@@ -282,24 +282,53 @@ web_package.mojom.mojom.BundleResponseSpec = {
 };
 
 // Interface: WebBundleParserFactory
-web_package.mojom.mojom.WebBundleParserFactory = {};
+web_package.mojom.WebBundleParserFactory = {};
 
-web_package.mojom.mojom.WebBundleParserFactoryPendingReceiver = class {
+web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.WebBundleParserFactory_GetParserForDataSource_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserRemote), nullable: false, minVersion: 0 },
+        { name: 'base_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(web_package.mojom.BundleDataSourceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.WebBundleParserFactory_BindFileDataSource_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'data_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.BundleDataSourceRemote), nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+web_package.mojom.WebBundleParserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-web_package.mojom.mojom.WebBundleParserFactoryRemote = class {
+web_package.mojom.WebBundleParserFactoryRemote = class {
   static get $interfaceName() {
     return 'web_package.mojom.WebBundleParserFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      web_package.mojom.mojom.WebBundleParserFactoryPendingReceiver,
+      web_package.mojom.WebBundleParserFactoryPendingReceiver,
       handle);
-    this.$ = new web_package.mojom.mojom.WebBundleParserFactoryRemoteCallHandler(this.proxy);
+    this.$ = new web_package.mojom.WebBundleParserFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -311,7 +340,7 @@ web_package.mojom.mojom.WebBundleParserFactoryRemote = class {
   }
 };
 
-web_package.mojom.mojom.WebBundleParserFactoryRemoteCallHandler = class {
+web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -320,7 +349,7 @@ web_package.mojom.mojom.WebBundleParserFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_package.mojom.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec,
+      web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec,
       null,
       [receiver, base_url, data_source]);
   }
@@ -329,15 +358,15 @@ web_package.mojom.mojom.WebBundleParserFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      web_package.mojom.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec,
+      web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec,
       null,
       [data_source, file]);
   }
 
 };
 
-web_package.mojom.mojom.WebBundleParserFactory.getRemote = function() {
-  let remote = new web_package.mojom.mojom.WebBundleParserFactoryRemote();
+web_package.mojom.WebBundleParserFactory.getRemote = function() {
+  let remote = new web_package.mojom.WebBundleParserFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -347,7 +376,7 @@ web_package.mojom.mojom.WebBundleParserFactory.getRemote = function() {
 };
 
 // ParamsSpec for GetParserForDataSource
-web_package.mojom.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = {
+web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParserFactory.GetParserForDataSource_Params',
@@ -363,7 +392,7 @@ web_package.mojom.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec
 };
 
 // ParamsSpec for BindFileDataSource
-web_package.mojom.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
+web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParserFactory.BindFileDataSource_Params',
@@ -378,29 +407,81 @@ web_package.mojom.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
 };
 
 // Legacy compatibility
-web_package.mojom.mojom.WebBundleParserFactoryPtr = web_package.mojom.mojom.WebBundleParserFactoryRemote;
-web_package.mojom.mojom.WebBundleParserFactoryRequest = web_package.mojom.mojom.WebBundleParserFactoryPendingReceiver;
+web_package.mojom.WebBundleParserFactoryPtr = web_package.mojom.WebBundleParserFactoryRemote;
+web_package.mojom.WebBundleParserFactoryRequest = web_package.mojom.WebBundleParserFactoryPendingReceiver;
 
 
 // Interface: WebBundleParser
-web_package.mojom.mojom.WebBundleParser = {};
+web_package.mojom.WebBundleParser = {};
 
-web_package.mojom.mojom.WebBundleParserPendingReceiver = class {
+web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.WebBundleParser_ParseIntegrityBlock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.WebBundleParser_ParseMetadata_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'offset_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'offset_$value', originalFieldName: 'offset' } },
+        { name: 'offset_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'offset_$flag', originalFieldName: 'offset' } },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.WebBundleParser_ParseResponse_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'response_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'response_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+web_package.mojom.WebBundleParser_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.WebBundleParser_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+web_package.mojom.WebBundleParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-web_package.mojom.mojom.WebBundleParserRemote = class {
+web_package.mojom.WebBundleParserRemote = class {
   static get $interfaceName() {
     return 'web_package.mojom.WebBundleParser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      web_package.mojom.mojom.WebBundleParserPendingReceiver,
+      web_package.mojom.WebBundleParserPendingReceiver,
       handle);
-    this.$ = new web_package.mojom.mojom.WebBundleParserRemoteCallHandler(this.proxy);
+    this.$ = new web_package.mojom.WebBundleParserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -412,7 +493,7 @@ web_package.mojom.mojom.WebBundleParserRemote = class {
   }
 };
 
-web_package.mojom.mojom.WebBundleParserRemoteCallHandler = class {
+web_package.mojom.WebBundleParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -421,8 +502,8 @@ web_package.mojom.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_package.mojom.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec,
-      web_package.mojom.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec,
+      web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec,
+      web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec,
       []);
   }
 
@@ -430,8 +511,8 @@ web_package.mojom.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      web_package.mojom.mojom.WebBundleParser_ParseMetadata_ParamsSpec,
-      web_package.mojom.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec,
+      web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec,
+      web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec,
       [offset]);
   }
 
@@ -439,8 +520,8 @@ web_package.mojom.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      web_package.mojom.mojom.WebBundleParser_ParseResponse_ParamsSpec,
-      web_package.mojom.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec,
+      web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec,
+      web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec,
       [response_offset, response_length]);
   }
 
@@ -448,15 +529,15 @@ web_package.mojom.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      web_package.mojom.mojom.WebBundleParser_Close_ParamsSpec,
+      web_package.mojom.WebBundleParser_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-web_package.mojom.mojom.WebBundleParser.getRemote = function() {
-  let remote = new web_package.mojom.mojom.WebBundleParserRemote();
+web_package.mojom.WebBundleParser.getRemote = function() {
+  let remote = new web_package.mojom.WebBundleParserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -466,7 +547,7 @@ web_package.mojom.mojom.WebBundleParser.getRemote = function() {
 };
 
 // ParamsSpec for ParseIntegrityBlock
-web_package.mojom.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
+web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParser.ParseIntegrityBlock_Params',
@@ -478,7 +559,7 @@ web_package.mojom.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
   }
 };
 
-web_package.mojom.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = {
+web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParser.ParseIntegrityBlock_ResponseParams',
@@ -493,7 +574,7 @@ web_package.mojom.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec =
 };
 
 // ParamsSpec for ParseMetadata
-web_package.mojom.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
+web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParser.ParseMetadata_Params',
@@ -507,7 +588,7 @@ web_package.mojom.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
   }
 };
 
-web_package.mojom.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
+web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParser.ParseMetadata_ResponseParams',
@@ -522,7 +603,7 @@ web_package.mojom.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ParseResponse
-web_package.mojom.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
+web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParser.ParseResponse_Params',
@@ -536,7 +617,7 @@ web_package.mojom.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
   }
 };
 
-web_package.mojom.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
+web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParser.ParseResponse_ResponseParams',
@@ -551,7 +632,7 @@ web_package.mojom.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Close
-web_package.mojom.mojom.WebBundleParser_Close_ParamsSpec = {
+web_package.mojom.WebBundleParser_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParser.Close_Params',
@@ -564,29 +645,79 @@ web_package.mojom.mojom.WebBundleParser_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-web_package.mojom.mojom.WebBundleParserPtr = web_package.mojom.mojom.WebBundleParserRemote;
-web_package.mojom.mojom.WebBundleParserRequest = web_package.mojom.mojom.WebBundleParserPendingReceiver;
+web_package.mojom.WebBundleParserPtr = web_package.mojom.WebBundleParserRemote;
+web_package.mojom.WebBundleParserRequest = web_package.mojom.WebBundleParserPendingReceiver;
 
 
 // Interface: BundleDataSource
-web_package.mojom.mojom.BundleDataSource = {};
+web_package.mojom.BundleDataSource = {};
 
-web_package.mojom.mojom.BundleDataSourcePendingReceiver = class {
+web_package.mojom.BundleDataSource_Read_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.BundleDataSource_Read_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+web_package.mojom.BundleDataSource_Length_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.BundleDataSource_Length_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.BundleDataSource_IsRandomAccessContext_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+web_package.mojom.BundleDataSource_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web_package.mojom.BundleDataSource_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+web_package.mojom.BundleDataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-web_package.mojom.mojom.BundleDataSourceRemote = class {
+web_package.mojom.BundleDataSourceRemote = class {
   static get $interfaceName() {
     return 'web_package.mojom.BundleDataSource';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      web_package.mojom.mojom.BundleDataSourcePendingReceiver,
+      web_package.mojom.BundleDataSourcePendingReceiver,
       handle);
-    this.$ = new web_package.mojom.mojom.BundleDataSourceRemoteCallHandler(this.proxy);
+    this.$ = new web_package.mojom.BundleDataSourceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -598,7 +729,7 @@ web_package.mojom.mojom.BundleDataSourceRemote = class {
   }
 };
 
-web_package.mojom.mojom.BundleDataSourceRemoteCallHandler = class {
+web_package.mojom.BundleDataSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -607,8 +738,8 @@ web_package.mojom.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_package.mojom.mojom.BundleDataSource_Read_ParamsSpec,
-      web_package.mojom.mojom.BundleDataSource_Read_ResponseParamsSpec,
+      web_package.mojom.BundleDataSource_Read_ParamsSpec,
+      web_package.mojom.BundleDataSource_Read_ResponseParamsSpec,
       [offset, length]);
   }
 
@@ -616,8 +747,8 @@ web_package.mojom.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      web_package.mojom.mojom.BundleDataSource_Length_ParamsSpec,
-      web_package.mojom.mojom.BundleDataSource_Length_ResponseParamsSpec,
+      web_package.mojom.BundleDataSource_Length_ParamsSpec,
+      web_package.mojom.BundleDataSource_Length_ResponseParamsSpec,
       []);
   }
 
@@ -625,8 +756,8 @@ web_package.mojom.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      web_package.mojom.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec,
-      web_package.mojom.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec,
+      web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec,
+      web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec,
       []);
   }
 
@@ -634,15 +765,15 @@ web_package.mojom.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      web_package.mojom.mojom.BundleDataSource_Close_ParamsSpec,
+      web_package.mojom.BundleDataSource_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-web_package.mojom.mojom.BundleDataSource.getRemote = function() {
-  let remote = new web_package.mojom.mojom.BundleDataSourceRemote();
+web_package.mojom.BundleDataSource.getRemote = function() {
+  let remote = new web_package.mojom.BundleDataSourceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -652,7 +783,7 @@ web_package.mojom.mojom.BundleDataSource.getRemote = function() {
 };
 
 // ParamsSpec for Read
-web_package.mojom.mojom.BundleDataSource_Read_ParamsSpec = {
+web_package.mojom.BundleDataSource_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleDataSource.Read_Params',
@@ -666,7 +797,7 @@ web_package.mojom.mojom.BundleDataSource_Read_ParamsSpec = {
   }
 };
 
-web_package.mojom.mojom.BundleDataSource_Read_ResponseParamsSpec = {
+web_package.mojom.BundleDataSource_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleDataSource.Read_ResponseParams',
@@ -680,7 +811,7 @@ web_package.mojom.mojom.BundleDataSource_Read_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Length
-web_package.mojom.mojom.BundleDataSource_Length_ParamsSpec = {
+web_package.mojom.BundleDataSource_Length_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleDataSource.Length_Params',
@@ -692,7 +823,7 @@ web_package.mojom.mojom.BundleDataSource_Length_ParamsSpec = {
   }
 };
 
-web_package.mojom.mojom.BundleDataSource_Length_ResponseParamsSpec = {
+web_package.mojom.BundleDataSource_Length_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleDataSource.Length_ResponseParams',
@@ -706,7 +837,7 @@ web_package.mojom.mojom.BundleDataSource_Length_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsRandomAccessContext
-web_package.mojom.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
+web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleDataSource.IsRandomAccessContext_Params',
@@ -718,7 +849,7 @@ web_package.mojom.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
   }
 };
 
-web_package.mojom.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec = {
+web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleDataSource.IsRandomAccessContext_ResponseParams',
@@ -732,7 +863,7 @@ web_package.mojom.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpe
 };
 
 // ParamsSpec for Close
-web_package.mojom.mojom.BundleDataSource_Close_ParamsSpec = {
+web_package.mojom.BundleDataSource_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_package.mojom.BundleDataSource.Close_Params',
@@ -745,6 +876,6 @@ web_package.mojom.mojom.BundleDataSource_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-web_package.mojom.mojom.BundleDataSourcePtr = web_package.mojom.mojom.BundleDataSourceRemote;
-web_package.mojom.mojom.BundleDataSourceRequest = web_package.mojom.mojom.BundleDataSourcePendingReceiver;
+web_package.mojom.BundleDataSourcePtr = web_package.mojom.BundleDataSourceRemote;
+web_package.mojom.BundleDataSourceRequest = web_package.mojom.BundleDataSourcePendingReceiver;
 

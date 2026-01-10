@@ -7,46 +7,46 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.cros_healthd.mojom = ash.cros_healthd.cros_healthd.mojom || {};
+ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Enum: ButtonType
-ash.cros_healthd.cros_healthd.mojom.mojom.ButtonType = {
+ash.cros_healthd.mojom.ButtonType = {
   kVolumeUp: 0,
   kVolumeDown: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ButtonTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ButtonTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-ash.cros_healthd.cros_healthd.mojom.mojom.Type = {
+ash.cros_healthd.mojom.Type = {
   kDownload: 0,
   kUpload: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Reason
-ash.cros_healthd.cros_healthd.mojom.mojom.Reason = {
+ash.cros_healthd.mojom.Reason = {
   kWaitingToBeScheduled: 0,
   kWaitingInteraction: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kCorrectColor: 0,
   kNotLitUp: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kOk: 0,
   kAnyNotLitUp: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MemtesterTestItemEnum
-ash.cros_healthd.cros_healthd.mojom.mojom.MemtesterTestItemEnum = {
+ash.cros_healthd.mojom.MemtesterTestItemEnum = {
   kUnknown: 0,
   kStuckAddress: 1,
   kCompareAND: 2,
@@ -67,61 +67,61 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemtesterTestItemEnum = {
   k8BitWrites: 17,
   k16BitWrites: 18,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.MemtesterTestItemEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.MemtesterTestItemEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: PairError
-ash.cros_healthd.cros_healthd.mojom.mojom.PairError = {
+ash.cros_healthd.mojom.PairError = {
   kNone: 0,
   kBondFailed: 1,
   kBadStatus: 2,
   kSspFailed: 3,
   kTimeout: 4,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.PairErrorSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.PairErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectError
-ash.cros_healthd.cros_healthd.mojom.mojom.ConnectError = {
+ash.cros_healthd.mojom.ConnectError = {
   kNone: 0,
   kNoConnectedEvent: 1,
   kNotConnected: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ConnectErrorSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ConnectErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: AddressType
-ash.cros_healthd.cros_healthd.mojom.mojom.AddressType = {
+ash.cros_healthd.mojom.AddressType = {
   kUnknown: 0,
   kPublic: 1,
   kRandom: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.AddressTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.AddressTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraSubtestResult
-ash.cros_healthd.cros_healthd.mojom.mojom.CameraSubtestResult = {
+ash.cros_healthd.mojom.CameraSubtestResult = {
   kNotRun: 0,
   kPassed: 1,
   kFailed: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.CameraSubtestResultSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.CameraSubtestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiskReadTypeEnum
-ash.cros_healthd.cros_healthd.mojom.mojom.DiskReadTypeEnum = {
+ash.cros_healthd.mojom.DiskReadTypeEnum = {
   kLinearRead: 0,
   kRandomRead: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.DiskReadTypeEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DiskReadTypeEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: LedName
-ash.cros_healthd.cros_healthd.mojom.mojom.LedName = {
+ash.cros_healthd.mojom.LedName = {
   kBattery: 0,
   kPower: 1,
   kAdapter: 2,
   kLeft: 3,
   kRight: 4,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.LedNameSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.LedNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: LedColor
-ash.cros_healthd.cros_healthd.mojom.mojom.LedColor = {
+ash.cros_healthd.mojom.LedColor = {
   kRed: 0,
   kGreen: 1,
   kBlue: 2,
@@ -129,36 +129,36 @@ ash.cros_healthd.cros_healthd.mojom.mojom.LedColor = {
   kWhite: 4,
   kAmber: 5,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.LedColorSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.LedColorSpec = { $: mojo.internal.Enum() };
 
 // Enum: HardwarePresenceStatus
-ash.cros_healthd.cros_healthd.mojom.mojom.HardwarePresenceStatus = {
+ash.cros_healthd.mojom.HardwarePresenceStatus = {
   kMatched: 0,
   kNotMatched: 1,
   kNotConfigured: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.HardwarePresenceStatusSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.HardwarePresenceStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-ash.cros_healthd.cros_healthd.mojom.mojom.Type = {
+ash.cros_healthd.mojom.Type = {
   kAccel: 0,
   kGyro: 1,
   kMagn: 2,
   kGravity: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Issue
-ash.cros_healthd.cros_healthd.mojom.mojom.Issue = {
+ash.cros_healthd.mojom.Issue = {
   kNone: 0,
   kCameraServiceNotAvailable: 1,
   kBlockedByPrivacyShutter: 2,
   kLensAreDirty: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.IssueSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.IssueSpec = { $: mojo.internal.Enum() };
 
 // Union: RoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineArgumentSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.RoutineArgumentSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.RoutineArgument', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -256,7 +256,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineArgumentSpec = { $: mojo.intern
 };
 
 // Union: RoutineStateUnion
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateUnionSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.RoutineStateUnionSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.RoutineStateUnion', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -282,7 +282,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateUnionSpec = { $: mojo.inte
 };
 
 // Union: RoutineRunningInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineRunningInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.RoutineRunningInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.RoutineRunningInfo', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -296,7 +296,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineRunningInfoSpec = { $: mojo.int
 };
 
 // Union: RoutineInteraction
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineInteractionSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.RoutineInteractionSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.RoutineInteraction', {
       'unrecognizedInteraction': {
         'ordinal': 0,
@@ -310,7 +310,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineInteractionSpec = { $: mojo.int
 };
 
 // Union: RoutineInquiry
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineInquirySpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.RoutineInquirySpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.RoutineInquiry', {
       'unrecognizedInquiry': {
         'ordinal': 0,
@@ -332,7 +332,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineInquirySpec = { $: mojo.interna
 };
 
 // Union: RoutineInquiryReply
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineInquiryReplySpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.RoutineInquiryReplySpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.RoutineInquiryReply', {
       'unrecognizedReply': {
         'ordinal': 0,
@@ -354,7 +354,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineInquiryReplySpec = { $: mojo.in
 };
 
 // Union: RoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineDetailSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.RoutineDetailSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.RoutineDetail', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -416,7 +416,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineDetailSpec = { $: mojo.internal
 };
 
 // Struct: MemoryRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.MemoryRoutineArgumentSpec = {
+ash.cros_healthd.mojom.MemoryRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MemoryRoutineArgument',
@@ -431,7 +431,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemoryRoutineArgumentSpec = {
 };
 
 // Struct: AudioDriverRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioDriverRoutineArgumentSpec = {
+ash.cros_healthd.mojom.AudioDriverRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioDriverRoutineArgument',
@@ -444,7 +444,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioDriverRoutineArgumentSpec = {
 };
 
 // Struct: CpuStressRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuStressRoutineArgumentSpec = {
+ash.cros_healthd.mojom.CpuStressRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuStressRoutineArgument',
@@ -458,7 +458,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuStressRoutineArgumentSpec = {
 };
 
 // Struct: UfsLifetimeRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.UfsLifetimeRoutineArgumentSpec = {
+ash.cros_healthd.mojom.UfsLifetimeRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UfsLifetimeRoutineArgument',
@@ -471,7 +471,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UfsLifetimeRoutineArgumentSpec = {
 };
 
 // Struct: DiskReadRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.DiskReadRoutineArgumentSpec = {
+ash.cros_healthd.mojom.DiskReadRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.DiskReadRoutineArgument',
@@ -487,7 +487,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.DiskReadRoutineArgumentSpec = {
 };
 
 // Struct: CpuCacheRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuCacheRoutineArgumentSpec = {
+ash.cros_healthd.mojom.CpuCacheRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuCacheRoutineArgument',
@@ -501,7 +501,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuCacheRoutineArgumentSpec = {
 };
 
 // Struct: PrimeSearchRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.PrimeSearchRoutineArgumentSpec = {
+ash.cros_healthd.mojom.PrimeSearchRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PrimeSearchRoutineArgument',
@@ -515,7 +515,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.PrimeSearchRoutineArgumentSpec = {
 };
 
 // Struct: VolumeButtonRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.VolumeButtonRoutineArgumentSpec = {
+ash.cros_healthd.mojom.VolumeButtonRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.VolumeButtonRoutineArgument',
@@ -529,7 +529,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.VolumeButtonRoutineArgumentSpec = {
 };
 
 // Struct: LedLitUpRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.LedLitUpRoutineArgumentSpec = {
+ash.cros_healthd.mojom.LedLitUpRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.LedLitUpRoutineArgument',
@@ -544,7 +544,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.LedLitUpRoutineArgumentSpec = {
 };
 
 // Struct: KeyboardBacklightRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.KeyboardBacklightRoutineArgumentSpec = {
+ash.cros_healthd.mojom.KeyboardBacklightRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.KeyboardBacklightRoutineArgument',
@@ -557,7 +557,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.KeyboardBacklightRoutineArgumentSpec =
 };
 
 // Struct: FloatingPointRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.FloatingPointRoutineArgumentSpec = {
+ash.cros_healthd.mojom.FloatingPointRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.FloatingPointRoutineArgument',
@@ -571,7 +571,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.FloatingPointRoutineArgumentSpec = {
 };
 
 // Struct: BluetoothPowerRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPowerRoutineArgumentSpec = {
+ash.cros_healthd.mojom.BluetoothPowerRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothPowerRoutineArgument',
@@ -584,7 +584,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPowerRoutineArgumentSpec = {
 };
 
 // Struct: BluetoothDiscoveryRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDiscoveryRoutineArgumentSpec = {
+ash.cros_healthd.mojom.BluetoothDiscoveryRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothDiscoveryRoutineArgument',
@@ -597,7 +597,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDiscoveryRoutineArgumentSpec 
 };
 
 // Struct: FanRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.FanRoutineArgumentSpec = {
+ash.cros_healthd.mojom.FanRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.FanRoutineArgument',
@@ -610,7 +610,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.FanRoutineArgumentSpec = {
 };
 
 // Struct: BluetoothScanningRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothScanningRoutineArgumentSpec = {
+ash.cros_healthd.mojom.BluetoothScanningRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothScanningRoutineArgument',
@@ -624,7 +624,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothScanningRoutineArgumentSpec =
 };
 
 // Struct: BluetoothPairingRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPairingRoutineArgumentSpec = {
+ash.cros_healthd.mojom.BluetoothPairingRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothPairingRoutineArgument',
@@ -638,7 +638,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPairingRoutineArgumentSpec = 
 };
 
 // Struct: CameraAvailabilityRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.CameraAvailabilityRoutineArgumentSpec = {
+ash.cros_healthd.mojom.CameraAvailabilityRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CameraAvailabilityRoutineArgument',
@@ -653,7 +653,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CameraAvailabilityRoutineArgumentSpec 
 };
 
 // Struct: UrandomRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.UrandomRoutineArgumentSpec = {
+ash.cros_healthd.mojom.UrandomRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UrandomRoutineArgument',
@@ -667,7 +667,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UrandomRoutineArgumentSpec = {
 };
 
 // Struct: NetworkBandwidthRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.NetworkBandwidthRoutineArgumentSpec = {
+ash.cros_healthd.mojom.NetworkBandwidthRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NetworkBandwidthRoutineArgument',
@@ -680,7 +680,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NetworkBandwidthRoutineArgumentSpec = 
 };
 
 // Struct: SensitiveSensorRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorRoutineArgumentSpec = {
+ash.cros_healthd.mojom.SensitiveSensorRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SensitiveSensorRoutineArgument',
@@ -693,7 +693,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorRoutineArgumentSpec = {
 };
 
 // Struct: CameraFrameAnalysisRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.CameraFrameAnalysisRoutineArgumentSpec = {
+ash.cros_healthd.mojom.CameraFrameAnalysisRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CameraFrameAnalysisRoutineArgument',
@@ -706,7 +706,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CameraFrameAnalysisRoutineArgumentSpec
 };
 
 // Struct: BatteryDischargeRoutineArgument
-ash.cros_healthd.cros_healthd.mojom.mojom.BatteryDischargeRoutineArgumentSpec = {
+ash.cros_healthd.mojom.BatteryDischargeRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BatteryDischargeRoutineArgument',
@@ -721,7 +721,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BatteryDischargeRoutineArgumentSpec = 
 };
 
 // Struct: RoutineState
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateSpec = {
+ash.cros_healthd.mojom.RoutineStateSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineState',
@@ -736,7 +736,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateSpec = {
 };
 
 // Struct: RoutineStateInitialized
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateInitializedSpec = {
+ash.cros_healthd.mojom.RoutineStateInitializedSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineStateInitialized',
@@ -749,7 +749,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateInitializedSpec = {
 };
 
 // Struct: RoutineStateRunning
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateRunningSpec = {
+ash.cros_healthd.mojom.RoutineStateRunningSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineStateRunning',
@@ -763,7 +763,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateRunningSpec = {
 };
 
 // Struct: NetworkBandwidthRoutineRunningInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.NetworkBandwidthRoutineRunningInfoSpec = {
+ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfo',
@@ -777,7 +777,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NetworkBandwidthRoutineRunningInfoSpec
 };
 
 // Struct: RoutineStateWaiting
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateWaitingSpec = {
+ash.cros_healthd.mojom.RoutineStateWaitingSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineStateWaiting',
@@ -791,7 +791,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateWaitingSpec = {
 };
 
 // Struct: CheckLedLitUpStateInquiry
-ash.cros_healthd.cros_healthd.mojom.mojom.CheckLedLitUpStateInquirySpec = {
+ash.cros_healthd.mojom.CheckLedLitUpStateInquirySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CheckLedLitUpStateInquiry',
@@ -804,7 +804,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CheckLedLitUpStateInquirySpec = {
 };
 
 // Struct: CheckLedLitUpStateReply
-ash.cros_healthd.cros_healthd.mojom.mojom.CheckLedLitUpStateReplySpec = {
+ash.cros_healthd.mojom.CheckLedLitUpStateReplySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CheckLedLitUpStateReply',
@@ -818,7 +818,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CheckLedLitUpStateReplySpec = {
 };
 
 // Struct: UnplugAcAdapterInquiry
-ash.cros_healthd.cros_healthd.mojom.mojom.UnplugAcAdapterInquirySpec = {
+ash.cros_healthd.mojom.UnplugAcAdapterInquirySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UnplugAcAdapterInquiry',
@@ -831,7 +831,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UnplugAcAdapterInquirySpec = {
 };
 
 // Struct: UnplugAcAdapterReply
-ash.cros_healthd.cros_healthd.mojom.mojom.UnplugAcAdapterReplySpec = {
+ash.cros_healthd.mojom.UnplugAcAdapterReplySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UnplugAcAdapterReply',
@@ -844,7 +844,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UnplugAcAdapterReplySpec = {
 };
 
 // Struct: CheckKeyboardBacklightStateInquiry
-ash.cros_healthd.cros_healthd.mojom.mojom.CheckKeyboardBacklightStateInquirySpec = {
+ash.cros_healthd.mojom.CheckKeyboardBacklightStateInquirySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CheckKeyboardBacklightStateInquiry',
@@ -857,7 +857,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CheckKeyboardBacklightStateInquirySpec
 };
 
 // Struct: CheckKeyboardBacklightStateReply
-ash.cros_healthd.cros_healthd.mojom.mojom.CheckKeyboardBacklightStateReplySpec = {
+ash.cros_healthd.mojom.CheckKeyboardBacklightStateReplySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CheckKeyboardBacklightStateReply',
@@ -871,7 +871,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CheckKeyboardBacklightStateReplySpec =
 };
 
 // Struct: RoutineStateFinished
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateFinishedSpec = {
+ash.cros_healthd.mojom.RoutineStateFinishedSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineStateFinished',
@@ -886,7 +886,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineStateFinishedSpec = {
 };
 
 // Struct: MemoryRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.MemoryRoutineDetailSpec = {
+ash.cros_healthd.mojom.MemoryRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MemoryRoutineDetail',
@@ -901,7 +901,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemoryRoutineDetailSpec = {
 };
 
 // Struct: AudioDriverRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioDriverRoutineDetailSpec = {
+ash.cros_healthd.mojom.AudioDriverRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioDriverRoutineDetail',
@@ -916,7 +916,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioDriverRoutineDetailSpec = {
 };
 
 // Struct: UfsLifetimeRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.UfsLifetimeRoutineDetailSpec = {
+ash.cros_healthd.mojom.UfsLifetimeRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UfsLifetimeRoutineDetail',
@@ -932,7 +932,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UfsLifetimeRoutineDetailSpec = {
 };
 
 // Struct: MemtesterResult
-ash.cros_healthd.cros_healthd.mojom.mojom.MemtesterResultSpec = {
+ash.cros_healthd.mojom.MemtesterResultSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MemtesterResult',
@@ -947,7 +947,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemtesterResultSpec = {
 };
 
 // Struct: BluetoothPoweredDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPoweredDetailSpec = {
+ash.cros_healthd.mojom.BluetoothPoweredDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothPoweredDetail',
@@ -962,7 +962,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPoweredDetailSpec = {
 };
 
 // Struct: BluetoothPowerRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPowerRoutineDetailSpec = {
+ash.cros_healthd.mojom.BluetoothPowerRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothPowerRoutineDetail',
@@ -977,7 +977,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPowerRoutineDetailSpec = {
 };
 
 // Struct: BluetoothDiscoveringDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDiscoveringDetailSpec = {
+ash.cros_healthd.mojom.BluetoothDiscoveringDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothDiscoveringDetail',
@@ -992,7 +992,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDiscoveringDetailSpec = {
 };
 
 // Struct: BluetoothDiscoveryRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDiscoveryRoutineDetailSpec = {
+ash.cros_healthd.mojom.BluetoothDiscoveryRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothDiscoveryRoutineDetail',
@@ -1007,7 +1007,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDiscoveryRoutineDetailSpec = 
 };
 
 // Struct: BluetoothScannedPeripheralInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothScannedPeripheralInfoSpec = {
+ash.cros_healthd.mojom.BluetoothScannedPeripheralInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothScannedPeripheralInfo',
@@ -1024,7 +1024,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothScannedPeripheralInfoSpec = {
 };
 
 // Struct: BluetoothScanningRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothScanningRoutineDetailSpec = {
+ash.cros_healthd.mojom.BluetoothScanningRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothScanningRoutineDetail',
@@ -1038,7 +1038,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothScanningRoutineDetailSpec = {
 };
 
 // Struct: BluetoothPairingPeripheralInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPairingPeripheralInfoSpec = {
+ash.cros_healthd.mojom.BluetoothPairingPeripheralInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothPairingPeripheralInfo',
@@ -1052,7 +1052,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPairingPeripheralInfoSpec = {
 };
 
 // Struct: BluetoothPairingRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPairingRoutineDetailSpec = {
+ash.cros_healthd.mojom.BluetoothPairingRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothPairingRoutineDetail',
@@ -1066,7 +1066,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothPairingRoutineDetailSpec = {
 };
 
 // Struct: CameraAvailabilityRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.CameraAvailabilityRoutineDetailSpec = {
+ash.cros_healthd.mojom.CameraAvailabilityRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CameraAvailabilityRoutineDetail',
@@ -1081,7 +1081,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CameraAvailabilityRoutineDetailSpec = 
 };
 
 // Struct: BatteryDischargeRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.BatteryDischargeRoutineDetailSpec = {
+ash.cros_healthd.mojom.BatteryDischargeRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BatteryDischargeRoutineDetail',
@@ -1095,7 +1095,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BatteryDischargeRoutineDetailSpec = {
 };
 
 // Struct: FanRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.FanRoutineDetailSpec = {
+ash.cros_healthd.mojom.FanRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.FanRoutineDetail',
@@ -1111,7 +1111,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.FanRoutineDetailSpec = {
 };
 
 // Struct: NetworkBandwidthRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.NetworkBandwidthRoutineDetailSpec = {
+ash.cros_healthd.mojom.NetworkBandwidthRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NetworkBandwidthRoutineDetail',
@@ -1126,7 +1126,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NetworkBandwidthRoutineDetailSpec = {
 };
 
 // Struct: SensitiveSensorInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorInfoSpec = {
+ash.cros_healthd.mojom.SensitiveSensorInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SensitiveSensorInfo',
@@ -1141,7 +1141,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorInfoSpec = {
 };
 
 // Struct: SensitiveSensorReport
-ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorReportSpec = {
+ash.cros_healthd.mojom.SensitiveSensorReportSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SensitiveSensorReport',
@@ -1157,7 +1157,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorReportSpec = {
 };
 
 // Struct: SensitiveSensorRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorRoutineDetailSpec = {
+ash.cros_healthd.mojom.SensitiveSensorRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SensitiveSensorRoutineDetail',
@@ -1178,7 +1178,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SensitiveSensorRoutineDetailSpec = {
 };
 
 // Struct: CameraFrameAnalysisRoutineDetail
-ash.cros_healthd.cros_healthd.mojom.mojom.CameraFrameAnalysisRoutineDetailSpec = {
+ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetail',
@@ -1192,24 +1192,52 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CameraFrameAnalysisRoutineDetailSpec =
 };
 
 // Interface: CrosHealthdRoutinesService
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService = {};
+ash.cros_healthd.mojom.CrosHealthdRoutinesService = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServicePendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'routine_argument', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RoutineArgumentSpec, nullable: false, minVersion: 0 },
+        { name: 'routine_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cros_healthd.mojom.RoutineControlRemote), nullable: false, minVersion: 0 },
+        { name: 'routine_observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.RoutineObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'routine_argument', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RoutineArgumentSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemote = class {
+ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdRoutinesService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServicePendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1221,7 +1249,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemote = cla
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1230,7 +1258,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemoteCallHa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec,
       null,
       [routine_argument, routine_receiver, routine_observer]);
   }
@@ -1239,15 +1267,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemoteCallHa
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
       [routine_argument]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemote();
+ash.cros_healthd.mojom.CrosHealthdRoutinesService.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1257,7 +1285,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService.getRemote =
 };
 
 // ParamsSpec for CreateRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdRoutinesService.CreateRoutine_Params',
@@ -1273,7 +1301,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_CreateRouti
 };
 
 // ParamsSpec for IsRoutineArgumentSupported
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdRoutinesService.IsRoutineArgumentSupported_Params',
@@ -1286,7 +1314,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_IsRoutineAr
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdRoutinesService.IsRoutineArgumentSupported_ResponseParams',
@@ -1300,29 +1328,66 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesService_IsRoutineAr
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServicePtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServiceRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdRoutinesServicePendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdRoutinesServicePtr = ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote;
+ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRequest = ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver;
 
 
 // Interface: RoutineControl
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl = {};
+ash.cros_healthd.mojom.RoutineControl = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlPendingReceiver = class {
+ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.RoutineControl_GetState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.RoutineControl_Start_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RoutineInquiryReplySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.RoutineControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemote = class {
+ash.cros_healthd.mojom.RoutineControlRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.RoutineControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlPendingReceiver,
+      ash.cros_healthd.mojom.RoutineControlPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.RoutineControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1334,7 +1399,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemote = class {
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemoteCallHandler = class {
+ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1343,8 +1408,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_GetState_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_GetState_ResponseParamsSpec,
+      ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec,
+      ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec,
       []);
   }
 
@@ -1352,7 +1417,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemoteCallHandler = clas
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_Start_ParamsSpec,
+      ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec,
       null,
       []);
   }
@@ -1361,15 +1426,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemoteCallHandler = clas
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_ReplyInquiry_ParamsSpec,
+      ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec,
       null,
       [reply]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemote();
+ash.cros_healthd.mojom.RoutineControl.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.RoutineControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1379,7 +1444,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl.getRemote = function() 
 };
 
 // ParamsSpec for GetState
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_GetState_ParamsSpec = {
+ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineControl.GetState_Params',
@@ -1391,7 +1456,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_GetState_ParamsSpec = {
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_GetState_ResponseParamsSpec = {
+ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineControl.GetState_ResponseParams',
@@ -1405,7 +1470,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_GetState_ResponseParams
 };
 
 // ParamsSpec for Start
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_Start_ParamsSpec = {
+ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineControl.Start_Params',
@@ -1418,7 +1483,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_Start_ParamsSpec = {
 };
 
 // ParamsSpec for ReplyInquiry
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_ReplyInquiry_ParamsSpec = {
+ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineControl.ReplyInquiry_Params',
@@ -1432,29 +1497,42 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControl_ReplyInquiry_ParamsSpec
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlPtr = ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlRequest = ash.cros_healthd.cros_healthd.mojom.mojom.RoutineControlPendingReceiver;
+ash.cros_healthd.mojom.RoutineControlPtr = ash.cros_healthd.mojom.RoutineControlRemote;
+ash.cros_healthd.mojom.RoutineControlRequest = ash.cros_healthd.mojom.RoutineControlPendingReceiver;
 
 
 // Interface: RoutineObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserver = {};
+ash.cros_healthd.mojom.RoutineObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverPendingReceiver = class {
+ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RoutineStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.RoutineObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRemote = class {
+ash.cros_healthd.mojom.RoutineObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.RoutineObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverPendingReceiver,
+      ash.cros_healthd.mojom.RoutineObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1466,7 +1544,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRemote = class {
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1475,15 +1553,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec,
+      ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRemote();
+ash.cros_healthd.mojom.RoutineObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.RoutineObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1493,7 +1571,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserver.getRemote = function()
 };
 
 // ParamsSpec for OnRoutineStateChange
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec = {
+ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineObserver.OnRoutineStateChange_Params',
@@ -1507,6 +1585,6 @@ ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserver_OnRoutineStateChange_P
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.RoutineObserverPendingReceiver;
+ash.cros_healthd.mojom.RoutineObserverPtr = ash.cros_healthd.mojom.RoutineObserverRemote;
+ash.cros_healthd.mojom.RoutineObserverRequest = ash.cros_healthd.mojom.RoutineObserverPendingReceiver;
 

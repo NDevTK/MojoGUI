@@ -10,7 +10,7 @@ ax.mojom = ax.mojom || {};
 
 
 // Enum: AssistiveTechnologyType
-ax.mojom.mojom.AssistiveTechnologyType = {
+ax.mojom.AssistiveTechnologyType = {
   kChromeVox: 0,
   kSelectToSpeak: 1,
   kSwitchAccess: 2,
@@ -18,4 +18,4 @@ ax.mojom.mojom.AssistiveTechnologyType = {
   kMagnifier: 4,
   kDictation: 5,
 };
-ax.mojom.mojom.AssistiveTechnologyTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.AssistiveTechnologyTypeSpec = { $: mojo.internal.Enum() };

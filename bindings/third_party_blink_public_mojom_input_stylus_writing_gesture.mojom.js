@@ -12,24 +12,24 @@ var gfx = gfx || {};
 
 
 // Enum: StylusWritingGestureAction
-blink.mojom.mojom.StylusWritingGestureAction = {
+blink.mojom.StylusWritingGestureAction = {
   DELETE_TEXT: 0,
   ADD_SPACE_OR_TEXT: 1,
   REMOVE_SPACES: 2,
   SPLIT_OR_MERGE: 3,
   SELECT_TEXT: 4,
 };
-blink.mojom.mojom.StylusWritingGestureActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.StylusWritingGestureActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: StylusWritingGestureGranularity
-blink.mojom.mojom.StylusWritingGestureGranularity = {
+blink.mojom.StylusWritingGestureGranularity = {
   CHARACTER: 0,
   WORD: 1,
 };
-blink.mojom.mojom.StylusWritingGestureGranularitySpec = { $: mojo.internal.Enum() };
+blink.mojom.StylusWritingGestureGranularitySpec = { $: mojo.internal.Enum() };
 
 // Struct: StylusWritingGestureData
-blink.mojom.mojom.StylusWritingGestureDataSpec = {
+blink.mojom.StylusWritingGestureDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StylusWritingGestureData',

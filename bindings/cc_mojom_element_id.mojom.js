@@ -10,7 +10,7 @@ cc.mojom = cc.mojom || {};
 
 
 // Struct: ElementId
-cc.mojom.mojom.ElementIdSpec = {
+cc.mojom.ElementIdSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.ElementId',

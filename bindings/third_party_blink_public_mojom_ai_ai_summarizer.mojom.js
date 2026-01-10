@@ -12,31 +12,31 @@ var blink = blink || {};
 
 
 // Enum: AISummarizerType
-blink.mojom.mojom.AISummarizerType = {
+blink.mojom.AISummarizerType = {
   kTLDR: 0,
   kKeyPoints: 1,
   kTeaser: 2,
   kHeadline: 3,
 };
-blink.mojom.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AISummarizerFormat
-blink.mojom.mojom.AISummarizerFormat = {
+blink.mojom.AISummarizerFormat = {
   kPlainText: 0,
   kMarkDown: 1,
 };
-blink.mojom.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum() };
+blink.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: AISummarizerLength
-blink.mojom.mojom.AISummarizerLength = {
+blink.mojom.AISummarizerLength = {
   kShort: 0,
   kMedium: 1,
   kLong: 2,
 };
-blink.mojom.mojom.AISummarizerLengthSpec = { $: mojo.internal.Enum() };
+blink.mojom.AISummarizerLengthSpec = { $: mojo.internal.Enum() };
 
 // Struct: AISummarizerCreateOptions
-blink.mojom.mojom.AISummarizerCreateOptionsSpec = {
+blink.mojom.AISummarizerCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AISummarizerCreateOptions',
@@ -56,24 +56,53 @@ blink.mojom.mojom.AISummarizerCreateOptionsSpec = {
 };
 
 // Interface: AISummarizer
-blink.mojom.mojom.AISummarizer = {};
+blink.mojom.AISummarizer = {};
 
-blink.mojom.mojom.AISummarizerPendingReceiver = class {
+blink.mojom.AISummarizer_Summarize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AISummarizer_Summarize_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AISummarizer_MeasureUsage_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AISummarizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AISummarizerRemote = class {
+blink.mojom.AISummarizerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AISummarizer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AISummarizerPendingReceiver,
+      blink.mojom.AISummarizerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AISummarizerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AISummarizerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +114,7 @@ blink.mojom.mojom.AISummarizerRemote = class {
   }
 };
 
-blink.mojom.mojom.AISummarizerRemoteCallHandler = class {
+blink.mojom.AISummarizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,7 +123,7 @@ blink.mojom.mojom.AISummarizerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AISummarizer_Summarize_ParamsSpec,
+      blink.mojom.AISummarizer_Summarize_ParamsSpec,
       null,
       [input, context, pending_responder]);
   }
@@ -103,15 +132,15 @@ blink.mojom.mojom.AISummarizerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AISummarizer_MeasureUsage_ParamsSpec,
-      blink.mojom.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec,
+      blink.mojom.AISummarizer_MeasureUsage_ParamsSpec,
+      blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec,
       [input, context]);
   }
 
 };
 
-blink.mojom.mojom.AISummarizer.getRemote = function() {
-  let remote = new blink.mojom.mojom.AISummarizerRemote();
+blink.mojom.AISummarizer.getRemote = function() {
+  let remote = new blink.mojom.AISummarizerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -121,7 +150,7 @@ blink.mojom.mojom.AISummarizer.getRemote = function() {
 };
 
 // ParamsSpec for Summarize
-blink.mojom.mojom.AISummarizer_Summarize_ParamsSpec = {
+blink.mojom.AISummarizer_Summarize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AISummarizer.Summarize_Params',
@@ -137,7 +166,7 @@ blink.mojom.mojom.AISummarizer_Summarize_ParamsSpec = {
 };
 
 // ParamsSpec for MeasureUsage
-blink.mojom.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
+blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AISummarizer.MeasureUsage_Params',
@@ -151,7 +180,7 @@ blink.mojom.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
+blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AISummarizer.MeasureUsage_ResponseParams',
@@ -166,6 +195,6 @@ blink.mojom.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AISummarizerPtr = blink.mojom.mojom.AISummarizerRemote;
-blink.mojom.mojom.AISummarizerRequest = blink.mojom.mojom.AISummarizerPendingReceiver;
+blink.mojom.AISummarizerPtr = blink.mojom.AISummarizerRemote;
+blink.mojom.AISummarizerRequest = blink.mojom.AISummarizerPendingReceiver;
 

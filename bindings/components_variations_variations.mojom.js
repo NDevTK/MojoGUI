@@ -10,14 +10,14 @@ variations.mojom = variations.mojom || {};
 
 
 // Enum: GoogleWebVisibility
-variations.mojom.mojom.GoogleWebVisibility = {
+variations.mojom.GoogleWebVisibility = {
   ANY: 0,
   FIRST_PARTY: 1,
 };
-variations.mojom.mojom.GoogleWebVisibilitySpec = { $: mojo.internal.Enum() };
+variations.mojom.GoogleWebVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: VariationsHeaders
-variations.mojom.mojom.VariationsHeadersSpec = {
+variations.mojom.VariationsHeadersSpec = {
   $: {
     structSpec: {
       name: 'variations.mojom.VariationsHeaders',

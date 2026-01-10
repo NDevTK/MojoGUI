@@ -10,7 +10,7 @@ skia.mojom = skia.mojom || {};
 
 
 // Struct: SkColorSpacePrimaries
-skia.mojom.mojom.SkColorSpacePrimariesSpec = {
+skia.mojom.SkColorSpacePrimariesSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkColorSpacePrimaries',

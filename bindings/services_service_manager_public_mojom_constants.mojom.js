@@ -9,14 +9,14 @@ var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
 
-service_manager.mojom.mojom.kServiceName = "service_manager";
+service_manager.mojom.kServiceName = "service_manager";
 
-service_manager.mojom.mojom.kSystemInstanceGroupHigh = 0xE90E5C501330C043;
+service_manager.mojom.kSystemInstanceGroupHigh = 0xE90E5C501330C043;
 
-service_manager.mojom.mojom.kSystemInstanceGroupLow = 0x82B0A84F50CF8D84;
+service_manager.mojom.kSystemInstanceGroupLow = 0x82B0A84F50CF8D84;
 
 // Struct: Constants_UnusedStruct_Internal
-service_manager.mojom.mojom.Constants_UnusedStruct_InternalSpec = {
+service_manager.mojom.Constants_UnusedStruct_InternalSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Constants_UnusedStruct_Internal',

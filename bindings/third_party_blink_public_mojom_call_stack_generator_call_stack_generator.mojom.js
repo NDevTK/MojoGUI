@@ -11,24 +11,36 @@ var blink = blink || {};
 
 
 // Interface: CallStackGenerator
-blink.mojom.mojom.CallStackGenerator = {};
+blink.mojom.CallStackGenerator = {};
 
-blink.mojom.mojom.CallStackGeneratorPendingReceiver = class {
+blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.CallStackGeneratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.CallStackGeneratorRemote = class {
+blink.mojom.CallStackGeneratorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.CallStackGenerator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.CallStackGeneratorPendingReceiver,
+      blink.mojom.CallStackGeneratorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.CallStackGeneratorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.CallStackGeneratorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +52,7 @@ blink.mojom.mojom.CallStackGeneratorRemote = class {
   }
 };
 
-blink.mojom.mojom.CallStackGeneratorRemoteCallHandler = class {
+blink.mojom.CallStackGeneratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +61,15 @@ blink.mojom.mojom.CallStackGeneratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec,
-      blink.mojom.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
+      blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec,
+      blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.CallStackGenerator.getRemote = function() {
-  let remote = new blink.mojom.mojom.CallStackGeneratorRemote();
+blink.mojom.CallStackGenerator.getRemote = function() {
+  let remote = new blink.mojom.CallStackGeneratorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +79,7 @@ blink.mojom.mojom.CallStackGenerator.getRemote = function() {
 };
 
 // ParamsSpec for CollectJavaScriptCallStack
-blink.mojom.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
+blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CallStackGenerator.CollectJavaScriptCallStack_Params',
@@ -79,7 +91,7 @@ blink.mojom.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
+blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CallStackGenerator.CollectJavaScriptCallStack_ResponseParams',
@@ -94,6 +106,6 @@ blink.mojom.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSp
 };
 
 // Legacy compatibility
-blink.mojom.mojom.CallStackGeneratorPtr = blink.mojom.mojom.CallStackGeneratorRemote;
-blink.mojom.mojom.CallStackGeneratorRequest = blink.mojom.mojom.CallStackGeneratorPendingReceiver;
+blink.mojom.CallStackGeneratorPtr = blink.mojom.CallStackGeneratorRemote;
+blink.mojom.CallStackGeneratorRequest = blink.mojom.CallStackGeneratorPendingReceiver;
 

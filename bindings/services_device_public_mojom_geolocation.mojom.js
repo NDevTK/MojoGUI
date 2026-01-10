@@ -10,24 +10,49 @@ device.mojom = device.mojom || {};
 
 
 // Interface: Geolocation
-device.mojom.mojom.Geolocation = {};
+device.mojom.Geolocation = {};
 
-device.mojom.mojom.GeolocationPendingReceiver = class {
+device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Geolocation_SetHighAccuracyHint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'high_accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Geolocation_QueryNextPosition_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.GeolocationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.GeolocationRemote = class {
+device.mojom.GeolocationRemote = class {
   static get $interfaceName() {
     return 'device.mojom.Geolocation';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.GeolocationPendingReceiver,
+      device.mojom.GeolocationPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.GeolocationRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.GeolocationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +64,7 @@ device.mojom.mojom.GeolocationRemote = class {
   }
 };
 
-device.mojom.mojom.GeolocationRemoteCallHandler = class {
+device.mojom.GeolocationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +73,7 @@ device.mojom.mojom.GeolocationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec,
+      device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec,
       null,
       [high_accuracy]);
   }
@@ -57,15 +82,15 @@ device.mojom.mojom.GeolocationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.Geolocation_QueryNextPosition_ParamsSpec,
-      device.mojom.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
+      device.mojom.Geolocation_QueryNextPosition_ParamsSpec,
+      device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.mojom.Geolocation.getRemote = function() {
-  let remote = new device.mojom.mojom.GeolocationRemote();
+device.mojom.Geolocation.getRemote = function() {
+  let remote = new device.mojom.GeolocationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +100,7 @@ device.mojom.mojom.Geolocation.getRemote = function() {
 };
 
 // ParamsSpec for SetHighAccuracyHint
-device.mojom.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
+device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Geolocation.SetHighAccuracyHint_Params',
@@ -89,7 +114,7 @@ device.mojom.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
 };
 
 // ParamsSpec for QueryNextPosition
-device.mojom.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
+device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Geolocation.QueryNextPosition_Params',
@@ -101,7 +126,7 @@ device.mojom.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
+device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Geolocation.QueryNextPosition_ResponseParams',
@@ -115,6 +140,6 @@ device.mojom.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.GeolocationPtr = device.mojom.mojom.GeolocationRemote;
-device.mojom.mojom.GeolocationRequest = device.mojom.mojom.GeolocationPendingReceiver;
+device.mojom.GeolocationPtr = device.mojom.GeolocationRemote;
+device.mojom.GeolocationRequest = device.mojom.GeolocationPendingReceiver;
 

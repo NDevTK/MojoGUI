@@ -10,7 +10,7 @@ userspace_swap.mojom = userspace_swap.mojom || {};
 
 
 // Struct: MemoryRegion
-userspace_swap.mojom.mojom.MemoryRegionSpec = {
+userspace_swap.mojom.MemoryRegionSpec = {
   $: {
     structSpec: {
       name: 'userspace_swap.mojom.MemoryRegion',
@@ -25,24 +25,40 @@ userspace_swap.mojom.mojom.MemoryRegionSpec = {
 };
 
 // Interface: UserspaceSwapInitialization
-userspace_swap.mojom.mojom.UserspaceSwapInitialization = {};
+userspace_swap.mojom.UserspaceSwapInitialization = {};
 
-userspace_swap.mojom.mojom.UserspaceSwapInitializationPendingReceiver = class {
+userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'uffd_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'uffd_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'mmap_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'swap_area', packedOffset: 24, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-userspace_swap.mojom.mojom.UserspaceSwapInitializationRemote = class {
+userspace_swap.mojom.UserspaceSwapInitializationRemote = class {
   static get $interfaceName() {
     return 'userspace_swap.mojom.UserspaceSwapInitialization';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      userspace_swap.mojom.mojom.UserspaceSwapInitializationPendingReceiver,
+      userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver,
       handle);
-    this.$ = new userspace_swap.mojom.mojom.UserspaceSwapInitializationRemoteCallHandler(this.proxy);
+    this.$ = new userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +70,7 @@ userspace_swap.mojom.mojom.UserspaceSwapInitializationRemote = class {
   }
 };
 
-userspace_swap.mojom.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
+userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,15 +79,15 @@ userspace_swap.mojom.mojom.UserspaceSwapInitializationRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      userspace_swap.mojom.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec,
+      userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec,
       null,
       [uffd_error, uffd_handle, mmap_error, swap_area]);
   }
 
 };
 
-userspace_swap.mojom.mojom.UserspaceSwapInitialization.getRemote = function() {
-  let remote = new userspace_swap.mojom.mojom.UserspaceSwapInitializationRemote();
+userspace_swap.mojom.UserspaceSwapInitialization.getRemote = function() {
+  let remote = new userspace_swap.mojom.UserspaceSwapInitializationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -81,7 +97,7 @@ userspace_swap.mojom.mojom.UserspaceSwapInitialization.getRemote = function() {
 };
 
 // ParamsSpec for TransferUserfaultFD
-userspace_swap.mojom.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec = {
+userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec = {
   $: {
     structSpec: {
       name: 'userspace_swap.mojom.UserspaceSwapInitialization.TransferUserfaultFD_Params',
@@ -98,29 +114,69 @@ userspace_swap.mojom.mojom.UserspaceSwapInitialization_TransferUserfaultFD_Param
 };
 
 // Legacy compatibility
-userspace_swap.mojom.mojom.UserspaceSwapInitializationPtr = userspace_swap.mojom.mojom.UserspaceSwapInitializationRemote;
-userspace_swap.mojom.mojom.UserspaceSwapInitializationRequest = userspace_swap.mojom.mojom.UserspaceSwapInitializationPendingReceiver;
+userspace_swap.mojom.UserspaceSwapInitializationPtr = userspace_swap.mojom.UserspaceSwapInitializationRemote;
+userspace_swap.mojom.UserspaceSwapInitializationRequest = userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver;
 
 
 // Interface: UserspaceSwap
-userspace_swap.mojom.mojom.UserspaceSwap = {};
+userspace_swap.mojom.UserspaceSwap = {};
 
-userspace_swap.mojom.mojom.UserspaceSwapPendingReceiver = class {
+userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'dest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'userspace_swap.mojom.UserspaceSwap_MapArea_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'area', packedOffset: 0, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'max_superpages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+userspace_swap.mojom.UserspaceSwapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-userspace_swap.mojom.mojom.UserspaceSwapRemote = class {
+userspace_swap.mojom.UserspaceSwapRemote = class {
   static get $interfaceName() {
     return 'userspace_swap.mojom.UserspaceSwap';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      userspace_swap.mojom.mojom.UserspaceSwapPendingReceiver,
+      userspace_swap.mojom.UserspaceSwapPendingReceiver,
       handle);
-    this.$ = new userspace_swap.mojom.mojom.UserspaceSwapRemoteCallHandler(this.proxy);
+    this.$ = new userspace_swap.mojom.UserspaceSwapRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -132,7 +188,7 @@ userspace_swap.mojom.mojom.UserspaceSwapRemote = class {
   }
 };
 
-userspace_swap.mojom.mojom.UserspaceSwapRemoteCallHandler = class {
+userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -141,7 +197,7 @@ userspace_swap.mojom.mojom.UserspaceSwapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      userspace_swap.mojom.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec,
+      userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec,
       null,
       [src, dest]);
   }
@@ -150,7 +206,7 @@ userspace_swap.mojom.mojom.UserspaceSwapRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      userspace_swap.mojom.mojom.UserspaceSwap_MapArea_ParamsSpec,
+      userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec,
       null,
       [area]);
   }
@@ -159,15 +215,15 @@ userspace_swap.mojom.mojom.UserspaceSwapRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      userspace_swap.mojom.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec,
-      userspace_swap.mojom.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
+      userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec,
+      userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
       [max_superpages]);
   }
 
 };
 
-userspace_swap.mojom.mojom.UserspaceSwap.getRemote = function() {
-  let remote = new userspace_swap.mojom.mojom.UserspaceSwapRemote();
+userspace_swap.mojom.UserspaceSwap.getRemote = function() {
+  let remote = new userspace_swap.mojom.UserspaceSwapRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -177,7 +233,7 @@ userspace_swap.mojom.mojom.UserspaceSwap.getRemote = function() {
 };
 
 // ParamsSpec for MovePTEsLeavingMapping
-userspace_swap.mojom.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
+userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
   $: {
     structSpec: {
       name: 'userspace_swap.mojom.UserspaceSwap.MovePTEsLeavingMapping_Params',
@@ -192,7 +248,7 @@ userspace_swap.mojom.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
 };
 
 // ParamsSpec for MapArea
-userspace_swap.mojom.mojom.UserspaceSwap_MapArea_ParamsSpec = {
+userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = {
   $: {
     structSpec: {
       name: 'userspace_swap.mojom.UserspaceSwap.MapArea_Params',
@@ -206,7 +262,7 @@ userspace_swap.mojom.mojom.UserspaceSwap_MapArea_ParamsSpec = {
 };
 
 // ParamsSpec for GetPartitionAllocSuperPagesUsed
-userspace_swap.mojom.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = {
+userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'userspace_swap.mojom.UserspaceSwap.GetPartitionAllocSuperPagesUsed_Params',
@@ -219,7 +275,7 @@ userspace_swap.mojom.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsS
   }
 };
 
-userspace_swap.mojom.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec = {
+userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'userspace_swap.mojom.UserspaceSwap.GetPartitionAllocSuperPagesUsed_ResponseParams',
@@ -233,6 +289,6 @@ userspace_swap.mojom.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_Respons
 };
 
 // Legacy compatibility
-userspace_swap.mojom.mojom.UserspaceSwapPtr = userspace_swap.mojom.mojom.UserspaceSwapRemote;
-userspace_swap.mojom.mojom.UserspaceSwapRequest = userspace_swap.mojom.mojom.UserspaceSwapPendingReceiver;
+userspace_swap.mojom.UserspaceSwapPtr = userspace_swap.mojom.UserspaceSwapRemote;
+userspace_swap.mojom.UserspaceSwapRequest = userspace_swap.mojom.UserspaceSwapPendingReceiver;
 

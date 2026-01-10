@@ -12,14 +12,14 @@ var url = url || {};
 
 
 // Enum: Operation
-extensions.mojom.mojom.Operation = {
+extensions.mojom.Operation = {
   kAdd: 0,
   kRemove: 1,
 };
-extensions.mojom.mojom.OperationSpec = { $: mojo.internal.Enum() };
+extensions.mojom.OperationSpec = { $: mojo.internal.Enum() };
 
 // Union: CodeInjection
-extensions.mojom.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
+extensions.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
     'extensions.mojom.CodeInjection', {
       'css': {
         'ordinal': 0,
@@ -33,7 +33,7 @@ extensions.mojom.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: JSSource
-extensions.mojom.mojom.JSSourceSpec = {
+extensions.mojom.JSSourceSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.JSSource',
@@ -48,7 +48,7 @@ extensions.mojom.mojom.JSSourceSpec = {
 };
 
 // Struct: CSSSource
-extensions.mojom.mojom.CSSSourceSpec = {
+extensions.mojom.CSSSourceSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.CSSSource',
@@ -63,7 +63,7 @@ extensions.mojom.mojom.CSSSourceSpec = {
 };
 
 // Struct: JSInjection
-extensions.mojom.mojom.JSInjectionSpec = {
+extensions.mojom.JSInjectionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.JSInjection',
@@ -82,7 +82,7 @@ extensions.mojom.mojom.JSInjectionSpec = {
 };
 
 // Struct: CSSInjection
-extensions.mojom.mojom.CSSInjectionSpec = {
+extensions.mojom.CSSInjectionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.CSSInjection',

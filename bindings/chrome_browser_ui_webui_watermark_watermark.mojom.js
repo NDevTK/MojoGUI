@@ -10,7 +10,7 @@ watermark.mojom = watermark.mojom || {};
 
 
 // Struct: WatermarkStyle
-watermark.mojom.mojom.WatermarkStyleSpec = {
+watermark.mojom.WatermarkStyleSpec = {
   $: {
     structSpec: {
       name: 'watermark.mojom.WatermarkStyle',
@@ -26,24 +26,37 @@ watermark.mojom.mojom.WatermarkStyleSpec = {
 };
 
 // Interface: PageHandlerFactory
-watermark.mojom.mojom.PageHandlerFactory = {};
+watermark.mojom.PageHandlerFactory = {};
 
-watermark.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'watermark.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(watermark.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+watermark.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-watermark.mojom.mojom.PageHandlerFactoryRemote = class {
+watermark.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'watermark.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      watermark.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      watermark.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new watermark.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new watermark.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +68,7 @@ watermark.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-watermark.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+watermark.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +77,15 @@ watermark.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      watermark.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-watermark.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new watermark.mojom.mojom.PageHandlerFactoryRemote();
+watermark.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new watermark.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +95,7 @@ watermark.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-watermark.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'watermark.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -96,29 +109,54 @@ watermark.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-watermark.mojom.mojom.PageHandlerFactoryPtr = watermark.mojom.mojom.PageHandlerFactoryRemote;
-watermark.mojom.mojom.PageHandlerFactoryRequest = watermark.mojom.mojom.PageHandlerFactoryPendingReceiver;
+watermark.mojom.PageHandlerFactoryPtr = watermark.mojom.PageHandlerFactoryRemote;
+watermark.mojom.PageHandlerFactoryRequest = watermark.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-watermark.mojom.mojom.PageHandler = {};
+watermark.mojom.PageHandler = {};
 
-watermark.mojom.mojom.PageHandlerPendingReceiver = class {
+watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'watermark.mojom.PageHandler_SetWatermarkStyle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkStyleSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'watermark.mojom.PageHandler_ShowNotificationToast_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+watermark.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-watermark.mojom.mojom.PageHandlerRemote = class {
+watermark.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'watermark.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      watermark.mojom.mojom.PageHandlerPendingReceiver,
+      watermark.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new watermark.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new watermark.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,7 +168,7 @@ watermark.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-watermark.mojom.mojom.PageHandlerRemoteCallHandler = class {
+watermark.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -139,7 +177,7 @@ watermark.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      watermark.mojom.mojom.PageHandler_SetWatermarkStyle_ParamsSpec,
+      watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec,
       null,
       [style]);
   }
@@ -148,15 +186,15 @@ watermark.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      watermark.mojom.mojom.PageHandler_ShowNotificationToast_ParamsSpec,
+      watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec,
       null,
       []);
   }
 
 };
 
-watermark.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new watermark.mojom.mojom.PageHandlerRemote();
+watermark.mojom.PageHandler.getRemote = function() {
+  let remote = new watermark.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -166,7 +204,7 @@ watermark.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for SetWatermarkStyle
-watermark.mojom.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
+watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'watermark.mojom.PageHandler.SetWatermarkStyle_Params',
@@ -180,7 +218,7 @@ watermark.mojom.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
 };
 
 // ParamsSpec for ShowNotificationToast
-watermark.mojom.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
+watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
   $: {
     structSpec: {
       name: 'watermark.mojom.PageHandler.ShowNotificationToast_Params',
@@ -193,6 +231,6 @@ watermark.mojom.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
 };
 
 // Legacy compatibility
-watermark.mojom.mojom.PageHandlerPtr = watermark.mojom.mojom.PageHandlerRemote;
-watermark.mojom.mojom.PageHandlerRequest = watermark.mojom.mojom.PageHandlerPendingReceiver;
+watermark.mojom.PageHandlerPtr = watermark.mojom.PageHandlerRemote;
+watermark.mojom.PageHandlerRequest = watermark.mojom.PageHandlerPendingReceiver;
 

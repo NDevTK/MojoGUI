@@ -9,25 +9,25 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
-device.mojom.mojom.kDefaultOwnContributionEstimate = -1.0;
+device.mojom.kDefaultOwnContributionEstimate = -1.0;
 
 // Enum: PressureSource
-device.mojom.mojom.PressureSource = {
+device.mojom.PressureSource = {
   kCpu: 0,
 };
-device.mojom.mojom.PressureSourceSpec = { $: mojo.internal.Enum() };
+device.mojom.PressureSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: PressureState
-device.mojom.mojom.PressureState = {
+device.mojom.PressureState = {
   kNominal: 0,
   kFair: 1,
   kSerious: 2,
   kCritical: 3,
 };
-device.mojom.mojom.PressureStateSpec = { $: mojo.internal.Enum() };
+device.mojom.PressureStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: PressureUpdate
-device.mojom.mojom.PressureUpdateSpec = {
+device.mojom.PressureUpdateSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureUpdate',
@@ -43,7 +43,7 @@ device.mojom.mojom.PressureUpdateSpec = {
 };
 
 // Struct: PressureData
-device.mojom.mojom.PressureDataSpec = {
+device.mojom.PressureDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureData',

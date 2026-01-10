@@ -10,11 +10,11 @@ logger_common.mojom = logger_common.mojom || {};
 
 
 // Enum: LogSource
-logger_common.mojom.mojom.LogSource = {
+logger_common.mojom.LogSource = {
   Unknown: 0,
   CollaborationService: 1,
   DataSharingService: 2,
   TabGroupSyncService: 3,
   UI: 4,
 };
-logger_common.mojom.mojom.LogSourceSpec = { $: mojo.internal.Enum() };
+logger_common.mojom.LogSourceSpec = { $: mojo.internal.Enum() };

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: TaskAttributionId
-blink.mojom.mojom.TaskAttributionIdSpec = {
+blink.mojom.TaskAttributionIdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TaskAttributionId',

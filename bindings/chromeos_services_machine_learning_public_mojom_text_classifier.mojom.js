@@ -7,18 +7,18 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
+chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 
 // Enum: AnnotationUsecase
-chromeos.machine_learning.machine_learning.mojom.mojom.AnnotationUsecase = {
+chromeos.machine_learning.mojom.AnnotationUsecase = {
   ANNOTATION_USECASE_SMART: 0,
   ANNOTATION_USECASE_RAW: 1,
 };
-chromeos.machine_learning.machine_learning.mojom.mojom.AnnotationUsecaseSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.AnnotationUsecaseSpec = { $: mojo.internal.Enum() };
 
 // Union: TextEntityData
-chromeos.machine_learning.machine_learning.mojom.mojom.TextEntityDataSpec = { $: mojo.internal.Union(
+chromeos.machine_learning.mojom.TextEntityDataSpec = { $: mojo.internal.Union(
     'chromeos.machine_learning.mojom.TextEntityData', {
       'numeric_value': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextEntityDataSpec = { $:
 };
 
 // Struct: TextEntity
-chromeos.machine_learning.machine_learning.mojom.mojom.TextEntitySpec = {
+chromeos.machine_learning.mojom.TextEntitySpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextEntity',
@@ -48,7 +48,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextEntitySpec = {
 };
 
 // Struct: TextAnnotation
-chromeos.machine_learning.machine_learning.mojom.mojom.TextAnnotationSpec = {
+chromeos.machine_learning.mojom.TextAnnotationSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextAnnotation',
@@ -64,7 +64,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextAnnotationSpec = {
 };
 
 // Struct: TextAnnotationRequest
-chromeos.machine_learning.machine_learning.mojom.mojom.TextAnnotationRequestSpec = {
+chromeos.machine_learning.mojom.TextAnnotationRequestSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextAnnotationRequest',
@@ -85,7 +85,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextAnnotationRequestSpec
 };
 
 // Struct: CodepointSpan
-chromeos.machine_learning.machine_learning.mojom.mojom.CodepointSpanSpec = {
+chromeos.machine_learning.mojom.CodepointSpanSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.CodepointSpan',
@@ -100,7 +100,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.CodepointSpanSpec = {
 };
 
 // Struct: TextLanguage
-chromeos.machine_learning.machine_learning.mojom.mojom.TextLanguageSpec = {
+chromeos.machine_learning.mojom.TextLanguageSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextLanguage',
@@ -115,7 +115,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextLanguageSpec = {
 };
 
 // Struct: REMOVED_TextSuggestSelectionRequest
-chromeos.machine_learning.machine_learning.mojom.mojom.REMOVED_TextSuggestSelectionRequestSpec = {
+chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequest',
@@ -133,24 +133,63 @@ chromeos.machine_learning.machine_learning.mojom.mojom.REMOVED_TextSuggestSelect
 };
 
 // Interface: TextClassifier
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier = {};
+chromeos.machine_learning.mojom.TextClassifier = {};
 
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierPendingReceiver = class {
+chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.TextClassifier_Annotate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextAnnotationRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.TextClassifier_FindLanguages_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.TextClassifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemote = class {
+chromeos.machine_learning.mojom.TextClassifierRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.TextClassifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierPendingReceiver,
+      chromeos.machine_learning.mojom.TextClassifierPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -162,7 +201,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemote = cl
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemoteCallHandler = class {
+chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -171,8 +210,8 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemoteCallH
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_Annotate_ParamsSpec,
-      chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_Annotate_ResponseParamsSpec,
+      chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec,
+      chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec,
       [request]);
   }
 
@@ -180,8 +219,8 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemoteCallH
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_FindLanguages_ParamsSpec,
-      chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_FindLanguages_ResponseParamsSpec,
+      chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec,
+      chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec,
       [text]);
   }
 
@@ -189,15 +228,15 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemoteCallH
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_REMOVED_1_ParamsSpec,
-      chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec,
+      chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec,
+      chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier.getRemote = function() {
-  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemote();
+chromeos.machine_learning.mojom.TextClassifier.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.TextClassifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -207,7 +246,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier.getRemote 
 };
 
 // ParamsSpec for Annotate
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_Annotate_ParamsSpec = {
+chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextClassifier.Annotate_Params',
@@ -220,7 +259,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_Annotate_P
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_Annotate_ResponseParamsSpec = {
+chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextClassifier.Annotate_ResponseParams',
@@ -234,7 +273,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_Annotate_R
 };
 
 // ParamsSpec for FindLanguages
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_FindLanguages_ParamsSpec = {
+chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextClassifier.FindLanguages_Params',
@@ -247,7 +286,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_FindLangua
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_FindLanguages_ResponseParamsSpec = {
+chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextClassifier.FindLanguages_ResponseParams',
@@ -261,7 +300,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_FindLangua
 };
 
 // ParamsSpec for REMOVED_1
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_REMOVED_1_ParamsSpec = {
+chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextClassifier.REMOVED_1_Params',
@@ -274,7 +313,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_REMOVED_1_
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec = {
+chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextClassifier.REMOVED_1_ResponseParams',
@@ -288,6 +327,6 @@ chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifier_REMOVED_1_
 };
 
 // Legacy compatibility
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierPtr = chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRemote;
-chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierRequest = chromeos.machine_learning.machine_learning.mojom.mojom.TextClassifierPendingReceiver;
+chromeos.machine_learning.mojom.TextClassifierPtr = chromeos.machine_learning.mojom.TextClassifierRemote;
+chromeos.machine_learning.mojom.TextClassifierRequest = chromeos.machine_learning.mojom.TextClassifierPendingReceiver;
 

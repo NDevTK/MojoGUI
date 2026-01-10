@@ -10,24 +10,51 @@ network.mojom = network.mojom || {};
 
 
 // Interface: P2PTrustedSocketManagerClient
-network.mojom.mojom.P2PTrustedSocketManagerClient = {};
+network.mojom.P2PTrustedSocketManagerClient = {};
 
-network.mojom.mojom.P2PTrustedSocketManagerClientPendingReceiver = class {
+network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManagerClient_DumpPacket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'packet_header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'packet_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'incoming', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.P2PTrustedSocketManagerClientRemote = class {
+network.mojom.P2PTrustedSocketManagerClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.P2PTrustedSocketManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.P2PTrustedSocketManagerClientPendingReceiver,
+      network.mojom.P2PTrustedSocketManagerClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.P2PTrustedSocketManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +66,7 @@ network.mojom.mojom.P2PTrustedSocketManagerClientRemote = class {
   }
 };
 
-network.mojom.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
+network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +75,7 @@ network.mojom.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec,
+      network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec,
       null,
       []);
   }
@@ -57,15 +84,15 @@ network.mojom.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec,
+      network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec,
       null,
       [packet_header, packet_length, incoming]);
   }
 
 };
 
-network.mojom.mojom.P2PTrustedSocketManagerClient.getRemote = function() {
-  let remote = new network.mojom.mojom.P2PTrustedSocketManagerClientRemote();
+network.mojom.P2PTrustedSocketManagerClient.getRemote = function() {
+  let remote = new network.mojom.P2PTrustedSocketManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +102,7 @@ network.mojom.mojom.P2PTrustedSocketManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for InvalidSocketPortRangeRequested
-network.mojom.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec = {
+network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManagerClient.InvalidSocketPortRangeRequested_Params',
@@ -88,7 +115,7 @@ network.mojom.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequeste
 };
 
 // ParamsSpec for DumpPacket
-network.mojom.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
+network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManagerClient.DumpPacket_Params',
@@ -104,29 +131,81 @@ network.mojom.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.P2PTrustedSocketManagerClientPtr = network.mojom.mojom.P2PTrustedSocketManagerClientRemote;
-network.mojom.mojom.P2PTrustedSocketManagerClientRequest = network.mojom.mojom.P2PTrustedSocketManagerClientPendingReceiver;
+network.mojom.P2PTrustedSocketManagerClientPtr = network.mojom.P2PTrustedSocketManagerClientRemote;
+network.mojom.P2PTrustedSocketManagerClientRequest = network.mojom.P2PTrustedSocketManagerClientPendingReceiver;
 
 
 // Interface: P2PTrustedSocketManager
-network.mojom.mojom.P2PTrustedSocketManager = {};
+network.mojom.P2PTrustedSocketManager = {};
 
-network.mojom.mojom.P2PTrustedSocketManagerPendingReceiver = class {
+network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager_StartRtpDump_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager_StopRtpDump_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.P2PTrustedSocketManagerRemote = class {
+network.mojom.P2PTrustedSocketManagerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.P2PTrustedSocketManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.P2PTrustedSocketManagerPendingReceiver,
+      network.mojom.P2PTrustedSocketManagerPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.P2PTrustedSocketManagerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.P2PTrustedSocketManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -138,7 +217,7 @@ network.mojom.mojom.P2PTrustedSocketManagerRemote = class {
   }
 };
 
-network.mojom.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
+network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -147,7 +226,7 @@ network.mojom.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec,
+      network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec,
       null,
       [incoming, outgoing]);
   }
@@ -156,7 +235,7 @@ network.mojom.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec,
+      network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec,
       null,
       [incoming, outgoing]);
   }
@@ -165,7 +244,7 @@ network.mojom.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec,
+      network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec,
       null,
       []);
   }
@@ -174,15 +253,15 @@ network.mojom.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec,
+      network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.mojom.P2PTrustedSocketManager.getRemote = function() {
-  let remote = new network.mojom.mojom.P2PTrustedSocketManagerRemote();
+network.mojom.P2PTrustedSocketManager.getRemote = function() {
+  let remote = new network.mojom.P2PTrustedSocketManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -192,7 +271,7 @@ network.mojom.mojom.P2PTrustedSocketManager.getRemote = function() {
 };
 
 // ParamsSpec for StartRtpDump
-network.mojom.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
+network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManager.StartRtpDump_Params',
@@ -207,7 +286,7 @@ network.mojom.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
 };
 
 // ParamsSpec for StopRtpDump
-network.mojom.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
+network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManager.StopRtpDump_Params',
@@ -222,7 +301,7 @@ network.mojom.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
 };
 
 // ParamsSpec for PauseNetworkChangeNotifications
-network.mojom.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec = {
+network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManager.PauseNetworkChangeNotifications_Params',
@@ -235,7 +314,7 @@ network.mojom.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_Para
 };
 
 // ParamsSpec for ResumeNetworkChangeNotifications
-network.mojom.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec = {
+network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManager.ResumeNetworkChangeNotifications_Params',
@@ -248,6 +327,6 @@ network.mojom.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_Par
 };
 
 // Legacy compatibility
-network.mojom.mojom.P2PTrustedSocketManagerPtr = network.mojom.mojom.P2PTrustedSocketManagerRemote;
-network.mojom.mojom.P2PTrustedSocketManagerRequest = network.mojom.mojom.P2PTrustedSocketManagerPendingReceiver;
+network.mojom.P2PTrustedSocketManagerPtr = network.mojom.P2PTrustedSocketManagerRemote;
+network.mojom.P2PTrustedSocketManagerRequest = network.mojom.P2PTrustedSocketManagerPendingReceiver;
 

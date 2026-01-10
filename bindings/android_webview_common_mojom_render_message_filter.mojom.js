@@ -11,24 +11,38 @@ var blink = blink || {};
 
 
 // Interface: RenderMessageFilter
-android_webview.mojom.mojom.RenderMessageFilter = {};
+android_webview.mojom.RenderMessageFilter = {};
 
-android_webview.mojom.mojom.RenderMessageFilterPendingReceiver = class {
+android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'android_webview.mojom.RenderMessageFilter_SubFrameCreated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'child_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+android_webview.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-android_webview.mojom.mojom.RenderMessageFilterRemote = class {
+android_webview.mojom.RenderMessageFilterRemote = class {
   static get $interfaceName() {
     return 'android_webview.mojom.RenderMessageFilter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      android_webview.mojom.mojom.RenderMessageFilterPendingReceiver,
+      android_webview.mojom.RenderMessageFilterPendingReceiver,
       handle);
-    this.$ = new android_webview.mojom.mojom.RenderMessageFilterRemoteCallHandler(this.proxy);
+    this.$ = new android_webview.mojom.RenderMessageFilterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +54,7 @@ android_webview.mojom.mojom.RenderMessageFilterRemote = class {
   }
 };
 
-android_webview.mojom.mojom.RenderMessageFilterRemoteCallHandler = class {
+android_webview.mojom.RenderMessageFilterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +63,15 @@ android_webview.mojom.mojom.RenderMessageFilterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      android_webview.mojom.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec,
+      android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec,
       null,
       [parent_frame_token, child_frame_token]);
   }
 
 };
 
-android_webview.mojom.mojom.RenderMessageFilter.getRemote = function() {
-  let remote = new android_webview.mojom.mojom.RenderMessageFilterRemote();
+android_webview.mojom.RenderMessageFilter.getRemote = function() {
+  let remote = new android_webview.mojom.RenderMessageFilterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +81,7 @@ android_webview.mojom.mojom.RenderMessageFilter.getRemote = function() {
 };
 
 // ParamsSpec for SubFrameCreated
-android_webview.mojom.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
+android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'android_webview.mojom.RenderMessageFilter.SubFrameCreated_Params',
@@ -82,6 +96,6 @@ android_webview.mojom.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
 };
 
 // Legacy compatibility
-android_webview.mojom.mojom.RenderMessageFilterPtr = android_webview.mojom.mojom.RenderMessageFilterRemote;
-android_webview.mojom.mojom.RenderMessageFilterRequest = android_webview.mojom.mojom.RenderMessageFilterPendingReceiver;
+android_webview.mojom.RenderMessageFilterPtr = android_webview.mojom.RenderMessageFilterRemote;
+android_webview.mojom.RenderMessageFilterRequest = android_webview.mojom.RenderMessageFilterPendingReceiver;
 

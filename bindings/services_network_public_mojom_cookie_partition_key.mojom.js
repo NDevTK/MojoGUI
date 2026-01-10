@@ -10,14 +10,14 @@ network.mojom = network.mojom || {};
 
 
 // Enum: AncestorChainBit
-network.mojom.mojom.AncestorChainBit = {
+network.mojom.AncestorChainBit = {
   kSameSite: 0,
   kCrossSite: 1,
 };
-network.mojom.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };
+network.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };
 
 // Struct: CookiePartitionKey
-network.mojom.mojom.CookiePartitionKeySpec = {
+network.mojom.CookiePartitionKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookiePartitionKey',
@@ -34,7 +34,7 @@ network.mojom.mojom.CookiePartitionKeySpec = {
 };
 
 // Struct: CookiePartitionKeyCollection
-network.mojom.mojom.CookiePartitionKeyCollectionSpec = {
+network.mojom.CookiePartitionKeyCollectionSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookiePartitionKeyCollection',

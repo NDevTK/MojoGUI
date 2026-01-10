@@ -10,24 +10,36 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessAccessHandleHost
-blink.mojom.mojom.FileSystemAccessAccessHandleHost = {};
+blink.mojom.FileSystemAccessAccessHandleHost = {};
 
-blink.mojom.mojom.FileSystemAccessAccessHandleHostPendingReceiver = class {
+blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessAccessHandleHost_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessAccessHandleHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.FileSystemAccessAccessHandleHostRemote = class {
+blink.mojom.FileSystemAccessAccessHandleHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessAccessHandleHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.FileSystemAccessAccessHandleHostPendingReceiver,
+      blink.mojom.FileSystemAccessAccessHandleHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ blink.mojom.mojom.FileSystemAccessAccessHandleHostRemote = class {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {
+blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ blink.mojom.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec,
+      blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.FileSystemAccessAccessHandleHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.FileSystemAccessAccessHandleHostRemote();
+blink.mojom.FileSystemAccessAccessHandleHost.getRemote = function() {
+  let remote = new blink.mojom.FileSystemAccessAccessHandleHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ blink.mojom.mojom.FileSystemAccessAccessHandleHost.getRemote = function() {
 };
 
 // ParamsSpec for Close
-blink.mojom.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
+blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessAccessHandleHost.Close_Params',
@@ -79,6 +91,6 @@ blink.mojom.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.FileSystemAccessAccessHandleHostPtr = blink.mojom.mojom.FileSystemAccessAccessHandleHostRemote;
-blink.mojom.mojom.FileSystemAccessAccessHandleHostRequest = blink.mojom.mojom.FileSystemAccessAccessHandleHostPendingReceiver;
+blink.mojom.FileSystemAccessAccessHandleHostPtr = blink.mojom.FileSystemAccessAccessHandleHostRemote;
+blink.mojom.FileSystemAccessAccessHandleHostRequest = blink.mojom.FileSystemAccessAccessHandleHostPendingReceiver;
 

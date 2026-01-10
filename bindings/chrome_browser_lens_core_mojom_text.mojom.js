@@ -13,23 +13,23 @@ var skia = skia || {};
 
 
 // Enum: WritingDirection
-lens.mojom.mojom.WritingDirection = {
+lens.mojom.WritingDirection = {
   kLeftToRight: 0,
   kRightToLeft: 1,
   kTopToBottom: 2,
 };
-lens.mojom.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
+lens.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Alignment
-lens.mojom.mojom.Alignment = {
+lens.mojom.Alignment = {
   kDefaultLeftAlgined: 0,
   kRightAligned: 1,
   kCenterAligned: 2,
 };
-lens.mojom.mojom.AlignmentSpec = { $: mojo.internal.Enum() };
+lens.mojom.AlignmentSpec = { $: mojo.internal.Enum() };
 
 // Struct: Text
-lens.mojom.mojom.TextSpec = {
+lens.mojom.TextSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Text',
@@ -44,7 +44,7 @@ lens.mojom.mojom.TextSpec = {
 };
 
 // Struct: TextLayout
-lens.mojom.mojom.TextLayoutSpec = {
+lens.mojom.TextLayoutSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.TextLayout',
@@ -58,7 +58,7 @@ lens.mojom.mojom.TextLayoutSpec = {
 };
 
 // Struct: Word
-lens.mojom.mojom.WordSpec = {
+lens.mojom.WordSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Word',
@@ -76,7 +76,7 @@ lens.mojom.mojom.WordSpec = {
 };
 
 // Struct: Line
-lens.mojom.mojom.LineSpec = {
+lens.mojom.LineSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Line',
@@ -91,7 +91,7 @@ lens.mojom.mojom.LineSpec = {
 };
 
 // Struct: BackgroundImageData
-lens.mojom.mojom.BackgroundImageDataSpec = {
+lens.mojom.BackgroundImageDataSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.BackgroundImageData',
@@ -109,7 +109,7 @@ lens.mojom.mojom.BackgroundImageDataSpec = {
 };
 
 // Struct: TranslatedLine
-lens.mojom.mojom.TranslatedLineSpec = {
+lens.mojom.TranslatedLineSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.TranslatedLine',
@@ -128,7 +128,7 @@ lens.mojom.mojom.TranslatedLineSpec = {
 };
 
 // Struct: TranslatedParagraph
-lens.mojom.mojom.TranslatedParagraphSpec = {
+lens.mojom.TranslatedParagraphSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.TranslatedParagraph',
@@ -146,7 +146,7 @@ lens.mojom.mojom.TranslatedParagraphSpec = {
 };
 
 // Struct: Paragraph
-lens.mojom.mojom.ParagraphSpec = {
+lens.mojom.ParagraphSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Paragraph',
@@ -164,7 +164,7 @@ lens.mojom.mojom.ParagraphSpec = {
 };
 
 // Struct: FormulaMetadata
-lens.mojom.mojom.FormulaMetadataSpec = {
+lens.mojom.FormulaMetadataSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.FormulaMetadata',

@@ -7,29 +7,43 @@
 // Module namespace
 var ash = ash || {};
 ash.common = ash.common || {};
-ash.common.common.mojom = ash.common.common.mojom || {};
+ash.common.mojom = ash.common.mojom || {};
 var ui = ui || {};
 
 
 // Interface: AcceleratorFetcherObserver
-ash.common.common.mojom.mojom.AcceleratorFetcherObserver = {};
+ash.common.mojom.AcceleratorFetcherObserver = {};
 
-ash.common.common.mojom.mojom.AcceleratorFetcherObserverPendingReceiver = class {
+ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'actionId', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorActionSpec, nullable: false, minVersion: 0 },
+        { name: 'accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.common.mojom.AcceleratorFetcherObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.common.common.mojom.mojom.AcceleratorFetcherObserverRemote = class {
+ash.common.mojom.AcceleratorFetcherObserverRemote = class {
   static get $interfaceName() {
     return 'ash.common.mojom.AcceleratorFetcherObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.common.common.mojom.mojom.AcceleratorFetcherObserverPendingReceiver,
+      ash.common.mojom.AcceleratorFetcherObserverPendingReceiver,
       handle);
-    this.$ = new ash.common.common.mojom.mojom.AcceleratorFetcherObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +55,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcherObserverRemote = class {
   }
 };
 
-ash.common.common.mojom.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
+ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,15 +64,15 @@ ash.common.common.mojom.mojom.AcceleratorFetcherObserverRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.common.mojom.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec,
+      ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
       [actionId, accelerators]);
   }
 
 };
 
-ash.common.common.mojom.mojom.AcceleratorFetcherObserver.getRemote = function() {
-  let remote = new ash.common.common.mojom.mojom.AcceleratorFetcherObserverRemote();
+ash.common.mojom.AcceleratorFetcherObserver.getRemote = function() {
+  let remote = new ash.common.mojom.AcceleratorFetcherObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -68,7 +82,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcherObserver.getRemote = function() 
 };
 
 // ParamsSpec for OnAcceleratorsUpdated
-ash.common.common.mojom.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
+ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.AcceleratorFetcherObserver.OnAcceleratorsUpdated_Params',
@@ -83,29 +97,55 @@ ash.common.common.mojom.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_P
 };
 
 // Legacy compatibility
-ash.common.common.mojom.mojom.AcceleratorFetcherObserverPtr = ash.common.common.mojom.mojom.AcceleratorFetcherObserverRemote;
-ash.common.common.mojom.mojom.AcceleratorFetcherObserverRequest = ash.common.common.mojom.mojom.AcceleratorFetcherObserverPendingReceiver;
+ash.common.mojom.AcceleratorFetcherObserverPtr = ash.common.mojom.AcceleratorFetcherObserverRemote;
+ash.common.mojom.AcceleratorFetcherObserverRequest = ash.common.mojom.AcceleratorFetcherObserverPendingReceiver;
 
 
 // Interface: AcceleratorFetcher
-ash.common.common.mojom.mojom.AcceleratorFetcher = {};
+ash.common.mojom.AcceleratorFetcher = {};
 
-ash.common.common.mojom.mojom.AcceleratorFetcherPendingReceiver = class {
+ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'actionIds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorActionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.common.mojom.AcceleratorFetcherObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.common.mojom.AcceleratorFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.common.common.mojom.mojom.AcceleratorFetcherRemote = class {
+ash.common.mojom.AcceleratorFetcherRemote = class {
   static get $interfaceName() {
     return 'ash.common.mojom.AcceleratorFetcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.common.common.mojom.mojom.AcceleratorFetcherPendingReceiver,
+      ash.common.mojom.AcceleratorFetcherPendingReceiver,
       handle);
-    this.$ = new ash.common.common.mojom.mojom.AcceleratorFetcherRemoteCallHandler(this.proxy);
+    this.$ = new ash.common.mojom.AcceleratorFetcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -117,7 +157,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcherRemote = class {
   }
 };
 
-ash.common.common.mojom.mojom.AcceleratorFetcherRemoteCallHandler = class {
+ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -126,7 +166,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.common.mojom.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec,
+      ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec,
       null,
       [actionIds, observer]);
   }
@@ -135,15 +175,15 @@ ash.common.common.mojom.mojom.AcceleratorFetcherRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.common.common.mojom.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec,
-      ash.common.common.mojom.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
+      ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec,
+      ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.common.common.mojom.mojom.AcceleratorFetcher.getRemote = function() {
-  let remote = new ash.common.common.mojom.mojom.AcceleratorFetcherRemote();
+ash.common.mojom.AcceleratorFetcher.getRemote = function() {
+  let remote = new ash.common.mojom.AcceleratorFetcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -153,7 +193,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcher.getRemote = function() {
 };
 
 // ParamsSpec for ObserveAcceleratorChanges
-ash.common.common.mojom.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
+ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.AcceleratorFetcher.ObserveAcceleratorChanges_Params',
@@ -168,7 +208,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Param
 };
 
 // ParamsSpec for GetMetaKeyToDisplay
-ash.common.common.mojom.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
+ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.AcceleratorFetcher.GetMetaKeyToDisplay_Params',
@@ -180,7 +220,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec 
   }
 };
 
-ash.common.common.mojom.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = {
+ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.AcceleratorFetcher.GetMetaKeyToDisplay_ResponseParams',
@@ -194,6 +234,6 @@ ash.common.common.mojom.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponsePar
 };
 
 // Legacy compatibility
-ash.common.common.mojom.mojom.AcceleratorFetcherPtr = ash.common.common.mojom.mojom.AcceleratorFetcherRemote;
-ash.common.common.mojom.mojom.AcceleratorFetcherRequest = ash.common.common.mojom.mojom.AcceleratorFetcherPendingReceiver;
+ash.common.mojom.AcceleratorFetcherPtr = ash.common.mojom.AcceleratorFetcherRemote;
+ash.common.mojom.AcceleratorFetcherRequest = ash.common.mojom.AcceleratorFetcherPendingReceiver;
 

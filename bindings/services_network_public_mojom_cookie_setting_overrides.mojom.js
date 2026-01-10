@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: CookieSettingOverrides
-network.mojom.mojom.CookieSettingOverridesSpec = {
+network.mojom.CookieSettingOverridesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieSettingOverrides',

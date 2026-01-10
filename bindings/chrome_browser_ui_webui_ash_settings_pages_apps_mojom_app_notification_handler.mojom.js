@@ -7,13 +7,13 @@
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
-ash.settings.settings.app_notification = ash.settings.settings.app_notification || {};
-ash.settings.settings.app_notification.app_notification.mojom = ash.settings.settings.app_notification.app_notification.mojom || {};
+ash.settings.app_notification = ash.settings.app_notification || {};
+ash.settings.app_notification.mojom = ash.settings.app_notification.mojom || {};
 var ui = ui || {};
 
 
 // Enum: Readiness
-ash.settings.settings.app_notification.app_notification.mojom.mojom.Readiness = {
+ash.settings.app_notification.mojom.Readiness = {
   kUnknown: 0,
   kReady: 1,
   kDisabledByBlocklist: 2,
@@ -25,10 +25,10 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.Readiness = 
   kUninstalledByNonUser: 8,
   kDisabledByLocalSettings: 9,
 };
-ash.settings.settings.app_notification.app_notification.mojom.mojom.ReadinessSpec = { $: mojo.internal.Enum() };
+ash.settings.app_notification.mojom.ReadinessSpec = { $: mojo.internal.Enum() };
 
 // Struct: App
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppSpec = {
+ash.settings.app_notification.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.App',
@@ -45,24 +45,100 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppSpec = {
 };
 
 // Interface: AppNotificationsHandler
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler = {};
+ash.settings.app_notification.mojom.AppNotificationsHandler = {};
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerPendingReceiver = class {
+ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.app_notification.mojom.AppNotificationsObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerRemote = class {
+ash.settings.app_notification.mojom.AppNotificationsHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.settings.app_notification.mojom.AppNotificationsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerPendingReceiver,
+      ash.settings.app_notification.mojom.AppNotificationsHandlerPendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +150,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
   }
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerRemoteCallHandler = class {
+ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,7 +159,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec,
       null,
       [enabled]);
   }
@@ -92,7 +168,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_AddObserver_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -101,7 +177,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec,
       null,
       [app_id, permission]);
   }
@@ -110,8 +186,8 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetApps_ParamsSpec,
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
       []);
   }
 
@@ -119,8 +195,8 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec,
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
       []);
   }
 
@@ -128,15 +204,15 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler.getRemote = function() {
-  let remote = new ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerRemote();
+ash.settings.app_notification.mojom.AppNotificationsHandler.getRemote = function() {
+  let remote = new ash.settings.app_notification.mojom.AppNotificationsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -146,7 +222,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for SetQuietMode
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.SetQuietMode_Params',
@@ -160,7 +236,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for AddObserver
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_AddObserver_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.AddObserver_Params',
@@ -174,7 +250,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for SetNotificationPermission
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.SetNotificationPermission_Params',
@@ -189,7 +265,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for GetApps
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetApps_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetApps_Params',
@@ -201,7 +277,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
   }
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetApps_ResponseParams',
@@ -215,7 +291,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for GetQuietMode
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetQuietMode_Params',
@@ -227,7 +303,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
   }
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetQuietMode_ResponseParams',
@@ -241,7 +317,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for OpenBrowserNotificationSettings
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.OpenBrowserNotificationSettings_Params',
@@ -254,29 +330,55 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // Legacy compatibility
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerPtr = ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerRemote;
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerRequest = ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsHandlerPendingReceiver;
+ash.settings.app_notification.mojom.AppNotificationsHandlerPtr = ash.settings.app_notification.mojom.AppNotificationsHandlerRemote;
+ash.settings.app_notification.mojom.AppNotificationsHandlerRequest = ash.settings.app_notification.mojom.AppNotificationsHandlerPendingReceiver;
 
 
 // Interface: AppNotificationsObserver
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserver = {};
+ash.settings.app_notification.mojom.AppNotificationsObserver = {};
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverPendingReceiver = class {
+ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_notification.mojom.AppSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverRemote = class {
+ash.settings.app_notification.mojom.AppNotificationsObserverRemote = class {
   static get $interfaceName() {
     return 'ash.settings.app_notification.mojom.AppNotificationsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverPendingReceiver,
+      ash.settings.app_notification.mojom.AppNotificationsObserverPendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -288,7 +390,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
   }
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverRemoteCallHandler = class {
+ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -297,7 +399,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec,
       null,
       [app]);
   }
@@ -306,15 +408,15 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserver.getRemote = function() {
-  let remote = new ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverRemote();
+ash.settings.app_notification.mojom.AppNotificationsObserver.getRemote = function() {
+  let remote = new ash.settings.app_notification.mojom.AppNotificationsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -324,7 +426,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for OnNotificationAppChanged
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsObserver.OnNotificationAppChanged_Params',
@@ -338,7 +440,7 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // ParamsSpec for OnQuietModeChanged
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = {
+ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.AppNotificationsObserver.OnQuietModeChanged_Params',
@@ -352,6 +454,6 @@ ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificat
 };
 
 // Legacy compatibility
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverPtr = ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverRemote;
-ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverRequest = ash.settings.settings.app_notification.app_notification.mojom.mojom.AppNotificationsObserverPendingReceiver;
+ash.settings.app_notification.mojom.AppNotificationsObserverPtr = ash.settings.app_notification.mojom.AppNotificationsObserverRemote;
+ash.settings.app_notification.mojom.AppNotificationsObserverRequest = ash.settings.app_notification.mojom.AppNotificationsObserverPendingReceiver;
 

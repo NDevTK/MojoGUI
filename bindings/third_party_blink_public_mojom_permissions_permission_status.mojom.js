@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: PermissionStatus
-blink.mojom.mojom.PermissionStatus = {
+blink.mojom.PermissionStatus = {
   GRANTED: 0,
   DENIED: 1,
   ASK: 2,
   LAST: 3,
 };
-blink.mojom.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };

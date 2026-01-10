@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: TransferableSocket
-network.mojom.mojom.TransferableSocketSpec = {
+network.mojom.TransferableSocketSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TransferableSocket',
@@ -24,7 +24,7 @@ network.mojom.mojom.TransferableSocketSpec = {
 };
 
 // Struct: TransferableSocket
-network.mojom.mojom.TransferableSocketSpec = {
+network.mojom.TransferableSocketSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TransferableSocket',

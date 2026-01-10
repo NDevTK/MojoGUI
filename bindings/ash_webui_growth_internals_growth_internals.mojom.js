@@ -7,28 +7,52 @@
 // Module namespace
 var ash = ash || {};
 ash.growth = ash.growth || {};
-ash.growth.growth.mojom = ash.growth.growth.mojom || {};
+ash.growth.mojom = ash.growth.mojom || {};
 
 
 // Interface: PageHandler
-ash.growth.growth.mojom.mojom.PageHandler = {};
+ash.growth.mojom.PageHandler = {};
 
-ash.growth.growth.mojom.mojom.PageHandlerPendingReceiver = class {
+ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.growth.mojom.PageHandler_GetCampaignsLogs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.growth.mojom.PageHandler_ClearAllEvents_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.growth.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.growth.growth.mojom.mojom.PageHandlerRemote = class {
+ash.growth.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.growth.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.growth.growth.mojom.mojom.PageHandlerPendingReceiver,
+      ash.growth.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.growth.growth.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.growth.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +64,7 @@ ash.growth.growth.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.growth.growth.mojom.mojom.PageHandlerRemoteCallHandler = class {
+ash.growth.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +73,8 @@ ash.growth.growth.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.growth.growth.mojom.mojom.PageHandler_GetCampaignsLogs_ParamsSpec,
-      ash.growth.growth.mojom.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
+      ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec,
+      ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
       []);
   }
 
@@ -58,15 +82,15 @@ ash.growth.growth.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.growth.growth.mojom.mojom.PageHandler_ClearAllEvents_ParamsSpec,
+      ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.growth.growth.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.growth.growth.mojom.mojom.PageHandlerRemote();
+ash.growth.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.growth.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +100,7 @@ ash.growth.growth.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetCampaignsLogs
-ash.growth.growth.mojom.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
+ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.growth.mojom.PageHandler.GetCampaignsLogs_Params',
@@ -88,7 +112,7 @@ ash.growth.growth.mojom.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
   }
 };
 
-ash.growth.growth.mojom.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
+ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.growth.mojom.PageHandler.GetCampaignsLogs_ResponseParams',
@@ -102,7 +126,7 @@ ash.growth.growth.mojom.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = 
 };
 
 // ParamsSpec for ClearAllEvents
-ash.growth.growth.mojom.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
+ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.growth.mojom.PageHandler.ClearAllEvents_Params',
@@ -115,6 +139,6 @@ ash.growth.growth.mojom.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.growth.growth.mojom.mojom.PageHandlerPtr = ash.growth.growth.mojom.mojom.PageHandlerRemote;
-ash.growth.growth.mojom.mojom.PageHandlerRequest = ash.growth.growth.mojom.mojom.PageHandlerPendingReceiver;
+ash.growth.mojom.PageHandlerPtr = ash.growth.mojom.PageHandlerRemote;
+ash.growth.mojom.PageHandlerRequest = ash.growth.mojom.PageHandlerPendingReceiver;
 

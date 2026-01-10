@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Struct: ResourceTypeStat
-content.mojom.mojom.ResourceTypeStatSpec = {
+content.mojom.ResourceTypeStatSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceTypeStat',
@@ -27,7 +27,7 @@ content.mojom.mojom.ResourceTypeStatSpec = {
 };
 
 // Struct: ResourceTypeStats
-content.mojom.mojom.ResourceTypeStatsSpec = {
+content.mojom.ResourceTypeStatsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceTypeStats',
@@ -46,7 +46,7 @@ content.mojom.mojom.ResourceTypeStatsSpec = {
 };
 
 // Struct: ResourceUsageData
-content.mojom.mojom.ResourceUsageDataSpec = {
+content.mojom.ResourceUsageDataSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceUsageData',
@@ -63,24 +63,36 @@ content.mojom.mojom.ResourceUsageDataSpec = {
 };
 
 // Interface: ResourceUsageReporter
-content.mojom.mojom.ResourceUsageReporter = {};
+content.mojom.ResourceUsageReporter = {};
 
-content.mojom.mojom.ResourceUsageReporterPendingReceiver = class {
+content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.ResourceUsageReporter_GetUsageData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.ResourceUsageReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.ResourceUsageReporterRemote = class {
+content.mojom.ResourceUsageReporterRemote = class {
   static get $interfaceName() {
     return 'content.mojom.ResourceUsageReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.ResourceUsageReporterPendingReceiver,
+      content.mojom.ResourceUsageReporterPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.ResourceUsageReporterRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.ResourceUsageReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -92,7 +104,7 @@ content.mojom.mojom.ResourceUsageReporterRemote = class {
   }
 };
 
-content.mojom.mojom.ResourceUsageReporterRemoteCallHandler = class {
+content.mojom.ResourceUsageReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -101,15 +113,15 @@ content.mojom.mojom.ResourceUsageReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec,
-      content.mojom.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec,
+      content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec,
+      content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec,
       []);
   }
 
 };
 
-content.mojom.mojom.ResourceUsageReporter.getRemote = function() {
-  let remote = new content.mojom.mojom.ResourceUsageReporterRemote();
+content.mojom.ResourceUsageReporter.getRemote = function() {
+  let remote = new content.mojom.ResourceUsageReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +131,7 @@ content.mojom.mojom.ResourceUsageReporter.getRemote = function() {
 };
 
 // ParamsSpec for GetUsageData
-content.mojom.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
+content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceUsageReporter.GetUsageData_Params',
@@ -131,7 +143,7 @@ content.mojom.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
+content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceUsageReporter.GetUsageData_ResponseParams',
@@ -145,6 +157,6 @@ content.mojom.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.ResourceUsageReporterPtr = content.mojom.mojom.ResourceUsageReporterRemote;
-content.mojom.mojom.ResourceUsageReporterRequest = content.mojom.mojom.ResourceUsageReporterPendingReceiver;
+content.mojom.ResourceUsageReporterPtr = content.mojom.ResourceUsageReporterRemote;
+content.mojom.ResourceUsageReporterRequest = content.mojom.ResourceUsageReporterPendingReceiver;
 

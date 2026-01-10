@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: WebTransportError
-network.mojom.mojom.WebTransportErrorSpec = {
+network.mojom.WebTransportErrorSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportError',
@@ -27,7 +27,7 @@ network.mojom.mojom.WebTransportErrorSpec = {
 };
 
 // Struct: WebTransportCertificateFingerprint
-network.mojom.mojom.WebTransportCertificateFingerprintSpec = {
+network.mojom.WebTransportCertificateFingerprintSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportCertificateFingerprint',
@@ -42,7 +42,7 @@ network.mojom.mojom.WebTransportCertificateFingerprintSpec = {
 };
 
 // Struct: WebTransportCloseInfo
-network.mojom.mojom.WebTransportCloseInfoSpec = {
+network.mojom.WebTransportCloseInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportCloseInfo',
@@ -57,7 +57,7 @@ network.mojom.mojom.WebTransportCloseInfoSpec = {
 };
 
 // Struct: WebTransportStats
-network.mojom.mojom.WebTransportStatsSpec = {
+network.mojom.WebTransportStatsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportStats',
@@ -77,24 +77,154 @@ network.mojom.mojom.WebTransportStatsSpec = {
 };
 
 // Interface: WebTransport
-network.mojom.mojom.WebTransport = {};
+network.mojom.WebTransport = {};
 
-network.mojom.mojom.WebTransportPendingReceiver = class {
+network.mojom.WebTransport_SendDatagram_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_SendDatagram_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransport_CreateStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_CreateStream_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'readable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'writable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_AcceptBidirectionalStream_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_AcceptUnidirectionalStream_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.WebTransport_SendFin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_SendFin_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransport_AbortStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_AbortStream_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransport_StopSending_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_StopSending_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransport_GetStats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_GetStats_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.WebTransport_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransport_Close_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.WebTransportRemote = class {
+network.mojom.WebTransportRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebTransport';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.WebTransportPendingReceiver,
+      network.mojom.WebTransportPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.WebTransportRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.WebTransportRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -106,7 +236,7 @@ network.mojom.mojom.WebTransportRemote = class {
   }
 };
 
-network.mojom.mojom.WebTransportRemoteCallHandler = class {
+network.mojom.WebTransportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -115,8 +245,8 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.WebTransport_SendDatagram_ParamsSpec,
-      network.mojom.mojom.WebTransport_SendDatagram_ResponseParamsSpec,
+      network.mojom.WebTransport_SendDatagram_ParamsSpec,
+      network.mojom.WebTransport_SendDatagram_ResponseParamsSpec,
       [data]);
   }
 
@@ -124,8 +254,8 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.WebTransport_CreateStream_ParamsSpec,
-      network.mojom.mojom.WebTransport_CreateStream_ResponseParamsSpec,
+      network.mojom.WebTransport_CreateStream_ParamsSpec,
+      network.mojom.WebTransport_CreateStream_ResponseParamsSpec,
       [readable, writable]);
   }
 
@@ -133,8 +263,8 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec,
-      network.mojom.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec,
+      network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec,
+      network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec,
       []);
   }
 
@@ -142,8 +272,8 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec,
-      network.mojom.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec,
+      network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec,
+      network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec,
       []);
   }
 
@@ -151,7 +281,7 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.WebTransport_SendFin_ParamsSpec,
+      network.mojom.WebTransport_SendFin_ParamsSpec,
       null,
       [stream_id]);
   }
@@ -160,7 +290,7 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.WebTransport_AbortStream_ParamsSpec,
+      network.mojom.WebTransport_AbortStream_ParamsSpec,
       null,
       [stream_id, code]);
   }
@@ -169,7 +299,7 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.mojom.WebTransport_StopSending_ParamsSpec,
+      network.mojom.WebTransport_StopSending_ParamsSpec,
       null,
       [stream_id, code]);
   }
@@ -178,7 +308,7 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec,
+      network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec,
       null,
       [duration]);
   }
@@ -187,8 +317,8 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.mojom.WebTransport_GetStats_ParamsSpec,
-      network.mojom.mojom.WebTransport_GetStats_ResponseParamsSpec,
+      network.mojom.WebTransport_GetStats_ParamsSpec,
+      network.mojom.WebTransport_GetStats_ResponseParamsSpec,
       []);
   }
 
@@ -196,15 +326,15 @@ network.mojom.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.mojom.WebTransport_Close_ParamsSpec,
+      network.mojom.WebTransport_Close_ParamsSpec,
       null,
       [close_info]);
   }
 
 };
 
-network.mojom.mojom.WebTransport.getRemote = function() {
-  let remote = new network.mojom.mojom.WebTransportRemote();
+network.mojom.WebTransport.getRemote = function() {
+  let remote = new network.mojom.WebTransportRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -214,7 +344,7 @@ network.mojom.mojom.WebTransport.getRemote = function() {
 };
 
 // ParamsSpec for SendDatagram
-network.mojom.mojom.WebTransport_SendDatagram_ParamsSpec = {
+network.mojom.WebTransport_SendDatagram_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.SendDatagram_Params',
@@ -227,7 +357,7 @@ network.mojom.mojom.WebTransport_SendDatagram_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
+network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.SendDatagram_ResponseParams',
@@ -241,7 +371,7 @@ network.mojom.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateStream
-network.mojom.mojom.WebTransport_CreateStream_ParamsSpec = {
+network.mojom.WebTransport_CreateStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.CreateStream_Params',
@@ -255,7 +385,7 @@ network.mojom.mojom.WebTransport_CreateStream_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
+network.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.CreateStream_ResponseParams',
@@ -270,7 +400,7 @@ network.mojom.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AcceptBidirectionalStream
-network.mojom.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
+network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.AcceptBidirectionalStream_Params',
@@ -282,7 +412,7 @@ network.mojom.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = {
+network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.AcceptBidirectionalStream_ResponseParams',
@@ -298,7 +428,7 @@ network.mojom.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = 
 };
 
 // ParamsSpec for AcceptUnidirectionalStream
-network.mojom.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
+network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.AcceptUnidirectionalStream_Params',
@@ -310,7 +440,7 @@ network.mojom.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = {
+network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.AcceptUnidirectionalStream_ResponseParams',
@@ -325,7 +455,7 @@ network.mojom.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec =
 };
 
 // ParamsSpec for SendFin
-network.mojom.mojom.WebTransport_SendFin_ParamsSpec = {
+network.mojom.WebTransport_SendFin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.SendFin_Params',
@@ -339,7 +469,7 @@ network.mojom.mojom.WebTransport_SendFin_ParamsSpec = {
 };
 
 // ParamsSpec for AbortStream
-network.mojom.mojom.WebTransport_AbortStream_ParamsSpec = {
+network.mojom.WebTransport_AbortStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.AbortStream_Params',
@@ -354,7 +484,7 @@ network.mojom.mojom.WebTransport_AbortStream_ParamsSpec = {
 };
 
 // ParamsSpec for StopSending
-network.mojom.mojom.WebTransport_StopSending_ParamsSpec = {
+network.mojom.WebTransport_StopSending_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.StopSending_Params',
@@ -369,7 +499,7 @@ network.mojom.mojom.WebTransport_StopSending_ParamsSpec = {
 };
 
 // ParamsSpec for SetOutgoingDatagramExpirationDuration
-network.mojom.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
+network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.SetOutgoingDatagramExpirationDuration_Params',
@@ -383,7 +513,7 @@ network.mojom.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpe
 };
 
 // ParamsSpec for GetStats
-network.mojom.mojom.WebTransport_GetStats_ParamsSpec = {
+network.mojom.WebTransport_GetStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.GetStats_Params',
@@ -395,7 +525,7 @@ network.mojom.mojom.WebTransport_GetStats_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.WebTransport_GetStats_ResponseParamsSpec = {
+network.mojom.WebTransport_GetStats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.GetStats_ResponseParams',
@@ -409,7 +539,7 @@ network.mojom.mojom.WebTransport_GetStats_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Close
-network.mojom.mojom.WebTransport_Close_ParamsSpec = {
+network.mojom.WebTransport_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransport.Close_Params',
@@ -423,29 +553,111 @@ network.mojom.mojom.WebTransport_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.WebTransportPtr = network.mojom.mojom.WebTransportRemote;
-network.mojom.mojom.WebTransportRequest = network.mojom.mojom.WebTransportPendingReceiver;
+network.mojom.WebTransportPtr = network.mojom.WebTransportRemote;
+network.mojom.WebTransportRequest = network.mojom.WebTransportPendingReceiver;
 
 
 // Interface: WebTransportClient
-network.mojom.mojom.WebTransportClient = {};
+network.mojom.WebTransportClient = {};
 
-network.mojom.mojom.WebTransportClientPendingReceiver = class {
+network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportClient_OnDatagramReceived_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportClient_OnIncomingStreamClosed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'fin_received', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportClient_OnOutgoingStreamClosed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportClient_OnReceivedStopSending_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportClient_OnReceivedResetStream_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportClient_OnClosed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'final_stats', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.WebTransportClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.WebTransportClientRemote = class {
+network.mojom.WebTransportClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebTransportClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.WebTransportClientPendingReceiver,
+      network.mojom.WebTransportClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.WebTransportClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.WebTransportClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -457,7 +669,7 @@ network.mojom.mojom.WebTransportClientRemote = class {
   }
 };
 
-network.mojom.mojom.WebTransportClientRemoteCallHandler = class {
+network.mojom.WebTransportClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -466,7 +678,7 @@ network.mojom.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec,
+      network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec,
       null,
       [data]);
   }
@@ -475,7 +687,7 @@ network.mojom.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec,
+      network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec,
       null,
       [stream_id, fin_received]);
   }
@@ -484,7 +696,7 @@ network.mojom.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec,
+      network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec,
       null,
       [stream_id]);
   }
@@ -493,7 +705,7 @@ network.mojom.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec,
+      network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec,
       null,
       [stream_id, stream_error_code]);
   }
@@ -502,7 +714,7 @@ network.mojom.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec,
+      network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec,
       null,
       [stream_id, stream_error_code]);
   }
@@ -511,15 +723,15 @@ network.mojom.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.WebTransportClient_OnClosed_ParamsSpec,
+      network.mojom.WebTransportClient_OnClosed_ParamsSpec,
       null,
       [close_info, final_stats]);
   }
 
 };
 
-network.mojom.mojom.WebTransportClient.getRemote = function() {
-  let remote = new network.mojom.mojom.WebTransportClientRemote();
+network.mojom.WebTransportClient.getRemote = function() {
+  let remote = new network.mojom.WebTransportClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -529,7 +741,7 @@ network.mojom.mojom.WebTransportClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDatagramReceived
-network.mojom.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
+network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportClient.OnDatagramReceived_Params',
@@ -543,7 +755,7 @@ network.mojom.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
 };
 
 // ParamsSpec for OnIncomingStreamClosed
-network.mojom.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
+network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportClient.OnIncomingStreamClosed_Params',
@@ -558,7 +770,7 @@ network.mojom.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
 };
 
 // ParamsSpec for OnOutgoingStreamClosed
-network.mojom.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
+network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportClient.OnOutgoingStreamClosed_Params',
@@ -572,7 +784,7 @@ network.mojom.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
 };
 
 // ParamsSpec for OnReceivedStopSending
-network.mojom.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
+network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportClient.OnReceivedStopSending_Params',
@@ -587,7 +799,7 @@ network.mojom.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
 };
 
 // ParamsSpec for OnReceivedResetStream
-network.mojom.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
+network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportClient.OnReceivedResetStream_Params',
@@ -602,7 +814,7 @@ network.mojom.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
 };
 
 // ParamsSpec for OnClosed
-network.mojom.mojom.WebTransportClient_OnClosed_ParamsSpec = {
+network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportClient.OnClosed_Params',
@@ -617,29 +829,72 @@ network.mojom.mojom.WebTransportClient_OnClosed_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.WebTransportClientPtr = network.mojom.mojom.WebTransportClientRemote;
-network.mojom.mojom.WebTransportClientRequest = network.mojom.mojom.WebTransportClientPendingReceiver;
+network.mojom.WebTransportClientPtr = network.mojom.WebTransportClientRemote;
+network.mojom.WebTransportClientRequest = network.mojom.WebTransportClientPendingReceiver;
 
 
 // Interface: WebTransportHandshakeClient
-network.mojom.mojom.WebTransportHandshakeClient = {};
+network.mojom.WebTransportHandshakeClient = {};
 
-network.mojom.mojom.WebTransportHandshakeClientPendingReceiver = class {
+network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportHandshakeClient_OnBeforeConnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'server_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'transport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.WebTransportClientRemote), nullable: false, minVersion: 0 },
+        { name: 'response_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'selected_application_protocol', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'initial_stats', packedOffset: 32, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportErrorSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebTransportHandshakeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.WebTransportHandshakeClientRemote = class {
+network.mojom.WebTransportHandshakeClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebTransportHandshakeClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.WebTransportHandshakeClientPendingReceiver,
+      network.mojom.WebTransportHandshakeClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.WebTransportHandshakeClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.WebTransportHandshakeClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -651,7 +906,7 @@ network.mojom.mojom.WebTransportHandshakeClientRemote = class {
   }
 };
 
-network.mojom.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
+network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -660,7 +915,7 @@ network.mojom.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec,
+      network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec,
       null,
       [server_address]);
   }
@@ -669,7 +924,7 @@ network.mojom.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec,
+      network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
       [transport, client, response_headers, selected_application_protocol, initial_stats]);
   }
@@ -678,15 +933,15 @@ network.mojom.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec,
+      network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec,
       null,
       [error]);
   }
 
 };
 
-network.mojom.mojom.WebTransportHandshakeClient.getRemote = function() {
-  let remote = new network.mojom.mojom.WebTransportHandshakeClientRemote();
+network.mojom.WebTransportHandshakeClient.getRemote = function() {
+  let remote = new network.mojom.WebTransportHandshakeClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -696,7 +951,7 @@ network.mojom.mojom.WebTransportHandshakeClient.getRemote = function() {
 };
 
 // ParamsSpec for OnBeforeConnect
-network.mojom.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
+network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportHandshakeClient.OnBeforeConnect_Params',
@@ -710,7 +965,7 @@ network.mojom.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnectionEstablished
-network.mojom.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
+network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportHandshakeClient.OnConnectionEstablished_Params',
@@ -728,7 +983,7 @@ network.mojom.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSp
 };
 
 // ParamsSpec for OnHandshakeFailed
-network.mojom.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
+network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportHandshakeClient.OnHandshakeFailed_Params',
@@ -742,6 +997,6 @@ network.mojom.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.WebTransportHandshakeClientPtr = network.mojom.mojom.WebTransportHandshakeClientRemote;
-network.mojom.mojom.WebTransportHandshakeClientRequest = network.mojom.mojom.WebTransportHandshakeClientPendingReceiver;
+network.mojom.WebTransportHandshakeClientPtr = network.mojom.WebTransportHandshakeClientRemote;
+network.mojom.WebTransportHandshakeClientRequest = network.mojom.WebTransportHandshakeClientPendingReceiver;
 

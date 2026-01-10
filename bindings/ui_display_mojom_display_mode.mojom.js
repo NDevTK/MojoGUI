@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: DisplayMode
-display.mojom.mojom.DisplayModeSpec = {
+display.mojom.DisplayModeSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayMode',

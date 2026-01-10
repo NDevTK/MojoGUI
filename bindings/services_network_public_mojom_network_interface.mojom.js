@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: NetworkInterface
-network.mojom.mojom.NetworkInterfaceSpec = {
+network.mojom.NetworkInterfaceSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkInterface',

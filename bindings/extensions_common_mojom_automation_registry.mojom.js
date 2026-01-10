@@ -10,24 +10,37 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: RendererAutomationRegistry
-extensions.mojom.mojom.RendererAutomationRegistry = {};
+extensions.mojom.RendererAutomationRegistry = {};
 
-extensions.mojom.mojom.RendererAutomationRegistryPendingReceiver = class {
+extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.RendererAutomationRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.RendererAutomationRegistryRemote = class {
+extensions.mojom.RendererAutomationRegistryRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.RendererAutomationRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.RendererAutomationRegistryPendingReceiver,
+      extensions.mojom.RendererAutomationRegistryPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.RendererAutomationRegistryRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.RendererAutomationRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ extensions.mojom.mojom.RendererAutomationRegistryRemote = class {
   }
 };
 
-extensions.mojom.mojom.RendererAutomationRegistryRemoteCallHandler = class {
+extensions.mojom.RendererAutomationRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ extensions.mojom.mojom.RendererAutomationRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec,
+      extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec,
       null,
       [automation]);
   }
 
 };
 
-extensions.mojom.mojom.RendererAutomationRegistry.getRemote = function() {
-  let remote = new extensions.mojom.mojom.RendererAutomationRegistryRemote();
+extensions.mojom.RendererAutomationRegistry.getRemote = function() {
+  let remote = new extensions.mojom.RendererAutomationRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ extensions.mojom.mojom.RendererAutomationRegistry.getRemote = function() {
 };
 
 // ParamsSpec for BindAutomation
-extensions.mojom.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
+extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RendererAutomationRegistry.BindAutomation_Params',
@@ -80,6 +93,6 @@ extensions.mojom.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.RendererAutomationRegistryPtr = extensions.mojom.mojom.RendererAutomationRegistryRemote;
-extensions.mojom.mojom.RendererAutomationRegistryRequest = extensions.mojom.mojom.RendererAutomationRegistryPendingReceiver;
+extensions.mojom.RendererAutomationRegistryPtr = extensions.mojom.RendererAutomationRegistryRemote;
+extensions.mojom.RendererAutomationRegistryRequest = extensions.mojom.RendererAutomationRegistryPendingReceiver;
 

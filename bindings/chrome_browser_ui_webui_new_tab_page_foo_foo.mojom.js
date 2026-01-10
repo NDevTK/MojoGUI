@@ -10,7 +10,7 @@ foo.mojom = foo.mojom || {};
 
 
 // Struct: FooDataItem
-foo.mojom.mojom.FooDataItemSpec = {
+foo.mojom.FooDataItemSpec = {
   $: {
     structSpec: {
       name: 'foo.mojom.FooDataItem',
@@ -26,24 +26,36 @@ foo.mojom.mojom.FooDataItemSpec = {
 };
 
 // Interface: FooHandler
-foo.mojom.mojom.FooHandler = {};
+foo.mojom.FooHandler = {};
 
-foo.mojom.mojom.FooHandlerPendingReceiver = class {
+foo.mojom.FooHandler_GetData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'foo.mojom.FooHandler_GetData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+foo.mojom.FooHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-foo.mojom.mojom.FooHandlerRemote = class {
+foo.mojom.FooHandlerRemote = class {
   static get $interfaceName() {
     return 'foo.mojom.FooHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      foo.mojom.mojom.FooHandlerPendingReceiver,
+      foo.mojom.FooHandlerPendingReceiver,
       handle);
-    this.$ = new foo.mojom.mojom.FooHandlerRemoteCallHandler(this.proxy);
+    this.$ = new foo.mojom.FooHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +67,7 @@ foo.mojom.mojom.FooHandlerRemote = class {
   }
 };
 
-foo.mojom.mojom.FooHandlerRemoteCallHandler = class {
+foo.mojom.FooHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +76,15 @@ foo.mojom.mojom.FooHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      foo.mojom.mojom.FooHandler_GetData_ParamsSpec,
-      foo.mojom.mojom.FooHandler_GetData_ResponseParamsSpec,
+      foo.mojom.FooHandler_GetData_ParamsSpec,
+      foo.mojom.FooHandler_GetData_ResponseParamsSpec,
       []);
   }
 
 };
 
-foo.mojom.mojom.FooHandler.getRemote = function() {
-  let remote = new foo.mojom.mojom.FooHandlerRemote();
+foo.mojom.FooHandler.getRemote = function() {
+  let remote = new foo.mojom.FooHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +94,7 @@ foo.mojom.mojom.FooHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetData
-foo.mojom.mojom.FooHandler_GetData_ParamsSpec = {
+foo.mojom.FooHandler_GetData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'foo.mojom.FooHandler.GetData_Params',
@@ -94,7 +106,7 @@ foo.mojom.mojom.FooHandler_GetData_ParamsSpec = {
   }
 };
 
-foo.mojom.mojom.FooHandler_GetData_ResponseParamsSpec = {
+foo.mojom.FooHandler_GetData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'foo.mojom.FooHandler.GetData_ResponseParams',
@@ -108,6 +120,6 @@ foo.mojom.mojom.FooHandler_GetData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-foo.mojom.mojom.FooHandlerPtr = foo.mojom.mojom.FooHandlerRemote;
-foo.mojom.mojom.FooHandlerRequest = foo.mojom.mojom.FooHandlerPendingReceiver;
+foo.mojom.FooHandlerPtr = foo.mojom.FooHandlerRemote;
+foo.mojom.FooHandlerRequest = foo.mojom.FooHandlerPendingReceiver;
 

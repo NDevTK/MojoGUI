@@ -10,12 +10,12 @@ infobar_internals.mojom = infobar_internals.mojom || {};
 
 
 // Enum: InfoBarType
-infobar_internals.mojom.mojom.InfoBarType = {
+infobar_internals.mojom.InfoBarType = {
 };
-infobar_internals.mojom.mojom.InfoBarTypeSpec = { $: mojo.internal.Enum() };
+infobar_internals.mojom.InfoBarTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: InfoBarEntry
-infobar_internals.mojom.mojom.InfoBarEntrySpec = {
+infobar_internals.mojom.InfoBarEntrySpec = {
   $: {
     structSpec: {
       name: 'infobar_internals.mojom.InfoBarEntry',
@@ -31,24 +31,24 @@ infobar_internals.mojom.mojom.InfoBarEntrySpec = {
 };
 
 // Interface: Page
-infobar_internals.mojom.mojom.Page = {};
+infobar_internals.mojom.Page = {};
 
-infobar_internals.mojom.mojom.PagePendingReceiver = class {
+infobar_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-infobar_internals.mojom.mojom.PageRemote = class {
+infobar_internals.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'infobar_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      infobar_internals.mojom.mojom.PagePendingReceiver,
+      infobar_internals.mojom.PagePendingReceiver,
       handle);
-    this.$ = new infobar_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new infobar_internals.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,15 +60,15 @@ infobar_internals.mojom.mojom.PageRemote = class {
   }
 };
 
-infobar_internals.mojom.mojom.PageRemoteCallHandler = class {
+infobar_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-infobar_internals.mojom.mojom.Page.getRemote = function() {
-  let remote = new infobar_internals.mojom.mojom.PageRemote();
+infobar_internals.mojom.Page.getRemote = function() {
+  let remote = new infobar_internals.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -78,29 +78,54 @@ infobar_internals.mojom.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-infobar_internals.mojom.mojom.PagePtr = infobar_internals.mojom.mojom.PageRemote;
-infobar_internals.mojom.mojom.PageRequest = infobar_internals.mojom.mojom.PagePendingReceiver;
+infobar_internals.mojom.PagePtr = infobar_internals.mojom.PageRemote;
+infobar_internals.mojom.PageRequest = infobar_internals.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
-infobar_internals.mojom.mojom.PageHandler = {};
+infobar_internals.mojom.PageHandler = {};
 
-infobar_internals.mojom.mojom.PageHandlerPendingReceiver = class {
+infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'infobar_internals.mojom.PageHandler_GetInfoBars_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'infobar_internals.mojom.PageHandler_TriggerInfoBar_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: infobar_internals.mojom.InfoBarTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+infobar_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-infobar_internals.mojom.mojom.PageHandlerRemote = class {
+infobar_internals.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'infobar_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      infobar_internals.mojom.mojom.PageHandlerPendingReceiver,
+      infobar_internals.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new infobar_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new infobar_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -112,7 +137,7 @@ infobar_internals.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-infobar_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
+infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -121,8 +146,8 @@ infobar_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      infobar_internals.mojom.mojom.PageHandler_GetInfoBars_ParamsSpec,
-      infobar_internals.mojom.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
+      infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec,
+      infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
       []);
   }
 
@@ -130,15 +155,15 @@ infobar_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      infobar_internals.mojom.mojom.PageHandler_TriggerInfoBar_ParamsSpec,
-      infobar_internals.mojom.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
+      infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec,
+      infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
       [type]);
   }
 
 };
 
-infobar_internals.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new infobar_internals.mojom.mojom.PageHandlerRemote();
+infobar_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new infobar_internals.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -148,7 +173,7 @@ infobar_internals.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetInfoBars
-infobar_internals.mojom.mojom.PageHandler_GetInfoBars_ParamsSpec = {
+infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = {
   $: {
     structSpec: {
       name: 'infobar_internals.mojom.PageHandler.GetInfoBars_Params',
@@ -160,7 +185,7 @@ infobar_internals.mojom.mojom.PageHandler_GetInfoBars_ParamsSpec = {
   }
 };
 
-infobar_internals.mojom.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
+infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'infobar_internals.mojom.PageHandler.GetInfoBars_ResponseParams',
@@ -174,7 +199,7 @@ infobar_internals.mojom.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
 };
 
 // ParamsSpec for TriggerInfoBar
-infobar_internals.mojom.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
+infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
   $: {
     structSpec: {
       name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_Params',
@@ -187,7 +212,7 @@ infobar_internals.mojom.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
   }
 };
 
-infobar_internals.mojom.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
+infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_ResponseParams',
@@ -201,29 +226,43 @@ infobar_internals.mojom.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-infobar_internals.mojom.mojom.PageHandlerPtr = infobar_internals.mojom.mojom.PageHandlerRemote;
-infobar_internals.mojom.mojom.PageHandlerRequest = infobar_internals.mojom.mojom.PageHandlerPendingReceiver;
+infobar_internals.mojom.PageHandlerPtr = infobar_internals.mojom.PageHandlerRemote;
+infobar_internals.mojom.PageHandlerRequest = infobar_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: PageHandlerFactory
-infobar_internals.mojom.mojom.PageHandlerFactory = {};
+infobar_internals.mojom.PageHandlerFactory = {};
 
-infobar_internals.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(infobar_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(infobar_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+infobar_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-infobar_internals.mojom.mojom.PageHandlerFactoryRemote = class {
+infobar_internals.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'infobar_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      infobar_internals.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      infobar_internals.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new infobar_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new infobar_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -235,7 +274,7 @@ infobar_internals.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-infobar_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+infobar_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -244,15 +283,15 @@ infobar_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      infobar_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-infobar_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new infobar_internals.mojom.mojom.PageHandlerFactoryRemote();
+infobar_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new infobar_internals.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -262,7 +301,7 @@ infobar_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-infobar_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'infobar_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -277,6 +316,6 @@ infobar_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = 
 };
 
 // Legacy compatibility
-infobar_internals.mojom.mojom.PageHandlerFactoryPtr = infobar_internals.mojom.mojom.PageHandlerFactoryRemote;
-infobar_internals.mojom.mojom.PageHandlerFactoryRequest = infobar_internals.mojom.mojom.PageHandlerFactoryPendingReceiver;
+infobar_internals.mojom.PageHandlerFactoryPtr = infobar_internals.mojom.PageHandlerFactoryRemote;
+infobar_internals.mojom.PageHandlerFactoryRequest = infobar_internals.mojom.PageHandlerFactoryPendingReceiver;
 

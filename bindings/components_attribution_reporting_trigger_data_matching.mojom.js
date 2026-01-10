@@ -10,8 +10,8 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Enum: TriggerDataMatching
-attribution_reporting.mojom.mojom.TriggerDataMatching = {
+attribution_reporting.mojom.TriggerDataMatching = {
   kModulus: 0,
   kExact: 1,
 };
-attribution_reporting.mojom.mojom.TriggerDataMatchingSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.TriggerDataMatchingSpec = { $: mojo.internal.Enum() };

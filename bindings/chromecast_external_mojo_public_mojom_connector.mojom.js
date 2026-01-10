@@ -7,11 +7,11 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.external_mojo = chromecast.external_mojo || {};
-chromecast.external_mojo.external_mojo.mojom = chromecast.external_mojo.external_mojo.mojom || {};
+chromecast.external_mojo.mojom = chromecast.external_mojo.mojom || {};
 
 
 // Struct: ExternalServiceInfo
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceInfoSpec = {
+chromecast.external_mojo.mojom.ExternalServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalServiceInfo',
@@ -27,7 +27,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceInfoSpec = {
 };
 
 // Struct: ServiceInstanceInfo
-chromecast.external_mojo.external_mojo.mojom.mojom.ServiceInstanceInfoSpec = {
+chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ServiceInstanceInfo',
@@ -42,24 +42,38 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ServiceInstanceInfoSpec = {
 };
 
 // Interface: ExternalService
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalService = {};
+chromecast.external_mojo.mojom.ExternalService = {};
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServicePendingReceiver = class {
+chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ExternalService_OnBindInterface_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'interface_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromecast.external_mojo.mojom.ExternalServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRemote = class {
+chromecast.external_mojo.mojom.ExternalServiceRemote = class {
   static get $interfaceName() {
     return 'chromecast.external_mojo.mojom.ExternalService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServicePendingReceiver,
+      chromecast.external_mojo.mojom.ExternalServicePendingReceiver,
       handle);
-    this.$ = new chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -71,7 +85,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRemote = class
   }
 };
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRemoteCallHandler = class {
+chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -80,15 +94,15 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRemoteCallHand
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalService_OnBindInterface_ParamsSpec,
+      chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec,
       null,
       [interface_name, interface_pipe]);
   }
 
 };
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalService.getRemote = function() {
-  let remote = new chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRemote();
+chromecast.external_mojo.mojom.ExternalService.getRemote = function() {
+  let remote = new chromecast.external_mojo.mojom.ExternalServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -98,7 +112,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalService.getRemote = f
 };
 
 // ParamsSpec for OnBindInterface
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalService_OnBindInterface_ParamsSpec = {
+chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalService.OnBindInterface_Params',
@@ -113,29 +127,95 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalService_OnBindInterfa
 };
 
 // Legacy compatibility
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServicePtr = chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRemote;
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServiceRequest = chromecast.external_mojo.external_mojo.mojom.mojom.ExternalServicePendingReceiver;
+chromecast.external_mojo.mojom.ExternalServicePtr = chromecast.external_mojo.mojom.ExternalServiceRemote;
+chromecast.external_mojo.mojom.ExternalServiceRequest = chromecast.external_mojo.mojom.ExternalServicePendingReceiver;
 
 
 // Interface: ExternalConnector
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector = {};
+chromecast.external_mojo.mojom.ExternalConnector = {};
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorPendingReceiver = class {
+chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instances_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ExternalConnector_BindInterface_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ExternalConnector_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.external_mojo.mojom.ExternalConnectorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'interface_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromecast.external_mojo.mojom.ExternalConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemote = class {
+chromecast.external_mojo.mojom.ExternalConnectorRemote = class {
   static get $interfaceName() {
     return 'chromecast.external_mojo.mojom.ExternalConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorPendingReceiver,
+      chromecast.external_mojo.mojom.ExternalConnectorPendingReceiver,
       handle);
-    this.$ = new chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -147,7 +227,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemote = cla
   }
 };
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemoteCallHandler = class {
+chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -156,7 +236,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemoteCallHa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec,
+      chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec,
       null,
       [instances_info]);
   }
@@ -165,7 +245,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemoteCallHa
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_BindInterface_ParamsSpec,
+      chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec,
       null,
       [service_name, interface_name, interface_pipe]);
   }
@@ -174,7 +254,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemoteCallHa
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_Clone_ParamsSpec,
+      chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -183,7 +263,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemoteCallHa
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec,
+      chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec,
       null,
       [interface_pipe]);
   }
@@ -192,15 +272,15 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemoteCallHa
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_QueryServiceList_ParamsSpec,
-      chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
+      chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec,
+      chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
       []);
   }
 
 };
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector.getRemote = function() {
-  let remote = new chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemote();
+chromecast.external_mojo.mojom.ExternalConnector.getRemote = function() {
+  let remote = new chromecast.external_mojo.mojom.ExternalConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -210,7 +290,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector.getRemote =
 };
 
 // ParamsSpec for RegisterServiceInstances
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = {
+chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.RegisterServiceInstances_Params',
@@ -224,7 +304,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_RegisterSer
 };
 
 // ParamsSpec for BindInterface
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_BindInterface_ParamsSpec = {
+chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.BindInterface_Params',
@@ -240,7 +320,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_BindInterfa
 };
 
 // ParamsSpec for Clone
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_Clone_ParamsSpec = {
+chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.Clone_Params',
@@ -254,7 +334,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_Clone_Param
 };
 
 // ParamsSpec for BindChromiumConnector
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = {
+chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.BindChromiumConnector_Params',
@@ -268,7 +348,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_BindChromiu
 };
 
 // ParamsSpec for QueryServiceList
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
+chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.QueryServiceList_Params',
@@ -280,7 +360,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_QueryServic
   }
 };
 
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = {
+chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.QueryServiceList_ResponseParams',
@@ -294,6 +374,6 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_QueryServic
 };
 
 // Legacy compatibility
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorPtr = chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRemote;
-chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorRequest = chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnectorPendingReceiver;
+chromecast.external_mojo.mojom.ExternalConnectorPtr = chromecast.external_mojo.mojom.ExternalConnectorRemote;
+chromecast.external_mojo.mojom.ExternalConnectorRequest = chromecast.external_mojo.mojom.ExternalConnectorPendingReceiver;
 

@@ -10,16 +10,16 @@ viz.mojom = viz.mojom || {};
 
 
 // Enum: ContentFrameIntervalType
-viz.mojom.mojom.ContentFrameIntervalType = {
+viz.mojom.ContentFrameIntervalType = {
   kVideo: 0,
   kAnimatingImage: 1,
   kScrollBarFadeOutAnimation: 2,
   kCompositorScroll: 3,
 };
-viz.mojom.mojom.ContentFrameIntervalTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.ContentFrameIntervalTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ContentFrameIntervalInfo
-viz.mojom.mojom.ContentFrameIntervalInfoSpec = {
+viz.mojom.ContentFrameIntervalInfoSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ContentFrameIntervalInfo',
@@ -35,7 +35,7 @@ viz.mojom.mojom.ContentFrameIntervalInfoSpec = {
 };
 
 // Struct: FrameIntervalInputs
-viz.mojom.mojom.FrameIntervalInputsSpec = {
+viz.mojom.FrameIntervalInputsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameIntervalInputs',

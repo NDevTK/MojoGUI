@@ -10,16 +10,16 @@ device.mojom = device.mojom || {};
 
 
 // Enum: ScreenOrientationLockResult
-device.mojom.mojom.ScreenOrientationLockResult = {
+device.mojom.ScreenOrientationLockResult = {
   SCREEN_ORIENTATION_LOCK_RESULT_SUCCESS: 0,
   SCREEN_ORIENTATION_LOCK_RESULT_ERROR_NOT_AVAILABLE: 1,
   SCREEN_ORIENTATION_LOCK_RESULT_ERROR_FULLSCREEN_REQUIRED: 2,
   SCREEN_ORIENTATION_LOCK_RESULT_ERROR_CANCELED: 3,
 };
-device.mojom.mojom.ScreenOrientationLockResultSpec = { $: mojo.internal.Enum() };
+device.mojom.ScreenOrientationLockResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScreenOrientationLockType
-device.mojom.mojom.ScreenOrientationLockType = {
+device.mojom.ScreenOrientationLockType = {
   DEFAULT: 0,
   PORTRAIT_PRIMARY: 1,
   PORTRAIT_SECONDARY: 2,
@@ -30,4 +30,4 @@ device.mojom.mojom.ScreenOrientationLockType = {
   PORTRAIT: 7,
   NATURAL: 8,
 };
-device.mojom.mojom.ScreenOrientationLockTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.ScreenOrientationLockTypeSpec = { $: mojo.internal.Enum() };

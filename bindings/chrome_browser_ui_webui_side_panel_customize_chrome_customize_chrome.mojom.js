@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Enum: CustomizeChromeSection
-side_panel.mojom.mojom.CustomizeChromeSection = {
+side_panel.mojom.CustomizeChromeSection = {
   kUnspecified: 0,
   kAppearance: 1,
   kShortcuts: 2,
@@ -21,23 +21,23 @@ side_panel.mojom.mojom.CustomizeChromeSection = {
   kToolbar: 5,
   kFooter: 6,
 };
-side_panel.mojom.mojom.CustomizeChromeSectionSpec = { $: mojo.internal.Enum() };
+side_panel.mojom.CustomizeChromeSectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromeWebStoreCollection
-side_panel.mojom.mojom.ChromeWebStoreCollection = {
+side_panel.mojom.ChromeWebStoreCollection = {
   kWritingEssentials: 0,
 };
-side_panel.mojom.mojom.ChromeWebStoreCollectionSpec = { $: mojo.internal.Enum() };
+side_panel.mojom.ChromeWebStoreCollectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromeWebStoreCategory
-side_panel.mojom.mojom.ChromeWebStoreCategory = {
+side_panel.mojom.ChromeWebStoreCategory = {
   kWorkflowPlanning: 0,
   kShopping: 1,
 };
-side_panel.mojom.mojom.ChromeWebStoreCategorySpec = { $: mojo.internal.Enum() };
+side_panel.mojom.ChromeWebStoreCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: NewTabPageType
-side_panel.mojom.mojom.NewTabPageType = {
+side_panel.mojom.NewTabPageType = {
   kFirstPartyWebUI: 0,
   kThirdPartyWebUI: 1,
   kThirdPartyRemote: 2,
@@ -46,10 +46,10 @@ side_panel.mojom.mojom.NewTabPageType = {
   kGuestMode: 5,
   kNone: 6,
 };
-side_panel.mojom.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
+side_panel.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: BackgroundImage
-side_panel.mojom.mojom.BackgroundImageSpec = {
+side_panel.mojom.BackgroundImageSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BackgroundImage',
@@ -69,7 +69,7 @@ side_panel.mojom.mojom.BackgroundImageSpec = {
 };
 
 // Struct: ThirdPartyThemeInfo
-side_panel.mojom.mojom.ThirdPartyThemeInfoSpec = {
+side_panel.mojom.ThirdPartyThemeInfoSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.ThirdPartyThemeInfo',
@@ -84,7 +84,7 @@ side_panel.mojom.mojom.ThirdPartyThemeInfoSpec = {
 };
 
 // Struct: Theme
-side_panel.mojom.mojom.ThemeSpec = {
+side_panel.mojom.ThemeSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.Theme',
@@ -103,7 +103,7 @@ side_panel.mojom.mojom.ThemeSpec = {
 };
 
 // Struct: BackgroundCollection
-side_panel.mojom.mojom.BackgroundCollectionSpec = {
+side_panel.mojom.BackgroundCollectionSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BackgroundCollection',
@@ -120,7 +120,7 @@ side_panel.mojom.mojom.BackgroundCollectionSpec = {
 };
 
 // Struct: CollectionImage
-side_panel.mojom.mojom.CollectionImageSpec = {
+side_panel.mojom.CollectionImageSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CollectionImage',
@@ -140,7 +140,7 @@ side_panel.mojom.mojom.CollectionImageSpec = {
 };
 
 // Struct: ModuleSettings
-side_panel.mojom.mojom.ModuleSettingsSpec = {
+side_panel.mojom.ModuleSettingsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.ModuleSettings',
@@ -158,7 +158,7 @@ side_panel.mojom.mojom.ModuleSettingsSpec = {
 };
 
 // Struct: ManagementNoticeState
-side_panel.mojom.mojom.ManagementNoticeStateSpec = {
+side_panel.mojom.ManagementNoticeStateSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.ManagementNoticeState',
@@ -173,24 +173,38 @@ side_panel.mojom.mojom.ManagementNoticeStateSpec = {
 };
 
 // Interface: CustomizeChromePageHandlerFactory
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactory = {};
+side_panel.mojom.CustomizeChromePageHandlerFactory = {};
 
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryPendingReceiver = class {
+side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(side_panel.mojom.CustomizeChromePageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(side_panel.mojom.CustomizeChromePageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRemote = class {
+side_panel.mojom.CustomizeChromePageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'side_panel.mojom.CustomizeChromePageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryPendingReceiver,
+      side_panel.mojom.CustomizeChromePageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -202,7 +216,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRemote = class {
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = class {
+side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -211,15 +225,15 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactory.getRemote = function() {
-  let remote = new side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRemote();
+side_panel.mojom.CustomizeChromePageHandlerFactory.getRemote = function() {
+  let remote = new side_panel.mojom.CustomizeChromePageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +243,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerFactory.getRemote = function() 
 };
 
 // ParamsSpec for CreatePageHandler
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandlerFactory.CreatePageHandler_Params',
@@ -244,29 +258,399 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_Param
 };
 
 // Legacy compatibility
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryPtr = side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRemote;
-side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryRequest = side_panel.mojom.mojom.CustomizeChromePageHandlerFactoryPendingReceiver;
+side_panel.mojom.CustomizeChromePageHandlerFactoryPtr = side_panel.mojom.CustomizeChromePageHandlerFactoryRemote;
+side_panel.mojom.CustomizeChromePageHandlerFactoryRequest = side_panel.mojom.CustomizeChromePageHandlerFactoryPendingReceiver;
 
 
 // Interface: CustomizeChromePageHandler
-side_panel.mojom.mojom.CustomizeChromePageHandler = {};
+side_panel.mojom.CustomizeChromePageHandler = {};
 
-side_panel.mojom.mojom.CustomizeChromePageHandlerPendingReceiver = class {
+side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'shortcuts_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'personal_shortcuts_visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_theme_editable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'follow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'attribution_1', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'attribution_2', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'attribution_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'image_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'thumbnail_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'collection_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'theme_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.ChromeWebStoreCategorySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'collection', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.ChromeWebStoreCollectionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandlerRemote = class {
+side_panel.mojom.CustomizeChromePageHandlerRemote = class {
   static get $interfaceName() {
     return 'side_panel.mojom.CustomizeChromePageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.mojom.mojom.CustomizeChromePageHandlerPendingReceiver,
+      side_panel.mojom.CustomizeChromePageHandlerPendingReceiver,
       handle);
-    this.$ = new side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -278,7 +662,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemote = class {
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
+side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -287,7 +671,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec,
       null,
       [shortcuts_types, shortcuts_visible, personal_shortcuts_visible]);
   }
@@ -296,7 +680,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec,
       null,
       []);
   }
@@ -305,8 +689,8 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec,
-      side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec,
       []);
   }
 
@@ -314,8 +698,8 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec,
-      side_panel.mojom.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -323,8 +707,8 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec,
-      side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -332,7 +716,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec,
       null,
       []);
   }
@@ -341,7 +725,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec,
       null,
       []);
   }
@@ -350,7 +734,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec,
       null,
       [is_theme_editable]);
   }
@@ -359,7 +743,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec,
       null,
       []);
   }
@@ -368,7 +752,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec,
       null,
       [follow]);
   }
@@ -377,7 +761,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec,
       null,
       []);
   }
@@ -386,8 +770,8 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec,
-      side_panel.mojom.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec,
       []);
   }
 
@@ -395,7 +779,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec,
       null,
       [attribution_1, attribution_2, attribution_url, image_url, thumbnail_url, collection_id]);
   }
@@ -404,7 +788,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec,
       null,
       [collection_id]);
   }
@@ -413,7 +797,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec,
       null,
       []);
   }
@@ -422,7 +806,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec,
       null,
       []);
   }
@@ -431,7 +815,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec,
       null,
       [theme_id]);
   }
@@ -440,7 +824,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec,
       null,
       [category]);
   }
@@ -449,7 +833,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec,
       null,
       [collection]);
   }
@@ -458,7 +842,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec,
       null,
       []);
   }
@@ -467,7 +851,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -476,7 +860,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec,
       null,
       [module_id, disabled]);
   }
@@ -485,7 +869,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -494,7 +878,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec,
       null,
       []);
   }
@@ -503,7 +887,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec,
       null,
       []);
   }
@@ -512,7 +896,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec,
       null,
       []);
   }
@@ -521,7 +905,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec,
       null,
       []);
   }
@@ -530,7 +914,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -539,15 +923,15 @@ side_panel.mojom.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec,
       null,
       []);
   }
 
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandler.getRemote = function() {
-  let remote = new side_panel.mojom.mojom.CustomizeChromePageHandlerRemote();
+side_panel.mojom.CustomizeChromePageHandler.getRemote = function() {
+  let remote = new side_panel.mojom.CustomizeChromePageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -557,7 +941,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler.getRemote = function() {
 };
 
 // ParamsSpec for SetMostVisitedSettings
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetMostVisitedSettings_Params',
@@ -573,7 +957,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsS
 };
 
 // ParamsSpec for UpdateMostVisitedSettings
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateMostVisitedSettings_Params',
@@ -586,7 +970,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_Para
 };
 
 // ParamsSpec for GetBackgroundCollections
-side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.GetBackgroundCollections_Params',
@@ -598,7 +982,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundCollections_Param
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.GetBackgroundCollections_ResponseParams',
@@ -612,7 +996,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundCollections_Respo
 };
 
 // ParamsSpec for GetReplacementCollectionPreviewImage
-side_panel.mojom.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.GetReplacementCollectionPreviewImage_Params',
@@ -625,7 +1009,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_GetReplacementCollectionPrevie
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.GetReplacementCollectionPreviewImage_ResponseParams',
@@ -639,7 +1023,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_GetReplacementCollectionPrevie
 };
 
 // ParamsSpec for GetBackgroundImages
-side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.GetBackgroundImages_Params',
@@ -652,7 +1036,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.GetBackgroundImages_ResponseParams',
@@ -666,7 +1050,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponsePa
 };
 
 // ParamsSpec for UpdateModulesSettings
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateModulesSettings_Params',
@@ -679,7 +1063,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSp
 };
 
 // ParamsSpec for UpdateTheme
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateTheme_Params',
@@ -692,7 +1076,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateThemeEditable
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateThemeEditable_Params',
@@ -706,7 +1090,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec
 };
 
 // ParamsSpec for SetDefaultColor
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetDefaultColor_Params',
@@ -719,7 +1103,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec = {
 };
 
 // ParamsSpec for SetFollowDeviceTheme
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetFollowDeviceTheme_Params',
@@ -733,7 +1117,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpe
 };
 
 // ParamsSpec for RemoveBackgroundImage
-side_panel.mojom.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.RemoveBackgroundImage_Params',
@@ -746,7 +1130,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSp
 };
 
 // ParamsSpec for ChooseLocalCustomBackground
-side_panel.mojom.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.ChooseLocalCustomBackground_Params',
@@ -758,7 +1142,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_Pa
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.ChooseLocalCustomBackground_ResponseParams',
@@ -772,7 +1156,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_Re
 };
 
 // ParamsSpec for SetBackgroundImage
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetBackgroundImage_Params',
@@ -791,7 +1175,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec 
 };
 
 // ParamsSpec for SetDailyRefreshCollectionId
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetDailyRefreshCollectionId_Params',
@@ -805,7 +1189,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_Pa
 };
 
 // ParamsSpec for OpenChromeWebStore
-side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.OpenChromeWebStore_Params',
@@ -818,7 +1202,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec 
 };
 
 // ParamsSpec for OpenChromeWebStoreHomePage
-side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.OpenChromeWebStoreHomePage_Params',
@@ -831,7 +1215,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_Par
 };
 
 // ParamsSpec for OpenThirdPartyThemePage
-side_panel.mojom.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.OpenThirdPartyThemePage_Params',
@@ -845,7 +1229,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_Params
 };
 
 // ParamsSpec for OpenChromeWebStoreCategoryPage
-side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.OpenChromeWebStoreCategoryPage_Params',
@@ -859,7 +1243,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage
 };
 
 // ParamsSpec for OpenChromeWebStoreCollectionPage
-side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.OpenChromeWebStoreCollectionPage_Params',
@@ -873,7 +1257,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPa
 };
 
 // ParamsSpec for OpenNtpManagedByPage
-side_panel.mojom.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.OpenNtpManagedByPage_Params',
@@ -886,7 +1270,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpe
 };
 
 // ParamsSpec for SetModulesVisible
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetModulesVisible_Params',
@@ -900,7 +1284,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec =
 };
 
 // ParamsSpec for SetModuleDisabled
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetModuleDisabled_Params',
@@ -915,7 +1299,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec =
 };
 
 // ParamsSpec for SetToolChipsVisible
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetToolChipsVisible_Params',
@@ -929,7 +1313,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec
 };
 
 // ParamsSpec for UpdateToolChipsSettings
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateToolChipsSettings_Params',
@@ -942,7 +1326,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_Params
 };
 
 // ParamsSpec for UpdateScrollToSection
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateScrollToSection_Params',
@@ -955,7 +1339,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSp
 };
 
 // ParamsSpec for UpdateAttachedTabState
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateAttachedTabState_Params',
@@ -968,7 +1352,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsS
 };
 
 // ParamsSpec for UpdateNtpManagedByName
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateNtpManagedByName_Params',
@@ -981,7 +1365,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsS
 };
 
 // ParamsSpec for SetFooterVisible
-side_panel.mojom.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetFooterVisible_Params',
@@ -995,7 +1379,7 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec = 
 };
 
 // ParamsSpec for UpdateFooterSettings
-side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.UpdateFooterSettings_Params',
@@ -1008,29 +1392,154 @@ side_panel.mojom.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpe
 };
 
 // Legacy compatibility
-side_panel.mojom.mojom.CustomizeChromePageHandlerPtr = side_panel.mojom.mojom.CustomizeChromePageHandlerRemote;
-side_panel.mojom.mojom.CustomizeChromePageHandlerRequest = side_panel.mojom.mojom.CustomizeChromePageHandlerPendingReceiver;
+side_panel.mojom.CustomizeChromePageHandlerPtr = side_panel.mojom.CustomizeChromePageHandlerRemote;
+side_panel.mojom.CustomizeChromePageHandlerRequest = side_panel.mojom.CustomizeChromePageHandlerPendingReceiver;
 
 
 // Interface: CustomizeChromePage
-side_panel.mojom.mojom.CustomizeChromePage = {};
+side_panel.mojom.CustomizeChromePage = {};
 
-side_panel.mojom.mojom.CustomizeChromePagePendingReceiver = class {
+side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_SetModulesSettings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'modules_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.mojom.ModuleSettingsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'managed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'shortcuts_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'personal_shortcuts_visible', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disabled_shortcuts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_SetToolsSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_SetFooterSettings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'extension_policy_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'management_notice_state', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.ManagementNoticeStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_SetTheme_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.ThemeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_SetThemeEditable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_theme_editable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_ScrollToSection_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.NewTabPageTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+side_panel.mojom.CustomizeChromePagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageRemote = class {
+side_panel.mojom.CustomizeChromePageRemote = class {
   static get $interfaceName() {
     return 'side_panel.mojom.CustomizeChromePage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.mojom.mojom.CustomizeChromePagePendingReceiver,
+      side_panel.mojom.CustomizeChromePagePendingReceiver,
       handle);
-    this.$ = new side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.mojom.CustomizeChromePageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1042,7 +1551,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemote = class {
   }
 };
 
-side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
+side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1051,7 +1560,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec,
       null,
       [modules_settings, managed, visible]);
   }
@@ -1060,7 +1569,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec,
       null,
       [shortcuts_types, visible, personal_shortcuts_visible, disabled_shortcuts]);
   }
@@ -1069,7 +1578,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec,
       null,
       [visible]);
   }
@@ -1078,7 +1587,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec,
       null,
       [visible, extension_policy_enabled, management_notice_state]);
   }
@@ -1087,7 +1596,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_SetTheme_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec,
       null,
       [theme]);
   }
@@ -1096,7 +1605,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec,
       null,
       [is_theme_editable]);
   }
@@ -1105,7 +1614,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec,
       null,
       [section]);
   }
@@ -1114,7 +1623,7 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec,
       null,
       [ntp_type]);
   }
@@ -1123,15 +1632,15 @@ side_panel.mojom.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      side_panel.mojom.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec,
+      side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec,
       null,
       [name, description]);
   }
 
 };
 
-side_panel.mojom.mojom.CustomizeChromePage.getRemote = function() {
-  let remote = new side_panel.mojom.mojom.CustomizeChromePageRemote();
+side_panel.mojom.CustomizeChromePage.getRemote = function() {
+  let remote = new side_panel.mojom.CustomizeChromePageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1141,7 +1650,7 @@ side_panel.mojom.mojom.CustomizeChromePage.getRemote = function() {
 };
 
 // ParamsSpec for SetModulesSettings
-side_panel.mojom.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetModulesSettings_Params',
@@ -1157,7 +1666,7 @@ side_panel.mojom.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
 };
 
 // ParamsSpec for SetMostVisitedSettings
-side_panel.mojom.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetMostVisitedSettings_Params',
@@ -1174,7 +1683,7 @@ side_panel.mojom.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
 };
 
 // ParamsSpec for SetToolsSettings
-side_panel.mojom.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetToolsSettings_Params',
@@ -1188,7 +1697,7 @@ side_panel.mojom.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec = {
 };
 
 // ParamsSpec for SetFooterSettings
-side_panel.mojom.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetFooterSettings_Params',
@@ -1204,7 +1713,7 @@ side_panel.mojom.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
 };
 
 // ParamsSpec for SetTheme
-side_panel.mojom.mojom.CustomizeChromePage_SetTheme_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetTheme_Params',
@@ -1218,7 +1727,7 @@ side_panel.mojom.mojom.CustomizeChromePage_SetTheme_ParamsSpec = {
 };
 
 // ParamsSpec for SetThemeEditable
-side_panel.mojom.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetThemeEditable_Params',
@@ -1232,7 +1741,7 @@ side_panel.mojom.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec = {
 };
 
 // ParamsSpec for ScrollToSection
-side_panel.mojom.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.ScrollToSection_Params',
@@ -1246,7 +1755,7 @@ side_panel.mojom.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec = {
 };
 
 // ParamsSpec for AttachedTabStateUpdated
-side_panel.mojom.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.AttachedTabStateUpdated_Params',
@@ -1260,7 +1769,7 @@ side_panel.mojom.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec = 
 };
 
 // ParamsSpec for NtpManagedByNameUpdated
-side_panel.mojom.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec = {
+side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.NtpManagedByNameUpdated_Params',
@@ -1275,6 +1784,6 @@ side_panel.mojom.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec = 
 };
 
 // Legacy compatibility
-side_panel.mojom.mojom.CustomizeChromePagePtr = side_panel.mojom.mojom.CustomizeChromePageRemote;
-side_panel.mojom.mojom.CustomizeChromePageRequest = side_panel.mojom.mojom.CustomizeChromePagePendingReceiver;
+side_panel.mojom.CustomizeChromePagePtr = side_panel.mojom.CustomizeChromePageRemote;
+side_panel.mojom.CustomizeChromePageRequest = side_panel.mojom.CustomizeChromePagePendingReceiver;
 

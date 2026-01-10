@@ -10,24 +10,78 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: ExternalBeginFrameController
-viz.mojom.mojom.ExternalBeginFrameController = {};
+viz.mojom.ExternalBeginFrameController = {};
 
-viz.mojom.mojom.ExternalBeginFrameControllerPendingReceiver = class {
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ExternalBeginFrameController_IssueExternalVSync_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CADisplayLinkParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.ExternalBeginFrameControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.ExternalBeginFrameControllerRemote = class {
+viz.mojom.ExternalBeginFrameControllerRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.ExternalBeginFrameController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.ExternalBeginFrameControllerPendingReceiver,
+      viz.mojom.ExternalBeginFrameControllerPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.ExternalBeginFrameControllerRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.ExternalBeginFrameControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +93,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerRemote = class {
   }
 };
 
-viz.mojom.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
+viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +102,8 @@ viz.mojom.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
-      viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
+      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
+      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
       [args, force]);
   }
 
@@ -57,7 +111,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec,
+      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec,
       null,
       [args]);
   }
@@ -66,7 +120,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec,
+      viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec,
       null,
       [params]);
   }
@@ -75,15 +129,15 @@ viz.mojom.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec,
+      viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec,
       null,
       [display_id, is_supported]);
   }
 
 };
 
-viz.mojom.mojom.ExternalBeginFrameController.getRemote = function() {
-  let remote = new viz.mojom.mojom.ExternalBeginFrameControllerRemote();
+viz.mojom.ExternalBeginFrameController.getRemote = function() {
+  let remote = new viz.mojom.ExternalBeginFrameControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +147,7 @@ viz.mojom.mojom.ExternalBeginFrameController.getRemote = function() {
 };
 
 // ParamsSpec for IssueExternalBeginFrame
-viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_Params',
@@ -107,7 +161,7 @@ viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec 
   }
 };
 
-viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = {
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_ResponseParams',
@@ -121,7 +175,7 @@ viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponsePar
 };
 
 // ParamsSpec for IssueExternalBeginFrameNoAck
-viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = {
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrameNoAck_Params',
@@ -135,7 +189,7 @@ viz.mojom.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_Params
 };
 
 // ParamsSpec for IssueExternalVSync
-viz.mojom.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
+viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalVSync_Params',
@@ -149,7 +203,7 @@ viz.mojom.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
 };
 
 // ParamsSpec for SetSupportedDisplayLinkId
-viz.mojom.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
+viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameController.SetSupportedDisplayLinkId_Params',
@@ -164,29 +218,69 @@ viz.mojom.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpe
 };
 
 // Legacy compatibility
-viz.mojom.mojom.ExternalBeginFrameControllerPtr = viz.mojom.mojom.ExternalBeginFrameControllerRemote;
-viz.mojom.mojom.ExternalBeginFrameControllerRequest = viz.mojom.mojom.ExternalBeginFrameControllerPendingReceiver;
+viz.mojom.ExternalBeginFrameControllerPtr = viz.mojom.ExternalBeginFrameControllerRemote;
+viz.mojom.ExternalBeginFrameControllerRequest = viz.mojom.ExternalBeginFrameControllerPendingReceiver;
 
 
 // Interface: ExternalBeginFrameControllerClient
-viz.mojom.mojom.ExternalBeginFrameControllerClient = {};
+viz.mojom.ExternalBeginFrameControllerClient = {};
 
-viz.mojom.mojom.ExternalBeginFrameControllerClientPendingReceiver = class {
+viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.ExternalBeginFrameControllerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.ExternalBeginFrameControllerClientRemote = class {
+viz.mojom.ExternalBeginFrameControllerClientRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.ExternalBeginFrameControllerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.ExternalBeginFrameControllerClientPendingReceiver,
+      viz.mojom.ExternalBeginFrameControllerClientPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.ExternalBeginFrameControllerClientRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -198,7 +292,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerClientRemote = class {
   }
 };
 
-viz.mojom.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
+viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -207,7 +301,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec,
+      viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec,
       null,
       [needs_begin_frames]);
   }
@@ -216,7 +310,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec,
+      viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec,
       null,
       [display_id, needs_begin_frames]);
   }
@@ -225,15 +319,15 @@ viz.mojom.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec,
+      viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec,
       null,
       [interval]);
   }
 
 };
 
-viz.mojom.mojom.ExternalBeginFrameControllerClient.getRemote = function() {
-  let remote = new viz.mojom.mojom.ExternalBeginFrameControllerClientRemote();
+viz.mojom.ExternalBeginFrameControllerClient.getRemote = function() {
+  let remote = new viz.mojom.ExternalBeginFrameControllerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -243,7 +337,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerClient.getRemote = function() {
 };
 
 // ParamsSpec for SetNeedsBeginFrame
-viz.mojom.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
+viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameControllerClient.SetNeedsBeginFrame_Params',
@@ -257,7 +351,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec
 };
 
 // ParamsSpec for NeedsBeginFrameWithId
-viz.mojom.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = {
+viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameControllerClient.NeedsBeginFrameWithId_Params',
@@ -272,7 +366,7 @@ viz.mojom.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsS
 };
 
 // ParamsSpec for SetPreferredInterval
-viz.mojom.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
+viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ExternalBeginFrameControllerClient.SetPreferredInterval_Params',
@@ -286,6 +380,6 @@ viz.mojom.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSp
 };
 
 // Legacy compatibility
-viz.mojom.mojom.ExternalBeginFrameControllerClientPtr = viz.mojom.mojom.ExternalBeginFrameControllerClientRemote;
-viz.mojom.mojom.ExternalBeginFrameControllerClientRequest = viz.mojom.mojom.ExternalBeginFrameControllerClientPendingReceiver;
+viz.mojom.ExternalBeginFrameControllerClientPtr = viz.mojom.ExternalBeginFrameControllerClientRemote;
+viz.mojom.ExternalBeginFrameControllerClientRequest = viz.mojom.ExternalBeginFrameControllerClientPendingReceiver;
 

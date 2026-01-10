@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Struct: ArcBitmap
-arc.mojom.mojom.ArcBitmapSpec = {
+arc.mojom.ArcBitmapSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBitmap',

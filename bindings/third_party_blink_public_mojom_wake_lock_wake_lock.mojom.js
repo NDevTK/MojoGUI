@@ -10,24 +10,40 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WakeLockService
-blink.mojom.mojom.WakeLockService = {};
+blink.mojom.WakeLockService = {};
 
-blink.mojom.mojom.WakeLockServicePendingReceiver = class {
+blink.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WakeLockService_GetWakeLock_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 20, packedBitOffset: 0, type: device.mojom.WakeLockReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'wake_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.WakeLockServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.WakeLockServiceRemote = class {
+blink.mojom.WakeLockServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WakeLockService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.WakeLockServicePendingReceiver,
+      blink.mojom.WakeLockServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.WakeLockServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.WakeLockServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +55,7 @@ blink.mojom.mojom.WakeLockServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.WakeLockServiceRemoteCallHandler = class {
+blink.mojom.WakeLockServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +64,15 @@ blink.mojom.mojom.WakeLockServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.WakeLockService_GetWakeLock_ParamsSpec,
+      blink.mojom.WakeLockService_GetWakeLock_ParamsSpec,
       null,
       [type, reason, description, wake_lock]);
   }
 
 };
 
-blink.mojom.mojom.WakeLockService.getRemote = function() {
-  let remote = new blink.mojom.mojom.WakeLockServiceRemote();
+blink.mojom.WakeLockService.getRemote = function() {
+  let remote = new blink.mojom.WakeLockServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +82,7 @@ blink.mojom.mojom.WakeLockService.getRemote = function() {
 };
 
 // ParamsSpec for GetWakeLock
-blink.mojom.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
+blink.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WakeLockService.GetWakeLock_Params',
@@ -83,6 +99,6 @@ blink.mojom.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.WakeLockServicePtr = blink.mojom.mojom.WakeLockServiceRemote;
-blink.mojom.mojom.WakeLockServiceRequest = blink.mojom.mojom.WakeLockServicePendingReceiver;
+blink.mojom.WakeLockServicePtr = blink.mojom.WakeLockServiceRemote;
+blink.mojom.WakeLockServiceRequest = blink.mojom.WakeLockServicePendingReceiver;
 

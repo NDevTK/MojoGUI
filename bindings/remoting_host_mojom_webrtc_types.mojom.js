@@ -10,15 +10,15 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Enum: DesktopCaptureResult
-remoting.mojom.mojom.DesktopCaptureResult = {
+remoting.mojom.DesktopCaptureResult = {
   kSuccess: 0,
   kErrorTemporary: 1,
   kErrorPermanent: 2,
 };
-remoting.mojom.mojom.DesktopCaptureResultSpec = { $: mojo.internal.Enum() };
+remoting.mojom.DesktopCaptureResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: DesktopCaptureOptions
-remoting.mojom.mojom.DesktopCaptureOptionsSpec = {
+remoting.mojom.DesktopCaptureOptionsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopCaptureOptions',
@@ -34,7 +34,7 @@ remoting.mojom.mojom.DesktopCaptureOptionsSpec = {
 };
 
 // Struct: DesktopFrame
-remoting.mojom.mojom.DesktopFrameSpec = {
+remoting.mojom.DesktopFrameSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopFrame',
@@ -54,7 +54,7 @@ remoting.mojom.mojom.DesktopFrameSpec = {
 };
 
 // Struct: DesktopRect
-remoting.mojom.mojom.DesktopRectSpec = {
+remoting.mojom.DesktopRectSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopRect',
@@ -71,7 +71,7 @@ remoting.mojom.mojom.DesktopRectSpec = {
 };
 
 // Struct: DesktopSize
-remoting.mojom.mojom.DesktopSizeSpec = {
+remoting.mojom.DesktopSizeSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSize',
@@ -86,7 +86,7 @@ remoting.mojom.mojom.DesktopSizeSpec = {
 };
 
 // Struct: DesktopVector
-remoting.mojom.mojom.DesktopVectorSpec = {
+remoting.mojom.DesktopVectorSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopVector',
@@ -101,7 +101,7 @@ remoting.mojom.mojom.DesktopVectorSpec = {
 };
 
 // Struct: MouseCursor
-remoting.mojom.mojom.MouseCursorSpec = {
+remoting.mojom.MouseCursorSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.MouseCursor',

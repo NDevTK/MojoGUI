@@ -10,17 +10,17 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: CameraIntentMode
-arc.mojom.mojom.CameraIntentMode = {
+arc.mojom.CameraIntentMode = {
   PHOTO: 0,
   VIDEO: 1,
 };
-arc.mojom.mojom.CameraIntentModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.CameraIntentModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraIntentAction
-arc.mojom.mojom.CameraIntentAction = {
+arc.mojom.CameraIntentAction = {
   FINISH: 0,
   CANCEL: 1,
   APPEND_DATA: 2,
   CLEAR_DATA: 3,
 };
-arc.mojom.mojom.CameraIntentActionSpec = { $: mojo.internal.Enum() };
+arc.mojom.CameraIntentActionSpec = { $: mojo.internal.Enum() };

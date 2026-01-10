@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: OpenGraphMetadata
-blink.mojom.mojom.OpenGraphMetadataSpec = {
+blink.mojom.OpenGraphMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OpenGraphMetadata',

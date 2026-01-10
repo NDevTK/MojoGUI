@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: StoragePolicyUpdate
-storage.mojom.mojom.StoragePolicyUpdateSpec = {
+storage.mojom.StoragePolicyUpdateSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StoragePolicyUpdate',

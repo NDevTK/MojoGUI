@@ -7,42 +7,71 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_safety = ash.cros_safety || {};
-ash.cros_safety.cros_safety.mojom = ash.cros_safety.cros_safety.mojom || {};
+ash.cros_safety.mojom = ash.cros_safety.mojom || {};
 
 
 // Enum: SafetyClassifierVerdict
-ash.cros_safety.cros_safety.mojom.mojom.SafetyClassifierVerdict = {
+ash.cros_safety.mojom.SafetyClassifierVerdict = {
   kPass: 0,
   kFailedText: 1,
   kFailedImage: 2,
 };
-ash.cros_safety.cros_safety.mojom.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
+ash.cros_safety.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
 
 // Enum: SafetyRuleset
-ash.cros_safety.cros_safety.mojom.mojom.SafetyRuleset = {
+ash.cros_safety.mojom.SafetyRuleset = {
   kMantis: 0,
 };
-ash.cros_safety.cros_safety.mojom.mojom.SafetyRulesetSpec = { $: mojo.internal.Enum() };
+ash.cros_safety.mojom.SafetyRulesetSpec = { $: mojo.internal.Enum() };
 
 // Interface: CloudSafetySession
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession = {};
+ash.cros_safety.mojom.CloudSafetySession = {};
 
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionPendingReceiver = class {
+ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'rules', packedOffset: 8, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'rules', packedOffset: 24, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'prompt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.CloudSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemote = class {
+ash.cros_safety.mojom.CloudSafetySessionRemote = class {
   static get $interfaceName() {
     return 'ash.cros_safety.mojom.CloudSafetySession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionPendingReceiver,
+      ash.cros_safety.mojom.CloudSafetySessionPendingReceiver,
       handle);
-    this.$ = new ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +83,7 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemote = class {
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemoteCallHandler = class {
+ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +92,8 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec,
-      ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec,
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec,
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec,
       [rules, text]);
   }
 
@@ -72,15 +101,15 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec,
-      ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec,
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec,
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec,
       [rules, prompt, image]);
   }
 
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession.getRemote = function() {
-  let remote = new ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemote();
+ash.cros_safety.mojom.CloudSafetySession.getRemote = function() {
+  let remote = new ash.cros_safety.mojom.CloudSafetySessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +119,7 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession.getRemote = function(
 };
 
 // ParamsSpec for ClassifyTextSafety
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec = {
+ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyTextSafety_Params',
@@ -104,7 +133,7 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyTextSafety_Pa
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
+ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyTextSafety_ResponseParams',
@@ -118,7 +147,7 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyTextSafety_Re
 };
 
 // ParamsSpec for ClassifyImageSafety
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec = {
+ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyImageSafety_Params',
@@ -133,7 +162,7 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyImageSafety_P
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
+ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyImageSafety_ResponseParams',
@@ -147,29 +176,57 @@ ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySession_ClassifyImageSafety_R
 };
 
 // Legacy compatibility
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionPtr = ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRemote;
-ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionRequest = ash.cros_safety.cros_safety.mojom.mojom.CloudSafetySessionPendingReceiver;
+ash.cros_safety.mojom.CloudSafetySessionPtr = ash.cros_safety.mojom.CloudSafetySessionRemote;
+ash.cros_safety.mojom.CloudSafetySessionRequest = ash.cros_safety.mojom.CloudSafetySessionPendingReceiver;
 
 
 // Interface: OnDeviceSafetySession
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession = {};
+ash.cros_safety.mojom.OnDeviceSafetySession = {};
 
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionPendingReceiver = class {
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'rules', packedOffset: 8, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'rules', packedOffset: 16, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemote = class {
+ash.cros_safety.mojom.OnDeviceSafetySessionRemote = class {
   static get $interfaceName() {
     return 'ash.cros_safety.mojom.OnDeviceSafetySession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionPendingReceiver,
+      ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver,
       handle);
-    this.$ = new ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -181,7 +238,7 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemote = class {
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemoteCallHandler = class {
+ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -190,8 +247,8 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec,
-      ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec,
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec,
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec,
       [rules, text]);
   }
 
@@ -199,15 +256,15 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemoteCallHandler =
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec,
-      ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec,
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec,
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec,
       [rules, image]);
   }
 
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession.getRemote = function() {
-  let remote = new ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemote();
+ash.cros_safety.mojom.OnDeviceSafetySession.getRemote = function() {
+  let remote = new ash.cros_safety.mojom.OnDeviceSafetySessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -217,7 +274,7 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession.getRemote = functi
 };
 
 // ParamsSpec for ClassifyTextSafety
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec = {
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyTextSafety_Params',
@@ -231,7 +288,7 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyTextSafety
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyTextSafety_ResponseParams',
@@ -245,7 +302,7 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyTextSafety
 };
 
 // ParamsSpec for ClassifyImageSafety
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec = {
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyImageSafety_Params',
@@ -259,7 +316,7 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyImageSafet
   }
 };
 
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyImageSafety_ResponseParams',
@@ -273,6 +330,6 @@ ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySession_ClassifyImageSafet
 };
 
 // Legacy compatibility
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionPtr = ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRemote;
-ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionRequest = ash.cros_safety.cros_safety.mojom.mojom.OnDeviceSafetySessionPendingReceiver;
+ash.cros_safety.mojom.OnDeviceSafetySessionPtr = ash.cros_safety.mojom.OnDeviceSafetySessionRemote;
+ash.cros_safety.mojom.OnDeviceSafetySessionRequest = ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver;
 

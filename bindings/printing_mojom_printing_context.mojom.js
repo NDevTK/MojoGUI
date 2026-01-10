@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: PageMargins
-printing.mojom.mojom.PageMarginsSpec = {
+printing.mojom.PageMarginsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PageMargins',
@@ -31,7 +31,7 @@ printing.mojom.mojom.PageMarginsSpec = {
 };
 
 // Struct: PageSetup
-printing.mojom.mojom.PageSetupSpec = {
+printing.mojom.PageSetupSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PageSetup',
@@ -52,7 +52,7 @@ printing.mojom.mojom.PageSetupSpec = {
 };
 
 // Struct: RequestedMedia
-printing.mojom.mojom.RequestedMediaSpec = {
+printing.mojom.RequestedMediaSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.RequestedMedia',
@@ -67,7 +67,7 @@ printing.mojom.mojom.RequestedMediaSpec = {
 };
 
 // Struct: PrintSettings
-printing.mojom.mojom.PrintSettingsSpec = {
+printing.mojom.PrintSettingsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintSettings',

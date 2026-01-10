@@ -11,6 +11,19 @@ var mojom = mojom || {};
 // Interface: ModuleEventSink
 mojom.ModuleEventSink = {};
 
+mojom.ModuleEventSink_OnModuleEvents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ModuleEventSink_OnModuleEvents_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'module_load_addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
 mojom.ModuleEventSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

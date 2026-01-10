@@ -13,7 +13,7 @@ var url = url || {};
 
 
 // Struct: CloneableMessage
-blink.mojom.mojom.CloneableMessageSpec = {
+blink.mojom.CloneableMessageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CloneableMessage',

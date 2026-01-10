@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: SpeechRecognitionGrammar
-media.mojom.mojom.SpeechRecognitionGrammarSpec = {
+media.mojom.SpeechRecognitionGrammarSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionGrammar',

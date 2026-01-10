@@ -10,11 +10,11 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: MHTMLLoadResult
-blink.mojom.mojom.MHTMLLoadResult = {
+blink.mojom.MHTMLLoadResult = {
   kSuccess: 0,
   kEmptyFile: 1,
   kUrlSchemeNotAllowed: 2,
   kInvalidArchive: 3,
   kMissingMainResource: 4,
 };
-blink.mojom.mojom.MHTMLLoadResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.MHTMLLoadResultSpec = { $: mojo.internal.Enum() };

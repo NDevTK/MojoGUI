@@ -10,24 +10,36 @@ device.mojom = device.mojom || {};
 
 
 // Interface: BatteryMonitor
-device.mojom.mojom.BatteryMonitor = {};
+device.mojom.BatteryMonitor = {};
 
-device.mojom.mojom.BatteryMonitorPendingReceiver = class {
+device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.BatteryMonitor_QueryNextStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.BatteryMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.BatteryMonitorRemote = class {
+device.mojom.BatteryMonitorRemote = class {
   static get $interfaceName() {
     return 'device.mojom.BatteryMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.BatteryMonitorPendingReceiver,
+      device.mojom.BatteryMonitorPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.BatteryMonitorRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.BatteryMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ device.mojom.mojom.BatteryMonitorRemote = class {
   }
 };
 
-device.mojom.mojom.BatteryMonitorRemoteCallHandler = class {
+device.mojom.BatteryMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ device.mojom.mojom.BatteryMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec,
-      device.mojom.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec,
+      device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec,
+      device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.mojom.BatteryMonitor.getRemote = function() {
-  let remote = new device.mojom.mojom.BatteryMonitorRemote();
+device.mojom.BatteryMonitor.getRemote = function() {
+  let remote = new device.mojom.BatteryMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ device.mojom.mojom.BatteryMonitor.getRemote = function() {
 };
 
 // ParamsSpec for QueryNextStatus
-device.mojom.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
+device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.BatteryMonitor.QueryNextStatus_Params',
@@ -78,7 +90,7 @@ device.mojom.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
+device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.BatteryMonitor.QueryNextStatus_ResponseParams',
@@ -92,6 +104,6 @@ device.mojom.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.BatteryMonitorPtr = device.mojom.mojom.BatteryMonitorRemote;
-device.mojom.mojom.BatteryMonitorRequest = device.mojom.mojom.BatteryMonitorPendingReceiver;
+device.mojom.BatteryMonitorPtr = device.mojom.BatteryMonitorRemote;
+device.mojom.BatteryMonitorRequest = device.mojom.BatteryMonitorPendingReceiver;
 

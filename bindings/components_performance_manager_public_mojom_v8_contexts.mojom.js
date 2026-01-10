@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Enum: V8ContextWorldType
-performance_manager.mojom.mojom.V8ContextWorldType = {
+performance_manager.mojom.V8ContextWorldType = {
   kMain: 0,
   kWorkerOrWorklet: 1,
   kShadowRealm: 2,
@@ -20,10 +20,10 @@ performance_manager.mojom.mojom.V8ContextWorldType = {
   kInspector: 5,
   kRegExp: 6,
 };
-performance_manager.mojom.mojom.V8ContextWorldTypeSpec = { $: mojo.internal.Enum() };
+performance_manager.mojom.V8ContextWorldTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: IframeAttributionData
-performance_manager.mojom.mojom.IframeAttributionDataSpec = {
+performance_manager.mojom.IframeAttributionDataSpec = {
   $: {
     structSpec: {
       name: 'performance_manager.mojom.IframeAttributionData',
@@ -38,7 +38,7 @@ performance_manager.mojom.mojom.IframeAttributionDataSpec = {
 };
 
 // Struct: V8ContextDescription
-performance_manager.mojom.mojom.V8ContextDescriptionSpec = {
+performance_manager.mojom.V8ContextDescriptionSpec = {
   $: {
     structSpec: {
       name: 'performance_manager.mojom.V8ContextDescription',

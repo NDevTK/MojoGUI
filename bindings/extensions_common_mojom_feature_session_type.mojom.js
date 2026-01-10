@@ -10,11 +10,11 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: FeatureSessionType
-extensions.mojom.mojom.FeatureSessionType = {
+extensions.mojom.FeatureSessionType = {
   kInitial: 0,
   kUnknown: 1,
   kRegular: 2,
   kKiosk: 3,
   kAutolaunchedKiosk: 4,
 };
-extensions.mojom.mojom.FeatureSessionTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.FeatureSessionTypeSpec = { $: mojo.internal.Enum() };

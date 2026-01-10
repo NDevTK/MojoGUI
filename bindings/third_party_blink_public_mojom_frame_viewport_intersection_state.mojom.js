@@ -14,15 +14,15 @@ var gfx = gfx || {};
 
 
 // Enum: FrameOcclusionState
-blink.mojom.mojom.FrameOcclusionState = {
+blink.mojom.FrameOcclusionState = {
   kUnknown: 0,
   kPossiblyOccluded: 1,
   kGuaranteedNotOccluded: 2,
 };
-blink.mojom.mojom.FrameOcclusionStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.FrameOcclusionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ViewportIntersectionState
-blink.mojom.mojom.ViewportIntersectionStateSpec = {
+blink.mojom.ViewportIntersectionStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewportIntersectionState',

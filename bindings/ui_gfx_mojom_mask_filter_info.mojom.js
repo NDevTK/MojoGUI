@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: MaskFilterInfo
-gfx.mojom.mojom.MaskFilterInfoSpec = {
+gfx.mojom.MaskFilterInfoSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.MaskFilterInfo',

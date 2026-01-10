@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: FilePath
-mojo_base.mojom.mojom.FilePathSpec = {
+mojo_base.mojom.FilePathSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.FilePath',
@@ -25,7 +25,7 @@ mojo_base.mojom.mojom.FilePathSpec = {
 };
 
 // Struct: RelativeFilePath
-mojo_base.mojom.mojom.RelativeFilePathSpec = {
+mojo_base.mojom.RelativeFilePathSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.RelativeFilePath',

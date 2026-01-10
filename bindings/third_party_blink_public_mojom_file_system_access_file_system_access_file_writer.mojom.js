@@ -11,24 +11,75 @@ var blink = blink || {};
 
 
 // Interface: FileSystemAccessFileWriter
-blink.mojom.mojom.FileSystemAccessFileWriter = {};
+blink.mojom.FileSystemAccessFileWriter = {};
 
-blink.mojom.mojom.FileSystemAccessFileWriterPendingReceiver = class {
+blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileWriter_Write_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileWriter_Truncate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileWriter_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileWriter_Abort_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileWriterRemote = class {
+blink.mojom.FileSystemAccessFileWriterRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessFileWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.FileSystemAccessFileWriterPendingReceiver,
+      blink.mojom.FileSystemAccessFileWriterPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.FileSystemAccessFileWriterRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.FileSystemAccessFileWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +91,7 @@ blink.mojom.mojom.FileSystemAccessFileWriterRemote = class {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
+blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +100,8 @@ blink.mojom.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileWriter_Write_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
       [offset, stream]);
   }
 
@@ -58,8 +109,8 @@ blink.mojom.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
       [length]);
   }
 
@@ -67,8 +118,8 @@ blink.mojom.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileWriter_Close_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
       []);
   }
 
@@ -76,15 +127,15 @@ blink.mojom.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.FileSystemAccessFileWriter.getRemote = function() {
-  let remote = new blink.mojom.mojom.FileSystemAccessFileWriterRemote();
+blink.mojom.FileSystemAccessFileWriter.getRemote = function() {
+  let remote = new blink.mojom.FileSystemAccessFileWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +145,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter.getRemote = function() {
 };
 
 // ParamsSpec for Write
-blink.mojom.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Write_Params',
@@ -108,7 +159,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Write_ResponseParams',
@@ -123,7 +174,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Truncate
-blink.mojom.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Truncate_Params',
@@ -136,7 +187,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Truncate_ResponseParams',
@@ -150,7 +201,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Close
-blink.mojom.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Close_Params',
@@ -162,7 +213,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Close_ResponseParams',
@@ -176,7 +227,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Abort
-blink.mojom.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Abort_Params',
@@ -188,7 +239,7 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileWriter.Abort_ResponseParams',
@@ -202,6 +253,6 @@ blink.mojom.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.FileSystemAccessFileWriterPtr = blink.mojom.mojom.FileSystemAccessFileWriterRemote;
-blink.mojom.mojom.FileSystemAccessFileWriterRequest = blink.mojom.mojom.FileSystemAccessFileWriterPendingReceiver;
+blink.mojom.FileSystemAccessFileWriterPtr = blink.mojom.FileSystemAccessFileWriterRemote;
+blink.mojom.FileSystemAccessFileWriterRequest = blink.mojom.FileSystemAccessFileWriterPendingReceiver;
 

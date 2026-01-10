@@ -15,7 +15,7 @@ var gfx = gfx || {};
 
 
 // Enum: ViewTransitionPropertyId
-blink.mojom.mojom.ViewTransitionPropertyId = {
+blink.mojom.ViewTransitionPropertyId = {
   kBackdropFilter: 0,
   kBorderRadius: 1,
   kBorderWidth: 2,
@@ -25,17 +25,17 @@ blink.mojom.mojom.ViewTransitionPropertyId = {
   kTextOrientation: 6,
   kWritingMode: 7,
 };
-blink.mojom.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };
+blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: ViewTransitionElementBoxSizing
-blink.mojom.mojom.ViewTransitionElementBoxSizing = {
+blink.mojom.ViewTransitionElementBoxSizing = {
   kBorderBox: 0,
   kContentBox: 1,
 };
-blink.mojom.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum() };
+blink.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum() };
 
 // Struct: ViewTransitionElementLayeredBoxProperties
-blink.mojom.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
+blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewTransitionElementLayeredBoxProperties',
@@ -51,7 +51,7 @@ blink.mojom.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
 };
 
 // Struct: ViewTransitionElement
-blink.mojom.mojom.ViewTransitionElementSpec = {
+blink.mojom.ViewTransitionElementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewTransitionElement',
@@ -77,7 +77,7 @@ blink.mojom.mojom.ViewTransitionElementSpec = {
 };
 
 // Struct: ViewTransitionState
-blink.mojom.mojom.ViewTransitionStateSpec = {
+blink.mojom.ViewTransitionStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewTransitionState',

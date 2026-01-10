@@ -10,7 +10,7 @@ browsing_topics.mojom = browsing_topics.mojom || {};
 
 
 // Union: WebUIGetBrowsingTopicsStateResult
-browsing_topics.mojom.mojom.WebUIGetBrowsingTopicsStateResultSpec = { $: mojo.internal.Union(
+browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec = { $: mojo.internal.Union(
     'browsing_topics.mojom.WebUIGetBrowsingTopicsStateResult', {
       'override_status_message': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ browsing_topics.mojom.mojom.WebUIGetBrowsingTopicsStateResultSpec = { $: mojo.in
 };
 
 // Union: WebUIGetModelInfoResult
-browsing_topics.mojom.mojom.WebUIGetModelInfoResultSpec = { $: mojo.internal.Union(
+browsing_topics.mojom.WebUIGetModelInfoResultSpec = { $: mojo.internal.Union(
     'browsing_topics.mojom.WebUIGetModelInfoResult', {
       'override_status_message': {
         'ordinal': 0,
@@ -38,7 +38,7 @@ browsing_topics.mojom.mojom.WebUIGetModelInfoResultSpec = { $: mojo.internal.Uni
 };
 
 // Struct: WebUIBrowsingTopicsConfiguration
-browsing_topics.mojom.mojom.WebUIBrowsingTopicsConfigurationSpec = {
+browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.WebUIBrowsingTopicsConfiguration',
@@ -69,7 +69,7 @@ browsing_topics.mojom.mojom.WebUIBrowsingTopicsConfigurationSpec = {
 };
 
 // Struct: WebUITopic
-browsing_topics.mojom.mojom.WebUITopicSpec = {
+browsing_topics.mojom.WebUITopicSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.WebUITopic',
@@ -86,7 +86,7 @@ browsing_topics.mojom.mojom.WebUITopicSpec = {
 };
 
 // Struct: WebUIEpoch
-browsing_topics.mojom.mojom.WebUIEpochSpec = {
+browsing_topics.mojom.WebUIEpochSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.WebUIEpoch',
@@ -103,7 +103,7 @@ browsing_topics.mojom.mojom.WebUIEpochSpec = {
 };
 
 // Struct: WebUIBrowsingTopicsState
-browsing_topics.mojom.mojom.WebUIBrowsingTopicsStateSpec = {
+browsing_topics.mojom.WebUIBrowsingTopicsStateSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.WebUIBrowsingTopicsState',
@@ -118,7 +118,7 @@ browsing_topics.mojom.mojom.WebUIBrowsingTopicsStateSpec = {
 };
 
 // Struct: WebUIModelInfo
-browsing_topics.mojom.mojom.WebUIModelInfoSpec = {
+browsing_topics.mojom.WebUIModelInfoSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.WebUIModelInfo',
@@ -133,24 +133,74 @@ browsing_topics.mojom.mojom.WebUIModelInfoSpec = {
 };
 
 // Interface: PageHandler
-browsing_topics.mojom.mojom.PageHandler = {};
+browsing_topics.mojom.PageHandler = {};
 
-browsing_topics.mojom.mojom.PageHandlerPendingReceiver = class {
+browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'calculate_now', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.PageHandler_GetModelInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.PageHandler_ClassifyHosts_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+browsing_topics.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-browsing_topics.mojom.mojom.PageHandlerRemote = class {
+browsing_topics.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'browsing_topics.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      browsing_topics.mojom.mojom.PageHandlerPendingReceiver,
+      browsing_topics.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new browsing_topics.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new browsing_topics.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -162,7 +212,7 @@ browsing_topics.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-browsing_topics.mojom.mojom.PageHandlerRemoteCallHandler = class {
+browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -171,8 +221,8 @@ browsing_topics.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec,
-      browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
       []);
   }
 
@@ -180,8 +230,8 @@ browsing_topics.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec,
-      browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
       [calculate_now]);
   }
 
@@ -189,8 +239,8 @@ browsing_topics.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      browsing_topics.mojom.mojom.PageHandler_GetModelInfo_ParamsSpec,
-      browsing_topics.mojom.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
+      browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec,
+      browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
       []);
   }
 
@@ -198,15 +248,15 @@ browsing_topics.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      browsing_topics.mojom.mojom.PageHandler_ClassifyHosts_ParamsSpec,
-      browsing_topics.mojom.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
+      browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec,
+      browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
       [hosts]);
   }
 
 };
 
-browsing_topics.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new browsing_topics.mojom.mojom.PageHandlerRemote();
+browsing_topics.mojom.PageHandler.getRemote = function() {
+  let remote = new browsing_topics.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -216,7 +266,7 @@ browsing_topics.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetBrowsingTopicsConfiguration
-browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = {
+browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsConfiguration_Params',
@@ -228,7 +278,7 @@ browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpe
   }
 };
 
-browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec = {
+browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsConfiguration_ResponseParams',
@@ -242,7 +292,7 @@ browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseP
 };
 
 // ParamsSpec for GetBrowsingTopicsState
-browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
+browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_Params',
@@ -255,7 +305,7 @@ browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
   }
 };
 
-browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
+browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_ResponseParams',
@@ -269,7 +319,7 @@ browsing_topics.mojom.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpe
 };
 
 // ParamsSpec for GetModelInfo
-browsing_topics.mojom.mojom.PageHandler_GetModelInfo_ParamsSpec = {
+browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.GetModelInfo_Params',
@@ -281,7 +331,7 @@ browsing_topics.mojom.mojom.PageHandler_GetModelInfo_ParamsSpec = {
   }
 };
 
-browsing_topics.mojom.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
+browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.GetModelInfo_ResponseParams',
@@ -295,7 +345,7 @@ browsing_topics.mojom.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ClassifyHosts
-browsing_topics.mojom.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
+browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.ClassifyHosts_Params',
@@ -308,7 +358,7 @@ browsing_topics.mojom.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
   }
 };
 
-browsing_topics.mojom.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
+browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'browsing_topics.mojom.PageHandler.ClassifyHosts_ResponseParams',
@@ -322,6 +372,6 @@ browsing_topics.mojom.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-browsing_topics.mojom.mojom.PageHandlerPtr = browsing_topics.mojom.mojom.PageHandlerRemote;
-browsing_topics.mojom.mojom.PageHandlerRequest = browsing_topics.mojom.mojom.PageHandlerPendingReceiver;
+browsing_topics.mojom.PageHandlerPtr = browsing_topics.mojom.PageHandlerRemote;
+browsing_topics.mojom.PageHandlerRequest = browsing_topics.mojom.PageHandlerPendingReceiver;
 

@@ -11,23 +11,23 @@ var url = url || {};
 
 
 // Enum: LifecycleUnitVisibility
-discards.mojom.mojom.LifecycleUnitVisibility = {
+discards.mojom.LifecycleUnitVisibility = {
   HIDDEN: 0,
   OCCLUDED: 1,
   VISIBLE: 2,
 };
-discards.mojom.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum() };
+discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: CanFreeze
-discards.mojom.mojom.CanFreeze = {
+discards.mojom.CanFreeze = {
   YES: 0,
   VARIES: 1,
   NO: 2,
 };
-discards.mojom.mojom.CanFreezeSpec = { $: mojo.internal.Enum() };
+discards.mojom.CanFreezeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TabDiscardsInfo
-discards.mojom.mojom.TabDiscardsInfoSpec = {
+discards.mojom.TabDiscardsInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.TabDiscardsInfo',
@@ -58,7 +58,7 @@ discards.mojom.mojom.TabDiscardsInfoSpec = {
 };
 
 // Struct: PageInfo
-discards.mojom.mojom.PageInfoSpec = {
+discards.mojom.PageInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.PageInfo',
@@ -76,7 +76,7 @@ discards.mojom.mojom.PageInfoSpec = {
 };
 
 // Struct: FrameInfo
-discards.mojom.mojom.FrameInfoSpec = {
+discards.mojom.FrameInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.FrameInfo',
@@ -95,7 +95,7 @@ discards.mojom.mojom.FrameInfoSpec = {
 };
 
 // Struct: ProcessInfo
-discards.mojom.mojom.ProcessInfoSpec = {
+discards.mojom.ProcessInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.ProcessInfo',
@@ -112,7 +112,7 @@ discards.mojom.mojom.ProcessInfoSpec = {
 };
 
 // Struct: WorkerInfo
-discards.mojom.mojom.WorkerInfoSpec = {
+discards.mojom.WorkerInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.WorkerInfo',
@@ -132,7 +132,7 @@ discards.mojom.mojom.WorkerInfoSpec = {
 };
 
 // Struct: FavIconInfo
-discards.mojom.mojom.FavIconInfoSpec = {
+discards.mojom.FavIconInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.FavIconInfo',
@@ -147,24 +147,126 @@ discards.mojom.mojom.FavIconInfoSpec = {
 };
 
 // Interface: DetailsProvider
-discards.mojom.mojom.DetailsProvider = {};
+discards.mojom.DetailsProvider = {};
 
-discards.mojom.mojom.DetailsProviderPendingReceiver = class {
+discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_SetAutoDiscardable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_auto_discardable', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_DiscardById_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_FreezeById_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_LoadById_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.DetailsProvider_Discard_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_Discard_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_ToggleBatterySaverMode_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+discards.mojom.DetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-discards.mojom.mojom.DetailsProviderRemote = class {
+discards.mojom.DetailsProviderRemote = class {
   static get $interfaceName() {
     return 'discards.mojom.DetailsProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      discards.mojom.mojom.DetailsProviderPendingReceiver,
+      discards.mojom.DetailsProviderPendingReceiver,
       handle);
-    this.$ = new discards.mojom.mojom.DetailsProviderRemoteCallHandler(this.proxy);
+    this.$ = new discards.mojom.DetailsProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -176,7 +278,7 @@ discards.mojom.mojom.DetailsProviderRemote = class {
   }
 };
 
-discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
+discards.mojom.DetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -185,8 +287,8 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
-      discards.mojom.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
+      discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
+      discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
       []);
   }
 
@@ -194,7 +296,7 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
+      discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
       null,
       [tab_id, is_auto_discardable]);
   }
@@ -203,7 +305,7 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      discards.mojom.mojom.DetailsProvider_DiscardById_ParamsSpec,
+      discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
       null,
       [tab_id, reason]);
   }
@@ -212,7 +314,7 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      discards.mojom.mojom.DetailsProvider_FreezeById_ParamsSpec,
+      discards.mojom.DetailsProvider_FreezeById_ParamsSpec,
       null,
       [tab_id]);
   }
@@ -221,7 +323,7 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      discards.mojom.mojom.DetailsProvider_LoadById_ParamsSpec,
+      discards.mojom.DetailsProvider_LoadById_ParamsSpec,
       null,
       [tab_id]);
   }
@@ -230,7 +332,7 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      discards.mojom.mojom.DetailsProvider_Discard_ParamsSpec,
+      discards.mojom.DetailsProvider_Discard_ParamsSpec,
       null,
       []);
   }
@@ -239,7 +341,7 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      discards.mojom.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
+      discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
       null,
       []);
   }
@@ -248,15 +350,15 @@ discards.mojom.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      discards.mojom.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
+      discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
       null,
       []);
   }
 
 };
 
-discards.mojom.mojom.DetailsProvider.getRemote = function() {
-  let remote = new discards.mojom.mojom.DetailsProviderRemote();
+discards.mojom.DetailsProvider.getRemote = function() {
+  let remote = new discards.mojom.DetailsProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -266,7 +368,7 @@ discards.mojom.mojom.DetailsProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetTabDiscardsInfo
-discards.mojom.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
+discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.GetTabDiscardsInfo_Params',
@@ -278,7 +380,7 @@ discards.mojom.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
   }
 };
 
-discards.mojom.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
+discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.GetTabDiscardsInfo_ResponseParams',
@@ -292,7 +394,7 @@ discards.mojom.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetAutoDiscardable
-discards.mojom.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
+discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.SetAutoDiscardable_Params',
@@ -307,7 +409,7 @@ discards.mojom.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
 };
 
 // ParamsSpec for DiscardById
-discards.mojom.mojom.DetailsProvider_DiscardById_ParamsSpec = {
+discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.DiscardById_Params',
@@ -322,7 +424,7 @@ discards.mojom.mojom.DetailsProvider_DiscardById_ParamsSpec = {
 };
 
 // ParamsSpec for FreezeById
-discards.mojom.mojom.DetailsProvider_FreezeById_ParamsSpec = {
+discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.FreezeById_Params',
@@ -336,7 +438,7 @@ discards.mojom.mojom.DetailsProvider_FreezeById_ParamsSpec = {
 };
 
 // ParamsSpec for LoadById
-discards.mojom.mojom.DetailsProvider_LoadById_ParamsSpec = {
+discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.LoadById_Params',
@@ -350,7 +452,7 @@ discards.mojom.mojom.DetailsProvider_LoadById_ParamsSpec = {
 };
 
 // ParamsSpec for Discard
-discards.mojom.mojom.DetailsProvider_Discard_ParamsSpec = {
+discards.mojom.DetailsProvider_Discard_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.Discard_Params',
@@ -363,7 +465,7 @@ discards.mojom.mojom.DetailsProvider_Discard_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleBatterySaverMode
-discards.mojom.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
+discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.ToggleBatterySaverMode_Params',
@@ -376,7 +478,7 @@ discards.mojom.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
 };
 
 // ParamsSpec for RefreshPerformanceTabCpuMeasurements
-discards.mojom.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = {
+discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.RefreshPerformanceTabCpuMeasurements_Params',
@@ -389,29 +491,159 @@ discards.mojom.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_Params
 };
 
 // Legacy compatibility
-discards.mojom.mojom.DetailsProviderPtr = discards.mojom.mojom.DetailsProviderRemote;
-discards.mojom.mojom.DetailsProviderRequest = discards.mojom.mojom.DetailsProviderPendingReceiver;
+discards.mojom.DetailsProviderPtr = discards.mojom.DetailsProviderRemote;
+discards.mojom.DetailsProviderRequest = discards.mojom.DetailsProviderPendingReceiver;
 
 
 // Interface: GraphChangeStream
-discards.mojom.mojom.GraphChangeStream = {};
+discards.mojom.GraphChangeStream = {};
 
-discards.mojom.mojom.GraphChangeStreamPendingReceiver = class {
+discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_FrameCreated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_PageCreated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_ProcessCreated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_WorkerCreated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_FrameChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_PageChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_ProcessChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_WorkerChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_FavIconDataAvailable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FavIconInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphChangeStream_NodeDeleted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphChangeStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-discards.mojom.mojom.GraphChangeStreamRemote = class {
+discards.mojom.GraphChangeStreamRemote = class {
   static get $interfaceName() {
     return 'discards.mojom.GraphChangeStream';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      discards.mojom.mojom.GraphChangeStreamPendingReceiver,
+      discards.mojom.GraphChangeStreamPendingReceiver,
       handle);
-    this.$ = new discards.mojom.mojom.GraphChangeStreamRemoteCallHandler(this.proxy);
+    this.$ = new discards.mojom.GraphChangeStreamRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -423,7 +655,7 @@ discards.mojom.mojom.GraphChangeStreamRemote = class {
   }
 };
 
-discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
+discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -432,7 +664,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
+      discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
       null,
       [frame]);
   }
@@ -441,7 +673,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_PageCreated_ParamsSpec,
+      discards.mojom.GraphChangeStream_PageCreated_ParamsSpec,
       null,
       [pages]);
   }
@@ -450,7 +682,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
+      discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
       null,
       [process]);
   }
@@ -459,7 +691,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
+      discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
       null,
       [worker]);
   }
@@ -468,7 +700,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
+      discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
       null,
       [frame]);
   }
@@ -477,7 +709,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_PageChanged_ParamsSpec,
+      discards.mojom.GraphChangeStream_PageChanged_ParamsSpec,
       null,
       [page]);
   }
@@ -486,7 +718,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
+      discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
       null,
       [process]);
   }
@@ -495,7 +727,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
+      discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
       null,
       [worker]);
   }
@@ -504,7 +736,7 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
+      discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
       null,
       [favicon]);
   }
@@ -513,15 +745,15 @@ discards.mojom.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      discards.mojom.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
+      discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
       null,
       [node_id]);
   }
 
 };
 
-discards.mojom.mojom.GraphChangeStream.getRemote = function() {
-  let remote = new discards.mojom.mojom.GraphChangeStreamRemote();
+discards.mojom.GraphChangeStream.getRemote = function() {
+  let remote = new discards.mojom.GraphChangeStreamRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -531,7 +763,7 @@ discards.mojom.mojom.GraphChangeStream.getRemote = function() {
 };
 
 // ParamsSpec for FrameCreated
-discards.mojom.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
+discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.FrameCreated_Params',
@@ -545,7 +777,7 @@ discards.mojom.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
 };
 
 // ParamsSpec for PageCreated
-discards.mojom.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
+discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.PageCreated_Params',
@@ -559,7 +791,7 @@ discards.mojom.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
 };
 
 // ParamsSpec for ProcessCreated
-discards.mojom.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
+discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.ProcessCreated_Params',
@@ -573,7 +805,7 @@ discards.mojom.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
 };
 
 // ParamsSpec for WorkerCreated
-discards.mojom.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
+discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.WorkerCreated_Params',
@@ -587,7 +819,7 @@ discards.mojom.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
 };
 
 // ParamsSpec for FrameChanged
-discards.mojom.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
+discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.FrameChanged_Params',
@@ -601,7 +833,7 @@ discards.mojom.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
 };
 
 // ParamsSpec for PageChanged
-discards.mojom.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
+discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.PageChanged_Params',
@@ -615,7 +847,7 @@ discards.mojom.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
 };
 
 // ParamsSpec for ProcessChanged
-discards.mojom.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
+discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.ProcessChanged_Params',
@@ -629,7 +861,7 @@ discards.mojom.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
 };
 
 // ParamsSpec for WorkerChanged
-discards.mojom.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
+discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.WorkerChanged_Params',
@@ -643,7 +875,7 @@ discards.mojom.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
 };
 
 // ParamsSpec for FavIconDataAvailable
-discards.mojom.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
+discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.FavIconDataAvailable_Params',
@@ -657,7 +889,7 @@ discards.mojom.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
 };
 
 // ParamsSpec for NodeDeleted
-discards.mojom.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
+discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphChangeStream.NodeDeleted_Params',
@@ -671,29 +903,55 @@ discards.mojom.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-discards.mojom.mojom.GraphChangeStreamPtr = discards.mojom.mojom.GraphChangeStreamRemote;
-discards.mojom.mojom.GraphChangeStreamRequest = discards.mojom.mojom.GraphChangeStreamPendingReceiver;
+discards.mojom.GraphChangeStreamPtr = discards.mojom.GraphChangeStreamRemote;
+discards.mojom.GraphChangeStreamRequest = discards.mojom.GraphChangeStreamPendingReceiver;
 
 
 // Interface: GraphDump
-discards.mojom.mojom.GraphDump = {};
+discards.mojom.GraphDump = {};
 
-discards.mojom.mojom.GraphDumpPendingReceiver = class {
+discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphDump_SubscribeToChanges_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(discards.mojom.GraphChangeStreamRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.GraphDump_RequestNodeDescriptions_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+discards.mojom.GraphDumpPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-discards.mojom.mojom.GraphDumpRemote = class {
+discards.mojom.GraphDumpRemote = class {
   static get $interfaceName() {
     return 'discards.mojom.GraphDump';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      discards.mojom.mojom.GraphDumpPendingReceiver,
+      discards.mojom.GraphDumpPendingReceiver,
       handle);
-    this.$ = new discards.mojom.mojom.GraphDumpRemoteCallHandler(this.proxy);
+    this.$ = new discards.mojom.GraphDumpRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -705,7 +963,7 @@ discards.mojom.mojom.GraphDumpRemote = class {
   }
 };
 
-discards.mojom.mojom.GraphDumpRemoteCallHandler = class {
+discards.mojom.GraphDumpRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -714,7 +972,7 @@ discards.mojom.mojom.GraphDumpRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
+      discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
       null,
       [change_subscriber]);
   }
@@ -723,15 +981,15 @@ discards.mojom.mojom.GraphDumpRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
-      discards.mojom.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
+      discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
+      discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
       [node_ids]);
   }
 
 };
 
-discards.mojom.mojom.GraphDump.getRemote = function() {
-  let remote = new discards.mojom.mojom.GraphDumpRemote();
+discards.mojom.GraphDump.getRemote = function() {
+  let remote = new discards.mojom.GraphDumpRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -741,7 +999,7 @@ discards.mojom.mojom.GraphDump.getRemote = function() {
 };
 
 // ParamsSpec for SubscribeToChanges
-discards.mojom.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
+discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphDump.SubscribeToChanges_Params',
@@ -755,7 +1013,7 @@ discards.mojom.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
 };
 
 // ParamsSpec for RequestNodeDescriptions
-discards.mojom.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
+discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphDump.RequestNodeDescriptions_Params',
@@ -768,7 +1026,7 @@ discards.mojom.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
   }
 };
 
-discards.mojom.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
+discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.GraphDump.RequestNodeDescriptions_ResponseParams',
@@ -782,6 +1040,6 @@ discards.mojom.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-discards.mojom.mojom.GraphDumpPtr = discards.mojom.mojom.GraphDumpRemote;
-discards.mojom.mojom.GraphDumpRequest = discards.mojom.mojom.GraphDumpPendingReceiver;
+discards.mojom.GraphDumpPtr = discards.mojom.GraphDumpRemote;
+discards.mojom.GraphDumpRequest = discards.mojom.GraphDumpPendingReceiver;
 

@@ -11,16 +11,16 @@ var url = url || {};
 
 
 // Enum: LinkRelAttribute
-network.mojom.mojom.LinkRelAttribute = {
+network.mojom.LinkRelAttribute = {
   kDnsPrefetch: 0,
   kPreconnect: 1,
   kPreload: 2,
   kModulePreload: 3,
 };
-network.mojom.mojom.LinkRelAttributeSpec = { $: mojo.internal.Enum() };
+network.mojom.LinkRelAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkAsAttribute
-network.mojom.mojom.LinkAsAttribute = {
+network.mojom.LinkAsAttribute = {
   kUnspecified: 0,
   kFont: 1,
   kImage: 2,
@@ -28,18 +28,18 @@ network.mojom.mojom.LinkAsAttribute = {
   kStyleSheet: 4,
   kFetch: 5,
 };
-network.mojom.mojom.LinkAsAttributeSpec = { $: mojo.internal.Enum() };
+network.mojom.LinkAsAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CrossOriginAttribute
-network.mojom.mojom.CrossOriginAttribute = {
+network.mojom.CrossOriginAttribute = {
   kUnspecified: 0,
   kAnonymous: 1,
   kUseCredentials: 2,
 };
-network.mojom.mojom.CrossOriginAttributeSpec = { $: mojo.internal.Enum() };
+network.mojom.CrossOriginAttributeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LinkHeader
-network.mojom.mojom.LinkHeaderSpec = {
+network.mojom.LinkHeaderSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.LinkHeader',

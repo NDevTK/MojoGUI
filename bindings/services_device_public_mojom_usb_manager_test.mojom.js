@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: TestDeviceInfo
-device.mojom.mojom.TestDeviceInfoSpec = {
+device.mojom.TestDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.TestDeviceInfo',
@@ -28,24 +28,64 @@ device.mojom.mojom.TestDeviceInfoSpec = {
 };
 
 // Interface: UsbDeviceManagerTest
-device.mojom.mojom.UsbDeviceManagerTest = {};
+device.mojom.UsbDeviceManagerTest = {};
 
-device.mojom.mojom.UsbDeviceManagerTestPendingReceiver = class {
+device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'landing_page', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManagerTest_GetTestDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManagerTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.UsbDeviceManagerTestRemote = class {
+device.mojom.UsbDeviceManagerTestRemote = class {
   static get $interfaceName() {
     return 'device.mojom.UsbDeviceManagerTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.UsbDeviceManagerTestPendingReceiver,
+      device.mojom.UsbDeviceManagerTestPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.UsbDeviceManagerTestRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.UsbDeviceManagerTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +97,7 @@ device.mojom.mojom.UsbDeviceManagerTestRemote = class {
   }
 };
 
-device.mojom.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
+device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,8 +106,8 @@ device.mojom.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec,
-      device.mojom.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
+      device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec,
+      device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
       [name, serial_number, landing_page]);
   }
 
@@ -75,7 +115,7 @@ device.mojom.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
+      device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
       null,
       [guid]);
   }
@@ -84,15 +124,15 @@ device.mojom.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec,
-      device.mojom.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
+      device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec,
+      device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.mojom.UsbDeviceManagerTest.getRemote = function() {
-  let remote = new device.mojom.mojom.UsbDeviceManagerTestRemote();
+device.mojom.UsbDeviceManagerTest.getRemote = function() {
+  let remote = new device.mojom.UsbDeviceManagerTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +142,7 @@ device.mojom.mojom.UsbDeviceManagerTest.getRemote = function() {
 };
 
 // ParamsSpec for AddDeviceForTesting
-device.mojom.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
+device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManagerTest.AddDeviceForTesting_Params',
@@ -117,7 +157,7 @@ device.mojom.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = {
+device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManagerTest.AddDeviceForTesting_ResponseParams',
@@ -132,7 +172,7 @@ device.mojom.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec =
 };
 
 // ParamsSpec for RemoveDeviceForTesting
-device.mojom.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
+device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManagerTest.RemoveDeviceForTesting_Params',
@@ -146,7 +186,7 @@ device.mojom.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
 };
 
 // ParamsSpec for GetTestDevices
-device.mojom.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
+device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManagerTest.GetTestDevices_Params',
@@ -158,7 +198,7 @@ device.mojom.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
+device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManagerTest.GetTestDevices_ResponseParams',
@@ -172,6 +212,6 @@ device.mojom.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.UsbDeviceManagerTestPtr = device.mojom.mojom.UsbDeviceManagerTestRemote;
-device.mojom.mojom.UsbDeviceManagerTestRequest = device.mojom.mojom.UsbDeviceManagerTestPendingReceiver;
+device.mojom.UsbDeviceManagerTestPtr = device.mojom.UsbDeviceManagerTestRemote;
+device.mojom.UsbDeviceManagerTestRequest = device.mojom.UsbDeviceManagerTestPendingReceiver;
 

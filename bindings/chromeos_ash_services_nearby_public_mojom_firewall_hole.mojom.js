@@ -10,24 +10,24 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: FirewallHole
-sharing.mojom.mojom.FirewallHole = {};
+sharing.mojom.FirewallHole = {};
 
-sharing.mojom.mojom.FirewallHolePendingReceiver = class {
+sharing.mojom.FirewallHolePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.mojom.FirewallHoleRemote = class {
+sharing.mojom.FirewallHoleRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.FirewallHole';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.mojom.FirewallHolePendingReceiver,
+      sharing.mojom.FirewallHolePendingReceiver,
       handle);
-    this.$ = new sharing.mojom.mojom.FirewallHoleRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.FirewallHoleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ sharing.mojom.mojom.FirewallHoleRemote = class {
   }
 };
 
-sharing.mojom.mojom.FirewallHoleRemoteCallHandler = class {
+sharing.mojom.FirewallHoleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-sharing.mojom.mojom.FirewallHole.getRemote = function() {
-  let remote = new sharing.mojom.mojom.FirewallHoleRemote();
+sharing.mojom.FirewallHole.getRemote = function() {
+  let remote = new sharing.mojom.FirewallHoleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,29 +57,42 @@ sharing.mojom.mojom.FirewallHole.getRemote = function() {
 };
 
 // Legacy compatibility
-sharing.mojom.mojom.FirewallHolePtr = sharing.mojom.mojom.FirewallHoleRemote;
-sharing.mojom.mojom.FirewallHoleRequest = sharing.mojom.mojom.FirewallHolePendingReceiver;
+sharing.mojom.FirewallHolePtr = sharing.mojom.FirewallHoleRemote;
+sharing.mojom.FirewallHoleRequest = sharing.mojom.FirewallHolePendingReceiver;
 
 
 // Interface: FirewallHoleFactory
-sharing.mojom.mojom.FirewallHoleFactory = {};
+sharing.mojom.FirewallHoleFactory = {};
 
-sharing.mojom.mojom.FirewallHoleFactoryPendingReceiver = class {
+sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+sharing.mojom.FirewallHoleFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.mojom.FirewallHoleFactoryRemote = class {
+sharing.mojom.FirewallHoleFactoryRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.FirewallHoleFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.mojom.FirewallHoleFactoryPendingReceiver,
+      sharing.mojom.FirewallHoleFactoryPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.mojom.FirewallHoleFactoryRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.FirewallHoleFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -91,7 +104,7 @@ sharing.mojom.mojom.FirewallHoleFactoryRemote = class {
   }
 };
 
-sharing.mojom.mojom.FirewallHoleFactoryRemoteCallHandler = class {
+sharing.mojom.FirewallHoleFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -100,15 +113,15 @@ sharing.mojom.mojom.FirewallHoleFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec,
-      sharing.mojom.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec,
+      sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec,
+      sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec,
       [port]);
   }
 
 };
 
-sharing.mojom.mojom.FirewallHoleFactory.getRemote = function() {
-  let remote = new sharing.mojom.mojom.FirewallHoleFactoryRemote();
+sharing.mojom.FirewallHoleFactory.getRemote = function() {
+  let remote = new sharing.mojom.FirewallHoleFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -118,7 +131,7 @@ sharing.mojom.mojom.FirewallHoleFactory.getRemote = function() {
 };
 
 // ParamsSpec for OpenFirewallHole
-sharing.mojom.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
+sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_Params',
@@ -131,7 +144,7 @@ sharing.mojom.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
   }
 };
 
-sharing.mojom.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
+sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_ResponseParams',
@@ -145,6 +158,6 @@ sharing.mojom.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.mojom.FirewallHoleFactoryPtr = sharing.mojom.mojom.FirewallHoleFactoryRemote;
-sharing.mojom.mojom.FirewallHoleFactoryRequest = sharing.mojom.mojom.FirewallHoleFactoryPendingReceiver;
+sharing.mojom.FirewallHoleFactoryPtr = sharing.mojom.FirewallHoleFactoryRemote;
+sharing.mojom.FirewallHoleFactoryRequest = sharing.mojom.FirewallHoleFactoryPendingReceiver;
 

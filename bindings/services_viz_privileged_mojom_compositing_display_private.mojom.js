@@ -24,24 +24,259 @@ var ui = ui || {};
 
 
 // Interface: DisplayPrivate
-viz.mojom.mojom.DisplayPrivate = {};
+viz.mojom.DisplayPrivate = {};
 
-viz.mojom.mojom.DisplayPrivatePendingReceiver = class {
+viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetDisplayVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_DisableSwapUntilResize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_Resize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetDisplayColorMatrix_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'color_matrix', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetDisplayColorSpaces_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'display_color_spaces', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetOutputIsSecure_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'secure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetVSyncDisplayID_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_UpdateRefreshRate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'has_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'suggested_high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetSupportedRefreshRates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'refresh_rates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_AddVSyncParameterObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.VSyncParameterObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(gfx.mojom.DelegatedInkPointRendererRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.BeginFrameObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'max_vsync_interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+        { name: 'vrr_state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.VariableRefreshRateStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.DisplayPrivatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.DisplayPrivateRemote = class {
+viz.mojom.DisplayPrivateRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.DisplayPrivate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.DisplayPrivatePendingReceiver,
+      viz.mojom.DisplayPrivatePendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.DisplayPrivateRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.DisplayPrivateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +288,7 @@ viz.mojom.mojom.DisplayPrivateRemote = class {
   }
 };
 
-viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
+viz.mojom.DisplayPrivateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,7 +297,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -71,7 +306,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
+      viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
       null,
       []);
   }
@@ -80,7 +315,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_Resize_ParamsSpec,
+      viz.mojom.DisplayPrivate_Resize_ParamsSpec,
       null,
       [size]);
   }
@@ -89,7 +324,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec,
       null,
       [color_matrix]);
   }
@@ -98,7 +333,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec,
       null,
       [display_color_spaces]);
   }
@@ -107,7 +342,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec,
       null,
       [secure]);
   }
@@ -116,7 +351,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec,
       null,
       [display_id]);
   }
@@ -125,7 +360,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec,
       null,
       [timebase, interval]);
   }
@@ -134,7 +369,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec,
+      viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec,
       null,
       []);
   }
@@ -143,7 +378,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec,
+      viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec,
       null,
       [refresh_rate]);
   }
@@ -152,7 +387,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec,
       null,
       [has_support, suggested_high, device_scale_factor]);
   }
@@ -161,7 +396,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec,
       null,
       [refresh_rates]);
   }
@@ -170,7 +405,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec,
+      viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec,
       null,
       []);
   }
@@ -179,7 +414,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec,
       null,
       [enable]);
   }
@@ -188,7 +423,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec,
+      viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -197,7 +432,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec,
       null,
       [receiver]);
   }
@@ -206,7 +441,7 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -215,15 +450,15 @@ viz.mojom.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      viz.mojom.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec,
+      viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec,
       null,
       [max_vsync_interval, vrr_state]);
   }
 
 };
 
-viz.mojom.mojom.DisplayPrivate.getRemote = function() {
-  let remote = new viz.mojom.mojom.DisplayPrivateRemote();
+viz.mojom.DisplayPrivate.getRemote = function() {
+  let remote = new viz.mojom.DisplayPrivateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -233,7 +468,7 @@ viz.mojom.mojom.DisplayPrivate.getRemote = function() {
 };
 
 // ParamsSpec for SetDisplayVisible
-viz.mojom.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetDisplayVisible_Params',
@@ -247,7 +482,7 @@ viz.mojom.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
 };
 
 // ParamsSpec for DisableSwapUntilResize
-viz.mojom.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
+viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.DisableSwapUntilResize_Params',
@@ -260,7 +495,7 @@ viz.mojom.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
 };
 
 // ParamsSpec for Resize
-viz.mojom.mojom.DisplayPrivate_Resize_ParamsSpec = {
+viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.Resize_Params',
@@ -274,7 +509,7 @@ viz.mojom.mojom.DisplayPrivate_Resize_ParamsSpec = {
 };
 
 // ParamsSpec for SetDisplayColorMatrix
-viz.mojom.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetDisplayColorMatrix_Params',
@@ -288,7 +523,7 @@ viz.mojom.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
 };
 
 // ParamsSpec for SetDisplayColorSpaces
-viz.mojom.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetDisplayColorSpaces_Params',
@@ -302,7 +537,7 @@ viz.mojom.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
 };
 
 // ParamsSpec for SetOutputIsSecure
-viz.mojom.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetOutputIsSecure_Params',
@@ -316,7 +551,7 @@ viz.mojom.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
 };
 
 // ParamsSpec for SetVSyncDisplayID
-viz.mojom.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetVSyncDisplayID_Params',
@@ -330,7 +565,7 @@ viz.mojom.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
 };
 
 // ParamsSpec for SetDisplayVSyncParameters
-viz.mojom.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetDisplayVSyncParameters_Params',
@@ -345,7 +580,7 @@ viz.mojom.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
 };
 
 // ParamsSpec for ForceImmediateDrawAndSwapIfPossible
-viz.mojom.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
+viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.ForceImmediateDrawAndSwapIfPossible_Params',
@@ -358,7 +593,7 @@ viz.mojom.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = 
 };
 
 // ParamsSpec for UpdateRefreshRate
-viz.mojom.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
+viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.UpdateRefreshRate_Params',
@@ -372,7 +607,7 @@ viz.mojom.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
 };
 
 // ParamsSpec for SetAdaptiveRefreshRateInfo
-viz.mojom.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetAdaptiveRefreshRateInfo_Params',
@@ -388,7 +623,7 @@ viz.mojom.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
 };
 
 // ParamsSpec for SetSupportedRefreshRates
-viz.mojom.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetSupportedRefreshRates_Params',
@@ -402,7 +637,7 @@ viz.mojom.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
 };
 
 // ParamsSpec for PreserveChildSurfaceControls
-viz.mojom.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
+viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.PreserveChildSurfaceControls_Params',
@@ -415,7 +650,7 @@ viz.mojom.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
 };
 
 // ParamsSpec for SetSwapCompletionCallbackEnabled
-viz.mojom.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetSwapCompletionCallbackEnabled_Params',
@@ -429,7 +664,7 @@ viz.mojom.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for AddVSyncParameterObserver
-viz.mojom.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
+viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.AddVSyncParameterObserver_Params',
@@ -443,7 +678,7 @@ viz.mojom.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
 };
 
 // ParamsSpec for SetDelegatedInkPointRenderer
-viz.mojom.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetDelegatedInkPointRenderer_Params',
@@ -457,7 +692,7 @@ viz.mojom.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
 };
 
 // ParamsSpec for SetStandaloneBeginFrameObserver
-viz.mojom.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetStandaloneBeginFrameObserver_Params',
@@ -471,7 +706,7 @@ viz.mojom.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
 };
 
 // ParamsSpec for SetMaxVSyncAndVrr
-viz.mojom.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
+viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetMaxVSyncAndVrr_Params',
@@ -486,29 +721,133 @@ viz.mojom.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.DisplayPrivatePtr = viz.mojom.mojom.DisplayPrivateRemote;
-viz.mojom.mojom.DisplayPrivateRequest = viz.mojom.mojom.DisplayPrivatePendingReceiver;
+viz.mojom.DisplayPrivatePtr = viz.mojom.DisplayPrivateRemote;
+viz.mojom.DisplayPrivateRequest = viz.mojom.DisplayPrivatePendingReceiver;
 
 
 // Interface: DisplayClient
-viz.mojom.mojom.DisplayClient = {};
+viz.mojom.DisplayClient = {};
 
-viz.mojom.mojom.DisplayClientPendingReceiver = class {
+viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ca_layer_params', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.CALayerParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_CreateLayeredWindowUpdater_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.LayeredWindowUpdaterRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_AddChildWindowToBrowser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'child_window', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_DidCompleteSwapWithSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_OnContextCreationResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ContextResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_SetWideColorEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.DisplayClient_SetPreferredRefreshRate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.DisplayClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.DisplayClientRemote = class {
+viz.mojom.DisplayClientRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.DisplayClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.DisplayClientPendingReceiver,
+      viz.mojom.DisplayClientPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.DisplayClientRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.DisplayClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -520,7 +859,7 @@ viz.mojom.mojom.DisplayClientRemote = class {
   }
 };
 
-viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
+viz.mojom.DisplayClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -529,7 +868,7 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec,
+      viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec,
       null,
       [ca_layer_params]);
   }
@@ -538,7 +877,7 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec,
+      viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec,
       null,
       [receiver]);
   }
@@ -547,7 +886,7 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec,
+      viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec,
       null,
       [child_window]);
   }
@@ -556,7 +895,7 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec,
+      viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec,
       null,
       [size]);
   }
@@ -565,7 +904,7 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec,
+      viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec,
       null,
       [size]);
   }
@@ -574,7 +913,7 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.mojom.DisplayClient_OnContextCreationResult_ParamsSpec,
+      viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec,
       null,
       [result]);
   }
@@ -583,7 +922,7 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec,
+      viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -592,15 +931,15 @@ viz.mojom.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec,
+      viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec,
       null,
       [refresh_rate]);
   }
 
 };
 
-viz.mojom.mojom.DisplayClient.getRemote = function() {
-  let remote = new viz.mojom.mojom.DisplayClientRemote();
+viz.mojom.DisplayClient.getRemote = function() {
+  let remote = new viz.mojom.DisplayClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -610,7 +949,7 @@ viz.mojom.mojom.DisplayClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDisplayReceivedCALayerParams
-viz.mojom.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
+viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.OnDisplayReceivedCALayerParams_Params',
@@ -624,7 +963,7 @@ viz.mojom.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
 };
 
 // ParamsSpec for CreateLayeredWindowUpdater
-viz.mojom.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
+viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.CreateLayeredWindowUpdater_Params',
@@ -638,7 +977,7 @@ viz.mojom.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
 };
 
 // ParamsSpec for AddChildWindowToBrowser
-viz.mojom.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
+viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.AddChildWindowToBrowser_Params',
@@ -652,7 +991,7 @@ viz.mojom.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
 };
 
 // ParamsSpec for DidCompleteSwapWithSize
-viz.mojom.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
+viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.DidCompleteSwapWithSize_Params',
@@ -666,7 +1005,7 @@ viz.mojom.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
 };
 
 // ParamsSpec for DidCompleteSwapWithNewSize
-viz.mojom.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
+viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.DidCompleteSwapWithNewSize_Params',
@@ -680,7 +1019,7 @@ viz.mojom.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
 };
 
 // ParamsSpec for OnContextCreationResult
-viz.mojom.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
+viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.OnContextCreationResult_Params',
@@ -694,7 +1033,7 @@ viz.mojom.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
 };
 
 // ParamsSpec for SetWideColorEnabled
-viz.mojom.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
+viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.SetWideColorEnabled_Params',
@@ -708,7 +1047,7 @@ viz.mojom.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for SetPreferredRefreshRate
-viz.mojom.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
+viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayClient.SetPreferredRefreshRate_Params',
@@ -722,6 +1061,6 @@ viz.mojom.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.DisplayClientPtr = viz.mojom.mojom.DisplayClientRemote;
-viz.mojom.mojom.DisplayClientRequest = viz.mojom.mojom.DisplayClientPendingReceiver;
+viz.mojom.DisplayClientPtr = viz.mojom.DisplayClientRemote;
+viz.mojom.DisplayClientRequest = viz.mojom.DisplayClientPendingReceiver;
 

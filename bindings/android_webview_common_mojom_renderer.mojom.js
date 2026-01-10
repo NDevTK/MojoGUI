@@ -10,24 +10,49 @@ android_webview.mojom = android_webview.mojom || {};
 
 
 // Interface: Renderer
-android_webview.mojom.mojom.Renderer = {};
+android_webview.mojom.Renderer = {};
 
-android_webview.mojom.mojom.RendererPendingReceiver = class {
+android_webview.mojom.Renderer_ClearCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'android_webview.mojom.Renderer_ClearCache_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'android_webview.mojom.Renderer_SetJsOnlineProperty_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'network_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+android_webview.mojom.RendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-android_webview.mojom.mojom.RendererRemote = class {
+android_webview.mojom.RendererRemote = class {
   static get $interfaceName() {
     return 'android_webview.mojom.Renderer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      android_webview.mojom.mojom.RendererPendingReceiver,
+      android_webview.mojom.RendererPendingReceiver,
       handle);
-    this.$ = new android_webview.mojom.mojom.RendererRemoteCallHandler(this.proxy);
+    this.$ = new android_webview.mojom.RendererRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +64,7 @@ android_webview.mojom.mojom.RendererRemote = class {
   }
 };
 
-android_webview.mojom.mojom.RendererRemoteCallHandler = class {
+android_webview.mojom.RendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +73,7 @@ android_webview.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      android_webview.mojom.mojom.Renderer_ClearCache_ParamsSpec,
+      android_webview.mojom.Renderer_ClearCache_ParamsSpec,
       null,
       []);
   }
@@ -57,15 +82,15 @@ android_webview.mojom.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      android_webview.mojom.mojom.Renderer_SetJsOnlineProperty_ParamsSpec,
+      android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec,
       null,
       [network_up]);
   }
 
 };
 
-android_webview.mojom.mojom.Renderer.getRemote = function() {
-  let remote = new android_webview.mojom.mojom.RendererRemote();
+android_webview.mojom.Renderer.getRemote = function() {
+  let remote = new android_webview.mojom.RendererRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +100,7 @@ android_webview.mojom.mojom.Renderer.getRemote = function() {
 };
 
 // ParamsSpec for ClearCache
-android_webview.mojom.mojom.Renderer_ClearCache_ParamsSpec = {
+android_webview.mojom.Renderer_ClearCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'android_webview.mojom.Renderer.ClearCache_Params',
@@ -88,7 +113,7 @@ android_webview.mojom.mojom.Renderer_ClearCache_ParamsSpec = {
 };
 
 // ParamsSpec for SetJsOnlineProperty
-android_webview.mojom.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
+android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
   $: {
     structSpec: {
       name: 'android_webview.mojom.Renderer.SetJsOnlineProperty_Params',
@@ -102,6 +127,6 @@ android_webview.mojom.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
 };
 
 // Legacy compatibility
-android_webview.mojom.mojom.RendererPtr = android_webview.mojom.mojom.RendererRemote;
-android_webview.mojom.mojom.RendererRequest = android_webview.mojom.mojom.RendererPendingReceiver;
+android_webview.mojom.RendererPtr = android_webview.mojom.RendererRemote;
+android_webview.mojom.RendererRequest = android_webview.mojom.RendererPendingReceiver;
 

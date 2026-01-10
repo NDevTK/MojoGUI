@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Struct: RequestManifestError
-blink.mojom.mojom.RequestManifestErrorSpec = {
+blink.mojom.RequestManifestErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RequestManifestError',
@@ -27,24 +27,75 @@ blink.mojom.mojom.RequestManifestErrorSpec = {
 };
 
 // Interface: ManifestManager
-blink.mojom.mojom.ManifestManager = {};
+blink.mojom.ManifestManager = {};
 
-blink.mojom.mojom.ManifestManagerPendingReceiver = class {
+blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestManager_RequestManifest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestManager_RequestManifestAndErrors_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestManager_RequestManifestDebugInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestManager_ParseManifestFromString_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'manifest_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.ManifestManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ManifestManagerRemote = class {
+blink.mojom.ManifestManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ManifestManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ManifestManagerPendingReceiver,
+      blink.mojom.ManifestManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ManifestManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ManifestManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +107,7 @@ blink.mojom.mojom.ManifestManagerRemote = class {
   }
 };
 
-blink.mojom.mojom.ManifestManagerRemoteCallHandler = class {
+blink.mojom.ManifestManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,8 +116,8 @@ blink.mojom.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ManifestManager_RequestManifest_ParamsSpec,
-      blink.mojom.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
+      blink.mojom.ManifestManager_RequestManifest_ParamsSpec,
+      blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
       []);
   }
 
@@ -74,7 +125,7 @@ blink.mojom.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec,
+      blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec,
       null,
       []);
   }
@@ -83,8 +134,8 @@ blink.mojom.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec,
-      blink.mojom.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
+      blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec,
+      blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
       []);
   }
 
@@ -92,15 +143,15 @@ blink.mojom.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.ManifestManager_ParseManifestFromString_ParamsSpec,
-      blink.mojom.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
+      blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec,
+      blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
       [document_url, manifest_url, manifest_content]);
   }
 
 };
 
-blink.mojom.mojom.ManifestManager.getRemote = function() {
-  let remote = new blink.mojom.mojom.ManifestManagerRemote();
+blink.mojom.ManifestManager.getRemote = function() {
+  let remote = new blink.mojom.ManifestManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -110,7 +161,7 @@ blink.mojom.mojom.ManifestManager.getRemote = function() {
 };
 
 // ParamsSpec for RequestManifest
-blink.mojom.mojom.ManifestManager_RequestManifest_ParamsSpec = {
+blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestManager.RequestManifest_Params',
@@ -122,7 +173,7 @@ blink.mojom.mojom.ManifestManager_RequestManifest_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
+blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestManager.RequestManifest_ResponseParams',
@@ -138,7 +189,7 @@ blink.mojom.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestManifestAndErrors
-blink.mojom.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
+blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestManager.RequestManifestAndErrors_Params',
@@ -151,7 +202,7 @@ blink.mojom.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
 };
 
 // ParamsSpec for RequestManifestDebugInfo
-blink.mojom.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
+blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestManager.RequestManifestDebugInfo_Params',
@@ -163,7 +214,7 @@ blink.mojom.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
+blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestManager.RequestManifestDebugInfo_ResponseParams',
@@ -179,7 +230,7 @@ blink.mojom.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = 
 };
 
 // ParamsSpec for ParseManifestFromString
-blink.mojom.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
+blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestManager.ParseManifestFromString_Params',
@@ -194,7 +245,7 @@ blink.mojom.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
+blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestManager.ParseManifestFromString_ResponseParams',
@@ -208,6 +259,6 @@ blink.mojom.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ManifestManagerPtr = blink.mojom.mojom.ManifestManagerRemote;
-blink.mojom.mojom.ManifestManagerRequest = blink.mojom.mojom.ManifestManagerPendingReceiver;
+blink.mojom.ManifestManagerPtr = blink.mojom.ManifestManagerRemote;
+blink.mojom.ManifestManagerRequest = blink.mojom.ManifestManagerPendingReceiver;
 

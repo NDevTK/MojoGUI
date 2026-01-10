@@ -10,24 +10,53 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: TelemetryManagementService
-crosapi.mojom.mojom.TelemetryManagementService = {};
+crosapi.mojom.TelemetryManagementService = {};
 
-crosapi.mojom.mojom.TelemetryManagementServicePendingReceiver = class {
+crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryManagementService_SetAudioGain_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'gain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_muted', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryManagementServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.TelemetryManagementServiceRemote = class {
+crosapi.mojom.TelemetryManagementServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryManagementService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.TelemetryManagementServicePendingReceiver,
+      crosapi.mojom.TelemetryManagementServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.TelemetryManagementServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.TelemetryManagementServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +68,7 @@ crosapi.mojom.mojom.TelemetryManagementServiceRemote = class {
   }
 };
 
-crosapi.mojom.mojom.TelemetryManagementServiceRemoteCallHandler = class {
+crosapi.mojom.TelemetryManagementServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +77,8 @@ crosapi.mojom.mojom.TelemetryManagementServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec,
-      crosapi.mojom.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec,
+      crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec,
+      crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec,
       [node_id, gain]);
   }
 
@@ -57,15 +86,15 @@ crosapi.mojom.mojom.TelemetryManagementServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec,
-      crosapi.mojom.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec,
+      crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec,
+      crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec,
       [node_id, volume, is_muted]);
   }
 
 };
 
-crosapi.mojom.mojom.TelemetryManagementService.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.TelemetryManagementServiceRemote();
+crosapi.mojom.TelemetryManagementService.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryManagementServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +104,7 @@ crosapi.mojom.mojom.TelemetryManagementService.getRemote = function() {
 };
 
 // ParamsSpec for SetAudioGain
-crosapi.mojom.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = {
+crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryManagementService.SetAudioGain_Params',
@@ -89,7 +118,7 @@ crosapi.mojom.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec = {
+crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryManagementService.SetAudioGain_ResponseParams',
@@ -103,7 +132,7 @@ crosapi.mojom.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec =
 };
 
 // ParamsSpec for SetAudioVolume
-crosapi.mojom.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = {
+crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryManagementService.SetAudioVolume_Params',
@@ -118,7 +147,7 @@ crosapi.mojom.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = {
+crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryManagementService.SetAudioVolume_ResponseParams',
@@ -132,6 +161,6 @@ crosapi.mojom.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.TelemetryManagementServicePtr = crosapi.mojom.mojom.TelemetryManagementServiceRemote;
-crosapi.mojom.mojom.TelemetryManagementServiceRequest = crosapi.mojom.mojom.TelemetryManagementServicePendingReceiver;
+crosapi.mojom.TelemetryManagementServicePtr = crosapi.mojom.TelemetryManagementServiceRemote;
+crosapi.mojom.TelemetryManagementServiceRequest = crosapi.mojom.TelemetryManagementServicePendingReceiver;
 

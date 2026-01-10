@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Struct: LcpElement
-blink.mojom.mojom.LcpElementSpec = {
+blink.mojom.LcpElementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LcpElement',
@@ -29,7 +29,7 @@ blink.mojom.mojom.LcpElementSpec = {
 };
 
 // Struct: LCPCriticalPathPredictorNavigationTimeHint
-blink.mojom.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = {
+blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorNavigationTimeHint',
@@ -49,24 +49,118 @@ blink.mojom.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = {
 };
 
 // Interface: LCPCriticalPathPredictorHost
-blink.mojom.mojom.LCPCriticalPathPredictorHost = {};
+blink.mojom.LCPCriticalPathPredictorHost = {};
 
-blink.mojom.mojom.LCPCriticalPathPredictorHostPendingReceiver = class {
+blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'lcp_element', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LcpElementSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'element_locator', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'lcp_influencer_scripts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'font_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'hit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'subresource_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'subresource_load_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'request_destination', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'unused_preloads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.LCPCriticalPathPredictorHostRemote = class {
+blink.mojom.LCPCriticalPathPredictorHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.LCPCriticalPathPredictorHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.LCPCriticalPathPredictorHostPendingReceiver,
+      blink.mojom.LCPCriticalPathPredictorHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -78,7 +172,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemote = class {
   }
 };
 
-blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
+blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -87,7 +181,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec,
+      blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec,
       null,
       [lcp_element]);
   }
@@ -96,7 +190,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec,
+      blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec,
       null,
       [element_locator]);
   }
@@ -105,7 +199,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec,
+      blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec,
       null,
       [lcp_influencer_scripts]);
   }
@@ -114,7 +208,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec,
+      blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec,
       null,
       [origin]);
   }
@@ -123,7 +217,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec,
+      blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec,
       null,
       [font_url, hit]);
   }
@@ -132,7 +226,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec,
+      blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec,
       null,
       [subresource_url, subresource_load_start, request_destination]);
   }
@@ -141,15 +235,15 @@ blink.mojom.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec,
+      blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec,
       null,
       [unused_preloads]);
   }
 
 };
 
-blink.mojom.mojom.LCPCriticalPathPredictorHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.LCPCriticalPathPredictorHostRemote();
+blink.mojom.LCPCriticalPathPredictorHost.getRemote = function() {
+  let remote = new blink.mojom.LCPCriticalPathPredictorHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +253,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost.getRemote = function() {
 };
 
 // ParamsSpec for OnLcpUpdated
-blink.mojom.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = {
+blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.OnLcpUpdated_Params',
@@ -173,7 +267,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnLcpTimingPredictedForTesting
-blink.mojom.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec = {
+blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.OnLcpTimingPredictedForTesting_Params',
@@ -187,7 +281,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_Pa
 };
 
 // ParamsSpec for SetLcpInfluencerScriptUrls
-blink.mojom.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec = {
+blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.SetLcpInfluencerScriptUrls_Params',
@@ -201,7 +295,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_Params
 };
 
 // ParamsSpec for AddPreconnectOrigin
-blink.mojom.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = {
+blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.AddPreconnectOrigin_Params',
@@ -215,7 +309,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = 
 };
 
 // ParamsSpec for NotifyFetchedFont
-blink.mojom.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = {
+blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.NotifyFetchedFont_Params',
@@ -230,7 +324,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyFetchedSubresource
-blink.mojom.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = {
+blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.NotifyFetchedSubresource_Params',
@@ -246,7 +340,7 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSp
 };
 
 // ParamsSpec for SetUnusedPreloads
-blink.mojom.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = {
+blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.SetUnusedPreloads_Params',
@@ -260,6 +354,6 @@ blink.mojom.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.LCPCriticalPathPredictorHostPtr = blink.mojom.mojom.LCPCriticalPathPredictorHostRemote;
-blink.mojom.mojom.LCPCriticalPathPredictorHostRequest = blink.mojom.mojom.LCPCriticalPathPredictorHostPendingReceiver;
+blink.mojom.LCPCriticalPathPredictorHostPtr = blink.mojom.LCPCriticalPathPredictorHostRemote;
+blink.mojom.LCPCriticalPathPredictorHostRequest = blink.mojom.LCPCriticalPathPredictorHostPendingReceiver;
 

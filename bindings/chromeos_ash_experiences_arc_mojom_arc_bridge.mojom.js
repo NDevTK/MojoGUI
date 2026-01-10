@@ -10,24 +10,778 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ArcBridgeHost
-arc.mojom.mojom.ArcBridgeHost = {};
+arc.mojom.ArcBridgeHost = {};
 
-arc.mojom.mojom.ArcBridgeHostPendingReceiver = class {
+arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ax.android.mojom.AccessibilityHelperInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnAppInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppPermissionsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppfuseInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcShellExecutionInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcWifiInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnAudioInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AudioInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnAuthInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AuthInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BackupSettingsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BluetoothInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnCameraInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CameraInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ChromeFeatureFlagsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CompatibilityModeInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DigitalGoodsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DiskSpaceInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.EnterpriseReportingInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.FileSystemInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IioSensorInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnImeInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ImeInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IntentHelperInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KeymasterInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(keymint.KeyMintInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnKioskInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KioskInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MediaSessionInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MemoryInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MetricsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnMidisInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NearbyShareInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnNetInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NotificationsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ObbMounterInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OemCryptoInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.payments.mojom.PaymentAppInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnPipInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PipInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PolicyInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnPowerInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PowerInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnProcessInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProcessInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SharesheetInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemStateInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemUiInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnTimerInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TimerInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnTracingInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TracingInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnTtsInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TtsInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.UsbHostInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnVideoInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VolumeMounterInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WakeLockInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WallpaperInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WebApkInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcBridgeHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.ArcBridgeHostRemote = class {
+arc.mojom.ArcBridgeHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ArcBridgeHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.ArcBridgeHostPendingReceiver,
+      arc.mojom.ArcBridgeHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.ArcBridgeHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.ArcBridgeHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +793,7 @@ arc.mojom.mojom.ArcBridgeHostRemote = class {
   }
 };
 
-arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
+arc.mojom.ArcBridgeHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +802,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 127
     return this.proxy.sendMessage(
       127,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -57,7 +811,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 158
     return this.proxy.sendMessage(
       158,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -66,7 +820,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 100
     return this.proxy.sendMessage(
       100,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -75,7 +829,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 149
     return this.proxy.sendMessage(
       149,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -84,7 +838,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 145
     return this.proxy.sendMessage(
       145,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -93,7 +847,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 174
     return this.proxy.sendMessage(
       174,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -102,7 +856,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 171
     return this.proxy.sendMessage(
       171,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -111,7 +865,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 115
     return this.proxy.sendMessage(
       115,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -120,7 +874,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 106
     return this.proxy.sendMessage(
       106,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -129,7 +883,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 138
     return this.proxy.sendMessage(
       138,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -138,7 +892,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 113
     return this.proxy.sendMessage(
       113,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -147,7 +901,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 125
     return this.proxy.sendMessage(
       125,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -156,7 +910,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 151
     return this.proxy.sendMessage(
       151,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -165,7 +919,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 170
     return this.proxy.sendMessage(
       170,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -174,7 +928,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 161
     return this.proxy.sendMessage(
       161,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -183,7 +937,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 112
     return this.proxy.sendMessage(
       112,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -192,7 +946,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 173
     return this.proxy.sendMessage(
       173,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -201,7 +955,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 156
     return this.proxy.sendMessage(
       156,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -210,7 +964,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 144
     return this.proxy.sendMessage(
       144,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -219,7 +973,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 122
     return this.proxy.sendMessage(
       122,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -228,7 +982,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 172
     return this.proxy.sendMessage(
       172,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -237,7 +991,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 119
     return this.proxy.sendMessage(
       119,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -246,7 +1000,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 159
     return this.proxy.sendMessage(
       159,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -255,7 +1009,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 110
     return this.proxy.sendMessage(
       110,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -264,7 +1018,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 143
     return this.proxy.sendMessage(
       143,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -273,7 +1027,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 111
     return this.proxy.sendMessage(
       111,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -282,7 +1036,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 152
     return this.proxy.sendMessage(
       152,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -291,7 +1045,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 168
     return this.proxy.sendMessage(
       168,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -300,7 +1054,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 175
     return this.proxy.sendMessage(
       175,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -309,7 +1063,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 148
     return this.proxy.sendMessage(
       148,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -318,7 +1072,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 164
     return this.proxy.sendMessage(
       164,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -327,7 +1081,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 116
     return this.proxy.sendMessage(
       116,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -336,7 +1090,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 135
     return this.proxy.sendMessage(
       135,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -345,7 +1099,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 163
     return this.proxy.sendMessage(
       163,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -354,7 +1108,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 108
     return this.proxy.sendMessage(
       108,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -363,7 +1117,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 102
     return this.proxy.sendMessage(
       102,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -372,7 +1126,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 120
     return this.proxy.sendMessage(
       120,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -381,7 +1135,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 133
     return this.proxy.sendMessage(
       133,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -390,7 +1144,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 155
     return this.proxy.sendMessage(
       155,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -399,7 +1153,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 146
     return this.proxy.sendMessage(
       146,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -408,7 +1162,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 114
     return this.proxy.sendMessage(
       114,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -417,7 +1171,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 103
     return this.proxy.sendMessage(
       103,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -426,7 +1180,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 150
     return this.proxy.sendMessage(
       150,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -435,7 +1189,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 166
     return this.proxy.sendMessage(
       166,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -444,7 +1198,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 104
     return this.proxy.sendMessage(
       104,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -453,7 +1207,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 140
     return this.proxy.sendMessage(
       140,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -462,7 +1216,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 157
     return this.proxy.sendMessage(
       157,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -471,7 +1225,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 169
     return this.proxy.sendMessage(
       169,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -480,7 +1234,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 167
     return this.proxy.sendMessage(
       167,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -489,7 +1243,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 141
     return this.proxy.sendMessage(
       141,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -498,7 +1252,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 128
     return this.proxy.sendMessage(
       128,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -507,7 +1261,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 123
     return this.proxy.sendMessage(
       123,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -516,7 +1270,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 139
     return this.proxy.sendMessage(
       139,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -525,7 +1279,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 107
     return this.proxy.sendMessage(
       107,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -534,7 +1288,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 131
     return this.proxy.sendMessage(
       131,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -543,7 +1297,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 142
     return this.proxy.sendMessage(
       142,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -552,7 +1306,7 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 124
     return this.proxy.sendMessage(
       124,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec,
       null,
       [instance_remote]);
   }
@@ -561,15 +1315,15 @@ arc.mojom.mojom.ArcBridgeHostRemoteCallHandler = class {
     // Ordinal: 162
     return this.proxy.sendMessage(
       162,  // ordinal
-      arc.mojom.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec,
+      arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec,
       null,
       [instance_ptr]);
   }
 
 };
 
-arc.mojom.mojom.ArcBridgeHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.ArcBridgeHostRemote();
+arc.mojom.ArcBridgeHost.getRemote = function() {
+  let remote = new arc.mojom.ArcBridgeHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -579,7 +1333,7 @@ arc.mojom.mojom.ArcBridgeHost.getRemote = function() {
 };
 
 // ParamsSpec for OnAccessibilityHelperInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnAccessibilityHelperInstanceReady_Params',
@@ -593,7 +1347,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnAdbdMonitorInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnAdbdMonitorInstanceReady_Params',
@@ -607,7 +1361,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnAppInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnAppInstanceReady_Params',
@@ -621,7 +1375,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnAppPermissionsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnAppPermissionsInstanceReady_Params',
@@ -635,7 +1389,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnAppfuseInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnAppfuseInstanceReady_Params',
@@ -649,7 +1403,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnArcShellExecutionInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnArcShellExecutionInstanceReady_Params',
@@ -663,7 +1417,7 @@ arc.mojom.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnArcWifiInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnArcWifiInstanceReady_Params',
@@ -677,7 +1431,7 @@ arc.mojom.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnAudioInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnAudioInstanceReady_Params',
@@ -691,7 +1445,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnAuthInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnAuthInstanceReady_Params',
@@ -705,7 +1459,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnBackupSettingsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnBackupSettingsInstanceReady_Params',
@@ -719,7 +1473,7 @@ arc.mojom.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnBluetoothInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnBluetoothInstanceReady_Params',
@@ -733,7 +1487,7 @@ arc.mojom.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnBootPhaseMonitorInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnBootPhaseMonitorInstanceReady_Params',
@@ -747,7 +1501,7 @@ arc.mojom.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnCameraInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnCameraInstanceReady_Params',
@@ -761,7 +1515,7 @@ arc.mojom.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnChromeFeatureFlagsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnChromeFeatureFlagsInstanceReady_Params',
@@ -775,7 +1529,7 @@ arc.mojom.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnCompatibilityModeInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnCompatibilityModeInstanceReady_Params',
@@ -789,7 +1543,7 @@ arc.mojom.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnCrashCollectorInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnCrashCollectorInstanceReady_Params',
@@ -803,7 +1557,7 @@ arc.mojom.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnOnDeviceSafetyInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnOnDeviceSafetyInstanceReady_Params',
@@ -817,7 +1571,7 @@ arc.mojom.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnDigitalGoodsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnDigitalGoodsInstanceReady_Params',
@@ -831,7 +1585,7 @@ arc.mojom.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnDiskSpaceInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnDiskSpaceInstanceReady_Params',
@@ -845,7 +1599,7 @@ arc.mojom.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnEnterpriseReportingInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnEnterpriseReportingInstanceReady_Params',
@@ -859,7 +1613,7 @@ arc.mojom.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnErrorNotificationInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnErrorNotificationInstanceReady_Params',
@@ -873,7 +1627,7 @@ arc.mojom.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnFileSystemInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnFileSystemInstanceReady_Params',
@@ -887,7 +1641,7 @@ arc.mojom.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnIioSensorInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnIioSensorInstanceReady_Params',
@@ -901,7 +1655,7 @@ arc.mojom.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnImeInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnImeInstanceReady_Params',
@@ -915,7 +1669,7 @@ arc.mojom.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnInputMethodManagerInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnInputMethodManagerInstanceReady_Params',
@@ -929,7 +1683,7 @@ arc.mojom.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnIntentHelperInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnIntentHelperInstanceReady_Params',
@@ -943,7 +1697,7 @@ arc.mojom.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnKeymasterInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnKeymasterInstanceReady_Params',
@@ -957,7 +1711,7 @@ arc.mojom.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnKeyMintInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnKeyMintInstanceReady_Params',
@@ -971,7 +1725,7 @@ arc.mojom.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnKioskInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnKioskInstanceReady_Params',
@@ -985,7 +1739,7 @@ arc.mojom.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnMediaSessionInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnMediaSessionInstanceReady_Params',
@@ -999,7 +1753,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnMemoryInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnMemoryInstanceReady_Params',
@@ -1013,7 +1767,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnMetricsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnMetricsInstanceReady_Params',
@@ -1027,7 +1781,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnMidisInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnMidisInstanceReady_Params',
@@ -1041,7 +1795,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnNearbyShareInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnNearbyShareInstanceReady_Params',
@@ -1055,7 +1809,7 @@ arc.mojom.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnNetInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnNetInstanceReady_Params',
@@ -1069,7 +1823,7 @@ arc.mojom.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnNotificationsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnNotificationsInstanceReady_Params',
@@ -1083,7 +1837,7 @@ arc.mojom.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnObbMounterInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnObbMounterInstanceReady_Params',
@@ -1097,7 +1851,7 @@ arc.mojom.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnOemCryptoInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnOemCryptoInstanceReady_Params',
@@ -1111,7 +1865,7 @@ arc.mojom.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnPaymentAppInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnPaymentAppInstanceReady_Params',
@@ -1125,7 +1879,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnPipInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnPipInstanceReady_Params',
@@ -1139,7 +1893,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnPolicyInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnPolicyInstanceReady_Params',
@@ -1153,7 +1907,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnPowerInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnPowerInstanceReady_Params',
@@ -1167,7 +1921,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnPrintSpoolerInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnPrintSpoolerInstanceReady_Params',
@@ -1181,7 +1935,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnPrivacyItemsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnPrivacyItemsInstanceReady_Params',
@@ -1195,7 +1949,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnProcessInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnProcessInstanceReady_Params',
@@ -1209,7 +1963,7 @@ arc.mojom.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnScreenCaptureInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnScreenCaptureInstanceReady_Params',
@@ -1223,7 +1977,7 @@ arc.mojom.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnSharesheetInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnSharesheetInstanceReady_Params',
@@ -1237,7 +1991,7 @@ arc.mojom.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnSystemStateInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnSystemStateInstanceReady_Params',
@@ -1251,7 +2005,7 @@ arc.mojom.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnSystemUiInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnSystemUiInstanceReady_Params',
@@ -1265,7 +2019,7 @@ arc.mojom.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnTimerInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnTimerInstanceReady_Params',
@@ -1279,7 +2033,7 @@ arc.mojom.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnTracingInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnTracingInstanceReady_Params',
@@ -1293,7 +2047,7 @@ arc.mojom.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnTtsInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnTtsInstanceReady_Params',
@@ -1307,7 +2061,7 @@ arc.mojom.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnUsbHostInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnUsbHostInstanceReady_Params',
@@ -1321,7 +2075,7 @@ arc.mojom.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnVideoInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnVideoInstanceReady_Params',
@@ -1335,7 +2089,7 @@ arc.mojom.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnVolumeMounterInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnVolumeMounterInstanceReady_Params',
@@ -1349,7 +2103,7 @@ arc.mojom.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnWakeLockInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnWakeLockInstanceReady_Params',
@@ -1363,7 +2117,7 @@ arc.mojom.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnWallpaperInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnWallpaperInstanceReady_Params',
@@ -1377,7 +2131,7 @@ arc.mojom.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnWebApkInstanceReady
-arc.mojom.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = {
+arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcBridgeHost.OnWebApkInstanceReady_Params',
@@ -1391,6 +2145,6 @@ arc.mojom.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.ArcBridgeHostPtr = arc.mojom.mojom.ArcBridgeHostRemote;
-arc.mojom.mojom.ArcBridgeHostRequest = arc.mojom.mojom.ArcBridgeHostPendingReceiver;
+arc.mojom.ArcBridgeHostPtr = arc.mojom.ArcBridgeHostRemote;
+arc.mojom.ArcBridgeHostRequest = arc.mojom.ArcBridgeHostPendingReceiver;
 

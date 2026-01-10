@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: AudioDataS16
-media.mojom.mojom.AudioDataS16Spec = {
+media.mojom.AudioDataS16Spec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDataS16',

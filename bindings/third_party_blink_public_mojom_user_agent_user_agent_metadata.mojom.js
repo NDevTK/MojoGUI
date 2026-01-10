@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: UserAgentBrandVersion
-blink.mojom.mojom.UserAgentBrandVersionSpec = {
+blink.mojom.UserAgentBrandVersionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserAgentBrandVersion',
@@ -25,7 +25,7 @@ blink.mojom.mojom.UserAgentBrandVersionSpec = {
 };
 
 // Struct: UserAgentMetadata
-blink.mojom.mojom.UserAgentMetadataSpec = {
+blink.mojom.UserAgentMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserAgentMetadata',
@@ -49,7 +49,7 @@ blink.mojom.mojom.UserAgentMetadataSpec = {
 };
 
 // Struct: UserAgentOverride
-blink.mojom.mojom.UserAgentOverrideSpec = {
+blink.mojom.UserAgentOverrideSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserAgentOverride',

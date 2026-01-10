@@ -10,24 +10,36 @@ content.mojom = content.mojom || {};
 
 
 // Interface: MainFrameCounterTest
-content.mojom.mojom.MainFrameCounterTest = {};
+content.mojom.MainFrameCounterTest = {};
 
-content.mojom.mojom.MainFrameCounterTestPendingReceiver = class {
+content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.MainFrameCounterTest_HasMainFrame_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.MainFrameCounterTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.MainFrameCounterTestRemote = class {
+content.mojom.MainFrameCounterTestRemote = class {
   static get $interfaceName() {
     return 'content.mojom.MainFrameCounterTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.MainFrameCounterTestPendingReceiver,
+      content.mojom.MainFrameCounterTestPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.MainFrameCounterTestRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.MainFrameCounterTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ content.mojom.mojom.MainFrameCounterTestRemote = class {
   }
 };
 
-content.mojom.mojom.MainFrameCounterTestRemoteCallHandler = class {
+content.mojom.MainFrameCounterTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ content.mojom.mojom.MainFrameCounterTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec,
-      content.mojom.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
+      content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec,
+      content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
       []);
   }
 
 };
 
-content.mojom.mojom.MainFrameCounterTest.getRemote = function() {
-  let remote = new content.mojom.mojom.MainFrameCounterTestRemote();
+content.mojom.MainFrameCounterTest.getRemote = function() {
+  let remote = new content.mojom.MainFrameCounterTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ content.mojom.mojom.MainFrameCounterTest.getRemote = function() {
 };
 
 // ParamsSpec for HasMainFrame
-content.mojom.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
+content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MainFrameCounterTest.HasMainFrame_Params',
@@ -78,7 +90,7 @@ content.mojom.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
+content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MainFrameCounterTest.HasMainFrame_ResponseParams',
@@ -92,6 +104,6 @@ content.mojom.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.MainFrameCounterTestPtr = content.mojom.mojom.MainFrameCounterTestRemote;
-content.mojom.mojom.MainFrameCounterTestRequest = content.mojom.mojom.MainFrameCounterTestPendingReceiver;
+content.mojom.MainFrameCounterTestPtr = content.mojom.MainFrameCounterTestRemote;
+content.mojom.MainFrameCounterTestRequest = content.mojom.MainFrameCounterTestPendingReceiver;
 

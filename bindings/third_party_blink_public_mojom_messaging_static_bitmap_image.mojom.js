@@ -12,7 +12,7 @@ var skia = skia || {};
 
 
 // Union: SerializedStaticBitmapImage
-blink.mojom.mojom.SerializedStaticBitmapImageSpec = { $: mojo.internal.Union(
+blink.mojom.SerializedStaticBitmapImageSpec = { $: mojo.internal.Union(
     'blink.mojom.SerializedStaticBitmapImage', {
       'bitmap': {
         'ordinal': 0,
@@ -26,7 +26,7 @@ blink.mojom.mojom.SerializedStaticBitmapImageSpec = { $: mojo.internal.Union(
 };
 
 // Struct: AcceleratedStaticBitmapImage
-blink.mojom.mojom.AcceleratedStaticBitmapImageSpec = {
+blink.mojom.AcceleratedStaticBitmapImageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AcceleratedStaticBitmapImage',
@@ -43,24 +43,37 @@ blink.mojom.mojom.AcceleratedStaticBitmapImageSpec = {
 };
 
 // Interface: ImageReleaseCallback
-blink.mojom.mojom.ImageReleaseCallback = {};
+blink.mojom.ImageReleaseCallback = {};
 
-blink.mojom.mojom.ImageReleaseCallbackPendingReceiver = class {
+blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ImageReleaseCallback_Release_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ImageReleaseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ImageReleaseCallbackRemote = class {
+blink.mojom.ImageReleaseCallbackRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ImageReleaseCallback';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ImageReleaseCallbackPendingReceiver,
+      blink.mojom.ImageReleaseCallbackPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ImageReleaseCallbackRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ImageReleaseCallbackRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -72,7 +85,7 @@ blink.mojom.mojom.ImageReleaseCallbackRemote = class {
   }
 };
 
-blink.mojom.mojom.ImageReleaseCallbackRemoteCallHandler = class {
+blink.mojom.ImageReleaseCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -81,15 +94,15 @@ blink.mojom.mojom.ImageReleaseCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ImageReleaseCallback_Release_ParamsSpec,
+      blink.mojom.ImageReleaseCallback_Release_ParamsSpec,
       null,
       [token]);
   }
 
 };
 
-blink.mojom.mojom.ImageReleaseCallback.getRemote = function() {
-  let remote = new blink.mojom.mojom.ImageReleaseCallbackRemote();
+blink.mojom.ImageReleaseCallback.getRemote = function() {
+  let remote = new blink.mojom.ImageReleaseCallbackRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +112,7 @@ blink.mojom.mojom.ImageReleaseCallback.getRemote = function() {
 };
 
 // ParamsSpec for Release
-blink.mojom.mojom.ImageReleaseCallback_Release_ParamsSpec = {
+blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ImageReleaseCallback.Release_Params',
@@ -113,6 +126,6 @@ blink.mojom.mojom.ImageReleaseCallback_Release_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ImageReleaseCallbackPtr = blink.mojom.mojom.ImageReleaseCallbackRemote;
-blink.mojom.mojom.ImageReleaseCallbackRequest = blink.mojom.mojom.ImageReleaseCallbackPendingReceiver;
+blink.mojom.ImageReleaseCallbackPtr = blink.mojom.ImageReleaseCallbackRemote;
+blink.mojom.ImageReleaseCallbackRequest = blink.mojom.ImageReleaseCallbackPendingReceiver;
 

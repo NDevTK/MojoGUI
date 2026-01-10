@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Union: FrameToken
-blink.mojom.mojom.FrameTokenSpec = { $: mojo.internal.Union(
+blink.mojom.FrameTokenSpec = { $: mojo.internal.Union(
     'blink.mojom.FrameToken', {
       'local_frame_token': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ blink.mojom.mojom.FrameTokenSpec = { $: mojo.internal.Union(
 };
 
 // Union: WorkerToken
-blink.mojom.mojom.WorkerTokenSpec = { $: mojo.internal.Union(
+blink.mojom.WorkerTokenSpec = { $: mojo.internal.Union(
     'blink.mojom.WorkerToken', {
       'dedicated_worker_token': {
         'ordinal': 0,
@@ -42,7 +42,7 @@ blink.mojom.mojom.WorkerTokenSpec = { $: mojo.internal.Union(
 };
 
 // Union: WorkletToken
-blink.mojom.mojom.WorkletTokenSpec = { $: mojo.internal.Union(
+blink.mojom.WorkletTokenSpec = { $: mojo.internal.Union(
     'blink.mojom.WorkletToken', {
       'animation_worklet_token': {
         'ordinal': 0,
@@ -68,7 +68,7 @@ blink.mojom.mojom.WorkletTokenSpec = { $: mojo.internal.Union(
 };
 
 // Union: ExecutionContextToken
-blink.mojom.mojom.ExecutionContextTokenSpec = { $: mojo.internal.Union(
+blink.mojom.ExecutionContextTokenSpec = { $: mojo.internal.Union(
     'blink.mojom.ExecutionContextToken', {
       'local_frame_token': {
         'ordinal': 0,
@@ -114,7 +114,7 @@ blink.mojom.mojom.ExecutionContextTokenSpec = { $: mojo.internal.Union(
 };
 
 // Union: WebGPUExecutionContextToken
-blink.mojom.mojom.WebGPUExecutionContextTokenSpec = { $: mojo.internal.Union(
+blink.mojom.WebGPUExecutionContextTokenSpec = { $: mojo.internal.Union(
     'blink.mojom.WebGPUExecutionContextToken', {
       'document_token': {
         'ordinal': 0,
@@ -136,7 +136,7 @@ blink.mojom.mojom.WebGPUExecutionContextTokenSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DocumentToken
-blink.mojom.mojom.DocumentTokenSpec = {
+blink.mojom.DocumentTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DocumentToken',
@@ -150,7 +150,7 @@ blink.mojom.mojom.DocumentTokenSpec = {
 };
 
 // Struct: LocalFrameToken
-blink.mojom.mojom.LocalFrameTokenSpec = {
+blink.mojom.LocalFrameTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LocalFrameToken',
@@ -164,7 +164,7 @@ blink.mojom.mojom.LocalFrameTokenSpec = {
 };
 
 // Struct: RemoteFrameToken
-blink.mojom.mojom.RemoteFrameTokenSpec = {
+blink.mojom.RemoteFrameTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameToken',
@@ -178,7 +178,7 @@ blink.mojom.mojom.RemoteFrameTokenSpec = {
 };
 
 // Struct: DedicatedWorkerToken
-blink.mojom.mojom.DedicatedWorkerTokenSpec = {
+blink.mojom.DedicatedWorkerTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DedicatedWorkerToken',
@@ -192,7 +192,7 @@ blink.mojom.mojom.DedicatedWorkerTokenSpec = {
 };
 
 // Struct: ServiceWorkerToken
-blink.mojom.mojom.ServiceWorkerTokenSpec = {
+blink.mojom.ServiceWorkerTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerToken',
@@ -206,7 +206,7 @@ blink.mojom.mojom.ServiceWorkerTokenSpec = {
 };
 
 // Struct: SharedWorkerToken
-blink.mojom.mojom.SharedWorkerTokenSpec = {
+blink.mojom.SharedWorkerTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerToken',
@@ -220,7 +220,7 @@ blink.mojom.mojom.SharedWorkerTokenSpec = {
 };
 
 // Struct: AnimationWorkletToken
-blink.mojom.mojom.AnimationWorkletTokenSpec = {
+blink.mojom.AnimationWorkletTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnimationWorkletToken',
@@ -234,7 +234,7 @@ blink.mojom.mojom.AnimationWorkletTokenSpec = {
 };
 
 // Struct: AudioWorkletToken
-blink.mojom.mojom.AudioWorkletTokenSpec = {
+blink.mojom.AudioWorkletTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AudioWorkletToken',
@@ -248,7 +248,7 @@ blink.mojom.mojom.AudioWorkletTokenSpec = {
 };
 
 // Struct: LayoutWorkletToken
-blink.mojom.mojom.LayoutWorkletTokenSpec = {
+blink.mojom.LayoutWorkletTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LayoutWorkletToken',
@@ -262,7 +262,7 @@ blink.mojom.mojom.LayoutWorkletTokenSpec = {
 };
 
 // Struct: PaintWorkletToken
-blink.mojom.mojom.PaintWorkletTokenSpec = {
+blink.mojom.PaintWorkletTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PaintWorkletToken',
@@ -276,7 +276,7 @@ blink.mojom.mojom.PaintWorkletTokenSpec = {
 };
 
 // Struct: SharedStorageWorkletToken
-blink.mojom.mojom.SharedStorageWorkletTokenSpec = {
+blink.mojom.SharedStorageWorkletTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedStorageWorkletToken',
@@ -290,7 +290,7 @@ blink.mojom.mojom.SharedStorageWorkletTokenSpec = {
 };
 
 // Struct: ShadowRealmToken
-blink.mojom.mojom.ShadowRealmTokenSpec = {
+blink.mojom.ShadowRealmTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ShadowRealmToken',
@@ -304,7 +304,7 @@ blink.mojom.mojom.ShadowRealmTokenSpec = {
 };
 
 // Struct: AttributionSrcToken
-blink.mojom.mojom.AttributionSrcTokenSpec = {
+blink.mojom.AttributionSrcTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AttributionSrcToken',
@@ -318,7 +318,7 @@ blink.mojom.mojom.AttributionSrcTokenSpec = {
 };
 
 // Struct: SameDocNavigationScreenshotDestinationToken
-blink.mojom.mojom.SameDocNavigationScreenshotDestinationTokenSpec = {
+blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SameDocNavigationScreenshotDestinationToken',
@@ -332,7 +332,7 @@ blink.mojom.mojom.SameDocNavigationScreenshotDestinationTokenSpec = {
 };
 
 // Struct: V8ContextToken
-blink.mojom.mojom.V8ContextTokenSpec = {
+blink.mojom.V8ContextTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.V8ContextToken',
@@ -346,7 +346,7 @@ blink.mojom.mojom.V8ContextTokenSpec = {
 };
 
 // Struct: ViewTransitionToken
-blink.mojom.mojom.ViewTransitionTokenSpec = {
+blink.mojom.ViewTransitionTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewTransitionToken',
@@ -360,7 +360,7 @@ blink.mojom.mojom.ViewTransitionTokenSpec = {
 };
 
 // Struct: WebNNContextToken
-blink.mojom.mojom.WebNNContextTokenSpec = {
+blink.mojom.WebNNContextTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebNNContextToken',
@@ -374,7 +374,7 @@ blink.mojom.mojom.WebNNContextTokenSpec = {
 };
 
 // Struct: WebNNPendingConstantToken
-blink.mojom.mojom.WebNNPendingConstantTokenSpec = {
+blink.mojom.WebNNPendingConstantTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebNNPendingConstantToken',
@@ -388,7 +388,7 @@ blink.mojom.mojom.WebNNPendingConstantTokenSpec = {
 };
 
 // Struct: WebNNTensorToken
-blink.mojom.mojom.WebNNTensorTokenSpec = {
+blink.mojom.WebNNTensorTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebNNTensorToken',

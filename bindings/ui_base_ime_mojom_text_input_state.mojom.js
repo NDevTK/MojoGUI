@@ -16,7 +16,7 @@ var gfx = gfx || {};
 
 
 // Struct: ImeTextSpanInfo
-ui.mojom.mojom.ImeTextSpanInfoSpec = {
+ui.mojom.ImeTextSpanInfoSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ImeTextSpanInfo',
@@ -31,7 +31,7 @@ ui.mojom.mojom.ImeTextSpanInfoSpec = {
 };
 
 // Struct: TextInputState
-ui.mojom.mojom.TextInputStateSpec = {
+ui.mojom.TextInputStateSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.TextInputState',

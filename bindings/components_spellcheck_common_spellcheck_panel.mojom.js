@@ -10,24 +10,49 @@ spellcheck.mojom = spellcheck.mojom || {};
 
 
 // Interface: SpellCheckPanel
-spellcheck.mojom.mojom.SpellCheckPanel = {};
+spellcheck.mojom.SpellCheckPanel = {};
 
-spellcheck.mojom.mojom.SpellCheckPanelPendingReceiver = class {
+spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckPanelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckPanelRemote = class {
+spellcheck.mojom.SpellCheckPanelRemote = class {
   static get $interfaceName() {
     return 'spellcheck.mojom.SpellCheckPanel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      spellcheck.mojom.mojom.SpellCheckPanelPendingReceiver,
+      spellcheck.mojom.SpellCheckPanelPendingReceiver,
       handle);
-    this.$ = new spellcheck.mojom.mojom.SpellCheckPanelRemoteCallHandler(this.proxy);
+    this.$ = new spellcheck.mojom.SpellCheckPanelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +64,7 @@ spellcheck.mojom.mojom.SpellCheckPanelRemote = class {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckPanelRemoteCallHandler = class {
+spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +73,7 @@ spellcheck.mojom.mojom.SpellCheckPanelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec,
+      spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec,
       null,
       [visible]);
   }
@@ -57,15 +82,15 @@ spellcheck.mojom.mojom.SpellCheckPanelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec,
+      spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec,
       null,
       []);
   }
 
 };
 
-spellcheck.mojom.mojom.SpellCheckPanel.getRemote = function() {
-  let remote = new spellcheck.mojom.mojom.SpellCheckPanelRemote();
+spellcheck.mojom.SpellCheckPanel.getRemote = function() {
+  let remote = new spellcheck.mojom.SpellCheckPanelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +100,7 @@ spellcheck.mojom.mojom.SpellCheckPanel.getRemote = function() {
 };
 
 // ParamsSpec for ToggleSpellPanel
-spellcheck.mojom.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
+spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckPanel.ToggleSpellPanel_Params',
@@ -89,7 +114,7 @@ spellcheck.mojom.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
 };
 
 // ParamsSpec for AdvanceToNextMisspelling
-spellcheck.mojom.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
+spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckPanel.AdvanceToNextMisspelling_Params',
@@ -102,29 +127,55 @@ spellcheck.mojom.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
 };
 
 // Legacy compatibility
-spellcheck.mojom.mojom.SpellCheckPanelPtr = spellcheck.mojom.mojom.SpellCheckPanelRemote;
-spellcheck.mojom.mojom.SpellCheckPanelRequest = spellcheck.mojom.mojom.SpellCheckPanelPendingReceiver;
+spellcheck.mojom.SpellCheckPanelPtr = spellcheck.mojom.SpellCheckPanelRemote;
+spellcheck.mojom.SpellCheckPanelRequest = spellcheck.mojom.SpellCheckPanelPendingReceiver;
 
 
 // Interface: SpellCheckPanelHost
-spellcheck.mojom.mojom.SpellCheckPanelHost = {};
+spellcheck.mojom.SpellCheckPanelHost = {};
 
-spellcheck.mojom.mojom.SpellCheckPanelHostPendingReceiver = class {
+spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckPanelHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckPanelHostRemote = class {
+spellcheck.mojom.SpellCheckPanelHostRemote = class {
   static get $interfaceName() {
     return 'spellcheck.mojom.SpellCheckPanelHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      spellcheck.mojom.mojom.SpellCheckPanelHostPendingReceiver,
+      spellcheck.mojom.SpellCheckPanelHostPendingReceiver,
       handle);
-    this.$ = new spellcheck.mojom.mojom.SpellCheckPanelHostRemoteCallHandler(this.proxy);
+    this.$ = new spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -136,7 +187,7 @@ spellcheck.mojom.mojom.SpellCheckPanelHostRemote = class {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckPanelHostRemoteCallHandler = class {
+spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -145,7 +196,7 @@ spellcheck.mojom.mojom.SpellCheckPanelHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec,
+      spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec,
       null,
       [show]);
   }
@@ -154,15 +205,15 @@ spellcheck.mojom.mojom.SpellCheckPanelHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec,
+      spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec,
       null,
       [word]);
   }
 
 };
 
-spellcheck.mojom.mojom.SpellCheckPanelHost.getRemote = function() {
-  let remote = new spellcheck.mojom.mojom.SpellCheckPanelHostRemote();
+spellcheck.mojom.SpellCheckPanelHost.getRemote = function() {
+  let remote = new spellcheck.mojom.SpellCheckPanelHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -172,7 +223,7 @@ spellcheck.mojom.mojom.SpellCheckPanelHost.getRemote = function() {
 };
 
 // ParamsSpec for ShowSpellingPanel
-spellcheck.mojom.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
+spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckPanelHost.ShowSpellingPanel_Params',
@@ -186,7 +237,7 @@ spellcheck.mojom.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateSpellingPanelWithMisspelledWord
-spellcheck.mojom.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = {
+spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckPanelHost.UpdateSpellingPanelWithMisspelledWord_Params',
@@ -200,6 +251,6 @@ spellcheck.mojom.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord
 };
 
 // Legacy compatibility
-spellcheck.mojom.mojom.SpellCheckPanelHostPtr = spellcheck.mojom.mojom.SpellCheckPanelHostRemote;
-spellcheck.mojom.mojom.SpellCheckPanelHostRequest = spellcheck.mojom.mojom.SpellCheckPanelHostPendingReceiver;
+spellcheck.mojom.SpellCheckPanelHostPtr = spellcheck.mojom.SpellCheckPanelHostRemote;
+spellcheck.mojom.SpellCheckPanelHostRequest = spellcheck.mojom.SpellCheckPanelHostPendingReceiver;
 

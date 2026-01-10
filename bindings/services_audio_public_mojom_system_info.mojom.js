@@ -10,24 +10,124 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: SystemInfo
-audio.mojom.mojom.SystemInfo = {};
+audio.mojom.SystemInfo = {};
 
-audio.mojom.mojom.SystemInfoPendingReceiver = class {
+audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_GetInputStreamParameters_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_GetOutputStreamParameters_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.SystemInfo_HasInputDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_HasInputDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_HasOutputDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_GetInputDeviceDescriptions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_GetOutputDeviceDescriptions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'input_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.SystemInfo_GetInputDeviceInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'input_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.SystemInfoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.mojom.SystemInfoRemote = class {
+audio.mojom.SystemInfoRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.SystemInfo';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.mojom.SystemInfoPendingReceiver,
+      audio.mojom.SystemInfoPendingReceiver,
       handle);
-    this.$ = new audio.mojom.mojom.SystemInfoRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.SystemInfoRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +139,7 @@ audio.mojom.mojom.SystemInfoRemote = class {
   }
 };
 
-audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
+audio.mojom.SystemInfoRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +148,8 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
+      audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec,
+      audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -57,8 +157,8 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
+      audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec,
+      audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -66,8 +166,8 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      audio.mojom.mojom.SystemInfo_HasInputDevices_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
+      audio.mojom.SystemInfo_HasInputDevices_ParamsSpec,
+      audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +175,8 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      audio.mojom.mojom.SystemInfo_HasOutputDevices_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
+      audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec,
+      audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
       []);
   }
 
@@ -84,8 +184,8 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      audio.mojom.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
+      audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec,
+      audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
       []);
   }
 
@@ -93,8 +193,8 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      audio.mojom.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
+      audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec,
+      audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
       []);
   }
 
@@ -102,8 +202,8 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      audio.mojom.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
+      audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec,
+      audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
       [input_device_id]);
   }
 
@@ -111,15 +211,15 @@ audio.mojom.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      audio.mojom.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec,
-      audio.mojom.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
+      audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec,
+      audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
       [input_device_id]);
   }
 
 };
 
-audio.mojom.mojom.SystemInfo.getRemote = function() {
-  let remote = new audio.mojom.mojom.SystemInfoRemote();
+audio.mojom.SystemInfo.getRemote = function() {
+  let remote = new audio.mojom.SystemInfoRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -129,7 +229,7 @@ audio.mojom.mojom.SystemInfo.getRemote = function() {
 };
 
 // ParamsSpec for GetInputStreamParameters
-audio.mojom.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
+audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetInputStreamParameters_Params',
@@ -142,7 +242,7 @@ audio.mojom.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
+audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetInputStreamParameters_ResponseParams',
@@ -156,7 +256,7 @@ audio.mojom.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetOutputStreamParameters
-audio.mojom.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
+audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetOutputStreamParameters_Params',
@@ -169,7 +269,7 @@ audio.mojom.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
+audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetOutputStreamParameters_ResponseParams',
@@ -183,7 +283,7 @@ audio.mojom.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
 };
 
 // ParamsSpec for HasInputDevices
-audio.mojom.mojom.SystemInfo_HasInputDevices_ParamsSpec = {
+audio.mojom.SystemInfo_HasInputDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.HasInputDevices_Params',
@@ -195,7 +295,7 @@ audio.mojom.mojom.SystemInfo_HasInputDevices_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = {
+audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.HasInputDevices_ResponseParams',
@@ -209,7 +309,7 @@ audio.mojom.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for HasOutputDevices
-audio.mojom.mojom.SystemInfo_HasOutputDevices_ParamsSpec = {
+audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.HasOutputDevices_Params',
@@ -221,7 +321,7 @@ audio.mojom.mojom.SystemInfo_HasOutputDevices_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = {
+audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.HasOutputDevices_ResponseParams',
@@ -235,7 +335,7 @@ audio.mojom.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetInputDeviceDescriptions
-audio.mojom.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = {
+audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetInputDeviceDescriptions_Params',
@@ -247,7 +347,7 @@ audio.mojom.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = {
+audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetInputDeviceDescriptions_ResponseParams',
@@ -261,7 +361,7 @@ audio.mojom.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetOutputDeviceDescriptions
-audio.mojom.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = {
+audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetOutputDeviceDescriptions_Params',
@@ -273,7 +373,7 @@ audio.mojom.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = {
+audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetOutputDeviceDescriptions_ResponseParams',
@@ -287,7 +387,7 @@ audio.mojom.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAssociatedOutputDeviceID
-audio.mojom.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
+audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetAssociatedOutputDeviceID_Params',
@@ -300,7 +400,7 @@ audio.mojom.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = {
+audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetAssociatedOutputDeviceID_ResponseParams',
@@ -314,7 +414,7 @@ audio.mojom.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetInputDeviceInfo
-audio.mojom.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
+audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetInputDeviceInfo_Params',
@@ -327,7 +427,7 @@ audio.mojom.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
   }
 };
 
-audio.mojom.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
+audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.SystemInfo.GetInputDeviceInfo_ResponseParams',
@@ -342,6 +442,6 @@ audio.mojom.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.mojom.SystemInfoPtr = audio.mojom.mojom.SystemInfoRemote;
-audio.mojom.mojom.SystemInfoRequest = audio.mojom.mojom.SystemInfoPendingReceiver;
+audio.mojom.SystemInfoPtr = audio.mojom.SystemInfoRemote;
+audio.mojom.SystemInfoRequest = audio.mojom.SystemInfoPendingReceiver;
 

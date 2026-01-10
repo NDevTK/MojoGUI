@@ -15,7 +15,7 @@ var skia = skia || {};
 
 
 // Struct: CompositorRenderPass
-viz.mojom.mojom.CompositorRenderPassSpec = {
+viz.mojom.CompositorRenderPassSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorRenderPass',

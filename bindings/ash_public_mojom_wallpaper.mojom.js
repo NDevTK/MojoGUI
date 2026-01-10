@@ -10,15 +10,15 @@ ash.mojom = ash.mojom || {};
 
 
 // Enum: WallpaperLayout
-ash.mojom.mojom.WallpaperLayout = {
+ash.mojom.WallpaperLayout = {
   kStretch: 0,
   kCenter: 1,
   kCenterCropped: 2,
 };
-ash.mojom.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
+ash.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
 
 // Union: SetWallpaperResult
-ash.mojom.mojom.SetWallpaperResultSpec = { $: mojo.internal.Union(
+ash.mojom.SetWallpaperResultSpec = { $: mojo.internal.Union(
     'ash.mojom.SetWallpaperResult', {
       'thumbnail_data': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ ash.mojom.mojom.SetWallpaperResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: WallpaperSettings
-ash.mojom.mojom.WallpaperSettingsSpec = {
+ash.mojom.WallpaperSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.WallpaperSettings',

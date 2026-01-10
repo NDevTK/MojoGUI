@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Enum: ProxyScheme
-network.mojom.mojom.ProxyScheme = {
+network.mojom.ProxyScheme = {
   kInvalid: 0,
   kHttp: 1,
   kSocks4: 2,
@@ -19,10 +19,10 @@ network.mojom.mojom.ProxyScheme = {
   kHttps: 4,
   kQuic: 5,
 };
-network.mojom.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
+network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AuthChallengeInfo
-network.mojom.mojom.AuthChallengeInfoSpec = {
+network.mojom.AuthChallengeInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AuthChallengeInfo',
@@ -41,7 +41,7 @@ network.mojom.mojom.AuthChallengeInfoSpec = {
 };
 
 // Struct: HttpVersion
-network.mojom.mojom.HttpVersionSpec = {
+network.mojom.HttpVersionSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpVersion',
@@ -56,7 +56,7 @@ network.mojom.mojom.HttpVersionSpec = {
 };
 
 // Struct: HostPortPair
-network.mojom.mojom.HostPortPairSpec = {
+network.mojom.HostPortPairSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HostPortPair',
@@ -71,7 +71,7 @@ network.mojom.mojom.HostPortPairSpec = {
 };
 
 // Struct: ProxyServer
-network.mojom.mojom.ProxyServerSpec = {
+network.mojom.ProxyServerSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyServer',
@@ -86,7 +86,7 @@ network.mojom.mojom.ProxyServerSpec = {
 };
 
 // Struct: ProxyChain
-network.mojom.mojom.ProxyChainSpec = {
+network.mojom.ProxyChainSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyChain',
@@ -101,7 +101,7 @@ network.mojom.mojom.ProxyChainSpec = {
 };
 
 // Struct: ResolveErrorInfo
-network.mojom.mojom.ResolveErrorInfoSpec = {
+network.mojom.ResolveErrorInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveErrorInfo',
@@ -116,7 +116,7 @@ network.mojom.mojom.ResolveErrorInfoSpec = {
 };
 
 // Struct: SSLCertRequestInfo
-network.mojom.mojom.SSLCertRequestInfoSpec = {
+network.mojom.SSLCertRequestInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLCertRequestInfo',
@@ -133,7 +133,7 @@ network.mojom.mojom.SSLCertRequestInfoSpec = {
 };
 
 // Struct: NetLogSource
-network.mojom.mojom.NetLogSourceSpec = {
+network.mojom.NetLogSourceSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogSource',

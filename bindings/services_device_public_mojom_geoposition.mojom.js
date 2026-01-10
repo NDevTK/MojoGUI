@@ -9,30 +9,30 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
-device.mojom.mojom.kBadLatitudeLongitude = 200;
+device.mojom.kBadLatitudeLongitude = 200;
 
-device.mojom.mojom.kBadAltitude = -10000;
+device.mojom.kBadAltitude = -10000;
 
-device.mojom.mojom.kBadAccuracy = -1;
+device.mojom.kBadAccuracy = -1;
 
-device.mojom.mojom.kBadHeading = -1;
+device.mojom.kBadHeading = -1;
 
-device.mojom.mojom.kBadSpeed = -1;
+device.mojom.kBadSpeed = -1;
 
-device.mojom.mojom.kGeoPermissionDeniedErrorMessage = "User denied geolocation permission";
+device.mojom.kGeoPermissionDeniedErrorMessage = "User denied geolocation permission";
 
-device.mojom.mojom.kGeoPositionUnavailableErrorMessage = "Position update is unavailable";
+device.mojom.kGeoPositionUnavailableErrorMessage = "Position update is unavailable";
 
 // Enum: GeopositionErrorCode
-device.mojom.mojom.GeopositionErrorCode = {
+device.mojom.GeopositionErrorCode = {
   kPermissionDenied: 0,
   kPositionUnavailable: 1,
   kWifiDisabled: 2,
 };
-device.mojom.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
+device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: GeopositionResult
-device.mojom.mojom.GeopositionResultSpec = { $: mojo.internal.Union(
+device.mojom.GeopositionResultSpec = { $: mojo.internal.Union(
     'device.mojom.GeopositionResult', {
       'position': {
         'ordinal': 0,
@@ -46,7 +46,7 @@ device.mojom.mojom.GeopositionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Geoposition
-device.mojom.mojom.GeopositionSpec = {
+device.mojom.GeopositionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Geoposition',
@@ -68,7 +68,7 @@ device.mojom.mojom.GeopositionSpec = {
 };
 
 // Struct: GeopositionError
-device.mojom.mojom.GeopositionErrorSpec = {
+device.mojom.GeopositionErrorSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GeopositionError',

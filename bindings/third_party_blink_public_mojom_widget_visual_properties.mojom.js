@@ -15,7 +15,7 @@ var ui = ui || {};
 
 
 // Struct: VisualProperties
-blink.mojom.mojom.VisualPropertiesSpec = {
+blink.mojom.VisualPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.VisualProperties',

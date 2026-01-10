@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: AggregatedHitTestRegion
-viz.mojom.mojom.AggregatedHitTestRegionSpec = {
+viz.mojom.AggregatedHitTestRegionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AggregatedHitTestRegion',

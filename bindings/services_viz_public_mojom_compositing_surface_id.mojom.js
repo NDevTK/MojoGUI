@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: SurfaceId
-viz.mojom.mojom.SurfaceIdSpec = {
+viz.mojom.SurfaceIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SurfaceId',

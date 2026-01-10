@@ -11,24 +11,37 @@ var blink = blink || {};
 
 
 // Interface: RendererPreferenceWatcher
-blink.mojom.mojom.RendererPreferenceWatcher = {};
+blink.mojom.RendererPreferenceWatcher = {};
 
-blink.mojom.mojom.RendererPreferenceWatcherPendingReceiver = class {
+blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_prefs', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RendererPreferencesSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.RendererPreferenceWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.RendererPreferenceWatcherRemote = class {
+blink.mojom.RendererPreferenceWatcherRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RendererPreferenceWatcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.RendererPreferenceWatcherPendingReceiver,
+      blink.mojom.RendererPreferenceWatcherPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.RendererPreferenceWatcherRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.RendererPreferenceWatcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ blink.mojom.mojom.RendererPreferenceWatcherRemote = class {
   }
 };
 
-blink.mojom.mojom.RendererPreferenceWatcherRemoteCallHandler = class {
+blink.mojom.RendererPreferenceWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ blink.mojom.mojom.RendererPreferenceWatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec,
+      blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec,
       null,
       [new_prefs]);
   }
 
 };
 
-blink.mojom.mojom.RendererPreferenceWatcher.getRemote = function() {
-  let remote = new blink.mojom.mojom.RendererPreferenceWatcherRemote();
+blink.mojom.RendererPreferenceWatcher.getRemote = function() {
+  let remote = new blink.mojom.RendererPreferenceWatcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ blink.mojom.mojom.RendererPreferenceWatcher.getRemote = function() {
 };
 
 // ParamsSpec for NotifyUpdate
-blink.mojom.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
+blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererPreferenceWatcher.NotifyUpdate_Params',
@@ -81,6 +94,6 @@ blink.mojom.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.RendererPreferenceWatcherPtr = blink.mojom.mojom.RendererPreferenceWatcherRemote;
-blink.mojom.mojom.RendererPreferenceWatcherRequest = blink.mojom.mojom.RendererPreferenceWatcherPendingReceiver;
+blink.mojom.RendererPreferenceWatcherPtr = blink.mojom.RendererPreferenceWatcherRemote;
+blink.mojom.RendererPreferenceWatcherRequest = blink.mojom.RendererPreferenceWatcherPendingReceiver;
 

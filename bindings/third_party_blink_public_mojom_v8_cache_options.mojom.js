@@ -10,11 +10,11 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: V8CacheOptions
-blink.mojom.mojom.V8CacheOptions = {
+blink.mojom.V8CacheOptions = {
   kDefault: 0,
   kNone: 1,
   kCode: 2,
   kCodeWithoutHeatCheck: 3,
   kFullCodeWithoutHeatCheck: 4,
 };
-blink.mojom.mojom.V8CacheOptionsSpec = { $: mojo.internal.Enum() };
+blink.mojom.V8CacheOptionsSpec = { $: mojo.internal.Enum() };

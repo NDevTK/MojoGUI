@@ -10,24 +10,37 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: StructuredMetricsService
-crosapi.mojom.mojom.StructuredMetricsService = {};
+crosapi.mojom.StructuredMetricsService = {};
 
-crosapi.mojom.mojom.StructuredMetricsServicePendingReceiver = class {
+crosapi.mojom.StructuredMetricsService_Record_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.StructuredMetricsService_Record_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(metrics.structured.mojom.EventSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.StructuredMetricsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.StructuredMetricsServiceRemote = class {
+crosapi.mojom.StructuredMetricsServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.StructuredMetricsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.StructuredMetricsServicePendingReceiver,
+      crosapi.mojom.StructuredMetricsServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.StructuredMetricsServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.StructuredMetricsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ crosapi.mojom.mojom.StructuredMetricsServiceRemote = class {
   }
 };
 
-crosapi.mojom.mojom.StructuredMetricsServiceRemoteCallHandler = class {
+crosapi.mojom.StructuredMetricsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ crosapi.mojom.mojom.StructuredMetricsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.StructuredMetricsService_Record_ParamsSpec,
+      crosapi.mojom.StructuredMetricsService_Record_ParamsSpec,
       null,
       [events]);
   }
 
 };
 
-crosapi.mojom.mojom.StructuredMetricsService.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.StructuredMetricsServiceRemote();
+crosapi.mojom.StructuredMetricsService.getRemote = function() {
+  let remote = new crosapi.mojom.StructuredMetricsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ crosapi.mojom.mojom.StructuredMetricsService.getRemote = function() {
 };
 
 // ParamsSpec for Record
-crosapi.mojom.mojom.StructuredMetricsService_Record_ParamsSpec = {
+crosapi.mojom.StructuredMetricsService_Record_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.StructuredMetricsService.Record_Params',
@@ -80,6 +93,6 @@ crosapi.mojom.mojom.StructuredMetricsService_Record_ParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.StructuredMetricsServicePtr = crosapi.mojom.mojom.StructuredMetricsServiceRemote;
-crosapi.mojom.mojom.StructuredMetricsServiceRequest = crosapi.mojom.mojom.StructuredMetricsServicePendingReceiver;
+crosapi.mojom.StructuredMetricsServicePtr = crosapi.mojom.StructuredMetricsServiceRemote;
+crosapi.mojom.StructuredMetricsServiceRequest = crosapi.mojom.StructuredMetricsServicePendingReceiver;
 

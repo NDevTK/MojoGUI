@@ -15,66 +15,66 @@ var url = url || {};
 
 
 // Enum: PointerType
-blink.mojom.mojom.PointerType = {
+blink.mojom.PointerType = {
   kPointerNone: 0,
   kPointerFirstType: 1,
   kPointerCoarseType: 2,
   kPointerFineType: 3,
 };
-blink.mojom.mojom.PointerTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PointerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HoverType
-blink.mojom.mojom.HoverType = {
+blink.mojom.HoverType = {
   kHoverNone: 0,
   kHoverFirstType: 1,
   kHoverHoverType: 2,
 };
-blink.mojom.mojom.HoverTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.HoverTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OutputDeviceUpdateAbilityType
-blink.mojom.mojom.OutputDeviceUpdateAbilityType = {
+blink.mojom.OutputDeviceUpdateAbilityType = {
   kSlowType: 0,
   kFastType: 1,
 };
-blink.mojom.mojom.OutputDeviceUpdateAbilityTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.OutputDeviceUpdateAbilityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EditingBehavior
-blink.mojom.mojom.EditingBehavior = {
+blink.mojom.EditingBehavior = {
   kEditingMacBehavior: 0,
   kEditingWindowsBehavior: 1,
   kEditingUnixBehavior: 2,
   kEditingAndroidBehavior: 3,
   kEditingChromeOSBehavior: 4,
 };
-blink.mojom.mojom.EditingBehaviorSpec = { $: mojo.internal.Enum() };
+blink.mojom.EditingBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImageAnimationPolicy
-blink.mojom.mojom.ImageAnimationPolicy = {
+blink.mojom.ImageAnimationPolicy = {
   kImageAnimationPolicyAllowed: 0,
   kImageAnimationPolicyAnimateOnce: 1,
   kImageAnimationPolicyNoAnimation: 2,
 };
-blink.mojom.mojom.ImageAnimationPolicySpec = { $: mojo.internal.Enum() };
+blink.mojom.ImageAnimationPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: ViewportStyle
-blink.mojom.mojom.ViewportStyle = {
+blink.mojom.ViewportStyle = {
   kDefault: 0,
   kMobile: 1,
   kTelevision: 2,
   kLast: 3,
 };
-blink.mojom.mojom.ViewportStyleSpec = { $: mojo.internal.Enum() };
+blink.mojom.ViewportStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutoplayPolicy
-blink.mojom.mojom.AutoplayPolicy = {
+blink.mojom.AutoplayPolicy = {
   kNoUserGestureRequired: 0,
   kUserGestureRequired: 1,
   kDocumentUserActivationRequired: 2,
 };
-blink.mojom.mojom.AutoplayPolicySpec = { $: mojo.internal.Enum() };
+blink.mojom.AutoplayPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: EffectiveConnectionType
-blink.mojom.mojom.EffectiveConnectionType = {
+blink.mojom.EffectiveConnectionType = {
   kEffectiveConnectionUnknownType: 0,
   kEffectiveConnectionOfflineType: 1,
   kEffectiveConnectionSlow2GType: 2,
@@ -83,10 +83,10 @@ blink.mojom.mojom.EffectiveConnectionType = {
   kEffectiveConnection4GType: 5,
   kEffectiveConnectionTypeLast: 6,
 };
-blink.mojom.mojom.EffectiveConnectionTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.EffectiveConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebPreferences
-blink.mojom.mojom.WebPreferencesSpec = {
+blink.mojom.WebPreferencesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPreferences',

@@ -18,7 +18,7 @@ var gfx = gfx || {};
 
 
 // Struct: SharedQuadState
-viz.mojom.mojom.SharedQuadStateSpec = {
+viz.mojom.SharedQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SharedQuadState',

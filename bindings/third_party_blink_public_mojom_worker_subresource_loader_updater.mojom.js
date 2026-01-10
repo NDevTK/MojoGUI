@@ -11,24 +11,37 @@ var blink = blink || {};
 
 
 // Interface: SubresourceLoaderUpdater
-blink.mojom.mojom.SubresourceLoaderUpdater = {};
+blink.mojom.SubresourceLoaderUpdater = {};
 
-blink.mojom.mojom.SubresourceLoaderUpdaterPendingReceiver = class {
+blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SubresourceLoaderUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SubresourceLoaderUpdaterRemote = class {
+blink.mojom.SubresourceLoaderUpdaterRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SubresourceLoaderUpdater';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SubresourceLoaderUpdaterPendingReceiver,
+      blink.mojom.SubresourceLoaderUpdaterPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SubresourceLoaderUpdaterRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ blink.mojom.mojom.SubresourceLoaderUpdaterRemote = class {
   }
 };
 
-blink.mojom.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
+blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ blink.mojom.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec,
+      blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
       [subresource_loader_factories]);
   }
 
 };
 
-blink.mojom.mojom.SubresourceLoaderUpdater.getRemote = function() {
-  let remote = new blink.mojom.mojom.SubresourceLoaderUpdaterRemote();
+blink.mojom.SubresourceLoaderUpdater.getRemote = function() {
+  let remote = new blink.mojom.SubresourceLoaderUpdaterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ blink.mojom.mojom.SubresourceLoaderUpdater.getRemote = function() {
 };
 
 // ParamsSpec for UpdateSubresourceLoaderFactories
-blink.mojom.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = {
+blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubresourceLoaderUpdater.UpdateSubresourceLoaderFactories_Params',
@@ -81,6 +94,6 @@ blink.mojom.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Para
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SubresourceLoaderUpdaterPtr = blink.mojom.mojom.SubresourceLoaderUpdaterRemote;
-blink.mojom.mojom.SubresourceLoaderUpdaterRequest = blink.mojom.mojom.SubresourceLoaderUpdaterPendingReceiver;
+blink.mojom.SubresourceLoaderUpdaterPtr = blink.mojom.SubresourceLoaderUpdaterRemote;
+blink.mojom.SubresourceLoaderUpdaterRequest = blink.mojom.SubresourceLoaderUpdaterPendingReceiver;
 

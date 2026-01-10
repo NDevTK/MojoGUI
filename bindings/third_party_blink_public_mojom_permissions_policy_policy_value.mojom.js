@@ -10,16 +10,16 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: PolicyValueType
-blink.mojom.mojom.PolicyValueType = {
+blink.mojom.PolicyValueType = {
   kNull: 0,
   kBool: 1,
   kDecDouble: 2,
   kEnum: 3,
 };
-blink.mojom.mojom.PolicyValueTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PolicyValueTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: PolicyValue
-blink.mojom.mojom.PolicyValueSpec = { $: mojo.internal.Union(
+blink.mojom.PolicyValueSpec = { $: mojo.internal.Union(
     'blink.mojom.PolicyValue', {
       'null_value': {
         'ordinal': 0,

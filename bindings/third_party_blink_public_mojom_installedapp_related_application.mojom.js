@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: RelatedApplication
-blink.mojom.mojom.RelatedApplicationSpec = {
+blink.mojom.RelatedApplicationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RelatedApplication',

@@ -10,24 +10,37 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: AppWindow
-extensions.mojom.mojom.AppWindow = {};
+extensions.mojom.AppWindow = {};
 
-extensions.mojom.mojom.AppWindowPendingReceiver = class {
+extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.AppWindow_SetVisuallyDeemphasized_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'deemphasized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.AppWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.AppWindowRemote = class {
+extensions.mojom.AppWindowRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.AppWindow';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.AppWindowPendingReceiver,
+      extensions.mojom.AppWindowPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.AppWindowRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.AppWindowRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ extensions.mojom.mojom.AppWindowRemote = class {
   }
 };
 
-extensions.mojom.mojom.AppWindowRemoteCallHandler = class {
+extensions.mojom.AppWindowRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ extensions.mojom.mojom.AppWindowRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
+      extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
       null,
       [deemphasized]);
   }
 
 };
 
-extensions.mojom.mojom.AppWindow.getRemote = function() {
-  let remote = new extensions.mojom.mojom.AppWindowRemote();
+extensions.mojom.AppWindow.getRemote = function() {
+  let remote = new extensions.mojom.AppWindowRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ extensions.mojom.mojom.AppWindow.getRemote = function() {
 };
 
 // ParamsSpec for SetVisuallyDeemphasized
-extensions.mojom.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
+extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.AppWindow.SetVisuallyDeemphasized_Params',
@@ -80,6 +93,6 @@ extensions.mojom.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.AppWindowPtr = extensions.mojom.mojom.AppWindowRemote;
-extensions.mojom.mojom.AppWindowRequest = extensions.mojom.mojom.AppWindowPendingReceiver;
+extensions.mojom.AppWindowPtr = extensions.mojom.AppWindowRemote;
+extensions.mojom.AppWindowRequest = extensions.mojom.AppWindowPendingReceiver;
 

@@ -10,7 +10,7 @@ access_code_cast.mojom = access_code_cast.mojom || {};
 
 
 // Enum: AddSinkResultCode
-access_code_cast.mojom.mojom.AddSinkResultCode = {
+access_code_cast.mojom.AddSinkResultCode = {
   UNKNOWN_ERROR: 0,
   OK: 1,
   AUTH_ERROR: 2,
@@ -27,34 +27,48 @@ access_code_cast.mojom.mojom.AddSinkResultCode = {
   PROFILE_SYNC_ERROR: 13,
   INTERNAL_MEDIA_ROUTER_ERROR: 14,
 };
-access_code_cast.mojom.mojom.AddSinkResultCodeSpec = { $: mojo.internal.Enum() };
+access_code_cast.mojom.AddSinkResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CastDiscoveryMethod
-access_code_cast.mojom.mojom.CastDiscoveryMethod = {
+access_code_cast.mojom.CastDiscoveryMethod = {
   QR_CODE: 0,
   INPUT_ACCESS_CODE: 1,
 };
-access_code_cast.mojom.mojom.CastDiscoveryMethodSpec = { $: mojo.internal.Enum() };
+access_code_cast.mojom.CastDiscoveryMethodSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-access_code_cast.mojom.mojom.PageHandlerFactory = {};
+access_code_cast.mojom.PageHandlerFactory = {};
 
-access_code_cast.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(access_code_cast.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(access_code_cast.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+access_code_cast.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-access_code_cast.mojom.mojom.PageHandlerFactoryRemote = class {
+access_code_cast.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'access_code_cast.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      access_code_cast.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      access_code_cast.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new access_code_cast.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new access_code_cast.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -66,7 +80,7 @@ access_code_cast.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-access_code_cast.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+access_code_cast.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -75,15 +89,15 @@ access_code_cast.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      access_code_cast.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-access_code_cast.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new access_code_cast.mojom.mojom.PageHandlerFactoryRemote();
+access_code_cast.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new access_code_cast.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +107,7 @@ access_code_cast.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-access_code_cast.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'access_code_cast.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -108,29 +122,55 @@ access_code_cast.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-access_code_cast.mojom.mojom.PageHandlerFactoryPtr = access_code_cast.mojom.mojom.PageHandlerFactoryRemote;
-access_code_cast.mojom.mojom.PageHandlerFactoryRequest = access_code_cast.mojom.mojom.PageHandlerFactoryPendingReceiver;
+access_code_cast.mojom.PageHandlerFactoryPtr = access_code_cast.mojom.PageHandlerFactoryRemote;
+access_code_cast.mojom.PageHandlerFactoryRequest = access_code_cast.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-access_code_cast.mojom.mojom.PageHandler = {};
+access_code_cast.mojom.PageHandler = {};
 
-access_code_cast.mojom.mojom.PageHandlerPendingReceiver = class {
+access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandler_AddSink_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'discovery_method', packedOffset: 8, packedBitOffset: 0, type: access_code_cast.mojom.CastDiscoveryMethodSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandler_CastToSink_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+access_code_cast.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-access_code_cast.mojom.mojom.PageHandlerRemote = class {
+access_code_cast.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'access_code_cast.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      access_code_cast.mojom.mojom.PageHandlerPendingReceiver,
+      access_code_cast.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new access_code_cast.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new access_code_cast.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -142,7 +182,7 @@ access_code_cast.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-access_code_cast.mojom.mojom.PageHandlerRemoteCallHandler = class {
+access_code_cast.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -151,8 +191,8 @@ access_code_cast.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      access_code_cast.mojom.mojom.PageHandler_AddSink_ParamsSpec,
-      access_code_cast.mojom.mojom.PageHandler_AddSink_ResponseParamsSpec,
+      access_code_cast.mojom.PageHandler_AddSink_ParamsSpec,
+      access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec,
       [access_code, discovery_method]);
   }
 
@@ -160,15 +200,15 @@ access_code_cast.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      access_code_cast.mojom.mojom.PageHandler_CastToSink_ParamsSpec,
-      access_code_cast.mojom.mojom.PageHandler_CastToSink_ResponseParamsSpec,
+      access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec,
+      access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec,
       []);
   }
 
 };
 
-access_code_cast.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new access_code_cast.mojom.mojom.PageHandlerRemote();
+access_code_cast.mojom.PageHandler.getRemote = function() {
+  let remote = new access_code_cast.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -178,7 +218,7 @@ access_code_cast.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for AddSink
-access_code_cast.mojom.mojom.PageHandler_AddSink_ParamsSpec = {
+access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'access_code_cast.mojom.PageHandler.AddSink_Params',
@@ -192,7 +232,7 @@ access_code_cast.mojom.mojom.PageHandler_AddSink_ParamsSpec = {
   }
 };
 
-access_code_cast.mojom.mojom.PageHandler_AddSink_ResponseParamsSpec = {
+access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'access_code_cast.mojom.PageHandler.AddSink_ResponseParams',
@@ -206,7 +246,7 @@ access_code_cast.mojom.mojom.PageHandler_AddSink_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CastToSink
-access_code_cast.mojom.mojom.PageHandler_CastToSink_ParamsSpec = {
+access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'access_code_cast.mojom.PageHandler.CastToSink_Params',
@@ -218,7 +258,7 @@ access_code_cast.mojom.mojom.PageHandler_CastToSink_ParamsSpec = {
   }
 };
 
-access_code_cast.mojom.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
+access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'access_code_cast.mojom.PageHandler.CastToSink_ResponseParams',
@@ -232,29 +272,29 @@ access_code_cast.mojom.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-access_code_cast.mojom.mojom.PageHandlerPtr = access_code_cast.mojom.mojom.PageHandlerRemote;
-access_code_cast.mojom.mojom.PageHandlerRequest = access_code_cast.mojom.mojom.PageHandlerPendingReceiver;
+access_code_cast.mojom.PageHandlerPtr = access_code_cast.mojom.PageHandlerRemote;
+access_code_cast.mojom.PageHandlerRequest = access_code_cast.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-access_code_cast.mojom.mojom.Page = {};
+access_code_cast.mojom.Page = {};
 
-access_code_cast.mojom.mojom.PagePendingReceiver = class {
+access_code_cast.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-access_code_cast.mojom.mojom.PageRemote = class {
+access_code_cast.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'access_code_cast.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      access_code_cast.mojom.mojom.PagePendingReceiver,
+      access_code_cast.mojom.PagePendingReceiver,
       handle);
-    this.$ = new access_code_cast.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new access_code_cast.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -266,15 +306,15 @@ access_code_cast.mojom.mojom.PageRemote = class {
   }
 };
 
-access_code_cast.mojom.mojom.PageRemoteCallHandler = class {
+access_code_cast.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-access_code_cast.mojom.mojom.Page.getRemote = function() {
-  let remote = new access_code_cast.mojom.mojom.PageRemote();
+access_code_cast.mojom.Page.getRemote = function() {
+  let remote = new access_code_cast.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -284,6 +324,6 @@ access_code_cast.mojom.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-access_code_cast.mojom.mojom.PagePtr = access_code_cast.mojom.mojom.PageRemote;
-access_code_cast.mojom.mojom.PageRequest = access_code_cast.mojom.mojom.PagePendingReceiver;
+access_code_cast.mojom.PagePtr = access_code_cast.mojom.PageRemote;
+access_code_cast.mojom.PageRequest = access_code_cast.mojom.PagePendingReceiver;
 

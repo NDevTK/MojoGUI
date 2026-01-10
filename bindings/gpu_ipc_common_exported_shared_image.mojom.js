@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: SharedImageExportResult
-gpu.mojom.mojom.SharedImageExportResultSpec = {
+gpu.mojom.SharedImageExportResultSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImageExportResult',
@@ -26,7 +26,7 @@ gpu.mojom.mojom.SharedImageExportResultSpec = {
 };
 
 // Struct: ExportedSharedImage
-gpu.mojom.mojom.ExportedSharedImageSpec = {
+gpu.mojom.ExportedSharedImageSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.ExportedSharedImage',

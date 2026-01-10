@@ -12,7 +12,7 @@ var blink = blink || {};
 
 
 // Struct: DispatchFetchEventParams
-blink.mojom.mojom.DispatchFetchEventParamsSpec = {
+blink.mojom.DispatchFetchEventParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DispatchFetchEventParams',

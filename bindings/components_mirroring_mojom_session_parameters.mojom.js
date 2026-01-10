@@ -10,15 +10,15 @@ mirroring.mojom = mirroring.mojom || {};
 
 
 // Enum: SessionType
-mirroring.mojom.mojom.SessionType = {
+mirroring.mojom.SessionType = {
   AUDIO_ONLY: 0,
   VIDEO_ONLY: 1,
   AUDIO_AND_VIDEO: 2,
 };
-mirroring.mojom.mojom.SessionTypeSpec = { $: mojo.internal.Enum() };
+mirroring.mojom.SessionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SessionParameters
-mirroring.mojom.mojom.SessionParametersSpec = {
+mirroring.mojom.SessionParametersSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionParameters',

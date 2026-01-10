@@ -7,12 +7,12 @@
 // Module namespace
 var ash = ash || {};
 ash.color_internals = ash.color_internals || {};
-ash.color_internals.color_internals.mojom = ash.color_internals.color_internals.mojom || {};
+ash.color_internals.mojom = ash.color_internals.mojom || {};
 var skia = skia || {};
 
 
 // Struct: WallpaperCalculatedColors
-ash.color_internals.color_internals.mojom.mojom.WallpaperCalculatedColorsSpec = {
+ash.color_internals.mojom.WallpaperCalculatedColorsSpec = {
   $: {
     structSpec: {
       name: 'ash.color_internals.mojom.WallpaperCalculatedColors',
@@ -27,24 +27,37 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperCalculatedColorsSpec = 
 };
 
 // Interface: WallpaperColorsObserver
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserver = {};
+ash.color_internals.mojom.WallpaperColorsObserver = {};
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverPendingReceiver = class {
+ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: ash.color_internals.mojom.WallpaperCalculatedColorsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRemote = class {
+ash.color_internals.mojom.WallpaperColorsObserverRemote = class {
   static get $interfaceName() {
     return 'ash.color_internals.mojom.WallpaperColorsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverPendingReceiver,
+      ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver,
       handle);
-    this.$ = new ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +69,7 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRemote = 
   }
 };
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRemoteCallHandler = class {
+ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,15 +78,15 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRemoteCal
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec,
+      ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec,
       null,
       [colors]);
   }
 
 };
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserver.getRemote = function() {
-  let remote = new ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRemote();
+ash.color_internals.mojom.WallpaperColorsObserver.getRemote = function() {
+  let remote = new ash.color_internals.mojom.WallpaperColorsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +96,7 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserver.getRemot
 };
 
 // ParamsSpec for OnWallpaperColorsChanged
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = {
+ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.color_internals.mojom.WallpaperColorsObserver.OnWallpaperColorsChanged_Params',
@@ -97,29 +110,42 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserver_OnWallpa
 };
 
 // Legacy compatibility
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverPtr = ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRemote;
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverRequest = ash.color_internals.color_internals.mojom.mojom.WallpaperColorsObserverPendingReceiver;
+ash.color_internals.mojom.WallpaperColorsObserverPtr = ash.color_internals.mojom.WallpaperColorsObserverRemote;
+ash.color_internals.mojom.WallpaperColorsObserverRequest = ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver;
 
 
 // Interface: WallpaperColorsHandler
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandler = {};
+ash.color_internals.mojom.WallpaperColorsHandler = {};
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerPendingReceiver = class {
+ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.color_internals.mojom.WallpaperColorsObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRemote = class {
+ash.color_internals.mojom.WallpaperColorsHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.color_internals.mojom.WallpaperColorsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerPendingReceiver,
+      ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver,
       handle);
-    this.$ = new ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -131,7 +157,7 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRemote = c
   }
 };
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
+ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -140,15 +166,15 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRemoteCall
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec,
+      ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandler.getRemote = function() {
-  let remote = new ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRemote();
+ash.color_internals.mojom.WallpaperColorsHandler.getRemote = function() {
+  let remote = new ash.color_internals.mojom.WallpaperColorsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -158,7 +184,7 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandler.getRemote
 };
 
 // ParamsSpec for SetWallpaperColorsObserver
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = {
+ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.color_internals.mojom.WallpaperColorsHandler.SetWallpaperColorsObserver_Params',
@@ -172,6 +198,6 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandler_SetWallpa
 };
 
 // Legacy compatibility
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerPtr = ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRemote;
-ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerRequest = ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandlerPendingReceiver;
+ash.color_internals.mojom.WallpaperColorsHandlerPtr = ash.color_internals.mojom.WallpaperColorsHandlerRemote;
+ash.color_internals.mojom.WallpaperColorsHandlerRequest = ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver;
 

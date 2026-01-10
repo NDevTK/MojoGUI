@@ -10,7 +10,7 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
 // Enum: SelectFileDialogType
-remote_cocoa.mojom.mojom.SelectFileDialogType = {
+remote_cocoa.mojom.SelectFileDialogType = {
   kFolder: 0,
   kUploadFolder: 1,
   kExistingFolder: 2,
@@ -18,10 +18,10 @@ remote_cocoa.mojom.mojom.SelectFileDialogType = {
   kOpenMultiFile: 4,
   kSaveAsFile: 5,
 };
-remote_cocoa.mojom.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SelectFileTypeInfo
-remote_cocoa.mojom.mojom.SelectFileTypeInfoSpec = {
+remote_cocoa.mojom.SelectFileTypeInfoSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.SelectFileTypeInfo',
@@ -38,24 +38,42 @@ remote_cocoa.mojom.mojom.SelectFileTypeInfoSpec = {
 };
 
 // Interface: SelectFileDialog
-remote_cocoa.mojom.mojom.SelectFileDialog = {};
+remote_cocoa.mojom.SelectFileDialog = {};
 
-remote_cocoa.mojom.mojom.SelectFileDialogPendingReceiver = class {
+remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.SelectFileDialog_Show_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: remote_cocoa.mojom.SelectFileDialogTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'file_types', packedOffset: 16, packedBitOffset: 0, type: remote_cocoa.mojom.SelectFileTypeInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'file_type_index', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'default_extension', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+remote_cocoa.mojom.SelectFileDialogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remote_cocoa.mojom.mojom.SelectFileDialogRemote = class {
+remote_cocoa.mojom.SelectFileDialogRemote = class {
   static get $interfaceName() {
     return 'remote_cocoa.mojom.SelectFileDialog';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remote_cocoa.mojom.mojom.SelectFileDialogPendingReceiver,
+      remote_cocoa.mojom.SelectFileDialogPendingReceiver,
       handle);
-    this.$ = new remote_cocoa.mojom.mojom.SelectFileDialogRemoteCallHandler(this.proxy);
+    this.$ = new remote_cocoa.mojom.SelectFileDialogRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -67,7 +85,7 @@ remote_cocoa.mojom.mojom.SelectFileDialogRemote = class {
   }
 };
 
-remote_cocoa.mojom.mojom.SelectFileDialogRemoteCallHandler = class {
+remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -76,15 +94,15 @@ remote_cocoa.mojom.mojom.SelectFileDialogRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.mojom.SelectFileDialog_Show_ParamsSpec,
-      remote_cocoa.mojom.mojom.SelectFileDialog_Show_ResponseParamsSpec,
+      remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec,
+      remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec,
       [type, title, file_path, file_types, file_type_index, default_extension]);
   }
 
 };
 
-remote_cocoa.mojom.mojom.SelectFileDialog.getRemote = function() {
-  let remote = new remote_cocoa.mojom.mojom.SelectFileDialogRemote();
+remote_cocoa.mojom.SelectFileDialog.getRemote = function() {
+  let remote = new remote_cocoa.mojom.SelectFileDialogRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +112,7 @@ remote_cocoa.mojom.mojom.SelectFileDialog.getRemote = function() {
 };
 
 // ParamsSpec for Show
-remote_cocoa.mojom.mojom.SelectFileDialog_Show_ParamsSpec = {
+remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.SelectFileDialog.Show_Params',
@@ -112,7 +130,7 @@ remote_cocoa.mojom.mojom.SelectFileDialog_Show_ParamsSpec = {
   }
 };
 
-remote_cocoa.mojom.mojom.SelectFileDialog_Show_ResponseParamsSpec = {
+remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.SelectFileDialog.Show_ResponseParams',
@@ -129,6 +147,6 @@ remote_cocoa.mojom.mojom.SelectFileDialog_Show_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remote_cocoa.mojom.mojom.SelectFileDialogPtr = remote_cocoa.mojom.mojom.SelectFileDialogRemote;
-remote_cocoa.mojom.mojom.SelectFileDialogRequest = remote_cocoa.mojom.mojom.SelectFileDialogPendingReceiver;
+remote_cocoa.mojom.SelectFileDialogPtr = remote_cocoa.mojom.SelectFileDialogRemote;
+remote_cocoa.mojom.SelectFileDialogRequest = remote_cocoa.mojom.SelectFileDialogPendingReceiver;
 

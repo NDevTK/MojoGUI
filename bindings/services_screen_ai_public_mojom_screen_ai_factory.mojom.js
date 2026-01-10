@@ -11,24 +11,36 @@ var ui = ui || {};
 
 
 // Interface: ScreenAIServiceShutdownHandler
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandler = {};
+screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
 
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {
+screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRemote = class {
+screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.ScreenAIServiceShutdownHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerPendingReceiver,
+      screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler(this.proxy);
+    this.$ = new screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +52,7 @@ screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRemote = class {
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
+screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +61,15 @@ screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
+      screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
       null,
       []);
   }
 
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
-  let remote = new screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRemote();
+screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
+  let remote = new screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +79,7 @@ screen_ai.mojom.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
 };
 
 // ParamsSpec for ShuttingDownOnIdle
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
+screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIServiceShutdownHandler.ShuttingDownOnIdle_Params',
@@ -80,29 +92,72 @@ screen_ai.mojom.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSp
 };
 
 // Legacy compatibility
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerPtr = screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRemote;
-screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerRequest = screen_ai.mojom.mojom.ScreenAIServiceShutdownHandlerPendingReceiver;
+screen_ai.mojom.ScreenAIServiceShutdownHandlerPtr = screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote;
+screen_ai.mojom.ScreenAIServiceShutdownHandlerRequest = screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver;
 
 
 // Interface: ScreenAIServiceFactory
-screen_ai.mojom.mojom.ScreenAIServiceFactory = {};
+screen_ai.mojom.ScreenAIServiceFactory = {};
 
-screen_ai.mojom.mojom.ScreenAIServiceFactoryPendingReceiver = class {
+screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
+        { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.OCRServiceRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
+        { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.MainContentExtractionServiceRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceFactoryRemote = class {
+screen_ai.mojom.ScreenAIServiceFactoryRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.ScreenAIServiceFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.mojom.ScreenAIServiceFactoryPendingReceiver,
+      screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.mojom.ScreenAIServiceFactoryRemoteCallHandler(this.proxy);
+    this.$ = new screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +169,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactoryRemote = class {
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
+screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,8 +178,8 @@ screen_ai.mojom.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
-      screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
       [library_path, model_files, ocr_service_receiver]);
   }
 
@@ -132,8 +187,8 @@ screen_ai.mojom.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
-      screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
       [library_path, model_files, main_content_extractor_service]);
   }
 
@@ -141,15 +196,15 @@ screen_ai.mojom.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
+      screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
       null,
       [shutdown_handler]);
   }
 
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceFactory.getRemote = function() {
-  let remote = new screen_ai.mojom.mojom.ScreenAIServiceFactoryRemote();
+screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
+  let remote = new screen_ai.mojom.ScreenAIServiceFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +214,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory.getRemote = function() {
 };
 
 // ParamsSpec for InitializeOCR
-screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
+screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeOCR_Params',
@@ -174,7 +229,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = {
+screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeOCR_ResponseParams',
@@ -188,7 +243,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = 
 };
 
 // ParamsSpec for InitializeMainContentExtraction
-screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = {
+screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeMainContentExtraction_Params',
@@ -203,7 +258,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Par
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec = {
+screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeMainContentExtraction_ResponseParams',
@@ -217,7 +272,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Res
 };
 
 // ParamsSpec for BindShutdownHandler
-screen_ai.mojom.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
+screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.BindShutdownHandler_Params',
@@ -231,6 +286,6 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-screen_ai.mojom.mojom.ScreenAIServiceFactoryPtr = screen_ai.mojom.mojom.ScreenAIServiceFactoryRemote;
-screen_ai.mojom.mojom.ScreenAIServiceFactoryRequest = screen_ai.mojom.mojom.ScreenAIServiceFactoryPendingReceiver;
+screen_ai.mojom.ScreenAIServiceFactoryPtr = screen_ai.mojom.ScreenAIServiceFactoryRemote;
+screen_ai.mojom.ScreenAIServiceFactoryRequest = screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver;
 

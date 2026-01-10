@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Struct: StackFrame
-extensions.mojom.mojom.StackFrameSpec = {
+extensions.mojom.StackFrameSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.StackFrame',

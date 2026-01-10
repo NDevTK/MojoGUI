@@ -10,7 +10,7 @@ cc.mojom = cc.mojom || {};
 
 
 // Struct: BrowserControlsParams
-cc.mojom.mojom.BrowserControlsParamsSpec = {
+cc.mojom.BrowserControlsParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.BrowserControlsParams',

@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: TimedCloudDpcOp
-arc.mojom.mojom.TimedCloudDpcOp = {
+arc.mojom.TimedCloudDpcOp = {
   DEVICE_SETUP: 0,
   SETUP_TOTAL: 1,
   SETUP_CHECK_FOR_ANDROID_ID: 2,
@@ -26,27 +26,42 @@ arc.mojom.mojom.TimedCloudDpcOp = {
   SETUP_CHECK_REGISTRATION_TOKEN: 12,
   SETUP_THIRD_PARTY_SIGNIN: 13,
 };
-arc.mojom.mojom.TimedCloudDpcOpSpec = { $: mojo.internal.Enum() };
+arc.mojom.TimedCloudDpcOpSpec = { $: mojo.internal.Enum() };
 
 // Interface: EnterpriseReportingHost
-arc.mojom.mojom.EnterpriseReportingHost = {};
+arc.mojom.EnterpriseReportingHost = {};
 
-arc.mojom.mojom.EnterpriseReportingHostPendingReceiver = class {
+arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'op', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.TimedCloudDpcOpSpec, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.EnterpriseReportingHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.EnterpriseReportingHostRemote = class {
+arc.mojom.EnterpriseReportingHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.EnterpriseReportingHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.EnterpriseReportingHostPendingReceiver,
+      arc.mojom.EnterpriseReportingHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.EnterpriseReportingHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.EnterpriseReportingHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +73,7 @@ arc.mojom.mojom.EnterpriseReportingHostRemote = class {
   }
 };
 
-arc.mojom.mojom.EnterpriseReportingHostRemoteCallHandler = class {
+arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,15 +82,15 @@ arc.mojom.mojom.EnterpriseReportingHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec,
+      arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec,
       null,
       [time_ms, op, success]);
   }
 
 };
 
-arc.mojom.mojom.EnterpriseReportingHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.EnterpriseReportingHostRemote();
+arc.mojom.EnterpriseReportingHost.getRemote = function() {
+  let remote = new arc.mojom.EnterpriseReportingHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -85,7 +100,7 @@ arc.mojom.mojom.EnterpriseReportingHost.getRemote = function() {
 };
 
 // ParamsSpec for ReportCloudDpcOperationTime
-arc.mojom.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec = {
+arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.EnterpriseReportingHost.ReportCloudDpcOperationTime_Params',
@@ -101,29 +116,54 @@ arc.mojom.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec =
 };
 
 // Legacy compatibility
-arc.mojom.mojom.EnterpriseReportingHostPtr = arc.mojom.mojom.EnterpriseReportingHostRemote;
-arc.mojom.mojom.EnterpriseReportingHostRequest = arc.mojom.mojom.EnterpriseReportingHostPendingReceiver;
+arc.mojom.EnterpriseReportingHostPtr = arc.mojom.EnterpriseReportingHostRemote;
+arc.mojom.EnterpriseReportingHostRequest = arc.mojom.EnterpriseReportingHostPendingReceiver;
 
 
 // Interface: EnterpriseReportingInstance
-arc.mojom.mojom.EnterpriseReportingInstance = {};
+arc.mojom.EnterpriseReportingInstance = {};
 
-arc.mojom.mojom.EnterpriseReportingInstancePendingReceiver = class {
+arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.EnterpriseReportingInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.EnterpriseReportingHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.EnterpriseReportingInstance_GetStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.EnterpriseReportingInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.EnterpriseReportingInstanceRemote = class {
+arc.mojom.EnterpriseReportingInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.EnterpriseReportingInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.EnterpriseReportingInstancePendingReceiver,
+      arc.mojom.EnterpriseReportingInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.EnterpriseReportingInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.EnterpriseReportingInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -135,7 +175,7 @@ arc.mojom.mojom.EnterpriseReportingInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
+arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -144,7 +184,7 @@ arc.mojom.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.EnterpriseReportingInstance_Init_ParamsSpec,
+      arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -153,15 +193,15 @@ arc.mojom.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec,
-      arc.mojom.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec,
+      arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec,
+      arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.mojom.EnterpriseReportingInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.EnterpriseReportingInstanceRemote();
+arc.mojom.EnterpriseReportingInstance.getRemote = function() {
+  let remote = new arc.mojom.EnterpriseReportingInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -171,7 +211,7 @@ arc.mojom.mojom.EnterpriseReportingInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.EnterpriseReportingInstance_Init_ParamsSpec = {
+arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.EnterpriseReportingInstance.Init_Params',
@@ -185,7 +225,7 @@ arc.mojom.mojom.EnterpriseReportingInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for GetStatus
-arc.mojom.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = {
+arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.EnterpriseReportingInstance.GetStatus_Params',
@@ -197,7 +237,7 @@ arc.mojom.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec = {
+arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.EnterpriseReportingInstance.GetStatus_ResponseParams',
@@ -212,6 +252,6 @@ arc.mojom.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.EnterpriseReportingInstancePtr = arc.mojom.mojom.EnterpriseReportingInstanceRemote;
-arc.mojom.mojom.EnterpriseReportingInstanceRequest = arc.mojom.mojom.EnterpriseReportingInstancePendingReceiver;
+arc.mojom.EnterpriseReportingInstancePtr = arc.mojom.EnterpriseReportingInstanceRemote;
+arc.mojom.EnterpriseReportingInstanceRequest = arc.mojom.EnterpriseReportingInstancePendingReceiver;
 

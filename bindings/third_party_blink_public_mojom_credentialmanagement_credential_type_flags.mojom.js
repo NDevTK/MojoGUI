@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: CredentialTypeFlags
-blink.mojom.mojom.CredentialTypeFlags = {
+blink.mojom.CredentialTypeFlags = {
   kNone: 0,
   kPassword: 1,
   kPublicKey: 2,
   kAll: 3,
 };
-blink.mojom.mojom.CredentialTypeFlagsSpec = { $: mojo.internal.Enum() };
+blink.mojom.CredentialTypeFlagsSpec = { $: mojo.internal.Enum() };

@@ -7,45 +7,58 @@
 // Module namespace
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};
-ash.local_search_service.local_search_service.mojom = ash.local_search_service.local_search_service.mojom || {};
+ash.local_search_service.mojom = ash.local_search_service.mojom || {};
 
 
 // Enum: IndexId
-ash.local_search_service.local_search_service.mojom.mojom.IndexId = {
+ash.local_search_service.mojom.IndexId = {
   kCrosSettings: 0,
   kHelpApp: 1,
   kHelpAppLauncher: 2,
   kPersonalization: 3,
   kShortcutsApp: 4,
 };
-ash.local_search_service.local_search_service.mojom.mojom.IndexIdSpec = { $: mojo.internal.Enum() };
+ash.local_search_service.mojom.IndexIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: Backend
-ash.local_search_service.local_search_service.mojom.mojom.Backend = {
+ash.local_search_service.mojom.Backend = {
   kLinearMap: 0,
   kInvertedIndex: 1,
 };
-ash.local_search_service.local_search_service.mojom.mojom.BackendSpec = { $: mojo.internal.Enum() };
+ash.local_search_service.mojom.BackendSpec = { $: mojo.internal.Enum() };
 
 // Interface: SearchMetricsReporter
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporter = {};
+ash.local_search_service.mojom.SearchMetricsReporter = {};
 
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterPendingReceiver = class {
+ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.SearchMetricsReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterRemote = class {
+ash.local_search_service.mojom.SearchMetricsReporterRemote = class {
   static get $interfaceName() {
     return 'ash.local_search_service.mojom.SearchMetricsReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterPendingReceiver,
+      ash.local_search_service.mojom.SearchMetricsReporterPendingReceiver,
       handle);
-    this.$ = new ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterRemoteCallHandler(this.proxy);
+    this.$ = new ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +70,7 @@ ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterR
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterRemoteCallHandler = class {
+ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,15 +79,15 @@ ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterR
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec,
+      ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec,
       null,
       [index_id]);
   }
 
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporter.getRemote = function() {
-  let remote = new ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterRemote();
+ash.local_search_service.mojom.SearchMetricsReporter.getRemote = function() {
+  let remote = new ash.local_search_service.mojom.SearchMetricsReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +97,7 @@ ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporter.
 };
 
 // ParamsSpec for OnSearchPerformed
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec = {
+ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.SearchMetricsReporter.OnSearchPerformed_Params',
@@ -98,29 +111,45 @@ ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporter_
 };
 
 // Legacy compatibility
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterPtr = ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterRemote;
-ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterRequest = ash.local_search_service.local_search_service.mojom.mojom.SearchMetricsReporterPendingReceiver;
+ash.local_search_service.mojom.SearchMetricsReporterPtr = ash.local_search_service.mojom.SearchMetricsReporterRemote;
+ash.local_search_service.mojom.SearchMetricsReporterRequest = ash.local_search_service.mojom.SearchMetricsReporterPendingReceiver;
 
 
 // Interface: LocalSearchService
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService = {};
+ash.local_search_service.mojom.LocalSearchService = {};
 
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServicePendingReceiver = class {
+ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.LocalSearchService_BindIndex_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false, minVersion: 0 },
+        { name: 'backend', packedOffset: 20, packedBitOffset: 0, type: ash.local_search_service.mojom.BackendSpec, nullable: false, minVersion: 0 },
+        { name: 'index_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.local_search_service.mojom.IndexRemote), nullable: false, minVersion: 0 },
+        { name: 'reporter_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.LocalSearchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRemote = class {
+ash.local_search_service.mojom.LocalSearchServiceRemote = class {
   static get $interfaceName() {
     return 'ash.local_search_service.mojom.LocalSearchService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServicePendingReceiver,
+      ash.local_search_service.mojom.LocalSearchServicePendingReceiver,
       handle);
-    this.$ = new ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -132,7 +161,7 @@ ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRemo
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRemoteCallHandler = class {
+ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -141,15 +170,15 @@ ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRemo
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService_BindIndex_ParamsSpec,
-      ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
+      ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec,
+      ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
       [index_id, backend, index_receiver, reporter_remote]);
   }
 
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService.getRemote = function() {
-  let remote = new ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRemote();
+ash.local_search_service.mojom.LocalSearchService.getRemote = function() {
+  let remote = new ash.local_search_service.mojom.LocalSearchServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +188,7 @@ ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService.get
 };
 
 // ParamsSpec for BindIndex
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService_BindIndex_ParamsSpec = {
+ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_Params',
@@ -175,7 +204,7 @@ ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService_Bin
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = {
+ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_ResponseParams',
@@ -189,6 +218,6 @@ ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService_Bin
 };
 
 // Legacy compatibility
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServicePtr = ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRemote;
-ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServiceRequest = ash.local_search_service.local_search_service.mojom.mojom.LocalSearchServicePendingReceiver;
+ash.local_search_service.mojom.LocalSearchServicePtr = ash.local_search_service.mojom.LocalSearchServiceRemote;
+ash.local_search_service.mojom.LocalSearchServiceRequest = ash.local_search_service.mojom.LocalSearchServicePendingReceiver;
 

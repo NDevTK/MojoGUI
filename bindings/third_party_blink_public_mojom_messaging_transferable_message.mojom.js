@@ -18,7 +18,7 @@ var blink = blink || {};
 
 
 // Struct: TransferableMessage
-blink.mojom.mojom.TransferableMessageSpec = {
+blink.mojom.TransferableMessageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TransferableMessage',

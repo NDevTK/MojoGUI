@@ -7,28 +7,41 @@
 // Module namespace
 var ash = ash || {};
 ash.trash_service = ash.trash_service || {};
-ash.trash_service.trash_service.mojom = ash.trash_service.trash_service.mojom || {};
+ash.trash_service.mojom = ash.trash_service.mojom || {};
 
 
 // Interface: TrashService
-ash.trash_service.trash_service.mojom.mojom.TrashService = {};
+ash.trash_service.mojom.TrashService = {};
 
-ash.trash_service.trash_service.mojom.mojom.TrashServicePendingReceiver = class {
+ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'trash_info_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.trash_service.mojom.TrashServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.trash_service.trash_service.mojom.mojom.TrashServiceRemote = class {
+ash.trash_service.mojom.TrashServiceRemote = class {
   static get $interfaceName() {
     return 'ash.trash_service.mojom.TrashService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.trash_service.trash_service.mojom.mojom.TrashServicePendingReceiver,
+      ash.trash_service.mojom.TrashServicePendingReceiver,
       handle);
-    this.$ = new ash.trash_service.trash_service.mojom.mojom.TrashServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.trash_service.mojom.TrashServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ ash.trash_service.trash_service.mojom.mojom.TrashServiceRemote = class {
   }
 };
 
-ash.trash_service.trash_service.mojom.mojom.TrashServiceRemoteCallHandler = class {
+ash.trash_service.mojom.TrashServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ ash.trash_service.trash_service.mojom.mojom.TrashServiceRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.trash_service.trash_service.mojom.mojom.TrashService_ParseTrashInfoFile_ParamsSpec,
-      ash.trash_service.trash_service.mojom.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
+      ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec,
+      ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
       [trash_info_file]);
   }
 
 };
 
-ash.trash_service.trash_service.mojom.mojom.TrashService.getRemote = function() {
-  let remote = new ash.trash_service.trash_service.mojom.mojom.TrashServiceRemote();
+ash.trash_service.mojom.TrashService.getRemote = function() {
+  let remote = new ash.trash_service.mojom.TrashServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ ash.trash_service.trash_service.mojom.mojom.TrashService.getRemote = function() 
 };
 
 // ParamsSpec for ParseTrashInfoFile
-ash.trash_service.trash_service.mojom.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
+ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.trash_service.mojom.TrashService.ParseTrashInfoFile_Params',
@@ -80,7 +93,7 @@ ash.trash_service.trash_service.mojom.mojom.TrashService_ParseTrashInfoFile_Para
   }
 };
 
-ash.trash_service.trash_service.mojom.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
+ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.trash_service.mojom.TrashService.ParseTrashInfoFile_ResponseParams',
@@ -96,6 +109,6 @@ ash.trash_service.trash_service.mojom.mojom.TrashService_ParseTrashInfoFile_Resp
 };
 
 // Legacy compatibility
-ash.trash_service.trash_service.mojom.mojom.TrashServicePtr = ash.trash_service.trash_service.mojom.mojom.TrashServiceRemote;
-ash.trash_service.trash_service.mojom.mojom.TrashServiceRequest = ash.trash_service.trash_service.mojom.mojom.TrashServicePendingReceiver;
+ash.trash_service.mojom.TrashServicePtr = ash.trash_service.mojom.TrashServiceRemote;
+ash.trash_service.mojom.TrashServiceRequest = ash.trash_service.mojom.TrashServicePendingReceiver;
 

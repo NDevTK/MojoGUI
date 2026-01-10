@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: SharedImagePoolId
-gpu.mojom.mojom.SharedImagePoolIdSpec = {
+gpu.mojom.SharedImagePoolIdSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImagePoolId',

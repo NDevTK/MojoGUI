@@ -11,22 +11,22 @@ var url = url || {};
 
 
 // Enum: Annotation
-history_clusters.mojom.mojom.Annotation = {
+history_clusters.mojom.Annotation = {
   kBookmarked: 0,
   kSearchResultsPage: 1,
 };
-history_clusters.mojom.mojom.AnnotationSpec = { $: mojo.internal.Enum() };
+history_clusters.mojom.AnnotationSpec = { $: mojo.internal.Enum() };
 
 // Enum: InteractionState
-history_clusters.mojom.mojom.InteractionState = {
+history_clusters.mojom.InteractionState = {
   kDefault: 0,
   kHidden: 1,
   kDone: 2,
 };
-history_clusters.mojom.mojom.InteractionStateSpec = { $: mojo.internal.Enum() };
+history_clusters.mojom.InteractionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: MatchPosition
-history_clusters.mojom.mojom.MatchPositionSpec = {
+history_clusters.mojom.MatchPositionSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.MatchPosition',
@@ -41,7 +41,7 @@ history_clusters.mojom.mojom.MatchPositionSpec = {
 };
 
 // Struct: SearchQuery
-history_clusters.mojom.mojom.SearchQuerySpec = {
+history_clusters.mojom.SearchQuerySpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.SearchQuery',
@@ -56,7 +56,7 @@ history_clusters.mojom.mojom.SearchQuerySpec = {
 };
 
 // Struct: RawVisitData
-history_clusters.mojom.mojom.RawVisitDataSpec = {
+history_clusters.mojom.RawVisitDataSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.RawVisitData',
@@ -71,7 +71,7 @@ history_clusters.mojom.mojom.RawVisitDataSpec = {
 };
 
 // Struct: URLVisit
-history_clusters.mojom.mojom.URLVisitSpec = {
+history_clusters.mojom.URLVisitSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.URLVisit',
@@ -97,7 +97,7 @@ history_clusters.mojom.mojom.URLVisitSpec = {
 };
 
 // Struct: Cluster
-history_clusters.mojom.mojom.ClusterSpec = {
+history_clusters.mojom.ClusterSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.Cluster',

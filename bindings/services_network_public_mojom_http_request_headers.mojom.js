@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: HttpRequestHeaderKeyValuePair
-network.mojom.mojom.HttpRequestHeaderKeyValuePairSpec = {
+network.mojom.HttpRequestHeaderKeyValuePairSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpRequestHeaderKeyValuePair',
@@ -25,7 +25,7 @@ network.mojom.mojom.HttpRequestHeaderKeyValuePairSpec = {
 };
 
 // Struct: HttpRequestHeaders
-network.mojom.mojom.HttpRequestHeadersSpec = {
+network.mojom.HttpRequestHeadersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpRequestHeaders',

@@ -10,7 +10,7 @@ chromeos_camera.mojom = chromeos_camera.mojom || {};
 
 
 // Struct: DmaBufPlane
-chromeos_camera.mojom.mojom.DmaBufPlaneSpec = {
+chromeos_camera.mojom.DmaBufPlaneSpec = {
   $: {
     structSpec: {
       name: 'chromeos_camera.mojom.DmaBufPlane',
@@ -27,7 +27,7 @@ chromeos_camera.mojom.mojom.DmaBufPlaneSpec = {
 };
 
 // Struct: DmaBufVideoFrame
-chromeos_camera.mojom.mojom.DmaBufVideoFrameSpec = {
+chromeos_camera.mojom.DmaBufVideoFrameSpec = {
   $: {
     structSpec: {
       name: 'chromeos_camera.mojom.DmaBufVideoFrame',

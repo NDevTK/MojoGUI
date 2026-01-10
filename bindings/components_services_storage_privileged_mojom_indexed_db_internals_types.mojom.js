@@ -11,25 +11,25 @@ var url = url || {};
 
 
 // Enum: IdbTransactionMode
-storage.mojom.mojom.IdbTransactionMode = {
+storage.mojom.IdbTransactionMode = {
   kReadOnly: 0,
   kReadWrite: 1,
   kVersionChange: 2,
 };
-storage.mojom.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };
+storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IdbTransactionState
-storage.mojom.mojom.IdbTransactionState = {
+storage.mojom.IdbTransactionState = {
   kBlocked: 0,
   kRunning: 1,
   kStarted: 2,
   kCommitting: 3,
   kFinished: 4,
 };
-storage.mojom.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum() };
+storage.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: IdbOriginMetadata
-storage.mojom.mojom.IdbOriginMetadataSpec = {
+storage.mojom.IdbOriginMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbOriginMetadata',
@@ -44,7 +44,7 @@ storage.mojom.mojom.IdbOriginMetadataSpec = {
 };
 
 // Struct: IdbStorageKeyMetadata
-storage.mojom.mojom.IdbStorageKeyMetadataSpec = {
+storage.mojom.IdbStorageKeyMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbStorageKeyMetadata',
@@ -60,7 +60,7 @@ storage.mojom.mojom.IdbStorageKeyMetadataSpec = {
 };
 
 // Struct: IdbBucketMetadata
-storage.mojom.mojom.IdbBucketMetadataSpec = {
+storage.mojom.IdbBucketMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbBucketMetadata',
@@ -82,7 +82,7 @@ storage.mojom.mojom.IdbBucketMetadataSpec = {
 };
 
 // Struct: IdbDatabaseMetadata
-storage.mojom.mojom.IdbDatabaseMetadataSpec = {
+storage.mojom.IdbDatabaseMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbDatabaseMetadata',
@@ -100,7 +100,7 @@ storage.mojom.mojom.IdbDatabaseMetadataSpec = {
 };
 
 // Struct: IdbTransactionMetadata
-storage.mojom.mojom.IdbTransactionMetadataSpec = {
+storage.mojom.IdbTransactionMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbTransactionMetadata',
@@ -124,7 +124,7 @@ storage.mojom.mojom.IdbTransactionMetadataSpec = {
 };
 
 // Struct: IdbTransactionMetadataStateHistory
-storage.mojom.mojom.IdbTransactionMetadataStateHistorySpec = {
+storage.mojom.IdbTransactionMetadataStateHistorySpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbTransactionMetadataStateHistory',

@@ -10,24 +10,51 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RendererVariationsConfiguration
-content.mojom.mojom.RendererVariationsConfiguration = {};
+content.mojom.RendererVariationsConfiguration = {};
 
-content.mojom.mojom.RendererVariationsConfigurationPendingReceiver = class {
+content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: variations.mojom.VariationsHeadersSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.RendererVariationsConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.RendererVariationsConfigurationRemote = class {
+content.mojom.RendererVariationsConfigurationRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RendererVariationsConfiguration';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.RendererVariationsConfigurationPendingReceiver,
+      content.mojom.RendererVariationsConfigurationPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.RendererVariationsConfigurationRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.RendererVariationsConfigurationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +66,7 @@ content.mojom.mojom.RendererVariationsConfigurationRemote = class {
   }
 };
 
-content.mojom.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
+content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +75,7 @@ content.mojom.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
+      content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
       null,
       [variations_headers]);
   }
@@ -57,15 +84,15 @@ content.mojom.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
+      content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
       null,
       [trial_name, group_name]);
   }
 
 };
 
-content.mojom.mojom.RendererVariationsConfiguration.getRemote = function() {
-  let remote = new content.mojom.mojom.RendererVariationsConfigurationRemote();
+content.mojom.RendererVariationsConfiguration.getRemote = function() {
+  let remote = new content.mojom.RendererVariationsConfigurationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +102,7 @@ content.mojom.mojom.RendererVariationsConfiguration.getRemote = function() {
 };
 
 // ParamsSpec for SetVariationsHeaders
-content.mojom.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
+content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererVariationsConfiguration.SetVariationsHeaders_Params',
@@ -89,7 +116,7 @@ content.mojom.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsS
 };
 
 // ParamsSpec for SetFieldTrialGroup
-content.mojom.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
+content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererVariationsConfiguration.SetFieldTrialGroup_Params',
@@ -104,6 +131,6 @@ content.mojom.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpe
 };
 
 // Legacy compatibility
-content.mojom.mojom.RendererVariationsConfigurationPtr = content.mojom.mojom.RendererVariationsConfigurationRemote;
-content.mojom.mojom.RendererVariationsConfigurationRequest = content.mojom.mojom.RendererVariationsConfigurationPendingReceiver;
+content.mojom.RendererVariationsConfigurationPtr = content.mojom.RendererVariationsConfigurationRemote;
+content.mojom.RendererVariationsConfigurationRequest = content.mojom.RendererVariationsConfigurationPendingReceiver;
 

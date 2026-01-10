@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Struct: CameraDeviceInfo
-arc.mojom.mojom.CameraDeviceInfoSpec = {
+arc.mojom.CameraDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraDeviceInfo',
@@ -36,7 +36,7 @@ arc.mojom.mojom.CameraDeviceInfoSpec = {
 };
 
 // Struct: CameraSupportedFormat
-arc.mojom.mojom.CameraSupportedFormatSpec = {
+arc.mojom.CameraSupportedFormatSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraSupportedFormat',
@@ -53,24 +53,127 @@ arc.mojom.mojom.CameraSupportedFormatSpec = {
 };
 
 // Interface: CameraService
-arc.mojom.mojom.CameraService = {};
+arc.mojom.CameraService = {};
 
-arc.mojom.mojom.CameraServicePendingReceiver = class {
+arc.mojom.CameraService_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_Connect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.CameraService_Disconnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_Disconnect_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.CameraService_StreamOn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_StreamOn_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pixel_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'frame_rate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.CameraService_StreamOff_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_StreamOff_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_GetNextFrameBuffer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_ReuseFrameBuffer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_GetDeviceSupportedFormats_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraService_GetCameraDeviceInfos_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.CameraServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.CameraServiceRemote = class {
+arc.mojom.CameraServiceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.CameraService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.CameraServicePendingReceiver,
+      arc.mojom.CameraServicePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.CameraServiceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.CameraServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -82,7 +185,7 @@ arc.mojom.mojom.CameraServiceRemote = class {
   }
 };
 
-arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
+arc.mojom.CameraServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -91,8 +194,8 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.CameraService_Connect_ParamsSpec,
-      arc.mojom.mojom.CameraService_Connect_ResponseParamsSpec,
+      arc.mojom.CameraService_Connect_ParamsSpec,
+      arc.mojom.CameraService_Connect_ResponseParamsSpec,
       [device_path]);
   }
 
@@ -100,7 +203,7 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.CameraService_Disconnect_ParamsSpec,
+      arc.mojom.CameraService_Disconnect_ParamsSpec,
       null,
       []);
   }
@@ -109,8 +212,8 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.CameraService_StreamOn_ParamsSpec,
-      arc.mojom.mojom.CameraService_StreamOn_ResponseParamsSpec,
+      arc.mojom.CameraService_StreamOn_ParamsSpec,
+      arc.mojom.CameraService_StreamOn_ResponseParamsSpec,
       [width, height, pixel_format, frame_rate]);
   }
 
@@ -118,8 +221,8 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.CameraService_StreamOff_ParamsSpec,
-      arc.mojom.mojom.CameraService_StreamOff_ResponseParamsSpec,
+      arc.mojom.CameraService_StreamOff_ParamsSpec,
+      arc.mojom.CameraService_StreamOff_ResponseParamsSpec,
       []);
   }
 
@@ -127,8 +230,8 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.mojom.CameraService_GetNextFrameBuffer_ParamsSpec,
-      arc.mojom.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec,
+      arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec,
+      arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec,
       []);
   }
 
@@ -136,8 +239,8 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.CameraService_ReuseFrameBuffer_ParamsSpec,
-      arc.mojom.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec,
+      arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec,
+      arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec,
       [buffer_id]);
   }
 
@@ -145,8 +248,8 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec,
-      arc.mojom.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec,
+      arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec,
+      arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec,
       [device_path]);
   }
 
@@ -154,15 +257,15 @@ arc.mojom.mojom.CameraServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec,
-      arc.mojom.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec,
+      arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec,
+      arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.mojom.CameraService.getRemote = function() {
-  let remote = new arc.mojom.mojom.CameraServiceRemote();
+arc.mojom.CameraService.getRemote = function() {
+  let remote = new arc.mojom.CameraServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -172,7 +275,7 @@ arc.mojom.mojom.CameraService.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-arc.mojom.mojom.CameraService_Connect_ParamsSpec = {
+arc.mojom.CameraService_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.Connect_Params',
@@ -185,7 +288,7 @@ arc.mojom.mojom.CameraService_Connect_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraService_Connect_ResponseParamsSpec = {
+arc.mojom.CameraService_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.Connect_ResponseParams',
@@ -199,7 +302,7 @@ arc.mojom.mojom.CameraService_Connect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Disconnect
-arc.mojom.mojom.CameraService_Disconnect_ParamsSpec = {
+arc.mojom.CameraService_Disconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.Disconnect_Params',
@@ -212,7 +315,7 @@ arc.mojom.mojom.CameraService_Disconnect_ParamsSpec = {
 };
 
 // ParamsSpec for StreamOn
-arc.mojom.mojom.CameraService_StreamOn_ParamsSpec = {
+arc.mojom.CameraService_StreamOn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.StreamOn_Params',
@@ -228,7 +331,7 @@ arc.mojom.mojom.CameraService_StreamOn_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraService_StreamOn_ResponseParamsSpec = {
+arc.mojom.CameraService_StreamOn_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.StreamOn_ResponseParams',
@@ -244,7 +347,7 @@ arc.mojom.mojom.CameraService_StreamOn_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StreamOff
-arc.mojom.mojom.CameraService_StreamOff_ParamsSpec = {
+arc.mojom.CameraService_StreamOff_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.StreamOff_Params',
@@ -256,7 +359,7 @@ arc.mojom.mojom.CameraService_StreamOff_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraService_StreamOff_ResponseParamsSpec = {
+arc.mojom.CameraService_StreamOff_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.StreamOff_ResponseParams',
@@ -270,7 +373,7 @@ arc.mojom.mojom.CameraService_StreamOff_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetNextFrameBuffer
-arc.mojom.mojom.CameraService_GetNextFrameBuffer_ParamsSpec = {
+arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.GetNextFrameBuffer_Params',
@@ -282,7 +385,7 @@ arc.mojom.mojom.CameraService_GetNextFrameBuffer_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec = {
+arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.GetNextFrameBuffer_ResponseParams',
@@ -298,7 +401,7 @@ arc.mojom.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReuseFrameBuffer
-arc.mojom.mojom.CameraService_ReuseFrameBuffer_ParamsSpec = {
+arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.ReuseFrameBuffer_Params',
@@ -311,7 +414,7 @@ arc.mojom.mojom.CameraService_ReuseFrameBuffer_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec = {
+arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.ReuseFrameBuffer_ResponseParams',
@@ -325,7 +428,7 @@ arc.mojom.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDeviceSupportedFormats
-arc.mojom.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec = {
+arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.GetDeviceSupportedFormats_Params',
@@ -338,7 +441,7 @@ arc.mojom.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec = {
+arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.GetDeviceSupportedFormats_ResponseParams',
@@ -352,7 +455,7 @@ arc.mojom.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCameraDeviceInfos
-arc.mojom.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = {
+arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.GetCameraDeviceInfos_Params',
@@ -364,7 +467,7 @@ arc.mojom.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec = {
+arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraService.GetCameraDeviceInfos_ResponseParams',
@@ -378,29 +481,67 @@ arc.mojom.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.CameraServicePtr = arc.mojom.mojom.CameraServiceRemote;
-arc.mojom.mojom.CameraServiceRequest = arc.mojom.mojom.CameraServicePendingReceiver;
+arc.mojom.CameraServicePtr = arc.mojom.CameraServiceRemote;
+arc.mojom.CameraServiceRequest = arc.mojom.CameraServicePendingReceiver;
 
 
 // Interface: CameraHost
-arc.mojom.mojom.CameraHost = {};
+arc.mojom.CameraHost = {};
 
-arc.mojom.mojom.CameraHostPendingReceiver = class {
+arc.mojom.CameraHost_StartCameraService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraHost_StartCameraService_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraHost_RegisterCameraHalClientLegacy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraHalClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraHost_RegisterCameraHalClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraHalClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.CameraHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.CameraHostRemote = class {
+arc.mojom.CameraHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.CameraHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.CameraHostPendingReceiver,
+      arc.mojom.CameraHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.CameraHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.CameraHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -412,7 +553,7 @@ arc.mojom.mojom.CameraHostRemote = class {
   }
 };
 
-arc.mojom.mojom.CameraHostRemoteCallHandler = class {
+arc.mojom.CameraHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -421,8 +562,8 @@ arc.mojom.mojom.CameraHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.CameraHost_StartCameraService_ParamsSpec,
-      arc.mojom.mojom.CameraHost_StartCameraService_ResponseParamsSpec,
+      arc.mojom.CameraHost_StartCameraService_ParamsSpec,
+      arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec,
       []);
   }
 
@@ -430,7 +571,7 @@ arc.mojom.mojom.CameraHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec,
+      arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec,
       null,
       [client]);
   }
@@ -439,15 +580,15 @@ arc.mojom.mojom.CameraHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec,
-      arc.mojom.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec,
+      arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec,
+      arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec,
       [client]);
   }
 
 };
 
-arc.mojom.mojom.CameraHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.CameraHostRemote();
+arc.mojom.CameraHost.getRemote = function() {
+  let remote = new arc.mojom.CameraHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -457,7 +598,7 @@ arc.mojom.mojom.CameraHost.getRemote = function() {
 };
 
 // ParamsSpec for StartCameraService
-arc.mojom.mojom.CameraHost_StartCameraService_ParamsSpec = {
+arc.mojom.CameraHost_StartCameraService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraHost.StartCameraService_Params',
@@ -469,7 +610,7 @@ arc.mojom.mojom.CameraHost_StartCameraService_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraHost_StartCameraService_ResponseParamsSpec = {
+arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraHost.StartCameraService_ResponseParams',
@@ -483,7 +624,7 @@ arc.mojom.mojom.CameraHost_StartCameraService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterCameraHalClientLegacy
-arc.mojom.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec = {
+arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraHost.RegisterCameraHalClientLegacy_Params',
@@ -497,7 +638,7 @@ arc.mojom.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterCameraHalClient
-arc.mojom.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = {
+arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraHost.RegisterCameraHalClient_Params',
@@ -510,7 +651,7 @@ arc.mojom.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec = {
+arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraHost.RegisterCameraHalClient_ResponseParams',
@@ -524,29 +665,42 @@ arc.mojom.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.CameraHostPtr = arc.mojom.mojom.CameraHostRemote;
-arc.mojom.mojom.CameraHostRequest = arc.mojom.mojom.CameraHostPendingReceiver;
+arc.mojom.CameraHostPtr = arc.mojom.CameraHostRemote;
+arc.mojom.CameraHostRequest = arc.mojom.CameraHostPendingReceiver;
 
 
 // Interface: CameraInstance
-arc.mojom.mojom.CameraInstance = {};
+arc.mojom.CameraInstance = {};
 
-arc.mojom.mojom.CameraInstancePendingReceiver = class {
+arc.mojom.CameraInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CameraHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.CameraInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.CameraInstanceRemote = class {
+arc.mojom.CameraInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.CameraInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.CameraInstancePendingReceiver,
+      arc.mojom.CameraInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.CameraInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.CameraInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -558,7 +712,7 @@ arc.mojom.mojom.CameraInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.CameraInstanceRemoteCallHandler = class {
+arc.mojom.CameraInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -567,15 +721,15 @@ arc.mojom.mojom.CameraInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.CameraInstance_Init_ParamsSpec,
+      arc.mojom.CameraInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.mojom.CameraInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.CameraInstanceRemote();
+arc.mojom.CameraInstance.getRemote = function() {
+  let remote = new arc.mojom.CameraInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -585,7 +739,7 @@ arc.mojom.mojom.CameraInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.CameraInstance_Init_ParamsSpec = {
+arc.mojom.CameraInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CameraInstance.Init_Params',
@@ -599,6 +753,6 @@ arc.mojom.mojom.CameraInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.CameraInstancePtr = arc.mojom.mojom.CameraInstanceRemote;
-arc.mojom.mojom.CameraInstanceRequest = arc.mojom.mojom.CameraInstancePendingReceiver;
+arc.mojom.CameraInstancePtr = arc.mojom.CameraInstanceRemote;
+arc.mojom.CameraInstanceRequest = arc.mojom.CameraInstancePendingReceiver;
 

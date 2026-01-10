@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Enum: XRHandJoint
-device.mojom.mojom.XRHandJoint = {
+device.mojom.XRHandJoint = {
   kWrist: 0,
   kThumbMetacarpal: 1,
   kThumbPhalanxProximal: 2,
@@ -39,10 +39,10 @@ device.mojom.mojom.XRHandJoint = {
   kPinkyFingerPhalanxDistal: 23,
   kPinkyFingerTip: 24,
 };
-device.mojom.mojom.XRHandJointSpec = { $: mojo.internal.Enum() };
+device.mojom.XRHandJointSpec = { $: mojo.internal.Enum() };
 
 // Struct: XRHandJointData
-device.mojom.mojom.XRHandJointDataSpec = {
+device.mojom.XRHandJointDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHandJointData',
@@ -58,7 +58,7 @@ device.mojom.mojom.XRHandJointDataSpec = {
 };
 
 // Struct: XRHandTrackingData
-device.mojom.mojom.XRHandTrackingDataSpec = {
+device.mojom.XRHandTrackingDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHandTrackingData',

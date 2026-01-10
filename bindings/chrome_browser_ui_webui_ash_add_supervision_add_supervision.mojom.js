@@ -10,31 +10,104 @@ add_supervision.mojom = add_supervision.mojom || {};
 
 
 // Enum: OAuthTokenFetchStatus
-add_supervision.mojom.mojom.OAuthTokenFetchStatus = {
+add_supervision.mojom.OAuthTokenFetchStatus = {
   OK: 0,
   ERROR: 1,
 };
-add_supervision.mojom.mojom.OAuthTokenFetchStatusSpec = { $: mojo.internal.Enum() };
+add_supervision.mojom.OAuthTokenFetchStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: AddSupervisionHandler
-add_supervision.mojom.mojom.AddSupervisionHandler = {};
+add_supervision.mojom.AddSupervisionHandler = {};
 
-add_supervision.mojom.mojom.AddSupervisionHandlerPendingReceiver = class {
+add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'add_supervision.mojom.AddSupervisionHandler_RequestClose_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'add_supervision.mojom.AddSupervisionHandler_LogOut_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+add_supervision.mojom.AddSupervisionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-add_supervision.mojom.mojom.AddSupervisionHandlerRemote = class {
+add_supervision.mojom.AddSupervisionHandlerRemote = class {
   static get $interfaceName() {
     return 'add_supervision.mojom.AddSupervisionHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      add_supervision.mojom.mojom.AddSupervisionHandlerPendingReceiver,
+      add_supervision.mojom.AddSupervisionHandlerPendingReceiver,
       handle);
-    this.$ = new add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler(this.proxy);
+    this.$ = new add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -46,7 +119,7 @@ add_supervision.mojom.mojom.AddSupervisionHandlerRemote = class {
   }
 };
 
-add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler = class {
+add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -55,8 +128,8 @@ add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      add_supervision.mojom.mojom.AddSupervisionHandler_RequestClose_ParamsSpec,
-      add_supervision.mojom.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
       []);
   }
 
@@ -64,8 +137,8 @@ add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      add_supervision.mojom.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec,
-      add_supervision.mojom.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
       []);
   }
 
@@ -73,8 +146,8 @@ add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      add_supervision.mojom.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec,
-      add_supervision.mojom.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
       []);
   }
 
@@ -82,7 +155,7 @@ add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      add_supervision.mojom.mojom.AddSupervisionHandler_LogOut_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec,
       null,
       []);
   }
@@ -91,7 +164,7 @@ add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      add_supervision.mojom.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec,
       null,
       []);
   }
@@ -100,15 +173,15 @@ add_supervision.mojom.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      add_supervision.mojom.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-add_supervision.mojom.mojom.AddSupervisionHandler.getRemote = function() {
-  let remote = new add_supervision.mojom.mojom.AddSupervisionHandlerRemote();
+add_supervision.mojom.AddSupervisionHandler.getRemote = function() {
+  let remote = new add_supervision.mojom.AddSupervisionHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -118,7 +191,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler.getRemote = function() {
 };
 
 // ParamsSpec for RequestClose
-add_supervision.mojom.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.RequestClose_Params',
@@ -130,7 +203,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
   }
 };
 
-add_supervision.mojom.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.RequestClose_ResponseParams',
@@ -144,7 +217,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpe
 };
 
 // ParamsSpec for GetInstalledArcApps
-add_supervision.mojom.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.GetInstalledArcApps_Params',
@@ -156,7 +229,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec
   }
 };
 
-add_supervision.mojom.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.GetInstalledArcApps_ResponseParams',
@@ -170,7 +243,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponsePa
 };
 
 // ParamsSpec for GetOAuthToken
-add_supervision.mojom.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.GetOAuthToken_Params',
@@ -182,7 +255,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
   }
 };
 
-add_supervision.mojom.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.GetOAuthToken_ResponseParams',
@@ -197,7 +270,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSp
 };
 
 // ParamsSpec for LogOut
-add_supervision.mojom.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.LogOut_Params',
@@ -210,7 +283,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
 };
 
 // ParamsSpec for NotifySupervisionEnabled
-add_supervision.mojom.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.NotifySupervisionEnabled_Params',
@@ -223,7 +296,7 @@ add_supervision.mojom.mojom.AddSupervisionHandler_NotifySupervisionEnabled_Param
 };
 
 // ParamsSpec for SetCloseOnEscape
-add_supervision.mojom.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
+add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
   $: {
     structSpec: {
       name: 'add_supervision.mojom.AddSupervisionHandler.SetCloseOnEscape_Params',
@@ -237,6 +310,6 @@ add_supervision.mojom.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = 
 };
 
 // Legacy compatibility
-add_supervision.mojom.mojom.AddSupervisionHandlerPtr = add_supervision.mojom.mojom.AddSupervisionHandlerRemote;
-add_supervision.mojom.mojom.AddSupervisionHandlerRequest = add_supervision.mojom.mojom.AddSupervisionHandlerPendingReceiver;
+add_supervision.mojom.AddSupervisionHandlerPtr = add_supervision.mojom.AddSupervisionHandlerRemote;
+add_supervision.mojom.AddSupervisionHandlerRequest = add_supervision.mojom.AddSupervisionHandlerPendingReceiver;
 

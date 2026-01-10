@@ -18,7 +18,7 @@ var blink = blink || {};
 
 
 // Enum: AIPageContentAttributeType
-blink.mojom.mojom.AIPageContentAttributeType = {
+blink.mojom.AIPageContentAttributeType = {
   kRoot: 0,
   kIframe: 1,
   kContainer: 2,
@@ -39,10 +39,10 @@ blink.mojom.mojom.AIPageContentAttributeType = {
   kUnorderedList: 17,
   kListItem: 18,
 };
-blink.mojom.mojom.AIPageContentAttributeTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentAttributeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentAnnotatedRole
-blink.mojom.mojom.AIPageContentAnnotatedRole = {
+blink.mojom.AIPageContentAnnotatedRole = {
   kHeader: 0,
   kNav: 1,
   kSearch: 2,
@@ -54,10 +54,10 @@ blink.mojom.mojom.AIPageContentAnnotatedRole = {
   kContentHidden: 8,
   kPaidContent: 9,
 };
-blink.mojom.mojom.AIPageContentAnnotatedRoleSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentAnnotatedRoleSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentClickabilityReason
-blink.mojom.mojom.AIPageContentClickabilityReason = {
+blink.mojom.AIPageContentClickabilityReason = {
   kClickableControl: 0,
   kClickEvents: 1,
   kMouseClick: 2,
@@ -73,28 +73,28 @@ blink.mojom.mojom.AIPageContentClickabilityReason = {
   kAutocomplete: 12,
   kHoverPseudoClass: 13,
 };
-blink.mojom.mojom.AIPageContentClickabilityReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentClickabilityReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentInteractionDisabledReason
-blink.mojom.mojom.AIPageContentInteractionDisabledReason = {
+blink.mojom.AIPageContentInteractionDisabledReason = {
   kDisabled: 0,
   kAriaDisabled: 1,
   kCursorNotAllowed: 2,
 };
-blink.mojom.mojom.AIPageContentInteractionDisabledReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentInteractionDisabledReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentTextSize
-blink.mojom.mojom.AIPageContentTextSize = {
+blink.mojom.AIPageContentTextSize = {
   kXS: 0,
   kS: 1,
   kM: 2,
   kL: 3,
   kXL: 4,
 };
-blink.mojom.mojom.AIPageContentTextSizeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentTextSizeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentAnchorRel
-blink.mojom.mojom.AIPageContentAnchorRel = {
+blink.mojom.AIPageContentAnchorRel = {
   kRelationUnknown: 0,
   kRelationNoReferrer: 1,
   kRelationNoOpener: 2,
@@ -102,40 +102,40 @@ blink.mojom.mojom.AIPageContentAnchorRel = {
   kRelationPrivacyPolicy: 4,
   kRelationTermsOfService: 5,
 };
-blink.mojom.mojom.AIPageContentAnchorRelSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentAnchorRelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Reason
-blink.mojom.mojom.Reason = {
+blink.mojom.Reason = {
   kCrossSite: 0,
   kCrossOrigin: 1,
 };
-blink.mojom.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentTableRowType
-blink.mojom.mojom.AIPageContentTableRowType = {
+blink.mojom.AIPageContentTableRowType = {
   kHeader: 0,
   kBody: 1,
   kFooter: 2,
 };
-blink.mojom.mojom.AIPageContentTableRowTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentTableRowTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentRedactionDecision
-blink.mojom.mojom.AIPageContentRedactionDecision = {
+blink.mojom.AIPageContentRedactionDecision = {
   kNoRedactionNecessary: 0,
   kUnredacted_EmptyPassword: 1,
   kRedacted_HasBeenPassword: 2,
 };
-blink.mojom.mojom.AIPageContentRedactionDecisionSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentRedactionDecisionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIPageContentMode
-blink.mojom.mojom.AIPageContentMode = {
+blink.mojom.AIPageContentMode = {
   kDefault: 0,
   kActionableElements: 1,
 };
-blink.mojom.mojom.AIPageContentModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIPageContentModeSpec = { $: mojo.internal.Enum() };
 
 // Union: AIPageContentIframeContent
-blink.mojom.mojom.AIPageContentIframeContentSpec = { $: mojo.internal.Union(
+blink.mojom.AIPageContentIframeContentSpec = { $: mojo.internal.Union(
     'blink.mojom.AIPageContentIframeContent', {
       'local_frame_data': {
         'ordinal': 0,
@@ -149,7 +149,7 @@ blink.mojom.mojom.AIPageContentIframeContentSpec = { $: mojo.internal.Union(
 };
 
 // Struct: AIPageContentGeometry
-blink.mojom.mojom.AIPageContentGeometrySpec = {
+blink.mojom.AIPageContentGeometrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentGeometry',
@@ -165,7 +165,7 @@ blink.mojom.mojom.AIPageContentGeometrySpec = {
 };
 
 // Struct: AIPageContentSelection
-blink.mojom.mojom.AIPageContentSelectionSpec = {
+blink.mojom.AIPageContentSelectionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentSelection',
@@ -183,7 +183,7 @@ blink.mojom.mojom.AIPageContentSelectionSpec = {
 };
 
 // Struct: AIPageContentPageInteractionInfo
-blink.mojom.mojom.AIPageContentPageInteractionInfoSpec = {
+blink.mojom.AIPageContentPageInteractionInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentPageInteractionInfo',
@@ -201,7 +201,7 @@ blink.mojom.mojom.AIPageContentPageInteractionInfoSpec = {
 };
 
 // Struct: AIPageContentFrameInteractionInfo
-blink.mojom.mojom.AIPageContentFrameInteractionInfoSpec = {
+blink.mojom.AIPageContentFrameInteractionInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentFrameInteractionInfo',
@@ -215,7 +215,7 @@ blink.mojom.mojom.AIPageContentFrameInteractionInfoSpec = {
 };
 
 // Struct: AIPageContentNodeInteractionInfo
-blink.mojom.mojom.AIPageContentNodeInteractionInfoSpec = {
+blink.mojom.AIPageContentNodeInteractionInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentNodeInteractionInfo',
@@ -235,7 +235,7 @@ blink.mojom.mojom.AIPageContentNodeInteractionInfoSpec = {
 };
 
 // Struct: AIPageContentScrollerInfo
-blink.mojom.mojom.AIPageContentScrollerInfoSpec = {
+blink.mojom.AIPageContentScrollerInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentScrollerInfo',
@@ -252,7 +252,7 @@ blink.mojom.mojom.AIPageContentScrollerInfoSpec = {
 };
 
 // Struct: AIPageContentTextStyle
-blink.mojom.mojom.AIPageContentTextStyleSpec = {
+blink.mojom.AIPageContentTextStyleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentTextStyle',
@@ -268,7 +268,7 @@ blink.mojom.mojom.AIPageContentTextStyleSpec = {
 };
 
 // Struct: AIPageContentTextInfo
-blink.mojom.mojom.AIPageContentTextInfoSpec = {
+blink.mojom.AIPageContentTextInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentTextInfo',
@@ -283,7 +283,7 @@ blink.mojom.mojom.AIPageContentTextInfoSpec = {
 };
 
 // Struct: AIPageContentAnchorData
-blink.mojom.mojom.AIPageContentAnchorDataSpec = {
+blink.mojom.AIPageContentAnchorDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentAnchorData',
@@ -298,7 +298,7 @@ blink.mojom.mojom.AIPageContentAnchorDataSpec = {
 };
 
 // Struct: AIPageContentImageInfo
-blink.mojom.mojom.AIPageContentImageInfoSpec = {
+blink.mojom.AIPageContentImageInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentImageInfo',
@@ -313,7 +313,7 @@ blink.mojom.mojom.AIPageContentImageInfoSpec = {
 };
 
 // Struct: AIPageContentSvgRootData
-blink.mojom.mojom.AIPageContentSvgRootDataSpec = {
+blink.mojom.AIPageContentSvgRootDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentSvgRootData',
@@ -327,7 +327,7 @@ blink.mojom.mojom.AIPageContentSvgRootDataSpec = {
 };
 
 // Struct: AIPageContentCanvasData
-blink.mojom.mojom.AIPageContentCanvasDataSpec = {
+blink.mojom.AIPageContentCanvasDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentCanvasData',
@@ -341,7 +341,7 @@ blink.mojom.mojom.AIPageContentCanvasDataSpec = {
 };
 
 // Struct: AIPageContentVideoData
-blink.mojom.mojom.AIPageContentVideoDataSpec = {
+blink.mojom.AIPageContentVideoDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentVideoData',
@@ -356,7 +356,7 @@ blink.mojom.mojom.AIPageContentVideoDataSpec = {
 };
 
 // Struct: AIPageContentMeta
-blink.mojom.mojom.AIPageContentMetaSpec = {
+blink.mojom.AIPageContentMetaSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentMeta',
@@ -371,7 +371,7 @@ blink.mojom.mojom.AIPageContentMetaSpec = {
 };
 
 // Struct: AIPageContentFrameData
-blink.mojom.mojom.AIPageContentFrameDataSpec = {
+blink.mojom.AIPageContentFrameDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentFrameData',
@@ -391,7 +391,7 @@ blink.mojom.mojom.AIPageContentFrameDataSpec = {
 };
 
 // Struct: RedactedFrameMetadata
-blink.mojom.mojom.RedactedFrameMetadataSpec = {
+blink.mojom.RedactedFrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RedactedFrameMetadata',
@@ -405,7 +405,7 @@ blink.mojom.mojom.RedactedFrameMetadataSpec = {
 };
 
 // Struct: AIPageContentIframeData
-blink.mojom.mojom.AIPageContentIframeDataSpec = {
+blink.mojom.AIPageContentIframeDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentIframeData',
@@ -420,7 +420,7 @@ blink.mojom.mojom.AIPageContentIframeDataSpec = {
 };
 
 // Struct: AIPageContentTableData
-blink.mojom.mojom.AIPageContentTableDataSpec = {
+blink.mojom.AIPageContentTableDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentTableData',
@@ -434,7 +434,7 @@ blink.mojom.mojom.AIPageContentTableDataSpec = {
 };
 
 // Struct: AIPageContentTableRowData
-blink.mojom.mojom.AIPageContentTableRowDataSpec = {
+blink.mojom.AIPageContentTableRowDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentTableRowData',
@@ -448,7 +448,7 @@ blink.mojom.mojom.AIPageContentTableRowDataSpec = {
 };
 
 // Struct: AIPageContentFormData
-blink.mojom.mojom.AIPageContentFormDataSpec = {
+blink.mojom.AIPageContentFormDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentFormData',
@@ -463,7 +463,7 @@ blink.mojom.mojom.AIPageContentFormDataSpec = {
 };
 
 // Struct: AIPageContentSelectOption
-blink.mojom.mojom.AIPageContentSelectOptionSpec = {
+blink.mojom.AIPageContentSelectOptionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentSelectOption',
@@ -480,7 +480,7 @@ blink.mojom.mojom.AIPageContentSelectOptionSpec = {
 };
 
 // Struct: AIPageContentFormControlData
-blink.mojom.mojom.AIPageContentFormControlDataSpec = {
+blink.mojom.AIPageContentFormControlDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentFormControlData',
@@ -501,7 +501,7 @@ blink.mojom.mojom.AIPageContentFormControlDataSpec = {
 };
 
 // Struct: AIPageContentAttributes
-blink.mojom.mojom.AIPageContentAttributesSpec = {
+blink.mojom.AIPageContentAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentAttributes',
@@ -536,7 +536,7 @@ blink.mojom.mojom.AIPageContentAttributesSpec = {
 };
 
 // Struct: AIPageContentNode
-blink.mojom.mojom.AIPageContentNodeSpec = {
+blink.mojom.AIPageContentNodeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentNode',
@@ -551,7 +551,7 @@ blink.mojom.mojom.AIPageContentNodeSpec = {
 };
 
 // Struct: AIPageContentPopup
-blink.mojom.mojom.AIPageContentPopupSpec = {
+blink.mojom.AIPageContentPopupSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentPopup',
@@ -567,7 +567,7 @@ blink.mojom.mojom.AIPageContentPopupSpec = {
 };
 
 // Struct: AIPageContent
-blink.mojom.mojom.AIPageContentSpec = {
+blink.mojom.AIPageContentSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContent',
@@ -584,7 +584,7 @@ blink.mojom.mojom.AIPageContentSpec = {
 };
 
 // Struct: AIPageContentOptions
-blink.mojom.mojom.AIPageContentOptionsSpec = {
+blink.mojom.AIPageContentOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentOptions',
@@ -603,24 +603,37 @@ blink.mojom.mojom.AIPageContentOptionsSpec = {
 };
 
 // Interface: AIPageContentAgent
-blink.mojom.mojom.AIPageContentAgent = {};
+blink.mojom.AIPageContentAgent = {};
 
-blink.mojom.mojom.AIPageContentAgentPendingReceiver = class {
+blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentAgent_GetAIPageContent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIPageContentAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIPageContentAgentRemote = class {
+blink.mojom.AIPageContentAgentRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIPageContentAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIPageContentAgentPendingReceiver,
+      blink.mojom.AIPageContentAgentPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIPageContentAgentRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIPageContentAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -632,7 +645,7 @@ blink.mojom.mojom.AIPageContentAgentRemote = class {
   }
 };
 
-blink.mojom.mojom.AIPageContentAgentRemoteCallHandler = class {
+blink.mojom.AIPageContentAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -641,15 +654,15 @@ blink.mojom.mojom.AIPageContentAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
-      blink.mojom.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
+      blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
+      blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-blink.mojom.mojom.AIPageContentAgent.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIPageContentAgentRemote();
+blink.mojom.AIPageContentAgent.getRemote = function() {
+  let remote = new blink.mojom.AIPageContentAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -659,7 +672,7 @@ blink.mojom.mojom.AIPageContentAgent.getRemote = function() {
 };
 
 // ParamsSpec for GetAIPageContent
-blink.mojom.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
+blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentAgent.GetAIPageContent_Params',
@@ -672,7 +685,7 @@ blink.mojom.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
+blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentAgent.GetAIPageContent_ResponseParams',
@@ -686,6 +699,6 @@ blink.mojom.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIPageContentAgentPtr = blink.mojom.mojom.AIPageContentAgentRemote;
-blink.mojom.mojom.AIPageContentAgentRequest = blink.mojom.mojom.AIPageContentAgentPendingReceiver;
+blink.mojom.AIPageContentAgentPtr = blink.mojom.AIPageContentAgentRemote;
+blink.mojom.AIPageContentAgentRequest = blink.mojom.AIPageContentAgentPendingReceiver;
 

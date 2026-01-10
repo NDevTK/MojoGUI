@@ -10,29 +10,29 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: WindowSizeType
-arc.mojom.mojom.WindowSizeType = {
+arc.mojom.WindowSizeType = {
   kPhoneSize: 0,
   kTabletSize: 1,
   kMaximize: 2,
 };
-arc.mojom.mojom.WindowSizeTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.WindowSizeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: InstallPriority
-arc.mojom.mojom.InstallPriority = {
+arc.mojom.InstallPriority = {
   kMedium: 0,
   kLow: 1,
 };
-arc.mojom.mojom.InstallPrioritySpec = { $: mojo.internal.Enum() };
+arc.mojom.InstallPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: ShowPackageInfoPage
-arc.mojom.mojom.ShowPackageInfoPage = {
+arc.mojom.ShowPackageInfoPage = {
   MAIN: 0,
   MANAGE_LINKS: 1,
 };
-arc.mojom.mojom.ShowPackageInfoPageSpec = { $: mojo.internal.Enum() };
+arc.mojom.ShowPackageInfoPageSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppDiscoveryRequestState
-arc.mojom.mojom.AppDiscoveryRequestState = {
+arc.mojom.AppDiscoveryRequestState = {
   SUCCESS: 0,
   CANCELED: 1,
   ERROR_DEPRECATED: 2,
@@ -51,17 +51,17 @@ arc.mojom.mojom.AppDiscoveryRequestState = {
   PHONESKY_INTERNAL_ERROR: 15,
   PHONESKY_RESULT_INVALID_DATA: 16,
 };
-arc.mojom.mojom.AppDiscoveryRequestStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppDiscoveryRequestStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppShortcutItemType
-arc.mojom.mojom.AppShortcutItemType = {
+arc.mojom.AppShortcutItemType = {
   kStatic: 0,
   kDynamic: 1,
 };
-arc.mojom.mojom.AppShortcutItemTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppShortcutItemTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PaiFlowState
-arc.mojom.mojom.PaiFlowState = {
+arc.mojom.PaiFlowState = {
   SUCCEEDED: 0,
   UNKNOWN: 1,
   NO_ACCOUNT: 2,
@@ -73,10 +73,10 @@ arc.mojom.mojom.PaiFlowState = {
   PROXY_NO_ACCESS: 8,
   TIMEOUT: 9,
 };
-arc.mojom.mojom.PaiFlowStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.PaiFlowStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppCategory
-arc.mojom.mojom.AppCategory = {
+arc.mojom.AppCategory = {
   kGame: 0,
   kAudio: 1,
   kVideo: 2,
@@ -87,10 +87,10 @@ arc.mojom.mojom.AppCategory = {
   kProductivity: 7,
   kAccessibility: 8,
 };
-arc.mojom.mojom.AppCategorySpec = { $: mojo.internal.Enum() };
+arc.mojom.AppCategorySpec = { $: mojo.internal.Enum() };
 
 // Struct: InstallationResult
-arc.mojom.mojom.InstallationResultSpec = {
+arc.mojom.InstallationResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.InstallationResult',
@@ -106,7 +106,7 @@ arc.mojom.mojom.InstallationResultSpec = {
 };
 
 // Struct: AppStorage
-arc.mojom.mojom.AppStorageSpec = {
+arc.mojom.AppStorageSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppStorage',
@@ -121,7 +121,7 @@ arc.mojom.mojom.AppStorageSpec = {
 };
 
 // Struct: AppInfo
-arc.mojom.mojom.AppInfoSpec = {
+arc.mojom.AppInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInfo',
@@ -146,7 +146,7 @@ arc.mojom.mojom.AppInfoSpec = {
 };
 
 // Struct: WebAppInfo
-arc.mojom.mojom.WebAppInfoSpec = {
+arc.mojom.WebAppInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebAppInfo',
@@ -165,7 +165,7 @@ arc.mojom.mojom.WebAppInfoSpec = {
 };
 
 // Struct: WindowLayout
-arc.mojom.mojom.WindowLayoutSpec = {
+arc.mojom.WindowLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WindowLayout',
@@ -181,7 +181,7 @@ arc.mojom.mojom.WindowLayoutSpec = {
 };
 
 // Struct: PackageLocaleInfo
-arc.mojom.mojom.PackageLocaleInfoSpec = {
+arc.mojom.PackageLocaleInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PackageLocaleInfo',
@@ -196,7 +196,7 @@ arc.mojom.mojom.PackageLocaleInfoSpec = {
 };
 
 // Struct: ArcPackageInfo
-arc.mojom.mojom.ArcPackageInfoSpec = {
+arc.mojom.ArcPackageInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcPackageInfo',
@@ -224,7 +224,7 @@ arc.mojom.mojom.ArcPackageInfoSpec = {
 };
 
 // Struct: ShortcutInfo
-arc.mojom.mojom.ShortcutInfoSpec = {
+arc.mojom.ShortcutInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ShortcutInfo',
@@ -241,7 +241,7 @@ arc.mojom.mojom.ShortcutInfoSpec = {
 };
 
 // Struct: RawIconPngData
-arc.mojom.mojom.RawIconPngDataSpec = {
+arc.mojom.RawIconPngDataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RawIconPngData',
@@ -258,7 +258,7 @@ arc.mojom.mojom.RawIconPngDataSpec = {
 };
 
 // Struct: WindowInfo
-arc.mojom.mojom.WindowInfoSpec = {
+arc.mojom.WindowInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WindowInfo',
@@ -275,7 +275,7 @@ arc.mojom.mojom.WindowInfoSpec = {
 };
 
 // Struct: AppDiscoveryResult
-arc.mojom.mojom.AppDiscoveryResultSpec = {
+arc.mojom.AppDiscoveryResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppDiscoveryResult',
@@ -299,7 +299,7 @@ arc.mojom.mojom.AppDiscoveryResultSpec = {
 };
 
 // Struct: AppShortcutItem
-arc.mojom.mojom.AppShortcutItemSpec = {
+arc.mojom.AppShortcutItemSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppShortcutItem',
@@ -319,24 +319,287 @@ arc.mojom.mojom.AppShortcutItemSpec = {
 };
 
 // Interface: AppHost
-arc.mojom.mojom.AppHost = {};
+arc.mojom.AppHost = {};
 
-arc.mojom.mojom.AppHostPendingReceiver = class {
+arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnAppAddedDeprecated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnAppListRefreshed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnPackageAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnPackageAdded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnPackageAppListRefreshed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnPackageListRefreshed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcPackageInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnPackageModified_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnPackageModified_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnPackageRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnPackageRemoved_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnTaskCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnTaskCreated_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'intent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 15 },
+        { name: 'session_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 48 },
+      ],
+      versions: [{version: 0, packedSize: 32}, {version: 13, packedSize: 40}, {version: 15, packedSize: 48}, {version: 48, packedSize: 48}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnTaskDescriptionUpdated_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon_png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnTaskDescriptionChanged_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
+        { name: 'primary_color', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 49 },
+        { name: 'status_bar_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 49 },
+      ],
+      versions: [{version: 0, packedSize: 32}, {version: 49, packedSize: 40}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnTaskDestroyed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnTaskSetActive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnTaskSetActive_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnNotificationsEnabledChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnInstallShortcut_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnInstallShortcut_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'shortcut', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ShortcutInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnInstallationStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnInstallationStarted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 17 },
+      ],
+      versions: [{version: 17, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnInstallationFinished_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnInstallationFinished_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.InstallationResultSpec, nullable: true, minVersion: 17 },
+      ],
+      versions: [{version: 17, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnUninstallShortcut_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'intent_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnInstallationProgressChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppHost_OnInstallationActiveChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.AppHostRemote = class {
+arc.mojom.AppHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AppHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.AppHostPendingReceiver,
+      arc.mojom.AppHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.AppHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.AppHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -348,7 +611,7 @@ arc.mojom.mojom.AppHostRemote = class {
   }
 };
 
-arc.mojom.mojom.AppHostRemoteCallHandler = class {
+arc.mojom.AppHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -357,7 +620,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec,
+      arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec,
       null,
       [app]);
   }
@@ -366,7 +629,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.AppHost_OnAppListRefreshed_ParamsSpec,
+      arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec,
       null,
       [apps]);
   }
@@ -375,7 +638,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.mojom.AppHost_OnPackageAdded_ParamsSpec,
+      arc.mojom.AppHost_OnPackageAdded_ParamsSpec,
       null,
       [arcPackageInfo]);
   }
@@ -384,7 +647,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec,
+      arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec,
       null,
       [package_name, apps]);
   }
@@ -393,7 +656,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.mojom.AppHost_OnPackageListRefreshed_ParamsSpec,
+      arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec,
       null,
       [packages]);
   }
@@ -402,7 +665,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.mojom.AppHost_OnPackageModified_ParamsSpec,
+      arc.mojom.AppHost_OnPackageModified_ParamsSpec,
       null,
       [arcPackageInfo]);
   }
@@ -411,7 +674,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.AppHost_OnPackageRemoved_ParamsSpec,
+      arc.mojom.AppHost_OnPackageRemoved_ParamsSpec,
       null,
       [package_name]);
   }
@@ -420,7 +683,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.mojom.AppHost_OnTaskCreated_ParamsSpec,
+      arc.mojom.AppHost_OnTaskCreated_ParamsSpec,
       null,
       [task_id, package_name, activity, name, intent, session_id]);
   }
@@ -429,7 +692,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      arc.mojom.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec,
+      arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec,
       null,
       [task_id, label, icon_png_data]);
   }
@@ -438,7 +701,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      arc.mojom.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec,
+      arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec,
       null,
       [task_id, label, icon, primary_color, status_bar_color]);
   }
@@ -447,7 +710,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.AppHost_OnTaskDestroyed_ParamsSpec,
+      arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec,
       null,
       [task_id]);
   }
@@ -456,7 +719,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.mojom.AppHost_OnTaskSetActive_ParamsSpec,
+      arc.mojom.AppHost_OnTaskSetActive_ParamsSpec,
       null,
       [task_id]);
   }
@@ -465,7 +728,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec,
+      arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec,
       null,
       [package_name, enabled]);
   }
@@ -474,7 +737,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.mojom.AppHost_OnInstallShortcut_ParamsSpec,
+      arc.mojom.AppHost_OnInstallShortcut_ParamsSpec,
       null,
       [shortcut]);
   }
@@ -483,7 +746,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.mojom.AppHost_OnInstallationStarted_ParamsSpec,
+      arc.mojom.AppHost_OnInstallationStarted_ParamsSpec,
       null,
       [package_name]);
   }
@@ -492,7 +755,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.mojom.AppHost_OnInstallationFinished_ParamsSpec,
+      arc.mojom.AppHost_OnInstallationFinished_ParamsSpec,
       null,
       [result]);
   }
@@ -501,7 +764,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.mojom.AppHost_OnUninstallShortcut_ParamsSpec,
+      arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec,
       null,
       [package_name, intent_uri]);
   }
@@ -510,7 +773,7 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec,
+      arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec,
       null,
       [package_name, progress]);
   }
@@ -519,15 +782,15 @@ arc.mojom.mojom.AppHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec,
+      arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec,
       null,
       [package_name, active]);
   }
 
 };
 
-arc.mojom.mojom.AppHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.AppHostRemote();
+arc.mojom.AppHost.getRemote = function() {
+  let remote = new arc.mojom.AppHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -537,7 +800,7 @@ arc.mojom.mojom.AppHost.getRemote = function() {
 };
 
 // ParamsSpec for OnAppAddedDeprecated
-arc.mojom.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = {
+arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnAppAddedDeprecated_Params',
@@ -551,7 +814,7 @@ arc.mojom.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = {
 };
 
 // ParamsSpec for OnAppListRefreshed
-arc.mojom.mojom.AppHost_OnAppListRefreshed_ParamsSpec = {
+arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnAppListRefreshed_Params',
@@ -565,7 +828,7 @@ arc.mojom.mojom.AppHost_OnAppListRefreshed_ParamsSpec = {
 };
 
 // ParamsSpec for OnPackageAdded
-arc.mojom.mojom.AppHost_OnPackageAdded_ParamsSpec = {
+arc.mojom.AppHost_OnPackageAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnPackageAdded_Params',
@@ -579,7 +842,7 @@ arc.mojom.mojom.AppHost_OnPackageAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnPackageAppListRefreshed
-arc.mojom.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec = {
+arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnPackageAppListRefreshed_Params',
@@ -594,7 +857,7 @@ arc.mojom.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec = {
 };
 
 // ParamsSpec for OnPackageListRefreshed
-arc.mojom.mojom.AppHost_OnPackageListRefreshed_ParamsSpec = {
+arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnPackageListRefreshed_Params',
@@ -608,7 +871,7 @@ arc.mojom.mojom.AppHost_OnPackageListRefreshed_ParamsSpec = {
 };
 
 // ParamsSpec for OnPackageModified
-arc.mojom.mojom.AppHost_OnPackageModified_ParamsSpec = {
+arc.mojom.AppHost_OnPackageModified_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnPackageModified_Params',
@@ -622,7 +885,7 @@ arc.mojom.mojom.AppHost_OnPackageModified_ParamsSpec = {
 };
 
 // ParamsSpec for OnPackageRemoved
-arc.mojom.mojom.AppHost_OnPackageRemoved_ParamsSpec = {
+arc.mojom.AppHost_OnPackageRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnPackageRemoved_Params',
@@ -636,7 +899,7 @@ arc.mojom.mojom.AppHost_OnPackageRemoved_ParamsSpec = {
 };
 
 // ParamsSpec for OnTaskCreated
-arc.mojom.mojom.AppHost_OnTaskCreated_ParamsSpec = {
+arc.mojom.AppHost_OnTaskCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnTaskCreated_Params',
@@ -655,7 +918,7 @@ arc.mojom.mojom.AppHost_OnTaskCreated_ParamsSpec = {
 };
 
 // ParamsSpec for OnTaskDescriptionUpdated
-arc.mojom.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec = {
+arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnTaskDescriptionUpdated_Params',
@@ -671,7 +934,7 @@ arc.mojom.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnTaskDescriptionChanged
-arc.mojom.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec = {
+arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnTaskDescriptionChanged_Params',
@@ -689,7 +952,7 @@ arc.mojom.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnTaskDestroyed
-arc.mojom.mojom.AppHost_OnTaskDestroyed_ParamsSpec = {
+arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnTaskDestroyed_Params',
@@ -703,7 +966,7 @@ arc.mojom.mojom.AppHost_OnTaskDestroyed_ParamsSpec = {
 };
 
 // ParamsSpec for OnTaskSetActive
-arc.mojom.mojom.AppHost_OnTaskSetActive_ParamsSpec = {
+arc.mojom.AppHost_OnTaskSetActive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnTaskSetActive_Params',
@@ -717,7 +980,7 @@ arc.mojom.mojom.AppHost_OnTaskSetActive_ParamsSpec = {
 };
 
 // ParamsSpec for OnNotificationsEnabledChanged
-arc.mojom.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec = {
+arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnNotificationsEnabledChanged_Params',
@@ -732,7 +995,7 @@ arc.mojom.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnInstallShortcut
-arc.mojom.mojom.AppHost_OnInstallShortcut_ParamsSpec = {
+arc.mojom.AppHost_OnInstallShortcut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnInstallShortcut_Params',
@@ -746,7 +1009,7 @@ arc.mojom.mojom.AppHost_OnInstallShortcut_ParamsSpec = {
 };
 
 // ParamsSpec for OnInstallationStarted
-arc.mojom.mojom.AppHost_OnInstallationStarted_ParamsSpec = {
+arc.mojom.AppHost_OnInstallationStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnInstallationStarted_Params',
@@ -760,7 +1023,7 @@ arc.mojom.mojom.AppHost_OnInstallationStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnInstallationFinished
-arc.mojom.mojom.AppHost_OnInstallationFinished_ParamsSpec = {
+arc.mojom.AppHost_OnInstallationFinished_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnInstallationFinished_Params',
@@ -774,7 +1037,7 @@ arc.mojom.mojom.AppHost_OnInstallationFinished_ParamsSpec = {
 };
 
 // ParamsSpec for OnUninstallShortcut
-arc.mojom.mojom.AppHost_OnUninstallShortcut_ParamsSpec = {
+arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnUninstallShortcut_Params',
@@ -789,7 +1052,7 @@ arc.mojom.mojom.AppHost_OnUninstallShortcut_ParamsSpec = {
 };
 
 // ParamsSpec for OnInstallationProgressChanged
-arc.mojom.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = {
+arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnInstallationProgressChanged_Params',
@@ -804,7 +1067,7 @@ arc.mojom.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnInstallationActiveChanged
-arc.mojom.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = {
+arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppHost.OnInstallationActiveChanged_Params',
@@ -819,29 +1082,441 @@ arc.mojom.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.AppHostPtr = arc.mojom.mojom.AppHostRemote;
-arc.mojom.mojom.AppHostRequest = arc.mojom.mojom.AppHostPendingReceiver;
+arc.mojom.AppHostPtr = arc.mojom.AppHostRemote;
+arc.mojom.AppHostRequest = arc.mojom.AppHostPendingReceiver;
 
 
 // Interface: AppInstance
-arc.mojom.mojom.AppInstance = {};
+arc.mojom.AppInstance = {};
 
-arc.mojom.mojom.AppInstancePendingReceiver = class {
+arc.mojom.AppInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_CloseTask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_CloseTask_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_InstallPackage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_InstallPackage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_LaunchAppWithWindowInfo_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'window_info', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_LaunchAppShortcutItem_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'shortcut_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_LaunchIntentWithWindowInfo_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'window_info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_UpdateWindowInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'window_info', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_RequestAppIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_RequestAppIcon_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pixel_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetAppIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetAppIcon_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pixel_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_RequestShortcutIcon_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetAppShortcutIcon_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_RequestPackageIcon_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'normalize', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetPackageIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetPackageIcon_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'normalize', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_RemoveCachedIcon_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_SetTaskActive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_SetTaskActive_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_ShowPackageInfoDeprecated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'dimension_on_screen', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ShowPackageInfoPageSpec, nullable: false, minVersion: 0 },
+        { name: 'dimension_on_screen', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_ShowPackageInfoOnPage_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ShowPackageInfoPageSpec, nullable: false, minVersion: 0 },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_SetNotificationsEnabled_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_StartPaiFlow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_StartPaiFlow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_StartFastAppReinstallFlow_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'arc_package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_UninstallPackage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_UninstallPackage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_UpdateAppDetails_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetAndroidId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetAndroidId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetAppShortcutItems_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_IsInstallable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_IsInstallable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_GetAppCategory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_GetAppCategory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AppInstance_SetAppLocale_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInstance_SetAppLocale_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'locale_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.AppInstanceRemote = class {
+arc.mojom.AppInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AppInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.AppInstancePendingReceiver,
+      arc.mojom.AppInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.AppInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.AppInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -853,7 +1528,7 @@ arc.mojom.mojom.AppInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
+arc.mojom.AppInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -862,7 +1537,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      arc.mojom.mojom.AppInstance_Init_ParamsSpec,
+      arc.mojom.AppInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -871,7 +1546,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.mojom.AppInstance_CloseTask_ParamsSpec,
+      arc.mojom.AppInstance_CloseTask_ParamsSpec,
       null,
       [task_id]);
   }
@@ -880,7 +1555,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.mojom.AppInstance_InstallPackage_ParamsSpec,
+      arc.mojom.AppInstance_InstallPackage_ParamsSpec,
       null,
       [arcPackageInfo]);
   }
@@ -889,7 +1564,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      arc.mojom.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec,
+      arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec,
       null,
       [package_name, activity, window_info]);
   }
@@ -898,7 +1573,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      arc.mojom.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec,
+      arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec,
       null,
       [package_name, shortcut_id, display_id]);
   }
@@ -907,7 +1582,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      arc.mojom.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec,
+      arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec,
       null,
       [intent_uri, window_info]);
   }
@@ -916,7 +1591,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      arc.mojom.mojom.AppInstance_UpdateWindowInfo_ParamsSpec,
+      arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec,
       null,
       [window_info]);
   }
@@ -925,8 +1600,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      arc.mojom.mojom.AppInstance_RequestAppIcon_ParamsSpec,
-      arc.mojom.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec,
+      arc.mojom.AppInstance_RequestAppIcon_ParamsSpec,
+      arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec,
       [package_name, activity, pixel_size]);
   }
 
@@ -934,8 +1609,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      arc.mojom.mojom.AppInstance_GetAppIcon_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetAppIcon_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetAppIcon_ParamsSpec,
+      arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec,
       [package_name, activity, pixel_size]);
   }
 
@@ -943,8 +1618,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      arc.mojom.mojom.AppInstance_RequestShortcutIcon_ParamsSpec,
-      arc.mojom.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec,
+      arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec,
+      arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec,
       [icon_resource_id, pixel_size]);
   }
 
@@ -952,8 +1627,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      arc.mojom.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec,
+      arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec,
       [icon_resource_id, pixel_size]);
   }
 
@@ -961,8 +1636,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      arc.mojom.mojom.AppInstance_RequestPackageIcon_ParamsSpec,
-      arc.mojom.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec,
+      arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec,
+      arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec,
       [package_name, pixel_size, normalize]);
   }
 
@@ -970,8 +1645,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      arc.mojom.mojom.AppInstance_GetPackageIcon_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetPackageIcon_ParamsSpec,
+      arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec,
       [package_name, pixel_size, normalize]);
   }
 
@@ -979,7 +1654,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.mojom.AppInstance_RemoveCachedIcon_ParamsSpec,
+      arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec,
       null,
       [icon_resource_id]);
   }
@@ -988,7 +1663,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.mojom.AppInstance_SetTaskActive_ParamsSpec,
+      arc.mojom.AppInstance_SetTaskActive_ParamsSpec,
       null,
       [task_id]);
   }
@@ -997,7 +1672,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec,
+      arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec,
       null,
       [package_name, dimension_on_screen]);
   }
@@ -1006,7 +1681,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec,
+      arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec,
       null,
       [package_name, page, dimension_on_screen]);
   }
@@ -1015,7 +1690,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec,
+      arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec,
       null,
       [package_name, page, display_id]);
   }
@@ -1024,7 +1699,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec,
+      arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec,
       null,
       [package_name, enabled]);
   }
@@ -1033,8 +1708,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      arc.mojom.mojom.AppInstance_StartPaiFlow_ParamsSpec,
-      arc.mojom.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec,
+      arc.mojom.AppInstance_StartPaiFlow_ParamsSpec,
+      arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec,
       []);
   }
 
@@ -1042,7 +1717,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      arc.mojom.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec,
+      arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec,
       null,
       [arc_package_names]);
   }
@@ -1051,7 +1726,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.AppInstance_UninstallPackage_ParamsSpec,
+      arc.mojom.AppInstance_UninstallPackage_ParamsSpec,
       null,
       [package_name]);
   }
@@ -1060,7 +1735,7 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      arc.mojom.mojom.AppInstance_UpdateAppDetails_ParamsSpec,
+      arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec,
       null,
       [package_name]);
   }
@@ -1069,8 +1744,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      arc.mojom.mojom.AppInstance_GetAndroidId_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetAndroidId_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetAndroidId_ParamsSpec,
+      arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec,
       []);
   }
 
@@ -1078,8 +1753,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      arc.mojom.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec,
+      arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec,
       [query, max_results]);
   }
 
@@ -1087,8 +1762,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      arc.mojom.mojom.AppInstance_GetAppShortcutItems_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec,
+      arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec,
       [package_name]);
   }
 
@@ -1096,8 +1771,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec,
+      arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec,
       [query, max_results]);
   }
 
@@ -1105,8 +1780,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      arc.mojom.mojom.AppInstance_IsInstallable_ParamsSpec,
-      arc.mojom.mojom.AppInstance_IsInstallable_ResponseParamsSpec,
+      arc.mojom.AppInstance_IsInstallable_ParamsSpec,
+      arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec,
       [package_name]);
   }
 
@@ -1114,8 +1789,8 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      arc.mojom.mojom.AppInstance_GetAppCategory_ParamsSpec,
-      arc.mojom.mojom.AppInstance_GetAppCategory_ResponseParamsSpec,
+      arc.mojom.AppInstance_GetAppCategory_ParamsSpec,
+      arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec,
       [package_name]);
   }
 
@@ -1123,15 +1798,15 @@ arc.mojom.mojom.AppInstanceRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      arc.mojom.mojom.AppInstance_SetAppLocale_ParamsSpec,
+      arc.mojom.AppInstance_SetAppLocale_ParamsSpec,
       null,
       [package_name, locale_tag]);
   }
 
 };
 
-arc.mojom.mojom.AppInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.AppInstanceRemote();
+arc.mojom.AppInstance.getRemote = function() {
+  let remote = new arc.mojom.AppInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1141,7 +1816,7 @@ arc.mojom.mojom.AppInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.AppInstance_Init_ParamsSpec = {
+arc.mojom.AppInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.Init_Params',
@@ -1155,7 +1830,7 @@ arc.mojom.mojom.AppInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for CloseTask
-arc.mojom.mojom.AppInstance_CloseTask_ParamsSpec = {
+arc.mojom.AppInstance_CloseTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.CloseTask_Params',
@@ -1169,7 +1844,7 @@ arc.mojom.mojom.AppInstance_CloseTask_ParamsSpec = {
 };
 
 // ParamsSpec for InstallPackage
-arc.mojom.mojom.AppInstance_InstallPackage_ParamsSpec = {
+arc.mojom.AppInstance_InstallPackage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.InstallPackage_Params',
@@ -1183,7 +1858,7 @@ arc.mojom.mojom.AppInstance_InstallPackage_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchAppWithWindowInfo
-arc.mojom.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec = {
+arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.LaunchAppWithWindowInfo_Params',
@@ -1199,7 +1874,7 @@ arc.mojom.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchAppShortcutItem
-arc.mojom.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec = {
+arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.LaunchAppShortcutItem_Params',
@@ -1215,7 +1890,7 @@ arc.mojom.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchIntentWithWindowInfo
-arc.mojom.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec = {
+arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.LaunchIntentWithWindowInfo_Params',
@@ -1230,7 +1905,7 @@ arc.mojom.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateWindowInfo
-arc.mojom.mojom.AppInstance_UpdateWindowInfo_ParamsSpec = {
+arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.UpdateWindowInfo_Params',
@@ -1244,7 +1919,7 @@ arc.mojom.mojom.AppInstance_UpdateWindowInfo_ParamsSpec = {
 };
 
 // ParamsSpec for RequestAppIcon
-arc.mojom.mojom.AppInstance_RequestAppIcon_ParamsSpec = {
+arc.mojom.AppInstance_RequestAppIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.RequestAppIcon_Params',
@@ -1259,7 +1934,7 @@ arc.mojom.mojom.AppInstance_RequestAppIcon_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec = {
+arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.RequestAppIcon_ResponseParams',
@@ -1273,7 +1948,7 @@ arc.mojom.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAppIcon
-arc.mojom.mojom.AppInstance_GetAppIcon_ParamsSpec = {
+arc.mojom.AppInstance_GetAppIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppIcon_Params',
@@ -1288,7 +1963,7 @@ arc.mojom.mojom.AppInstance_GetAppIcon_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_GetAppIcon_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppIcon_ResponseParams',
@@ -1302,7 +1977,7 @@ arc.mojom.mojom.AppInstance_GetAppIcon_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestShortcutIcon
-arc.mojom.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = {
+arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.RequestShortcutIcon_Params',
@@ -1316,7 +1991,7 @@ arc.mojom.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec = {
+arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.RequestShortcutIcon_ResponseParams',
@@ -1330,7 +2005,7 @@ arc.mojom.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAppShortcutIcon
-arc.mojom.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = {
+arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppShortcutIcon_Params',
@@ -1344,7 +2019,7 @@ arc.mojom.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppShortcutIcon_ResponseParams',
@@ -1358,7 +2033,7 @@ arc.mojom.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestPackageIcon
-arc.mojom.mojom.AppInstance_RequestPackageIcon_ParamsSpec = {
+arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.RequestPackageIcon_Params',
@@ -1373,7 +2048,7 @@ arc.mojom.mojom.AppInstance_RequestPackageIcon_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec = {
+arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.RequestPackageIcon_ResponseParams',
@@ -1387,7 +2062,7 @@ arc.mojom.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetPackageIcon
-arc.mojom.mojom.AppInstance_GetPackageIcon_ParamsSpec = {
+arc.mojom.AppInstance_GetPackageIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetPackageIcon_Params',
@@ -1402,7 +2077,7 @@ arc.mojom.mojom.AppInstance_GetPackageIcon_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetPackageIcon_ResponseParams',
@@ -1416,7 +2091,7 @@ arc.mojom.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveCachedIcon
-arc.mojom.mojom.AppInstance_RemoveCachedIcon_ParamsSpec = {
+arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.RemoveCachedIcon_Params',
@@ -1430,7 +2105,7 @@ arc.mojom.mojom.AppInstance_RemoveCachedIcon_ParamsSpec = {
 };
 
 // ParamsSpec for SetTaskActive
-arc.mojom.mojom.AppInstance_SetTaskActive_ParamsSpec = {
+arc.mojom.AppInstance_SetTaskActive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.SetTaskActive_Params',
@@ -1444,7 +2119,7 @@ arc.mojom.mojom.AppInstance_SetTaskActive_ParamsSpec = {
 };
 
 // ParamsSpec for ShowPackageInfoDeprecated
-arc.mojom.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec = {
+arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.ShowPackageInfoDeprecated_Params',
@@ -1459,7 +2134,7 @@ arc.mojom.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec = {
 };
 
 // ParamsSpec for ShowPackageInfoOnPageDeprecated
-arc.mojom.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec = {
+arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.ShowPackageInfoOnPageDeprecated_Params',
@@ -1475,7 +2150,7 @@ arc.mojom.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec = {
 };
 
 // ParamsSpec for ShowPackageInfoOnPage
-arc.mojom.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec = {
+arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.ShowPackageInfoOnPage_Params',
@@ -1491,7 +2166,7 @@ arc.mojom.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec = {
 };
 
 // ParamsSpec for SetNotificationsEnabled
-arc.mojom.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec = {
+arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.SetNotificationsEnabled_Params',
@@ -1506,7 +2181,7 @@ arc.mojom.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for StartPaiFlow
-arc.mojom.mojom.AppInstance_StartPaiFlow_ParamsSpec = {
+arc.mojom.AppInstance_StartPaiFlow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.StartPaiFlow_Params',
@@ -1518,7 +2193,7 @@ arc.mojom.mojom.AppInstance_StartPaiFlow_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec = {
+arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.StartPaiFlow_ResponseParams',
@@ -1532,7 +2207,7 @@ arc.mojom.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartFastAppReinstallFlow
-arc.mojom.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec = {
+arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.StartFastAppReinstallFlow_Params',
@@ -1546,7 +2221,7 @@ arc.mojom.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec = {
 };
 
 // ParamsSpec for UninstallPackage
-arc.mojom.mojom.AppInstance_UninstallPackage_ParamsSpec = {
+arc.mojom.AppInstance_UninstallPackage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.UninstallPackage_Params',
@@ -1560,7 +2235,7 @@ arc.mojom.mojom.AppInstance_UninstallPackage_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateAppDetails
-arc.mojom.mojom.AppInstance_UpdateAppDetails_ParamsSpec = {
+arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.UpdateAppDetails_Params',
@@ -1574,7 +2249,7 @@ arc.mojom.mojom.AppInstance_UpdateAppDetails_ParamsSpec = {
 };
 
 // ParamsSpec for GetAndroidId
-arc.mojom.mojom.AppInstance_GetAndroidId_ParamsSpec = {
+arc.mojom.AppInstance_GetAndroidId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAndroidId_Params',
@@ -1586,7 +2261,7 @@ arc.mojom.mojom.AppInstance_GetAndroidId_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_GetAndroidId_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAndroidId_ResponseParams',
@@ -1600,7 +2275,7 @@ arc.mojom.mojom.AppInstance_GetAndroidId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAppShortcutGlobalQueryItems
-arc.mojom.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = {
+arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppShortcutGlobalQueryItems_Params',
@@ -1614,7 +2289,7 @@ arc.mojom.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppShortcutGlobalQueryItems_ResponseParams',
@@ -1628,7 +2303,7 @@ arc.mojom.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec = 
 };
 
 // ParamsSpec for GetAppShortcutItems
-arc.mojom.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = {
+arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppShortcutItems_Params',
@@ -1641,7 +2316,7 @@ arc.mojom.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppShortcutItems_ResponseParams',
@@ -1655,7 +2330,7 @@ arc.mojom.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetRecentAndSuggestedAppsFromPlayStore
-arc.mojom.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = {
+arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetRecentAndSuggestedAppsFromPlayStore_Params',
@@ -1669,7 +2344,7 @@ arc.mojom.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = 
   }
 };
 
-arc.mojom.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetRecentAndSuggestedAppsFromPlayStore_ResponseParams',
@@ -1684,7 +2359,7 @@ arc.mojom.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParam
 };
 
 // ParamsSpec for IsInstallable
-arc.mojom.mojom.AppInstance_IsInstallable_ParamsSpec = {
+arc.mojom.AppInstance_IsInstallable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.IsInstallable_Params',
@@ -1697,7 +2372,7 @@ arc.mojom.mojom.AppInstance_IsInstallable_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_IsInstallable_ResponseParamsSpec = {
+arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.IsInstallable_ResponseParams',
@@ -1711,7 +2386,7 @@ arc.mojom.mojom.AppInstance_IsInstallable_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAppCategory
-arc.mojom.mojom.AppInstance_GetAppCategory_ParamsSpec = {
+arc.mojom.AppInstance_GetAppCategory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppCategory_Params',
@@ -1724,7 +2399,7 @@ arc.mojom.mojom.AppInstance_GetAppCategory_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AppInstance_GetAppCategory_ResponseParamsSpec = {
+arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.GetAppCategory_ResponseParams',
@@ -1738,7 +2413,7 @@ arc.mojom.mojom.AppInstance_GetAppCategory_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetAppLocale
-arc.mojom.mojom.AppInstance_SetAppLocale_ParamsSpec = {
+arc.mojom.AppInstance_SetAppLocale_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInstance.SetAppLocale_Params',
@@ -1753,6 +2428,6 @@ arc.mojom.mojom.AppInstance_SetAppLocale_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.AppInstancePtr = arc.mojom.mojom.AppInstanceRemote;
-arc.mojom.mojom.AppInstanceRequest = arc.mojom.mojom.AppInstancePendingReceiver;
+arc.mojom.AppInstancePtr = arc.mojom.AppInstanceRemote;
+arc.mojom.AppInstanceRequest = arc.mojom.AppInstancePendingReceiver;
 

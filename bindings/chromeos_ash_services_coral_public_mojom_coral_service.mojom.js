@@ -11,16 +11,16 @@ var url = url || {};
 
 
 // Enum: CoralError
-coral.mojom.mojom.CoralError = {
+coral.mojom.CoralError = {
   kLoadModelFailed: 0,
   kInvalidArgs: 1,
   kModelExecutionFailed: 2,
   kClusteringError: 3,
 };
-coral.mojom.mojom.CoralErrorSpec = { $: mojo.internal.Enum() };
+coral.mojom.CoralErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: Entity
-coral.mojom.mojom.EntitySpec = { $: mojo.internal.Union(
+coral.mojom.EntitySpec = { $: mojo.internal.Union(
     'coral.mojom.Entity', {
       'unknown': {
         'ordinal': 0,
@@ -38,7 +38,7 @@ coral.mojom.mojom.EntitySpec = { $: mojo.internal.Union(
 };
 
 // Union: GroupResult
-coral.mojom.mojom.GroupResultSpec = { $: mojo.internal.Union(
+coral.mojom.GroupResultSpec = { $: mojo.internal.Union(
     'coral.mojom.GroupResult', {
       'error': {
         'ordinal': 0,
@@ -52,7 +52,7 @@ coral.mojom.mojom.GroupResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: CacheEmbeddingsResult
-coral.mojom.mojom.CacheEmbeddingsResultSpec = { $: mojo.internal.Union(
+coral.mojom.CacheEmbeddingsResultSpec = { $: mojo.internal.Union(
     'coral.mojom.CacheEmbeddingsResult', {
       'error': {
         'ordinal': 0,
@@ -66,7 +66,7 @@ coral.mojom.mojom.CacheEmbeddingsResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Tab
-coral.mojom.mojom.TabSpec = {
+coral.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.Tab',
@@ -81,7 +81,7 @@ coral.mojom.mojom.TabSpec = {
 };
 
 // Struct: App
-coral.mojom.mojom.AppSpec = {
+coral.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.App',
@@ -96,7 +96,7 @@ coral.mojom.mojom.AppSpec = {
 };
 
 // Struct: EmbeddingOptions
-coral.mojom.mojom.EmbeddingOptionsSpec = {
+coral.mojom.EmbeddingOptionsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.EmbeddingOptions',
@@ -111,7 +111,7 @@ coral.mojom.mojom.EmbeddingOptionsSpec = {
 };
 
 // Struct: ClusteringOptions
-coral.mojom.mojom.ClusteringOptionsSpec = {
+coral.mojom.ClusteringOptionsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.ClusteringOptions',
@@ -127,7 +127,7 @@ coral.mojom.mojom.ClusteringOptionsSpec = {
 };
 
 // Struct: TitleGenerationOptions
-coral.mojom.mojom.TitleGenerationOptionsSpec = {
+coral.mojom.TitleGenerationOptionsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.TitleGenerationOptions',
@@ -142,7 +142,7 @@ coral.mojom.mojom.TitleGenerationOptionsSpec = {
 };
 
 // Struct: Group
-coral.mojom.mojom.GroupSpec = {
+coral.mojom.GroupSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.Group',
@@ -158,7 +158,7 @@ coral.mojom.mojom.GroupSpec = {
 };
 
 // Struct: GroupRequest
-coral.mojom.mojom.GroupRequestSpec = {
+coral.mojom.GroupRequestSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.GroupRequest',
@@ -176,7 +176,7 @@ coral.mojom.mojom.GroupRequestSpec = {
 };
 
 // Struct: GroupResponse
-coral.mojom.mojom.GroupResponseSpec = {
+coral.mojom.GroupResponseSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.GroupResponse',
@@ -190,7 +190,7 @@ coral.mojom.mojom.GroupResponseSpec = {
 };
 
 // Struct: CacheEmbeddingsRequest
-coral.mojom.mojom.CacheEmbeddingsRequestSpec = {
+coral.mojom.CacheEmbeddingsRequestSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CacheEmbeddingsRequest',
@@ -205,7 +205,7 @@ coral.mojom.mojom.CacheEmbeddingsRequestSpec = {
 };
 
 // Struct: CacheEmbeddingsResponse
-coral.mojom.mojom.CacheEmbeddingsResponseSpec = {
+coral.mojom.CacheEmbeddingsResponseSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CacheEmbeddingsResponse',
@@ -218,24 +218,38 @@ coral.mojom.mojom.CacheEmbeddingsResponseSpec = {
 };
 
 // Interface: TitleObserver
-coral.mojom.mojom.TitleObserver = {};
+coral.mojom.TitleObserver = {};
 
-coral.mojom.mojom.TitleObserverPendingReceiver = class {
+coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.TitleObserver_TitleUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+coral.mojom.TitleObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-coral.mojom.mojom.TitleObserverRemote = class {
+coral.mojom.TitleObserverRemote = class {
   static get $interfaceName() {
     return 'coral.mojom.TitleObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      coral.mojom.mojom.TitleObserverPendingReceiver,
+      coral.mojom.TitleObserverPendingReceiver,
       handle);
-    this.$ = new coral.mojom.mojom.TitleObserverRemoteCallHandler(this.proxy);
+    this.$ = new coral.mojom.TitleObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -247,7 +261,7 @@ coral.mojom.mojom.TitleObserverRemote = class {
   }
 };
 
-coral.mojom.mojom.TitleObserverRemoteCallHandler = class {
+coral.mojom.TitleObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -256,15 +270,15 @@ coral.mojom.mojom.TitleObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      coral.mojom.mojom.TitleObserver_TitleUpdated_ParamsSpec,
+      coral.mojom.TitleObserver_TitleUpdated_ParamsSpec,
       null,
       [group_id, title]);
   }
 
 };
 
-coral.mojom.mojom.TitleObserver.getRemote = function() {
-  let remote = new coral.mojom.mojom.TitleObserverRemote();
+coral.mojom.TitleObserver.getRemote = function() {
+  let remote = new coral.mojom.TitleObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -274,7 +288,7 @@ coral.mojom.mojom.TitleObserver.getRemote = function() {
 };
 
 // ParamsSpec for TitleUpdated
-coral.mojom.mojom.TitleObserver_TitleUpdated_ParamsSpec = {
+coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.TitleObserver.TitleUpdated_Params',
@@ -289,29 +303,56 @@ coral.mojom.mojom.TitleObserver_TitleUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-coral.mojom.mojom.TitleObserverPtr = coral.mojom.mojom.TitleObserverRemote;
-coral.mojom.mojom.TitleObserverRequest = coral.mojom.mojom.TitleObserverPendingReceiver;
+coral.mojom.TitleObserverPtr = coral.mojom.TitleObserverRemote;
+coral.mojom.TitleObserverRequest = coral.mojom.TitleObserverPendingReceiver;
 
 
 // Interface: CoralProcessor
-coral.mojom.mojom.CoralProcessor = {};
+coral.mojom.CoralProcessor = {};
 
-coral.mojom.mojom.CoralProcessorPendingReceiver = class {
+coral.mojom.CoralProcessor_Group_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CoralProcessor_Group_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CoralProcessor_CacheEmbeddings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+coral.mojom.CoralProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-coral.mojom.mojom.CoralProcessorRemote = class {
+coral.mojom.CoralProcessorRemote = class {
   static get $interfaceName() {
     return 'coral.mojom.CoralProcessor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      coral.mojom.mojom.CoralProcessorPendingReceiver,
+      coral.mojom.CoralProcessorPendingReceiver,
       handle);
-    this.$ = new coral.mojom.mojom.CoralProcessorRemoteCallHandler(this.proxy);
+    this.$ = new coral.mojom.CoralProcessorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -323,7 +364,7 @@ coral.mojom.mojom.CoralProcessorRemote = class {
   }
 };
 
-coral.mojom.mojom.CoralProcessorRemoteCallHandler = class {
+coral.mojom.CoralProcessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -332,8 +373,8 @@ coral.mojom.mojom.CoralProcessorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      coral.mojom.mojom.CoralProcessor_Group_ParamsSpec,
-      coral.mojom.mojom.CoralProcessor_Group_ResponseParamsSpec,
+      coral.mojom.CoralProcessor_Group_ParamsSpec,
+      coral.mojom.CoralProcessor_Group_ResponseParamsSpec,
       [request, observer]);
   }
 
@@ -341,15 +382,15 @@ coral.mojom.mojom.CoralProcessorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      coral.mojom.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec,
-      coral.mojom.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec,
+      coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec,
+      coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-coral.mojom.mojom.CoralProcessor.getRemote = function() {
-  let remote = new coral.mojom.mojom.CoralProcessorRemote();
+coral.mojom.CoralProcessor.getRemote = function() {
+  let remote = new coral.mojom.CoralProcessorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -359,7 +400,7 @@ coral.mojom.mojom.CoralProcessor.getRemote = function() {
 };
 
 // ParamsSpec for Group
-coral.mojom.mojom.CoralProcessor_Group_ParamsSpec = {
+coral.mojom.CoralProcessor_Group_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralProcessor.Group_Params',
@@ -373,7 +414,7 @@ coral.mojom.mojom.CoralProcessor_Group_ParamsSpec = {
   }
 };
 
-coral.mojom.mojom.CoralProcessor_Group_ResponseParamsSpec = {
+coral.mojom.CoralProcessor_Group_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralProcessor.Group_ResponseParams',
@@ -387,7 +428,7 @@ coral.mojom.mojom.CoralProcessor_Group_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CacheEmbeddings
-coral.mojom.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = {
+coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralProcessor.CacheEmbeddings_Params',
@@ -400,7 +441,7 @@ coral.mojom.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = {
   }
 };
 
-coral.mojom.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = {
+coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralProcessor.CacheEmbeddings_ResponseParams',
@@ -414,29 +455,83 @@ coral.mojom.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-coral.mojom.mojom.CoralProcessorPtr = coral.mojom.mojom.CoralProcessorRemote;
-coral.mojom.mojom.CoralProcessorRequest = coral.mojom.mojom.CoralProcessorPendingReceiver;
+coral.mojom.CoralProcessorPtr = coral.mojom.CoralProcessorRemote;
+coral.mojom.CoralProcessorRequest = coral.mojom.CoralProcessorPendingReceiver;
 
 
 // Interface: CoralService
-coral.mojom.mojom.CoralService = {};
+coral.mojom.CoralService = {};
 
-coral.mojom.mojom.CoralServicePendingReceiver = class {
+coral.mojom.CoralService_GroupDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CoralService_GroupDeprecated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+coral.mojom.CoralService_PrepareResource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CoralService_PrepareResource_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+coral.mojom.CoralService_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CoralService_Initialize_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'ml_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: true, minVersion: 0 },
+        { name: 'processor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(coral.mojom.CoralProcessorRemote), nullable: false, minVersion: 0 },
+        { name: 'language_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 32}]
+    }
+  }
+};
+
+coral.mojom.CoralServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-coral.mojom.mojom.CoralServiceRemote = class {
+coral.mojom.CoralServiceRemote = class {
   static get $interfaceName() {
     return 'coral.mojom.CoralService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      coral.mojom.mojom.CoralServicePendingReceiver,
+      coral.mojom.CoralServicePendingReceiver,
       handle);
-    this.$ = new coral.mojom.mojom.CoralServiceRemoteCallHandler(this.proxy);
+    this.$ = new coral.mojom.CoralServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -448,7 +543,7 @@ coral.mojom.mojom.CoralServiceRemote = class {
   }
 };
 
-coral.mojom.mojom.CoralServiceRemoteCallHandler = class {
+coral.mojom.CoralServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -457,8 +552,8 @@ coral.mojom.mojom.CoralServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      coral.mojom.mojom.CoralService_GroupDeprecated_ParamsSpec,
-      coral.mojom.mojom.CoralService_GroupDeprecated_ResponseParamsSpec,
+      coral.mojom.CoralService_GroupDeprecated_ParamsSpec,
+      coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec,
       [request, observer]);
   }
 
@@ -466,8 +561,8 @@ coral.mojom.mojom.CoralServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      coral.mojom.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec,
-      coral.mojom.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec,
+      coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec,
+      coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec,
       [request]);
   }
 
@@ -475,7 +570,7 @@ coral.mojom.mojom.CoralServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      coral.mojom.mojom.CoralService_PrepareResource_ParamsSpec,
+      coral.mojom.CoralService_PrepareResource_ParamsSpec,
       null,
       []);
   }
@@ -484,15 +579,15 @@ coral.mojom.mojom.CoralServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      coral.mojom.mojom.CoralService_Initialize_ParamsSpec,
+      coral.mojom.CoralService_Initialize_ParamsSpec,
       null,
       [ml_service, processor, language_code]);
   }
 
 };
 
-coral.mojom.mojom.CoralService.getRemote = function() {
-  let remote = new coral.mojom.mojom.CoralServiceRemote();
+coral.mojom.CoralService.getRemote = function() {
+  let remote = new coral.mojom.CoralServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -502,7 +597,7 @@ coral.mojom.mojom.CoralService.getRemote = function() {
 };
 
 // ParamsSpec for GroupDeprecated
-coral.mojom.mojom.CoralService_GroupDeprecated_ParamsSpec = {
+coral.mojom.CoralService_GroupDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralService.GroupDeprecated_Params',
@@ -516,7 +611,7 @@ coral.mojom.mojom.CoralService_GroupDeprecated_ParamsSpec = {
   }
 };
 
-coral.mojom.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = {
+coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralService.GroupDeprecated_ResponseParams',
@@ -530,7 +625,7 @@ coral.mojom.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CacheEmbeddingsDeprecated
-coral.mojom.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = {
+coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralService.CacheEmbeddingsDeprecated_Params',
@@ -543,7 +638,7 @@ coral.mojom.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = {
   }
 };
 
-coral.mojom.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = {
+coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralService.CacheEmbeddingsDeprecated_ResponseParams',
@@ -557,7 +652,7 @@ coral.mojom.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PrepareResource
-coral.mojom.mojom.CoralService_PrepareResource_ParamsSpec = {
+coral.mojom.CoralService_PrepareResource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralService.PrepareResource_Params',
@@ -570,7 +665,7 @@ coral.mojom.mojom.CoralService_PrepareResource_ParamsSpec = {
 };
 
 // ParamsSpec for Initialize
-coral.mojom.mojom.CoralService_Initialize_ParamsSpec = {
+coral.mojom.CoralService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralService.Initialize_Params',
@@ -586,6 +681,6 @@ coral.mojom.mojom.CoralService_Initialize_ParamsSpec = {
 };
 
 // Legacy compatibility
-coral.mojom.mojom.CoralServicePtr = coral.mojom.mojom.CoralServiceRemote;
-coral.mojom.mojom.CoralServiceRequest = coral.mojom.mojom.CoralServicePendingReceiver;
+coral.mojom.CoralServicePtr = coral.mojom.CoralServiceRemote;
+coral.mojom.CoralServiceRequest = coral.mojom.CoralServicePendingReceiver;
 

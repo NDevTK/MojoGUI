@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Enum: AlertState
-tabs_api.mojom.mojom.AlertState = {
+tabs_api.mojom.AlertState = {
   kAudioMuting: 0,
   kAudioRecording: 1,
   kAudioPlaying: 2,
@@ -31,26 +31,26 @@ tabs_api.mojom.mojom.AlertState = {
   kVideoRecording: 16,
   kVrPresentingInHeadset: 17,
 };
-tabs_api.mojom.mojom.AlertStateSpec = { $: mojo.internal.Enum() };
+tabs_api.mojom.AlertStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkState
-tabs_api.mojom.mojom.NetworkState = {
+tabs_api.mojom.NetworkState = {
   kNone: 0,
   kWaiting: 1,
   kLoading: 2,
   kError: 3,
 };
-tabs_api.mojom.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
+tabs_api.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Layout
-tabs_api.mojom.mojom.Layout = {
+tabs_api.mojom.Layout = {
   kVertical: 0,
   kHorizontal: 1,
 };
-tabs_api.mojom.mojom.LayoutSpec = { $: mojo.internal.Enum() };
+tabs_api.mojom.LayoutSpec = { $: mojo.internal.Enum() };
 
 // Union: Data
-tabs_api.mojom.mojom.DataSpec = { $: mojo.internal.Union(
+tabs_api.mojom.DataSpec = { $: mojo.internal.Union(
     'tabs_api.mojom.Data', {
       'tab': {
         'ordinal': 0,
@@ -80,7 +80,7 @@ tabs_api.mojom.mojom.DataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Image
-tabs_api.mojom.mojom.ImageSpec = {
+tabs_api.mojom.ImageSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.Image',
@@ -94,7 +94,7 @@ tabs_api.mojom.mojom.ImageSpec = {
 };
 
 // Struct: Tab
-tabs_api.mojom.mojom.TabSpec = {
+tabs_api.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.Tab',
@@ -116,7 +116,7 @@ tabs_api.mojom.mojom.TabSpec = {
 };
 
 // Struct: TabStrip
-tabs_api.mojom.mojom.TabStripSpec = {
+tabs_api.mojom.TabStripSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.TabStrip',
@@ -130,7 +130,7 @@ tabs_api.mojom.mojom.TabStripSpec = {
 };
 
 // Struct: PinnedTabs
-tabs_api.mojom.mojom.PinnedTabsSpec = {
+tabs_api.mojom.PinnedTabsSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.PinnedTabs',
@@ -144,7 +144,7 @@ tabs_api.mojom.mojom.PinnedTabsSpec = {
 };
 
 // Struct: UnpinnedTabs
-tabs_api.mojom.mojom.UnpinnedTabsSpec = {
+tabs_api.mojom.UnpinnedTabsSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.UnpinnedTabs',
@@ -158,7 +158,7 @@ tabs_api.mojom.mojom.UnpinnedTabsSpec = {
 };
 
 // Struct: TabGroup
-tabs_api.mojom.mojom.TabGroupSpec = {
+tabs_api.mojom.TabGroupSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.TabGroup',
@@ -173,7 +173,7 @@ tabs_api.mojom.mojom.TabGroupSpec = {
 };
 
 // Struct: TabGroupVisualData
-tabs_api.mojom.mojom.TabGroupVisualDataSpec = {
+tabs_api.mojom.TabGroupVisualDataSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.TabGroupVisualData',
@@ -189,7 +189,7 @@ tabs_api.mojom.mojom.TabGroupVisualDataSpec = {
 };
 
 // Struct: SplitTab
-tabs_api.mojom.mojom.SplitTabSpec = {
+tabs_api.mojom.SplitTabSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.SplitTab',
@@ -204,7 +204,7 @@ tabs_api.mojom.mojom.SplitTabSpec = {
 };
 
 // Struct: SplitTabVisualData
-tabs_api.mojom.mojom.SplitTabVisualDataSpec = {
+tabs_api.mojom.SplitTabVisualDataSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.SplitTabVisualData',
@@ -218,7 +218,7 @@ tabs_api.mojom.mojom.SplitTabVisualDataSpec = {
 };
 
 // Struct: Container
-tabs_api.mojom.mojom.ContainerSpec = {
+tabs_api.mojom.ContainerSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.Container',
@@ -233,7 +233,7 @@ tabs_api.mojom.mojom.ContainerSpec = {
 };
 
 // Struct: TabCreatedContainer
-tabs_api.mojom.mojom.TabCreatedContainerSpec = {
+tabs_api.mojom.TabCreatedContainerSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.TabCreatedContainer',

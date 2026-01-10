@@ -10,7 +10,7 @@ emoji_search.mojom = emoji_search.mojom || {};
 
 
 // Struct: SearchResults
-emoji_search.mojom.mojom.SearchResultsSpec = {
+emoji_search.mojom.SearchResultsSpec = {
   $: {
     structSpec: {
       name: 'emoji_search.mojom.SearchResults',
@@ -24,24 +24,51 @@ emoji_search.mojom.mojom.SearchResultsSpec = {
 };
 
 // Interface: EmojiSearch
-emoji_search.mojom.mojom.EmojiSearch = {};
+emoji_search.mojom.EmojiSearch = {};
 
-emoji_search.mojom.mojom.EmojiSearchPendingReceiver = class {
+emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'emoji_search.mojom.EmojiSearch_SearchEmoji_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'language_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'language_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+emoji_search.mojom.EmojiSearchPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-emoji_search.mojom.mojom.EmojiSearchRemote = class {
+emoji_search.mojom.EmojiSearchRemote = class {
   static get $interfaceName() {
     return 'emoji_search.mojom.EmojiSearch';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      emoji_search.mojom.mojom.EmojiSearchPendingReceiver,
+      emoji_search.mojom.EmojiSearchPendingReceiver,
       handle);
-    this.$ = new emoji_search.mojom.mojom.EmojiSearchRemoteCallHandler(this.proxy);
+    this.$ = new emoji_search.mojom.EmojiSearchRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +80,7 @@ emoji_search.mojom.mojom.EmojiSearchRemote = class {
   }
 };
 
-emoji_search.mojom.mojom.EmojiSearchRemoteCallHandler = class {
+emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,8 +89,8 @@ emoji_search.mojom.mojom.EmojiSearchRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      emoji_search.mojom.mojom.EmojiSearch_SearchEmoji_ParamsSpec,
-      emoji_search.mojom.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec,
+      emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec,
+      emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec,
       [query, language_codes]);
   }
 
@@ -71,15 +98,15 @@ emoji_search.mojom.mojom.EmojiSearchRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      emoji_search.mojom.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec,
+      emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec,
       null,
       [language_codes]);
   }
 
 };
 
-emoji_search.mojom.mojom.EmojiSearch.getRemote = function() {
-  let remote = new emoji_search.mojom.mojom.EmojiSearchRemote();
+emoji_search.mojom.EmojiSearch.getRemote = function() {
+  let remote = new emoji_search.mojom.EmojiSearchRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,7 +116,7 @@ emoji_search.mojom.mojom.EmojiSearch.getRemote = function() {
 };
 
 // ParamsSpec for SearchEmoji
-emoji_search.mojom.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
+emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
   $: {
     structSpec: {
       name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_Params',
@@ -103,7 +130,7 @@ emoji_search.mojom.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
   }
 };
 
-emoji_search.mojom.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
+emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_ResponseParams',
@@ -119,7 +146,7 @@ emoji_search.mojom.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadEmojiLanguages
-emoji_search.mojom.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
+emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'emoji_search.mojom.EmojiSearch.LoadEmojiLanguages_Params',
@@ -133,6 +160,6 @@ emoji_search.mojom.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
 };
 
 // Legacy compatibility
-emoji_search.mojom.mojom.EmojiSearchPtr = emoji_search.mojom.mojom.EmojiSearchRemote;
-emoji_search.mojom.mojom.EmojiSearchRequest = emoji_search.mojom.mojom.EmojiSearchPendingReceiver;
+emoji_search.mojom.EmojiSearchPtr = emoji_search.mojom.EmojiSearchRemote;
+emoji_search.mojom.EmojiSearchRequest = emoji_search.mojom.EmojiSearchPendingReceiver;
 

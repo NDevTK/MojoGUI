@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: IntegrityMetadata
-network.mojom.mojom.IntegrityMetadataSpec = {
+network.mojom.IntegrityMetadataSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.IntegrityMetadata',

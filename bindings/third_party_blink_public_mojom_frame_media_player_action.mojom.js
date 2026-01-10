@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: MediaPlayerActionType
-blink.mojom.mojom.MediaPlayerActionType = {
+blink.mojom.MediaPlayerActionType = {
   kLoop: 0,
   kControls: 1,
   kSaveVideoFrameAs: 2,
@@ -18,10 +18,10 @@ blink.mojom.mojom.MediaPlayerActionType = {
   kPictureInPicture: 4,
   kDefaultActionType: 5,
 };
-blink.mojom.mojom.MediaPlayerActionTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.MediaPlayerActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MediaPlayerAction
-blink.mojom.mojom.MediaPlayerActionSpec = {
+blink.mojom.MediaPlayerActionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaPlayerAction',

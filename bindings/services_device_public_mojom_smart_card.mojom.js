@@ -10,13 +10,13 @@ device.mojom = device.mojom || {};
 
 
 // Enum: SmartCardSuccess
-device.mojom.mojom.SmartCardSuccess = {
+device.mojom.SmartCardSuccess = {
   kOk: 0,
 };
-device.mojom.mojom.SmartCardSuccessSpec = { $: mojo.internal.Enum() };
+device.mojom.SmartCardSuccessSpec = { $: mojo.internal.Enum() };
 
 // Enum: SmartCardError
-device.mojom.mojom.SmartCardError = {
+device.mojom.SmartCardError = {
   kRemovedCard: 0,
   kResetCard: 1,
   kUnpoweredCard: 2,
@@ -50,36 +50,36 @@ device.mojom.mojom.SmartCardError = {
   kUnknown: 30,
   kPermissionDenied: 31,
 };
-device.mojom.mojom.SmartCardErrorSpec = { $: mojo.internal.Enum() };
+device.mojom.SmartCardErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: SmartCardShareMode
-device.mojom.mojom.SmartCardShareMode = {
+device.mojom.SmartCardShareMode = {
   kShared: 0,
   kExclusive: 1,
   kDirect: 2,
 };
-device.mojom.mojom.SmartCardShareModeSpec = { $: mojo.internal.Enum() };
+device.mojom.SmartCardShareModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SmartCardProtocol
-device.mojom.mojom.SmartCardProtocol = {
+device.mojom.SmartCardProtocol = {
   kUndefined: 0,
   kT0: 1,
   kT1: 2,
   kRaw: 3,
 };
-device.mojom.mojom.SmartCardProtocolSpec = { $: mojo.internal.Enum() };
+device.mojom.SmartCardProtocolSpec = { $: mojo.internal.Enum() };
 
 // Enum: SmartCardDisposition
-device.mojom.mojom.SmartCardDisposition = {
+device.mojom.SmartCardDisposition = {
   kLeave: 0,
   kReset: 1,
   kUnpower: 2,
   kEject: 3,
 };
-device.mojom.mojom.SmartCardDispositionSpec = { $: mojo.internal.Enum() };
+device.mojom.SmartCardDispositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SmartCardConnectionState
-device.mojom.mojom.SmartCardConnectionState = {
+device.mojom.SmartCardConnectionState = {
   kAbsent: 0,
   kPresent: 1,
   kSwallowed: 2,
@@ -87,10 +87,10 @@ device.mojom.mojom.SmartCardConnectionState = {
   kNegotiable: 4,
   kSpecific: 5,
 };
-device.mojom.mojom.SmartCardConnectionStateSpec = { $: mojo.internal.Enum() };
+device.mojom.SmartCardConnectionStateSpec = { $: mojo.internal.Enum() };
 
 // Union: SmartCardResult
-device.mojom.mojom.SmartCardResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardResult', {
       'success': {
         'ordinal': 0,
@@ -104,7 +104,7 @@ device.mojom.mojom.SmartCardResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: SmartCardStatusChangeResult
-device.mojom.mojom.SmartCardStatusChangeResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardStatusChangeResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardStatusChangeResult', {
       'reader_states': {
         'ordinal': 0,
@@ -118,7 +118,7 @@ device.mojom.mojom.SmartCardStatusChangeResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: SmartCardListReadersResult
-device.mojom.mojom.SmartCardListReadersResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardListReadersResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardListReadersResult', {
       'readers': {
         'ordinal': 0,
@@ -132,7 +132,7 @@ device.mojom.mojom.SmartCardListReadersResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: SmartCardCreateContextResult
-device.mojom.mojom.SmartCardCreateContextResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardCreateContextResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardCreateContextResult', {
       'context': {
         'ordinal': 0,
@@ -146,7 +146,7 @@ device.mojom.mojom.SmartCardCreateContextResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: SmartCardConnectResult
-device.mojom.mojom.SmartCardConnectResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardConnectResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardConnectResult', {
       'success': {
         'ordinal': 0,
@@ -160,7 +160,7 @@ device.mojom.mojom.SmartCardConnectResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: SmartCardDataResult
-device.mojom.mojom.SmartCardDataResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardDataResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardDataResult', {
       'data': {
         'ordinal': 0,
@@ -174,7 +174,7 @@ device.mojom.mojom.SmartCardDataResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: SmartCardStatusResult
-device.mojom.mojom.SmartCardStatusResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardStatusResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardStatusResult', {
       'status': {
         'ordinal': 0,
@@ -188,7 +188,7 @@ device.mojom.mojom.SmartCardStatusResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: SmartCardTransactionResult
-device.mojom.mojom.SmartCardTransactionResultSpec = { $: mojo.internal.Union(
+device.mojom.SmartCardTransactionResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardTransactionResult', {
       'transaction': {
         'ordinal': 0,
@@ -202,7 +202,7 @@ device.mojom.mojom.SmartCardTransactionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SmartCardReaderStateFlags
-device.mojom.mojom.SmartCardReaderStateFlagsSpec = {
+device.mojom.SmartCardReaderStateFlagsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardReaderStateFlags',
@@ -226,7 +226,7 @@ device.mojom.mojom.SmartCardReaderStateFlagsSpec = {
 };
 
 // Struct: SmartCardReaderStateIn
-device.mojom.mojom.SmartCardReaderStateInSpec = {
+device.mojom.SmartCardReaderStateInSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardReaderStateIn',
@@ -242,7 +242,7 @@ device.mojom.mojom.SmartCardReaderStateInSpec = {
 };
 
 // Struct: SmartCardReaderStateOut
-device.mojom.mojom.SmartCardReaderStateOutSpec = {
+device.mojom.SmartCardReaderStateOutSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardReaderStateOut',
@@ -259,7 +259,7 @@ device.mojom.mojom.SmartCardReaderStateOutSpec = {
 };
 
 // Struct: SmartCardProtocols
-device.mojom.mojom.SmartCardProtocolsSpec = {
+device.mojom.SmartCardProtocolsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardProtocols',
@@ -275,7 +275,7 @@ device.mojom.mojom.SmartCardProtocolsSpec = {
 };
 
 // Struct: SmartCardStatus
-device.mojom.mojom.SmartCardStatusSpec = {
+device.mojom.SmartCardStatusSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardStatus',
@@ -292,7 +292,7 @@ device.mojom.mojom.SmartCardStatusSpec = {
 };
 
 // Struct: SmartCardConnectSuccess
-device.mojom.mojom.SmartCardConnectSuccessSpec = {
+device.mojom.SmartCardConnectSuccessSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnectSuccess',
@@ -307,24 +307,37 @@ device.mojom.mojom.SmartCardConnectSuccessSpec = {
 };
 
 // Interface: SmartCardTransaction
-device.mojom.mojom.SmartCardTransaction = {};
+device.mojom.SmartCardTransaction = {};
 
-device.mojom.mojom.SmartCardTransactionPendingReceiver = class {
+device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardTransaction_EndTransaction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDispositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.SmartCardTransactionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.SmartCardTransactionRemote = class {
+device.mojom.SmartCardTransactionRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SmartCardTransaction';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.SmartCardTransactionPendingReceiver,
+      device.mojom.SmartCardTransactionPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.SmartCardTransactionRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.SmartCardTransactionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -336,7 +349,7 @@ device.mojom.mojom.SmartCardTransactionRemote = class {
   }
 };
 
-device.mojom.mojom.SmartCardTransactionRemoteCallHandler = class {
+device.mojom.SmartCardTransactionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -345,15 +358,15 @@ device.mojom.mojom.SmartCardTransactionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.SmartCardTransaction_EndTransaction_ParamsSpec,
-      device.mojom.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
+      device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec,
+      device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
       [disposition]);
   }
 
 };
 
-device.mojom.mojom.SmartCardTransaction.getRemote = function() {
-  let remote = new device.mojom.mojom.SmartCardTransactionRemote();
+device.mojom.SmartCardTransaction.getRemote = function() {
+  let remote = new device.mojom.SmartCardTransactionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -363,7 +376,7 @@ device.mojom.mojom.SmartCardTransaction.getRemote = function() {
 };
 
 // ParamsSpec for EndTransaction
-device.mojom.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
+device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardTransaction.EndTransaction_Params',
@@ -376,7 +389,7 @@ device.mojom.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
+device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardTransaction.EndTransaction_ResponseParams',
@@ -390,29 +403,121 @@ device.mojom.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.SmartCardTransactionPtr = device.mojom.mojom.SmartCardTransactionRemote;
-device.mojom.mojom.SmartCardTransactionRequest = device.mojom.mojom.SmartCardTransactionPendingReceiver;
+device.mojom.SmartCardTransactionPtr = device.mojom.SmartCardTransactionRemote;
+device.mojom.SmartCardTransactionRequest = device.mojom.SmartCardTransactionPendingReceiver;
 
 
 // Interface: SmartCardConnection
-device.mojom.mojom.SmartCardConnection = {};
+device.mojom.SmartCardConnection = {};
 
-device.mojom.mojom.SmartCardConnectionPendingReceiver = class {
+device.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnection_Disconnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDispositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnection_Transmit_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnection_Transmit_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardProtocolSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnection_Control_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnection_Control_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'control_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnection_GetAttrib_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnection_SetAttrib_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnection_Status_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnection_Status_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnection_BeginTransaction_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.SmartCardConnectionRemote = class {
+device.mojom.SmartCardConnectionRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SmartCardConnection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.SmartCardConnectionPendingReceiver,
+      device.mojom.SmartCardConnectionPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.SmartCardConnectionRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.SmartCardConnectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -424,7 +529,7 @@ device.mojom.mojom.SmartCardConnectionRemote = class {
   }
 };
 
-device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
+device.mojom.SmartCardConnectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -433,8 +538,8 @@ device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.SmartCardConnection_Disconnect_ParamsSpec,
-      device.mojom.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
+      device.mojom.SmartCardConnection_Disconnect_ParamsSpec,
+      device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
       [disposition]);
   }
 
@@ -442,8 +547,8 @@ device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.SmartCardConnection_Transmit_ParamsSpec,
-      device.mojom.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
+      device.mojom.SmartCardConnection_Transmit_ParamsSpec,
+      device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
       [protocol, data]);
   }
 
@@ -451,8 +556,8 @@ device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.SmartCardConnection_Control_ParamsSpec,
-      device.mojom.mojom.SmartCardConnection_Control_ResponseParamsSpec,
+      device.mojom.SmartCardConnection_Control_ParamsSpec,
+      device.mojom.SmartCardConnection_Control_ResponseParamsSpec,
       [control_code, data]);
   }
 
@@ -460,8 +565,8 @@ device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.SmartCardConnection_GetAttrib_ParamsSpec,
-      device.mojom.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
+      device.mojom.SmartCardConnection_GetAttrib_ParamsSpec,
+      device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
       [id]);
   }
 
@@ -469,8 +574,8 @@ device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.mojom.SmartCardConnection_SetAttrib_ParamsSpec,
-      device.mojom.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
+      device.mojom.SmartCardConnection_SetAttrib_ParamsSpec,
+      device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
       [id, data]);
   }
 
@@ -478,8 +583,8 @@ device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.mojom.SmartCardConnection_Status_ParamsSpec,
-      device.mojom.mojom.SmartCardConnection_Status_ResponseParamsSpec,
+      device.mojom.SmartCardConnection_Status_ParamsSpec,
+      device.mojom.SmartCardConnection_Status_ResponseParamsSpec,
       []);
   }
 
@@ -487,15 +592,15 @@ device.mojom.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.mojom.SmartCardConnection_BeginTransaction_ParamsSpec,
-      device.mojom.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
+      device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec,
+      device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.mojom.SmartCardConnection.getRemote = function() {
-  let remote = new device.mojom.mojom.SmartCardConnectionRemote();
+device.mojom.SmartCardConnection.getRemote = function() {
+  let remote = new device.mojom.SmartCardConnectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -505,7 +610,7 @@ device.mojom.mojom.SmartCardConnection.getRemote = function() {
 };
 
 // ParamsSpec for Disconnect
-device.mojom.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
+device.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Disconnect_Params',
@@ -518,7 +623,7 @@ device.mojom.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
+device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Disconnect_ResponseParams',
@@ -532,7 +637,7 @@ device.mojom.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Transmit
-device.mojom.mojom.SmartCardConnection_Transmit_ParamsSpec = {
+device.mojom.SmartCardConnection_Transmit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Transmit_Params',
@@ -546,7 +651,7 @@ device.mojom.mojom.SmartCardConnection_Transmit_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
+device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Transmit_ResponseParams',
@@ -560,7 +665,7 @@ device.mojom.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Control
-device.mojom.mojom.SmartCardConnection_Control_ParamsSpec = {
+device.mojom.SmartCardConnection_Control_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Control_Params',
@@ -574,7 +679,7 @@ device.mojom.mojom.SmartCardConnection_Control_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
+device.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Control_ResponseParams',
@@ -588,7 +693,7 @@ device.mojom.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAttrib
-device.mojom.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
+device.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.GetAttrib_Params',
@@ -601,7 +706,7 @@ device.mojom.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
+device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.GetAttrib_ResponseParams',
@@ -615,7 +720,7 @@ device.mojom.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetAttrib
-device.mojom.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
+device.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.SetAttrib_Params',
@@ -629,7 +734,7 @@ device.mojom.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
+device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.SetAttrib_ResponseParams',
@@ -643,7 +748,7 @@ device.mojom.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Status
-device.mojom.mojom.SmartCardConnection_Status_ParamsSpec = {
+device.mojom.SmartCardConnection_Status_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Status_Params',
@@ -655,7 +760,7 @@ device.mojom.mojom.SmartCardConnection_Status_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
+device.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.Status_ResponseParams',
@@ -669,7 +774,7 @@ device.mojom.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BeginTransaction
-device.mojom.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
+device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.BeginTransaction_Params',
@@ -681,7 +786,7 @@ device.mojom.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
+device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnection.BeginTransaction_ResponseParams',
@@ -695,29 +800,41 @@ device.mojom.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.SmartCardConnectionPtr = device.mojom.mojom.SmartCardConnectionRemote;
-device.mojom.mojom.SmartCardConnectionRequest = device.mojom.mojom.SmartCardConnectionPendingReceiver;
+device.mojom.SmartCardConnectionPtr = device.mojom.SmartCardConnectionRemote;
+device.mojom.SmartCardConnectionRequest = device.mojom.SmartCardConnectionPendingReceiver;
 
 
 // Interface: SmartCardConnectionWatcher
-device.mojom.mojom.SmartCardConnectionWatcher = {};
+device.mojom.SmartCardConnectionWatcher = {};
 
-device.mojom.mojom.SmartCardConnectionWatcherPendingReceiver = class {
+device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.SmartCardConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.SmartCardConnectionWatcherRemote = class {
+device.mojom.SmartCardConnectionWatcherRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SmartCardConnectionWatcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.SmartCardConnectionWatcherPendingReceiver,
+      device.mojom.SmartCardConnectionWatcherPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.SmartCardConnectionWatcherRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.SmartCardConnectionWatcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -729,7 +846,7 @@ device.mojom.mojom.SmartCardConnectionWatcherRemote = class {
   }
 };
 
-device.mojom.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
+device.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -738,15 +855,15 @@ device.mojom.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec,
+      device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.mojom.SmartCardConnectionWatcher.getRemote = function() {
-  let remote = new device.mojom.mojom.SmartCardConnectionWatcherRemote();
+device.mojom.SmartCardConnectionWatcher.getRemote = function() {
+  let remote = new device.mojom.SmartCardConnectionWatcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -756,7 +873,7 @@ device.mojom.mojom.SmartCardConnectionWatcher.getRemote = function() {
 };
 
 // ParamsSpec for NotifyConnectionUsed
-device.mojom.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = {
+device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnectionWatcher.NotifyConnectionUsed_Params',
@@ -769,29 +886,83 @@ device.mojom.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = 
 };
 
 // Legacy compatibility
-device.mojom.mojom.SmartCardConnectionWatcherPtr = device.mojom.mojom.SmartCardConnectionWatcherRemote;
-device.mojom.mojom.SmartCardConnectionWatcherRequest = device.mojom.mojom.SmartCardConnectionWatcherPendingReceiver;
+device.mojom.SmartCardConnectionWatcherPtr = device.mojom.SmartCardConnectionWatcherRemote;
+device.mojom.SmartCardConnectionWatcherRequest = device.mojom.SmartCardConnectionWatcherPendingReceiver;
 
 
 // Interface: SmartCardContext
-device.mojom.mojom.SmartCardContext = {};
+device.mojom.SmartCardContext = {};
 
-device.mojom.mojom.SmartCardContextPendingReceiver = class {
+device.mojom.SmartCardContext_ListReaders_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardContext_ListReaders_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardContext_GetStatusChange_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'reader_states', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.SmartCardReaderStateInSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.SmartCardContext_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardContext_Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.SmartCardContext_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardContext_Connect_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'share_mode', packedOffset: 24, packedBitOffset: 0, type: device.mojom.SmartCardShareModeSpec, nullable: false, minVersion: 0 },
+        { name: 'preferred_protocols', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardProtocolsSpec, nullable: false, minVersion: 0 },
+        { name: 'connection_watcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionWatcherRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+device.mojom.SmartCardContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.SmartCardContextRemote = class {
+device.mojom.SmartCardContextRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SmartCardContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.SmartCardContextPendingReceiver,
+      device.mojom.SmartCardContextPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.SmartCardContextRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.SmartCardContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -803,7 +974,7 @@ device.mojom.mojom.SmartCardContextRemote = class {
   }
 };
 
-device.mojom.mojom.SmartCardContextRemoteCallHandler = class {
+device.mojom.SmartCardContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -812,8 +983,8 @@ device.mojom.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.SmartCardContext_ListReaders_ParamsSpec,
-      device.mojom.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
+      device.mojom.SmartCardContext_ListReaders_ParamsSpec,
+      device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
       []);
   }
 
@@ -821,8 +992,8 @@ device.mojom.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.SmartCardContext_GetStatusChange_ParamsSpec,
-      device.mojom.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
+      device.mojom.SmartCardContext_GetStatusChange_ParamsSpec,
+      device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
       [timeout, reader_states]);
   }
 
@@ -830,8 +1001,8 @@ device.mojom.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.SmartCardContext_Cancel_ParamsSpec,
-      device.mojom.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
+      device.mojom.SmartCardContext_Cancel_ParamsSpec,
+      device.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
       []);
   }
 
@@ -839,15 +1010,15 @@ device.mojom.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.SmartCardContext_Connect_ParamsSpec,
-      device.mojom.mojom.SmartCardContext_Connect_ResponseParamsSpec,
+      device.mojom.SmartCardContext_Connect_ParamsSpec,
+      device.mojom.SmartCardContext_Connect_ResponseParamsSpec,
       [reader, share_mode, preferred_protocols, connection_watcher]);
   }
 
 };
 
-device.mojom.mojom.SmartCardContext.getRemote = function() {
-  let remote = new device.mojom.mojom.SmartCardContextRemote();
+device.mojom.SmartCardContext.getRemote = function() {
+  let remote = new device.mojom.SmartCardContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -857,7 +1028,7 @@ device.mojom.mojom.SmartCardContext.getRemote = function() {
 };
 
 // ParamsSpec for ListReaders
-device.mojom.mojom.SmartCardContext_ListReaders_ParamsSpec = {
+device.mojom.SmartCardContext_ListReaders_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.ListReaders_Params',
@@ -869,7 +1040,7 @@ device.mojom.mojom.SmartCardContext_ListReaders_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
+device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.ListReaders_ResponseParams',
@@ -883,7 +1054,7 @@ device.mojom.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetStatusChange
-device.mojom.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
+device.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.GetStatusChange_Params',
@@ -897,7 +1068,7 @@ device.mojom.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
+device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.GetStatusChange_ResponseParams',
@@ -911,7 +1082,7 @@ device.mojom.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-device.mojom.mojom.SmartCardContext_Cancel_ParamsSpec = {
+device.mojom.SmartCardContext_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.Cancel_Params',
@@ -923,7 +1094,7 @@ device.mojom.mojom.SmartCardContext_Cancel_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
+device.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.Cancel_ResponseParams',
@@ -937,7 +1108,7 @@ device.mojom.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Connect
-device.mojom.mojom.SmartCardContext_Connect_ParamsSpec = {
+device.mojom.SmartCardContext_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.Connect_Params',
@@ -953,7 +1124,7 @@ device.mojom.mojom.SmartCardContext_Connect_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
+device.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.Connect_ResponseParams',
@@ -967,29 +1138,41 @@ device.mojom.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.SmartCardContextPtr = device.mojom.mojom.SmartCardContextRemote;
-device.mojom.mojom.SmartCardContextRequest = device.mojom.mojom.SmartCardContextPendingReceiver;
+device.mojom.SmartCardContextPtr = device.mojom.SmartCardContextRemote;
+device.mojom.SmartCardContextRequest = device.mojom.SmartCardContextPendingReceiver;
 
 
 // Interface: SmartCardContextFactory
-device.mojom.mojom.SmartCardContextFactory = {};
+device.mojom.SmartCardContextFactory = {};
 
-device.mojom.mojom.SmartCardContextFactoryPendingReceiver = class {
+device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardContextFactory_CreateContext_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.SmartCardContextFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.SmartCardContextFactoryRemote = class {
+device.mojom.SmartCardContextFactoryRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SmartCardContextFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.SmartCardContextFactoryPendingReceiver,
+      device.mojom.SmartCardContextFactoryPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.SmartCardContextFactoryRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.SmartCardContextFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1001,7 +1184,7 @@ device.mojom.mojom.SmartCardContextFactoryRemote = class {
   }
 };
 
-device.mojom.mojom.SmartCardContextFactoryRemoteCallHandler = class {
+device.mojom.SmartCardContextFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1010,15 +1193,15 @@ device.mojom.mojom.SmartCardContextFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.SmartCardContextFactory_CreateContext_ParamsSpec,
-      device.mojom.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
+      device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec,
+      device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.mojom.SmartCardContextFactory.getRemote = function() {
-  let remote = new device.mojom.mojom.SmartCardContextFactoryRemote();
+device.mojom.SmartCardContextFactory.getRemote = function() {
+  let remote = new device.mojom.SmartCardContextFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1028,7 +1211,7 @@ device.mojom.mojom.SmartCardContextFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateContext
-device.mojom.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
+device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContextFactory.CreateContext_Params',
@@ -1040,7 +1223,7 @@ device.mojom.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
+device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContextFactory.CreateContext_ResponseParams',
@@ -1054,6 +1237,6 @@ device.mojom.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.SmartCardContextFactoryPtr = device.mojom.mojom.SmartCardContextFactoryRemote;
-device.mojom.mojom.SmartCardContextFactoryRequest = device.mojom.mojom.SmartCardContextFactoryPendingReceiver;
+device.mojom.SmartCardContextFactoryPtr = device.mojom.SmartCardContextFactoryRemote;
+device.mojom.SmartCardContextFactoryRequest = device.mojom.SmartCardContextFactoryPendingReceiver;
 

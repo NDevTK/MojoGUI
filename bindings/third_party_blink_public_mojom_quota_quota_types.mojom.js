@@ -10,14 +10,14 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: BucketDurability
-blink.mojom.mojom.BucketDurability = {
+blink.mojom.BucketDurability = {
   kRelaxed: 0,
   kStrict: 1,
 };
-blink.mojom.mojom.BucketDurabilitySpec = { $: mojo.internal.Enum() };
+blink.mojom.BucketDurabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: QuotaStatusCode
-blink.mojom.mojom.QuotaStatusCode = {
+blink.mojom.QuotaStatusCode = {
   kOk: 0,
   kErrorNotSupported: 1,
   kErrorInvalidModification: 2,
@@ -25,10 +25,10 @@ blink.mojom.mojom.QuotaStatusCode = {
   kErrorAbort: 4,
   kUnknown: 5,
 };
-blink.mojom.mojom.QuotaStatusCodeSpec = { $: mojo.internal.Enum() };
+blink.mojom.QuotaStatusCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: UsageBreakdown
-blink.mojom.mojom.UsageBreakdownSpec = {
+blink.mojom.UsageBreakdownSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UsageBreakdown',

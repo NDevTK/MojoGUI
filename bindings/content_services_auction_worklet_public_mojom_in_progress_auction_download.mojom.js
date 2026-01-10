@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: InProgressAuctionDownload
-auction_worklet.mojom.mojom.InProgressAuctionDownloadSpec = {
+auction_worklet.mojom.InProgressAuctionDownloadSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.InProgressAuctionDownload',

@@ -13,7 +13,7 @@ var blink = blink || {};
 
 
 // Struct: ServiceWorkerFetchEventTiming
-blink.mojom.mojom.ServiceWorkerFetchEventTimingSpec = {
+blink.mojom.ServiceWorkerFetchEventTimingSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchEventTiming',
@@ -28,24 +28,67 @@ blink.mojom.mojom.ServiceWorkerFetchEventTimingSpec = {
 };
 
 // Interface: ServiceWorkerFetchResponseCallback
-blink.mojom.mojom.ServiceWorkerFetchResponseCallback = {};
+blink.mojom.ServiceWorkerFetchResponseCallback = {};
 
-blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver = class {
+blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
+        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
+        { name: 'body_as_stream', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStreamHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DataElementChunkedDataPipeSpec, nullable: true, minVersion: 0 },
+        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemote = class {
+blink.mojom.ServiceWorkerFetchResponseCallbackRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerFetchResponseCallback';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver,
+      blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +100,7 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
+blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,7 +109,7 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
+      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
       null,
       [response, timing]);
   }
@@ -75,7 +118,7 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
+      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
       null,
       [response, body_as_stream, timing]);
   }
@@ -84,15 +127,15 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
+      blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
       null,
       [request_body, timing]);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemote();
+blink.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerFetchResponseCallbackRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +145,7 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
 };
 
 // ParamsSpec for OnResponse
-blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
+blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponse_Params',
@@ -117,7 +160,7 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
 };
 
 // ParamsSpec for OnResponseStream
-blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
+blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponseStream_Params',
@@ -133,7 +176,7 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec
 };
 
 // ParamsSpec for OnFallback
-blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
+blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnFallback_Params',
@@ -148,6 +191,6 @@ blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPtr = blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemote;
-blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRequest = blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver;
+blink.mojom.ServiceWorkerFetchResponseCallbackPtr = blink.mojom.ServiceWorkerFetchResponseCallbackRemote;
+blink.mojom.ServiceWorkerFetchResponseCallbackRequest = blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver;
 

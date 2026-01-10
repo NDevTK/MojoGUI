@@ -10,33 +10,61 @@ storage.mojom = storage.mojom || {};
 
 
 // Enum: DisallowInactiveClientReason
-storage.mojom.mojom.DisallowInactiveClientReason = {
+storage.mojom.DisallowInactiveClientReason = {
   kVersionChangeEvent: 0,
   kTransactionIsAcquiringLocks: 1,
   kTransactionIsStartingWhileBlockingOthers: 2,
   kTransactionIsOngoingAndBlockingOthers: 3,
 };
-storage.mojom.mojom.DisallowInactiveClientReasonSpec = { $: mojo.internal.Enum() };
+storage.mojom.DisallowInactiveClientReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: IndexedDBClientStateChecker
-storage.mojom.mojom.IndexedDBClientStateChecker = {};
+storage.mojom.IndexedDBClientStateChecker = {};
 
-storage.mojom.mojom.IndexedDBClientStateCheckerPendingReceiver = class {
+storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 12, packedBitOffset: 0, type: storage.mojom.DisallowInactiveClientReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'keep_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBClientStateChecker_MakeClone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientStateCheckerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.IndexedDBClientStateCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.IndexedDBClientStateCheckerRemote = class {
+storage.mojom.IndexedDBClientStateCheckerRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.IndexedDBClientStateChecker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.IndexedDBClientStateCheckerPendingReceiver,
+      storage.mojom.IndexedDBClientStateCheckerPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.IndexedDBClientStateCheckerRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +76,7 @@ storage.mojom.mojom.IndexedDBClientStateCheckerRemote = class {
   }
 };
 
-storage.mojom.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
+storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,8 +85,8 @@ storage.mojom.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec,
-      storage.mojom.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
+      storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec,
+      storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
       [connection_id, reason, keep_active]);
   }
 
@@ -66,15 +94,15 @@ storage.mojom.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec,
+      storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-storage.mojom.mojom.IndexedDBClientStateChecker.getRemote = function() {
-  let remote = new storage.mojom.mojom.IndexedDBClientStateCheckerRemote();
+storage.mojom.IndexedDBClientStateChecker.getRemote = function() {
+  let remote = new storage.mojom.IndexedDBClientStateCheckerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +112,7 @@ storage.mojom.mojom.IndexedDBClientStateChecker.getRemote = function() {
 };
 
 // ParamsSpec for DisallowInactiveClient
-storage.mojom.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
+storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBClientStateChecker.DisallowInactiveClient_Params',
@@ -99,7 +127,7 @@ storage.mojom.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpe
   }
 };
 
-storage.mojom.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec = {
+storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBClientStateChecker.DisallowInactiveClient_ResponseParams',
@@ -113,7 +141,7 @@ storage.mojom.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseP
 };
 
 // ParamsSpec for MakeClone
-storage.mojom.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
+storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBClientStateChecker.MakeClone_Params',
@@ -127,29 +155,29 @@ storage.mojom.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.IndexedDBClientStateCheckerPtr = storage.mojom.mojom.IndexedDBClientStateCheckerRemote;
-storage.mojom.mojom.IndexedDBClientStateCheckerRequest = storage.mojom.mojom.IndexedDBClientStateCheckerPendingReceiver;
+storage.mojom.IndexedDBClientStateCheckerPtr = storage.mojom.IndexedDBClientStateCheckerRemote;
+storage.mojom.IndexedDBClientStateCheckerRequest = storage.mojom.IndexedDBClientStateCheckerPendingReceiver;
 
 
 // Interface: IndexedDBClientKeepActive
-storage.mojom.mojom.IndexedDBClientKeepActive = {};
+storage.mojom.IndexedDBClientKeepActive = {};
 
-storage.mojom.mojom.IndexedDBClientKeepActivePendingReceiver = class {
+storage.mojom.IndexedDBClientKeepActivePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.IndexedDBClientKeepActiveRemote = class {
+storage.mojom.IndexedDBClientKeepActiveRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.IndexedDBClientKeepActive';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.IndexedDBClientKeepActivePendingReceiver,
+      storage.mojom.IndexedDBClientKeepActivePendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.IndexedDBClientKeepActiveRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.IndexedDBClientKeepActiveRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -161,15 +189,15 @@ storage.mojom.mojom.IndexedDBClientKeepActiveRemote = class {
   }
 };
 
-storage.mojom.mojom.IndexedDBClientKeepActiveRemoteCallHandler = class {
+storage.mojom.IndexedDBClientKeepActiveRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-storage.mojom.mojom.IndexedDBClientKeepActive.getRemote = function() {
-  let remote = new storage.mojom.mojom.IndexedDBClientKeepActiveRemote();
+storage.mojom.IndexedDBClientKeepActive.getRemote = function() {
+  let remote = new storage.mojom.IndexedDBClientKeepActiveRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -179,6 +207,6 @@ storage.mojom.mojom.IndexedDBClientKeepActive.getRemote = function() {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.IndexedDBClientKeepActivePtr = storage.mojom.mojom.IndexedDBClientKeepActiveRemote;
-storage.mojom.mojom.IndexedDBClientKeepActiveRequest = storage.mojom.mojom.IndexedDBClientKeepActivePendingReceiver;
+storage.mojom.IndexedDBClientKeepActivePtr = storage.mojom.IndexedDBClientKeepActiveRemote;
+storage.mojom.IndexedDBClientKeepActiveRequest = storage.mojom.IndexedDBClientKeepActivePendingReceiver;
 

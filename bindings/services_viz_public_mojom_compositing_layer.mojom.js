@@ -22,7 +22,7 @@ var gfx = gfx || {};
 
 
 // Union: LayerExtra
-viz.mojom.mojom.LayerExtraSpec = { $: mojo.internal.Union(
+viz.mojom.LayerExtraSpec = { $: mojo.internal.Union(
     'viz.mojom.LayerExtra', {
       'mirror_layer_extra': {
         'ordinal': 0,
@@ -68,7 +68,7 @@ viz.mojom.mojom.LayerExtraSpec = { $: mojo.internal.Union(
 };
 
 // Struct: RareProperties
-viz.mojom.mojom.RarePropertiesSpec = {
+viz.mojom.RarePropertiesSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RareProperties',
@@ -84,7 +84,7 @@ viz.mojom.mojom.RarePropertiesSpec = {
 };
 
 // Struct: MirrorLayerExtra
-viz.mojom.mojom.MirrorLayerExtraSpec = {
+viz.mojom.MirrorLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.MirrorLayerExtra',
@@ -98,7 +98,7 @@ viz.mojom.mojom.MirrorLayerExtraSpec = {
 };
 
 // Struct: SurfaceLayerExtra
-viz.mojom.mojom.SurfaceLayerExtraSpec = {
+viz.mojom.SurfaceLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SurfaceLayerExtra',
@@ -120,7 +120,7 @@ viz.mojom.mojom.SurfaceLayerExtraSpec = {
 };
 
 // Struct: TextureLayerExtra
-viz.mojom.mojom.TextureLayerExtraSpec = {
+viz.mojom.TextureLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TextureLayerExtra',
@@ -139,7 +139,7 @@ viz.mojom.mojom.TextureLayerExtraSpec = {
 };
 
 // Struct: UIResourceLayerExtra
-viz.mojom.mojom.UIResourceLayerExtraSpec = {
+viz.mojom.UIResourceLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.UIResourceLayerExtra',
@@ -156,7 +156,7 @@ viz.mojom.mojom.UIResourceLayerExtraSpec = {
 };
 
 // Struct: TileDisplayLayerExtra
-viz.mojom.mojom.TileDisplayLayerExtraSpec = {
+viz.mojom.TileDisplayLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TileDisplayLayerExtra',
@@ -176,7 +176,7 @@ viz.mojom.mojom.TileDisplayLayerExtraSpec = {
 };
 
 // Struct: ScrollbarLayerBaseExtra
-viz.mojom.mojom.ScrollbarLayerBaseExtraSpec = {
+viz.mojom.ScrollbarLayerBaseExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ScrollbarLayerBaseExtra',
@@ -200,7 +200,7 @@ viz.mojom.mojom.ScrollbarLayerBaseExtraSpec = {
 };
 
 // Struct: NinePatchThumbScrollbarLayerExtra
-viz.mojom.mojom.NinePatchThumbScrollbarLayerExtraSpec = {
+viz.mojom.NinePatchThumbScrollbarLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.NinePatchThumbScrollbarLayerExtra',
@@ -222,7 +222,7 @@ viz.mojom.mojom.NinePatchThumbScrollbarLayerExtraSpec = {
 };
 
 // Struct: PaintedScrollbarLayerExtra
-viz.mojom.mojom.PaintedScrollbarLayerExtraSpec = {
+viz.mojom.PaintedScrollbarLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.PaintedScrollbarLayerExtra',
@@ -252,7 +252,7 @@ viz.mojom.mojom.PaintedScrollbarLayerExtraSpec = {
 };
 
 // Struct: SolidColorScrollbarLayerExtra
-viz.mojom.mojom.SolidColorScrollbarLayerExtraSpec = {
+viz.mojom.SolidColorScrollbarLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SolidColorScrollbarLayerExtra',
@@ -269,7 +269,7 @@ viz.mojom.mojom.SolidColorScrollbarLayerExtraSpec = {
 };
 
 // Struct: ViewTransitionContentLayerExtra
-viz.mojom.mojom.ViewTransitionContentLayerExtraSpec = {
+viz.mojom.ViewTransitionContentLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ViewTransitionContentLayerExtra',
@@ -285,7 +285,7 @@ viz.mojom.mojom.ViewTransitionContentLayerExtraSpec = {
 };
 
 // Struct: NinePatchLayerExtra
-viz.mojom.mojom.NinePatchLayerExtraSpec = {
+viz.mojom.NinePatchLayerExtraSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.NinePatchLayerExtra',
@@ -306,7 +306,7 @@ viz.mojom.mojom.NinePatchLayerExtraSpec = {
 };
 
 // Struct: Layer
-viz.mojom.mojom.LayerSpec = {
+viz.mojom.LayerSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Layer',
@@ -340,7 +340,7 @@ viz.mojom.mojom.LayerSpec = {
 };
 
 // Struct: AnchorPositionScrollData
-viz.mojom.mojom.AnchorPositionScrollDataSpec = {
+viz.mojom.AnchorPositionScrollDataSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AnchorPositionScrollData',
@@ -357,7 +357,7 @@ viz.mojom.mojom.AnchorPositionScrollDataSpec = {
 };
 
 // Struct: StickyPositionNodeData
-viz.mojom.mojom.StickyPositionNodeDataSpec = {
+viz.mojom.StickyPositionNodeDataSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.StickyPositionNodeData',
@@ -387,7 +387,7 @@ viz.mojom.mojom.StickyPositionNodeDataSpec = {
 };
 
 // Struct: TransformTreeUpdate
-viz.mojom.mojom.TransformTreeUpdateSpec = {
+viz.mojom.TransformTreeUpdateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TransformTreeUpdate',
@@ -408,7 +408,7 @@ viz.mojom.mojom.TransformTreeUpdateSpec = {
 };
 
 // Struct: TransformNode
-viz.mojom.mojom.TransformNodeSpec = {
+viz.mojom.TransformNodeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TransformNode',
@@ -456,7 +456,7 @@ viz.mojom.mojom.TransformNodeSpec = {
 };
 
 // Struct: ClipNode
-viz.mojom.mojom.ClipNodeSpec = {
+viz.mojom.ClipNodeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ClipNode',
@@ -474,7 +474,7 @@ viz.mojom.mojom.ClipNodeSpec = {
 };
 
 // Struct: EffectNode
-viz.mojom.mojom.EffectNodeSpec = {
+viz.mojom.EffectNodeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.EffectNode',
@@ -524,7 +524,7 @@ viz.mojom.mojom.EffectNodeSpec = {
 };
 
 // Struct: ScrollTreeUpdate
-viz.mojom.mojom.ScrollTreeUpdateSpec = {
+viz.mojom.ScrollTreeUpdateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ScrollTreeUpdate',
@@ -540,7 +540,7 @@ viz.mojom.mojom.ScrollTreeUpdateSpec = {
 };
 
 // Struct: ScrollNode
-viz.mojom.mojom.ScrollNodeSpec = {
+viz.mojom.ScrollNodeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ScrollNode',

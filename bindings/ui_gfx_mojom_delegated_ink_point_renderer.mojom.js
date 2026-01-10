@@ -12,24 +12,49 @@ var gfx = gfx || {};
 
 
 // Interface: DelegatedInkPointRenderer
-gfx.mojom.mojom.DelegatedInkPointRenderer = {};
+gfx.mojom.DelegatedInkPointRenderer = {};
 
-gfx.mojom.mojom.DelegatedInkPointRendererPendingReceiver = class {
+gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DelegatedInkPointSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+gfx.mojom.DelegatedInkPointRendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gfx.mojom.mojom.DelegatedInkPointRendererRemote = class {
+gfx.mojom.DelegatedInkPointRendererRemote = class {
   static get $interfaceName() {
     return 'gfx.mojom.DelegatedInkPointRenderer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gfx.mojom.mojom.DelegatedInkPointRendererPendingReceiver,
+      gfx.mojom.DelegatedInkPointRendererPendingReceiver,
       handle);
-    this.$ = new gfx.mojom.mojom.DelegatedInkPointRendererRemoteCallHandler(this.proxy);
+    this.$ = new gfx.mojom.DelegatedInkPointRendererRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +66,7 @@ gfx.mojom.mojom.DelegatedInkPointRendererRemote = class {
   }
 };
 
-gfx.mojom.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
+gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +75,7 @@ gfx.mojom.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
+      gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
       null,
       [point]);
   }
@@ -59,15 +84,15 @@ gfx.mojom.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
+      gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
       null,
       []);
   }
 
 };
 
-gfx.mojom.mojom.DelegatedInkPointRenderer.getRemote = function() {
-  let remote = new gfx.mojom.mojom.DelegatedInkPointRendererRemote();
+gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
+  let remote = new gfx.mojom.DelegatedInkPointRendererRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -77,7 +102,7 @@ gfx.mojom.mojom.DelegatedInkPointRenderer.getRemote = function() {
 };
 
 // ParamsSpec for StoreDelegatedInkPoint
-gfx.mojom.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
+gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkPointRenderer.StoreDelegatedInkPoint_Params',
@@ -91,7 +116,7 @@ gfx.mojom.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
 };
 
 // ParamsSpec for ResetPrediction
-gfx.mojom.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
+gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkPointRenderer.ResetPrediction_Params',
@@ -104,6 +129,6 @@ gfx.mojom.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
 };
 
 // Legacy compatibility
-gfx.mojom.mojom.DelegatedInkPointRendererPtr = gfx.mojom.mojom.DelegatedInkPointRendererRemote;
-gfx.mojom.mojom.DelegatedInkPointRendererRequest = gfx.mojom.mojom.DelegatedInkPointRendererPendingReceiver;
+gfx.mojom.DelegatedInkPointRendererPtr = gfx.mojom.DelegatedInkPointRendererRemote;
+gfx.mojom.DelegatedInkPointRendererRequest = gfx.mojom.DelegatedInkPointRendererPendingReceiver;
 

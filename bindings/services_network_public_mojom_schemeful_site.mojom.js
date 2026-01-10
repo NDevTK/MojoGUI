@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: SchemefulSite
-network.mojom.mojom.SchemefulSiteSpec = {
+network.mojom.SchemefulSiteSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SchemefulSite',

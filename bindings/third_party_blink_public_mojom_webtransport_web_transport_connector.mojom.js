@@ -11,24 +11,40 @@ var url = url || {};
 
 
 // Interface: WebTransportConnector
-blink.mojom.mojom.WebTransportConnector = {};
+blink.mojom.WebTransportConnector = {};
 
-blink.mojom.mojom.WebTransportConnectorPendingReceiver = class {
+blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebTransportConnector_Connect_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'fingerprints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebTransportCertificateFingerprintSpec, false), nullable: false, minVersion: 0 },
+        { name: 'application_protocols', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportHandshakeClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.WebTransportConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.WebTransportConnectorRemote = class {
+blink.mojom.WebTransportConnectorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebTransportConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.WebTransportConnectorPendingReceiver,
+      blink.mojom.WebTransportConnectorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.WebTransportConnectorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.WebTransportConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +56,7 @@ blink.mojom.mojom.WebTransportConnectorRemote = class {
   }
 };
 
-blink.mojom.mojom.WebTransportConnectorRemoteCallHandler = class {
+blink.mojom.WebTransportConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +65,15 @@ blink.mojom.mojom.WebTransportConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.WebTransportConnector_Connect_ParamsSpec,
+      blink.mojom.WebTransportConnector_Connect_ParamsSpec,
       null,
       [url, fingerprints, application_protocols, client]);
   }
 
 };
 
-blink.mojom.mojom.WebTransportConnector.getRemote = function() {
-  let remote = new blink.mojom.mojom.WebTransportConnectorRemote();
+blink.mojom.WebTransportConnector.getRemote = function() {
+  let remote = new blink.mojom.WebTransportConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +83,7 @@ blink.mojom.mojom.WebTransportConnector.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-blink.mojom.mojom.WebTransportConnector_Connect_ParamsSpec = {
+blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebTransportConnector.Connect_Params',
@@ -84,6 +100,6 @@ blink.mojom.mojom.WebTransportConnector_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.WebTransportConnectorPtr = blink.mojom.mojom.WebTransportConnectorRemote;
-blink.mojom.mojom.WebTransportConnectorRequest = blink.mojom.mojom.WebTransportConnectorPendingReceiver;
+blink.mojom.WebTransportConnectorPtr = blink.mojom.WebTransportConnectorRemote;
+blink.mojom.WebTransportConnectorRequest = blink.mojom.WebTransportConnectorPendingReceiver;
 

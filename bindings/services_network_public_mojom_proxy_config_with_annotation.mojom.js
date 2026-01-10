@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: ProxyConfigWithAnnotation
-network.mojom.mojom.ProxyConfigWithAnnotationSpec = {
+network.mojom.ProxyConfigWithAnnotationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyConfigWithAnnotation',
@@ -25,24 +25,49 @@ network.mojom.mojom.ProxyConfigWithAnnotationSpec = {
 };
 
 // Interface: ProxyConfigClient
-network.mojom.mojom.ProxyConfigClient = {};
+network.mojom.ProxyConfigClient = {};
 
-network.mojom.mojom.ProxyConfigClientPendingReceiver = class {
+network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ProxyConfigClient_OnProxyConfigUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyConfigWithAnnotationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ProxyConfigClient_FlushProxyConfig_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.ProxyConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.ProxyConfigClientRemote = class {
+network.mojom.ProxyConfigClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ProxyConfigClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.ProxyConfigClientPendingReceiver,
+      network.mojom.ProxyConfigClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.ProxyConfigClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.ProxyConfigClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +79,7 @@ network.mojom.mojom.ProxyConfigClientRemote = class {
   }
 };
 
-network.mojom.mojom.ProxyConfigClientRemoteCallHandler = class {
+network.mojom.ProxyConfigClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +88,7 @@ network.mojom.mojom.ProxyConfigClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
+      network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
       null,
       [proxy_config]);
   }
@@ -72,15 +97,15 @@ network.mojom.mojom.ProxyConfigClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
+      network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.mojom.ProxyConfigClient.getRemote = function() {
-  let remote = new network.mojom.mojom.ProxyConfigClientRemote();
+network.mojom.ProxyConfigClient.getRemote = function() {
+  let remote = new network.mojom.ProxyConfigClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +115,7 @@ network.mojom.mojom.ProxyConfigClient.getRemote = function() {
 };
 
 // ParamsSpec for OnProxyConfigUpdated
-network.mojom.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
+network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyConfigClient.OnProxyConfigUpdated_Params',
@@ -104,7 +129,7 @@ network.mojom.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for FlushProxyConfig
-network.mojom.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = {
+network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyConfigClient.FlushProxyConfig_Params',
@@ -117,29 +142,41 @@ network.mojom.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.ProxyConfigClientPtr = network.mojom.mojom.ProxyConfigClientRemote;
-network.mojom.mojom.ProxyConfigClientRequest = network.mojom.mojom.ProxyConfigClientPendingReceiver;
+network.mojom.ProxyConfigClientPtr = network.mojom.ProxyConfigClientRemote;
+network.mojom.ProxyConfigClientRequest = network.mojom.ProxyConfigClientPendingReceiver;
 
 
 // Interface: ProxyConfigPollerClient
-network.mojom.mojom.ProxyConfigPollerClient = {};
+network.mojom.ProxyConfigPollerClient = {};
 
-network.mojom.mojom.ProxyConfigPollerClientPendingReceiver = class {
+network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.ProxyConfigPollerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.ProxyConfigPollerClientRemote = class {
+network.mojom.ProxyConfigPollerClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ProxyConfigPollerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.ProxyConfigPollerClientPendingReceiver,
+      network.mojom.ProxyConfigPollerClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.ProxyConfigPollerClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.ProxyConfigPollerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -151,7 +188,7 @@ network.mojom.mojom.ProxyConfigPollerClientRemote = class {
   }
 };
 
-network.mojom.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
+network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -160,15 +197,15 @@ network.mojom.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
+      network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.mojom.ProxyConfigPollerClient.getRemote = function() {
-  let remote = new network.mojom.mojom.ProxyConfigPollerClientRemote();
+network.mojom.ProxyConfigPollerClient.getRemote = function() {
+  let remote = new network.mojom.ProxyConfigPollerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -178,7 +215,7 @@ network.mojom.mojom.ProxyConfigPollerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnLazyProxyConfigPoll
-network.mojom.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = {
+network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyConfigPollerClient.OnLazyProxyConfigPoll_Params',
@@ -191,29 +228,56 @@ network.mojom.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.ProxyConfigPollerClientPtr = network.mojom.mojom.ProxyConfigPollerClientRemote;
-network.mojom.mojom.ProxyConfigPollerClientRequest = network.mojom.mojom.ProxyConfigPollerClientPendingReceiver;
+network.mojom.ProxyConfigPollerClientPtr = network.mojom.ProxyConfigPollerClientRemote;
+network.mojom.ProxyConfigPollerClientRequest = network.mojom.ProxyConfigPollerClientPendingReceiver;
 
 
 // Interface: ProxyErrorClient
-network.mojom.mojom.ProxyErrorClient = {};
+network.mojom.ProxyErrorClient = {};
 
-network.mojom.mojom.ProxyErrorClientPendingReceiver = class {
+network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ProxyErrorClient_OnPACScriptError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'line_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.ProxyErrorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.ProxyErrorClientRemote = class {
+network.mojom.ProxyErrorClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ProxyErrorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.ProxyErrorClientPendingReceiver,
+      network.mojom.ProxyErrorClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.ProxyErrorClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.ProxyErrorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -225,7 +289,7 @@ network.mojom.mojom.ProxyErrorClientRemote = class {
   }
 };
 
-network.mojom.mojom.ProxyErrorClientRemoteCallHandler = class {
+network.mojom.ProxyErrorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -234,7 +298,7 @@ network.mojom.mojom.ProxyErrorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
+      network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
       null,
       [line_number, details]);
   }
@@ -243,15 +307,15 @@ network.mojom.mojom.ProxyErrorClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
+      network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
       null,
       [net_error]);
   }
 
 };
 
-network.mojom.mojom.ProxyErrorClient.getRemote = function() {
-  let remote = new network.mojom.mojom.ProxyErrorClientRemote();
+network.mojom.ProxyErrorClient.getRemote = function() {
+  let remote = new network.mojom.ProxyErrorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -261,7 +325,7 @@ network.mojom.mojom.ProxyErrorClient.getRemote = function() {
 };
 
 // ParamsSpec for OnPACScriptError
-network.mojom.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
+network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyErrorClient.OnPACScriptError_Params',
@@ -276,7 +340,7 @@ network.mojom.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
 };
 
 // ParamsSpec for OnRequestMaybeFailedDueToProxySettings
-network.mojom.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = {
+network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyErrorClient.OnRequestMaybeFailedDueToProxySettings_Params',
@@ -290,6 +354,6 @@ network.mojom.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_Para
 };
 
 // Legacy compatibility
-network.mojom.mojom.ProxyErrorClientPtr = network.mojom.mojom.ProxyErrorClientRemote;
-network.mojom.mojom.ProxyErrorClientRequest = network.mojom.mojom.ProxyErrorClientPendingReceiver;
+network.mojom.ProxyErrorClientPtr = network.mojom.ProxyErrorClientRemote;
+network.mojom.ProxyErrorClientRequest = network.mojom.ProxyErrorClientPendingReceiver;
 

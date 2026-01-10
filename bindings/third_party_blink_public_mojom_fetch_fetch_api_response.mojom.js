@@ -13,7 +13,7 @@ var url = url || {};
 
 
 // Struct: FetchAPIResponse
-blink.mojom.mojom.FetchAPIResponseSpec = {
+blink.mojom.FetchAPIResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchAPIResponse',

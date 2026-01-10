@@ -9,14 +9,14 @@ var smbfs = smbfs || {};
 smbfs.mojom = smbfs.mojom || {};
 
 
-smbfs.mojom.mojom.kBootstrapPipeName = "smbfs-bootstrap";
+smbfs.mojom.kBootstrapPipeName = "smbfs-bootstrap";
 
-smbfs.mojom.mojom.kMaxLength = 255;
+smbfs.mojom.kMaxLength = 255;
 
-smbfs.mojom.mojom.kMinSaltLength = 16;
+smbfs.mojom.kMinSaltLength = 16;
 
 // Enum: MountError
-smbfs.mojom.mojom.MountError = {
+smbfs.mojom.MountError = {
   kOk: 0,
   kUnknown: 1,
   kTimeout: 2,
@@ -26,10 +26,10 @@ smbfs.mojom.mojom.MountError = {
   kAccessDenied: 6,
   kInvalidProtocol: 7,
 };
-smbfs.mojom.mojom.MountErrorSpec = { $: mojo.internal.Enum() };
+smbfs.mojom.MountErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeleteRecursivelyError
-smbfs.mojom.mojom.DeleteRecursivelyError = {
+smbfs.mojom.DeleteRecursivelyError = {
   kOk: 0,
   kUnknown: 1,
   kPathNotFound: 2,
@@ -37,17 +37,17 @@ smbfs.mojom.mojom.DeleteRecursivelyError = {
   kFailedToListDirectory: 4,
   kOperationInProgress: 5,
 };
-smbfs.mojom.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum() };
+smbfs.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Source
-smbfs.mojom.mojom.Source = {
+smbfs.mojom.Source = {
   kActiveDirectory: 0,
   kKerberos: 1,
 };
-smbfs.mojom.mojom.SourceSpec = { $: mojo.internal.Enum() };
+smbfs.mojom.SourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: Password
-smbfs.mojom.mojom.PasswordSpec = {
+smbfs.mojom.PasswordSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.Password',
@@ -63,7 +63,7 @@ smbfs.mojom.mojom.PasswordSpec = {
 };
 
 // Struct: KerberosConfig
-smbfs.mojom.mojom.KerberosConfigSpec = {
+smbfs.mojom.KerberosConfigSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.KerberosConfig',
@@ -77,7 +77,7 @@ smbfs.mojom.mojom.KerberosConfigSpec = {
 };
 
 // Struct: CredentialStorageOptions
-smbfs.mojom.mojom.CredentialStorageOptionsSpec = {
+smbfs.mojom.CredentialStorageOptionsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.CredentialStorageOptions',
@@ -93,7 +93,7 @@ smbfs.mojom.mojom.CredentialStorageOptionsSpec = {
 };
 
 // Struct: MountOptions
-smbfs.mojom.mojom.MountOptionsSpec = {
+smbfs.mojom.MountOptionsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.MountOptions',
@@ -115,7 +115,7 @@ smbfs.mojom.mojom.MountOptionsSpec = {
 };
 
 // Struct: Credentials
-smbfs.mojom.mojom.CredentialsSpec = {
+smbfs.mojom.CredentialsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.Credentials',
@@ -131,24 +131,38 @@ smbfs.mojom.mojom.CredentialsSpec = {
 };
 
 // Interface: SmbFsBootstrap
-smbfs.mojom.mojom.SmbFsBootstrap = {};
+smbfs.mojom.SmbFsBootstrap = {};
 
-smbfs.mojom.mojom.SmbFsBootstrapPendingReceiver = class {
+smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.SmbFsBootstrap_MountShare_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+smbfs.mojom.SmbFsBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-smbfs.mojom.mojom.SmbFsBootstrapRemote = class {
+smbfs.mojom.SmbFsBootstrapRemote = class {
   static get $interfaceName() {
     return 'smbfs.mojom.SmbFsBootstrap';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      smbfs.mojom.mojom.SmbFsBootstrapPendingReceiver,
+      smbfs.mojom.SmbFsBootstrapPendingReceiver,
       handle);
-    this.$ = new smbfs.mojom.mojom.SmbFsBootstrapRemoteCallHandler(this.proxy);
+    this.$ = new smbfs.mojom.SmbFsBootstrapRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -160,7 +174,7 @@ smbfs.mojom.mojom.SmbFsBootstrapRemote = class {
   }
 };
 
-smbfs.mojom.mojom.SmbFsBootstrapRemoteCallHandler = class {
+smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -169,15 +183,15 @@ smbfs.mojom.mojom.SmbFsBootstrapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ParamsSpec,
-      smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
+      smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec,
+      smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
       [options, delegate]);
   }
 
 };
 
-smbfs.mojom.mojom.SmbFsBootstrap.getRemote = function() {
-  let remote = new smbfs.mojom.mojom.SmbFsBootstrapRemote();
+smbfs.mojom.SmbFsBootstrap.getRemote = function() {
+  let remote = new smbfs.mojom.SmbFsBootstrapRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -187,7 +201,7 @@ smbfs.mojom.mojom.SmbFsBootstrap.getRemote = function() {
 };
 
 // ParamsSpec for MountShare
-smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
+smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFsBootstrap.MountShare_Params',
@@ -201,7 +215,7 @@ smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
   }
 };
 
-smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
+smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFsBootstrap.MountShare_ResponseParams',
@@ -216,29 +230,54 @@ smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-smbfs.mojom.mojom.SmbFsBootstrapPtr = smbfs.mojom.mojom.SmbFsBootstrapRemote;
-smbfs.mojom.mojom.SmbFsBootstrapRequest = smbfs.mojom.mojom.SmbFsBootstrapPendingReceiver;
+smbfs.mojom.SmbFsBootstrapPtr = smbfs.mojom.SmbFsBootstrapRemote;
+smbfs.mojom.SmbFsBootstrapRequest = smbfs.mojom.SmbFsBootstrapPendingReceiver;
 
 
 // Interface: SmbFs
-smbfs.mojom.mojom.SmbFs = {};
+smbfs.mojom.SmbFs = {};
 
-smbfs.mojom.mojom.SmbFsPendingReceiver = class {
+smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.SmbFs_RemoveSavedCredentials_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.SmbFs_DeleteRecursively_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+smbfs.mojom.SmbFsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-smbfs.mojom.mojom.SmbFsRemote = class {
+smbfs.mojom.SmbFsRemote = class {
   static get $interfaceName() {
     return 'smbfs.mojom.SmbFs';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      smbfs.mojom.mojom.SmbFsPendingReceiver,
+      smbfs.mojom.SmbFsPendingReceiver,
       handle);
-    this.$ = new smbfs.mojom.mojom.SmbFsRemoteCallHandler(this.proxy);
+    this.$ = new smbfs.mojom.SmbFsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -250,7 +289,7 @@ smbfs.mojom.mojom.SmbFsRemote = class {
   }
 };
 
-smbfs.mojom.mojom.SmbFsRemoteCallHandler = class {
+smbfs.mojom.SmbFsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -259,8 +298,8 @@ smbfs.mojom.mojom.SmbFsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      smbfs.mojom.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec,
-      smbfs.mojom.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
+      smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec,
+      smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
       []);
   }
 
@@ -268,15 +307,15 @@ smbfs.mojom.mojom.SmbFsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      smbfs.mojom.mojom.SmbFs_DeleteRecursively_ParamsSpec,
-      smbfs.mojom.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
+      smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec,
+      smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-smbfs.mojom.mojom.SmbFs.getRemote = function() {
-  let remote = new smbfs.mojom.mojom.SmbFsRemote();
+smbfs.mojom.SmbFs.getRemote = function() {
+  let remote = new smbfs.mojom.SmbFsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -286,7 +325,7 @@ smbfs.mojom.mojom.SmbFs.getRemote = function() {
 };
 
 // ParamsSpec for RemoveSavedCredentials
-smbfs.mojom.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
+smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFs.RemoveSavedCredentials_Params',
@@ -298,7 +337,7 @@ smbfs.mojom.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
   }
 };
 
-smbfs.mojom.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
+smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFs.RemoveSavedCredentials_ResponseParams',
@@ -312,7 +351,7 @@ smbfs.mojom.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteRecursively
-smbfs.mojom.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
+smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFs.DeleteRecursively_Params',
@@ -325,7 +364,7 @@ smbfs.mojom.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
   }
 };
 
-smbfs.mojom.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
+smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFs.DeleteRecursively_ResponseParams',
@@ -339,29 +378,41 @@ smbfs.mojom.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-smbfs.mojom.mojom.SmbFsPtr = smbfs.mojom.mojom.SmbFsRemote;
-smbfs.mojom.mojom.SmbFsRequest = smbfs.mojom.mojom.SmbFsPendingReceiver;
+smbfs.mojom.SmbFsPtr = smbfs.mojom.SmbFsRemote;
+smbfs.mojom.SmbFsRequest = smbfs.mojom.SmbFsPendingReceiver;
 
 
 // Interface: SmbFsDelegate
-smbfs.mojom.mojom.SmbFsDelegate = {};
+smbfs.mojom.SmbFsDelegate = {};
 
-smbfs.mojom.mojom.SmbFsDelegatePendingReceiver = class {
+smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.SmbFsDelegate_RequestCredentials_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+smbfs.mojom.SmbFsDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-smbfs.mojom.mojom.SmbFsDelegateRemote = class {
+smbfs.mojom.SmbFsDelegateRemote = class {
   static get $interfaceName() {
     return 'smbfs.mojom.SmbFsDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      smbfs.mojom.mojom.SmbFsDelegatePendingReceiver,
+      smbfs.mojom.SmbFsDelegatePendingReceiver,
       handle);
-    this.$ = new smbfs.mojom.mojom.SmbFsDelegateRemoteCallHandler(this.proxy);
+    this.$ = new smbfs.mojom.SmbFsDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -373,7 +424,7 @@ smbfs.mojom.mojom.SmbFsDelegateRemote = class {
   }
 };
 
-smbfs.mojom.mojom.SmbFsDelegateRemoteCallHandler = class {
+smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -382,15 +433,15 @@ smbfs.mojom.mojom.SmbFsDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      smbfs.mojom.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec,
-      smbfs.mojom.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
+      smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec,
+      smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
       []);
   }
 
 };
 
-smbfs.mojom.mojom.SmbFsDelegate.getRemote = function() {
-  let remote = new smbfs.mojom.mojom.SmbFsDelegateRemote();
+smbfs.mojom.SmbFsDelegate.getRemote = function() {
+  let remote = new smbfs.mojom.SmbFsDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -400,7 +451,7 @@ smbfs.mojom.mojom.SmbFsDelegate.getRemote = function() {
 };
 
 // ParamsSpec for RequestCredentials
-smbfs.mojom.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
+smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFsDelegate.RequestCredentials_Params',
@@ -412,7 +463,7 @@ smbfs.mojom.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
   }
 };
 
-smbfs.mojom.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
+smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFsDelegate.RequestCredentials_ResponseParams',
@@ -426,6 +477,6 @@ smbfs.mojom.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-smbfs.mojom.mojom.SmbFsDelegatePtr = smbfs.mojom.mojom.SmbFsDelegateRemote;
-smbfs.mojom.mojom.SmbFsDelegateRequest = smbfs.mojom.mojom.SmbFsDelegatePendingReceiver;
+smbfs.mojom.SmbFsDelegatePtr = smbfs.mojom.SmbFsDelegateRemote;
+smbfs.mojom.SmbFsDelegateRequest = smbfs.mojom.SmbFsDelegatePendingReceiver;
 

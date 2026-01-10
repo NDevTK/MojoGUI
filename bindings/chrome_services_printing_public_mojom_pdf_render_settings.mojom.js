@@ -12,13 +12,13 @@ var gfx = gfx || {};
 
 
 // Enum: Mode
-printing.mojom.mojom.Mode = {
+printing.mojom.Mode = {
   NORMAL: 0,
 };
-printing.mojom.mojom.ModeSpec = { $: mojo.internal.Enum() };
+printing.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PdfRenderSettings
-printing.mojom.mojom.PdfRenderSettingsSpec = {
+printing.mojom.PdfRenderSettingsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfRenderSettings',

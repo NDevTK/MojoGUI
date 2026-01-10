@@ -10,15 +10,15 @@ drivefs.mojom = drivefs.mojom || {};
 
 
 // Enum: ExtensionConnectionStatus
-drivefs.mojom.mojom.ExtensionConnectionStatus = {
+drivefs.mojom.ExtensionConnectionStatus = {
   kSuccess: 0,
   kExtensionNotFound: 1,
   kFeatureNotEnabled: 2,
 };
-drivefs.mojom.mojom.ExtensionConnectionStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.ExtensionConnectionStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ExtensionConnectionParams
-drivefs.mojom.mojom.ExtensionConnectionParamsSpec = {
+drivefs.mojom.ExtensionConnectionParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ExtensionConnectionParams',
@@ -32,24 +32,37 @@ drivefs.mojom.mojom.ExtensionConnectionParamsSpec = {
 };
 
 // Interface: NativeMessagingPort
-drivefs.mojom.mojom.NativeMessagingPort = {};
+drivefs.mojom.NativeMessagingPort = {};
 
-drivefs.mojom.mojom.NativeMessagingPortPendingReceiver = class {
+drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.NativeMessagingPort_PostMessageToExtension_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.NativeMessagingPortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.mojom.NativeMessagingPortRemote = class {
+drivefs.mojom.NativeMessagingPortRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.NativeMessagingPort';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.mojom.NativeMessagingPortPendingReceiver,
+      drivefs.mojom.NativeMessagingPortPendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.mojom.NativeMessagingPortRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.NativeMessagingPortRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +74,7 @@ drivefs.mojom.mojom.NativeMessagingPortRemote = class {
   }
 };
 
-drivefs.mojom.mojom.NativeMessagingPortRemoteCallHandler = class {
+drivefs.mojom.NativeMessagingPortRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,15 +83,15 @@ drivefs.mojom.mojom.NativeMessagingPortRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec,
+      drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec,
       null,
       [message]);
   }
 
 };
 
-drivefs.mojom.mojom.NativeMessagingPort.getRemote = function() {
-  let remote = new drivefs.mojom.mojom.NativeMessagingPortRemote();
+drivefs.mojom.NativeMessagingPort.getRemote = function() {
+  let remote = new drivefs.mojom.NativeMessagingPortRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -88,7 +101,7 @@ drivefs.mojom.mojom.NativeMessagingPort.getRemote = function() {
 };
 
 // ParamsSpec for PostMessageToExtension
-drivefs.mojom.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec = {
+drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.NativeMessagingPort.PostMessageToExtension_Params',
@@ -102,29 +115,42 @@ drivefs.mojom.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec = {
 };
 
 // Legacy compatibility
-drivefs.mojom.mojom.NativeMessagingPortPtr = drivefs.mojom.mojom.NativeMessagingPortRemote;
-drivefs.mojom.mojom.NativeMessagingPortRequest = drivefs.mojom.mojom.NativeMessagingPortPendingReceiver;
+drivefs.mojom.NativeMessagingPortPtr = drivefs.mojom.NativeMessagingPortRemote;
+drivefs.mojom.NativeMessagingPortRequest = drivefs.mojom.NativeMessagingPortPendingReceiver;
 
 
 // Interface: NativeMessagingHost
-drivefs.mojom.mojom.NativeMessagingHost = {};
+drivefs.mojom.NativeMessagingHost = {};
 
-drivefs.mojom.mojom.NativeMessagingHostPendingReceiver = class {
+drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.NativeMessagingHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.mojom.NativeMessagingHostRemote = class {
+drivefs.mojom.NativeMessagingHostRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.NativeMessagingHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.mojom.NativeMessagingHostPendingReceiver,
+      drivefs.mojom.NativeMessagingHostPendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.mojom.NativeMessagingHostRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.NativeMessagingHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -136,7 +162,7 @@ drivefs.mojom.mojom.NativeMessagingHostRemote = class {
   }
 };
 
-drivefs.mojom.mojom.NativeMessagingHostRemoteCallHandler = class {
+drivefs.mojom.NativeMessagingHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -145,15 +171,15 @@ drivefs.mojom.mojom.NativeMessagingHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec,
+      drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec,
       null,
       [message]);
   }
 
 };
 
-drivefs.mojom.mojom.NativeMessagingHost.getRemote = function() {
-  let remote = new drivefs.mojom.mojom.NativeMessagingHostRemote();
+drivefs.mojom.NativeMessagingHost.getRemote = function() {
+  let remote = new drivefs.mojom.NativeMessagingHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -163,7 +189,7 @@ drivefs.mojom.mojom.NativeMessagingHost.getRemote = function() {
 };
 
 // ParamsSpec for HandleMessageFromExtension
-drivefs.mojom.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec = {
+drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.NativeMessagingHost.HandleMessageFromExtension_Params',
@@ -177,6 +203,6 @@ drivefs.mojom.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec = 
 };
 
 // Legacy compatibility
-drivefs.mojom.mojom.NativeMessagingHostPtr = drivefs.mojom.mojom.NativeMessagingHostRemote;
-drivefs.mojom.mojom.NativeMessagingHostRequest = drivefs.mojom.mojom.NativeMessagingHostPendingReceiver;
+drivefs.mojom.NativeMessagingHostPtr = drivefs.mojom.NativeMessagingHostRemote;
+drivefs.mojom.NativeMessagingHostRequest = drivefs.mojom.NativeMessagingHostPendingReceiver;
 

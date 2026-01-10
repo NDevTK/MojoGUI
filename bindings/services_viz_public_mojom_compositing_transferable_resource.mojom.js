@@ -18,15 +18,15 @@ var skia = skia || {};
 
 
 // Enum: SynchronizationType
-viz.mojom.mojom.SynchronizationType = {
+viz.mojom.SynchronizationType = {
   kSyncToken: 0,
   kGpuCommandsCompleted: 1,
   kReleaseFence: 2,
 };
-viz.mojom.mojom.SynchronizationTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.SynchronizationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResourceSource
-viz.mojom.mojom.ResourceSource = {
+viz.mojom.ResourceSource = {
   kUnknown: 0,
   kAR: 1,
   kCanvas: 2,
@@ -44,10 +44,10 @@ viz.mojom.mojom.ResourceSource = {
   kVideo: 14,
   kWebGPUSwapBuffer: 15,
 };
-viz.mojom.mojom.ResourceSourceSpec = { $: mojo.internal.Enum() };
+viz.mojom.ResourceSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: MetadataOverride
-viz.mojom.mojom.MetadataOverrideSpec = {
+viz.mojom.MetadataOverrideSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.MetadataOverride',
@@ -65,7 +65,7 @@ viz.mojom.mojom.MetadataOverrideSpec = {
 };
 
 // Struct: TransferableResource
-viz.mojom.mojom.TransferableResourceSpec = {
+viz.mojom.TransferableResourceSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TransferableResource',

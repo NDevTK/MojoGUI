@@ -11,24 +11,37 @@ var skia = skia || {};
 
 
 // Interface: Ocr
-pdf.mojom.mojom.Ocr = {};
+pdf.mojom.Ocr = {};
 
-pdf.mojom.mojom.OcrPendingReceiver = class {
+pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.Ocr_PerformOcr_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+pdf.mojom.OcrPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-pdf.mojom.mojom.OcrRemote = class {
+pdf.mojom.OcrRemote = class {
   static get $interfaceName() {
     return 'pdf.mojom.Ocr';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      pdf.mojom.mojom.OcrPendingReceiver,
+      pdf.mojom.OcrPendingReceiver,
       handle);
-    this.$ = new pdf.mojom.mojom.OcrRemoteCallHandler(this.proxy);
+    this.$ = new pdf.mojom.OcrRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ pdf.mojom.mojom.OcrRemote = class {
   }
 };
 
-pdf.mojom.mojom.OcrRemoteCallHandler = class {
+pdf.mojom.OcrRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ pdf.mojom.mojom.OcrRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.mojom.Ocr_PerformOcr_ParamsSpec,
-      pdf.mojom.mojom.Ocr_PerformOcr_ResponseParamsSpec,
+      pdf.mojom.Ocr_PerformOcr_ParamsSpec,
+      pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec,
       [image]);
   }
 
 };
 
-pdf.mojom.mojom.Ocr.getRemote = function() {
-  let remote = new pdf.mojom.mojom.OcrRemote();
+pdf.mojom.Ocr.getRemote = function() {
+  let remote = new pdf.mojom.OcrRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ pdf.mojom.mojom.Ocr.getRemote = function() {
 };
 
 // ParamsSpec for PerformOcr
-pdf.mojom.mojom.Ocr_PerformOcr_ParamsSpec = {
+pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.Ocr.PerformOcr_Params',
@@ -80,7 +93,7 @@ pdf.mojom.mojom.Ocr_PerformOcr_ParamsSpec = {
   }
 };
 
-pdf.mojom.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
+pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.Ocr.PerformOcr_ResponseParams',
@@ -94,29 +107,70 @@ pdf.mojom.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-pdf.mojom.mojom.OcrPtr = pdf.mojom.mojom.OcrRemote;
-pdf.mojom.mojom.OcrRequest = pdf.mojom.mojom.OcrPendingReceiver;
+pdf.mojom.OcrPtr = pdf.mojom.OcrRemote;
+pdf.mojom.OcrRequest = pdf.mojom.OcrPendingReceiver;
 
 
 // Interface: PdfService
-pdf.mojom.mojom.PdfService = {};
+pdf.mojom.PdfService = {};
 
-pdf.mojom.mojom.PdfServicePendingReceiver = class {
+pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfService_BindPdfProgressiveSearchifier_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(pdf.mojom.PdfProgressiveSearchifierRemote), nullable: false, minVersion: 0 },
+        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.OcrRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfService_BindPdfSearchifier_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(pdf.mojom.PdfSearchifierRemote), nullable: false, minVersion: 0 },
+        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.OcrRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfService_BindPdfThumbnailer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(pdf.mojom.PdfThumbnailerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+pdf.mojom.PdfServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-pdf.mojom.mojom.PdfServiceRemote = class {
+pdf.mojom.PdfServiceRemote = class {
   static get $interfaceName() {
     return 'pdf.mojom.PdfService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      pdf.mojom.mojom.PdfServicePendingReceiver,
+      pdf.mojom.PdfServicePendingReceiver,
       handle);
-    this.$ = new pdf.mojom.mojom.PdfServiceRemoteCallHandler(this.proxy);
+    this.$ = new pdf.mojom.PdfServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -128,7 +182,7 @@ pdf.mojom.mojom.PdfServiceRemote = class {
   }
 };
 
-pdf.mojom.mojom.PdfServiceRemoteCallHandler = class {
+pdf.mojom.PdfServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -137,7 +191,7 @@ pdf.mojom.mojom.PdfServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec,
+      pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec,
       null,
       [receiver, ocr]);
   }
@@ -146,7 +200,7 @@ pdf.mojom.mojom.PdfServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.mojom.PdfService_BindPdfSearchifier_ParamsSpec,
+      pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec,
       null,
       [receiver, ocr]);
   }
@@ -155,15 +209,15 @@ pdf.mojom.mojom.PdfServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      pdf.mojom.mojom.PdfService_BindPdfThumbnailer_ParamsSpec,
+      pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-pdf.mojom.mojom.PdfService.getRemote = function() {
-  let remote = new pdf.mojom.mojom.PdfServiceRemote();
+pdf.mojom.PdfService.getRemote = function() {
+  let remote = new pdf.mojom.PdfServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -173,7 +227,7 @@ pdf.mojom.mojom.PdfService.getRemote = function() {
 };
 
 // ParamsSpec for BindPdfProgressiveSearchifier
-pdf.mojom.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
+pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfService.BindPdfProgressiveSearchifier_Params',
@@ -188,7 +242,7 @@ pdf.mojom.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
 };
 
 // ParamsSpec for BindPdfSearchifier
-pdf.mojom.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
+pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfService.BindPdfSearchifier_Params',
@@ -203,7 +257,7 @@ pdf.mojom.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
 };
 
 // ParamsSpec for BindPdfThumbnailer
-pdf.mojom.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
+pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfService.BindPdfThumbnailer_Params',
@@ -217,6 +271,6 @@ pdf.mojom.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
 };
 
 // Legacy compatibility
-pdf.mojom.mojom.PdfServicePtr = pdf.mojom.mojom.PdfServiceRemote;
-pdf.mojom.mojom.PdfServiceRequest = pdf.mojom.mojom.PdfServicePendingReceiver;
+pdf.mojom.PdfServicePtr = pdf.mojom.PdfServiceRemote;
+pdf.mojom.PdfServiceRequest = pdf.mojom.PdfServicePendingReceiver;
 

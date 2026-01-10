@@ -12,7 +12,7 @@ var blink = blink || {};
 
 
 // Struct: URLLoaderFactoryBundle
-blink.mojom.mojom.URLLoaderFactoryBundleSpec = {
+blink.mojom.URLLoaderFactoryBundleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.URLLoaderFactoryBundle',

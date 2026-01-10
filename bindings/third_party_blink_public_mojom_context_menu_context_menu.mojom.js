@@ -17,7 +17,7 @@ var url = url || {};
 
 
 // Enum: ContextMenuDataMediaType
-blink.mojom.mojom.ContextMenuDataMediaType = {
+blink.mojom.ContextMenuDataMediaType = {
   kNone: 0,
   kImage: 1,
   kVideo: 2,
@@ -26,20 +26,20 @@ blink.mojom.mojom.ContextMenuDataMediaType = {
   kFile: 5,
   kPlugin: 6,
 };
-blink.mojom.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CustomContextMenuItemType
-blink.mojom.mojom.CustomContextMenuItemType = {
+blink.mojom.CustomContextMenuItemType = {
   kOption: 0,
   kCheckableOption: 1,
   kGroup: 2,
   kSeparator: 3,
   kSubMenu: 4,
 };
-blink.mojom.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Accelerator
-blink.mojom.mojom.AcceleratorSpec = {
+blink.mojom.AcceleratorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Accelerator',
@@ -54,7 +54,7 @@ blink.mojom.mojom.AcceleratorSpec = {
 };
 
 // Struct: FormRendererId
-blink.mojom.mojom.FormRendererIdSpec = {
+blink.mojom.FormRendererIdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FormRendererId',
@@ -68,7 +68,7 @@ blink.mojom.mojom.FormRendererIdSpec = {
 };
 
 // Struct: FieldRendererId
-blink.mojom.mojom.FieldRendererIdSpec = {
+blink.mojom.FieldRendererIdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FieldRendererId',
@@ -82,7 +82,7 @@ blink.mojom.mojom.FieldRendererIdSpec = {
 };
 
 // Struct: CustomContextMenuItem
-blink.mojom.mojom.CustomContextMenuItemSpec = {
+blink.mojom.CustomContextMenuItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CustomContextMenuItem',
@@ -109,7 +109,7 @@ blink.mojom.mojom.CustomContextMenuItemSpec = {
 };
 
 // Struct: UntrustworthyContextMenuParams
-blink.mojom.mojom.UntrustworthyContextMenuParamsSpec = {
+blink.mojom.UntrustworthyContextMenuParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UntrustworthyContextMenuParams',
@@ -159,24 +159,51 @@ blink.mojom.mojom.UntrustworthyContextMenuParamsSpec = {
 };
 
 // Interface: ContextMenuClient
-blink.mojom.mojom.ContextMenuClient = {};
+blink.mojom.ContextMenuClient = {};
 
-blink.mojom.mojom.ContextMenuClientPendingReceiver = class {
+blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContextMenuClient_CustomContextMenuAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContextMenuClient_ContextMenuClosed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'link_followed', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'impression', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ContextMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ContextMenuClientRemote = class {
+blink.mojom.ContextMenuClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ContextMenuClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ContextMenuClientPendingReceiver,
+      blink.mojom.ContextMenuClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ContextMenuClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ContextMenuClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -188,7 +215,7 @@ blink.mojom.mojom.ContextMenuClientRemote = class {
   }
 };
 
-blink.mojom.mojom.ContextMenuClientRemoteCallHandler = class {
+blink.mojom.ContextMenuClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -197,7 +224,7 @@ blink.mojom.mojom.ContextMenuClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
+      blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
       null,
       [action]);
   }
@@ -206,15 +233,15 @@ blink.mojom.mojom.ContextMenuClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
+      blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
       null,
       [link_followed, impression]);
   }
 
 };
 
-blink.mojom.mojom.ContextMenuClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.ContextMenuClientRemote();
+blink.mojom.ContextMenuClient.getRemote = function() {
+  let remote = new blink.mojom.ContextMenuClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -224,7 +251,7 @@ blink.mojom.mojom.ContextMenuClient.getRemote = function() {
 };
 
 // ParamsSpec for CustomContextMenuAction
-blink.mojom.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
+blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContextMenuClient.CustomContextMenuAction_Params',
@@ -238,7 +265,7 @@ blink.mojom.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
 };
 
 // ParamsSpec for ContextMenuClosed
-blink.mojom.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
+blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContextMenuClient.ContextMenuClosed_Params',
@@ -253,6 +280,6 @@ blink.mojom.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ContextMenuClientPtr = blink.mojom.mojom.ContextMenuClientRemote;
-blink.mojom.mojom.ContextMenuClientRequest = blink.mojom.mojom.ContextMenuClientPendingReceiver;
+blink.mojom.ContextMenuClientPtr = blink.mojom.ContextMenuClientRemote;
+blink.mojom.ContextMenuClientRequest = blink.mojom.ContextMenuClientPendingReceiver;
 

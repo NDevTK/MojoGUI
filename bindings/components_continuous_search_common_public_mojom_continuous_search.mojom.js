@@ -11,28 +11,28 @@ var url = url || {};
 
 
 // Enum: ResultType
-continuous_search.mojom.mojom.ResultType = {
+continuous_search.mojom.ResultType = {
   kSearchResults: 0,
   kRelatedSearches: 1,
 };
-continuous_search.mojom.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Category
-continuous_search.mojom.mojom.Category = {
+continuous_search.mojom.Category = {
   kNone: 0,
   kOrganic: 1,
 };
-continuous_search.mojom.mojom.CategorySpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
-continuous_search.mojom.mojom.Status = {
+continuous_search.mojom.Status = {
   kSuccess: 0,
   kNoResults: 1,
 };
-continuous_search.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
-continuous_search.mojom.mojom.SearchResultSpec = {
+continuous_search.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.SearchResult',
@@ -47,7 +47,7 @@ continuous_search.mojom.mojom.SearchResultSpec = {
 };
 
 // Struct: ResultGroup
-continuous_search.mojom.mojom.ResultGroupSpec = {
+continuous_search.mojom.ResultGroupSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.ResultGroup',
@@ -62,7 +62,7 @@ continuous_search.mojom.mojom.ResultGroupSpec = {
 };
 
 // Struct: CategoryResults
-continuous_search.mojom.mojom.CategoryResultsSpec = {
+continuous_search.mojom.CategoryResultsSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.CategoryResults',
@@ -78,24 +78,37 @@ continuous_search.mojom.mojom.CategoryResultsSpec = {
 };
 
 // Interface: SearchResultExtractor
-continuous_search.mojom.mojom.SearchResultExtractor = {};
+continuous_search.mojom.SearchResultExtractor = {};
 
-continuous_search.mojom.mojom.SearchResultExtractorPendingReceiver = class {
+continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultTypeSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+continuous_search.mojom.SearchResultExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-continuous_search.mojom.mojom.SearchResultExtractorRemote = class {
+continuous_search.mojom.SearchResultExtractorRemote = class {
   static get $interfaceName() {
     return 'continuous_search.mojom.SearchResultExtractor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      continuous_search.mojom.mojom.SearchResultExtractorPendingReceiver,
+      continuous_search.mojom.SearchResultExtractorPendingReceiver,
       handle);
-    this.$ = new continuous_search.mojom.mojom.SearchResultExtractorRemoteCallHandler(this.proxy);
+    this.$ = new continuous_search.mojom.SearchResultExtractorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -107,7 +120,7 @@ continuous_search.mojom.mojom.SearchResultExtractorRemote = class {
   }
 };
 
-continuous_search.mojom.mojom.SearchResultExtractorRemoteCallHandler = class {
+continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -116,15 +129,15 @@ continuous_search.mojom.mojom.SearchResultExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
-      continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
+      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
+      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
       [result_types]);
   }
 
 };
 
-continuous_search.mojom.mojom.SearchResultExtractor.getRemote = function() {
-  let remote = new continuous_search.mojom.mojom.SearchResultExtractorRemote();
+continuous_search.mojom.SearchResultExtractor.getRemote = function() {
+  let remote = new continuous_search.mojom.SearchResultExtractorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -134,7 +147,7 @@ continuous_search.mojom.mojom.SearchResultExtractor.getRemote = function() {
 };
 
 // ParamsSpec for ExtractCurrentSearchResults
-continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
+continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_Params',
@@ -147,7 +160,7 @@ continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_
   }
 };
 
-continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
+continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_ResponseParams',
@@ -162,6 +175,6 @@ continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_
 };
 
 // Legacy compatibility
-continuous_search.mojom.mojom.SearchResultExtractorPtr = continuous_search.mojom.mojom.SearchResultExtractorRemote;
-continuous_search.mojom.mojom.SearchResultExtractorRequest = continuous_search.mojom.mojom.SearchResultExtractorPendingReceiver;
+continuous_search.mojom.SearchResultExtractorPtr = continuous_search.mojom.SearchResultExtractorRemote;
+continuous_search.mojom.SearchResultExtractorRequest = continuous_search.mojom.SearchResultExtractorPendingReceiver;
 

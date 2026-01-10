@@ -12,15 +12,15 @@ var url = url || {};
 
 
 // Enum: SelectShareTargetResult
-nearby_share.mojom.mojom.SelectShareTargetResult = {
+nearby_share.mojom.SelectShareTargetResult = {
   kOk: 0,
   kError: 1,
   kInvalidShareTarget: 2,
 };
-nearby_share.mojom.mojom.SelectShareTargetResultSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.SelectShareTargetResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: TransferStatus
-nearby_share.mojom.mojom.TransferStatus = {
+nearby_share.mojom.TransferStatus = {
   kUnknown: 0,
   kConnecting: 1,
   kAwaitingLocalConfirmation: 2,
@@ -48,28 +48,28 @@ nearby_share.mojom.mojom.TransferStatus = {
   kFailedToReadOutgoingConnectionResponse: 24,
   kUnexpectedDisconnection: 25,
 };
-nearby_share.mojom.mojom.TransferStatusSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.TransferStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: StartDiscoveryResult
-nearby_share.mojom.mojom.StartDiscoveryResult = {
+nearby_share.mojom.StartDiscoveryResult = {
   kSuccess: 0,
   kErrorInProgressTransferring: 1,
   kNoConnectionMedium: 2,
   kErrorGeneric: 3,
 };
-nearby_share.mojom.mojom.StartDiscoveryResultSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.StartDiscoveryResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: RegisterReceiveSurfaceResult
-nearby_share.mojom.mojom.RegisterReceiveSurfaceResult = {
+nearby_share.mojom.RegisterReceiveSurfaceResult = {
   kSuccess: 0,
   kFailure: 1,
   kNoConnectionMedium: 2,
   kTransferInProgress: 3,
 };
-nearby_share.mojom.mojom.RegisterReceiveSurfaceResultSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.RegisterReceiveSurfaceResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: PayloadPreview
-nearby_share.mojom.mojom.PayloadPreviewSpec = {
+nearby_share.mojom.PayloadPreviewSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.PayloadPreview',
@@ -85,7 +85,7 @@ nearby_share.mojom.mojom.PayloadPreviewSpec = {
 };
 
 // Struct: ShareTarget
-nearby_share.mojom.mojom.ShareTargetSpec = {
+nearby_share.mojom.ShareTargetSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ShareTarget',
@@ -104,7 +104,7 @@ nearby_share.mojom.mojom.ShareTargetSpec = {
 };
 
 // Struct: TransferMetadata
-nearby_share.mojom.mojom.TransferMetadataSpec = {
+nearby_share.mojom.TransferMetadataSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.TransferMetadata',
@@ -122,24 +122,50 @@ nearby_share.mojom.mojom.TransferMetadataSpec = {
 };
 
 // Interface: ShareTargetListener
-nearby_share.mojom.mojom.ShareTargetListener = {};
+nearby_share.mojom.ShareTargetListener = {};
 
-nearby_share.mojom.mojom.ShareTargetListenerPendingReceiver = class {
+nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ShareTargetListener_OnShareTargetLost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.ShareTargetListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-nearby_share.mojom.mojom.ShareTargetListenerRemote = class {
+nearby_share.mojom.ShareTargetListenerRemote = class {
   static get $interfaceName() {
     return 'nearby_share.mojom.ShareTargetListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      nearby_share.mojom.mojom.ShareTargetListenerPendingReceiver,
+      nearby_share.mojom.ShareTargetListenerPendingReceiver,
       handle);
-    this.$ = new nearby_share.mojom.mojom.ShareTargetListenerRemoteCallHandler(this.proxy);
+    this.$ = new nearby_share.mojom.ShareTargetListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -151,7 +177,7 @@ nearby_share.mojom.mojom.ShareTargetListenerRemote = class {
   }
 };
 
-nearby_share.mojom.mojom.ShareTargetListenerRemoteCallHandler = class {
+nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -160,7 +186,7 @@ nearby_share.mojom.mojom.ShareTargetListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec,
+      nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec,
       null,
       [share_target]);
   }
@@ -169,15 +195,15 @@ nearby_share.mojom.mojom.ShareTargetListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec,
+      nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec,
       null,
       [share_target]);
   }
 
 };
 
-nearby_share.mojom.mojom.ShareTargetListener.getRemote = function() {
-  let remote = new nearby_share.mojom.mojom.ShareTargetListenerRemote();
+nearby_share.mojom.ShareTargetListener.getRemote = function() {
+  let remote = new nearby_share.mojom.ShareTargetListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -187,7 +213,7 @@ nearby_share.mojom.mojom.ShareTargetListener.getRemote = function() {
 };
 
 // ParamsSpec for OnShareTargetDiscovered
-nearby_share.mojom.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
+nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ShareTargetListener.OnShareTargetDiscovered_Params',
@@ -201,7 +227,7 @@ nearby_share.mojom.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec 
 };
 
 // ParamsSpec for OnShareTargetLost
-nearby_share.mojom.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
+nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ShareTargetListener.OnShareTargetLost_Params',
@@ -215,29 +241,43 @@ nearby_share.mojom.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
 };
 
 // Legacy compatibility
-nearby_share.mojom.mojom.ShareTargetListenerPtr = nearby_share.mojom.mojom.ShareTargetListenerRemote;
-nearby_share.mojom.mojom.ShareTargetListenerRequest = nearby_share.mojom.mojom.ShareTargetListenerPendingReceiver;
+nearby_share.mojom.ShareTargetListenerPtr = nearby_share.mojom.ShareTargetListenerRemote;
+nearby_share.mojom.ShareTargetListenerRequest = nearby_share.mojom.ShareTargetListenerPendingReceiver;
 
 
 // Interface: TransferUpdateListener
-nearby_share.mojom.mojom.TransferUpdateListener = {};
+nearby_share.mojom.TransferUpdateListener = {};
 
-nearby_share.mojom.mojom.TransferUpdateListenerPendingReceiver = class {
+nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+nearby_share.mojom.TransferUpdateListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-nearby_share.mojom.mojom.TransferUpdateListenerRemote = class {
+nearby_share.mojom.TransferUpdateListenerRemote = class {
   static get $interfaceName() {
     return 'nearby_share.mojom.TransferUpdateListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      nearby_share.mojom.mojom.TransferUpdateListenerPendingReceiver,
+      nearby_share.mojom.TransferUpdateListenerPendingReceiver,
       handle);
-    this.$ = new nearby_share.mojom.mojom.TransferUpdateListenerRemoteCallHandler(this.proxy);
+    this.$ = new nearby_share.mojom.TransferUpdateListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -249,7 +289,7 @@ nearby_share.mojom.mojom.TransferUpdateListenerRemote = class {
   }
 };
 
-nearby_share.mojom.mojom.TransferUpdateListenerRemoteCallHandler = class {
+nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -258,15 +298,15 @@ nearby_share.mojom.mojom.TransferUpdateListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec,
+      nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec,
       null,
       [status, token]);
   }
 
 };
 
-nearby_share.mojom.mojom.TransferUpdateListener.getRemote = function() {
-  let remote = new nearby_share.mojom.mojom.TransferUpdateListenerRemote();
+nearby_share.mojom.TransferUpdateListener.getRemote = function() {
+  let remote = new nearby_share.mojom.TransferUpdateListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -276,7 +316,7 @@ nearby_share.mojom.mojom.TransferUpdateListener.getRemote = function() {
 };
 
 // ParamsSpec for OnTransferUpdate
-nearby_share.mojom.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
+nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.TransferUpdateListener.OnTransferUpdate_Params',
@@ -291,29 +331,54 @@ nearby_share.mojom.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
 };
 
 // Legacy compatibility
-nearby_share.mojom.mojom.TransferUpdateListenerPtr = nearby_share.mojom.mojom.TransferUpdateListenerRemote;
-nearby_share.mojom.mojom.TransferUpdateListenerRequest = nearby_share.mojom.mojom.TransferUpdateListenerPendingReceiver;
+nearby_share.mojom.TransferUpdateListenerPtr = nearby_share.mojom.TransferUpdateListenerRemote;
+nearby_share.mojom.TransferUpdateListenerRequest = nearby_share.mojom.TransferUpdateListenerPendingReceiver;
 
 
 // Interface: DiscoveryObserver
-nearby_share.mojom.mojom.DiscoveryObserver = {};
+nearby_share.mojom.DiscoveryObserver = {};
 
-nearby_share.mojom.mojom.DiscoveryObserverPendingReceiver = class {
+nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.DiscoveryObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-nearby_share.mojom.mojom.DiscoveryObserverRemote = class {
+nearby_share.mojom.DiscoveryObserverRemote = class {
   static get $interfaceName() {
     return 'nearby_share.mojom.DiscoveryObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      nearby_share.mojom.mojom.DiscoveryObserverPendingReceiver,
+      nearby_share.mojom.DiscoveryObserverPendingReceiver,
       handle);
-    this.$ = new nearby_share.mojom.mojom.DiscoveryObserverRemoteCallHandler(this.proxy);
+    this.$ = new nearby_share.mojom.DiscoveryObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -325,7 +390,7 @@ nearby_share.mojom.mojom.DiscoveryObserverRemote = class {
   }
 };
 
-nearby_share.mojom.mojom.DiscoveryObserverRemoteCallHandler = class {
+nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -334,7 +399,7 @@ nearby_share.mojom.mojom.DiscoveryObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec,
+      nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
       []);
   }
@@ -343,15 +408,15 @@ nearby_share.mojom.mojom.DiscoveryObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec,
+      nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec,
       null,
       [success]);
   }
 
 };
 
-nearby_share.mojom.mojom.DiscoveryObserver.getRemote = function() {
-  let remote = new nearby_share.mojom.mojom.DiscoveryObserverRemote();
+nearby_share.mojom.DiscoveryObserver.getRemote = function() {
+  let remote = new nearby_share.mojom.DiscoveryObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -361,7 +426,7 @@ nearby_share.mojom.mojom.DiscoveryObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnNearbyProcessStopped
-nearby_share.mojom.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
+nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryObserver.OnNearbyProcessStopped_Params',
@@ -374,7 +439,7 @@ nearby_share.mojom.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
 };
 
 // ParamsSpec for OnStartDiscoveryResult
-nearby_share.mojom.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
+nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryObserver.OnStartDiscoveryResult_Params',
@@ -388,29 +453,92 @@ nearby_share.mojom.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
 };
 
 // Legacy compatibility
-nearby_share.mojom.mojom.DiscoveryObserverPtr = nearby_share.mojom.mojom.DiscoveryObserverRemote;
-nearby_share.mojom.mojom.DiscoveryObserverRequest = nearby_share.mojom.mojom.DiscoveryObserverPendingReceiver;
+nearby_share.mojom.DiscoveryObserverPtr = nearby_share.mojom.DiscoveryObserverRemote;
+nearby_share.mojom.DiscoveryObserverRequest = nearby_share.mojom.DiscoveryObserverPendingReceiver;
 
 
 // Interface: DiscoveryManager
-nearby_share.mojom.mojom.DiscoveryManager = {};
+nearby_share.mojom.DiscoveryManager = {};
 
-nearby_share.mojom.mojom.DiscoveryManagerPendingReceiver = class {
+nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.DiscoveryObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DiscoveryManager_StartDiscovery_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ShareTargetListenerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DiscoveryManager_StopDiscovery_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.DiscoveryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-nearby_share.mojom.mojom.DiscoveryManagerRemote = class {
+nearby_share.mojom.DiscoveryManagerRemote = class {
   static get $interfaceName() {
     return 'nearby_share.mojom.DiscoveryManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      nearby_share.mojom.mojom.DiscoveryManagerPendingReceiver,
+      nearby_share.mojom.DiscoveryManagerPendingReceiver,
       handle);
-    this.$ = new nearby_share.mojom.mojom.DiscoveryManagerRemoteCallHandler(this.proxy);
+    this.$ = new nearby_share.mojom.DiscoveryManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -422,7 +550,7 @@ nearby_share.mojom.mojom.DiscoveryManagerRemote = class {
   }
 };
 
-nearby_share.mojom.mojom.DiscoveryManagerRemoteCallHandler = class {
+nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -431,7 +559,7 @@ nearby_share.mojom.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -440,8 +568,8 @@ nearby_share.mojom.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.mojom.DiscoveryManager_StartDiscovery_ParamsSpec,
-      nearby_share.mojom.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
+      nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
       [listener]);
   }
 
@@ -449,7 +577,7 @@ nearby_share.mojom.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
       null,
       []);
   }
@@ -458,8 +586,8 @@ nearby_share.mojom.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby_share.mojom.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec,
-      nearby_share.mojom.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
+      nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
       [share_target_id]);
   }
 
@@ -467,15 +595,15 @@ nearby_share.mojom.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      nearby_share.mojom.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec,
-      nearby_share.mojom.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
+      nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
       []);
   }
 
 };
 
-nearby_share.mojom.mojom.DiscoveryManager.getRemote = function() {
-  let remote = new nearby_share.mojom.mojom.DiscoveryManagerRemote();
+nearby_share.mojom.DiscoveryManager.getRemote = function() {
+  let remote = new nearby_share.mojom.DiscoveryManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -485,7 +613,7 @@ nearby_share.mojom.mojom.DiscoveryManager.getRemote = function() {
 };
 
 // ParamsSpec for AddDiscoveryObserver
-nearby_share.mojom.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
+nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.AddDiscoveryObserver_Params',
@@ -499,7 +627,7 @@ nearby_share.mojom.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
 };
 
 // ParamsSpec for StartDiscovery
-nearby_share.mojom.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
+nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_Params',
@@ -512,7 +640,7 @@ nearby_share.mojom.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
+nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_ResponseParams',
@@ -526,7 +654,7 @@ nearby_share.mojom.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StopDiscovery
-nearby_share.mojom.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
+nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.StopDiscovery_Params',
@@ -539,7 +667,7 @@ nearby_share.mojom.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
 };
 
 // ParamsSpec for SelectShareTarget
-nearby_share.mojom.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
+nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_Params',
@@ -552,7 +680,7 @@ nearby_share.mojom.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
+nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_ResponseParams',
@@ -568,7 +696,7 @@ nearby_share.mojom.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec =
 };
 
 // ParamsSpec for GetPayloadPreview
-nearby_share.mojom.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
+nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.GetPayloadPreview_Params',
@@ -580,7 +708,7 @@ nearby_share.mojom.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
+nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.GetPayloadPreview_ResponseParams',
@@ -594,29 +722,65 @@ nearby_share.mojom.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-nearby_share.mojom.mojom.DiscoveryManagerPtr = nearby_share.mojom.mojom.DiscoveryManagerRemote;
-nearby_share.mojom.mojom.DiscoveryManagerRequest = nearby_share.mojom.mojom.DiscoveryManagerPendingReceiver;
+nearby_share.mojom.DiscoveryManagerPtr = nearby_share.mojom.DiscoveryManagerRemote;
+nearby_share.mojom.DiscoveryManagerRequest = nearby_share.mojom.DiscoveryManagerPendingReceiver;
 
 
 // Interface: ConfirmationManager
-nearby_share.mojom.mojom.ConfirmationManager = {};
+nearby_share.mojom.ConfirmationManager = {};
 
-nearby_share.mojom.mojom.ConfirmationManagerPendingReceiver = class {
+nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ConfirmationManager_Accept_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ConfirmationManager_Reject_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ConfirmationManager_Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ConfirmationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-nearby_share.mojom.mojom.ConfirmationManagerRemote = class {
+nearby_share.mojom.ConfirmationManagerRemote = class {
   static get $interfaceName() {
     return 'nearby_share.mojom.ConfirmationManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      nearby_share.mojom.mojom.ConfirmationManagerPendingReceiver,
+      nearby_share.mojom.ConfirmationManagerPendingReceiver,
       handle);
-    this.$ = new nearby_share.mojom.mojom.ConfirmationManagerRemoteCallHandler(this.proxy);
+    this.$ = new nearby_share.mojom.ConfirmationManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -628,7 +792,7 @@ nearby_share.mojom.mojom.ConfirmationManagerRemote = class {
   }
 };
 
-nearby_share.mojom.mojom.ConfirmationManagerRemoteCallHandler = class {
+nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -637,8 +801,8 @@ nearby_share.mojom.mojom.ConfirmationManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.mojom.ConfirmationManager_Accept_ParamsSpec,
-      nearby_share.mojom.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
       []);
   }
 
@@ -646,8 +810,8 @@ nearby_share.mojom.mojom.ConfirmationManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.mojom.ConfirmationManager_Reject_ParamsSpec,
-      nearby_share.mojom.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
       []);
   }
 
@@ -655,15 +819,15 @@ nearby_share.mojom.mojom.ConfirmationManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.mojom.ConfirmationManager_Cancel_ParamsSpec,
-      nearby_share.mojom.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
       []);
   }
 
 };
 
-nearby_share.mojom.mojom.ConfirmationManager.getRemote = function() {
-  let remote = new nearby_share.mojom.mojom.ConfirmationManagerRemote();
+nearby_share.mojom.ConfirmationManager.getRemote = function() {
+  let remote = new nearby_share.mojom.ConfirmationManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -673,7 +837,7 @@ nearby_share.mojom.mojom.ConfirmationManager.getRemote = function() {
 };
 
 // ParamsSpec for Accept
-nearby_share.mojom.mojom.ConfirmationManager_Accept_ParamsSpec = {
+nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ConfirmationManager.Accept_Params',
@@ -685,7 +849,7 @@ nearby_share.mojom.mojom.ConfirmationManager_Accept_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
+nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ConfirmationManager.Accept_ResponseParams',
@@ -699,7 +863,7 @@ nearby_share.mojom.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Reject
-nearby_share.mojom.mojom.ConfirmationManager_Reject_ParamsSpec = {
+nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ConfirmationManager.Reject_Params',
@@ -711,7 +875,7 @@ nearby_share.mojom.mojom.ConfirmationManager_Reject_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
+nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ConfirmationManager.Reject_ResponseParams',
@@ -725,7 +889,7 @@ nearby_share.mojom.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-nearby_share.mojom.mojom.ConfirmationManager_Cancel_ParamsSpec = {
+nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ConfirmationManager.Cancel_Params',
@@ -737,7 +901,7 @@ nearby_share.mojom.mojom.ConfirmationManager_Cancel_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
+nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ConfirmationManager.Cancel_ResponseParams',
@@ -751,29 +915,80 @@ nearby_share.mojom.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-nearby_share.mojom.mojom.ConfirmationManagerPtr = nearby_share.mojom.mojom.ConfirmationManagerRemote;
-nearby_share.mojom.mojom.ConfirmationManagerRequest = nearby_share.mojom.mojom.ConfirmationManagerPendingReceiver;
+nearby_share.mojom.ConfirmationManagerPtr = nearby_share.mojom.ConfirmationManagerRemote;
+nearby_share.mojom.ConfirmationManagerRequest = nearby_share.mojom.ConfirmationManagerPendingReceiver;
 
 
 // Interface: ReceiveObserver
-nearby_share.mojom.mojom.ReceiveObserver = {};
+nearby_share.mojom.ReceiveObserver = {};
 
-nearby_share.mojom.mojom.ReceiveObserverPendingReceiver = class {
+nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveObserver_OnTransferUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferMetadataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-nearby_share.mojom.mojom.ReceiveObserverRemote = class {
+nearby_share.mojom.ReceiveObserverRemote = class {
   static get $interfaceName() {
     return 'nearby_share.mojom.ReceiveObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      nearby_share.mojom.mojom.ReceiveObserverPendingReceiver,
+      nearby_share.mojom.ReceiveObserverPendingReceiver,
       handle);
-    this.$ = new nearby_share.mojom.mojom.ReceiveObserverRemoteCallHandler(this.proxy);
+    this.$ = new nearby_share.mojom.ReceiveObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -785,7 +1000,7 @@ nearby_share.mojom.mojom.ReceiveObserverRemote = class {
   }
 };
 
-nearby_share.mojom.mojom.ReceiveObserverRemoteCallHandler = class {
+nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -794,7 +1009,7 @@ nearby_share.mojom.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec,
+      nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec,
       null,
       [in_high_visibility]);
   }
@@ -803,7 +1018,7 @@ nearby_share.mojom.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec,
+      nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec,
       null,
       [share_target, metadata]);
   }
@@ -812,7 +1027,7 @@ nearby_share.mojom.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec,
+      nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
       []);
   }
@@ -821,15 +1036,15 @@ nearby_share.mojom.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby_share.mojom.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec,
+      nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec,
       null,
       []);
   }
 
 };
 
-nearby_share.mojom.mojom.ReceiveObserver.getRemote = function() {
-  let remote = new nearby_share.mojom.mojom.ReceiveObserverRemote();
+nearby_share.mojom.ReceiveObserver.getRemote = function() {
+  let remote = new nearby_share.mojom.ReceiveObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -839,7 +1054,7 @@ nearby_share.mojom.mojom.ReceiveObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnHighVisibilityChanged
-nearby_share.mojom.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
+nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveObserver.OnHighVisibilityChanged_Params',
@@ -853,7 +1068,7 @@ nearby_share.mojom.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnTransferUpdate
-nearby_share.mojom.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
+nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveObserver.OnTransferUpdate_Params',
@@ -868,7 +1083,7 @@ nearby_share.mojom.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
 };
 
 // ParamsSpec for OnNearbyProcessStopped
-nearby_share.mojom.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
+nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveObserver.OnNearbyProcessStopped_Params',
@@ -881,7 +1096,7 @@ nearby_share.mojom.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
 };
 
 // ParamsSpec for OnStartAdvertisingFailure
-nearby_share.mojom.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
+nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveObserver.OnStartAdvertisingFailure_Params',
@@ -894,29 +1109,117 @@ nearby_share.mojom.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = 
 };
 
 // Legacy compatibility
-nearby_share.mojom.mojom.ReceiveObserverPtr = nearby_share.mojom.mojom.ReceiveObserverRemote;
-nearby_share.mojom.mojom.ReceiveObserverRequest = nearby_share.mojom.mojom.ReceiveObserverPendingReceiver;
+nearby_share.mojom.ReceiveObserverPtr = nearby_share.mojom.ReceiveObserverRemote;
+nearby_share.mojom.ReceiveObserverRequest = nearby_share.mojom.ReceiveObserverPendingReceiver;
 
 
 // Interface: ReceiveManager
-nearby_share.mojom.mojom.ReceiveManager = {};
+nearby_share.mojom.ReceiveManager = {};
 
-nearby_share.mojom.mojom.ReceiveManagerPendingReceiver = class {
+nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveManager_AddReceiveObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ReceiveObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveManager_Accept_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveManager_Reject_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+nearby_share.mojom.ReceiveManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-nearby_share.mojom.mojom.ReceiveManagerRemote = class {
+nearby_share.mojom.ReceiveManagerRemote = class {
   static get $interfaceName() {
     return 'nearby_share.mojom.ReceiveManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      nearby_share.mojom.mojom.ReceiveManagerPendingReceiver,
+      nearby_share.mojom.ReceiveManagerPendingReceiver,
       handle);
-    this.$ = new nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler(this.proxy);
+    this.$ = new nearby_share.mojom.ReceiveManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -928,7 +1231,7 @@ nearby_share.mojom.mojom.ReceiveManagerRemote = class {
   }
 };
 
-nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
+nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -937,7 +1240,7 @@ nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -946,8 +1249,8 @@ nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec,
-      nearby_share.mojom.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
+      nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
       []);
   }
 
@@ -955,8 +1258,8 @@ nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec,
-      nearby_share.mojom.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
+      nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
       []);
   }
 
@@ -964,8 +1267,8 @@ nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby_share.mojom.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec,
-      nearby_share.mojom.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
+      nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
       []);
   }
 
@@ -973,8 +1276,8 @@ nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      nearby_share.mojom.mojom.ReceiveManager_Accept_ParamsSpec,
-      nearby_share.mojom.mojom.ReceiveManager_Accept_ResponseParamsSpec,
+      nearby_share.mojom.ReceiveManager_Accept_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec,
       [share_target_id]);
   }
 
@@ -982,8 +1285,8 @@ nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      nearby_share.mojom.mojom.ReceiveManager_Reject_ParamsSpec,
-      nearby_share.mojom.mojom.ReceiveManager_Reject_ResponseParamsSpec,
+      nearby_share.mojom.ReceiveManager_Reject_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec,
       [share_target_id]);
   }
 
@@ -991,15 +1294,15 @@ nearby_share.mojom.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      nearby_share.mojom.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec,
       null,
       [success]);
   }
 
 };
 
-nearby_share.mojom.mojom.ReceiveManager.getRemote = function() {
-  let remote = new nearby_share.mojom.mojom.ReceiveManagerRemote();
+nearby_share.mojom.ReceiveManager.getRemote = function() {
+  let remote = new nearby_share.mojom.ReceiveManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1009,7 +1312,7 @@ nearby_share.mojom.mojom.ReceiveManager.getRemote = function() {
 };
 
 // ParamsSpec for AddReceiveObserver
-nearby_share.mojom.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
+nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.AddReceiveObserver_Params',
@@ -1023,7 +1326,7 @@ nearby_share.mojom.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
 };
 
 // ParamsSpec for IsInHighVisibility
-nearby_share.mojom.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
+nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.IsInHighVisibility_Params',
@@ -1035,7 +1338,7 @@ nearby_share.mojom.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
+nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.IsInHighVisibility_ResponseParams',
@@ -1049,7 +1352,7 @@ nearby_share.mojom.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = 
 };
 
 // ParamsSpec for RegisterForegroundReceiveSurface
-nearby_share.mojom.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = {
+nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.RegisterForegroundReceiveSurface_Params',
@@ -1061,7 +1364,7 @@ nearby_share.mojom.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsS
   }
 };
 
-nearby_share.mojom.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec = {
+nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.RegisterForegroundReceiveSurface_ResponseParams',
@@ -1075,7 +1378,7 @@ nearby_share.mojom.mojom.ReceiveManager_RegisterForegroundReceiveSurface_Respons
 };
 
 // ParamsSpec for UnregisterForegroundReceiveSurface
-nearby_share.mojom.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec = {
+nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.UnregisterForegroundReceiveSurface_Params',
@@ -1087,7 +1390,7 @@ nearby_share.mojom.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Param
   }
 };
 
-nearby_share.mojom.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec = {
+nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.UnregisterForegroundReceiveSurface_ResponseParams',
@@ -1101,7 +1404,7 @@ nearby_share.mojom.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Respo
 };
 
 // ParamsSpec for Accept
-nearby_share.mojom.mojom.ReceiveManager_Accept_ParamsSpec = {
+nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.Accept_Params',
@@ -1114,7 +1417,7 @@ nearby_share.mojom.mojom.ReceiveManager_Accept_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
+nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.Accept_ResponseParams',
@@ -1128,7 +1431,7 @@ nearby_share.mojom.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Reject
-nearby_share.mojom.mojom.ReceiveManager_Reject_ParamsSpec = {
+nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.Reject_Params',
@@ -1141,7 +1444,7 @@ nearby_share.mojom.mojom.ReceiveManager_Reject_ParamsSpec = {
   }
 };
 
-nearby_share.mojom.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
+nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.Reject_ResponseParams',
@@ -1155,7 +1458,7 @@ nearby_share.mojom.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RecordFastInitiationNotificationUsage
-nearby_share.mojom.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec = {
+nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ReceiveManager.RecordFastInitiationNotificationUsage_Params',
@@ -1169,6 +1472,6 @@ nearby_share.mojom.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_Pa
 };
 
 // Legacy compatibility
-nearby_share.mojom.mojom.ReceiveManagerPtr = nearby_share.mojom.mojom.ReceiveManagerRemote;
-nearby_share.mojom.mojom.ReceiveManagerRequest = nearby_share.mojom.mojom.ReceiveManagerPendingReceiver;
+nearby_share.mojom.ReceiveManagerPtr = nearby_share.mojom.ReceiveManagerRemote;
+nearby_share.mojom.ReceiveManagerRequest = nearby_share.mojom.ReceiveManagerPendingReceiver;
 

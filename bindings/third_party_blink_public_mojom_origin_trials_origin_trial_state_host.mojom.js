@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Struct: OriginTrialFeatureState
-blink.mojom.mojom.OriginTrialFeatureStateSpec = {
+blink.mojom.OriginTrialFeatureStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialFeatureState',
@@ -27,24 +27,51 @@ blink.mojom.mojom.OriginTrialFeatureStateSpec = {
 };
 
 // Interface: OriginTrialStateHost
-blink.mojom.mojom.OriginTrialStateHost = {};
+blink.mojom.OriginTrialStateHost = {};
 
-blink.mojom.mojom.OriginTrialStateHostPendingReceiver = class {
+blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'origin_trial_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, blink.mojom.OriginTrialFeatureStateSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OriginTrialStateHost_EnablePersistentTrial_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'script_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.OriginTrialStateHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.OriginTrialStateHostRemote = class {
+blink.mojom.OriginTrialStateHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.OriginTrialStateHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.OriginTrialStateHostPendingReceiver,
+      blink.mojom.OriginTrialStateHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.OriginTrialStateHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.OriginTrialStateHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +83,7 @@ blink.mojom.mojom.OriginTrialStateHostRemote = class {
   }
 };
 
-blink.mojom.mojom.OriginTrialStateHostRemoteCallHandler = class {
+blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,7 +92,7 @@ blink.mojom.mojom.OriginTrialStateHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
+      blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
       null,
       [origin_trial_features]);
   }
@@ -74,15 +101,15 @@ blink.mojom.mojom.OriginTrialStateHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
+      blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
       null,
       [token, script_origins]);
   }
 
 };
 
-blink.mojom.mojom.OriginTrialStateHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.OriginTrialStateHostRemote();
+blink.mojom.OriginTrialStateHost.getRemote = function() {
+  let remote = new blink.mojom.OriginTrialStateHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -92,7 +119,7 @@ blink.mojom.mojom.OriginTrialStateHost.getRemote = function() {
 };
 
 // ParamsSpec for ApplyFeatureDiffForOriginTrial
-blink.mojom.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
+blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialStateHost.ApplyFeatureDiffForOriginTrial_Params',
@@ -106,7 +133,7 @@ blink.mojom.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec
 };
 
 // ParamsSpec for EnablePersistentTrial
-blink.mojom.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
+blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialStateHost.EnablePersistentTrial_Params',
@@ -121,6 +148,6 @@ blink.mojom.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.OriginTrialStateHostPtr = blink.mojom.mojom.OriginTrialStateHostRemote;
-blink.mojom.mojom.OriginTrialStateHostRequest = blink.mojom.mojom.OriginTrialStateHostPendingReceiver;
+blink.mojom.OriginTrialStateHostPtr = blink.mojom.OriginTrialStateHostRemote;
+blink.mojom.OriginTrialStateHostRequest = blink.mojom.OriginTrialStateHostPendingReceiver;
 

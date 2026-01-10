@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: Step
-gfx.mojom.mojom.StepSpec = {
+gfx.mojom.StepSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Step',
@@ -25,7 +25,7 @@ gfx.mojom.mojom.StepSpec = {
 };
 
 // Struct: LinearGradient
-gfx.mojom.mojom.LinearGradientSpec = {
+gfx.mojom.LinearGradientSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.LinearGradient',

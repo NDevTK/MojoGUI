@@ -10,9 +10,9 @@ network.mojom = network.mojom || {};
 
 
 // Enum: NetworkIsolationPartition
-network.mojom.mojom.NetworkIsolationPartition = {
+network.mojom.NetworkIsolationPartition = {
   kGeneral: 0,
   kProtectedAudienceSellerWorklet: 1,
   kFedCmUncredentialedRequests: 2,
 };
-network.mojom.mojom.NetworkIsolationPartitionSpec = { $: mojo.internal.Enum() };
+network.mojom.NetworkIsolationPartitionSpec = { $: mojo.internal.Enum() };

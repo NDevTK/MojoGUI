@@ -10,9 +10,9 @@ content.mojom = content.mojom || {};
 
 
 // Enum: WindowContainerType
-content.mojom.mojom.WindowContainerType = {
+content.mojom.WindowContainerType = {
   NORMAL: 0,
   BACKGROUND: 1,
   PERSISTENT: 2,
 };
-content.mojom.mojom.WindowContainerTypeSpec = { $: mojo.internal.Enum() };
+content.mojom.WindowContainerTypeSpec = { $: mojo.internal.Enum() };

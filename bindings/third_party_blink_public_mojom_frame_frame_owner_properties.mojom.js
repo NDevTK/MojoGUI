@@ -13,7 +13,7 @@ var blink = blink || {};
 
 
 // Struct: FrameOwnerProperties
-blink.mojom.mojom.FrameOwnerPropertiesSpec = {
+blink.mojom.FrameOwnerPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameOwnerProperties',

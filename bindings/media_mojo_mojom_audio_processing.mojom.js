@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: AudioProcessingStats
-media.mojom.mojom.AudioProcessingStatsSpec = {
+media.mojom.AudioProcessingStatsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessingStats',
@@ -27,7 +27,7 @@ media.mojom.mojom.AudioProcessingStatsSpec = {
 };
 
 // Struct: AudioProcessingSettings
-media.mojom.mojom.AudioProcessingSettingsSpec = {
+media.mojom.AudioProcessingSettingsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessingSettings',
@@ -45,7 +45,7 @@ media.mojom.mojom.AudioProcessingSettingsSpec = {
 };
 
 // Struct: AudioProcessingConfig
-media.mojom.mojom.AudioProcessingConfigSpec = {
+media.mojom.AudioProcessingConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessingConfig',
@@ -60,24 +60,49 @@ media.mojom.mojom.AudioProcessingConfigSpec = {
 };
 
 // Interface: AudioProcessorControls
-media.mojom.mojom.AudioProcessorControls = {};
+media.mojom.AudioProcessorControls = {};
 
-media.mojom.mojom.AudioProcessorControlsPendingReceiver = class {
+media.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessorControls_GetStats_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_preferred_channels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.AudioProcessorControlsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.AudioProcessorControlsRemote = class {
+media.mojom.AudioProcessorControlsRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioProcessorControls';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.AudioProcessorControlsPendingReceiver,
+      media.mojom.AudioProcessorControlsPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.AudioProcessorControlsRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.AudioProcessorControlsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -89,7 +114,7 @@ media.mojom.mojom.AudioProcessorControlsRemote = class {
   }
 };
 
-media.mojom.mojom.AudioProcessorControlsRemoteCallHandler = class {
+media.mojom.AudioProcessorControlsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -98,8 +123,8 @@ media.mojom.mojom.AudioProcessorControlsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.AudioProcessorControls_GetStats_ParamsSpec,
-      media.mojom.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
+      media.mojom.AudioProcessorControls_GetStats_ParamsSpec,
+      media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
       []);
   }
 
@@ -107,15 +132,15 @@ media.mojom.mojom.AudioProcessorControlsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec,
+      media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec,
       null,
       [num_preferred_channels]);
   }
 
 };
 
-media.mojom.mojom.AudioProcessorControls.getRemote = function() {
-  let remote = new media.mojom.mojom.AudioProcessorControlsRemote();
+media.mojom.AudioProcessorControls.getRemote = function() {
+  let remote = new media.mojom.AudioProcessorControlsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -125,7 +150,7 @@ media.mojom.mojom.AudioProcessorControls.getRemote = function() {
 };
 
 // ParamsSpec for GetStats
-media.mojom.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
+media.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessorControls.GetStats_Params',
@@ -137,7 +162,7 @@ media.mojom.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
+media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessorControls.GetStats_ResponseParams',
@@ -151,7 +176,7 @@ media.mojom.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetPreferredNumCaptureChannels
-media.mojom.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
+media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessorControls.SetPreferredNumCaptureChannels_Params',
@@ -165,6 +190,6 @@ media.mojom.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSp
 };
 
 // Legacy compatibility
-media.mojom.mojom.AudioProcessorControlsPtr = media.mojom.mojom.AudioProcessorControlsRemote;
-media.mojom.mojom.AudioProcessorControlsRequest = media.mojom.mojom.AudioProcessorControlsPendingReceiver;
+media.mojom.AudioProcessorControlsPtr = media.mojom.AudioProcessorControlsRemote;
+media.mojom.AudioProcessorControlsRequest = media.mojom.AudioProcessorControlsPendingReceiver;
 

@@ -12,32 +12,47 @@ var gfx = gfx || {};
 
 
 // Enum: IconSize
-chrome.mojom.mojom.IconSize = {
+chrome.mojom.IconSize = {
   kSmall: 0,
   kNormal: 1,
   kLarge: 2,
 };
-chrome.mojom.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
 
 // Interface: UtilReadIcon
-chrome.mojom.mojom.UtilReadIcon = {};
+chrome.mojom.UtilReadIcon = {};
 
-chrome.mojom.mojom.UtilReadIconPendingReceiver = class {
+chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.UtilReadIcon_ReadIcon_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.IconSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'scale', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chrome.mojom.UtilReadIconPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.UtilReadIconRemote = class {
+chrome.mojom.UtilReadIconRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.UtilReadIcon';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.UtilReadIconPendingReceiver,
+      chrome.mojom.UtilReadIconPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.UtilReadIconRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.UtilReadIconRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +64,7 @@ chrome.mojom.mojom.UtilReadIconRemote = class {
   }
 };
 
-chrome.mojom.mojom.UtilReadIconRemoteCallHandler = class {
+chrome.mojom.UtilReadIconRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,15 +73,15 @@ chrome.mojom.mojom.UtilReadIconRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.UtilReadIcon_ReadIcon_ParamsSpec,
-      chrome.mojom.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec,
+      chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec,
+      chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec,
       [file, size, scale]);
   }
 
 };
 
-chrome.mojom.mojom.UtilReadIcon.getRemote = function() {
-  let remote = new chrome.mojom.mojom.UtilReadIconRemote();
+chrome.mojom.UtilReadIcon.getRemote = function() {
+  let remote = new chrome.mojom.UtilReadIconRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +91,7 @@ chrome.mojom.mojom.UtilReadIcon.getRemote = function() {
 };
 
 // ParamsSpec for ReadIcon
-chrome.mojom.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
+chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilReadIcon.ReadIcon_Params',
@@ -91,7 +106,7 @@ chrome.mojom.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
   }
 };
 
-chrome.mojom.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
+chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilReadIcon.ReadIcon_ResponseParams',
@@ -105,6 +120,6 @@ chrome.mojom.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.UtilReadIconPtr = chrome.mojom.mojom.UtilReadIconRemote;
-chrome.mojom.mojom.UtilReadIconRequest = chrome.mojom.mojom.UtilReadIconPendingReceiver;
+chrome.mojom.UtilReadIconPtr = chrome.mojom.UtilReadIconRemote;
+chrome.mojom.UtilReadIconRequest = chrome.mojom.UtilReadIconPendingReceiver;
 

@@ -14,32 +14,32 @@ var gfx = gfx || {};
 
 
 // Enum: Rotation
-display.mojom.mojom.Rotation = {
+display.mojom.Rotation = {
   VALUE_0: 0,
   VALUE_90: 1,
   VALUE_180: 2,
   VALUE_270: 3,
 };
-display.mojom.mojom.RotationSpec = { $: mojo.internal.Enum() };
+display.mojom.RotationSpec = { $: mojo.internal.Enum() };
 
 // Enum: TouchSupport
-display.mojom.mojom.TouchSupport = {
+display.mojom.TouchSupport = {
   UNKNOWN: 0,
   AVAILABLE: 1,
   UNAVAILABLE: 2,
 };
-display.mojom.mojom.TouchSupportSpec = { $: mojo.internal.Enum() };
+display.mojom.TouchSupportSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccelerometerSupport
-display.mojom.mojom.AccelerometerSupport = {
+display.mojom.AccelerometerSupport = {
   UNKNOWN: 0,
   AVAILABLE: 1,
   UNAVAILABLE: 2,
 };
-display.mojom.mojom.AccelerometerSupportSpec = { $: mojo.internal.Enum() };
+display.mojom.AccelerometerSupportSpec = { $: mojo.internal.Enum() };
 
 // Struct: Display
-display.mojom.mojom.DisplaySpec = {
+display.mojom.DisplaySpec = {
   $: {
     structSpec: {
       name: 'display.mojom.Display',

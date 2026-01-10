@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: JsError
-mojo_base.mojom.mojom.JsErrorSpec = {
+mojo_base.mojom.JsErrorSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.JsError',

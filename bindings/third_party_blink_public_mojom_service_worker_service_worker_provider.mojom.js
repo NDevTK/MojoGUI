@@ -15,10 +15,10 @@ var blink = blink || {};
 var blink = blink || {};
 
 
-blink.mojom.mojom.kNavigation_ServiceWorkerSpec = "navigation:service_worker";
+blink.mojom.kNavigation_ServiceWorkerSpec = "navigation:service_worker";
 
 // Struct: ServiceWorkerProviderInfoForStartWorker
-blink.mojom.mojom.ServiceWorkerProviderInfoForStartWorkerSpec = {
+blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerProviderInfoForStartWorker',

@@ -17,7 +17,7 @@ var blink = blink || {};
 
 
 // Enum: ModelAvailabilityCheckResult
-blink.mojom.mojom.ModelAvailabilityCheckResult = {
+blink.mojom.ModelAvailabilityCheckResult = {
   kAvailable: 0,
   kDownloadable: 1,
   kDownloading: 2,
@@ -40,27 +40,54 @@ blink.mojom.mojom.ModelAvailabilityCheckResult = {
   kUnavailableTranslationNotEligible: 19,
   kUnavailableEnterprisePolicyDisabled: 20,
 };
-blink.mojom.mojom.ModelAvailabilityCheckResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.ModelAvailabilityCheckResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: AIManagerCreateWriterClient
-blink.mojom.mojom.AIManagerCreateWriterClient = {};
+blink.mojom.AIManagerCreateWriterClient = {};
 
-blink.mojom.mojom.AIManagerCreateWriterClientPendingReceiver = class {
+blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateWriterClient_OnResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'writer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIWriterRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateWriterClient_OnError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'quota_error_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateWriterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIManagerCreateWriterClientRemote = class {
+blink.mojom.AIManagerCreateWriterClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIManagerCreateWriterClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIManagerCreateWriterClientPendingReceiver,
+      blink.mojom.AIManagerCreateWriterClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIManagerCreateWriterClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIManagerCreateWriterClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -72,7 +99,7 @@ blink.mojom.mojom.AIManagerCreateWriterClientRemote = class {
   }
 };
 
-blink.mojom.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
+blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -81,7 +108,7 @@ blink.mojom.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec,
+      blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec,
       null,
       [writer]);
   }
@@ -90,15 +117,15 @@ blink.mojom.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec,
+      blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
 
 };
 
-blink.mojom.mojom.AIManagerCreateWriterClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIManagerCreateWriterClientRemote();
+blink.mojom.AIManagerCreateWriterClient.getRemote = function() {
+  let remote = new blink.mojom.AIManagerCreateWriterClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -108,7 +135,7 @@ blink.mojom.mojom.AIManagerCreateWriterClient.getRemote = function() {
 };
 
 // ParamsSpec for OnResult
-blink.mojom.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = {
+blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateWriterClient.OnResult_Params',
@@ -122,7 +149,7 @@ blink.mojom.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-blink.mojom.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
+blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateWriterClient.OnError_Params',
@@ -137,29 +164,56 @@ blink.mojom.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIManagerCreateWriterClientPtr = blink.mojom.mojom.AIManagerCreateWriterClientRemote;
-blink.mojom.mojom.AIManagerCreateWriterClientRequest = blink.mojom.mojom.AIManagerCreateWriterClientPendingReceiver;
+blink.mojom.AIManagerCreateWriterClientPtr = blink.mojom.AIManagerCreateWriterClientRemote;
+blink.mojom.AIManagerCreateWriterClientRequest = blink.mojom.AIManagerCreateWriterClientPendingReceiver;
 
 
 // Interface: AIManagerCreateRewriterClient
-blink.mojom.mojom.AIManagerCreateRewriterClient = {};
+blink.mojom.AIManagerCreateRewriterClient = {};
 
-blink.mojom.mojom.AIManagerCreateRewriterClientPendingReceiver = class {
+blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateRewriterClient_OnResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'rewriter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIRewriterRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateRewriterClient_OnError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'quota_error_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateRewriterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIManagerCreateRewriterClientRemote = class {
+blink.mojom.AIManagerCreateRewriterClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIManagerCreateRewriterClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIManagerCreateRewriterClientPendingReceiver,
+      blink.mojom.AIManagerCreateRewriterClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIManagerCreateRewriterClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -171,7 +225,7 @@ blink.mojom.mojom.AIManagerCreateRewriterClientRemote = class {
   }
 };
 
-blink.mojom.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
+blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -180,7 +234,7 @@ blink.mojom.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec,
+      blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec,
       null,
       [rewriter]);
   }
@@ -189,15 +243,15 @@ blink.mojom.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec,
+      blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
 
 };
 
-blink.mojom.mojom.AIManagerCreateRewriterClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIManagerCreateRewriterClientRemote();
+blink.mojom.AIManagerCreateRewriterClient.getRemote = function() {
+  let remote = new blink.mojom.AIManagerCreateRewriterClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -207,7 +261,7 @@ blink.mojom.mojom.AIManagerCreateRewriterClient.getRemote = function() {
 };
 
 // ParamsSpec for OnResult
-blink.mojom.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = {
+blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateRewriterClient.OnResult_Params',
@@ -221,7 +275,7 @@ blink.mojom.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-blink.mojom.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
+blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateRewriterClient.OnError_Params',
@@ -236,29 +290,56 @@ blink.mojom.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIManagerCreateRewriterClientPtr = blink.mojom.mojom.AIManagerCreateRewriterClientRemote;
-blink.mojom.mojom.AIManagerCreateRewriterClientRequest = blink.mojom.mojom.AIManagerCreateRewriterClientPendingReceiver;
+blink.mojom.AIManagerCreateRewriterClientPtr = blink.mojom.AIManagerCreateRewriterClientRemote;
+blink.mojom.AIManagerCreateRewriterClientRequest = blink.mojom.AIManagerCreateRewriterClientPendingReceiver;
 
 
 // Interface: AIManagerCreateSummarizerClient
-blink.mojom.mojom.AIManagerCreateSummarizerClient = {};
+blink.mojom.AIManagerCreateSummarizerClient = {};
 
-blink.mojom.mojom.AIManagerCreateSummarizerClientPendingReceiver = class {
+blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateSummarizerClient_OnResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'summarizer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AISummarizerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateSummarizerClient_OnError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'quota_error_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateSummarizerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIManagerCreateSummarizerClientRemote = class {
+blink.mojom.AIManagerCreateSummarizerClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIManagerCreateSummarizerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIManagerCreateSummarizerClientPendingReceiver,
+      blink.mojom.AIManagerCreateSummarizerClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIManagerCreateSummarizerClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -270,7 +351,7 @@ blink.mojom.mojom.AIManagerCreateSummarizerClientRemote = class {
   }
 };
 
-blink.mojom.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
+blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -279,7 +360,7 @@ blink.mojom.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec,
+      blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec,
       null,
       [summarizer]);
   }
@@ -288,15 +369,15 @@ blink.mojom.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec,
+      blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
 
 };
 
-blink.mojom.mojom.AIManagerCreateSummarizerClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIManagerCreateSummarizerClientRemote();
+blink.mojom.AIManagerCreateSummarizerClient.getRemote = function() {
+  let remote = new blink.mojom.AIManagerCreateSummarizerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -306,7 +387,7 @@ blink.mojom.mojom.AIManagerCreateSummarizerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnResult
-blink.mojom.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = {
+blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateSummarizerClient.OnResult_Params',
@@ -320,7 +401,7 @@ blink.mojom.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-blink.mojom.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
+blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateSummarizerClient.OnError_Params',
@@ -335,29 +416,56 @@ blink.mojom.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIManagerCreateSummarizerClientPtr = blink.mojom.mojom.AIManagerCreateSummarizerClientRemote;
-blink.mojom.mojom.AIManagerCreateSummarizerClientRequest = blink.mojom.mojom.AIManagerCreateSummarizerClientPendingReceiver;
+blink.mojom.AIManagerCreateSummarizerClientPtr = blink.mojom.AIManagerCreateSummarizerClientRemote;
+blink.mojom.AIManagerCreateSummarizerClientRequest = blink.mojom.AIManagerCreateSummarizerClientPendingReceiver;
 
 
 // Interface: AIManagerCreateProofreaderClient
-blink.mojom.mojom.AIManagerCreateProofreaderClient = {};
+blink.mojom.AIManagerCreateProofreaderClient = {};
 
-blink.mojom.mojom.AIManagerCreateProofreaderClientPendingReceiver = class {
+blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateProofreaderClient_OnResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'proofreader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIProofreaderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateProofreaderClient_OnError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'quota_error_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateProofreaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIManagerCreateProofreaderClientRemote = class {
+blink.mojom.AIManagerCreateProofreaderClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIManagerCreateProofreaderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIManagerCreateProofreaderClientPendingReceiver,
+      blink.mojom.AIManagerCreateProofreaderClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIManagerCreateProofreaderClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -369,7 +477,7 @@ blink.mojom.mojom.AIManagerCreateProofreaderClientRemote = class {
   }
 };
 
-blink.mojom.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
+blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -378,7 +486,7 @@ blink.mojom.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec,
+      blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec,
       null,
       [proofreader]);
   }
@@ -387,15 +495,15 @@ blink.mojom.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec,
+      blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
 
 };
 
-blink.mojom.mojom.AIManagerCreateProofreaderClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIManagerCreateProofreaderClientRemote();
+blink.mojom.AIManagerCreateProofreaderClient.getRemote = function() {
+  let remote = new blink.mojom.AIManagerCreateProofreaderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -405,7 +513,7 @@ blink.mojom.mojom.AIManagerCreateProofreaderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnResult
-blink.mojom.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = {
+blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateProofreaderClient.OnResult_Params',
@@ -419,7 +527,7 @@ blink.mojom.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-blink.mojom.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
+blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateProofreaderClient.OnError_Params',
@@ -434,29 +542,189 @@ blink.mojom.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIManagerCreateProofreaderClientPtr = blink.mojom.mojom.AIManagerCreateProofreaderClientRemote;
-blink.mojom.mojom.AIManagerCreateProofreaderClientRequest = blink.mojom.mojom.AIManagerCreateProofreaderClientPendingReceiver;
+blink.mojom.AIManagerCreateProofreaderClientPtr = blink.mojom.AIManagerCreateProofreaderClientRemote;
+blink.mojom.AIManagerCreateProofreaderClientRequest = blink.mojom.AIManagerCreateProofreaderClientPendingReceiver;
 
 
 // Interface: AIManager
-blink.mojom.mojom.AIManager = {};
+blink.mojom.AIManager = {};
 
-blink.mojom.mojom.AIManagerPendingReceiver = class {
+blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CanCreateLanguageModel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CreateLanguageModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateLanguageModelClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CanCreateSummarizer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AISummarizerCreateOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CreateSummarizer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CreateSummarizer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateSummarizerClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AISummarizerCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_GetLanguageModelParams_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CanCreateWriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CanCreateWriter_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIWriterCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CreateWriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CreateWriter_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateWriterClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIWriterCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CanCreateRewriter_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIRewriterCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CreateRewriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CreateRewriter_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateRewriterClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIRewriterCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CanCreateProofreader_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIProofreaderCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManager_CreateProofreader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_CreateProofreader_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateProofreaderClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIProofreaderCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManager_AddModelDownloadProgressObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelDownloadProgressObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AIManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIManagerRemote = class {
+blink.mojom.AIManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIManagerPendingReceiver,
+      blink.mojom.AIManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -468,7 +736,7 @@ blink.mojom.mojom.AIManagerRemote = class {
   }
 };
 
-blink.mojom.mojom.AIManagerRemoteCallHandler = class {
+blink.mojom.AIManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -477,8 +745,8 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIManager_CanCreateLanguageModel_ParamsSpec,
-      blink.mojom.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec,
+      blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec,
+      blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec,
       [options]);
   }
 
@@ -486,7 +754,7 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AIManager_CreateLanguageModel_ParamsSpec,
+      blink.mojom.AIManager_CreateLanguageModel_ParamsSpec,
       null,
       [client, options]);
   }
@@ -495,8 +763,8 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.AIManager_CanCreateSummarizer_ParamsSpec,
-      blink.mojom.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec,
+      blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec,
+      blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec,
       [options]);
   }
 
@@ -504,7 +772,7 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.AIManager_CreateSummarizer_ParamsSpec,
+      blink.mojom.AIManager_CreateSummarizer_ParamsSpec,
       null,
       [client, options]);
   }
@@ -513,8 +781,8 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.AIManager_GetLanguageModelParams_ParamsSpec,
-      blink.mojom.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec,
+      blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec,
+      blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec,
       []);
   }
 
@@ -522,8 +790,8 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.AIManager_CanCreateWriter_ParamsSpec,
-      blink.mojom.mojom.AIManager_CanCreateWriter_ResponseParamsSpec,
+      blink.mojom.AIManager_CanCreateWriter_ParamsSpec,
+      blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec,
       [options]);
   }
 
@@ -531,7 +799,7 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.mojom.AIManager_CreateWriter_ParamsSpec,
+      blink.mojom.AIManager_CreateWriter_ParamsSpec,
       null,
       [client, options]);
   }
@@ -540,8 +808,8 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.mojom.AIManager_CanCreateRewriter_ParamsSpec,
-      blink.mojom.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec,
+      blink.mojom.AIManager_CanCreateRewriter_ParamsSpec,
+      blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec,
       [options]);
   }
 
@@ -549,7 +817,7 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.mojom.AIManager_CreateRewriter_ParamsSpec,
+      blink.mojom.AIManager_CreateRewriter_ParamsSpec,
       null,
       [client, options]);
   }
@@ -558,8 +826,8 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.mojom.AIManager_CanCreateProofreader_ParamsSpec,
-      blink.mojom.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec,
+      blink.mojom.AIManager_CanCreateProofreader_ParamsSpec,
+      blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec,
       [options]);
   }
 
@@ -567,7 +835,7 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.mojom.AIManager_CreateProofreader_ParamsSpec,
+      blink.mojom.AIManager_CreateProofreader_ParamsSpec,
       null,
       [client, options]);
   }
@@ -576,15 +844,15 @@ blink.mojom.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec,
+      blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec,
       null,
       [observer_remote]);
   }
 
 };
 
-blink.mojom.mojom.AIManager.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIManagerRemote();
+blink.mojom.AIManager.getRemote = function() {
+  let remote = new blink.mojom.AIManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -594,7 +862,7 @@ blink.mojom.mojom.AIManager.getRemote = function() {
 };
 
 // ParamsSpec for CanCreateLanguageModel
-blink.mojom.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
+blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateLanguageModel_Params',
@@ -607,7 +875,7 @@ blink.mojom.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
+blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateLanguageModel_ResponseParams',
@@ -621,7 +889,7 @@ blink.mojom.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateLanguageModel
-blink.mojom.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
+blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CreateLanguageModel_Params',
@@ -636,7 +904,7 @@ blink.mojom.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
 };
 
 // ParamsSpec for CanCreateSummarizer
-blink.mojom.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
+blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateSummarizer_Params',
@@ -649,7 +917,7 @@ blink.mojom.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
+blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateSummarizer_ResponseParams',
@@ -663,7 +931,7 @@ blink.mojom.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateSummarizer
-blink.mojom.mojom.AIManager_CreateSummarizer_ParamsSpec = {
+blink.mojom.AIManager_CreateSummarizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CreateSummarizer_Params',
@@ -678,7 +946,7 @@ blink.mojom.mojom.AIManager_CreateSummarizer_ParamsSpec = {
 };
 
 // ParamsSpec for GetLanguageModelParams
-blink.mojom.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
+blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.GetLanguageModelParams_Params',
@@ -690,7 +958,7 @@ blink.mojom.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
+blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.GetLanguageModelParams_ResponseParams',
@@ -704,7 +972,7 @@ blink.mojom.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CanCreateWriter
-blink.mojom.mojom.AIManager_CanCreateWriter_ParamsSpec = {
+blink.mojom.AIManager_CanCreateWriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateWriter_Params',
@@ -717,7 +985,7 @@ blink.mojom.mojom.AIManager_CanCreateWriter_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
+blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateWriter_ResponseParams',
@@ -731,7 +999,7 @@ blink.mojom.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateWriter
-blink.mojom.mojom.AIManager_CreateWriter_ParamsSpec = {
+blink.mojom.AIManager_CreateWriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CreateWriter_Params',
@@ -746,7 +1014,7 @@ blink.mojom.mojom.AIManager_CreateWriter_ParamsSpec = {
 };
 
 // ParamsSpec for CanCreateRewriter
-blink.mojom.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
+blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateRewriter_Params',
@@ -759,7 +1027,7 @@ blink.mojom.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
+blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateRewriter_ResponseParams',
@@ -773,7 +1041,7 @@ blink.mojom.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateRewriter
-blink.mojom.mojom.AIManager_CreateRewriter_ParamsSpec = {
+blink.mojom.AIManager_CreateRewriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CreateRewriter_Params',
@@ -788,7 +1056,7 @@ blink.mojom.mojom.AIManager_CreateRewriter_ParamsSpec = {
 };
 
 // ParamsSpec for CanCreateProofreader
-blink.mojom.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
+blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateProofreader_Params',
@@ -801,7 +1069,7 @@ blink.mojom.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
+blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CanCreateProofreader_ResponseParams',
@@ -815,7 +1083,7 @@ blink.mojom.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateProofreader
-blink.mojom.mojom.AIManager_CreateProofreader_ParamsSpec = {
+blink.mojom.AIManager_CreateProofreader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.CreateProofreader_Params',
@@ -830,7 +1098,7 @@ blink.mojom.mojom.AIManager_CreateProofreader_ParamsSpec = {
 };
 
 // ParamsSpec for AddModelDownloadProgressObserver
-blink.mojom.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = {
+blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManager.AddModelDownloadProgressObserver_Params',
@@ -844,6 +1112,6 @@ blink.mojom.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIManagerPtr = blink.mojom.mojom.AIManagerRemote;
-blink.mojom.mojom.AIManagerRequest = blink.mojom.mojom.AIManagerPendingReceiver;
+blink.mojom.AIManagerPtr = blink.mojom.AIManagerRemote;
+blink.mojom.AIManagerRequest = blink.mojom.AIManagerPendingReceiver;
 

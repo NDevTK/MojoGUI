@@ -13,7 +13,7 @@ var gfx = gfx || {};
 
 
 // Struct: DelegatedInkMetadata
-gfx.mojom.mojom.DelegatedInkMetadataSpec = {
+gfx.mojom.DelegatedInkMetadataSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkMetadata',

@@ -10,24 +10,54 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FetchLaterLoaderFactory
-blink.mojom.mojom.FetchLaterLoaderFactory = {};
+blink.mojom.FetchLaterLoaderFactory = {};
 
-blink.mojom.mojom.FetchLaterLoaderFactoryPendingReceiver = class {
+blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchLaterLoaderFactory_CreateLoader_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.FetchLaterLoaderRemote), nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchLaterLoaderFactory_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.FetchLaterLoaderFactoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.FetchLaterLoaderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.FetchLaterLoaderFactoryRemote = class {
+blink.mojom.FetchLaterLoaderFactoryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FetchLaterLoaderFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.FetchLaterLoaderFactoryPendingReceiver,
+      blink.mojom.FetchLaterLoaderFactoryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.FetchLaterLoaderFactoryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +69,7 @@ blink.mojom.mojom.FetchLaterLoaderFactoryRemote = class {
   }
 };
 
-blink.mojom.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
+blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +78,7 @@ blink.mojom.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec,
+      blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec,
       null,
       [loader, request_id, options, request, traffic_annotation]);
   }
@@ -57,15 +87,15 @@ blink.mojom.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec,
+      blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec,
       null,
       [factory]);
   }
 
 };
 
-blink.mojom.mojom.FetchLaterLoaderFactory.getRemote = function() {
-  let remote = new blink.mojom.mojom.FetchLaterLoaderFactoryRemote();
+blink.mojom.FetchLaterLoaderFactory.getRemote = function() {
+  let remote = new blink.mojom.FetchLaterLoaderFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +105,7 @@ blink.mojom.mojom.FetchLaterLoaderFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateLoader
-blink.mojom.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = {
+blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchLaterLoaderFactory.CreateLoader_Params',
@@ -93,7 +123,7 @@ blink.mojom.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = {
 };
 
 // ParamsSpec for Clone
-blink.mojom.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = {
+blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchLaterLoaderFactory.Clone_Params',
@@ -107,29 +137,53 @@ blink.mojom.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.FetchLaterLoaderFactoryPtr = blink.mojom.mojom.FetchLaterLoaderFactoryRemote;
-blink.mojom.mojom.FetchLaterLoaderFactoryRequest = blink.mojom.mojom.FetchLaterLoaderFactoryPendingReceiver;
+blink.mojom.FetchLaterLoaderFactoryPtr = blink.mojom.FetchLaterLoaderFactoryRemote;
+blink.mojom.FetchLaterLoaderFactoryRequest = blink.mojom.FetchLaterLoaderFactoryPendingReceiver;
 
 
 // Interface: FetchLaterLoader
-blink.mojom.mojom.FetchLaterLoader = {};
+blink.mojom.FetchLaterLoader = {};
 
-blink.mojom.mojom.FetchLaterLoaderPendingReceiver = class {
+blink.mojom.FetchLaterLoader_SendNow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchLaterLoader_SendNow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchLaterLoader_Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FetchLaterLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.FetchLaterLoaderRemote = class {
+blink.mojom.FetchLaterLoaderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FetchLaterLoader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.FetchLaterLoaderPendingReceiver,
+      blink.mojom.FetchLaterLoaderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.FetchLaterLoaderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.FetchLaterLoaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -141,7 +195,7 @@ blink.mojom.mojom.FetchLaterLoaderRemote = class {
   }
 };
 
-blink.mojom.mojom.FetchLaterLoaderRemoteCallHandler = class {
+blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -150,7 +204,7 @@ blink.mojom.mojom.FetchLaterLoaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.FetchLaterLoader_SendNow_ParamsSpec,
+      blink.mojom.FetchLaterLoader_SendNow_ParamsSpec,
       null,
       []);
   }
@@ -159,15 +213,15 @@ blink.mojom.mojom.FetchLaterLoaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.FetchLaterLoader_Cancel_ParamsSpec,
+      blink.mojom.FetchLaterLoader_Cancel_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.FetchLaterLoader.getRemote = function() {
-  let remote = new blink.mojom.mojom.FetchLaterLoaderRemote();
+blink.mojom.FetchLaterLoader.getRemote = function() {
+  let remote = new blink.mojom.FetchLaterLoaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -177,7 +231,7 @@ blink.mojom.mojom.FetchLaterLoader.getRemote = function() {
 };
 
 // ParamsSpec for SendNow
-blink.mojom.mojom.FetchLaterLoader_SendNow_ParamsSpec = {
+blink.mojom.FetchLaterLoader_SendNow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchLaterLoader.SendNow_Params',
@@ -190,7 +244,7 @@ blink.mojom.mojom.FetchLaterLoader_SendNow_ParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-blink.mojom.mojom.FetchLaterLoader_Cancel_ParamsSpec = {
+blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchLaterLoader.Cancel_Params',
@@ -203,6 +257,6 @@ blink.mojom.mojom.FetchLaterLoader_Cancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.FetchLaterLoaderPtr = blink.mojom.mojom.FetchLaterLoaderRemote;
-blink.mojom.mojom.FetchLaterLoaderRequest = blink.mojom.mojom.FetchLaterLoaderPendingReceiver;
+blink.mojom.FetchLaterLoaderPtr = blink.mojom.FetchLaterLoaderRemote;
+blink.mojom.FetchLaterLoaderRequest = blink.mojom.FetchLaterLoaderPendingReceiver;
 

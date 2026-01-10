@@ -10,24 +10,37 @@ ax.mojom = ax.mojom || {};
 
 
 // Interface: AccessibilityFileLoader
-ax.mojom.mojom.AccessibilityFileLoader = {};
+ax.mojom.AccessibilityFileLoader = {};
 
-ax.mojom.mojom.AccessibilityFileLoaderPendingReceiver = class {
+ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.AccessibilityFileLoader_Load_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RelativeFilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ax.mojom.AccessibilityFileLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.mojom.AccessibilityFileLoaderRemote = class {
+ax.mojom.AccessibilityFileLoaderRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.AccessibilityFileLoader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.mojom.AccessibilityFileLoaderPendingReceiver,
+      ax.mojom.AccessibilityFileLoaderPendingReceiver,
       handle);
-    this.$ = new ax.mojom.mojom.AccessibilityFileLoaderRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.AccessibilityFileLoaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ ax.mojom.mojom.AccessibilityFileLoaderRemote = class {
   }
 };
 
-ax.mojom.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
+ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ ax.mojom.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.mojom.AccessibilityFileLoader_Load_ParamsSpec,
-      ax.mojom.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
+      ax.mojom.AccessibilityFileLoader_Load_ParamsSpec,
+      ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-ax.mojom.mojom.AccessibilityFileLoader.getRemote = function() {
-  let remote = new ax.mojom.mojom.AccessibilityFileLoaderRemote();
+ax.mojom.AccessibilityFileLoader.getRemote = function() {
+  let remote = new ax.mojom.AccessibilityFileLoaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ ax.mojom.mojom.AccessibilityFileLoader.getRemote = function() {
 };
 
 // ParamsSpec for Load
-ax.mojom.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
+ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityFileLoader.Load_Params',
@@ -79,7 +92,7 @@ ax.mojom.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
   }
 };
 
-ax.mojom.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
+ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityFileLoader.Load_ResponseParams',
@@ -93,6 +106,6 @@ ax.mojom.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.mojom.AccessibilityFileLoaderPtr = ax.mojom.mojom.AccessibilityFileLoaderRemote;
-ax.mojom.mojom.AccessibilityFileLoaderRequest = ax.mojom.mojom.AccessibilityFileLoaderPendingReceiver;
+ax.mojom.AccessibilityFileLoaderPtr = ax.mojom.AccessibilityFileLoaderRemote;
+ax.mojom.AccessibilityFileLoaderRequest = ax.mojom.AccessibilityFileLoaderPendingReceiver;
 

@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Enum: CommandBufferNamespace
-gpu.mojom.mojom.CommandBufferNamespace = {
+gpu.mojom.CommandBufferNamespace = {
   INVALID: 0,
   GPU_IO: 1,
   IN_PROCESS: 2,
@@ -19,10 +19,10 @@ gpu.mojom.mojom.CommandBufferNamespace = {
   GPU_CHANNEL_SHARED_IMAGE_INTERFACE: 5,
   WEBNN_CONTEXT_INTERFACE: 6,
 };
-gpu.mojom.mojom.CommandBufferNamespaceSpec = { $: mojo.internal.Enum() };
+gpu.mojom.CommandBufferNamespaceSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyncToken
-gpu.mojom.mojom.SyncTokenSpec = {
+gpu.mojom.SyncTokenSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SyncToken',

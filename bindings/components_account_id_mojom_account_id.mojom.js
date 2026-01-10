@@ -10,14 +10,14 @@ signin.mojom = signin.mojom || {};
 
 
 // Enum: AccountType
-signin.mojom.mojom.AccountType = {
+signin.mojom.AccountType = {
   UNKNOWN: 0,
   GOOGLE: 1,
 };
-signin.mojom.mojom.AccountTypeSpec = { $: mojo.internal.Enum() };
+signin.mojom.AccountTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AccountId
-signin.mojom.mojom.AccountIdSpec = {
+signin.mojom.AccountIdSpec = {
   $: {
     structSpec: {
       name: 'signin.mojom.AccountId',

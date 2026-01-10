@@ -10,24 +10,49 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: Remoting
-crosapi.mojom.mojom.Remoting = {};
+crosapi.mojom.Remoting = {};
 
-crosapi.mojom.mojom.RemotingPendingReceiver = class {
+crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Remoting_GetSupportHostDetails_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Remoting_StartSupportSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.SupportSessionParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.RemotingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.RemotingRemote = class {
+crosapi.mojom.RemotingRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.Remoting';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.RemotingPendingReceiver,
+      crosapi.mojom.RemotingPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.RemotingRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.RemotingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +64,7 @@ crosapi.mojom.mojom.RemotingRemote = class {
   }
 };
 
-crosapi.mojom.mojom.RemotingRemoteCallHandler = class {
+crosapi.mojom.RemotingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +73,8 @@ crosapi.mojom.mojom.RemotingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ParamsSpec,
-      crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec,
+      crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec,
+      crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec,
       []);
   }
 
@@ -57,15 +82,15 @@ crosapi.mojom.mojom.RemotingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.Remoting_StartSupportSession_ParamsSpec,
-      crosapi.mojom.mojom.Remoting_StartSupportSession_ResponseParamsSpec,
+      crosapi.mojom.Remoting_StartSupportSession_ParamsSpec,
+      crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec,
       [params]);
   }
 
 };
 
-crosapi.mojom.mojom.Remoting.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.RemotingRemote();
+crosapi.mojom.Remoting.getRemote = function() {
+  let remote = new crosapi.mojom.RemotingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +100,7 @@ crosapi.mojom.mojom.Remoting.getRemote = function() {
 };
 
 // ParamsSpec for GetSupportHostDetails
-crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
+crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.GetSupportHostDetails_Params',
@@ -87,7 +112,7 @@ crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
+crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.GetSupportHostDetails_ResponseParams',
@@ -101,7 +126,7 @@ crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartSupportSession
-crosapi.mojom.mojom.Remoting_StartSupportSession_ParamsSpec = {
+crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.StartSupportSession_Params',
@@ -114,7 +139,7 @@ crosapi.mojom.mojom.Remoting_StartSupportSession_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
+crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.StartSupportSession_ResponseParams',
@@ -128,6 +153,6 @@ crosapi.mojom.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.RemotingPtr = crosapi.mojom.mojom.RemotingRemote;
-crosapi.mojom.mojom.RemotingRequest = crosapi.mojom.mojom.RemotingPendingReceiver;
+crosapi.mojom.RemotingPtr = crosapi.mojom.RemotingRemote;
+crosapi.mojom.RemotingRequest = crosapi.mojom.RemotingPendingReceiver;
 

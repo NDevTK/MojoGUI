@@ -11,50 +11,50 @@ var url = url || {};
 
 
 // Enum: NetworkResult
-arc.mojom.mojom.NetworkResult = {
+arc.mojom.NetworkResult = {
   SUCCESS: 0,
   FAILURE: 1,
 };
-arc.mojom.mojom.NetworkResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.NetworkResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetNetworksRequestType
-arc.mojom.mojom.GetNetworksRequestType = {
+arc.mojom.GetNetworksRequestType = {
   CONFIGURED_ONLY: 0,
   VISIBLE_ONLY: 1,
 };
-arc.mojom.mojom.GetNetworksRequestTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.GetNetworksRequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionStateType
-arc.mojom.mojom.ConnectionStateType = {
+arc.mojom.ConnectionStateType = {
   CONNECTED: 0,
   CONNECTING: 1,
   NOT_CONNECTED: 2,
   PORTAL: 3,
   ONLINE: 4,
 };
-arc.mojom.mojom.ConnectionStateTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ConnectionStateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EapMethod
-arc.mojom.mojom.EapMethod = {
+arc.mojom.EapMethod = {
   kNone: 0,
   kLeap: 1,
   kPeap: 2,
   kTls: 3,
   kTtls: 4,
 };
-arc.mojom.mojom.EapMethodSpec = { $: mojo.internal.Enum() };
+arc.mojom.EapMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: EapPhase2Method
-arc.mojom.mojom.EapPhase2Method = {
+arc.mojom.EapPhase2Method = {
   kNone: 0,
   kPap: 1,
   kMschap: 2,
   kMschapv2: 3,
 };
-arc.mojom.mojom.EapPhase2MethodSpec = { $: mojo.internal.Enum() };
+arc.mojom.EapPhase2MethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeyManagement
-arc.mojom.mojom.KeyManagement = {
+arc.mojom.KeyManagement = {
   kNone: 0,
   kIeee8021X: 1,
   kFtEap: 2,
@@ -65,86 +65,86 @@ arc.mojom.mojom.KeyManagement = {
   kWpaPsk: 7,
   kSae: 8,
 };
-arc.mojom.mojom.KeyManagementSpec = { $: mojo.internal.Enum() };
+arc.mojom.KeyManagementSpec = { $: mojo.internal.Enum() };
 
 // Enum: IPAddressType
-arc.mojom.mojom.IPAddressType = {
+arc.mojom.IPAddressType = {
   IPV4: 0,
   IPV6: 1,
 };
-arc.mojom.mojom.IPAddressTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.IPAddressTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TetheringClientState
-arc.mojom.mojom.TetheringClientState = {
+arc.mojom.TetheringClientState = {
   CONFIRMED: 0,
   NOT_DETECTED: 1,
   SUSPECTED: 2,
 };
-arc.mojom.mojom.TetheringClientStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.TetheringClientStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkType
-arc.mojom.mojom.NetworkType = {
+arc.mojom.NetworkType = {
   CELLULAR: 0,
   ETHERNET: 1,
   VPN: 2,
   WIFI: 3,
 };
-arc.mojom.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MeteredOverride
-arc.mojom.mojom.MeteredOverride = {
+arc.mojom.MeteredOverride = {
   kMetered: 0,
   kNotmetered: 1,
 };
-arc.mojom.mojom.MeteredOverrideSpec = { $: mojo.internal.Enum() };
+arc.mojom.MeteredOverrideSpec = { $: mojo.internal.Enum() };
 
 // Enum: Flag
-arc.mojom.mojom.Flag = {
+arc.mojom.Flag = {
   DEPRECATED_ENABLE_ARC_HOST_VPN: 0,
 };
-arc.mojom.mojom.FlagSpec = { $: mojo.internal.Enum() };
+arc.mojom.FlagSpec = { $: mojo.internal.Enum() };
 
 // Enum: WifiBand
-arc.mojom.mojom.WifiBand = {
+arc.mojom.WifiBand = {
   k2Ghz: 0,
   k5Ghz: 1,
   k6Ghz: 2,
   k60Ghz: 3,
 };
-arc.mojom.mojom.WifiBandSpec = { $: mojo.internal.Enum() };
+arc.mojom.WifiBandSpec = { $: mojo.internal.Enum() };
 
 // Enum: LohsStatus
-arc.mojom.mojom.LohsStatus = {
+arc.mojom.LohsStatus = {
   kSuccess: 0,
   kErrorGeneric: 1,
   kErrorIncompatibleMode: 2,
   kErrorTetheringDisallowed: 3,
 };
-arc.mojom.mojom.LohsStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.LohsStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: IpProtocol
-arc.mojom.mojom.IpProtocol = {
+arc.mojom.IpProtocol = {
   kTcp: 0,
   kUdp: 1,
 };
-arc.mojom.mojom.IpProtocolSpec = { $: mojo.internal.Enum() };
+arc.mojom.IpProtocolSpec = { $: mojo.internal.Enum() };
 
 // Enum: SocketEvent
-arc.mojom.mojom.SocketEvent = {
+arc.mojom.SocketEvent = {
   kOpen: 0,
   kClose: 1,
 };
-arc.mojom.mojom.SocketEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.SocketEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: QosCategory
-arc.mojom.mojom.QosCategory = {
+arc.mojom.QosCategory = {
   kRealtimeInteractive: 0,
   kMultimediaConferencing: 1,
 };
-arc.mojom.mojom.QosCategorySpec = { $: mojo.internal.Enum() };
+arc.mojom.QosCategorySpec = { $: mojo.internal.Enum() };
 
 // Union: NetworkDetails
-arc.mojom.mojom.NetworkDetailsSpec = { $: mojo.internal.Union(
+arc.mojom.NetworkDetailsSpec = { $: mojo.internal.Union(
     'arc.mojom.NetworkDetails', {
       'visible': {
         'ordinal': 0,
@@ -158,7 +158,7 @@ arc.mojom.mojom.NetworkDetailsSpec = { $: mojo.internal.Union(
 };
 
 // Union: ArcProxyInfo
-arc.mojom.mojom.ArcProxyInfoSpec = { $: mojo.internal.Union(
+arc.mojom.ArcProxyInfoSpec = { $: mojo.internal.Union(
     'arc.mojom.ArcProxyInfo', {
       'manual_proxy': {
         'ordinal': 0,
@@ -172,7 +172,7 @@ arc.mojom.mojom.ArcProxyInfoSpec = { $: mojo.internal.Union(
 };
 
 // Struct: VisibleNetworkDetails
-arc.mojom.mojom.VisibleNetworkDetailsSpec = {
+arc.mojom.VisibleNetworkDetailsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VisibleNetworkDetails',
@@ -188,7 +188,7 @@ arc.mojom.mojom.VisibleNetworkDetailsSpec = {
 };
 
 // Struct: ConfiguredNetworkDetails
-arc.mojom.mojom.ConfiguredNetworkDetailsSpec = {
+arc.mojom.ConfiguredNetworkDetailsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ConfiguredNetworkDetails',
@@ -204,7 +204,7 @@ arc.mojom.mojom.ConfiguredNetworkDetailsSpec = {
 };
 
 // Struct: PasspointCredentials
-arc.mojom.mojom.PasspointCredentialsSpec = {
+arc.mojom.PasspointCredentialsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PasspointCredentials',
@@ -227,7 +227,7 @@ arc.mojom.mojom.PasspointCredentialsSpec = {
 };
 
 // Struct: PasspointRemovalProperties
-arc.mojom.mojom.PasspointRemovalPropertiesSpec = {
+arc.mojom.PasspointRemovalPropertiesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PasspointRemovalProperties',
@@ -242,7 +242,7 @@ arc.mojom.mojom.PasspointRemovalPropertiesSpec = {
 };
 
 // Struct: EapCredentials
-arc.mojom.mojom.EapCredentialsSpec = {
+arc.mojom.EapCredentialsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.EapCredentials',
@@ -271,7 +271,7 @@ arc.mojom.mojom.EapCredentialsSpec = {
 };
 
 // Struct: IPConfiguration
-arc.mojom.mojom.IPConfigurationSpec = {
+arc.mojom.IPConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IPConfiguration',
@@ -289,7 +289,7 @@ arc.mojom.mojom.IPConfigurationSpec = {
 };
 
 // Struct: WiFi
-arc.mojom.mojom.WiFiSpec = {
+arc.mojom.WiFiSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WiFi',
@@ -311,7 +311,7 @@ arc.mojom.mojom.WiFiSpec = {
 };
 
 // Struct: NetworkConfiguration
-arc.mojom.mojom.NetworkConfigurationSpec = {
+arc.mojom.NetworkConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetworkConfiguration',
@@ -352,7 +352,7 @@ arc.mojom.mojom.NetworkConfigurationSpec = {
 };
 
 // Struct: LinkSpeed
-arc.mojom.mojom.LinkSpeedSpec = {
+arc.mojom.LinkSpeedSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LinkSpeed',
@@ -367,7 +367,7 @@ arc.mojom.mojom.LinkSpeedSpec = {
 };
 
 // Struct: WifiConfiguration
-arc.mojom.mojom.WifiConfigurationSpec = {
+arc.mojom.WifiConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WifiConfiguration',
@@ -395,7 +395,7 @@ arc.mojom.mojom.WifiConfigurationSpec = {
 };
 
 // Struct: StaticIpv4Configuration
-arc.mojom.mojom.StaticIpv4ConfigurationSpec = {
+arc.mojom.StaticIpv4ConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.StaticIpv4Configuration',
@@ -411,7 +411,7 @@ arc.mojom.mojom.StaticIpv4ConfigurationSpec = {
 };
 
 // Struct: PacUrlProxyConfig
-arc.mojom.mojom.PacUrlProxyConfigSpec = {
+arc.mojom.PacUrlProxyConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PacUrlProxyConfig',
@@ -425,7 +425,7 @@ arc.mojom.mojom.PacUrlProxyConfigSpec = {
 };
 
 // Struct: ManualProxyConfig
-arc.mojom.mojom.ManualProxyConfigSpec = {
+arc.mojom.ManualProxyConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ManualProxyConfig',
@@ -441,7 +441,7 @@ arc.mojom.mojom.ManualProxyConfigSpec = {
 };
 
 // Struct: GetNetworksResponseType
-arc.mojom.mojom.GetNetworksResponseTypeSpec = {
+arc.mojom.GetNetworksResponseTypeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.GetNetworksResponseType',
@@ -456,7 +456,7 @@ arc.mojom.mojom.GetNetworksResponseTypeSpec = {
 };
 
 // Struct: AndroidVpnConfiguration
-arc.mojom.mojom.AndroidVpnConfigurationSpec = {
+arc.mojom.AndroidVpnConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AndroidVpnConfiguration',
@@ -480,7 +480,7 @@ arc.mojom.mojom.AndroidVpnConfigurationSpec = {
 };
 
 // Struct: ArcDnsResolutionTestResult
-arc.mojom.mojom.ArcDnsResolutionTestResultSpec = {
+arc.mojom.ArcDnsResolutionTestResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcDnsResolutionTestResult',
@@ -496,7 +496,7 @@ arc.mojom.mojom.ArcDnsResolutionTestResultSpec = {
 };
 
 // Struct: ArcHttpTestResult
-arc.mojom.mojom.ArcHttpTestResultSpec = {
+arc.mojom.ArcHttpTestResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcHttpTestResult',
@@ -513,7 +513,7 @@ arc.mojom.mojom.ArcHttpTestResultSpec = {
 };
 
 // Struct: ArcPingTestResult
-arc.mojom.mojom.ArcPingTestResultSpec = {
+arc.mojom.ArcPingTestResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcPingTestResult',
@@ -528,7 +528,7 @@ arc.mojom.mojom.ArcPingTestResultSpec = {
 };
 
 // Struct: LohsConfig
-arc.mojom.mojom.LohsConfigSpec = {
+arc.mojom.LohsConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LohsConfig',
@@ -545,7 +545,7 @@ arc.mojom.mojom.LohsConfigSpec = {
 };
 
 // Struct: PasspointApprovalRequest
-arc.mojom.mojom.PasspointApprovalRequestSpec = {
+arc.mojom.PasspointApprovalRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PasspointApprovalRequest',
@@ -562,7 +562,7 @@ arc.mojom.mojom.PasspointApprovalRequestSpec = {
 };
 
 // Struct: PasspointApprovalResponse
-arc.mojom.mojom.PasspointApprovalResponseSpec = {
+arc.mojom.PasspointApprovalResponseSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PasspointApprovalResponse',
@@ -576,7 +576,7 @@ arc.mojom.mojom.PasspointApprovalResponseSpec = {
 };
 
 // Struct: SocketConnectionEvent
-arc.mojom.mojom.SocketConnectionEventSpec = {
+arc.mojom.SocketConnectionEventSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SocketConnectionEvent',
@@ -597,24 +597,320 @@ arc.mojom.mojom.SocketConnectionEventSpec = {
 };
 
 // Interface: NetHost
-arc.mojom.mojom.NetHost = {};
+arc.mojom.NetHost = {};
 
-arc.mojom.mojom.NetHostPendingReceiver = class {
+arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_GetWifiEnabledState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetHost_StartScan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_StartScan_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_SetWifiEnabledState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_CreateNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_CreateNetwork_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WifiConfigurationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_ForgetNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_ForgetNetwork_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_UpdateWifiNetwork_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cfg', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WifiConfigurationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.NetHost_StartConnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_StartConnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_StartDisconnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_StartDisconnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_GetNetworks_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_GetNetworks_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetNetworksRequestTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_AndroidVpnConnected_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidVpnConfigurationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_AndroidVpnUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidVpnConfigurationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_AndroidVpnDisconnected_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_SetAlwaysOnVpn_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'vpnPackage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'lockdown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_RequestPasspointAppApproval_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointApprovalRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_AddPasspointCredentials_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointCredentialsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_RemovePasspointCredentials_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointRemovalPropertiesSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_DisconnectHostVpn_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetHost_StartLohs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_StartLohs_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LohsConfigSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_StopLohs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_StopLohs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_held', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_NotifySocketConnectionEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SocketConnectionEventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SocketConnectionEventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.NetHostRemote = class {
+arc.mojom.NetHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NetHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.NetHostPendingReceiver,
+      arc.mojom.NetHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.NetHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.NetHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -626,7 +922,7 @@ arc.mojom.mojom.NetHostRemote = class {
   }
 };
 
-arc.mojom.mojom.NetHostRemoteCallHandler = class {
+arc.mojom.NetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -635,8 +931,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.NetHost_GetWifiEnabledState_ParamsSpec,
-      arc.mojom.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec,
+      arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec,
+      arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec,
       []);
   }
 
@@ -644,7 +940,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.NetHost_StartScan_ParamsSpec,
+      arc.mojom.NetHost_StartScan_ParamsSpec,
       null,
       []);
   }
@@ -653,8 +949,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.mojom.NetHost_SetWifiEnabledState_ParamsSpec,
-      arc.mojom.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec,
+      arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec,
+      arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec,
       [is_enabled]);
   }
 
@@ -662,8 +958,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.NetHost_CreateNetwork_ParamsSpec,
-      arc.mojom.mojom.NetHost_CreateNetwork_ResponseParamsSpec,
+      arc.mojom.NetHost_CreateNetwork_ParamsSpec,
+      arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec,
       [cfg]);
   }
 
@@ -671,8 +967,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.mojom.NetHost_ForgetNetwork_ParamsSpec,
-      arc.mojom.mojom.NetHost_ForgetNetwork_ResponseParamsSpec,
+      arc.mojom.NetHost_ForgetNetwork_ParamsSpec,
+      arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec,
       [guid]);
   }
 
@@ -680,8 +976,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.mojom.NetHost_UpdateWifiNetwork_ParamsSpec,
-      arc.mojom.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec,
+      arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec,
+      arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec,
       [guid, cfg]);
   }
 
@@ -689,8 +985,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.mojom.NetHost_StartConnect_ParamsSpec,
-      arc.mojom.mojom.NetHost_StartConnect_ResponseParamsSpec,
+      arc.mojom.NetHost_StartConnect_ParamsSpec,
+      arc.mojom.NetHost_StartConnect_ResponseParamsSpec,
       [guid]);
   }
 
@@ -698,8 +994,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.mojom.NetHost_StartDisconnect_ParamsSpec,
-      arc.mojom.mojom.NetHost_StartDisconnect_ResponseParamsSpec,
+      arc.mojom.NetHost_StartDisconnect_ParamsSpec,
+      arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec,
       [guid]);
   }
 
@@ -707,8 +1003,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.mojom.NetHost_GetNetworks_ParamsSpec,
-      arc.mojom.mojom.NetHost_GetNetworks_ResponseParamsSpec,
+      arc.mojom.NetHost_GetNetworks_ParamsSpec,
+      arc.mojom.NetHost_GetNetworks_ResponseParamsSpec,
       [type]);
   }
 
@@ -716,7 +1012,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.mojom.NetHost_AndroidVpnConnected_ParamsSpec,
+      arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec,
       null,
       [cfg]);
   }
@@ -725,7 +1021,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      arc.mojom.mojom.NetHost_AndroidVpnUpdated_ParamsSpec,
+      arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec,
       null,
       [cfg]);
   }
@@ -734,7 +1030,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec,
+      arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -743,7 +1039,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      arc.mojom.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec,
+      arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec,
       null,
       []);
   }
@@ -752,7 +1048,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec,
+      arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec,
       null,
       [vpnPackage, lockdown]);
   }
@@ -761,8 +1057,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      arc.mojom.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec,
-      arc.mojom.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec,
+      arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec,
+      arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec,
       [request]);
   }
 
@@ -770,7 +1066,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.mojom.NetHost_AddPasspointCredentials_ParamsSpec,
+      arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec,
       null,
       [credentials]);
   }
@@ -779,7 +1075,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.mojom.NetHost_RemovePasspointCredentials_ParamsSpec,
+      arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec,
       null,
       [properties]);
   }
@@ -788,7 +1084,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      arc.mojom.mojom.NetHost_DisconnectHostVpn_ParamsSpec,
+      arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec,
       null,
       []);
   }
@@ -797,8 +1093,8 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      arc.mojom.mojom.NetHost_StartLohs_ParamsSpec,
-      arc.mojom.mojom.NetHost_StartLohs_ResponseParamsSpec,
+      arc.mojom.NetHost_StartLohs_ParamsSpec,
+      arc.mojom.NetHost_StartLohs_ResponseParamsSpec,
       [config]);
   }
 
@@ -806,7 +1102,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.mojom.NetHost_StopLohs_ParamsSpec,
+      arc.mojom.NetHost_StopLohs_ParamsSpec,
       null,
       []);
   }
@@ -815,7 +1111,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      arc.mojom.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec,
+      arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec,
       null,
       [is_held]);
   }
@@ -824,7 +1120,7 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      arc.mojom.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec,
+      arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec,
       null,
       [msg]);
   }
@@ -833,15 +1129,15 @@ arc.mojom.mojom.NetHostRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      arc.mojom.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec,
+      arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec,
       null,
       [msg]);
   }
 
 };
 
-arc.mojom.mojom.NetHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.NetHostRemote();
+arc.mojom.NetHost.getRemote = function() {
+  let remote = new arc.mojom.NetHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -851,7 +1147,7 @@ arc.mojom.mojom.NetHost.getRemote = function() {
 };
 
 // ParamsSpec for GetWifiEnabledState
-arc.mojom.mojom.NetHost_GetWifiEnabledState_ParamsSpec = {
+arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.GetWifiEnabledState_Params',
@@ -863,7 +1159,7 @@ arc.mojom.mojom.NetHost_GetWifiEnabledState_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec = {
+arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.GetWifiEnabledState_ResponseParams',
@@ -877,7 +1173,7 @@ arc.mojom.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartScan
-arc.mojom.mojom.NetHost_StartScan_ParamsSpec = {
+arc.mojom.NetHost_StartScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StartScan_Params',
@@ -890,7 +1186,7 @@ arc.mojom.mojom.NetHost_StartScan_ParamsSpec = {
 };
 
 // ParamsSpec for SetWifiEnabledState
-arc.mojom.mojom.NetHost_SetWifiEnabledState_ParamsSpec = {
+arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.SetWifiEnabledState_Params',
@@ -903,7 +1199,7 @@ arc.mojom.mojom.NetHost_SetWifiEnabledState_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec = {
+arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.SetWifiEnabledState_ResponseParams',
@@ -917,7 +1213,7 @@ arc.mojom.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateNetwork
-arc.mojom.mojom.NetHost_CreateNetwork_ParamsSpec = {
+arc.mojom.NetHost_CreateNetwork_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.CreateNetwork_Params',
@@ -930,7 +1226,7 @@ arc.mojom.mojom.NetHost_CreateNetwork_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_CreateNetwork_ResponseParamsSpec = {
+arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.CreateNetwork_ResponseParams',
@@ -944,7 +1240,7 @@ arc.mojom.mojom.NetHost_CreateNetwork_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ForgetNetwork
-arc.mojom.mojom.NetHost_ForgetNetwork_ParamsSpec = {
+arc.mojom.NetHost_ForgetNetwork_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.ForgetNetwork_Params',
@@ -957,7 +1253,7 @@ arc.mojom.mojom.NetHost_ForgetNetwork_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_ForgetNetwork_ResponseParamsSpec = {
+arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.ForgetNetwork_ResponseParams',
@@ -971,7 +1267,7 @@ arc.mojom.mojom.NetHost_ForgetNetwork_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpdateWifiNetwork
-arc.mojom.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = {
+arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.UpdateWifiNetwork_Params',
@@ -985,7 +1281,7 @@ arc.mojom.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec = {
+arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.UpdateWifiNetwork_ResponseParams',
@@ -999,7 +1295,7 @@ arc.mojom.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartConnect
-arc.mojom.mojom.NetHost_StartConnect_ParamsSpec = {
+arc.mojom.NetHost_StartConnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StartConnect_Params',
@@ -1012,7 +1308,7 @@ arc.mojom.mojom.NetHost_StartConnect_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_StartConnect_ResponseParamsSpec = {
+arc.mojom.NetHost_StartConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StartConnect_ResponseParams',
@@ -1026,7 +1322,7 @@ arc.mojom.mojom.NetHost_StartConnect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartDisconnect
-arc.mojom.mojom.NetHost_StartDisconnect_ParamsSpec = {
+arc.mojom.NetHost_StartDisconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StartDisconnect_Params',
@@ -1039,7 +1335,7 @@ arc.mojom.mojom.NetHost_StartDisconnect_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_StartDisconnect_ResponseParamsSpec = {
+arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StartDisconnect_ResponseParams',
@@ -1053,7 +1349,7 @@ arc.mojom.mojom.NetHost_StartDisconnect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetNetworks
-arc.mojom.mojom.NetHost_GetNetworks_ParamsSpec = {
+arc.mojom.NetHost_GetNetworks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.GetNetworks_Params',
@@ -1066,7 +1362,7 @@ arc.mojom.mojom.NetHost_GetNetworks_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_GetNetworks_ResponseParamsSpec = {
+arc.mojom.NetHost_GetNetworks_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.GetNetworks_ResponseParams',
@@ -1080,7 +1376,7 @@ arc.mojom.mojom.NetHost_GetNetworks_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AndroidVpnConnected
-arc.mojom.mojom.NetHost_AndroidVpnConnected_ParamsSpec = {
+arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.AndroidVpnConnected_Params',
@@ -1094,7 +1390,7 @@ arc.mojom.mojom.NetHost_AndroidVpnConnected_ParamsSpec = {
 };
 
 // ParamsSpec for AndroidVpnUpdated
-arc.mojom.mojom.NetHost_AndroidVpnUpdated_ParamsSpec = {
+arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.AndroidVpnUpdated_Params',
@@ -1108,7 +1404,7 @@ arc.mojom.mojom.NetHost_AndroidVpnUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_AndroidVpnStateChanged
-arc.mojom.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec = {
+arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.DEPRECATED_AndroidVpnStateChanged_Params',
@@ -1122,7 +1418,7 @@ arc.mojom.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for AndroidVpnDisconnected
-arc.mojom.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec = {
+arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.AndroidVpnDisconnected_Params',
@@ -1135,7 +1431,7 @@ arc.mojom.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec = {
 };
 
 // ParamsSpec for SetAlwaysOnVpn
-arc.mojom.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec = {
+arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.SetAlwaysOnVpn_Params',
@@ -1150,7 +1446,7 @@ arc.mojom.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec = {
 };
 
 // ParamsSpec for RequestPasspointAppApproval
-arc.mojom.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = {
+arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.RequestPasspointAppApproval_Params',
@@ -1163,7 +1459,7 @@ arc.mojom.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec = {
+arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.RequestPasspointAppApproval_ResponseParams',
@@ -1177,7 +1473,7 @@ arc.mojom.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddPasspointCredentials
-arc.mojom.mojom.NetHost_AddPasspointCredentials_ParamsSpec = {
+arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.AddPasspointCredentials_Params',
@@ -1191,7 +1487,7 @@ arc.mojom.mojom.NetHost_AddPasspointCredentials_ParamsSpec = {
 };
 
 // ParamsSpec for RemovePasspointCredentials
-arc.mojom.mojom.NetHost_RemovePasspointCredentials_ParamsSpec = {
+arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.RemovePasspointCredentials_Params',
@@ -1205,7 +1501,7 @@ arc.mojom.mojom.NetHost_RemovePasspointCredentials_ParamsSpec = {
 };
 
 // ParamsSpec for DisconnectHostVpn
-arc.mojom.mojom.NetHost_DisconnectHostVpn_ParamsSpec = {
+arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.DisconnectHostVpn_Params',
@@ -1218,7 +1514,7 @@ arc.mojom.mojom.NetHost_DisconnectHostVpn_ParamsSpec = {
 };
 
 // ParamsSpec for StartLohs
-arc.mojom.mojom.NetHost_StartLohs_ParamsSpec = {
+arc.mojom.NetHost_StartLohs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StartLohs_Params',
@@ -1231,7 +1527,7 @@ arc.mojom.mojom.NetHost_StartLohs_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetHost_StartLohs_ResponseParamsSpec = {
+arc.mojom.NetHost_StartLohs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StartLohs_ResponseParams',
@@ -1245,7 +1541,7 @@ arc.mojom.mojom.NetHost_StartLohs_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StopLohs
-arc.mojom.mojom.NetHost_StopLohs_ParamsSpec = {
+arc.mojom.NetHost_StopLohs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.StopLohs_Params',
@@ -1258,7 +1554,7 @@ arc.mojom.mojom.NetHost_StopLohs_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyAndroidWifiMulticastLockChange
-arc.mojom.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec = {
+arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.NotifyAndroidWifiMulticastLockChange_Params',
@@ -1272,7 +1568,7 @@ arc.mojom.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec = {
 };
 
 // ParamsSpec for NotifySocketConnectionEvent
-arc.mojom.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = {
+arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.NotifySocketConnectionEvent_Params',
@@ -1286,7 +1582,7 @@ arc.mojom.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyARCVPNSocketConnectionEvent
-arc.mojom.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = {
+arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetHost.NotifyARCVPNSocketConnectionEvent_Params',
@@ -1300,29 +1596,160 @@ arc.mojom.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.NetHostPtr = arc.mojom.mojom.NetHostRemote;
-arc.mojom.mojom.NetHostRequest = arc.mojom.mojom.NetHostPendingReceiver;
+arc.mojom.NetHostPtr = arc.mojom.NetHostRemote;
+arc.mojom.NetHostRequest = arc.mojom.NetHostPendingReceiver;
 
 
 // Interface: NetInstance
-arc.mojom.mojom.NetInstance = {};
+arc.mojom.NetInstance = {};
 
-arc.mojom.mojom.NetInstancePendingReceiver = class {
+arc.mojom.NetInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_ScanCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_ScanCompleted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_WifiEnabledStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_DisconnectAndroidVpn_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_ConfigureAndroidVpn_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_ActiveNetworksChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.NetworkConfigurationSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_DnsResolutionTest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'host_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_HttpTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_HttpTest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_PingTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_PingTest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.NetInstance_SetUpFlag_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetInstance_SetUpFlag_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FlagSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NetInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.NetInstanceRemote = class {
+arc.mojom.NetInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NetInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.NetInstancePendingReceiver,
+      arc.mojom.NetInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.NetInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.NetInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1334,7 +1761,7 @@ arc.mojom.mojom.NetInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
+arc.mojom.NetInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1343,7 +1770,7 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.mojom.NetInstance_Init_ParamsSpec,
+      arc.mojom.NetInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -1352,7 +1779,7 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.NetInstance_ScanCompleted_ParamsSpec,
+      arc.mojom.NetInstance_ScanCompleted_ParamsSpec,
       null,
       []);
   }
@@ -1361,7 +1788,7 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec,
+      arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
       [is_enabled]);
   }
@@ -1370,7 +1797,7 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec,
+      arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec,
       null,
       []);
   }
@@ -1379,7 +1806,7 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec,
+      arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec,
       null,
       []);
   }
@@ -1388,7 +1815,7 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec,
+      arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec,
       null,
       [network]);
   }
@@ -1397,8 +1824,8 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.mojom.NetInstance_DnsResolutionTest_ParamsSpec,
-      arc.mojom.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec,
+      arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec,
+      arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec,
       [transport_name, host_name]);
   }
 
@@ -1406,8 +1833,8 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.mojom.NetInstance_HttpTest_ParamsSpec,
-      arc.mojom.mojom.NetInstance_HttpTest_ResponseParamsSpec,
+      arc.mojom.NetInstance_HttpTest_ParamsSpec,
+      arc.mojom.NetInstance_HttpTest_ResponseParamsSpec,
       [transport_name, url]);
   }
 
@@ -1415,8 +1842,8 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.mojom.NetInstance_PingTest_ParamsSpec,
-      arc.mojom.mojom.NetInstance_PingTest_ResponseParamsSpec,
+      arc.mojom.NetInstance_PingTest_ParamsSpec,
+      arc.mojom.NetInstance_PingTest_ResponseParamsSpec,
       [transport_name, ip_address]);
   }
 
@@ -1424,15 +1851,15 @@ arc.mojom.mojom.NetInstanceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.mojom.NetInstance_SetUpFlag_ParamsSpec,
+      arc.mojom.NetInstance_SetUpFlag_ParamsSpec,
       null,
       [flag, value]);
   }
 
 };
 
-arc.mojom.mojom.NetInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.NetInstanceRemote();
+arc.mojom.NetInstance.getRemote = function() {
+  let remote = new arc.mojom.NetInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1442,7 +1869,7 @@ arc.mojom.mojom.NetInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.NetInstance_Init_ParamsSpec = {
+arc.mojom.NetInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.Init_Params',
@@ -1456,7 +1883,7 @@ arc.mojom.mojom.NetInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for ScanCompleted
-arc.mojom.mojom.NetInstance_ScanCompleted_ParamsSpec = {
+arc.mojom.NetInstance_ScanCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.ScanCompleted_Params',
@@ -1469,7 +1896,7 @@ arc.mojom.mojom.NetInstance_ScanCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for WifiEnabledStateChanged
-arc.mojom.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec = {
+arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.WifiEnabledStateChanged_Params',
@@ -1483,7 +1910,7 @@ arc.mojom.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DisconnectAndroidVpn
-arc.mojom.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec = {
+arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.DisconnectAndroidVpn_Params',
@@ -1496,7 +1923,7 @@ arc.mojom.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec = {
 };
 
 // ParamsSpec for ConfigureAndroidVpn
-arc.mojom.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec = {
+arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.ConfigureAndroidVpn_Params',
@@ -1509,7 +1936,7 @@ arc.mojom.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec = {
 };
 
 // ParamsSpec for ActiveNetworksChanged
-arc.mojom.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec = {
+arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.ActiveNetworksChanged_Params',
@@ -1523,7 +1950,7 @@ arc.mojom.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DnsResolutionTest
-arc.mojom.mojom.NetInstance_DnsResolutionTest_ParamsSpec = {
+arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.DnsResolutionTest_Params',
@@ -1537,7 +1964,7 @@ arc.mojom.mojom.NetInstance_DnsResolutionTest_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec = {
+arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.DnsResolutionTest_ResponseParams',
@@ -1551,7 +1978,7 @@ arc.mojom.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for HttpTest
-arc.mojom.mojom.NetInstance_HttpTest_ParamsSpec = {
+arc.mojom.NetInstance_HttpTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.HttpTest_Params',
@@ -1565,7 +1992,7 @@ arc.mojom.mojom.NetInstance_HttpTest_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetInstance_HttpTest_ResponseParamsSpec = {
+arc.mojom.NetInstance_HttpTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.HttpTest_ResponseParams',
@@ -1579,7 +2006,7 @@ arc.mojom.mojom.NetInstance_HttpTest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PingTest
-arc.mojom.mojom.NetInstance_PingTest_ParamsSpec = {
+arc.mojom.NetInstance_PingTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.PingTest_Params',
@@ -1593,7 +2020,7 @@ arc.mojom.mojom.NetInstance_PingTest_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.NetInstance_PingTest_ResponseParamsSpec = {
+arc.mojom.NetInstance_PingTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.PingTest_ResponseParams',
@@ -1607,7 +2034,7 @@ arc.mojom.mojom.NetInstance_PingTest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetUpFlag
-arc.mojom.mojom.NetInstance_SetUpFlag_ParamsSpec = {
+arc.mojom.NetInstance_SetUpFlag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetInstance.SetUpFlag_Params',
@@ -1622,6 +2049,6 @@ arc.mojom.mojom.NetInstance_SetUpFlag_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.NetInstancePtr = arc.mojom.mojom.NetInstanceRemote;
-arc.mojom.mojom.NetInstanceRequest = arc.mojom.mojom.NetInstancePendingReceiver;
+arc.mojom.NetInstancePtr = arc.mojom.NetInstanceRemote;
+arc.mojom.NetInstanceRequest = arc.mojom.NetInstancePendingReceiver;
 

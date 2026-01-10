@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Enum: AggregatableResult
-attribution_reporting.mojom.mojom.AggregatableResult = {
+attribution_reporting.mojom.AggregatableResult = {
   kSuccess: 0,
   kInternalError: 1,
   kNoCapacityForConversionDestination: 2,
@@ -27,4 +27,4 @@ attribution_reporting.mojom.mojom.AggregatableResult = {
   kExcessiveReports: 13,
   kInsufficientNamedBudget: 14,
 };
-attribution_reporting.mojom.mojom.AggregatableResultSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.AggregatableResultSpec = { $: mojo.internal.Enum() };

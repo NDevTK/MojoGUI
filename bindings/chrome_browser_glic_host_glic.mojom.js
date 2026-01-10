@@ -16,17 +16,17 @@ var url = url || {};
 
 
 // Enum: ProfileReadyState
-glic.mojom.mojom.ProfileReadyState = {
+glic.mojom.ProfileReadyState = {
   kUnknownError: 0,
   kSignInRequired: 1,
   kReady: 2,
   kIneligible: 3,
   kDisabledByAdmin: 4,
 };
-glic.mojom.mojom.ProfileReadyStateSpec = { $: mojo.internal.Enum() };
+glic.mojom.ProfileReadyStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebUiState
-glic.mojom.mojom.WebUiState = {
+glic.mojom.WebUiState = {
   kUninitialized: 0,
   kBeginLoad: 1,
   kShowLoading: 2,
@@ -41,129 +41,129 @@ glic.mojom.mojom.WebUiState = {
   kGuestError: 11,
   kDisabledByAdmin: 12,
 };
-glic.mojom.mojom.WebUiStateSpec = { $: mojo.internal.Enum() };
+glic.mojom.WebUiStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricUserInputReactionType
-glic.mojom.mojom.MetricUserInputReactionType = {
+glic.mojom.MetricUserInputReactionType = {
   kCanned: 0,
   kModel: 1,
 };
-glic.mojom.mojom.MetricUserInputReactionTypeSpec = { $: mojo.internal.Enum() };
+glic.mojom.MetricUserInputReactionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrepareForClientResult
-glic.mojom.mojom.PrepareForClientResult = {
+glic.mojom.PrepareForClientResult = {
   kSuccess: 0,
   kErrorResyncingCookies: 1,
   kRequiresSignIn: 2,
 };
-glic.mojom.mojom.PrepareForClientResultSpec = { $: mojo.internal.Enum() };
+glic.mojom.PrepareForClientResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PerformActionsErrorReason
-glic.mojom.mojom.PerformActionsErrorReason = {
+glic.mojom.PerformActionsErrorReason = {
 };
-glic.mojom.mojom.PerformActionsErrorReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.PerformActionsErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateTaskErrorReason
-glic.mojom.mojom.CreateTaskErrorReason = {
+glic.mojom.CreateTaskErrorReason = {
   kTaskSystemUnavailable: 0,
 };
-glic.mojom.mojom.CreateTaskErrorReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.CreateTaskErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActorTaskState
-glic.mojom.mojom.ActorTaskState = {
+glic.mojom.ActorTaskState = {
   kIdle: 0,
   kActing: 1,
   kPaused: 2,
   kStopped: 3,
 };
-glic.mojom.mojom.ActorTaskStateSpec = { $: mojo.internal.Enum() };
+glic.mojom.ActorTaskStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActorTaskPauseReason
-glic.mojom.mojom.ActorTaskPauseReason = {
+glic.mojom.ActorTaskPauseReason = {
   kPausedByUser: 0,
 };
-glic.mojom.mojom.ActorTaskPauseReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.ActorTaskPauseReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActorTaskStopReason
-glic.mojom.mojom.ActorTaskStopReason = {
+glic.mojom.ActorTaskStopReason = {
   kStoppedByUser: 0,
 };
-glic.mojom.mojom.ActorTaskStopReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.ActorTaskStopReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptureScreenshotErrorReason
-glic.mojom.mojom.CaptureScreenshotErrorReason = {
+glic.mojom.CaptureScreenshotErrorReason = {
   kScreenCaptureRequestThrottled: 0,
   kUserCancelledScreenPickerDialog: 1,
 };
-glic.mojom.mojom.CaptureScreenshotErrorReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.CaptureScreenshotErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: Platform
-glic.mojom.mojom.Platform = {
+glic.mojom.Platform = {
   kUnknown: 0,
   kMacOS: 1,
   kWindows: 2,
   kLinux: 3,
   kChromeOS: 4,
 };
-glic.mojom.mojom.PlatformSpec = { $: mojo.internal.Enum() };
+glic.mojom.PlatformSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollToErrorReason
-glic.mojom.mojom.ScrollToErrorReason = {
+glic.mojom.ScrollToErrorReason = {
 };
-glic.mojom.mojom.ScrollToErrorReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.ScrollToErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SkillSource
-glic.mojom.mojom.SkillSource = {
+glic.mojom.SkillSource = {
   kFirstParty: 0,
   kUserCreated: 1,
 };
-glic.mojom.mojom.SkillSourceSpec = { $: mojo.internal.Enum() };
+glic.mojom.SkillSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: PinTrigger
-glic.mojom.mojom.PinTrigger = {
+glic.mojom.PinTrigger = {
   kCandidatesToggle: 0,
   kAtMention: 1,
   kActuation: 2,
 };
-glic.mojom.mojom.PinTriggerSpec = { $: mojo.internal.Enum() };
+glic.mojom.PinTriggerSpec = { $: mojo.internal.Enum() };
 
 // Enum: UnpinTrigger
-glic.mojom.mojom.UnpinTrigger = {
+glic.mojom.UnpinTrigger = {
   kCandidatesToggle: 0,
   kChip: 1,
   kActuation: 2,
 };
-glic.mojom.mojom.UnpinTriggerSpec = { $: mojo.internal.Enum() };
+glic.mojom.UnpinTriggerSpec = { $: mojo.internal.Enum() };
 
 // Enum: CancelActionsResult
-glic.mojom.mojom.CancelActionsResult = {
+glic.mojom.CancelActionsResult = {
   kSuccess: 0,
   kTaskNotFound: 1,
   kFailed: 2,
 };
-glic.mojom.mojom.CancelActionsResultSpec = { $: mojo.internal.Enum() };
+glic.mojom.CancelActionsResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: SwitchConversationErrorReason
-glic.mojom.mojom.SwitchConversationErrorReason = {
+glic.mojom.SwitchConversationErrorReason = {
 };
-glic.mojom.mojom.SwitchConversationErrorReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.SwitchConversationErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: RegisterConversationErrorReason
-glic.mojom.mojom.RegisterConversationErrorReason = {
+glic.mojom.RegisterConversationErrorReason = {
   kInstanceAlreadyHasConversationId: 0,
 };
-glic.mojom.mojom.RegisterConversationErrorReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.RegisterConversationErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PanelStateKind
-glic.mojom.mojom.PanelStateKind = {
+glic.mojom.PanelStateKind = {
   kHidden: 0,
   kDetached: 1,
   kAttached: 2,
 };
-glic.mojom.mojom.PanelStateKindSpec = { $: mojo.internal.Enum() };
+glic.mojom.PanelStateKindSpec = { $: mojo.internal.Enum() };
 
 // Enum: InvocationSource
-glic.mojom.mojom.InvocationSource = {
+glic.mojom.InvocationSource = {
   kOsButton: 0,
   kOsButtonMenu: 1,
   kOsHotkey: 2,
@@ -173,51 +173,51 @@ glic.mojom.mojom.InvocationSource = {
   kNudge: 6,
   kThreeDotsMenu: 7,
 };
-glic.mojom.mojom.InvocationSourceSpec = { $: mojo.internal.Enum() };
+glic.mojom.InvocationSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebClientMode
-glic.mojom.mojom.WebClientMode = {
+glic.mojom.WebClientMode = {
   kText: 0,
   kAudio: 1,
 };
-glic.mojom.mojom.WebClientModeSpec = { $: mojo.internal.Enum() };
+glic.mojom.WebClientModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebClientModel
-glic.mojom.mojom.WebClientModel = {
+glic.mojom.WebClientModel = {
   kActor: 0,
 };
-glic.mojom.mojom.WebClientModelSpec = { $: mojo.internal.Enum() };
+glic.mojom.WebClientModelSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebUseCounter
-glic.mojom.mojom.WebUseCounter = {
+glic.mojom.WebUseCounter = {
   kSubmitPromptWithAutoMode: 0,
   kTaskInterruptedForUserConfirmation: 1,
   kTaskInterruptedForUserClarification: 2,
 };
-glic.mojom.mojom.WebUseCounterSpec = { $: mojo.internal.Enum() };
+glic.mojom.WebUseCounterSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResponseStopCause
-glic.mojom.mojom.ResponseStopCause = {
+glic.mojom.ResponseStopCause = {
   kUser: 0,
   kOther: 1,
 };
-glic.mojom.mojom.ResponseStopCauseSpec = { $: mojo.internal.Enum() };
+glic.mojom.ResponseStopCauseSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptureRegionErrorReason
-glic.mojom.mojom.CaptureRegionErrorReason = {
+glic.mojom.CaptureRegionErrorReason = {
   kNoFocusableTab: 0,
 };
-glic.mojom.mojom.CaptureRegionErrorReasonSpec = { $: mojo.internal.Enum() };
+glic.mojom.CaptureRegionErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SettingsPageField
-glic.mojom.mojom.SettingsPageField = {
+glic.mojom.SettingsPageField = {
   kOsHotkey: 0,
   kOsEntrypointToggle: 1,
 };
-glic.mojom.mojom.SettingsPageFieldSpec = { $: mojo.internal.Enum() };
+glic.mojom.SettingsPageFieldSpec = { $: mojo.internal.Enum() };
 
 // Enum: HostCapability
-glic.mojom.mojom.HostCapability = {
+glic.mojom.HostCapability = {
   kScrollToPdf: 0,
   kResetSizeAndLocationOnOpen: 1,
   kGetModelQualityClientId: 2,
@@ -226,17 +226,17 @@ glic.mojom.mojom.HostCapability = {
   kTrustFirstOnboardingArm2: 5,
   kShareAdditionalImageContext: 6,
 };
-glic.mojom.mojom.HostCapabilitySpec = { $: mojo.internal.Enum() };
+glic.mojom.HostCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: CurrentView
-glic.mojom.mojom.CurrentView = {
+glic.mojom.CurrentView = {
   kConversation: 0,
   kActuation: 1,
 };
-glic.mojom.mojom.CurrentViewSpec = { $: mojo.internal.Enum() };
+glic.mojom.CurrentViewSpec = { $: mojo.internal.Enum() };
 
 // Union: GetContextResult
-glic.mojom.mojom.GetContextResultSpec = { $: mojo.internal.Union(
+glic.mojom.GetContextResultSpec = { $: mojo.internal.Union(
     'glic.mojom.GetContextResult', {
       'error_reason': {
         'ordinal': 0,
@@ -250,7 +250,7 @@ glic.mojom.mojom.GetContextResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: CaptureScreenshotResult
-glic.mojom.mojom.CaptureScreenshotResultSpec = { $: mojo.internal.Union(
+glic.mojom.CaptureScreenshotResultSpec = { $: mojo.internal.Union(
     'glic.mojom.CaptureScreenshotResult', {
       'error_reason': {
         'ordinal': 0,
@@ -264,7 +264,7 @@ glic.mojom.mojom.CaptureScreenshotResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ScrollToSelector
-glic.mojom.mojom.ScrollToSelectorSpec = { $: mojo.internal.Union(
+glic.mojom.ScrollToSelectorSpec = { $: mojo.internal.Union(
     'glic.mojom.ScrollToSelector', {
       'exact_text_selector': {
         'ordinal': 0,
@@ -282,7 +282,7 @@ glic.mojom.mojom.ScrollToSelectorSpec = { $: mojo.internal.Union(
 };
 
 // Union: AdditionalContextPart
-glic.mojom.mojom.AdditionalContextPartSpec = { $: mojo.internal.Union(
+glic.mojom.AdditionalContextPartSpec = { $: mojo.internal.Union(
     'glic.mojom.AdditionalContextPart', {
       'data': {
         'ordinal': 0,
@@ -316,7 +316,7 @@ glic.mojom.mojom.AdditionalContextPartSpec = { $: mojo.internal.Union(
 };
 
 // Union: FocusedTabData
-glic.mojom.mojom.FocusedTabDataSpec = { $: mojo.internal.Union(
+glic.mojom.FocusedTabDataSpec = { $: mojo.internal.Union(
     'glic.mojom.FocusedTabData', {
       'focused_tab': {
         'ordinal': 0,
@@ -330,7 +330,7 @@ glic.mojom.mojom.FocusedTabDataSpec = { $: mojo.internal.Union(
 };
 
 // Union: CapturedRegion
-glic.mojom.mojom.CapturedRegionSpec = { $: mojo.internal.Union(
+glic.mojom.CapturedRegionSpec = { $: mojo.internal.Union(
     'glic.mojom.CapturedRegion', {
       'rect': {
         'ordinal': 0,
@@ -340,7 +340,7 @@ glic.mojom.mojom.CapturedRegionSpec = { $: mojo.internal.Union(
 };
 
 // Union: ViewChangeRequestDetails
-glic.mojom.mojom.ViewChangeRequestDetailsSpec = { $: mojo.internal.Union(
+glic.mojom.ViewChangeRequestDetailsSpec = { $: mojo.internal.Union(
     'glic.mojom.ViewChangeRequestDetails', {
       'actuation': {
         'ordinal': 0,
@@ -354,7 +354,7 @@ glic.mojom.mojom.ViewChangeRequestDetailsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ProfileEnablement
-glic.mojom.mojom.ProfileEnablementSpec = {
+glic.mojom.ProfileEnablementSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ProfileEnablement',
@@ -375,7 +375,7 @@ glic.mojom.mojom.ProfileEnablementSpec = {
 };
 
 // Struct: GetContextResultWithActionResultCode
-glic.mojom.mojom.GetContextResultWithActionResultCodeSpec = {
+glic.mojom.GetContextResultWithActionResultCodeSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetContextResultWithActionResultCode',
@@ -391,7 +391,7 @@ glic.mojom.mojom.GetContextResultWithActionResultCodeSpec = {
 };
 
 // Struct: UserProfileInfo
-glic.mojom.mojom.UserProfileInfoSpec = {
+glic.mojom.UserProfileInfoSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.UserProfileInfo',
@@ -410,7 +410,7 @@ glic.mojom.mojom.UserProfileInfoSpec = {
 };
 
 // Struct: WebClientInitialState
-glic.mojom.mojom.WebClientInitialStateSpec = {
+glic.mojom.WebClientInitialStateSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientInitialState',
@@ -462,7 +462,7 @@ glic.mojom.mojom.WebClientInitialStateSpec = {
 };
 
 // Struct: GetTabContextOptions
-glic.mojom.mojom.GetTabContextOptionsSpec = {
+glic.mojom.GetTabContextOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetTabContextOptions',
@@ -483,7 +483,7 @@ glic.mojom.mojom.GetTabContextOptionsSpec = {
 };
 
 // Struct: GetPinCandidatesOptions
-glic.mojom.mojom.GetPinCandidatesOptionsSpec = {
+glic.mojom.GetPinCandidatesOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetPinCandidatesOptions',
@@ -498,7 +498,7 @@ glic.mojom.mojom.GetPinCandidatesOptionsSpec = {
 };
 
 // Struct: ScrollToParams
-glic.mojom.mojom.ScrollToParamsSpec = {
+glic.mojom.ScrollToParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToParams',
@@ -515,7 +515,7 @@ glic.mojom.mojom.ScrollToParamsSpec = {
 };
 
 // Struct: ScrollToTextSelector
-glic.mojom.mojom.ScrollToTextSelectorSpec = {
+glic.mojom.ScrollToTextSelectorSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToTextSelector',
@@ -531,7 +531,7 @@ glic.mojom.mojom.ScrollToTextSelectorSpec = {
 };
 
 // Struct: ScrollToTextFragmentSelector
-glic.mojom.mojom.ScrollToTextFragmentSelectorSpec = {
+glic.mojom.ScrollToTextFragmentSelectorSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToTextFragmentSelector',
@@ -548,7 +548,7 @@ glic.mojom.mojom.ScrollToTextFragmentSelectorSpec = {
 };
 
 // Struct: ScrollToNodeSelector
-glic.mojom.mojom.ScrollToNodeSelectorSpec = {
+glic.mojom.ScrollToNodeSelectorSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToNodeSelector',
@@ -562,7 +562,7 @@ glic.mojom.mojom.ScrollToNodeSelectorSpec = {
 };
 
 // Struct: SuggestionContent
-glic.mojom.mojom.SuggestionContentSpec = {
+glic.mojom.SuggestionContentSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.SuggestionContent',
@@ -576,7 +576,7 @@ glic.mojom.mojom.SuggestionContentSpec = {
 };
 
 // Struct: SkillPreview
-glic.mojom.mojom.SkillPreviewSpec = {
+glic.mojom.SkillPreviewSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.SkillPreview',
@@ -593,7 +593,7 @@ glic.mojom.mojom.SkillPreviewSpec = {
 };
 
 // Struct: Skill
-glic.mojom.mojom.SkillSpec = {
+glic.mojom.SkillSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Skill',
@@ -608,7 +608,7 @@ glic.mojom.mojom.SkillSpec = {
 };
 
 // Struct: CreateSkillRequest
-glic.mojom.mojom.CreateSkillRequestSpec = {
+glic.mojom.CreateSkillRequestSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.CreateSkillRequest',
@@ -622,7 +622,7 @@ glic.mojom.mojom.CreateSkillRequestSpec = {
 };
 
 // Struct: UpdateSkillRequest
-glic.mojom.mojom.UpdateSkillRequestSpec = {
+glic.mojom.UpdateSkillRequestSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.UpdateSkillRequest',
@@ -636,7 +636,7 @@ glic.mojom.mojom.UpdateSkillRequestSpec = {
 };
 
 // Struct: ZeroStateSuggestions
-glic.mojom.mojom.ZeroStateSuggestionsSpec = {
+glic.mojom.ZeroStateSuggestionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ZeroStateSuggestions',
@@ -652,7 +652,7 @@ glic.mojom.mojom.ZeroStateSuggestionsSpec = {
 };
 
 // Struct: ZeroStateSuggestionsV2
-glic.mojom.mojom.ZeroStateSuggestionsV2Spec = {
+glic.mojom.ZeroStateSuggestionsV2Spec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ZeroStateSuggestionsV2',
@@ -667,7 +667,7 @@ glic.mojom.mojom.ZeroStateSuggestionsV2Spec = {
 };
 
 // Struct: ZeroStateSuggestionsOptions
-glic.mojom.mojom.ZeroStateSuggestionsOptionsSpec = {
+glic.mojom.ZeroStateSuggestionsOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ZeroStateSuggestionsOptions',
@@ -682,7 +682,7 @@ glic.mojom.mojom.ZeroStateSuggestionsOptionsSpec = {
 };
 
 // Struct: PinCandidate
-glic.mojom.mojom.PinCandidateSpec = {
+glic.mojom.PinCandidateSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PinCandidate',
@@ -696,7 +696,7 @@ glic.mojom.mojom.PinCandidateSpec = {
 };
 
 // Struct: PinTabsOptions
-glic.mojom.mojom.PinTabsOptionsSpec = {
+glic.mojom.PinTabsOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PinTabsOptions',
@@ -710,7 +710,7 @@ glic.mojom.mojom.PinTabsOptionsSpec = {
 };
 
 // Struct: UnpinTabsOptions
-glic.mojom.mojom.UnpinTabsOptionsSpec = {
+glic.mojom.UnpinTabsOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.UnpinTabsOptions',
@@ -724,7 +724,7 @@ glic.mojom.mojom.UnpinTabsOptionsSpec = {
 };
 
 // Struct: ConversationInfo
-glic.mojom.mojom.ConversationInfoSpec = {
+glic.mojom.ConversationInfoSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ConversationInfo',
@@ -740,7 +740,7 @@ glic.mojom.mojom.ConversationInfoSpec = {
 };
 
 // Struct: PanelOpeningData
-glic.mojom.mojom.PanelOpeningDataSpec = {
+glic.mojom.PanelOpeningDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PanelOpeningData',
@@ -759,7 +759,7 @@ glic.mojom.mojom.PanelOpeningDataSpec = {
 };
 
 // Struct: PanelState
-glic.mojom.mojom.PanelStateSpec = {
+glic.mojom.PanelStateSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PanelState',
@@ -775,7 +775,7 @@ glic.mojom.mojom.PanelStateSpec = {
 };
 
 // Struct: OnResponseStoppedDetails
-glic.mojom.mojom.OnResponseStoppedDetailsSpec = {
+glic.mojom.OnResponseStoppedDetailsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.OnResponseStoppedDetails',
@@ -789,7 +789,7 @@ glic.mojom.mojom.OnResponseStoppedDetailsSpec = {
 };
 
 // Struct: OpenPanelInfo
-glic.mojom.mojom.OpenPanelInfoSpec = {
+glic.mojom.OpenPanelInfoSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.OpenPanelInfo',
@@ -806,7 +806,7 @@ glic.mojom.mojom.OpenPanelInfoSpec = {
 };
 
 // Struct: ContextData
-glic.mojom.mojom.ContextDataSpec = {
+glic.mojom.ContextDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ContextData',
@@ -821,7 +821,7 @@ glic.mojom.mojom.ContextDataSpec = {
 };
 
 // Struct: AdditionalContext
-glic.mojom.mojom.AdditionalContextSpec = {
+glic.mojom.AdditionalContextSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.AdditionalContext',
@@ -840,7 +840,7 @@ glic.mojom.mojom.AdditionalContextSpec = {
 };
 
 // Struct: TabContext
-glic.mojom.mojom.TabContextSpec = {
+glic.mojom.TabContextSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.TabContext',
@@ -858,7 +858,7 @@ glic.mojom.mojom.TabContextSpec = {
 };
 
 // Struct: WebPageData
-glic.mojom.mojom.WebPageDataSpec = {
+glic.mojom.WebPageDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebPageData',
@@ -872,7 +872,7 @@ glic.mojom.mojom.WebPageDataSpec = {
 };
 
 // Struct: DocumentData
-glic.mojom.mojom.DocumentDataSpec = {
+glic.mojom.DocumentDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.DocumentData',
@@ -888,7 +888,7 @@ glic.mojom.mojom.DocumentDataSpec = {
 };
 
 // Struct: PdfDocumentData
-glic.mojom.mojom.PdfDocumentDataSpec = {
+glic.mojom.PdfDocumentDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PdfDocumentData',
@@ -904,7 +904,7 @@ glic.mojom.mojom.PdfDocumentDataSpec = {
 };
 
 // Struct: TabData
-glic.mojom.mojom.TabDataSpec = {
+glic.mojom.TabDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.TabData',
@@ -934,7 +934,7 @@ glic.mojom.mojom.TabDataSpec = {
 };
 
 // Struct: NoFocusedTabData
-glic.mojom.mojom.NoFocusedTabDataSpec = {
+glic.mojom.NoFocusedTabDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.NoFocusedTabData',
@@ -949,7 +949,7 @@ glic.mojom.mojom.NoFocusedTabDataSpec = {
 };
 
 // Struct: AnnotatedPageData
-glic.mojom.mojom.AnnotatedPageDataSpec = {
+glic.mojom.AnnotatedPageDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.AnnotatedPageData',
@@ -964,7 +964,7 @@ glic.mojom.mojom.AnnotatedPageDataSpec = {
 };
 
 // Struct: ImageOriginAnnotations
-glic.mojom.mojom.ImageOriginAnnotationsSpec = {
+glic.mojom.ImageOriginAnnotationsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ImageOriginAnnotations',
@@ -977,7 +977,7 @@ glic.mojom.mojom.ImageOriginAnnotationsSpec = {
 };
 
 // Struct: Journal
-glic.mojom.mojom.JournalSpec = {
+glic.mojom.JournalSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Journal',
@@ -991,7 +991,7 @@ glic.mojom.mojom.JournalSpec = {
 };
 
 // Struct: CaptureRegionResult
-glic.mojom.mojom.CaptureRegionResultSpec = {
+glic.mojom.CaptureRegionResultSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.CaptureRegionResult',
@@ -1006,7 +1006,7 @@ glic.mojom.mojom.CaptureRegionResultSpec = {
 };
 
 // Struct: Screenshot
-glic.mojom.mojom.ScreenshotSpec = {
+glic.mojom.ScreenshotSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Screenshot',
@@ -1024,7 +1024,7 @@ glic.mojom.mojom.ScreenshotSpec = {
 };
 
 // Struct: OpenSettingsOptions
-glic.mojom.mojom.OpenSettingsOptionsSpec = {
+glic.mojom.OpenSettingsOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.OpenSettingsOptions',
@@ -1038,7 +1038,7 @@ glic.mojom.mojom.OpenSettingsOptionsSpec = {
 };
 
 // Struct: ViewChangeRequestActuation
-glic.mojom.mojom.ViewChangeRequestActuationSpec = {
+glic.mojom.ViewChangeRequestActuationSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ViewChangeRequestActuation',
@@ -1051,7 +1051,7 @@ glic.mojom.mojom.ViewChangeRequestActuationSpec = {
 };
 
 // Struct: ViewChangeRequestConversation
-glic.mojom.mojom.ViewChangeRequestConversationSpec = {
+glic.mojom.ViewChangeRequestConversationSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ViewChangeRequestConversation',
@@ -1064,7 +1064,7 @@ glic.mojom.mojom.ViewChangeRequestConversationSpec = {
 };
 
 // Struct: ViewChangeRequest
-glic.mojom.mojom.ViewChangeRequestSpec = {
+glic.mojom.ViewChangeRequestSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ViewChangeRequest',
@@ -1078,7 +1078,7 @@ glic.mojom.mojom.ViewChangeRequestSpec = {
 };
 
 // Struct: ViewChangedNotification
-glic.mojom.mojom.ViewChangedNotificationSpec = {
+glic.mojom.ViewChangedNotificationSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ViewChangedNotification',
@@ -1092,24 +1092,37 @@ glic.mojom.mojom.ViewChangedNotificationSpec = {
 };
 
 // Interface: PreloadPage
-glic.mojom.mojom.PreloadPage = {};
+glic.mojom.PreloadPage = {};
 
-glic.mojom.mojom.PreloadPagePendingReceiver = class {
+glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PreloadPage_SetProfileReadyState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ready_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ProfileReadyStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.PreloadPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.PreloadPageRemote = class {
+glic.mojom.PreloadPageRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.PreloadPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.PreloadPagePendingReceiver,
+      glic.mojom.PreloadPagePendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.PreloadPageRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.PreloadPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1121,7 +1134,7 @@ glic.mojom.mojom.PreloadPageRemote = class {
   }
 };
 
-glic.mojom.mojom.PreloadPageRemoteCallHandler = class {
+glic.mojom.PreloadPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1130,15 +1143,15 @@ glic.mojom.mojom.PreloadPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.PreloadPage_SetProfileReadyState_ParamsSpec,
+      glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec,
       null,
       [ready_state]);
   }
 
 };
 
-glic.mojom.mojom.PreloadPage.getRemote = function() {
-  let remote = new glic.mojom.mojom.PreloadPageRemote();
+glic.mojom.PreloadPage.getRemote = function() {
+  let remote = new glic.mojom.PreloadPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1148,7 +1161,7 @@ glic.mojom.mojom.PreloadPage.getRemote = function() {
 };
 
 // ParamsSpec for SetProfileReadyState
-glic.mojom.mojom.PreloadPage_SetProfileReadyState_ParamsSpec = {
+glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PreloadPage.SetProfileReadyState_Params',
@@ -1162,29 +1175,67 @@ glic.mojom.mojom.PreloadPage_SetProfileReadyState_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.PreloadPagePtr = glic.mojom.mojom.PreloadPageRemote;
-glic.mojom.mojom.PreloadPageRequest = glic.mojom.mojom.PreloadPagePendingReceiver;
+glic.mojom.PreloadPagePtr = glic.mojom.PreloadPageRemote;
+glic.mojom.PreloadPageRequest = glic.mojom.PreloadPagePendingReceiver;
 
 
 // Interface: Page
-glic.mojom.mojom.Page = {};
+glic.mojom.Page = {};
 
-glic.mojom.mojom.PagePendingReceiver = class {
+glic.mojom.Page_IntentToShow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.Page_IntentToShow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.Page_SetProfileReadyState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.Page_SetProfileReadyState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ready_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ProfileReadyStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.Page_UpdatePageState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.Page_UpdatePageState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'panelStateKind', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateKindSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.PageRemote = class {
+glic.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.PagePendingReceiver,
+      glic.mojom.PagePendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1196,7 +1247,7 @@ glic.mojom.mojom.PageRemote = class {
   }
 };
 
-glic.mojom.mojom.PageRemoteCallHandler = class {
+glic.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1205,7 +1256,7 @@ glic.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.Page_IntentToShow_ParamsSpec,
+      glic.mojom.Page_IntentToShow_ParamsSpec,
       null,
       []);
   }
@@ -1214,7 +1265,7 @@ glic.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.mojom.Page_SetProfileReadyState_ParamsSpec,
+      glic.mojom.Page_SetProfileReadyState_ParamsSpec,
       null,
       [ready_state]);
   }
@@ -1223,15 +1274,15 @@ glic.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.mojom.Page_UpdatePageState_ParamsSpec,
+      glic.mojom.Page_UpdatePageState_ParamsSpec,
       null,
       [panelStateKind]);
   }
 
 };
 
-glic.mojom.mojom.Page.getRemote = function() {
-  let remote = new glic.mojom.mojom.PageRemote();
+glic.mojom.Page.getRemote = function() {
+  let remote = new glic.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1241,7 +1292,7 @@ glic.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for IntentToShow
-glic.mojom.mojom.Page_IntentToShow_ParamsSpec = {
+glic.mojom.Page_IntentToShow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Page.IntentToShow_Params',
@@ -1254,7 +1305,7 @@ glic.mojom.mojom.Page_IntentToShow_ParamsSpec = {
 };
 
 // ParamsSpec for SetProfileReadyState
-glic.mojom.mojom.Page_SetProfileReadyState_ParamsSpec = {
+glic.mojom.Page_SetProfileReadyState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Page.SetProfileReadyState_Params',
@@ -1268,7 +1319,7 @@ glic.mojom.mojom.Page_SetProfileReadyState_ParamsSpec = {
 };
 
 // ParamsSpec for UpdatePageState
-glic.mojom.mojom.Page_UpdatePageState_ParamsSpec = {
+glic.mojom.Page_UpdatePageState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Page.UpdatePageState_Params',
@@ -1282,29 +1333,41 @@ glic.mojom.mojom.Page_UpdatePageState_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.PagePtr = glic.mojom.mojom.PageRemote;
-glic.mojom.mojom.PageRequest = glic.mojom.mojom.PagePendingReceiver;
+glic.mojom.PagePtr = glic.mojom.PageRemote;
+glic.mojom.PageRequest = glic.mojom.PagePendingReceiver;
 
 
 // Interface: GlicPreloadHandler
-glic.mojom.mojom.GlicPreloadHandler = {};
+glic.mojom.GlicPreloadHandler = {};
 
-glic.mojom.mojom.GlicPreloadHandlerPendingReceiver = class {
+glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.GlicPreloadHandler_PrepareForClient_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.GlicPreloadHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.GlicPreloadHandlerRemote = class {
+glic.mojom.GlicPreloadHandlerRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.GlicPreloadHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.GlicPreloadHandlerPendingReceiver,
+      glic.mojom.GlicPreloadHandlerPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.GlicPreloadHandlerRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.GlicPreloadHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1316,7 +1379,7 @@ glic.mojom.mojom.GlicPreloadHandlerRemote = class {
   }
 };
 
-glic.mojom.mojom.GlicPreloadHandlerRemoteCallHandler = class {
+glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1325,15 +1388,15 @@ glic.mojom.mojom.GlicPreloadHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec,
-      glic.mojom.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec,
+      glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec,
+      glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec,
       []);
   }
 
 };
 
-glic.mojom.mojom.GlicPreloadHandler.getRemote = function() {
-  let remote = new glic.mojom.mojom.GlicPreloadHandlerRemote();
+glic.mojom.GlicPreloadHandler.getRemote = function() {
+  let remote = new glic.mojom.GlicPreloadHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1343,7 +1406,7 @@ glic.mojom.mojom.GlicPreloadHandler.getRemote = function() {
 };
 
 // ParamsSpec for PrepareForClient
-glic.mojom.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = {
+glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GlicPreloadHandler.PrepareForClient_Params',
@@ -1355,7 +1418,7 @@ glic.mojom.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec = {
+glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GlicPreloadHandler.PrepareForClient_ResponseParams',
@@ -1369,29 +1432,43 @@ glic.mojom.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.GlicPreloadHandlerPtr = glic.mojom.mojom.GlicPreloadHandlerRemote;
-glic.mojom.mojom.GlicPreloadHandlerRequest = glic.mojom.mojom.GlicPreloadHandlerPendingReceiver;
+glic.mojom.GlicPreloadHandlerPtr = glic.mojom.GlicPreloadHandlerRemote;
+glic.mojom.GlicPreloadHandlerRequest = glic.mojom.GlicPreloadHandlerPendingReceiver;
 
 
 // Interface: GlicPreloadHandlerFactory
-glic.mojom.mojom.GlicPreloadHandlerFactory = {};
+glic.mojom.GlicPreloadHandlerFactory = {};
 
-glic.mojom.mojom.GlicPreloadHandlerFactoryPendingReceiver = class {
+glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(glic.mojom.GlicPreloadHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(glic.mojom.PreloadPageRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.GlicPreloadHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.GlicPreloadHandlerFactoryRemote = class {
+glic.mojom.GlicPreloadHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.GlicPreloadHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.GlicPreloadHandlerFactoryPendingReceiver,
+      glic.mojom.GlicPreloadHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.GlicPreloadHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1403,7 +1480,7 @@ glic.mojom.mojom.GlicPreloadHandlerFactoryRemote = class {
   }
 };
 
-glic.mojom.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
+glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1412,15 +1489,15 @@ glic.mojom.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec,
+      glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec,
       null,
       [receiver, page]);
   }
 
 };
 
-glic.mojom.mojom.GlicPreloadHandlerFactory.getRemote = function() {
-  let remote = new glic.mojom.mojom.GlicPreloadHandlerFactoryRemote();
+glic.mojom.GlicPreloadHandlerFactory.getRemote = function() {
+  let remote = new glic.mojom.GlicPreloadHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1430,7 +1507,7 @@ glic.mojom.mojom.GlicPreloadHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePreloadHandler
-glic.mojom.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec = {
+glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GlicPreloadHandlerFactory.CreatePreloadHandler_Params',
@@ -1445,29 +1522,43 @@ glic.mojom.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.GlicPreloadHandlerFactoryPtr = glic.mojom.mojom.GlicPreloadHandlerFactoryRemote;
-glic.mojom.mojom.GlicPreloadHandlerFactoryRequest = glic.mojom.mojom.GlicPreloadHandlerFactoryPendingReceiver;
+glic.mojom.GlicPreloadHandlerFactoryPtr = glic.mojom.GlicPreloadHandlerFactoryRemote;
+glic.mojom.GlicPreloadHandlerFactoryRequest = glic.mojom.GlicPreloadHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandlerFactory
-glic.mojom.mojom.PageHandlerFactory = {};
+glic.mojom.PageHandlerFactory = {};
 
-glic.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(glic.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(glic.mojom.PageRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.PageHandlerFactoryRemote = class {
+glic.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      glic.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1479,7 +1570,7 @@ glic.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-glic.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+glic.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1488,15 +1579,15 @@ glic.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [receiver, page]);
   }
 
 };
 
-glic.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new glic.mojom.mojom.PageHandlerFactoryRemote();
+glic.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new glic.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1506,7 +1597,7 @@ glic.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-glic.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -1521,29 +1612,167 @@ glic.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.PageHandlerFactoryPtr = glic.mojom.mojom.PageHandlerFactoryRemote;
-glic.mojom.mojom.PageHandlerFactoryRequest = glic.mojom.mojom.PageHandlerFactoryPendingReceiver;
+glic.mojom.PageHandlerFactoryPtr = glic.mojom.PageHandlerFactoryRemote;
+glic.mojom.PageHandlerFactoryRequest = glic.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-glic.mojom.mojom.PageHandler = {};
+glic.mojom.PageHandler = {};
 
-glic.mojom.mojom.PageHandlerPendingReceiver = class {
+glic.mojom.PageHandler_CreateWebClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_CreateWebClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'web_client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(glic.mojom.WebClientHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_PrepareForClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_PrepareForClient_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_WebviewCommitted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_WebviewCommitted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_ClosePanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_ClosePanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_SignInAndClosePanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_ResizeWidget_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_ResizeWidget_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_EnableDragResize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_EnableDragResize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_WebUiStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebUiStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PageHandler_GetProfileEnablement_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.PageHandlerRemote = class {
+glic.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.PageHandlerPendingReceiver,
+      glic.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1555,7 +1784,7 @@ glic.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
+glic.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1564,7 +1793,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.PageHandler_CreateWebClient_ParamsSpec,
+      glic.mojom.PageHandler_CreateWebClient_ParamsSpec,
       null,
       [web_client_receiver]);
   }
@@ -1573,8 +1802,8 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.mojom.PageHandler_PrepareForClient_ParamsSpec,
-      glic.mojom.mojom.PageHandler_PrepareForClient_ResponseParamsSpec,
+      glic.mojom.PageHandler_PrepareForClient_ParamsSpec,
+      glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec,
       []);
   }
 
@@ -1582,7 +1811,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.mojom.PageHandler_WebviewCommitted_ParamsSpec,
+      glic.mojom.PageHandler_WebviewCommitted_ParamsSpec,
       null,
       [url]);
   }
@@ -1591,7 +1820,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.mojom.PageHandler_ClosePanel_ParamsSpec,
+      glic.mojom.PageHandler_ClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -1600,7 +1829,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec,
+      glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -1609,7 +1838,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec,
+      glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -1618,7 +1847,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.mojom.PageHandler_SignInAndClosePanel_ParamsSpec,
+      glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -1627,7 +1856,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.mojom.PageHandler_ResizeWidget_ParamsSpec,
+      glic.mojom.PageHandler_ResizeWidget_ParamsSpec,
       null,
       [size, duration]);
   }
@@ -1636,7 +1865,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.mojom.PageHandler_EnableDragResize_ParamsSpec,
+      glic.mojom.PageHandler_EnableDragResize_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1645,7 +1874,7 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      glic.mojom.mojom.PageHandler_WebUiStateChanged_ParamsSpec,
+      glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec,
       null,
       [new_state]);
   }
@@ -1654,15 +1883,15 @@ glic.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      glic.mojom.mojom.PageHandler_GetProfileEnablement_ParamsSpec,
-      glic.mojom.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec,
+      glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec,
+      glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec,
       []);
   }
 
 };
 
-glic.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new glic.mojom.mojom.PageHandlerRemote();
+glic.mojom.PageHandler.getRemote = function() {
+  let remote = new glic.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1672,7 +1901,7 @@ glic.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for CreateWebClient
-glic.mojom.mojom.PageHandler_CreateWebClient_ParamsSpec = {
+glic.mojom.PageHandler_CreateWebClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.CreateWebClient_Params',
@@ -1686,7 +1915,7 @@ glic.mojom.mojom.PageHandler_CreateWebClient_ParamsSpec = {
 };
 
 // ParamsSpec for PrepareForClient
-glic.mojom.mojom.PageHandler_PrepareForClient_ParamsSpec = {
+glic.mojom.PageHandler_PrepareForClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.PrepareForClient_Params',
@@ -1698,7 +1927,7 @@ glic.mojom.mojom.PageHandler_PrepareForClient_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.PageHandler_PrepareForClient_ResponseParamsSpec = {
+glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.PrepareForClient_ResponseParams',
@@ -1712,7 +1941,7 @@ glic.mojom.mojom.PageHandler_PrepareForClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WebviewCommitted
-glic.mojom.mojom.PageHandler_WebviewCommitted_ParamsSpec = {
+glic.mojom.PageHandler_WebviewCommitted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.WebviewCommitted_Params',
@@ -1726,7 +1955,7 @@ glic.mojom.mojom.PageHandler_WebviewCommitted_ParamsSpec = {
 };
 
 // ParamsSpec for ClosePanel
-glic.mojom.mojom.PageHandler_ClosePanel_ParamsSpec = {
+glic.mojom.PageHandler_ClosePanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.ClosePanel_Params',
@@ -1739,7 +1968,7 @@ glic.mojom.mojom.PageHandler_ClosePanel_ParamsSpec = {
 };
 
 // ParamsSpec for OpenProfilePickerAndClosePanel
-glic.mojom.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec = {
+glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.OpenProfilePickerAndClosePanel_Params',
@@ -1752,7 +1981,7 @@ glic.mojom.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec = {
 };
 
 // ParamsSpec for OpenDisabledByAdminLinkAndClosePanel
-glic.mojom.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec = {
+glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.OpenDisabledByAdminLinkAndClosePanel_Params',
@@ -1765,7 +1994,7 @@ glic.mojom.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec = {
 };
 
 // ParamsSpec for SignInAndClosePanel
-glic.mojom.mojom.PageHandler_SignInAndClosePanel_ParamsSpec = {
+glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.SignInAndClosePanel_Params',
@@ -1778,7 +2007,7 @@ glic.mojom.mojom.PageHandler_SignInAndClosePanel_ParamsSpec = {
 };
 
 // ParamsSpec for ResizeWidget
-glic.mojom.mojom.PageHandler_ResizeWidget_ParamsSpec = {
+glic.mojom.PageHandler_ResizeWidget_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.ResizeWidget_Params',
@@ -1793,7 +2022,7 @@ glic.mojom.mojom.PageHandler_ResizeWidget_ParamsSpec = {
 };
 
 // ParamsSpec for EnableDragResize
-glic.mojom.mojom.PageHandler_EnableDragResize_ParamsSpec = {
+glic.mojom.PageHandler_EnableDragResize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.EnableDragResize_Params',
@@ -1807,7 +2036,7 @@ glic.mojom.mojom.PageHandler_EnableDragResize_ParamsSpec = {
 };
 
 // ParamsSpec for WebUiStateChanged
-glic.mojom.mojom.PageHandler_WebUiStateChanged_ParamsSpec = {
+glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.WebUiStateChanged_Params',
@@ -1821,7 +2050,7 @@ glic.mojom.mojom.PageHandler_WebUiStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for GetProfileEnablement
-glic.mojom.mojom.PageHandler_GetProfileEnablement_ParamsSpec = {
+glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.GetProfileEnablement_Params',
@@ -1833,7 +2062,7 @@ glic.mojom.mojom.PageHandler_GetProfileEnablement_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec = {
+glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PageHandler.GetProfileEnablement_ResponseParams',
@@ -1847,29 +2076,42 @@ glic.mojom.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.PageHandlerPtr = glic.mojom.mojom.PageHandlerRemote;
-glic.mojom.mojom.PageHandlerRequest = glic.mojom.mojom.PageHandlerPendingReceiver;
+glic.mojom.PageHandlerPtr = glic.mojom.PageHandlerRemote;
+glic.mojom.PageHandlerRequest = glic.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: PinCandidatesObserver
-glic.mojom.mojom.PinCandidatesObserver = {};
+glic.mojom.PinCandidatesObserver = {};
 
-glic.mojom.mojom.PinCandidatesObserverPendingReceiver = class {
+glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.PinCandidateSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.PinCandidatesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.PinCandidatesObserverRemote = class {
+glic.mojom.PinCandidatesObserverRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.PinCandidatesObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.PinCandidatesObserverPendingReceiver,
+      glic.mojom.PinCandidatesObserverPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.PinCandidatesObserverRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.PinCandidatesObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1881,7 +2123,7 @@ glic.mojom.mojom.PinCandidatesObserverRemote = class {
   }
 };
 
-glic.mojom.mojom.PinCandidatesObserverRemoteCallHandler = class {
+glic.mojom.PinCandidatesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1890,15 +2132,15 @@ glic.mojom.mojom.PinCandidatesObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec,
+      glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec,
       null,
       [candidates]);
   }
 
 };
 
-glic.mojom.mojom.PinCandidatesObserver.getRemote = function() {
-  let remote = new glic.mojom.mojom.PinCandidatesObserverRemote();
+glic.mojom.PinCandidatesObserver.getRemote = function() {
+  let remote = new glic.mojom.PinCandidatesObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1908,7 +2150,7 @@ glic.mojom.mojom.PinCandidatesObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnPinCandidatesChanged
-glic.mojom.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec = {
+glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PinCandidatesObserver.OnPinCandidatesChanged_Params',
@@ -1922,29 +2164,1156 @@ glic.mojom.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.PinCandidatesObserverPtr = glic.mojom.mojom.PinCandidatesObserverRemote;
-glic.mojom.mojom.PinCandidatesObserverRequest = glic.mojom.mojom.PinCandidatesObserverPendingReceiver;
+glic.mojom.PinCandidatesObserverPtr = glic.mojom.PinCandidatesObserverRemote;
+glic.mojom.PinCandidatesObserverRequest = glic.mojom.PinCandidatesObserverPendingReceiver;
 
 
 // Interface: WebClientHandler
-glic.mojom.mojom.WebClientHandler = {};
+glic.mojom.WebClientHandler = {};
 
-glic.mojom.mojom.WebClientHandlerPendingReceiver = class {
+glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_WebClientCreated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'web_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(glic.mojom.WebClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_WebClientInitialized_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_WebClientInitializeFailed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_CreateTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_CreateTab_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'open_in_background', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'window_id_$flag', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'window_id_$value', originalFieldName: 'window_id' } },
+        { name: 'window_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'window_id_$flag', originalFieldName: 'window_id' } },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OpenLinkInPopup_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'popup_width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'popup_height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OpenGlicSettingsPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.OpenSettingsOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ClosePanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ClosePanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ClosePanelAndShutdown_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_AttachPanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_AttachPanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_DetachPanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_DetachPanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnModeChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnModeChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_mode', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ShowProfilePicker_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetModelQualityClientId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetContextFromFocusedTab_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetContextFromTab_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetContextForActorFromTab_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'requested_max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_PinTabs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_PinTabs_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PinTabsOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_UnpinTabs_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.UnpinTabsOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_UnpinAllTabs_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.UnpinTabsOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_CreateSkill_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_CreateSkill_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CreateSkillRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_UpdateSkill_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.UpdateSkillRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetSkill_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetSkill_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SubscribeToPinCandidates_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetPinCandidatesOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(glic.mojom.PinCandidatesObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_CreateTask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_CreateTask_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_options', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.TaskOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_PerformActions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_PerformActions_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'actions_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_CancelActions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_CancelActions_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_StopActorTask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_StopActorTask_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'stop_reason', packedOffset: 4, packedBitOffset: 0, type: glic.mojom.ActorTaskStopReasonSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_PauseActorTask_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'pause_reason', packedOffset: 4, packedBitOffset: 0, type: glic.mojom.ActorTaskPauseReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'tab_id_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'tab_id_$value', originalFieldName: 'tab_id' } },
+        { name: 'tab_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'tab_id_$flag', originalFieldName: 'tab_id' } },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ResumeActorTask_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'context_options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_InterruptActorTask_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_UninterruptActorTask_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_CreateActorTab_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'open_in_background', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'initiator_tab_id_$flag', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'initiator_tab_id_$value', originalFieldName: 'initiator_tab_id' } },
+        { name: 'initiator_tab_id_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'initiator_tab_id_$flag', originalFieldName: 'initiator_tab_id' } },
+        { name: 'initiator_window_id_$flag', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'initiator_window_id_$value', originalFieldName: 'initiator_window_id' } },
+        { name: 'initiator_window_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'initiator_window_id_$flag', originalFieldName: 'initiator_window_id' } },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ActivateTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ActivateTab_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ResizeWidget_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_CaptureScreenshot_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_CaptureRegion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(glic.mojom.CaptureRegionObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetAudioDucking_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetPanelDraggableAreas_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'draggable_areas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetMinimumPanelSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetMicrophonePermissionState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetLocationPermissionState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetTabContextPermissionState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetClosedCaptioningSetting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetActuationOnWebSetting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetContextAccessIndicator_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetUserProfileInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SyncCookies_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SyncCookies_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_LogBeginAsyncEvent_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'event_async_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_LogEndAsyncEvent_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'event_async_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_LogInstantEvent_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_JournalClear_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_JournalClear_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_JournalSnapshot_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'clear_journal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_JournalStart_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_JournalStart_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'max_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'capture_screenshots', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_JournalStop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_JournalStop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_JournalRecordFeedback_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'positive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnUserInputSubmitted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnContextUploadStarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnContextUploadCompleted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnReaction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnReaction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reactionType', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.MetricUserInputReactionTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnResponseStarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnResponseStopped_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.OnResponseStoppedDetailsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnSessionTerminated_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnTurnCompleted_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebClientModelSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnModelChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModelSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnRecordUseCounter_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'counter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnResponseRated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'positive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnClosedCaptionsShown_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_ScrollTo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_ScrollTo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ScrollToParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_DropScrollToHighlight_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetSyntheticExperimentState_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'is_live', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_first_run_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_first_run_$value', originalFieldName: 'is_first_run' } },
+        { name: 'is_first_run_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_first_run_$flag', originalFieldName: 'is_first_run' } },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_MaybeRefreshUserStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_IsDebuggerAttached_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_OnViewChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ViewChangedNotificationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SubscribeToPageMetadata_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SwitchConversation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_RegisterConversation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SetOnboardingCompleted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientHandler_SubscribeToTabData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(glic.mojom.TabDataHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClientHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.WebClientHandlerRemote = class {
+glic.mojom.WebClientHandlerRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.WebClientHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.WebClientHandlerPendingReceiver,
+      glic.mojom.WebClientHandlerPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.WebClientHandlerRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.WebClientHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1956,7 +3325,7 @@ glic.mojom.mojom.WebClientHandlerRemote = class {
   }
 };
 
-glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
+glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1965,8 +3334,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.WebClientHandler_WebClientCreated_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec,
+      glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec,
       [web_client]);
   }
 
@@ -1974,7 +3343,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.mojom.WebClientHandler_WebClientInitialized_ParamsSpec,
+      glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec,
       null,
       []);
   }
@@ -1983,7 +3352,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec,
+      glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec,
       null,
       []);
   }
@@ -1992,8 +3361,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.mojom.WebClientHandler_CreateTab_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_CreateTab_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_CreateTab_ParamsSpec,
+      glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec,
       [url, open_in_background, window_id]);
   }
 
@@ -2001,7 +3370,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec,
+      glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec,
       null,
       [url, popup_width, popup_height]);
   }
@@ -2010,7 +3379,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec,
+      glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec,
       null,
       [options]);
   }
@@ -2019,7 +3388,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec,
+      glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec,
       null,
       []);
   }
@@ -2028,7 +3397,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ClosePanel_ParamsSpec,
+      glic.mojom.WebClientHandler_ClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -2037,7 +3406,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec,
+      glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec,
       null,
       []);
   }
@@ -2046,7 +3415,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      glic.mojom.mojom.WebClientHandler_AttachPanel_ParamsSpec,
+      glic.mojom.WebClientHandler_AttachPanel_ParamsSpec,
       null,
       []);
   }
@@ -2055,7 +3424,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      glic.mojom.mojom.WebClientHandler_DetachPanel_ParamsSpec,
+      glic.mojom.WebClientHandler_DetachPanel_ParamsSpec,
       null,
       []);
   }
@@ -2064,7 +3433,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnModeChange_ParamsSpec,
+      glic.mojom.WebClientHandler_OnModeChange_ParamsSpec,
       null,
       [new_mode]);
   }
@@ -2073,7 +3442,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec,
+      glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec,
       null,
       []);
   }
@@ -2082,8 +3451,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec,
+      glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec,
       []);
   }
 
@@ -2091,8 +3460,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec,
       [options]);
   }
 
@@ -2100,8 +3469,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetContextFromTab_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec,
       [tab_id, options]);
   }
 
@@ -2109,8 +3478,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec,
       [tab_id, options]);
   }
 
@@ -2118,8 +3487,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec,
+      glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec,
       [requested_max]);
   }
 
@@ -2127,8 +3496,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      glic.mojom.mojom.WebClientHandler_PinTabs_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_PinTabs_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_PinTabs_ParamsSpec,
+      glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec,
       [tab_ids, options]);
   }
 
@@ -2136,8 +3505,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      glic.mojom.mojom.WebClientHandler_UnpinTabs_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec,
+      glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec,
       [tab_ids, options]);
   }
 
@@ -2145,7 +3514,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      glic.mojom.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec,
+      glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec,
       null,
       [options]);
   }
@@ -2154,8 +3523,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      glic.mojom.mojom.WebClientHandler_CreateSkill_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_CreateSkill_ParamsSpec,
+      glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec,
       [request]);
   }
 
@@ -2163,8 +3532,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      glic.mojom.mojom.WebClientHandler_UpdateSkill_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec,
+      glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec,
       [request]);
   }
 
@@ -2172,8 +3541,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetSkill_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetSkill_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetSkill_ParamsSpec,
+      glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec,
       [id]);
   }
 
@@ -2181,7 +3550,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec,
+      glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec,
       null,
       [options, observer]);
   }
@@ -2190,7 +3559,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      glic.mojom.mojom.WebClientHandler_CreateTask_ParamsSpec,
+      glic.mojom.WebClientHandler_CreateTask_ParamsSpec,
       null,
       [task_options]);
   }
@@ -2199,7 +3568,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      glic.mojom.mojom.WebClientHandler_PerformActions_ParamsSpec,
+      glic.mojom.WebClientHandler_PerformActions_ParamsSpec,
       null,
       [actions_proto]);
   }
@@ -2208,8 +3577,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      glic.mojom.mojom.WebClientHandler_CancelActions_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_CancelActions_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_CancelActions_ParamsSpec,
+      glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec,
       [task_id]);
   }
 
@@ -2217,7 +3586,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      glic.mojom.mojom.WebClientHandler_StopActorTask_ParamsSpec,
+      glic.mojom.WebClientHandler_StopActorTask_ParamsSpec,
       null,
       [task_id, stop_reason]);
   }
@@ -2226,7 +3595,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      glic.mojom.mojom.WebClientHandler_PauseActorTask_ParamsSpec,
+      glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec,
       null,
       [task_id, pause_reason, tab_id]);
   }
@@ -2235,8 +3604,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ResumeActorTask_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec,
+      glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec,
       [task_id, context_options]);
   }
 
@@ -2244,7 +3613,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      glic.mojom.mojom.WebClientHandler_InterruptActorTask_ParamsSpec,
+      glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec,
       null,
       [task_id]);
   }
@@ -2253,7 +3622,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      glic.mojom.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec,
+      glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec,
       null,
       [task_id]);
   }
@@ -2262,8 +3631,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      glic.mojom.mojom.WebClientHandler_CreateActorTab_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec,
+      glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec,
       [task_id, open_in_background, initiator_tab_id, initiator_window_id]);
   }
 
@@ -2271,7 +3640,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ActivateTab_ParamsSpec,
+      glic.mojom.WebClientHandler_ActivateTab_ParamsSpec,
       null,
       [task_id]);
   }
@@ -2280,7 +3649,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ResizeWidget_ParamsSpec,
+      glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec,
       null,
       [size, duration]);
   }
@@ -2289,8 +3658,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      glic.mojom.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec,
+      glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec,
       []);
   }
 
@@ -2298,7 +3667,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      glic.mojom.mojom.WebClientHandler_CaptureRegion_ParamsSpec,
+      glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec,
       null,
       [observer]);
   }
@@ -2307,8 +3676,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetAudioDucking_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec,
+      glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec,
       [enable]);
   }
 
@@ -2316,7 +3685,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec,
+      glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec,
       null,
       [draggable_areas]);
   }
@@ -2325,7 +3694,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec,
+      glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec,
       null,
       [size]);
   }
@@ -2334,7 +3703,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec,
+      glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2343,7 +3712,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec,
+      glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2352,7 +3721,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec,
+      glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2361,7 +3730,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec,
+      glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2370,7 +3739,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec,
+      glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2379,8 +3748,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec,
+      glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec,
       []);
   }
 
@@ -2388,8 +3757,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec,
+      glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec,
       []);
   }
 
@@ -2397,7 +3766,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec,
+      glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2406,8 +3775,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 49
     return this.proxy.sendMessage(
       49,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec,
+      glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec,
       []);
   }
 
@@ -2415,8 +3784,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 50
     return this.proxy.sendMessage(
       50,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SyncCookies_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_SyncCookies_ParamsSpec,
+      glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec,
       []);
   }
 
@@ -2424,7 +3793,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 51
     return this.proxy.sendMessage(
       51,  // ordinal
-      glic.mojom.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec,
+      glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec,
       null,
       [event_async_id, task_id, event, details]);
   }
@@ -2433,7 +3802,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 52
     return this.proxy.sendMessage(
       52,  // ordinal
-      glic.mojom.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec,
+      glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec,
       null,
       [event_async_id, details]);
   }
@@ -2442,7 +3811,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 53
     return this.proxy.sendMessage(
       53,  // ordinal
-      glic.mojom.mojom.WebClientHandler_LogInstantEvent_ParamsSpec,
+      glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec,
       null,
       [task_id, event, details]);
   }
@@ -2451,7 +3820,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 54
     return this.proxy.sendMessage(
       54,  // ordinal
-      glic.mojom.mojom.WebClientHandler_JournalClear_ParamsSpec,
+      glic.mojom.WebClientHandler_JournalClear_ParamsSpec,
       null,
       []);
   }
@@ -2460,8 +3829,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 55
     return this.proxy.sendMessage(
       55,  // ordinal
-      glic.mojom.mojom.WebClientHandler_JournalSnapshot_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec,
+      glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec,
       [clear_journal]);
   }
 
@@ -2469,7 +3838,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 56
     return this.proxy.sendMessage(
       56,  // ordinal
-      glic.mojom.mojom.WebClientHandler_JournalStart_ParamsSpec,
+      glic.mojom.WebClientHandler_JournalStart_ParamsSpec,
       null,
       [max_bytes, capture_screenshots]);
   }
@@ -2478,7 +3847,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 57
     return this.proxy.sendMessage(
       57,  // ordinal
-      glic.mojom.mojom.WebClientHandler_JournalStop_ParamsSpec,
+      glic.mojom.WebClientHandler_JournalStop_ParamsSpec,
       null,
       []);
   }
@@ -2487,7 +3856,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 58
     return this.proxy.sendMessage(
       58,  // ordinal
-      glic.mojom.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec,
+      glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec,
       null,
       [positive, reason]);
   }
@@ -2496,7 +3865,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 59
     return this.proxy.sendMessage(
       59,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec,
+      glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec,
       null,
       [mode]);
   }
@@ -2505,7 +3874,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 60
     return this.proxy.sendMessage(
       60,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec,
+      glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec,
       null,
       []);
   }
@@ -2514,7 +3883,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 61
     return this.proxy.sendMessage(
       61,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec,
+      glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec,
       null,
       []);
   }
@@ -2523,7 +3892,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 62
     return this.proxy.sendMessage(
       62,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnReaction_ParamsSpec,
+      glic.mojom.WebClientHandler_OnReaction_ParamsSpec,
       null,
       [reactionType]);
   }
@@ -2532,7 +3901,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 63
     return this.proxy.sendMessage(
       63,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnResponseStarted_ParamsSpec,
+      glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec,
       null,
       []);
   }
@@ -2541,7 +3910,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 64
     return this.proxy.sendMessage(
       64,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnResponseStopped_ParamsSpec,
+      glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec,
       null,
       [details]);
   }
@@ -2550,7 +3919,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 65
     return this.proxy.sendMessage(
       65,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec,
+      glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec,
       null,
       []);
   }
@@ -2559,7 +3928,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 66
     return this.proxy.sendMessage(
       66,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec,
+      glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec,
       null,
       [model, duration]);
   }
@@ -2568,7 +3937,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 67
     return this.proxy.sendMessage(
       67,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnModelChanged_ParamsSpec,
+      glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec,
       null,
       [model]);
   }
@@ -2577,7 +3946,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 68
     return this.proxy.sendMessage(
       68,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec,
+      glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec,
       null,
       [counter]);
   }
@@ -2586,7 +3955,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 69
     return this.proxy.sendMessage(
       69,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnResponseRated_ParamsSpec,
+      glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec,
       null,
       [positive]);
   }
@@ -2595,7 +3964,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 70
     return this.proxy.sendMessage(
       70,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec,
+      glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec,
       null,
       []);
   }
@@ -2604,8 +3973,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 71
     return this.proxy.sendMessage(
       71,  // ordinal
-      glic.mojom.mojom.WebClientHandler_ScrollTo_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_ScrollTo_ParamsSpec,
+      glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec,
       [params]);
   }
 
@@ -2613,7 +3982,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 72
     return this.proxy.sendMessage(
       72,  // ordinal
-      glic.mojom.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec,
+      glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec,
       null,
       []);
   }
@@ -2622,7 +3991,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 73
     return this.proxy.sendMessage(
       73,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec,
+      glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec,
       null,
       [trial_name, group_name]);
   }
@@ -2631,7 +4000,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 74
     return this.proxy.sendMessage(
       74,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec,
+      glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec,
       null,
       [type]);
   }
@@ -2640,8 +4009,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 75
     return this.proxy.sendMessage(
       75,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec,
+      glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec,
       []);
   }
 
@@ -2649,8 +4018,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 76
     return this.proxy.sendMessage(
       76,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec,
       [is_live, options]);
   }
 
@@ -2658,8 +4027,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 77
     return this.proxy.sendMessage(
       77,  // ordinal
-      glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec,
       [is_first_run]);
   }
 
@@ -2667,7 +4036,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 78
     return this.proxy.sendMessage(
       78,  // ordinal
-      glic.mojom.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec,
+      glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec,
       null,
       []);
   }
@@ -2676,8 +4045,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 79
     return this.proxy.sendMessage(
       79,  // ordinal
-      glic.mojom.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec,
+      glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec,
       []);
   }
 
@@ -2685,7 +4054,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 80
     return this.proxy.sendMessage(
       80,  // ordinal
-      glic.mojom.mojom.WebClientHandler_OnViewChanged_ParamsSpec,
+      glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec,
       null,
       [notification]);
   }
@@ -2694,8 +4063,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 81
     return this.proxy.sendMessage(
       81,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec,
+      glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec,
       [tab_id, names]);
   }
 
@@ -2703,8 +4072,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 82
     return this.proxy.sendMessage(
       82,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SwitchConversation_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec,
+      glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec,
       [info]);
   }
 
@@ -2712,8 +4081,8 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 83
     return this.proxy.sendMessage(
       83,  // ordinal
-      glic.mojom.mojom.WebClientHandler_RegisterConversation_ParamsSpec,
-      glic.mojom.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec,
+      glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec,
+      glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec,
       [info]);
   }
 
@@ -2721,7 +4090,7 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 84
     return this.proxy.sendMessage(
       84,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec,
+      glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec,
       null,
       []);
   }
@@ -2730,15 +4099,15 @@ glic.mojom.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 85
     return this.proxy.sendMessage(
       85,  // ordinal
-      glic.mojom.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec,
+      glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec,
       null,
       [tab_id, receiver]);
   }
 
 };
 
-glic.mojom.mojom.WebClientHandler.getRemote = function() {
-  let remote = new glic.mojom.mojom.WebClientHandlerRemote();
+glic.mojom.WebClientHandler.getRemote = function() {
+  let remote = new glic.mojom.WebClientHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2748,7 +4117,7 @@ glic.mojom.mojom.WebClientHandler.getRemote = function() {
 };
 
 // ParamsSpec for WebClientCreated
-glic.mojom.mojom.WebClientHandler_WebClientCreated_ParamsSpec = {
+glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.WebClientCreated_Params',
@@ -2761,7 +4130,7 @@ glic.mojom.mojom.WebClientHandler_WebClientCreated_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.WebClientCreated_ResponseParams',
@@ -2775,7 +4144,7 @@ glic.mojom.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WebClientInitialized
-glic.mojom.mojom.WebClientHandler_WebClientInitialized_ParamsSpec = {
+glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.WebClientInitialized_Params',
@@ -2788,7 +4157,7 @@ glic.mojom.mojom.WebClientHandler_WebClientInitialized_ParamsSpec = {
 };
 
 // ParamsSpec for WebClientInitializeFailed
-glic.mojom.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec = {
+glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.WebClientInitializeFailed_Params',
@@ -2801,7 +4170,7 @@ glic.mojom.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec = {
 };
 
 // ParamsSpec for CreateTab
-glic.mojom.mojom.WebClientHandler_CreateTab_ParamsSpec = {
+glic.mojom.WebClientHandler_CreateTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateTab_Params',
@@ -2817,7 +4186,7 @@ glic.mojom.mojom.WebClientHandler_CreateTab_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_CreateTab_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateTab_ResponseParams',
@@ -2831,7 +4200,7 @@ glic.mojom.mojom.WebClientHandler_CreateTab_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenLinkInPopup
-glic.mojom.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec = {
+glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OpenLinkInPopup_Params',
@@ -2847,7 +4216,7 @@ glic.mojom.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec = {
 };
 
 // ParamsSpec for OpenGlicSettingsPage
-glic.mojom.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec = {
+glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OpenGlicSettingsPage_Params',
@@ -2861,7 +4230,7 @@ glic.mojom.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec = {
 };
 
 // ParamsSpec for OpenPasswordManagerSettingsPage
-glic.mojom.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec = {
+glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OpenPasswordManagerSettingsPage_Params',
@@ -2874,7 +4243,7 @@ glic.mojom.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec = {
 };
 
 // ParamsSpec for ClosePanel
-glic.mojom.mojom.WebClientHandler_ClosePanel_ParamsSpec = {
+glic.mojom.WebClientHandler_ClosePanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ClosePanel_Params',
@@ -2887,7 +4256,7 @@ glic.mojom.mojom.WebClientHandler_ClosePanel_ParamsSpec = {
 };
 
 // ParamsSpec for ClosePanelAndShutdown
-glic.mojom.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec = {
+glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ClosePanelAndShutdown_Params',
@@ -2900,7 +4269,7 @@ glic.mojom.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec = {
 };
 
 // ParamsSpec for AttachPanel
-glic.mojom.mojom.WebClientHandler_AttachPanel_ParamsSpec = {
+glic.mojom.WebClientHandler_AttachPanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.AttachPanel_Params',
@@ -2913,7 +4282,7 @@ glic.mojom.mojom.WebClientHandler_AttachPanel_ParamsSpec = {
 };
 
 // ParamsSpec for DetachPanel
-glic.mojom.mojom.WebClientHandler_DetachPanel_ParamsSpec = {
+glic.mojom.WebClientHandler_DetachPanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.DetachPanel_Params',
@@ -2926,7 +4295,7 @@ glic.mojom.mojom.WebClientHandler_DetachPanel_ParamsSpec = {
 };
 
 // ParamsSpec for OnModeChange
-glic.mojom.mojom.WebClientHandler_OnModeChange_ParamsSpec = {
+glic.mojom.WebClientHandler_OnModeChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnModeChange_Params',
@@ -2940,7 +4309,7 @@ glic.mojom.mojom.WebClientHandler_OnModeChange_ParamsSpec = {
 };
 
 // ParamsSpec for ShowProfilePicker
-glic.mojom.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec = {
+glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ShowProfilePicker_Params',
@@ -2953,7 +4322,7 @@ glic.mojom.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec = {
 };
 
 // ParamsSpec for GetModelQualityClientId
-glic.mojom.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec = {
+glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetModelQualityClientId_Params',
@@ -2965,7 +4334,7 @@ glic.mojom.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetModelQualityClientId_ResponseParams',
@@ -2979,7 +4348,7 @@ glic.mojom.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetContextFromFocusedTab
-glic.mojom.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec = {
+glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetContextFromFocusedTab_Params',
@@ -2992,7 +4361,7 @@ glic.mojom.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetContextFromFocusedTab_ResponseParams',
@@ -3006,7 +4375,7 @@ glic.mojom.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec = 
 };
 
 // ParamsSpec for GetContextFromTab
-glic.mojom.mojom.WebClientHandler_GetContextFromTab_ParamsSpec = {
+glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetContextFromTab_Params',
@@ -3020,7 +4389,7 @@ glic.mojom.mojom.WebClientHandler_GetContextFromTab_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetContextFromTab_ResponseParams',
@@ -3034,7 +4403,7 @@ glic.mojom.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetContextForActorFromTab
-glic.mojom.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec = {
+glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetContextForActorFromTab_Params',
@@ -3048,7 +4417,7 @@ glic.mojom.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetContextForActorFromTab_ResponseParams',
@@ -3062,7 +4431,7 @@ glic.mojom.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec =
 };
 
 // ParamsSpec for SetMaximumNumberOfPinnedTabs
-glic.mojom.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec = {
+glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetMaximumNumberOfPinnedTabs_Params',
@@ -3075,7 +4444,7 @@ glic.mojom.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetMaximumNumberOfPinnedTabs_ResponseParams',
@@ -3089,7 +4458,7 @@ glic.mojom.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpe
 };
 
 // ParamsSpec for PinTabs
-glic.mojom.mojom.WebClientHandler_PinTabs_ParamsSpec = {
+glic.mojom.WebClientHandler_PinTabs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.PinTabs_Params',
@@ -3103,7 +4472,7 @@ glic.mojom.mojom.WebClientHandler_PinTabs_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_PinTabs_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.PinTabs_ResponseParams',
@@ -3117,7 +4486,7 @@ glic.mojom.mojom.WebClientHandler_PinTabs_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UnpinTabs
-glic.mojom.mojom.WebClientHandler_UnpinTabs_ParamsSpec = {
+glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.UnpinTabs_Params',
@@ -3131,7 +4500,7 @@ glic.mojom.mojom.WebClientHandler_UnpinTabs_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.UnpinTabs_ResponseParams',
@@ -3145,7 +4514,7 @@ glic.mojom.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UnpinAllTabs
-glic.mojom.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec = {
+glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.UnpinAllTabs_Params',
@@ -3159,7 +4528,7 @@ glic.mojom.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec = {
 };
 
 // ParamsSpec for CreateSkill
-glic.mojom.mojom.WebClientHandler_CreateSkill_ParamsSpec = {
+glic.mojom.WebClientHandler_CreateSkill_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateSkill_Params',
@@ -3172,7 +4541,7 @@ glic.mojom.mojom.WebClientHandler_CreateSkill_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateSkill_ResponseParams',
@@ -3186,7 +4555,7 @@ glic.mojom.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpdateSkill
-glic.mojom.mojom.WebClientHandler_UpdateSkill_ParamsSpec = {
+glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.UpdateSkill_Params',
@@ -3199,7 +4568,7 @@ glic.mojom.mojom.WebClientHandler_UpdateSkill_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.UpdateSkill_ResponseParams',
@@ -3213,7 +4582,7 @@ glic.mojom.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSkill
-glic.mojom.mojom.WebClientHandler_GetSkill_ParamsSpec = {
+glic.mojom.WebClientHandler_GetSkill_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetSkill_Params',
@@ -3226,7 +4595,7 @@ glic.mojom.mojom.WebClientHandler_GetSkill_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetSkill_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetSkill_ResponseParams',
@@ -3240,7 +4609,7 @@ glic.mojom.mojom.WebClientHandler_GetSkill_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SubscribeToPinCandidates
-glic.mojom.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec = {
+glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SubscribeToPinCandidates_Params',
@@ -3255,7 +4624,7 @@ glic.mojom.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec = {
 };
 
 // ParamsSpec for CreateTask
-glic.mojom.mojom.WebClientHandler_CreateTask_ParamsSpec = {
+glic.mojom.WebClientHandler_CreateTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateTask_Params',
@@ -3269,7 +4638,7 @@ glic.mojom.mojom.WebClientHandler_CreateTask_ParamsSpec = {
 };
 
 // ParamsSpec for PerformActions
-glic.mojom.mojom.WebClientHandler_PerformActions_ParamsSpec = {
+glic.mojom.WebClientHandler_PerformActions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.PerformActions_Params',
@@ -3283,7 +4652,7 @@ glic.mojom.mojom.WebClientHandler_PerformActions_ParamsSpec = {
 };
 
 // ParamsSpec for CancelActions
-glic.mojom.mojom.WebClientHandler_CancelActions_ParamsSpec = {
+glic.mojom.WebClientHandler_CancelActions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CancelActions_Params',
@@ -3296,7 +4665,7 @@ glic.mojom.mojom.WebClientHandler_CancelActions_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_CancelActions_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CancelActions_ResponseParams',
@@ -3310,7 +4679,7 @@ glic.mojom.mojom.WebClientHandler_CancelActions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StopActorTask
-glic.mojom.mojom.WebClientHandler_StopActorTask_ParamsSpec = {
+glic.mojom.WebClientHandler_StopActorTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.StopActorTask_Params',
@@ -3325,7 +4694,7 @@ glic.mojom.mojom.WebClientHandler_StopActorTask_ParamsSpec = {
 };
 
 // ParamsSpec for PauseActorTask
-glic.mojom.mojom.WebClientHandler_PauseActorTask_ParamsSpec = {
+glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.PauseActorTask_Params',
@@ -3342,7 +4711,7 @@ glic.mojom.mojom.WebClientHandler_PauseActorTask_ParamsSpec = {
 };
 
 // ParamsSpec for ResumeActorTask
-glic.mojom.mojom.WebClientHandler_ResumeActorTask_ParamsSpec = {
+glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ResumeActorTask_Params',
@@ -3356,7 +4725,7 @@ glic.mojom.mojom.WebClientHandler_ResumeActorTask_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ResumeActorTask_ResponseParams',
@@ -3370,7 +4739,7 @@ glic.mojom.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InterruptActorTask
-glic.mojom.mojom.WebClientHandler_InterruptActorTask_ParamsSpec = {
+glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.InterruptActorTask_Params',
@@ -3384,7 +4753,7 @@ glic.mojom.mojom.WebClientHandler_InterruptActorTask_ParamsSpec = {
 };
 
 // ParamsSpec for UninterruptActorTask
-glic.mojom.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec = {
+glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.UninterruptActorTask_Params',
@@ -3398,7 +4767,7 @@ glic.mojom.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec = {
 };
 
 // ParamsSpec for CreateActorTab
-glic.mojom.mojom.WebClientHandler_CreateActorTab_ParamsSpec = {
+glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateActorTab_Params',
@@ -3416,7 +4785,7 @@ glic.mojom.mojom.WebClientHandler_CreateActorTab_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateActorTab_ResponseParams',
@@ -3430,7 +4799,7 @@ glic.mojom.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ActivateTab
-glic.mojom.mojom.WebClientHandler_ActivateTab_ParamsSpec = {
+glic.mojom.WebClientHandler_ActivateTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ActivateTab_Params',
@@ -3444,7 +4813,7 @@ glic.mojom.mojom.WebClientHandler_ActivateTab_ParamsSpec = {
 };
 
 // ParamsSpec for ResizeWidget
-glic.mojom.mojom.WebClientHandler_ResizeWidget_ParamsSpec = {
+glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ResizeWidget_Params',
@@ -3459,7 +4828,7 @@ glic.mojom.mojom.WebClientHandler_ResizeWidget_ParamsSpec = {
 };
 
 // ParamsSpec for CaptureScreenshot
-glic.mojom.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec = {
+glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CaptureScreenshot_Params',
@@ -3471,7 +4840,7 @@ glic.mojom.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CaptureScreenshot_ResponseParams',
@@ -3485,7 +4854,7 @@ glic.mojom.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CaptureRegion
-glic.mojom.mojom.WebClientHandler_CaptureRegion_ParamsSpec = {
+glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CaptureRegion_Params',
@@ -3499,7 +4868,7 @@ glic.mojom.mojom.WebClientHandler_CaptureRegion_ParamsSpec = {
 };
 
 // ParamsSpec for SetAudioDucking
-glic.mojom.mojom.WebClientHandler_SetAudioDucking_ParamsSpec = {
+glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetAudioDucking_Params',
@@ -3512,7 +4881,7 @@ glic.mojom.mojom.WebClientHandler_SetAudioDucking_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetAudioDucking_ResponseParams',
@@ -3526,7 +4895,7 @@ glic.mojom.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetPanelDraggableAreas
-glic.mojom.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec = {
+glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetPanelDraggableAreas_Params',
@@ -3540,7 +4909,7 @@ glic.mojom.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec = {
 };
 
 // ParamsSpec for SetMinimumPanelSize
-glic.mojom.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec = {
+glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetMinimumPanelSize_Params',
@@ -3554,7 +4923,7 @@ glic.mojom.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec = {
 };
 
 // ParamsSpec for SetMicrophonePermissionState
-glic.mojom.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec = {
+glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetMicrophonePermissionState_Params',
@@ -3568,7 +4937,7 @@ glic.mojom.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec = {
 };
 
 // ParamsSpec for SetLocationPermissionState
-glic.mojom.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec = {
+glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetLocationPermissionState_Params',
@@ -3582,7 +4951,7 @@ glic.mojom.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec = {
 };
 
 // ParamsSpec for SetTabContextPermissionState
-glic.mojom.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec = {
+glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetTabContextPermissionState_Params',
@@ -3596,7 +4965,7 @@ glic.mojom.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec = {
 };
 
 // ParamsSpec for SetClosedCaptioningSetting
-glic.mojom.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec = {
+glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetClosedCaptioningSetting_Params',
@@ -3610,7 +4979,7 @@ glic.mojom.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec = {
 };
 
 // ParamsSpec for SetActuationOnWebSetting
-glic.mojom.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec = {
+glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetActuationOnWebSetting_Params',
@@ -3624,7 +4993,7 @@ glic.mojom.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec = {
 };
 
 // ParamsSpec for ShouldAllowMediaPermissionRequest
-glic.mojom.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec = {
+glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ShouldAllowMediaPermissionRequest_Params',
@@ -3636,7 +5005,7 @@ glic.mojom.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec =
   }
 };
 
-glic.mojom.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ShouldAllowMediaPermissionRequest_ResponseParams',
@@ -3650,7 +5019,7 @@ glic.mojom.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponsePara
 };
 
 // ParamsSpec for ShouldAllowGeolocationPermissionRequest
-glic.mojom.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec = {
+glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ShouldAllowGeolocationPermissionRequest_Params',
@@ -3662,7 +5031,7 @@ glic.mojom.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_Params
   }
 };
 
-glic.mojom.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ShouldAllowGeolocationPermissionRequest_ResponseParams',
@@ -3676,7 +5045,7 @@ glic.mojom.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_Respon
 };
 
 // ParamsSpec for SetContextAccessIndicator
-glic.mojom.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec = {
+glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetContextAccessIndicator_Params',
@@ -3690,7 +5059,7 @@ glic.mojom.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec = {
 };
 
 // ParamsSpec for GetUserProfileInfo
-glic.mojom.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec = {
+glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetUserProfileInfo_Params',
@@ -3702,7 +5071,7 @@ glic.mojom.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetUserProfileInfo_ResponseParams',
@@ -3716,7 +5085,7 @@ glic.mojom.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SyncCookies
-glic.mojom.mojom.WebClientHandler_SyncCookies_ParamsSpec = {
+glic.mojom.WebClientHandler_SyncCookies_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SyncCookies_Params',
@@ -3728,7 +5097,7 @@ glic.mojom.mojom.WebClientHandler_SyncCookies_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SyncCookies_ResponseParams',
@@ -3742,7 +5111,7 @@ glic.mojom.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LogBeginAsyncEvent
-glic.mojom.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec = {
+glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.LogBeginAsyncEvent_Params',
@@ -3759,7 +5128,7 @@ glic.mojom.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec = {
 };
 
 // ParamsSpec for LogEndAsyncEvent
-glic.mojom.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec = {
+glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.LogEndAsyncEvent_Params',
@@ -3774,7 +5143,7 @@ glic.mojom.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec = {
 };
 
 // ParamsSpec for LogInstantEvent
-glic.mojom.mojom.WebClientHandler_LogInstantEvent_ParamsSpec = {
+glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.LogInstantEvent_Params',
@@ -3790,7 +5159,7 @@ glic.mojom.mojom.WebClientHandler_LogInstantEvent_ParamsSpec = {
 };
 
 // ParamsSpec for JournalClear
-glic.mojom.mojom.WebClientHandler_JournalClear_ParamsSpec = {
+glic.mojom.WebClientHandler_JournalClear_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.JournalClear_Params',
@@ -3803,7 +5172,7 @@ glic.mojom.mojom.WebClientHandler_JournalClear_ParamsSpec = {
 };
 
 // ParamsSpec for JournalSnapshot
-glic.mojom.mojom.WebClientHandler_JournalSnapshot_ParamsSpec = {
+glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.JournalSnapshot_Params',
@@ -3816,7 +5185,7 @@ glic.mojom.mojom.WebClientHandler_JournalSnapshot_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.JournalSnapshot_ResponseParams',
@@ -3830,7 +5199,7 @@ glic.mojom.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec = {
 };
 
 // ParamsSpec for JournalStart
-glic.mojom.mojom.WebClientHandler_JournalStart_ParamsSpec = {
+glic.mojom.WebClientHandler_JournalStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.JournalStart_Params',
@@ -3845,7 +5214,7 @@ glic.mojom.mojom.WebClientHandler_JournalStart_ParamsSpec = {
 };
 
 // ParamsSpec for JournalStop
-glic.mojom.mojom.WebClientHandler_JournalStop_ParamsSpec = {
+glic.mojom.WebClientHandler_JournalStop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.JournalStop_Params',
@@ -3858,7 +5227,7 @@ glic.mojom.mojom.WebClientHandler_JournalStop_ParamsSpec = {
 };
 
 // ParamsSpec for JournalRecordFeedback
-glic.mojom.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec = {
+glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.JournalRecordFeedback_Params',
@@ -3873,7 +5242,7 @@ glic.mojom.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec = {
 };
 
 // ParamsSpec for OnUserInputSubmitted
-glic.mojom.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec = {
+glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnUserInputSubmitted_Params',
@@ -3887,7 +5256,7 @@ glic.mojom.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec = {
 };
 
 // ParamsSpec for OnContextUploadStarted
-glic.mojom.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec = {
+glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnContextUploadStarted_Params',
@@ -3900,7 +5269,7 @@ glic.mojom.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnContextUploadCompleted
-glic.mojom.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec = {
+glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnContextUploadCompleted_Params',
@@ -3913,7 +5282,7 @@ glic.mojom.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for OnReaction
-glic.mojom.mojom.WebClientHandler_OnReaction_ParamsSpec = {
+glic.mojom.WebClientHandler_OnReaction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnReaction_Params',
@@ -3927,7 +5296,7 @@ glic.mojom.mojom.WebClientHandler_OnReaction_ParamsSpec = {
 };
 
 // ParamsSpec for OnResponseStarted
-glic.mojom.mojom.WebClientHandler_OnResponseStarted_ParamsSpec = {
+glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnResponseStarted_Params',
@@ -3940,7 +5309,7 @@ glic.mojom.mojom.WebClientHandler_OnResponseStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnResponseStopped
-glic.mojom.mojom.WebClientHandler_OnResponseStopped_ParamsSpec = {
+glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnResponseStopped_Params',
@@ -3954,7 +5323,7 @@ glic.mojom.mojom.WebClientHandler_OnResponseStopped_ParamsSpec = {
 };
 
 // ParamsSpec for OnSessionTerminated
-glic.mojom.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec = {
+glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnSessionTerminated_Params',
@@ -3967,7 +5336,7 @@ glic.mojom.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec = {
 };
 
 // ParamsSpec for OnTurnCompleted
-glic.mojom.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec = {
+glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnTurnCompleted_Params',
@@ -3982,7 +5351,7 @@ glic.mojom.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for OnModelChanged
-glic.mojom.mojom.WebClientHandler_OnModelChanged_ParamsSpec = {
+glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnModelChanged_Params',
@@ -3996,7 +5365,7 @@ glic.mojom.mojom.WebClientHandler_OnModelChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnRecordUseCounter
-glic.mojom.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec = {
+glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnRecordUseCounter_Params',
@@ -4010,7 +5379,7 @@ glic.mojom.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec = {
 };
 
 // ParamsSpec for OnResponseRated
-glic.mojom.mojom.WebClientHandler_OnResponseRated_ParamsSpec = {
+glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnResponseRated_Params',
@@ -4024,7 +5393,7 @@ glic.mojom.mojom.WebClientHandler_OnResponseRated_ParamsSpec = {
 };
 
 // ParamsSpec for OnClosedCaptionsShown
-glic.mojom.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec = {
+glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnClosedCaptionsShown_Params',
@@ -4037,7 +5406,7 @@ glic.mojom.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec = {
 };
 
 // ParamsSpec for ScrollTo
-glic.mojom.mojom.WebClientHandler_ScrollTo_ParamsSpec = {
+glic.mojom.WebClientHandler_ScrollTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ScrollTo_Params',
@@ -4050,7 +5419,7 @@ glic.mojom.mojom.WebClientHandler_ScrollTo_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.ScrollTo_ResponseParams',
@@ -4064,7 +5433,7 @@ glic.mojom.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DropScrollToHighlight
-glic.mojom.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec = {
+glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.DropScrollToHighlight_Params',
@@ -4077,7 +5446,7 @@ glic.mojom.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec = {
 };
 
 // ParamsSpec for SetSyntheticExperimentState
-glic.mojom.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec = {
+glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetSyntheticExperimentState_Params',
@@ -4092,7 +5461,7 @@ glic.mojom.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec = {
 };
 
 // ParamsSpec for OpenOsPermissionSettingsMenu
-glic.mojom.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec = {
+glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OpenOsPermissionSettingsMenu_Params',
@@ -4106,7 +5475,7 @@ glic.mojom.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec = {
 };
 
 // ParamsSpec for GetOsMicrophonePermissionStatus
-glic.mojom.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec = {
+glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetOsMicrophonePermissionStatus_Params',
@@ -4118,7 +5487,7 @@ glic.mojom.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetOsMicrophonePermissionStatus_ResponseParams',
@@ -4132,7 +5501,7 @@ glic.mojom.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParams
 };
 
 // ParamsSpec for GetZeroStateSuggestionsAndSubscribe
-glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec = {
+glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsAndSubscribe_Params',
@@ -4146,7 +5515,7 @@ glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsAndSubscribe_ResponseParams',
@@ -4160,7 +5529,7 @@ glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponsePa
 };
 
 // ParamsSpec for GetZeroStateSuggestionsForFocusedTab
-glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec = {
+glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsForFocusedTab_Params',
@@ -4174,7 +5543,7 @@ glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpe
   }
 };
 
-glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsForFocusedTab_ResponseParams',
@@ -4188,7 +5557,7 @@ glic.mojom.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseP
 };
 
 // ParamsSpec for MaybeRefreshUserStatus
-glic.mojom.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec = {
+glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.MaybeRefreshUserStatus_Params',
@@ -4201,7 +5570,7 @@ glic.mojom.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec = {
 };
 
 // ParamsSpec for IsDebuggerAttached
-glic.mojom.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec = {
+glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.IsDebuggerAttached_Params',
@@ -4213,7 +5582,7 @@ glic.mojom.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.IsDebuggerAttached_ResponseParams',
@@ -4227,7 +5596,7 @@ glic.mojom.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnViewChanged
-glic.mojom.mojom.WebClientHandler_OnViewChanged_ParamsSpec = {
+glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.OnViewChanged_Params',
@@ -4241,7 +5610,7 @@ glic.mojom.mojom.WebClientHandler_OnViewChanged_ParamsSpec = {
 };
 
 // ParamsSpec for SubscribeToPageMetadata
-glic.mojom.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec = {
+glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SubscribeToPageMetadata_Params',
@@ -4255,7 +5624,7 @@ glic.mojom.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SubscribeToPageMetadata_ResponseParams',
@@ -4269,7 +5638,7 @@ glic.mojom.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SwitchConversation
-glic.mojom.mojom.WebClientHandler_SwitchConversation_ParamsSpec = {
+glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SwitchConversation_Params',
@@ -4282,7 +5651,7 @@ glic.mojom.mojom.WebClientHandler_SwitchConversation_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SwitchConversation_ResponseParams',
@@ -4296,7 +5665,7 @@ glic.mojom.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterConversation
-glic.mojom.mojom.WebClientHandler_RegisterConversation_ParamsSpec = {
+glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.RegisterConversation_Params',
@@ -4309,7 +5678,7 @@ glic.mojom.mojom.WebClientHandler_RegisterConversation_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec = {
+glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.RegisterConversation_ResponseParams',
@@ -4323,7 +5692,7 @@ glic.mojom.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetOnboardingCompleted
-glic.mojom.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec = {
+glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SetOnboardingCompleted_Params',
@@ -4336,7 +5705,7 @@ glic.mojom.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for SubscribeToTabData
-glic.mojom.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec = {
+glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.SubscribeToTabData_Params',
@@ -4351,29 +5720,42 @@ glic.mojom.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.WebClientHandlerPtr = glic.mojom.mojom.WebClientHandlerRemote;
-glic.mojom.mojom.WebClientHandlerRequest = glic.mojom.mojom.WebClientHandlerPendingReceiver;
+glic.mojom.WebClientHandlerPtr = glic.mojom.WebClientHandlerRemote;
+glic.mojom.WebClientHandlerRequest = glic.mojom.WebClientHandlerPendingReceiver;
 
 
 // Interface: TabDataHandler
-glic.mojom.mojom.TabDataHandler = {};
+glic.mojom.TabDataHandler = {};
 
-glic.mojom.mojom.TabDataHandlerPendingReceiver = class {
+glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.TabDataHandler_OnTabDataChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.TabDataHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.TabDataHandlerRemote = class {
+glic.mojom.TabDataHandlerRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.TabDataHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.TabDataHandlerPendingReceiver,
+      glic.mojom.TabDataHandlerPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.TabDataHandlerRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.TabDataHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -4385,7 +5767,7 @@ glic.mojom.mojom.TabDataHandlerRemote = class {
   }
 };
 
-glic.mojom.mojom.TabDataHandlerRemoteCallHandler = class {
+glic.mojom.TabDataHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -4394,15 +5776,15 @@ glic.mojom.mojom.TabDataHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec,
+      glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec,
       null,
       [tab_data]);
   }
 
 };
 
-glic.mojom.mojom.TabDataHandler.getRemote = function() {
-  let remote = new glic.mojom.mojom.TabDataHandlerRemote();
+glic.mojom.TabDataHandler.getRemote = function() {
+  let remote = new glic.mojom.TabDataHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -4412,7 +5794,7 @@ glic.mojom.mojom.TabDataHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnTabDataChanged
-glic.mojom.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec = {
+glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.TabDataHandler.OnTabDataChanged_Params',
@@ -4426,29 +5808,460 @@ glic.mojom.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.TabDataHandlerPtr = glic.mojom.mojom.TabDataHandlerRemote;
-glic.mojom.mojom.TabDataHandlerRequest = glic.mojom.mojom.TabDataHandlerPendingReceiver;
+glic.mojom.TabDataHandlerPtr = glic.mojom.TabDataHandlerRemote;
+glic.mojom.TabDataHandlerRequest = glic.mojom.TabDataHandlerPendingReceiver;
 
 
 // Interface: WebClient
-glic.mojom.mojom.WebClient = {};
+glic.mojom.WebClient = {};
 
-glic.mojom.mojom.WebClientPendingReceiver = class {
+glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPanelWillOpen_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'panel_opening_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelOpeningDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPanelWasClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPanelStateChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'panel_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPanelActiveChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'panel_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPanelCanAttachChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'can_attach', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyLocationPermissionStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyFocusedTabChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'focused_tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FocusedTabDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyManualResizeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'resizing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyOsHotkeyStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hotkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyBrowserIsOpenChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'browser_is_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyInstanceActivationChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPinnedTabsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.TabDataSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPinnedTabDataChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifySkillPreviewsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'skill_previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.SkillPreviewSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifySkillPreviewChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'skill_preview', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SkillPreviewSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifySkillToInvokeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'skill', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsV2Spec, nullable: true, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyActorTaskStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: glic.mojom.ActorTaskStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_RequestViewChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_RequestViewChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ViewChangeRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyPageMetadataChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PageMetadataSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_RequestToShowUserConfirmationDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_RequestToConfirmNavigation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.NavigationConfirmationRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyAdditionalContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.AdditionalContextSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'can_act_on_web', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClient_NotifyOnboardingCompletedChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+glic.mojom.WebClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.WebClientRemote = class {
+glic.mojom.WebClientRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.WebClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.WebClientPendingReceiver,
+      glic.mojom.WebClientPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.WebClientRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.WebClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -4460,7 +6273,7 @@ glic.mojom.mojom.WebClientRemote = class {
   }
 };
 
-glic.mojom.mojom.WebClientRemoteCallHandler = class {
+glic.mojom.WebClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -4469,8 +6282,8 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec,
-      glic.mojom.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec,
+      glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec,
+      glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec,
       [panel_opening_data]);
   }
 
@@ -4478,7 +6291,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec,
+      glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec,
       null,
       []);
   }
@@ -4487,7 +6300,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPanelStateChange_ParamsSpec,
+      glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec,
       null,
       [panel_state]);
   }
@@ -4496,7 +6309,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec,
+      glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec,
       null,
       [panel_active]);
   }
@@ -4505,7 +6318,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec,
+      glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec,
       null,
       [can_attach]);
   }
@@ -4514,7 +6327,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -4523,7 +6336,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -4532,7 +6345,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -4541,7 +6354,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -4550,7 +6363,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec,
       null,
       [focused_tab_data]);
   }
@@ -4559,7 +6372,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec,
       null,
       [resizing]);
   }
@@ -4568,7 +6381,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec,
       null,
       [hotkey]);
   }
@@ -4577,7 +6390,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec,
       null,
       [browser_is_open]);
   }
@@ -4586,7 +6399,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec,
       null,
       [instance_active]);
   }
@@ -4595,7 +6408,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -4604,7 +6417,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec,
       null,
       [tab_data]);
   }
@@ -4613,7 +6426,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec,
       null,
       [tab_data]);
   }
@@ -4622,7 +6435,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      glic.mojom.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec,
       null,
       [skill_previews]);
   }
@@ -4631,7 +6444,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      glic.mojom.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec,
       null,
       [skill_preview]);
   }
@@ -4640,7 +6453,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      glic.mojom.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec,
       null,
       [skill]);
   }
@@ -4649,7 +6462,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec,
       null,
       [suggestions, options]);
   }
@@ -4658,7 +6471,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec,
       null,
       [task_id, state]);
   }
@@ -4667,7 +6480,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      glic.mojom.mojom.WebClient_RequestViewChange_ParamsSpec,
+      glic.mojom.WebClient_RequestViewChange_ParamsSpec,
       null,
       [request]);
   }
@@ -4676,7 +6489,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec,
       null,
       [tab_id, metadata]);
   }
@@ -4685,7 +6498,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -4694,8 +6507,8 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      glic.mojom.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec,
-      glic.mojom.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec,
+      glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec,
+      glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec,
       [request]);
   }
 
@@ -4703,8 +6516,8 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      glic.mojom.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec,
-      glic.mojom.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec,
+      glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec,
+      glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec,
       [request]);
   }
 
@@ -4712,8 +6525,8 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      glic.mojom.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec,
-      glic.mojom.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec,
+      glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec,
+      glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec,
       [request]);
   }
 
@@ -4721,8 +6534,8 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      glic.mojom.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec,
-      glic.mojom.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec,
+      glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec,
+      glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec,
       [request]);
   }
 
@@ -4730,7 +6543,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyAdditionalContext_ParamsSpec,
+      glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec,
       null,
       [context]);
   }
@@ -4739,7 +6552,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -4748,7 +6561,7 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec,
       null,
       [can_act_on_web]);
   }
@@ -4757,15 +6570,15 @@ glic.mojom.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      glic.mojom.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec,
+      glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec,
       null,
       [completed]);
   }
 
 };
 
-glic.mojom.mojom.WebClient.getRemote = function() {
-  let remote = new glic.mojom.mojom.WebClientRemote();
+glic.mojom.WebClient.getRemote = function() {
+  let remote = new glic.mojom.WebClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -4775,7 +6588,7 @@ glic.mojom.mojom.WebClient.getRemote = function() {
 };
 
 // ParamsSpec for NotifyPanelWillOpen
-glic.mojom.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = {
+glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPanelWillOpen_Params',
@@ -4788,7 +6601,7 @@ glic.mojom.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec = {
+glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPanelWillOpen_ResponseParams',
@@ -4802,7 +6615,7 @@ glic.mojom.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec = {
 };
 
 // ParamsSpec for NotifyPanelWasClosed
-glic.mojom.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec = {
+glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPanelWasClosed_Params',
@@ -4815,7 +6628,7 @@ glic.mojom.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyPanelStateChange
-glic.mojom.mojom.WebClient_NotifyPanelStateChange_ParamsSpec = {
+glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPanelStateChange_Params',
@@ -4829,7 +6642,7 @@ glic.mojom.mojom.WebClient_NotifyPanelStateChange_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyPanelActiveChange
-glic.mojom.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec = {
+glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPanelActiveChange_Params',
@@ -4843,7 +6656,7 @@ glic.mojom.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyPanelCanAttachChange
-glic.mojom.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec = {
+glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPanelCanAttachChange_Params',
@@ -4857,7 +6670,7 @@ glic.mojom.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyMicrophonePermissionStateChanged
-glic.mojom.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyMicrophonePermissionStateChanged_Params',
@@ -4871,7 +6684,7 @@ glic.mojom.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyLocationPermissionStateChanged
-glic.mojom.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyLocationPermissionStateChanged_Params',
@@ -4885,7 +6698,7 @@ glic.mojom.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyTabContextPermissionStateChanged
-glic.mojom.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyTabContextPermissionStateChanged_Params',
@@ -4899,7 +6712,7 @@ glic.mojom.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyOsLocationPermissionStateChanged
-glic.mojom.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyOsLocationPermissionStateChanged_Params',
@@ -4913,7 +6726,7 @@ glic.mojom.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyFocusedTabChanged
-glic.mojom.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyFocusedTabChanged_Params',
@@ -4927,7 +6740,7 @@ glic.mojom.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyManualResizeChanged
-glic.mojom.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyManualResizeChanged_Params',
@@ -4941,7 +6754,7 @@ glic.mojom.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyOsHotkeyStateChanged
-glic.mojom.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyOsHotkeyStateChanged_Params',
@@ -4955,7 +6768,7 @@ glic.mojom.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyBrowserIsOpenChanged
-glic.mojom.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyBrowserIsOpenChanged_Params',
@@ -4969,7 +6782,7 @@ glic.mojom.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyInstanceActivationChanged
-glic.mojom.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyInstanceActivationChanged_Params',
@@ -4983,7 +6796,7 @@ glic.mojom.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyClosedCaptioningSettingChanged
-glic.mojom.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyClosedCaptioningSettingChanged_Params',
@@ -4997,7 +6810,7 @@ glic.mojom.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyPinnedTabsChanged
-glic.mojom.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPinnedTabsChanged_Params',
@@ -5011,7 +6824,7 @@ glic.mojom.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyPinnedTabDataChanged
-glic.mojom.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPinnedTabDataChanged_Params',
@@ -5025,7 +6838,7 @@ glic.mojom.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifySkillPreviewsChanged
-glic.mojom.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifySkillPreviewsChanged_Params',
@@ -5039,7 +6852,7 @@ glic.mojom.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifySkillPreviewChanged
-glic.mojom.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifySkillPreviewChanged_Params',
@@ -5053,7 +6866,7 @@ glic.mojom.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifySkillToInvokeChanged
-glic.mojom.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifySkillToInvokeChanged_Params',
@@ -5067,7 +6880,7 @@ glic.mojom.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyZeroStateSuggestionsChanged
-glic.mojom.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyZeroStateSuggestionsChanged_Params',
@@ -5082,7 +6895,7 @@ glic.mojom.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyActorTaskStateChanged
-glic.mojom.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyActorTaskStateChanged_Params',
@@ -5097,7 +6910,7 @@ glic.mojom.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for RequestViewChange
-glic.mojom.mojom.WebClient_RequestViewChange_ParamsSpec = {
+glic.mojom.WebClient_RequestViewChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestViewChange_Params',
@@ -5111,7 +6924,7 @@ glic.mojom.mojom.WebClient_RequestViewChange_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyPageMetadataChanged
-glic.mojom.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyPageMetadataChanged_Params',
@@ -5126,7 +6939,7 @@ glic.mojom.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyDefaultTabContextPermissionStateChanged
-glic.mojom.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyDefaultTabContextPermissionStateChanged_Params',
@@ -5140,7 +6953,7 @@ glic.mojom.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsS
 };
 
 // ParamsSpec for RequestToShowCredentialSelectionDialog
-glic.mojom.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec = {
+glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToShowCredentialSelectionDialog_Params',
@@ -5153,7 +6966,7 @@ glic.mojom.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec = {
+glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToShowCredentialSelectionDialog_ResponseParams',
@@ -5167,7 +6980,7 @@ glic.mojom.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParams
 };
 
 // ParamsSpec for RequestToShowAutofillSuggestionsDialog
-glic.mojom.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec = {
+glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToShowAutofillSuggestionsDialog_Params',
@@ -5180,7 +6993,7 @@ glic.mojom.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec = {
+glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToShowAutofillSuggestionsDialog_ResponseParams',
@@ -5194,7 +7007,7 @@ glic.mojom.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParams
 };
 
 // ParamsSpec for RequestToShowUserConfirmationDialog
-glic.mojom.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec = {
+glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToShowUserConfirmationDialog_Params',
@@ -5207,7 +7020,7 @@ glic.mojom.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec = {
+glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToShowUserConfirmationDialog_ResponseParams',
@@ -5221,7 +7034,7 @@ glic.mojom.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpe
 };
 
 // ParamsSpec for RequestToConfirmNavigation
-glic.mojom.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec = {
+glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToConfirmNavigation_Params',
@@ -5234,7 +7047,7 @@ glic.mojom.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec = {
   }
 };
 
-glic.mojom.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec = {
+glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.RequestToConfirmNavigation_ResponseParams',
@@ -5248,7 +7061,7 @@ glic.mojom.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec = {
 };
 
 // ParamsSpec for NotifyAdditionalContext
-glic.mojom.mojom.WebClient_NotifyAdditionalContext_ParamsSpec = {
+glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyAdditionalContext_Params',
@@ -5262,7 +7075,7 @@ glic.mojom.mojom.WebClient_NotifyAdditionalContext_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyActuationOnWebSettingChanged
-glic.mojom.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyActuationOnWebSettingChanged_Params',
@@ -5276,7 +7089,7 @@ glic.mojom.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyActOnWebCapabilityChanged
-glic.mojom.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyActOnWebCapabilityChanged_Params',
@@ -5290,7 +7103,7 @@ glic.mojom.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyOnboardingCompletedChanged
-glic.mojom.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec = {
+glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyOnboardingCompletedChanged_Params',
@@ -5304,29 +7117,43 @@ glic.mojom.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.WebClientPtr = glic.mojom.mojom.WebClientRemote;
-glic.mojom.mojom.WebClientRequest = glic.mojom.mojom.WebClientPendingReceiver;
+glic.mojom.WebClientPtr = glic.mojom.WebClientRemote;
+glic.mojom.WebClientRequest = glic.mojom.WebClientPendingReceiver;
 
 
 // Interface: CaptureRegionObserver
-glic.mojom.mojom.CaptureRegionObserver = {};
+glic.mojom.CaptureRegionObserver = {};
 
-glic.mojom.mojom.CaptureRegionObserverPendingReceiver = class {
+glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.CaptureRegionObserver_OnUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CaptureRegionResultSpec, nullable: true, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CaptureRegionErrorReasonSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+glic.mojom.CaptureRegionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.mojom.CaptureRegionObserverRemote = class {
+glic.mojom.CaptureRegionObserverRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.CaptureRegionObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.mojom.CaptureRegionObserverPendingReceiver,
+      glic.mojom.CaptureRegionObserverPendingReceiver,
       handle);
-    this.$ = new glic.mojom.mojom.CaptureRegionObserverRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.CaptureRegionObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -5338,7 +7165,7 @@ glic.mojom.mojom.CaptureRegionObserverRemote = class {
   }
 };
 
-glic.mojom.mojom.CaptureRegionObserverRemoteCallHandler = class {
+glic.mojom.CaptureRegionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -5347,15 +7174,15 @@ glic.mojom.mojom.CaptureRegionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec,
+      glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec,
       null,
       [result, reason]);
   }
 
 };
 
-glic.mojom.mojom.CaptureRegionObserver.getRemote = function() {
-  let remote = new glic.mojom.mojom.CaptureRegionObserverRemote();
+glic.mojom.CaptureRegionObserver.getRemote = function() {
+  let remote = new glic.mojom.CaptureRegionObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -5365,7 +7192,7 @@ glic.mojom.mojom.CaptureRegionObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnUpdate
-glic.mojom.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec = {
+glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.CaptureRegionObserver.OnUpdate_Params',
@@ -5380,6 +7207,6 @@ glic.mojom.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.mojom.CaptureRegionObserverPtr = glic.mojom.mojom.CaptureRegionObserverRemote;
-glic.mojom.mojom.CaptureRegionObserverRequest = glic.mojom.mojom.CaptureRegionObserverPendingReceiver;
+glic.mojom.CaptureRegionObserverPtr = glic.mojom.CaptureRegionObserverRemote;
+glic.mojom.CaptureRegionObserverRequest = glic.mojom.CaptureRegionObserverPendingReceiver;
 

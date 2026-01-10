@@ -10,7 +10,7 @@ lens.mojom = lens.mojom || {};
 
 
 // Struct: Language
-lens.mojom.mojom.LanguageSpec = {
+lens.mojom.LanguageSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Language',

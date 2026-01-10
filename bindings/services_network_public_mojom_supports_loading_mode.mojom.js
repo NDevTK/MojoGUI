@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: LoadingMode
-network.mojom.mojom.LoadingMode = {
+network.mojom.LoadingMode = {
   kDefault: 0,
   kUncredentialedPrefetch: 1,
   kUncredentialedPrerender: 2,
@@ -18,10 +18,10 @@ network.mojom.mojom.LoadingMode = {
   kFencedFrame: 4,
   kPrerenderCrossOriginFrames: 5,
 };
-network.mojom.mojom.LoadingModeSpec = { $: mojo.internal.Enum() };
+network.mojom.LoadingModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SupportsLoadingMode
-network.mojom.mojom.SupportsLoadingModeSpec = {
+network.mojom.SupportsLoadingModeSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SupportsLoadingMode',

@@ -7,46 +7,46 @@
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
-ash.diagnostics.diagnostics.mojom = ash.diagnostics.diagnostics.mojom || {};
+ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
 
 // Enum: ConnectionType
-ash.diagnostics.diagnostics.mojom.mojom.ConnectionType = {
+ash.diagnostics.mojom.ConnectionType = {
   kInternal: 0,
   kUsb: 1,
   kBluetooth: 2,
   kUnknown: 3,
 };
-ash.diagnostics.diagnostics.mojom.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PhysicalLayout
-ash.diagnostics.diagnostics.mojom.mojom.PhysicalLayout = {
+ash.diagnostics.mojom.PhysicalLayout = {
   kUnknown: 0,
   kChromeOS: 1,
   kChromeOSDellEnterpriseWilco: 2,
   kChromeOSDellEnterpriseDrallion: 3,
 };
-ash.diagnostics.diagnostics.mojom.mojom.PhysicalLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.PhysicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: MechanicalLayout
-ash.diagnostics.diagnostics.mojom.mojom.MechanicalLayout = {
+ash.diagnostics.mojom.MechanicalLayout = {
   kUnknown: 0,
   kAnsi: 1,
   kIso: 2,
   kJis: 3,
 };
-ash.diagnostics.diagnostics.mojom.mojom.MechanicalLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.MechanicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: NumberPadPresence
-ash.diagnostics.diagnostics.mojom.mojom.NumberPadPresence = {
+ash.diagnostics.mojom.NumberPadPresence = {
   kUnknown: 0,
   kPresent: 1,
   kNotPresent: 2,
 };
-ash.diagnostics.diagnostics.mojom.mojom.NumberPadPresenceSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.NumberPadPresenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TopRowKey
-ash.diagnostics.diagnostics.mojom.mojom.TopRowKey = {
+ash.diagnostics.mojom.TopRowKey = {
   kNone: 0,
   kUnknown: 1,
   kBack: 2,
@@ -71,41 +71,41 @@ ash.diagnostics.diagnostics.mojom.mojom.TopRowKey = {
   kScreenMirror: 21,
   kDelete: 22,
 };
-ash.diagnostics.diagnostics.mojom.mojom.TopRowKeySpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.TopRowKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: TopRightKey
-ash.diagnostics.diagnostics.mojom.mojom.TopRightKey = {
+ash.diagnostics.mojom.TopRightKey = {
   kUnknown: 0,
   kPower: 1,
   kLock: 2,
   kControlPanel: 3,
 };
-ash.diagnostics.diagnostics.mojom.mojom.TopRightKeySpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.TopRightKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: BottomLeftLayout
-ash.diagnostics.diagnostics.mojom.mojom.BottomLeftLayout = {
+ash.diagnostics.mojom.BottomLeftLayout = {
   kBottomLeft3Keys: 0,
   kBottomLeft4Keys: 1,
 };
-ash.diagnostics.diagnostics.mojom.mojom.BottomLeftLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.BottomLeftLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: BottomRightLayout
-ash.diagnostics.diagnostics.mojom.mojom.BottomRightLayout = {
+ash.diagnostics.mojom.BottomRightLayout = {
   kBottomRight2Keys: 0,
   kBottomRight3Keys: 1,
   kBottomRight4Keys: 2,
 };
-ash.diagnostics.diagnostics.mojom.mojom.BottomRightLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.BottomRightLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: NumpadLayout
-ash.diagnostics.diagnostics.mojom.mojom.NumpadLayout = {
+ash.diagnostics.mojom.NumpadLayout = {
   kNumpad3Column: 0,
   kNumpad4Column: 1,
 };
-ash.diagnostics.diagnostics.mojom.mojom.NumpadLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.NumpadLayoutSpec = { $: mojo.internal.Enum() };
 
 // Struct: KeyboardInfo
-ash.diagnostics.diagnostics.mojom.mojom.KeyboardInfoSpec = {
+ash.diagnostics.mojom.KeyboardInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.KeyboardInfo',
@@ -131,7 +131,7 @@ ash.diagnostics.diagnostics.mojom.mojom.KeyboardInfoSpec = {
 };
 
 // Struct: KeyboardDiagnosticEventInfo
-ash.diagnostics.diagnostics.mojom.mojom.KeyboardDiagnosticEventInfoSpec = {
+ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.KeyboardDiagnosticEventInfo',

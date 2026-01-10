@@ -7,28 +7,41 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.ime.mojom = ash.ime.ime.mojom || {};
+ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Interface: InputChannel
-ash.ime.ime.mojom.mojom.InputChannel = {};
+ash.ime.mojom.InputChannel = {};
 
-ash.ime.ime.mojom.mojom.InputChannelPendingReceiver = class {
+ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputChannel_ProcessMessage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.ime.mojom.mojom.InputChannelRemote = class {
+ash.ime.mojom.InputChannelRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.InputChannel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.ime.mojom.mojom.InputChannelPendingReceiver,
+      ash.ime.mojom.InputChannelPendingReceiver,
       handle);
-    this.$ = new ash.ime.ime.mojom.mojom.InputChannelRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.mojom.InputChannelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ ash.ime.ime.mojom.mojom.InputChannelRemote = class {
   }
 };
 
-ash.ime.ime.mojom.mojom.InputChannelRemoteCallHandler = class {
+ash.ime.mojom.InputChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ ash.ime.ime.mojom.mojom.InputChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.ime.mojom.mojom.InputChannel_ProcessMessage_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
+      ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec,
+      ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
       [message]);
   }
 
 };
 
-ash.ime.ime.mojom.mojom.InputChannel.getRemote = function() {
-  let remote = new ash.ime.ime.mojom.mojom.InputChannelRemote();
+ash.ime.mojom.InputChannel.getRemote = function() {
+  let remote = new ash.ime.mojom.InputChannelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ ash.ime.ime.mojom.mojom.InputChannel.getRemote = function() {
 };
 
 // ParamsSpec for ProcessMessage
-ash.ime.ime.mojom.mojom.InputChannel_ProcessMessage_ParamsSpec = {
+ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputChannel.ProcessMessage_Params',
@@ -80,7 +93,7 @@ ash.ime.ime.mojom.mojom.InputChannel_ProcessMessage_ParamsSpec = {
   }
 };
 
-ash.ime.ime.mojom.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
+ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputChannel.ProcessMessage_ResponseParams',
@@ -94,6 +107,6 @@ ash.ime.ime.mojom.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.ime.ime.mojom.mojom.InputChannelPtr = ash.ime.ime.mojom.mojom.InputChannelRemote;
-ash.ime.ime.mojom.mojom.InputChannelRequest = ash.ime.ime.mojom.mojom.InputChannelPendingReceiver;
+ash.ime.mojom.InputChannelPtr = ash.ime.mojom.InputChannelRemote;
+ash.ime.mojom.InputChannelRequest = ash.ime.mojom.InputChannelPendingReceiver;
 

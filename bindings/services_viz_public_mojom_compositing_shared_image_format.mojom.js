@@ -10,34 +10,34 @@ viz.mojom = viz.mojom || {};
 
 
 // Enum: PlaneConfig
-viz.mojom.mojom.PlaneConfig = {
+viz.mojom.PlaneConfig = {
   kY_U_V: 0,
   kY_V_U: 1,
   kY_UV: 2,
   kY_UV_A: 3,
   kY_U_V_A: 4,
 };
-viz.mojom.mojom.PlaneConfigSpec = { $: mojo.internal.Enum() };
+viz.mojom.PlaneConfigSpec = { $: mojo.internal.Enum() };
 
 // Enum: Subsampling
-viz.mojom.mojom.Subsampling = {
+viz.mojom.Subsampling = {
   k420: 0,
   k422: 1,
   k444: 2,
 };
-viz.mojom.mojom.SubsamplingSpec = { $: mojo.internal.Enum() };
+viz.mojom.SubsamplingSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChannelFormat
-viz.mojom.mojom.ChannelFormat = {
+viz.mojom.ChannelFormat = {
   k8: 0,
   k10: 1,
   k16: 2,
   k16F: 3,
 };
-viz.mojom.mojom.ChannelFormatSpec = { $: mojo.internal.Enum() };
+viz.mojom.ChannelFormatSpec = { $: mojo.internal.Enum() };
 
 // Union: SharedImageFormat
-viz.mojom.mojom.SharedImageFormatSpec = { $: mojo.internal.Union(
+viz.mojom.SharedImageFormatSpec = { $: mojo.internal.Union(
     'viz.mojom.SharedImageFormat', {
       'singleplanar_format': {
         'ordinal': 0,
@@ -51,7 +51,7 @@ viz.mojom.mojom.SharedImageFormatSpec = { $: mojo.internal.Union(
 };
 
 // Struct: MultiplanarFormat
-viz.mojom.mojom.MultiplanarFormatSpec = {
+viz.mojom.MultiplanarFormatSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.MultiplanarFormat',

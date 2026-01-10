@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: IfAddrMsg
-network.mojom.mojom.IfAddrMsgSpec = {
+network.mojom.IfAddrMsgSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.IfAddrMsg',
@@ -28,7 +28,7 @@ network.mojom.mojom.IfAddrMsgSpec = {
 };
 
 // Struct: AddressMap
-network.mojom.mojom.AddressMapSpec = {
+network.mojom.AddressMapSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AddressMap',
@@ -42,7 +42,7 @@ network.mojom.mojom.AddressMapSpec = {
 };
 
 // Struct: OnlineLinks
-network.mojom.mojom.OnlineLinksSpec = {
+network.mojom.OnlineLinksSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.OnlineLinks',
@@ -56,7 +56,7 @@ network.mojom.mojom.OnlineLinksSpec = {
 };
 
 // Struct: InitialAddressMap
-network.mojom.mojom.InitialAddressMapSpec = {
+network.mojom.InitialAddressMapSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.InitialAddressMap',
@@ -71,7 +71,7 @@ network.mojom.mojom.InitialAddressMapSpec = {
 };
 
 // Struct: NetworkInterfaceChangeParams
-network.mojom.mojom.NetworkInterfaceChangeParamsSpec = {
+network.mojom.NetworkInterfaceChangeParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkInterfaceChangeParams',
@@ -86,24 +86,37 @@ network.mojom.mojom.NetworkInterfaceChangeParamsSpec = {
 };
 
 // Interface: NetworkInterfaceChangeListener
-network.mojom.mojom.NetworkInterfaceChangeListener = {};
+network.mojom.NetworkInterfaceChangeListener = {};
 
-network.mojom.mojom.NetworkInterfaceChangeListenerPendingReceiver = class {
+network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkInterfaceChangeParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkInterfaceChangeListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.NetworkInterfaceChangeListenerRemote = class {
+network.mojom.NetworkInterfaceChangeListenerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkInterfaceChangeListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.NetworkInterfaceChangeListenerPendingReceiver,
+      network.mojom.NetworkInterfaceChangeListenerPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.NetworkInterfaceChangeListenerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +128,7 @@ network.mojom.mojom.NetworkInterfaceChangeListenerRemote = class {
   }
 };
 
-network.mojom.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
+network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +137,15 @@ network.mojom.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec,
+      network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec,
       null,
       [params]);
   }
 
 };
 
-network.mojom.mojom.NetworkInterfaceChangeListener.getRemote = function() {
-  let remote = new network.mojom.mojom.NetworkInterfaceChangeListenerRemote();
+network.mojom.NetworkInterfaceChangeListener.getRemote = function() {
+  let remote = new network.mojom.NetworkInterfaceChangeListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +155,7 @@ network.mojom.mojom.NetworkInterfaceChangeListener.getRemote = function() {
 };
 
 // ParamsSpec for OnNetworkInterfacesChanged
-network.mojom.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = {
+network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkInterfaceChangeListener.OnNetworkInterfacesChanged_Params',
@@ -156,6 +169,6 @@ network.mojom.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_Pa
 };
 
 // Legacy compatibility
-network.mojom.mojom.NetworkInterfaceChangeListenerPtr = network.mojom.mojom.NetworkInterfaceChangeListenerRemote;
-network.mojom.mojom.NetworkInterfaceChangeListenerRequest = network.mojom.mojom.NetworkInterfaceChangeListenerPendingReceiver;
+network.mojom.NetworkInterfaceChangeListenerPtr = network.mojom.NetworkInterfaceChangeListenerRemote;
+network.mojom.NetworkInterfaceChangeListenerRequest = network.mojom.NetworkInterfaceChangeListenerPendingReceiver;
 

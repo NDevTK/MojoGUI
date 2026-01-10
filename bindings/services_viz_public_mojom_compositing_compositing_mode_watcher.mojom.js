@@ -10,24 +10,36 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: CompositingModeWatcher
-viz.mojom.mojom.CompositingModeWatcher = {};
+viz.mojom.CompositingModeWatcher = {};
 
-viz.mojom.mojom.CompositingModeWatcherPendingReceiver = class {
+viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.CompositingModeWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.CompositingModeWatcherRemote = class {
+viz.mojom.CompositingModeWatcherRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.CompositingModeWatcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.CompositingModeWatcherPendingReceiver,
+      viz.mojom.CompositingModeWatcherPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.CompositingModeWatcherRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.CompositingModeWatcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ viz.mojom.mojom.CompositingModeWatcherRemote = class {
   }
 };
 
-viz.mojom.mojom.CompositingModeWatcherRemoteCallHandler = class {
+viz.mojom.CompositingModeWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ viz.mojom.mojom.CompositingModeWatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec,
+      viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec,
       null,
       []);
   }
 
 };
 
-viz.mojom.mojom.CompositingModeWatcher.getRemote = function() {
-  let remote = new viz.mojom.mojom.CompositingModeWatcherRemote();
+viz.mojom.CompositingModeWatcher.getRemote = function() {
+  let remote = new viz.mojom.CompositingModeWatcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ viz.mojom.mojom.CompositingModeWatcher.getRemote = function() {
 };
 
 // ParamsSpec for CompositingModeFallbackToSoftware
-viz.mojom.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = {
+viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositingModeWatcher.CompositingModeFallbackToSoftware_Params',
@@ -79,29 +91,42 @@ viz.mojom.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsS
 };
 
 // Legacy compatibility
-viz.mojom.mojom.CompositingModeWatcherPtr = viz.mojom.mojom.CompositingModeWatcherRemote;
-viz.mojom.mojom.CompositingModeWatcherRequest = viz.mojom.mojom.CompositingModeWatcherPendingReceiver;
+viz.mojom.CompositingModeWatcherPtr = viz.mojom.CompositingModeWatcherRemote;
+viz.mojom.CompositingModeWatcherRequest = viz.mojom.CompositingModeWatcherPendingReceiver;
 
 
 // Interface: CompositingModeReporter
-viz.mojom.mojom.CompositingModeReporter = {};
+viz.mojom.CompositingModeReporter = {};
 
-viz.mojom.mojom.CompositingModeReporterPendingReceiver = class {
+viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'watcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CompositingModeWatcherRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.CompositingModeReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.CompositingModeReporterRemote = class {
+viz.mojom.CompositingModeReporterRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.CompositingModeReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.CompositingModeReporterPendingReceiver,
+      viz.mojom.CompositingModeReporterPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.CompositingModeReporterRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.CompositingModeReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -113,7 +138,7 @@ viz.mojom.mojom.CompositingModeReporterRemote = class {
   }
 };
 
-viz.mojom.mojom.CompositingModeReporterRemoteCallHandler = class {
+viz.mojom.CompositingModeReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -122,15 +147,15 @@ viz.mojom.mojom.CompositingModeReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec,
+      viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec,
       null,
       [watcher]);
   }
 
 };
 
-viz.mojom.mojom.CompositingModeReporter.getRemote = function() {
-  let remote = new viz.mojom.mojom.CompositingModeReporterRemote();
+viz.mojom.CompositingModeReporter.getRemote = function() {
+  let remote = new viz.mojom.CompositingModeReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -140,7 +165,7 @@ viz.mojom.mojom.CompositingModeReporter.getRemote = function() {
 };
 
 // ParamsSpec for AddCompositingModeWatcher
-viz.mojom.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
+viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositingModeReporter.AddCompositingModeWatcher_Params',
@@ -154,6 +179,6 @@ viz.mojom.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.CompositingModeReporterPtr = viz.mojom.mojom.CompositingModeReporterRemote;
-viz.mojom.mojom.CompositingModeReporterRequest = viz.mojom.mojom.CompositingModeReporterPendingReceiver;
+viz.mojom.CompositingModeReporterPtr = viz.mojom.CompositingModeReporterRemote;
+viz.mojom.CompositingModeReporterRequest = viz.mojom.CompositingModeReporterPendingReceiver;
 

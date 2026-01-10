@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: LeakDetectionResult
-blink.mojom.mojom.LeakDetectionResultSpec = {
+blink.mojom.LeakDetectionResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LeakDetectionResult',
@@ -34,24 +34,36 @@ blink.mojom.mojom.LeakDetectionResultSpec = {
 };
 
 // Interface: LeakDetector
-blink.mojom.mojom.LeakDetector = {};
+blink.mojom.LeakDetector = {};
 
-blink.mojom.mojom.LeakDetectorPendingReceiver = class {
+blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LeakDetector_PerformLeakDetection_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.LeakDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.LeakDetectorRemote = class {
+blink.mojom.LeakDetectorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.LeakDetector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.LeakDetectorPendingReceiver,
+      blink.mojom.LeakDetectorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.LeakDetectorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.LeakDetectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -63,7 +75,7 @@ blink.mojom.mojom.LeakDetectorRemote = class {
   }
 };
 
-blink.mojom.mojom.LeakDetectorRemoteCallHandler = class {
+blink.mojom.LeakDetectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -72,15 +84,15 @@ blink.mojom.mojom.LeakDetectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.LeakDetector_PerformLeakDetection_ParamsSpec,
-      blink.mojom.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec,
+      blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec,
+      blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.LeakDetector.getRemote = function() {
-  let remote = new blink.mojom.mojom.LeakDetectorRemote();
+blink.mojom.LeakDetector.getRemote = function() {
+  let remote = new blink.mojom.LeakDetectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +102,7 @@ blink.mojom.mojom.LeakDetector.getRemote = function() {
 };
 
 // ParamsSpec for PerformLeakDetection
-blink.mojom.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
+blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LeakDetector.PerformLeakDetection_Params',
@@ -102,7 +114,7 @@ blink.mojom.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
+blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LeakDetector.PerformLeakDetection_ResponseParams',
@@ -116,6 +128,6 @@ blink.mojom.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.LeakDetectorPtr = blink.mojom.mojom.LeakDetectorRemote;
-blink.mojom.mojom.LeakDetectorRequest = blink.mojom.mojom.LeakDetectorPendingReceiver;
+blink.mojom.LeakDetectorPtr = blink.mojom.LeakDetectorRemote;
+blink.mojom.LeakDetectorRequest = blink.mojom.LeakDetectorPendingReceiver;
 

@@ -14,38 +14,38 @@ var url = url || {};
 
 
 // Enum: ReportingDestination
-blink.mojom.mojom.ReportingDestination = {
+blink.mojom.ReportingDestination = {
   kBuyer: 0,
   kSeller: 1,
   kComponentSeller: 2,
   kSharedStorageSelectUrl: 3,
   kDirectSeller: 4,
 };
-blink.mojom.mojom.ReportingDestinationSpec = { $: mojo.internal.Enum() };
+blink.mojom.ReportingDestinationSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeprecatedFencedFrameMode
-blink.mojom.mojom.DeprecatedFencedFrameMode = {
+blink.mojom.DeprecatedFencedFrameMode = {
   kDefault: 0,
   kOpaqueAds: 1,
 };
-blink.mojom.mojom.DeprecatedFencedFrameModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.DeprecatedFencedFrameModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Opaque
-blink.mojom.mojom.Opaque = {
+blink.mojom.Opaque = {
   kOpaque: 0,
 };
-blink.mojom.mojom.OpaqueSpec = { $: mojo.internal.Enum() };
+blink.mojom.OpaqueSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutomaticBeaconType
-blink.mojom.mojom.AutomaticBeaconType = {
+blink.mojom.AutomaticBeaconType = {
   kDeprecatedTopNavigation: 0,
   kTopNavigationStart: 1,
   kTopNavigationCommit: 2,
 };
-blink.mojom.mojom.AutomaticBeaconTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AutomaticBeaconTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: PotentiallyOpaqueURL
-blink.mojom.mojom.PotentiallyOpaqueURLSpec = { $: mojo.internal.Union(
+blink.mojom.PotentiallyOpaqueURLSpec = { $: mojo.internal.Union(
     'blink.mojom.PotentiallyOpaqueURL', {
       'transparent': {
         'ordinal': 0,
@@ -59,7 +59,7 @@ blink.mojom.mojom.PotentiallyOpaqueURLSpec = { $: mojo.internal.Union(
 };
 
 // Union: PotentiallyOpaqueSize
-blink.mojom.mojom.PotentiallyOpaqueSizeSpec = { $: mojo.internal.Union(
+blink.mojom.PotentiallyOpaqueSizeSpec = { $: mojo.internal.Union(
     'blink.mojom.PotentiallyOpaqueSize', {
       'transparent': {
         'ordinal': 0,
@@ -73,7 +73,7 @@ blink.mojom.mojom.PotentiallyOpaqueSizeSpec = { $: mojo.internal.Union(
 };
 
 // Union: PotentiallyOpaqueBool
-blink.mojom.mojom.PotentiallyOpaqueBoolSpec = { $: mojo.internal.Union(
+blink.mojom.PotentiallyOpaqueBoolSpec = { $: mojo.internal.Union(
     'blink.mojom.PotentiallyOpaqueBool', {
       'transparent': {
         'ordinal': 0,
@@ -87,7 +87,7 @@ blink.mojom.mojom.PotentiallyOpaqueBoolSpec = { $: mojo.internal.Union(
 };
 
 // Union: PotentiallyOpaqueAdAuctionData
-blink.mojom.mojom.PotentiallyOpaqueAdAuctionDataSpec = { $: mojo.internal.Union(
+blink.mojom.PotentiallyOpaqueAdAuctionDataSpec = { $: mojo.internal.Union(
     'blink.mojom.PotentiallyOpaqueAdAuctionData', {
       'transparent': {
         'ordinal': 0,
@@ -101,7 +101,7 @@ blink.mojom.mojom.PotentiallyOpaqueAdAuctionDataSpec = { $: mojo.internal.Union(
 };
 
 // Union: PotentiallyOpaqueConfigVector
-blink.mojom.mojom.PotentiallyOpaqueConfigVectorSpec = { $: mojo.internal.Union(
+blink.mojom.PotentiallyOpaqueConfigVectorSpec = { $: mojo.internal.Union(
     'blink.mojom.PotentiallyOpaqueConfigVector', {
       'transparent': {
         'ordinal': 0,
@@ -115,7 +115,7 @@ blink.mojom.mojom.PotentiallyOpaqueConfigVectorSpec = { $: mojo.internal.Union(
 };
 
 // Union: PotentiallyOpaqueURNConfigVector
-blink.mojom.mojom.PotentiallyOpaqueURNConfigVectorSpec = { $: mojo.internal.Union(
+blink.mojom.PotentiallyOpaqueURNConfigVectorSpec = { $: mojo.internal.Union(
     'blink.mojom.PotentiallyOpaqueURNConfigVector', {
       'transparent': {
         'ordinal': 0,
@@ -129,7 +129,7 @@ blink.mojom.mojom.PotentiallyOpaqueURNConfigVectorSpec = { $: mojo.internal.Unio
 };
 
 // Union: PotentiallyOpaqueSharedStorageBudgetMetadata
-blink.mojom.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec = { $: mojo.internal.Union(
+blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec = { $: mojo.internal.Union(
     'blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadata', {
       'transparent': {
         'ordinal': 0,
@@ -143,7 +143,7 @@ blink.mojom.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec = { $: mojo.i
 };
 
 // Struct: AdAuctionData
-blink.mojom.mojom.AdAuctionDataSpec = {
+blink.mojom.AdAuctionDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionData',
@@ -158,7 +158,7 @@ blink.mojom.mojom.AdAuctionDataSpec = {
 };
 
 // Struct: URNConfigPair
-blink.mojom.mojom.URNConfigPairSpec = {
+blink.mojom.URNConfigPairSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.URNConfigPair',
@@ -173,7 +173,7 @@ blink.mojom.mojom.URNConfigPairSpec = {
 };
 
 // Struct: SharedStorageBudgetMetadata
-blink.mojom.mojom.SharedStorageBudgetMetadataSpec = {
+blink.mojom.SharedStorageBudgetMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedStorageBudgetMetadata',
@@ -189,7 +189,7 @@ blink.mojom.mojom.SharedStorageBudgetMetadataSpec = {
 };
 
 // Struct: ParentPermissionsInfo
-blink.mojom.mojom.ParentPermissionsInfoSpec = {
+blink.mojom.ParentPermissionsInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ParentPermissionsInfo',
@@ -204,7 +204,7 @@ blink.mojom.mojom.ParentPermissionsInfoSpec = {
 };
 
 // Struct: FencedFrameConfig
-blink.mojom.mojom.FencedFrameConfigSpec = {
+blink.mojom.FencedFrameConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FencedFrameConfig',
@@ -228,7 +228,7 @@ blink.mojom.mojom.FencedFrameConfigSpec = {
 };
 
 // Struct: FencedFrameProperties
-blink.mojom.mojom.FencedFramePropertiesSpec = {
+blink.mojom.FencedFramePropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FencedFrameProperties',

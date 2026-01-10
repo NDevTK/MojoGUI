@@ -9,46 +9,46 @@ var filesystem = filesystem || {};
 filesystem.mojom = filesystem.mojom || {};
 
 
-filesystem.mojom.mojom.kFlagOpen = 0x1;
+filesystem.mojom.kFlagOpen = 0x1;
 
-filesystem.mojom.mojom.kFlagCreate = 0x2;
+filesystem.mojom.kFlagCreate = 0x2;
 
-filesystem.mojom.mojom.kFlagOpenAlways = 0x4;
+filesystem.mojom.kFlagOpenAlways = 0x4;
 
-filesystem.mojom.mojom.kCreateAlways = 0x8;
+filesystem.mojom.kCreateAlways = 0x8;
 
-filesystem.mojom.mojom.kFlagOpenTruncated = 0x10;
+filesystem.mojom.kFlagOpenTruncated = 0x10;
 
-filesystem.mojom.mojom.kFlagRead = 0x20;
+filesystem.mojom.kFlagRead = 0x20;
 
-filesystem.mojom.mojom.kFlagWrite = 0x40;
+filesystem.mojom.kFlagWrite = 0x40;
 
-filesystem.mojom.mojom.kFlagAppend = 0x80;
+filesystem.mojom.kFlagAppend = 0x80;
 
-filesystem.mojom.mojom.kDeleteOnClose = 0x2000;
+filesystem.mojom.kDeleteOnClose = 0x2000;
 
-filesystem.mojom.mojom.kFlagWriteAttributes = 0x4000;
+filesystem.mojom.kFlagWriteAttributes = 0x4000;
 
-filesystem.mojom.mojom.kDeleteFlagRecursive = 0x1;
+filesystem.mojom.kDeleteFlagRecursive = 0x1;
 
 // Enum: Whence
-filesystem.mojom.mojom.Whence = {
+filesystem.mojom.Whence = {
   FROM_BEGIN: 0,
   FROM_CURRENT: 1,
   FROM_END: 2,
 };
-filesystem.mojom.mojom.WhenceSpec = { $: mojo.internal.Enum() };
+filesystem.mojom.WhenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FsFileType
-filesystem.mojom.mojom.FsFileType = {
+filesystem.mojom.FsFileType = {
   UNKNOWN: 0,
   REGULAR_FILE: 1,
   DIRECTORY: 2,
 };
-filesystem.mojom.mojom.FsFileTypeSpec = { $: mojo.internal.Enum() };
+filesystem.mojom.FsFileTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TimespecOrNow
-filesystem.mojom.mojom.TimespecOrNowSpec = {
+filesystem.mojom.TimespecOrNowSpec = {
   $: {
     structSpec: {
       name: 'filesystem.mojom.TimespecOrNow',
@@ -63,7 +63,7 @@ filesystem.mojom.mojom.TimespecOrNowSpec = {
 };
 
 // Struct: FileInformation
-filesystem.mojom.mojom.FileInformationSpec = {
+filesystem.mojom.FileInformationSpec = {
   $: {
     structSpec: {
       name: 'filesystem.mojom.FileInformation',
@@ -81,7 +81,7 @@ filesystem.mojom.mojom.FileInformationSpec = {
 };
 
 // Struct: DirectoryEntry
-filesystem.mojom.mojom.DirectoryEntrySpec = {
+filesystem.mojom.DirectoryEntrySpec = {
   $: {
     structSpec: {
       name: 'filesystem.mojom.DirectoryEntry',

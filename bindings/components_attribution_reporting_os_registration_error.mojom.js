@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Enum: OsRegistrationError
-attribution_reporting.mojom.mojom.OsRegistrationError = {
+attribution_reporting.mojom.OsRegistrationError = {
   kInvalidList: 0,
 };
-attribution_reporting.mojom.mojom.OsRegistrationErrorSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.OsRegistrationErrorSpec = { $: mojo.internal.Enum() };

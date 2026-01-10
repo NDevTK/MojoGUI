@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: LayerSelectionBound
-cc.mojom.mojom.LayerSelectionBoundSpec = {
+cc.mojom.LayerSelectionBoundSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.LayerSelectionBound',
@@ -32,7 +32,7 @@ cc.mojom.mojom.LayerSelectionBoundSpec = {
 };
 
 // Struct: LayerSelection
-cc.mojom.mojom.LayerSelectionSpec = {
+cc.mojom.LayerSelectionSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.LayerSelection',

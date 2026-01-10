@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: ReadOnlyBuffer
-mojo_base.mojom.mojom.ReadOnlyBufferSpec = {
+mojo_base.mojom.ReadOnlyBufferSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ReadOnlyBuffer',

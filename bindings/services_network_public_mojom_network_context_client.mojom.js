@@ -12,24 +12,106 @@ var url = url || {};
 
 
 // Interface: NetworkContextClient
-network.mojom.mojom.NetworkContextClient = {};
+network.mojom.NetworkContextClient = {};
 
-network.mojom.mojom.NetworkContextClientPendingReceiver = class {
+network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextClient_OnFileUploadRequested_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'async', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
+        { name: 'destination_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextClient_OnCanSendReportingReports_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'server_auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'can_delegate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'auth_negotiate_android_account_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'spn', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.NetworkContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.NetworkContextClientRemote = class {
+network.mojom.NetworkContextClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkContextClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.NetworkContextClientPendingReceiver,
+      network.mojom.NetworkContextClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.NetworkContextClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.NetworkContextClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +123,7 @@ network.mojom.mojom.NetworkContextClientRemote = class {
   }
 };
 
-network.mojom.mojom.NetworkContextClientRemoteCallHandler = class {
+network.mojom.NetworkContextClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +132,8 @@ network.mojom.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec,
-      network.mojom.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec,
+      network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec,
+      network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec,
       [process_id, async, file_paths, destination_url]);
   }
 
@@ -59,8 +141,8 @@ network.mojom.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec,
-      network.mojom.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec,
       [origins]);
   }
 
@@ -68,8 +150,8 @@ network.mojom.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec,
-      network.mojom.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec,
       [origin]);
   }
 
@@ -77,8 +159,8 @@ network.mojom.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec,
-      network.mojom.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec,
+      network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec,
+      network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec,
       [server_auth_token, can_delegate, auth_negotiate_android_account_type, spn]);
   }
 
@@ -86,8 +168,8 @@ network.mojom.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec,
-      network.mojom.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec,
       []);
   }
 
@@ -95,15 +177,15 @@ network.mojom.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec,
+      network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.mojom.NetworkContextClient.getRemote = function() {
-  let remote = new network.mojom.mojom.NetworkContextClientRemote();
+network.mojom.NetworkContextClient.getRemote = function() {
+  let remote = new network.mojom.NetworkContextClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -113,7 +195,7 @@ network.mojom.mojom.NetworkContextClient.getRemote = function() {
 };
 
 // ParamsSpec for OnFileUploadRequested
-network.mojom.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
+network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnFileUploadRequested_Params',
@@ -129,7 +211,7 @@ network.mojom.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec = {
+network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnFileUploadRequested_ResponseParams',
@@ -144,7 +226,7 @@ network.mojom.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpe
 };
 
 // ParamsSpec for OnCanSendReportingReports
-network.mojom.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = {
+network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnCanSendReportingReports_Params',
@@ -157,7 +239,7 @@ network.mojom.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = 
   }
 };
 
-network.mojom.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec = {
+network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnCanSendReportingReports_ResponseParams',
@@ -171,7 +253,7 @@ network.mojom.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParam
 };
 
 // ParamsSpec for OnCanSendDomainReliabilityUpload
-network.mojom.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec = {
+network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnCanSendDomainReliabilityUpload_Params',
@@ -184,7 +266,7 @@ network.mojom.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_Params
   }
 };
 
-network.mojom.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec = {
+network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnCanSendDomainReliabilityUpload_ResponseParams',
@@ -198,7 +280,7 @@ network.mojom.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_Respon
 };
 
 // ParamsSpec for OnGenerateHttpNegotiateAuthToken
-network.mojom.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec = {
+network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnGenerateHttpNegotiateAuthToken_Params',
@@ -214,7 +296,7 @@ network.mojom.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_Params
   }
 };
 
-network.mojom.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec = {
+network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnGenerateHttpNegotiateAuthToken_ResponseParams',
@@ -229,7 +311,7 @@ network.mojom.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_Respon
 };
 
 // ParamsSpec for OnCanSendSCTAuditingReport
-network.mojom.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec = {
+network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnCanSendSCTAuditingReport_Params',
@@ -241,7 +323,7 @@ network.mojom.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec =
   }
 };
 
-network.mojom.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec = {
+network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnCanSendSCTAuditingReport_ResponseParams',
@@ -255,7 +337,7 @@ network.mojom.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponsePara
 };
 
 // ParamsSpec for OnNewSCTAuditingReportSent
-network.mojom.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec = {
+network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkContextClient.OnNewSCTAuditingReportSent_Params',
@@ -268,6 +350,6 @@ network.mojom.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec =
 };
 
 // Legacy compatibility
-network.mojom.mojom.NetworkContextClientPtr = network.mojom.mojom.NetworkContextClientRemote;
-network.mojom.mojom.NetworkContextClientRequest = network.mojom.mojom.NetworkContextClientPendingReceiver;
+network.mojom.NetworkContextClientPtr = network.mojom.NetworkContextClientRemote;
+network.mojom.NetworkContextClientRequest = network.mojom.NetworkContextClientPendingReceiver;
 

@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: CoopAccessReportType
-network.mojom.mojom.CoopAccessReportType = {
+network.mojom.CoopAccessReportType = {
   kAccessFromCoopPageToOpener: 0,
   kAccessFromCoopPageToOpenee: 1,
   kAccessFromCoopPageToOther: 2,
@@ -18,20 +18,20 @@ network.mojom.mojom.CoopAccessReportType = {
   kAccessToCoopPageFromOpenee: 4,
   kAccessToCoopPageFromOther: 5,
 };
-network.mojom.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CrossOriginOpenerPolicyValue
-network.mojom.mojom.CrossOriginOpenerPolicyValue = {
+network.mojom.CrossOriginOpenerPolicyValue = {
   kUnsafeNone: 0,
   kSameOriginAllowPopups: 1,
   kSameOrigin: 2,
   kSameOriginPlusCoep: 3,
   kNoopenerAllowPopups: 4,
 };
-network.mojom.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum() };
+network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: CrossOriginOpenerPolicyReporterParams
-network.mojom.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
+network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginOpenerPolicyReporterParams',
@@ -48,7 +48,7 @@ network.mojom.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
 };
 
 // Struct: CrossOriginOpenerPolicy
-network.mojom.mojom.CrossOriginOpenerPolicySpec = {
+network.mojom.CrossOriginOpenerPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginOpenerPolicy',
@@ -63,24 +63,40 @@ network.mojom.mojom.CrossOriginOpenerPolicySpec = {
 };
 
 // Interface: CrossOriginOpenerPolicyReporter
-network.mojom.mojom.CrossOriginOpenerPolicyReporter = {};
+network.mojom.CrossOriginOpenerPolicyReporter = {};
 
-network.mojom.mojom.CrossOriginOpenerPolicyReporterPendingReceiver = class {
+network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'report_type', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'property', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source_location', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
+        { name: 'reported_window_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.CrossOriginOpenerPolicyReporterRemote = class {
+network.mojom.CrossOriginOpenerPolicyReporterRemote = class {
   static get $interfaceName() {
     return 'network.mojom.CrossOriginOpenerPolicyReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.CrossOriginOpenerPolicyReporterPendingReceiver,
+      network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -92,7 +108,7 @@ network.mojom.mojom.CrossOriginOpenerPolicyReporterRemote = class {
   }
 };
 
-network.mojom.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {
+network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -101,15 +117,15 @@ network.mojom.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec,
+      network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec,
       null,
       [report_type, property, source_location, reported_window_url]);
   }
 
 };
 
-network.mojom.mojom.CrossOriginOpenerPolicyReporter.getRemote = function() {
-  let remote = new network.mojom.mojom.CrossOriginOpenerPolicyReporterRemote();
+network.mojom.CrossOriginOpenerPolicyReporter.getRemote = function() {
+  let remote = new network.mojom.CrossOriginOpenerPolicyReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +135,7 @@ network.mojom.mojom.CrossOriginOpenerPolicyReporter.getRemote = function() {
 };
 
 // ParamsSpec for QueueAccessReport
-network.mojom.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
+network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginOpenerPolicyReporter.QueueAccessReport_Params',
@@ -136,6 +152,6 @@ network.mojom.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec
 };
 
 // Legacy compatibility
-network.mojom.mojom.CrossOriginOpenerPolicyReporterPtr = network.mojom.mojom.CrossOriginOpenerPolicyReporterRemote;
-network.mojom.mojom.CrossOriginOpenerPolicyReporterRequest = network.mojom.mojom.CrossOriginOpenerPolicyReporterPendingReceiver;
+network.mojom.CrossOriginOpenerPolicyReporterPtr = network.mojom.CrossOriginOpenerPolicyReporterRemote;
+network.mojom.CrossOriginOpenerPolicyReporterRequest = network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver;
 

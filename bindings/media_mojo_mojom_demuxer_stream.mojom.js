@@ -10,24 +10,61 @@ media.mojom = media.mojom || {};
 
 
 // Interface: DemuxerStream
-media.mojom.mojom.DemuxerStream = {};
+media.mojom.DemuxerStream = {};
 
-media.mojom.mojom.DemuxerStreamPendingReceiver = class {
+media.mojom.DemuxerStream_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.DemuxerStream_Initialize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.DemuxerStream_Read_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.DemuxerStream_Read_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.DemuxerStream_EnableBitstreamConverter_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.DemuxerStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.DemuxerStreamRemote = class {
+media.mojom.DemuxerStreamRemote = class {
   static get $interfaceName() {
     return 'media.mojom.DemuxerStream';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.DemuxerStreamPendingReceiver,
+      media.mojom.DemuxerStreamPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.DemuxerStreamRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.DemuxerStreamRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +76,7 @@ media.mojom.mojom.DemuxerStreamRemote = class {
   }
 };
 
-media.mojom.mojom.DemuxerStreamRemoteCallHandler = class {
+media.mojom.DemuxerStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +85,8 @@ media.mojom.mojom.DemuxerStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.DemuxerStream_Initialize_ParamsSpec,
-      media.mojom.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
+      media.mojom.DemuxerStream_Initialize_ParamsSpec,
+      media.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +94,8 @@ media.mojom.mojom.DemuxerStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.DemuxerStream_Read_ParamsSpec,
-      media.mojom.mojom.DemuxerStream_Read_ResponseParamsSpec,
+      media.mojom.DemuxerStream_Read_ParamsSpec,
+      media.mojom.DemuxerStream_Read_ResponseParamsSpec,
       [count]);
   }
 
@@ -66,15 +103,15 @@ media.mojom.mojom.DemuxerStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec,
+      media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec,
       null,
       []);
   }
 
 };
 
-media.mojom.mojom.DemuxerStream.getRemote = function() {
-  let remote = new media.mojom.mojom.DemuxerStreamRemote();
+media.mojom.DemuxerStream.getRemote = function() {
+  let remote = new media.mojom.DemuxerStreamRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +121,7 @@ media.mojom.mojom.DemuxerStream.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-media.mojom.mojom.DemuxerStream_Initialize_ParamsSpec = {
+media.mojom.DemuxerStream_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DemuxerStream.Initialize_Params',
@@ -96,7 +133,7 @@ media.mojom.mojom.DemuxerStream_Initialize_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
+media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DemuxerStream.Initialize_ResponseParams',
@@ -113,7 +150,7 @@ media.mojom.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Read
-media.mojom.mojom.DemuxerStream_Read_ParamsSpec = {
+media.mojom.DemuxerStream_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DemuxerStream.Read_Params',
@@ -126,7 +163,7 @@ media.mojom.mojom.DemuxerStream_Read_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.DemuxerStream_Read_ResponseParamsSpec = {
+media.mojom.DemuxerStream_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DemuxerStream.Read_ResponseParams',
@@ -143,7 +180,7 @@ media.mojom.mojom.DemuxerStream_Read_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EnableBitstreamConverter
-media.mojom.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
+media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DemuxerStream.EnableBitstreamConverter_Params',
@@ -156,6 +193,6 @@ media.mojom.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.DemuxerStreamPtr = media.mojom.mojom.DemuxerStreamRemote;
-media.mojom.mojom.DemuxerStreamRequest = media.mojom.mojom.DemuxerStreamPendingReceiver;
+media.mojom.DemuxerStreamPtr = media.mojom.DemuxerStreamRemote;
+media.mojom.DemuxerStreamRequest = media.mojom.DemuxerStreamPendingReceiver;
 

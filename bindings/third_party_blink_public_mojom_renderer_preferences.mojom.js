@@ -14,10 +14,10 @@ var gfx = gfx || {};
 var blink = blink || {};
 
 
-blink.mojom.mojom.kDefaultCaretBlinkIntervalInMilliseconds = 500;
+blink.mojom.kDefaultCaretBlinkIntervalInMilliseconds = 500;
 
 // Struct: RendererPreferences
-blink.mojom.mojom.RendererPreferencesSpec = {
+blink.mojom.RendererPreferencesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererPreferences',

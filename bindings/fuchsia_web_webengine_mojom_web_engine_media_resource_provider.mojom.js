@@ -25,6 +25,31 @@ mojom.AudioConsumerRequestSpec = {
 // Interface: WebEngineMediaResourceProvider
 mojom.WebEngineMediaResourceProvider = {};
 
+mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
 mojom.WebEngineMediaResourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

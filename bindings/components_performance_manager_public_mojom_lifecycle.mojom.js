@@ -10,8 +10,8 @@ performance_manager.mojom = performance_manager.mojom || {};
 
 
 // Enum: LifecycleState
-performance_manager.mojom.mojom.LifecycleState = {
+performance_manager.mojom.LifecycleState = {
   kRunning: 0,
   kFrozen: 1,
 };
-performance_manager.mojom.mojom.LifecycleStateSpec = { $: mojo.internal.Enum() };
+performance_manager.mojom.LifecycleStateSpec = { $: mojo.internal.Enum() };

@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: ProcessId
-mojo_base.mojom.mojom.ProcessIdSpec = {
+mojo_base.mojom.ProcessIdSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ProcessId',

@@ -11,24 +11,37 @@ var blink = blink || {};
 
 
 // Interface: PointerLockContext
-blink.mojom.mojom.PointerLockContext = {};
+blink.mojom.PointerLockContext = {};
 
-blink.mojom.mojom.PointerLockContextPendingReceiver = class {
+blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PointerLockContext_RequestMouseLockChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'unadjusted_movement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PointerLockContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PointerLockContextRemote = class {
+blink.mojom.PointerLockContextRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PointerLockContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PointerLockContextPendingReceiver,
+      blink.mojom.PointerLockContextPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PointerLockContextRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PointerLockContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ blink.mojom.mojom.PointerLockContextRemote = class {
   }
 };
 
-blink.mojom.mojom.PointerLockContextRemoteCallHandler = class {
+blink.mojom.PointerLockContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ blink.mojom.mojom.PointerLockContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec,
-      blink.mojom.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
+      blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec,
+      blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
       [unadjusted_movement]);
   }
 
 };
 
-blink.mojom.mojom.PointerLockContext.getRemote = function() {
-  let remote = new blink.mojom.mojom.PointerLockContextRemote();
+blink.mojom.PointerLockContext.getRemote = function() {
+  let remote = new blink.mojom.PointerLockContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ blink.mojom.mojom.PointerLockContext.getRemote = function() {
 };
 
 // ParamsSpec for RequestMouseLockChange
-blink.mojom.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
+blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PointerLockContext.RequestMouseLockChange_Params',
@@ -80,7 +93,7 @@ blink.mojom.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
+blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PointerLockContext.RequestMouseLockChange_ResponseParams',
@@ -94,6 +107,6 @@ blink.mojom.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PointerLockContextPtr = blink.mojom.mojom.PointerLockContextRemote;
-blink.mojom.mojom.PointerLockContextRequest = blink.mojom.mojom.PointerLockContextPendingReceiver;
+blink.mojom.PointerLockContextPtr = blink.mojom.PointerLockContextRemote;
+blink.mojom.PointerLockContextRequest = blink.mojom.PointerLockContextPendingReceiver;
 

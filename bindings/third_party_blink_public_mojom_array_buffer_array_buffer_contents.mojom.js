@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: SerializedArrayBufferContents
-blink.mojom.mojom.SerializedArrayBufferContentsSpec = {
+blink.mojom.SerializedArrayBufferContentsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerializedArrayBufferContents',

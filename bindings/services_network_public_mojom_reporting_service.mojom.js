@@ -12,16 +12,16 @@ var url = url || {};
 
 
 // Enum: ReportingApiReportStatus
-network.mojom.mojom.ReportingApiReportStatus = {
+network.mojom.ReportingApiReportStatus = {
   kQueued: 0,
   kPending: 1,
   kDoomed: 2,
   kSuccess: 3,
 };
-network.mojom.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum() };
+network.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ReportingApiReport
-network.mojom.mojom.ReportingApiReportSpec = {
+network.mojom.ReportingApiReportSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ReportingApiReport',
@@ -43,7 +43,7 @@ network.mojom.mojom.ReportingApiReportSpec = {
 };
 
 // Struct: ReportingApiEndpoint
-network.mojom.mojom.ReportingApiEndpointSpec = {
+network.mojom.ReportingApiEndpointSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ReportingApiEndpoint',
@@ -67,24 +67,63 @@ network.mojom.mojom.ReportingApiEndpointSpec = {
 };
 
 // Interface: ReportingApiObserver
-network.mojom.mojom.ReportingApiObserver = {};
+network.mojom.ReportingApiObserver = {};
 
-network.mojom.mojom.ReportingApiObserverPendingReceiver = class {
+network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ReportingApiObserver_OnReportAdded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ReportingApiObserver_OnReportUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ReportingApiEndpointSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.ReportingApiObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.ReportingApiObserverRemote = class {
+network.mojom.ReportingApiObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ReportingApiObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.ReportingApiObserverPendingReceiver,
+      network.mojom.ReportingApiObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.ReportingApiObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.ReportingApiObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -96,7 +135,7 @@ network.mojom.mojom.ReportingApiObserverRemote = class {
   }
 };
 
-network.mojom.mojom.ReportingApiObserverRemoteCallHandler = class {
+network.mojom.ReportingApiObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -105,7 +144,7 @@ network.mojom.mojom.ReportingApiObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec,
+      network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec,
       null,
       [report]);
   }
@@ -114,7 +153,7 @@ network.mojom.mojom.ReportingApiObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec,
+      network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec,
       null,
       [report]);
   }
@@ -123,15 +162,15 @@ network.mojom.mojom.ReportingApiObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec,
+      network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec,
       null,
       [endpoints]);
   }
 
 };
 
-network.mojom.mojom.ReportingApiObserver.getRemote = function() {
-  let remote = new network.mojom.mojom.ReportingApiObserverRemote();
+network.mojom.ReportingApiObserver.getRemote = function() {
+  let remote = new network.mojom.ReportingApiObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -141,7 +180,7 @@ network.mojom.mojom.ReportingApiObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnReportAdded
-network.mojom.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
+network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ReportingApiObserver.OnReportAdded_Params',
@@ -155,7 +194,7 @@ network.mojom.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnReportUpdated
-network.mojom.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
+network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ReportingApiObserver.OnReportUpdated_Params',
@@ -169,7 +208,7 @@ network.mojom.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnEndpointsUpdatedForOrigin
-network.mojom.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
+network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ReportingApiObserver.OnEndpointsUpdatedForOrigin_Params',
@@ -183,6 +222,6 @@ network.mojom.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec 
 };
 
 // Legacy compatibility
-network.mojom.mojom.ReportingApiObserverPtr = network.mojom.mojom.ReportingApiObserverRemote;
-network.mojom.mojom.ReportingApiObserverRequest = network.mojom.mojom.ReportingApiObserverPendingReceiver;
+network.mojom.ReportingApiObserverPtr = network.mojom.ReportingApiObserverRemote;
+network.mojom.ReportingApiObserverRequest = network.mojom.ReportingApiObserverPendingReceiver;
 

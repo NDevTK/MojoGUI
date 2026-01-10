@@ -10,24 +10,36 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: TestingApi
-audio.mojom.mojom.TestingApi = {};
+audio.mojom.TestingApi = {};
 
-audio.mojom.mojom.TestingApiPendingReceiver = class {
+audio.mojom.TestingApi_Crash_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.TestingApi_Crash_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+audio.mojom.TestingApiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.mojom.TestingApiRemote = class {
+audio.mojom.TestingApiRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.TestingApi';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.mojom.TestingApiPendingReceiver,
+      audio.mojom.TestingApiPendingReceiver,
       handle);
-    this.$ = new audio.mojom.mojom.TestingApiRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.TestingApiRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ audio.mojom.mojom.TestingApiRemote = class {
   }
 };
 
-audio.mojom.mojom.TestingApiRemoteCallHandler = class {
+audio.mojom.TestingApiRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ audio.mojom.mojom.TestingApiRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.mojom.TestingApi_Crash_ParamsSpec,
+      audio.mojom.TestingApi_Crash_ParamsSpec,
       null,
       []);
   }
 
 };
 
-audio.mojom.mojom.TestingApi.getRemote = function() {
-  let remote = new audio.mojom.mojom.TestingApiRemote();
+audio.mojom.TestingApi.getRemote = function() {
+  let remote = new audio.mojom.TestingApiRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ audio.mojom.mojom.TestingApi.getRemote = function() {
 };
 
 // ParamsSpec for Crash
-audio.mojom.mojom.TestingApi_Crash_ParamsSpec = {
+audio.mojom.TestingApi_Crash_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.TestingApi.Crash_Params',
@@ -79,6 +91,6 @@ audio.mojom.mojom.TestingApi_Crash_ParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.mojom.TestingApiPtr = audio.mojom.mojom.TestingApiRemote;
-audio.mojom.mojom.TestingApiRequest = audio.mojom.mojom.TestingApiPendingReceiver;
+audio.mojom.TestingApiPtr = audio.mojom.TestingApiRemote;
+audio.mojom.TestingApiRequest = audio.mojom.TestingApiPendingReceiver;
 

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: MessagePortDescriptor
-blink.mojom.mojom.MessagePortDescriptorSpec = {
+blink.mojom.MessagePortDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MessagePortDescriptor',

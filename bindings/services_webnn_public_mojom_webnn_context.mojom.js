@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Union: CreateTensorResult
-webnn.mojom.mojom.CreateTensorResultSpec = { $: mojo.internal.Union(
+webnn.mojom.CreateTensorResultSpec = { $: mojo.internal.Union(
     'webnn.mojom.CreateTensorResult', {
       'success': {
         'ordinal': 0,
@@ -25,7 +25,7 @@ webnn.mojom.mojom.CreateTensorResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: CreateTensorSuccess
-webnn.mojom.mojom.CreateTensorSuccessSpec = {
+webnn.mojom.CreateTensorSuccessSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateTensorSuccess',
@@ -40,24 +40,66 @@ webnn.mojom.mojom.CreateTensorSuccessSpec = {
 };
 
 // Interface: WebNNContext
-webnn.mojom.mojom.WebNNContext = {};
+webnn.mojom.WebNNContext = {};
 
-webnn.mojom.mojom.WebNNContextPendingReceiver = class {
+webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNContext_CreateGraphBuilder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(webnn.mojom.WebNNGraphBuilderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNContext_CreateTensor_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'tensor_info', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'tensor_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNContext_CreateTensorFromMailbox_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'mailbox', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false, minVersion: 0 },
+        { name: 'fence', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+webnn.mojom.WebNNContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webnn.mojom.mojom.WebNNContextRemote = class {
+webnn.mojom.WebNNContextRemote = class {
   static get $interfaceName() {
     return 'webnn.mojom.WebNNContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webnn.mojom.mojom.WebNNContextPendingReceiver,
+      webnn.mojom.WebNNContextPendingReceiver,
       handle);
-    this.$ = new webnn.mojom.mojom.WebNNContextRemoteCallHandler(this.proxy);
+    this.$ = new webnn.mojom.WebNNContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +111,7 @@ webnn.mojom.mojom.WebNNContextRemote = class {
   }
 };
 
-webnn.mojom.mojom.WebNNContextRemoteCallHandler = class {
+webnn.mojom.WebNNContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,7 +120,7 @@ webnn.mojom.mojom.WebNNContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec,
+      webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec,
       null,
       [receiver]);
   }
@@ -87,8 +129,8 @@ webnn.mojom.mojom.WebNNContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webnn.mojom.mojom.WebNNContext_CreateTensor_ParamsSpec,
-      webnn.mojom.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
+      webnn.mojom.WebNNContext_CreateTensor_ParamsSpec,
+      webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
       [tensor_info, tensor_data]);
   }
 
@@ -96,15 +138,15 @@ webnn.mojom.mojom.WebNNContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webnn.mojom.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec,
-      webnn.mojom.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
+      webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec,
+      webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
       [tensor_info, mailbox, fence]);
   }
 
 };
 
-webnn.mojom.mojom.WebNNContext.getRemote = function() {
-  let remote = new webnn.mojom.mojom.WebNNContextRemote();
+webnn.mojom.WebNNContext.getRemote = function() {
+  let remote = new webnn.mojom.WebNNContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -114,7 +156,7 @@ webnn.mojom.mojom.WebNNContext.getRemote = function() {
 };
 
 // ParamsSpec for CreateGraphBuilder
-webnn.mojom.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
+webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContext.CreateGraphBuilder_Params',
@@ -128,7 +170,7 @@ webnn.mojom.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
 };
 
 // ParamsSpec for CreateTensor
-webnn.mojom.mojom.WebNNContext_CreateTensor_ParamsSpec = {
+webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContext.CreateTensor_Params',
@@ -142,7 +184,7 @@ webnn.mojom.mojom.WebNNContext_CreateTensor_ParamsSpec = {
   }
 };
 
-webnn.mojom.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
+webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContext.CreateTensor_ResponseParams',
@@ -156,7 +198,7 @@ webnn.mojom.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateTensorFromMailbox
-webnn.mojom.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
+webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContext.CreateTensorFromMailbox_Params',
@@ -171,7 +213,7 @@ webnn.mojom.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
   }
 };
 
-webnn.mojom.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
+webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContext.CreateTensorFromMailbox_ResponseParams',
@@ -185,6 +227,6 @@ webnn.mojom.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-webnn.mojom.mojom.WebNNContextPtr = webnn.mojom.mojom.WebNNContextRemote;
-webnn.mojom.mojom.WebNNContextRequest = webnn.mojom.mojom.WebNNContextPendingReceiver;
+webnn.mojom.WebNNContextPtr = webnn.mojom.WebNNContextRemote;
+webnn.mojom.WebNNContextRequest = webnn.mojom.WebNNContextPendingReceiver;
 

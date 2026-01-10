@@ -11,16 +11,16 @@ var url = url || {};
 
 
 // Enum: ReportStatus
-private_aggregation_internals.mojom.mojom.ReportStatus = {
+private_aggregation_internals.mojom.ReportStatus = {
   kPending: 0,
   kSent: 1,
   kFailedToAssemble: 2,
   kFailedToSend: 3,
 };
-private_aggregation_internals.mojom.mojom.ReportStatusSpec = { $: mojo.internal.Enum() };
+private_aggregation_internals.mojom.ReportStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: AggregatableReportRequestID
-private_aggregation_internals.mojom.mojom.AggregatableReportRequestIDSpec = {
+private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.AggregatableReportRequestID',
@@ -34,7 +34,7 @@ private_aggregation_internals.mojom.mojom.AggregatableReportRequestIDSpec = {
 };
 
 // Struct: AggregatableHistogramContribution
-private_aggregation_internals.mojom.mojom.AggregatableHistogramContributionSpec = {
+private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.AggregatableHistogramContribution',
@@ -49,7 +49,7 @@ private_aggregation_internals.mojom.mojom.AggregatableHistogramContributionSpec 
 };
 
 // Struct: WebUIAggregatableReport
-private_aggregation_internals.mojom.mojom.WebUIAggregatableReportSpec = {
+private_aggregation_internals.mojom.WebUIAggregatableReportSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.WebUIAggregatableReport',
@@ -70,24 +70,49 @@ private_aggregation_internals.mojom.mojom.WebUIAggregatableReportSpec = {
 };
 
 // Interface: Observer
-private_aggregation_internals.mojom.mojom.Observer = {};
+private_aggregation_internals.mojom.Observer = {};
 
-private_aggregation_internals.mojom.mojom.ObserverPendingReceiver = class {
+private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.Observer_OnRequestStorageModified_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: private_aggregation_internals.mojom.WebUIAggregatableReportSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+private_aggregation_internals.mojom.ObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-private_aggregation_internals.mojom.mojom.ObserverRemote = class {
+private_aggregation_internals.mojom.ObserverRemote = class {
   static get $interfaceName() {
     return 'private_aggregation_internals.mojom.Observer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      private_aggregation_internals.mojom.mojom.ObserverPendingReceiver,
+      private_aggregation_internals.mojom.ObserverPendingReceiver,
       handle);
-    this.$ = new private_aggregation_internals.mojom.mojom.ObserverRemoteCallHandler(this.proxy);
+    this.$ = new private_aggregation_internals.mojom.ObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -99,7 +124,7 @@ private_aggregation_internals.mojom.mojom.ObserverRemote = class {
   }
 };
 
-private_aggregation_internals.mojom.mojom.ObserverRemoteCallHandler = class {
+private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -108,7 +133,7 @@ private_aggregation_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      private_aggregation_internals.mojom.mojom.Observer_OnRequestStorageModified_ParamsSpec,
+      private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec,
       null,
       []);
   }
@@ -117,15 +142,15 @@ private_aggregation_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      private_aggregation_internals.mojom.mojom.Observer_OnReportHandled_ParamsSpec,
+      private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
       [report]);
   }
 
 };
 
-private_aggregation_internals.mojom.mojom.Observer.getRemote = function() {
-  let remote = new private_aggregation_internals.mojom.mojom.ObserverRemote();
+private_aggregation_internals.mojom.Observer.getRemote = function() {
+  let remote = new private_aggregation_internals.mojom.ObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -135,7 +160,7 @@ private_aggregation_internals.mojom.mojom.Observer.getRemote = function() {
 };
 
 // ParamsSpec for OnRequestStorageModified
-private_aggregation_internals.mojom.mojom.Observer_OnRequestStorageModified_ParamsSpec = {
+private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Observer.OnRequestStorageModified_Params',
@@ -148,7 +173,7 @@ private_aggregation_internals.mojom.mojom.Observer_OnRequestStorageModified_Para
 };
 
 // ParamsSpec for OnReportHandled
-private_aggregation_internals.mojom.mojom.Observer_OnReportHandled_ParamsSpec = {
+private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Observer.OnReportHandled_Params',
@@ -162,29 +187,66 @@ private_aggregation_internals.mojom.mojom.Observer_OnReportHandled_ParamsSpec = 
 };
 
 // Legacy compatibility
-private_aggregation_internals.mojom.mojom.ObserverPtr = private_aggregation_internals.mojom.mojom.ObserverRemote;
-private_aggregation_internals.mojom.mojom.ObserverRequest = private_aggregation_internals.mojom.mojom.ObserverPendingReceiver;
+private_aggregation_internals.mojom.ObserverPtr = private_aggregation_internals.mojom.ObserverRemote;
+private_aggregation_internals.mojom.ObserverRequest = private_aggregation_internals.mojom.ObserverPendingReceiver;
 
 
 // Interface: Handler
-private_aggregation_internals.mojom.mojom.Handler = {};
+private_aggregation_internals.mojom.Handler = {};
 
-private_aggregation_internals.mojom.mojom.HandlerPendingReceiver = class {
+private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.Handler_GetReports_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.Handler_SendReports_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.Handler_ClearStorage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+private_aggregation_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-private_aggregation_internals.mojom.mojom.HandlerRemote = class {
+private_aggregation_internals.mojom.HandlerRemote = class {
   static get $interfaceName() {
     return 'private_aggregation_internals.mojom.Handler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      private_aggregation_internals.mojom.mojom.HandlerPendingReceiver,
+      private_aggregation_internals.mojom.HandlerPendingReceiver,
       handle);
-    this.$ = new private_aggregation_internals.mojom.mojom.HandlerRemoteCallHandler(this.proxy);
+    this.$ = new private_aggregation_internals.mojom.HandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -196,7 +258,7 @@ private_aggregation_internals.mojom.mojom.HandlerRemote = class {
   }
 };
 
-private_aggregation_internals.mojom.mojom.HandlerRemoteCallHandler = class {
+private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -205,8 +267,8 @@ private_aggregation_internals.mojom.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      private_aggregation_internals.mojom.mojom.Handler_GetReports_ParamsSpec,
-      private_aggregation_internals.mojom.mojom.Handler_GetReports_ResponseParamsSpec,
+      private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec,
+      private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec,
       []);
   }
 
@@ -214,7 +276,7 @@ private_aggregation_internals.mojom.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      private_aggregation_internals.mojom.mojom.Handler_SendReports_ParamsSpec,
+      private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec,
       null,
       [ids]);
   }
@@ -223,15 +285,15 @@ private_aggregation_internals.mojom.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      private_aggregation_internals.mojom.mojom.Handler_ClearStorage_ParamsSpec,
+      private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec,
       null,
       []);
   }
 
 };
 
-private_aggregation_internals.mojom.mojom.Handler.getRemote = function() {
-  let remote = new private_aggregation_internals.mojom.mojom.HandlerRemote();
+private_aggregation_internals.mojom.Handler.getRemote = function() {
+  let remote = new private_aggregation_internals.mojom.HandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -241,7 +303,7 @@ private_aggregation_internals.mojom.mojom.Handler.getRemote = function() {
 };
 
 // ParamsSpec for GetReports
-private_aggregation_internals.mojom.mojom.Handler_GetReports_ParamsSpec = {
+private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Handler.GetReports_Params',
@@ -253,7 +315,7 @@ private_aggregation_internals.mojom.mojom.Handler_GetReports_ParamsSpec = {
   }
 };
 
-private_aggregation_internals.mojom.mojom.Handler_GetReports_ResponseParamsSpec = {
+private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Handler.GetReports_ResponseParams',
@@ -267,7 +329,7 @@ private_aggregation_internals.mojom.mojom.Handler_GetReports_ResponseParamsSpec 
 };
 
 // ParamsSpec for SendReports
-private_aggregation_internals.mojom.mojom.Handler_SendReports_ParamsSpec = {
+private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Handler.SendReports_Params',
@@ -281,7 +343,7 @@ private_aggregation_internals.mojom.mojom.Handler_SendReports_ParamsSpec = {
 };
 
 // ParamsSpec for ClearStorage
-private_aggregation_internals.mojom.mojom.Handler_ClearStorage_ParamsSpec = {
+private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Handler.ClearStorage_Params',
@@ -294,29 +356,43 @@ private_aggregation_internals.mojom.mojom.Handler_ClearStorage_ParamsSpec = {
 };
 
 // Legacy compatibility
-private_aggregation_internals.mojom.mojom.HandlerPtr = private_aggregation_internals.mojom.mojom.HandlerRemote;
-private_aggregation_internals.mojom.mojom.HandlerRequest = private_aggregation_internals.mojom.mojom.HandlerPendingReceiver;
+private_aggregation_internals.mojom.HandlerPtr = private_aggregation_internals.mojom.HandlerRemote;
+private_aggregation_internals.mojom.HandlerRequest = private_aggregation_internals.mojom.HandlerPendingReceiver;
 
 
 // Interface: Factory
-private_aggregation_internals.mojom.mojom.Factory = {};
+private_aggregation_internals.mojom.Factory = {};
 
-private_aggregation_internals.mojom.mojom.FactoryPendingReceiver = class {
+private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.Factory_Create_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(private_aggregation_internals.mojom.ObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(private_aggregation_internals.mojom.HandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+private_aggregation_internals.mojom.FactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-private_aggregation_internals.mojom.mojom.FactoryRemote = class {
+private_aggregation_internals.mojom.FactoryRemote = class {
   static get $interfaceName() {
     return 'private_aggregation_internals.mojom.Factory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      private_aggregation_internals.mojom.mojom.FactoryPendingReceiver,
+      private_aggregation_internals.mojom.FactoryPendingReceiver,
       handle);
-    this.$ = new private_aggregation_internals.mojom.mojom.FactoryRemoteCallHandler(this.proxy);
+    this.$ = new private_aggregation_internals.mojom.FactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -328,7 +404,7 @@ private_aggregation_internals.mojom.mojom.FactoryRemote = class {
   }
 };
 
-private_aggregation_internals.mojom.mojom.FactoryRemoteCallHandler = class {
+private_aggregation_internals.mojom.FactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -337,15 +413,15 @@ private_aggregation_internals.mojom.mojom.FactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      private_aggregation_internals.mojom.mojom.Factory_Create_ParamsSpec,
+      private_aggregation_internals.mojom.Factory_Create_ParamsSpec,
       null,
       [observer, handler]);
   }
 
 };
 
-private_aggregation_internals.mojom.mojom.Factory.getRemote = function() {
-  let remote = new private_aggregation_internals.mojom.mojom.FactoryRemote();
+private_aggregation_internals.mojom.Factory.getRemote = function() {
+  let remote = new private_aggregation_internals.mojom.FactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -355,7 +431,7 @@ private_aggregation_internals.mojom.mojom.Factory.getRemote = function() {
 };
 
 // ParamsSpec for Create
-private_aggregation_internals.mojom.mojom.Factory_Create_ParamsSpec = {
+private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Factory.Create_Params',
@@ -370,6 +446,6 @@ private_aggregation_internals.mojom.mojom.Factory_Create_ParamsSpec = {
 };
 
 // Legacy compatibility
-private_aggregation_internals.mojom.mojom.FactoryPtr = private_aggregation_internals.mojom.mojom.FactoryRemote;
-private_aggregation_internals.mojom.mojom.FactoryRequest = private_aggregation_internals.mojom.mojom.FactoryPendingReceiver;
+private_aggregation_internals.mojom.FactoryPtr = private_aggregation_internals.mojom.FactoryRemote;
+private_aggregation_internals.mojom.FactoryRequest = private_aggregation_internals.mojom.FactoryPendingReceiver;
 

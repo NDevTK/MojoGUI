@@ -9,56 +9,56 @@ var bluetooth = bluetooth || {};
 bluetooth.mojom = bluetooth.mojom || {};
 
 
-bluetooth.mojom.mojom.kHCISuccess = 0x0000;
+bluetooth.mojom.kHCISuccess = 0x0000;
 
-bluetooth.mojom.mojom.kHCIConnectionTimeout = 0x0008;
+bluetooth.mojom.kHCIConnectionTimeout = 0x0008;
 
-bluetooth.mojom.mojom.kGATTSuccess = 0x0000;
+bluetooth.mojom.kGATTSuccess = 0x0000;
 
-bluetooth.mojom.mojom.kGATTInvalidHandle = 0x0001;
+bluetooth.mojom.kGATTInvalidHandle = 0x0001;
 
 // Enum: CentralState
-bluetooth.mojom.mojom.CentralState = {
+bluetooth.mojom.CentralState = {
   ABSENT: 0,
   POWERED_ON: 1,
   POWERED_OFF: 2,
 };
-bluetooth.mojom.mojom.CentralStateSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.CentralStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WriteType
-bluetooth.mojom.mojom.WriteType = {
+bluetooth.mojom.WriteType = {
   kNone: 0,
   kWriteDefaultDeprecated: 1,
   kWriteWithResponse: 2,
   kWriteWithoutResponse: 3,
 };
-bluetooth.mojom.mojom.WriteTypeSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.WriteTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GATTOperationType
-bluetooth.mojom.mojom.GATTOperationType = {
+bluetooth.mojom.GATTOperationType = {
   kConnect: 0,
   kDiscovery: 1,
 };
-bluetooth.mojom.mojom.GATTOperationTypeSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.GATTOperationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CharacteristicOperationType
-bluetooth.mojom.mojom.CharacteristicOperationType = {
+bluetooth.mojom.CharacteristicOperationType = {
   kRead: 0,
   kWrite: 1,
   kSubscribeToNotifications: 2,
   kUnsubscribeFromNotifications: 3,
 };
-bluetooth.mojom.mojom.CharacteristicOperationTypeSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.CharacteristicOperationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DescriptorOperationType
-bluetooth.mojom.mojom.DescriptorOperationType = {
+bluetooth.mojom.DescriptorOperationType = {
   kRead: 0,
   kWrite: 1,
 };
-bluetooth.mojom.mojom.DescriptorOperationTypeSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.DescriptorOperationTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Appearance
-bluetooth.mojom.mojom.AppearanceSpec = {
+bluetooth.mojom.AppearanceSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Appearance',
@@ -73,7 +73,7 @@ bluetooth.mojom.mojom.AppearanceSpec = {
 };
 
 // Struct: Power
-bluetooth.mojom.mojom.PowerSpec = {
+bluetooth.mojom.PowerSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Power',
@@ -88,7 +88,7 @@ bluetooth.mojom.mojom.PowerSpec = {
 };
 
 // Struct: ServiceDataMap
-bluetooth.mojom.mojom.ServiceDataMapSpec = {
+bluetooth.mojom.ServiceDataMapSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ServiceDataMap',
@@ -102,7 +102,7 @@ bluetooth.mojom.mojom.ServiceDataMapSpec = {
 };
 
 // Struct: ScanRecord
-bluetooth.mojom.mojom.ScanRecordSpec = {
+bluetooth.mojom.ScanRecordSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ScanRecord',
@@ -121,7 +121,7 @@ bluetooth.mojom.mojom.ScanRecordSpec = {
 };
 
 // Struct: ScanResult
-bluetooth.mojom.mojom.ScanResultSpec = {
+bluetooth.mojom.ScanResultSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ScanResult',
@@ -137,7 +137,7 @@ bluetooth.mojom.mojom.ScanResultSpec = {
 };
 
 // Struct: CharacteristicProperties
-bluetooth.mojom.mojom.CharacteristicPropertiesSpec = {
+bluetooth.mojom.CharacteristicPropertiesSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.CharacteristicProperties',
@@ -158,24 +158,62 @@ bluetooth.mojom.mojom.CharacteristicPropertiesSpec = {
 };
 
 // Interface: FakeBluetooth
-bluetooth.mojom.mojom.FakeBluetooth = {};
+bluetooth.mojom.FakeBluetooth = {};
 
-bluetooth.mojom.mojom.FakeBluetoothPendingReceiver = class {
+bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeBluetooth_SetLESupported_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeBluetooth_SimulateCentral_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.CentralStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeBluetoothPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.mojom.FakeBluetoothRemote = class {
+bluetooth.mojom.FakeBluetoothRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.FakeBluetooth';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.mojom.FakeBluetoothPendingReceiver,
+      bluetooth.mojom.FakeBluetoothPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.mojom.FakeBluetoothRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.FakeBluetoothRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -187,7 +225,7 @@ bluetooth.mojom.mojom.FakeBluetoothRemote = class {
   }
 };
 
-bluetooth.mojom.mojom.FakeBluetoothRemoteCallHandler = class {
+bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -196,7 +234,7 @@ bluetooth.mojom.mojom.FakeBluetoothRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.mojom.FakeBluetooth_SetLESupported_ParamsSpec,
+      bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec,
       null,
       [available]);
   }
@@ -205,8 +243,8 @@ bluetooth.mojom.mojom.FakeBluetoothRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.mojom.FakeBluetooth_SimulateCentral_ParamsSpec,
-      bluetooth.mojom.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec,
+      bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec,
+      bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec,
       [state]);
   }
 
@@ -214,15 +252,15 @@ bluetooth.mojom.mojom.FakeBluetoothRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec,
-      bluetooth.mojom.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec,
+      bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec,
+      bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec,
       []);
   }
 
 };
 
-bluetooth.mojom.mojom.FakeBluetooth.getRemote = function() {
-  let remote = new bluetooth.mojom.mojom.FakeBluetoothRemote();
+bluetooth.mojom.FakeBluetooth.getRemote = function() {
+  let remote = new bluetooth.mojom.FakeBluetoothRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -232,7 +270,7 @@ bluetooth.mojom.mojom.FakeBluetooth.getRemote = function() {
 };
 
 // ParamsSpec for SetLESupported
-bluetooth.mojom.mojom.FakeBluetooth_SetLESupported_ParamsSpec = {
+bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeBluetooth.SetLESupported_Params',
@@ -246,7 +284,7 @@ bluetooth.mojom.mojom.FakeBluetooth_SetLESupported_ParamsSpec = {
 };
 
 // ParamsSpec for SimulateCentral
-bluetooth.mojom.mojom.FakeBluetooth_SimulateCentral_ParamsSpec = {
+bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeBluetooth.SimulateCentral_Params',
@@ -259,7 +297,7 @@ bluetooth.mojom.mojom.FakeBluetooth_SimulateCentral_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec = {
+bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeBluetooth.SimulateCentral_ResponseParams',
@@ -273,7 +311,7 @@ bluetooth.mojom.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AllResponsesConsumed
-bluetooth.mojom.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec = {
+bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeBluetooth.AllResponsesConsumed_Params',
@@ -285,7 +323,7 @@ bluetooth.mojom.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec = {
+bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeBluetooth.AllResponsesConsumed_ResponseParams',
@@ -299,29 +337,427 @@ bluetooth.mojom.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.mojom.FakeBluetoothPtr = bluetooth.mojom.mojom.FakeBluetoothRemote;
-bluetooth.mojom.mojom.FakeBluetoothRequest = bluetooth.mojom.mojom.FakeBluetoothPendingReceiver;
+bluetooth.mojom.FakeBluetoothPtr = bluetooth.mojom.FakeBluetoothRemote;
+bluetooth.mojom.FakeBluetoothRequest = bluetooth.mojom.FakeBluetoothPendingReceiver;
 
 
 // Interface: FakeCentral
-bluetooth.mojom.mojom.FakeCentral = {};
+bluetooth.mojom.FakeCentral = {};
 
-bluetooth.mojom.mojom.FakeCentralPendingReceiver = class {
+bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'manufacturer_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint16, mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
+        { name: 'known_service_uuids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(bluetooth.mojom.UUIDSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.CentralStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.GATTOperationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: bluetooth.mojom.CharacteristicOperationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: bluetooth.mojom.DescriptorOperationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'descriptor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_AddFakeService_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_uuid', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_RemoveFakeService_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_AddFakeCharacteristic_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'characteristic_uuid', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: false, minVersion: 0 },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.CharacteristicPropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_AddFakeDescriptor_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'descriptor_uuid', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'descriptor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'gatt_code', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'gatt_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'gatt_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'gatt_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_IsNotifying_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'characteristic_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'characteristic_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'gatt_code', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'descriptor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'gatt_code', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'descriptor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'descriptor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentral_SetClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentral_SetClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(bluetooth.mojom.FakeCentralClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentralPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.mojom.FakeCentralRemote = class {
+bluetooth.mojom.FakeCentralRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.FakeCentral';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.mojom.FakeCentralPendingReceiver,
+      bluetooth.mojom.FakeCentralPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.mojom.FakeCentralRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.FakeCentralRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -333,7 +769,7 @@ bluetooth.mojom.mojom.FakeCentralRemote = class {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
+bluetooth.mojom.FakeCentralRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -342,7 +778,7 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec,
       null,
       [address, name, manufacturer_data, known_service_uuids]);
   }
@@ -351,7 +787,7 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec,
       null,
       [result]);
   }
@@ -360,7 +796,7 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetState_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetState_ParamsSpec,
       null,
       [state]);
   }
@@ -369,8 +805,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec,
       [address, code]);
   }
 
@@ -378,8 +814,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec,
       [address, code]);
   }
 
@@ -387,8 +823,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec,
       [type, address, code]);
   }
 
@@ -396,8 +832,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec,
       [address]);
   }
 
@@ -405,8 +841,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec,
       [address]);
   }
 
@@ -414,8 +850,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec,
       [type, characteristic_id, service_id, peripheral_address, code, data]);
   }
 
@@ -423,8 +859,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec,
       [type, descriptor_id, characteristic_id, service_id, peripheral_address, code, data]);
   }
 
@@ -432,8 +868,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_AddFakeService_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_AddFakeService_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec,
       [peripheral_address, service_uuid]);
   }
 
@@ -441,8 +877,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_RemoveFakeService_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec,
       [service_id, peripheral_address]);
   }
 
@@ -450,8 +886,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec,
       [characteristic_uuid, properties, service_id, peripheral_address]);
   }
 
@@ -459,8 +895,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec,
       [identifier, service_id, peripheral_address]);
   }
 
@@ -468,8 +904,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec,
       [descriptor_uuid, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -477,8 +913,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec,
       [descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -486,8 +922,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec,
       [gatt_code, value, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -495,8 +931,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec,
       [gatt_code, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -504,8 +940,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec,
       [gatt_code, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -513,8 +949,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec,
       [gatt_code, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -522,8 +958,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_IsNotifying_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_IsNotifying_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec,
+      bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec,
       [characteristic_id, service_id, peripheral_address]);
   }
 
@@ -531,8 +967,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec,
+      bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec,
       [characteristic_id, service_id, peripheral_address]);
   }
 
@@ -540,8 +976,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec,
       [gatt_code, value, descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -549,8 +985,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec,
       [gatt_code, descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -558,8 +994,8 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec,
-      bluetooth.mojom.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec,
+      bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec,
+      bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec,
       [descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -567,15 +1003,15 @@ bluetooth.mojom.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      bluetooth.mojom.mojom.FakeCentral_SetClient_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetClient_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-bluetooth.mojom.mojom.FakeCentral.getRemote = function() {
-  let remote = new bluetooth.mojom.mojom.FakeCentralRemote();
+bluetooth.mojom.FakeCentral.getRemote = function() {
+  let remote = new bluetooth.mojom.FakeCentralRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -585,7 +1021,7 @@ bluetooth.mojom.mojom.FakeCentral.getRemote = function() {
 };
 
 // ParamsSpec for SimulatePreconnectedPeripheral
-bluetooth.mojom.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulatePreconnectedPeripheral_Params',
@@ -602,7 +1038,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec = {
 };
 
 // ParamsSpec for SimulateAdvertisementReceived
-bluetooth.mojom.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateAdvertisementReceived_Params',
@@ -616,7 +1052,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec = {
 };
 
 // ParamsSpec for SetState
-bluetooth.mojom.mojom.FakeCentral_SetState_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetState_Params',
@@ -630,7 +1066,7 @@ bluetooth.mojom.mojom.FakeCentral_SetState_ParamsSpec = {
 };
 
 // ParamsSpec for SetNextGATTConnectionResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextGATTConnectionResponse_Params',
@@ -644,7 +1080,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextGATTConnectionResponse_ResponseParams',
@@ -658,7 +1094,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSp
 };
 
 // ParamsSpec for SetNextGATTDiscoveryResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextGATTDiscoveryResponse_Params',
@@ -672,7 +1108,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextGATTDiscoveryResponse_ResponseParams',
@@ -686,7 +1122,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpe
 };
 
 // ParamsSpec for SimulateGATTOperationResponse
-bluetooth.mojom.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateGATTOperationResponse_Params',
@@ -701,7 +1137,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateGATTOperationResponse_ResponseParams',
@@ -715,7 +1151,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSp
 };
 
 // ParamsSpec for SimulateGATTDisconnection
-bluetooth.mojom.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateGATTDisconnection_Params',
@@ -728,7 +1164,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateGATTDisconnection_ResponseParams',
@@ -742,7 +1178,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec =
 };
 
 // ParamsSpec for SimulateGATTServicesChanged
-bluetooth.mojom.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateGATTServicesChanged_Params',
@@ -755,7 +1191,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateGATTServicesChanged_ResponseParams',
@@ -769,7 +1205,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec
 };
 
 // ParamsSpec for SimulateCharacteristicOperationResponse
-bluetooth.mojom.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateCharacteristicOperationResponse_Params',
@@ -787,7 +1223,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateCharacteristicOperationResponse_Params
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateCharacteristicOperationResponse_ResponseParams',
@@ -801,7 +1237,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateCharacteristicOperationResponse_Respon
 };
 
 // ParamsSpec for SimulateDescriptorOperationResponse
-bluetooth.mojom.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateDescriptorOperationResponse_Params',
@@ -820,7 +1256,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SimulateDescriptorOperationResponse_ResponseParams',
@@ -834,7 +1270,7 @@ bluetooth.mojom.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponsePa
 };
 
 // ParamsSpec for AddFakeService
-bluetooth.mojom.mojom.FakeCentral_AddFakeService_ParamsSpec = {
+bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.AddFakeService_Params',
@@ -848,7 +1284,7 @@ bluetooth.mojom.mojom.FakeCentral_AddFakeService_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_AddFakeService_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.AddFakeService_ResponseParams',
@@ -862,7 +1298,7 @@ bluetooth.mojom.mojom.FakeCentral_AddFakeService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveFakeService
-bluetooth.mojom.mojom.FakeCentral_RemoveFakeService_ParamsSpec = {
+bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.RemoveFakeService_Params',
@@ -876,7 +1312,7 @@ bluetooth.mojom.mojom.FakeCentral_RemoveFakeService_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.RemoveFakeService_ResponseParams',
@@ -890,7 +1326,7 @@ bluetooth.mojom.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddFakeCharacteristic
-bluetooth.mojom.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
+bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.AddFakeCharacteristic_Params',
@@ -906,7 +1342,7 @@ bluetooth.mojom.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.AddFakeCharacteristic_ResponseParams',
@@ -920,7 +1356,7 @@ bluetooth.mojom.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveFakeCharacteristic
-bluetooth.mojom.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec = {
+bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.RemoveFakeCharacteristic_Params',
@@ -935,7 +1371,7 @@ bluetooth.mojom.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.RemoveFakeCharacteristic_ResponseParams',
@@ -949,7 +1385,7 @@ bluetooth.mojom.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec = 
 };
 
 // ParamsSpec for AddFakeDescriptor
-bluetooth.mojom.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec = {
+bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.AddFakeDescriptor_Params',
@@ -965,7 +1401,7 @@ bluetooth.mojom.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.AddFakeDescriptor_ResponseParams',
@@ -979,7 +1415,7 @@ bluetooth.mojom.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveFakeDescriptor
-bluetooth.mojom.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec = {
+bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.RemoveFakeDescriptor_Params',
@@ -995,7 +1431,7 @@ bluetooth.mojom.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.RemoveFakeDescriptor_ResponseParams',
@@ -1009,7 +1445,7 @@ bluetooth.mojom.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetNextReadCharacteristicResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextReadCharacteristicResponse_Params',
@@ -1026,7 +1462,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec =
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextReadCharacteristicResponse_ResponseParams',
@@ -1040,7 +1476,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponsePara
 };
 
 // ParamsSpec for SetNextWriteCharacteristicResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextWriteCharacteristicResponse_Params',
@@ -1056,7 +1492,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec 
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextWriteCharacteristicResponse_ResponseParams',
@@ -1070,7 +1506,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponsePar
 };
 
 // ParamsSpec for SetNextSubscribeToNotificationsResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextSubscribeToNotificationsResponse_Params',
@@ -1086,7 +1522,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_Params
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextSubscribeToNotificationsResponse_ResponseParams',
@@ -1100,7 +1536,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_Respon
 };
 
 // ParamsSpec for SetNextUnsubscribeFromNotificationsResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextUnsubscribeFromNotificationsResponse_Params',
@@ -1116,7 +1552,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_Pa
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextUnsubscribeFromNotificationsResponse_ResponseParams',
@@ -1130,7 +1566,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_Re
 };
 
 // ParamsSpec for IsNotifying
-bluetooth.mojom.mojom.FakeCentral_IsNotifying_ParamsSpec = {
+bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.IsNotifying_Params',
@@ -1145,7 +1581,7 @@ bluetooth.mojom.mojom.FakeCentral_IsNotifying_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_IsNotifying_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.IsNotifying_ResponseParams',
@@ -1160,7 +1596,7 @@ bluetooth.mojom.mojom.FakeCentral_IsNotifying_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetLastWrittenCharacteristicValue
-bluetooth.mojom.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec = {
+bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.GetLastWrittenCharacteristicValue_Params',
@@ -1175,7 +1611,7 @@ bluetooth.mojom.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec =
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.GetLastWrittenCharacteristicValue_ResponseParams',
@@ -1191,7 +1627,7 @@ bluetooth.mojom.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponsePara
 };
 
 // ParamsSpec for SetNextReadDescriptorResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextReadDescriptorResponse_Params',
@@ -1209,7 +1645,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextReadDescriptorResponse_ResponseParams',
@@ -1223,7 +1659,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSp
 };
 
 // ParamsSpec for SetNextWriteDescriptorResponse
-bluetooth.mojom.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextWriteDescriptorResponse_Params',
@@ -1240,7 +1676,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetNextWriteDescriptorResponse_ResponseParams',
@@ -1254,7 +1690,7 @@ bluetooth.mojom.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsS
 };
 
 // ParamsSpec for GetLastWrittenDescriptorValue
-bluetooth.mojom.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec = {
+bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.GetLastWrittenDescriptorValue_Params',
@@ -1270,7 +1706,7 @@ bluetooth.mojom.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec = {
+bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.GetLastWrittenDescriptorValue_ResponseParams',
@@ -1285,7 +1721,7 @@ bluetooth.mojom.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSp
 };
 
 // ParamsSpec for SetClient
-bluetooth.mojom.mojom.FakeCentral_SetClient_ParamsSpec = {
+bluetooth.mojom.FakeCentral_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.SetClient_Params',
@@ -1299,29 +1735,74 @@ bluetooth.mojom.mojom.FakeCentral_SetClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.mojom.FakeCentralPtr = bluetooth.mojom.mojom.FakeCentralRemote;
-bluetooth.mojom.mojom.FakeCentralRequest = bluetooth.mojom.mojom.FakeCentralPendingReceiver;
+bluetooth.mojom.FakeCentralPtr = bluetooth.mojom.FakeCentralRemote;
+bluetooth.mojom.FakeCentralRequest = bluetooth.mojom.FakeCentralPendingReceiver;
 
 
 // Interface: FakeCentralClient
-bluetooth.mojom.mojom.FakeCentralClient = {};
+bluetooth.mojom.FakeCentralClient = {};
 
-bluetooth.mojom.mojom.FakeCentralClientPendingReceiver = class {
+bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.GATTOperationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.CharacteristicOperationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'write_type', packedOffset: 20, packedBitOffset: 0, type: bluetooth.mojom.WriteTypeSpec, nullable: true, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.DescriptorOperationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'descriptor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+bluetooth.mojom.FakeCentralClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.mojom.FakeCentralClientRemote = class {
+bluetooth.mojom.FakeCentralClientRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.FakeCentralClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.mojom.FakeCentralClientPendingReceiver,
+      bluetooth.mojom.FakeCentralClientPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.mojom.FakeCentralClientRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.FakeCentralClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1333,7 +1814,7 @@ bluetooth.mojom.mojom.FakeCentralClientRemote = class {
   }
 };
 
-bluetooth.mojom.mojom.FakeCentralClientRemoteCallHandler = class {
+bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1342,7 +1823,7 @@ bluetooth.mojom.mojom.FakeCentralClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec,
+      bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec,
       null,
       [type, peripheral_address]);
   }
@@ -1351,7 +1832,7 @@ bluetooth.mojom.mojom.FakeCentralClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec,
+      bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec,
       null,
       [type, data, write_type, characteristic_id]);
   }
@@ -1360,15 +1841,15 @@ bluetooth.mojom.mojom.FakeCentralClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec,
+      bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec,
       null,
       [type, data, descriptor_id]);
   }
 
 };
 
-bluetooth.mojom.mojom.FakeCentralClient.getRemote = function() {
-  let remote = new bluetooth.mojom.mojom.FakeCentralClientRemote();
+bluetooth.mojom.FakeCentralClient.getRemote = function() {
+  let remote = new bluetooth.mojom.FakeCentralClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1378,7 +1859,7 @@ bluetooth.mojom.mojom.FakeCentralClient.getRemote = function() {
 };
 
 // ParamsSpec for DispatchGATTOperationEvent
-bluetooth.mojom.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec = {
+bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentralClient.DispatchGATTOperationEvent_Params',
@@ -1393,7 +1874,7 @@ bluetooth.mojom.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec = 
 };
 
 // ParamsSpec for DispatchCharacteristicOperationEvent
-bluetooth.mojom.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec = {
+bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentralClient.DispatchCharacteristicOperationEvent_Params',
@@ -1410,7 +1891,7 @@ bluetooth.mojom.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_Par
 };
 
 // ParamsSpec for DispatchDescriptorOperationEvent
-bluetooth.mojom.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec = {
+bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentralClient.DispatchDescriptorOperationEvent_Params',
@@ -1426,6 +1907,6 @@ bluetooth.mojom.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsS
 };
 
 // Legacy compatibility
-bluetooth.mojom.mojom.FakeCentralClientPtr = bluetooth.mojom.mojom.FakeCentralClientRemote;
-bluetooth.mojom.mojom.FakeCentralClientRequest = bluetooth.mojom.mojom.FakeCentralClientPendingReceiver;
+bluetooth.mojom.FakeCentralClientPtr = bluetooth.mojom.FakeCentralClientRemote;
+bluetooth.mojom.FakeCentralClientRequest = bluetooth.mojom.FakeCentralClientPendingReceiver;
 

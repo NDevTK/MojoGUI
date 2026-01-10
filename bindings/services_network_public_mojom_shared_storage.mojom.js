@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Union: SharedStorageModifierMethod
-network.mojom.mojom.SharedStorageModifierMethodSpec = { $: mojo.internal.Union(
+network.mojom.SharedStorageModifierMethodSpec = { $: mojo.internal.Union(
     'network.mojom.SharedStorageModifierMethod', {
       'set_method': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ network.mojom.mojom.SharedStorageModifierMethodSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SharedStorageKeyArgument
-network.mojom.mojom.SharedStorageKeyArgumentSpec = {
+network.mojom.SharedStorageKeyArgumentSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageKeyArgument',
@@ -46,7 +46,7 @@ network.mojom.mojom.SharedStorageKeyArgumentSpec = {
 };
 
 // Struct: SharedStorageValueArgument
-network.mojom.mojom.SharedStorageValueArgumentSpec = {
+network.mojom.SharedStorageValueArgumentSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageValueArgument',
@@ -60,7 +60,7 @@ network.mojom.mojom.SharedStorageValueArgumentSpec = {
 };
 
 // Struct: LockName
-network.mojom.mojom.LockNameSpec = {
+network.mojom.LockNameSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.LockName',
@@ -74,7 +74,7 @@ network.mojom.mojom.LockNameSpec = {
 };
 
 // Struct: SharedStorageSetMethod
-network.mojom.mojom.SharedStorageSetMethodSpec = {
+network.mojom.SharedStorageSetMethodSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageSetMethod',
@@ -90,7 +90,7 @@ network.mojom.mojom.SharedStorageSetMethodSpec = {
 };
 
 // Struct: SharedStorageAppendMethod
-network.mojom.mojom.SharedStorageAppendMethodSpec = {
+network.mojom.SharedStorageAppendMethodSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageAppendMethod',
@@ -105,7 +105,7 @@ network.mojom.mojom.SharedStorageAppendMethodSpec = {
 };
 
 // Struct: SharedStorageDeleteMethod
-network.mojom.mojom.SharedStorageDeleteMethodSpec = {
+network.mojom.SharedStorageDeleteMethodSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageDeleteMethod',
@@ -119,7 +119,7 @@ network.mojom.mojom.SharedStorageDeleteMethodSpec = {
 };
 
 // Struct: SharedStorageClearMethod
-network.mojom.mojom.SharedStorageClearMethodSpec = {
+network.mojom.SharedStorageClearMethodSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageClearMethod',
@@ -132,7 +132,7 @@ network.mojom.mojom.SharedStorageClearMethodSpec = {
 };
 
 // Struct: SharedStorageModifierMethodWithOptions
-network.mojom.mojom.SharedStorageModifierMethodWithOptionsSpec = {
+network.mojom.SharedStorageModifierMethodWithOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageModifierMethodWithOptions',
@@ -147,7 +147,7 @@ network.mojom.mojom.SharedStorageModifierMethodWithOptionsSpec = {
 };
 
 // Struct: SharedStorageBatchUpdateMethodsArgument
-network.mojom.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = {
+network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageBatchUpdateMethodsArgument',

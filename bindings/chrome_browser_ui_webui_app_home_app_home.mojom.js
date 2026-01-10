@@ -11,23 +11,23 @@ var url = url || {};
 
 
 // Enum: RunOnOsLoginMode
-app_home.mojom.mojom.RunOnOsLoginMode = {
+app_home.mojom.RunOnOsLoginMode = {
   kNotRun: 0,
   kWindowed: 1,
   kMinimized: 2,
 };
-app_home.mojom.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
+app_home.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppType
-app_home.mojom.mojom.AppType = {
+app_home.mojom.AppType = {
   kWebApp: 0,
   kIsolatedWebApp: 1,
   kDeprecatedChromeApp: 2,
 };
-app_home.mojom.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
+app_home.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AppInfo
-app_home.mojom.mojom.AppInfoSpec = {
+app_home.mojom.AppInfoSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.AppInfo',
@@ -52,7 +52,7 @@ app_home.mojom.mojom.AppInfoSpec = {
 };
 
 // Struct: ClickEvent
-app_home.mojom.mojom.ClickEventSpec = {
+app_home.mojom.ClickEventSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.ClickEvent',
@@ -70,24 +70,38 @@ app_home.mojom.mojom.ClickEventSpec = {
 };
 
 // Interface: PageHandlerFactory
-app_home.mojom.mojom.PageHandlerFactory = {};
+app_home.mojom.PageHandlerFactory = {};
 
-app_home.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(app_home.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(app_home.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+app_home.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-app_home.mojom.mojom.PageHandlerFactoryRemote = class {
+app_home.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'app_home.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      app_home.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      app_home.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new app_home.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new app_home.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -99,7 +113,7 @@ app_home.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-app_home.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+app_home.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -108,15 +122,15 @@ app_home.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_home.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-app_home.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new app_home.mojom.mojom.PageHandlerFactoryRemote();
+app_home.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new app_home.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -126,7 +140,7 @@ app_home.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-app_home.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -141,29 +155,159 @@ app_home.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-app_home.mojom.mojom.PageHandlerFactoryPtr = app_home.mojom.mojom.PageHandlerFactoryRemote;
-app_home.mojom.mojom.PageHandlerFactoryRequest = app_home.mojom.mojom.PageHandlerFactoryPendingReceiver;
+app_home.mojom.PageHandlerFactoryPtr = app_home.mojom.PageHandlerFactoryRemote;
+app_home.mojom.PageHandlerFactoryRequest = app_home.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-app_home.mojom.mojom.PageHandler = {};
+app_home.mojom.PageHandler = {};
 
-app_home.mojom.mojom.PageHandlerPendingReceiver = class {
+app_home.mojom.PageHandler_GetApps_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_GetApps_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_GetDeprecationLinkString_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_UninstallApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_UninstallApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_ShowAppSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_CreateAppShortcut_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_LaunchApp_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'click_event', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.ClickEventSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_SetRunOnOsLoginMode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'run_on_os_login_mode', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_InstallAppLocally_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.PageHandler_SetUserDisplayMode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'display_mode', packedOffset: 8, packedBitOffset: 0, type: web_app.mojom.UserDisplayModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+app_home.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-app_home.mojom.mojom.PageHandlerRemote = class {
+app_home.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'app_home.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      app_home.mojom.mojom.PageHandlerPendingReceiver,
+      app_home.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new app_home.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new app_home.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -175,7 +319,7 @@ app_home.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
+app_home.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -184,8 +328,8 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_home.mojom.mojom.PageHandler_GetApps_ParamsSpec,
-      app_home.mojom.mojom.PageHandler_GetApps_ResponseParamsSpec,
+      app_home.mojom.PageHandler_GetApps_ParamsSpec,
+      app_home.mojom.PageHandler_GetApps_ResponseParamsSpec,
       []);
   }
 
@@ -193,8 +337,8 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      app_home.mojom.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec,
-      app_home.mojom.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec,
+      app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec,
+      app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec,
       []);
   }
 
@@ -202,7 +346,7 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      app_home.mojom.mojom.PageHandler_UninstallApp_ParamsSpec,
+      app_home.mojom.PageHandler_UninstallApp_ParamsSpec,
       null,
       [app_id]);
   }
@@ -211,7 +355,7 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      app_home.mojom.mojom.PageHandler_ShowAppSettings_ParamsSpec,
+      app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec,
       null,
       [app_id]);
   }
@@ -220,7 +364,7 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      app_home.mojom.mojom.PageHandler_CreateAppShortcut_ParamsSpec,
+      app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec,
       null,
       [app_id]);
   }
@@ -229,7 +373,7 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      app_home.mojom.mojom.PageHandler_LaunchApp_ParamsSpec,
+      app_home.mojom.PageHandler_LaunchApp_ParamsSpec,
       null,
       [app_id, click_event]);
   }
@@ -238,7 +382,7 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      app_home.mojom.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
+      app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
       null,
       [app_id, run_on_os_login_mode]);
   }
@@ -247,7 +391,7 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      app_home.mojom.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec,
+      app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec,
       null,
       []);
   }
@@ -256,7 +400,7 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      app_home.mojom.mojom.PageHandler_InstallAppLocally_ParamsSpec,
+      app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec,
       null,
       [app_id]);
   }
@@ -265,15 +409,15 @@ app_home.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      app_home.mojom.mojom.PageHandler_SetUserDisplayMode_ParamsSpec,
+      app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec,
       null,
       [app_id, display_mode]);
   }
 
 };
 
-app_home.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new app_home.mojom.mojom.PageHandlerRemote();
+app_home.mojom.PageHandler.getRemote = function() {
+  let remote = new app_home.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -283,7 +427,7 @@ app_home.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetApps
-app_home.mojom.mojom.PageHandler_GetApps_ParamsSpec = {
+app_home.mojom.PageHandler_GetApps_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.GetApps_Params',
@@ -295,7 +439,7 @@ app_home.mojom.mojom.PageHandler_GetApps_ParamsSpec = {
   }
 };
 
-app_home.mojom.mojom.PageHandler_GetApps_ResponseParamsSpec = {
+app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.GetApps_ResponseParams',
@@ -309,7 +453,7 @@ app_home.mojom.mojom.PageHandler_GetApps_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDeprecationLinkString
-app_home.mojom.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
+app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.GetDeprecationLinkString_Params',
@@ -321,7 +465,7 @@ app_home.mojom.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
   }
 };
 
-app_home.mojom.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
+app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.GetDeprecationLinkString_ResponseParams',
@@ -335,7 +479,7 @@ app_home.mojom.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UninstallApp
-app_home.mojom.mojom.PageHandler_UninstallApp_ParamsSpec = {
+app_home.mojom.PageHandler_UninstallApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.UninstallApp_Params',
@@ -349,7 +493,7 @@ app_home.mojom.mojom.PageHandler_UninstallApp_ParamsSpec = {
 };
 
 // ParamsSpec for ShowAppSettings
-app_home.mojom.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
+app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.ShowAppSettings_Params',
@@ -363,7 +507,7 @@ app_home.mojom.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
 };
 
 // ParamsSpec for CreateAppShortcut
-app_home.mojom.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
+app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.CreateAppShortcut_Params',
@@ -377,7 +521,7 @@ app_home.mojom.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchApp
-app_home.mojom.mojom.PageHandler_LaunchApp_ParamsSpec = {
+app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.LaunchApp_Params',
@@ -392,7 +536,7 @@ app_home.mojom.mojom.PageHandler_LaunchApp_ParamsSpec = {
 };
 
 // ParamsSpec for SetRunOnOsLoginMode
-app_home.mojom.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
+app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.SetRunOnOsLoginMode_Params',
@@ -407,7 +551,7 @@ app_home.mojom.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchDeprecatedAppDialog
-app_home.mojom.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
+app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.LaunchDeprecatedAppDialog_Params',
@@ -420,7 +564,7 @@ app_home.mojom.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
 };
 
 // ParamsSpec for InstallAppLocally
-app_home.mojom.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
+app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.InstallAppLocally_Params',
@@ -434,7 +578,7 @@ app_home.mojom.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
 };
 
 // ParamsSpec for SetUserDisplayMode
-app_home.mojom.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
+app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.PageHandler.SetUserDisplayMode_Params',
@@ -449,29 +593,68 @@ app_home.mojom.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
 };
 
 // Legacy compatibility
-app_home.mojom.mojom.PageHandlerPtr = app_home.mojom.mojom.PageHandlerRemote;
-app_home.mojom.mojom.PageHandlerRequest = app_home.mojom.mojom.PageHandlerPendingReceiver;
+app_home.mojom.PageHandlerPtr = app_home.mojom.PageHandlerRemote;
+app_home.mojom.PageHandlerRequest = app_home.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-app_home.mojom.mojom.Page = {};
+app_home.mojom.Page = {};
 
-app_home.mojom.mojom.PagePendingReceiver = class {
+app_home.mojom.Page_AddApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.Page_AddApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+app_home.mojom.Page_RemoveApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.Page_RemoveApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+app_home.mojom.Page_UpdateApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.Page_UpdateApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+app_home.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-app_home.mojom.mojom.PageRemote = class {
+app_home.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'app_home.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      app_home.mojom.mojom.PagePendingReceiver,
+      app_home.mojom.PagePendingReceiver,
       handle);
-    this.$ = new app_home.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new app_home.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -483,7 +666,7 @@ app_home.mojom.mojom.PageRemote = class {
   }
 };
 
-app_home.mojom.mojom.PageRemoteCallHandler = class {
+app_home.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -492,7 +675,7 @@ app_home.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_home.mojom.mojom.Page_AddApp_ParamsSpec,
+      app_home.mojom.Page_AddApp_ParamsSpec,
       null,
       [app_info]);
   }
@@ -501,7 +684,7 @@ app_home.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      app_home.mojom.mojom.Page_RemoveApp_ParamsSpec,
+      app_home.mojom.Page_RemoveApp_ParamsSpec,
       null,
       [app_info]);
   }
@@ -510,15 +693,15 @@ app_home.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      app_home.mojom.mojom.Page_UpdateApp_ParamsSpec,
+      app_home.mojom.Page_UpdateApp_ParamsSpec,
       null,
       [app_info]);
   }
 
 };
 
-app_home.mojom.mojom.Page.getRemote = function() {
-  let remote = new app_home.mojom.mojom.PageRemote();
+app_home.mojom.Page.getRemote = function() {
+  let remote = new app_home.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -528,7 +711,7 @@ app_home.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for AddApp
-app_home.mojom.mojom.Page_AddApp_ParamsSpec = {
+app_home.mojom.Page_AddApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.Page.AddApp_Params',
@@ -542,7 +725,7 @@ app_home.mojom.mojom.Page_AddApp_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveApp
-app_home.mojom.mojom.Page_RemoveApp_ParamsSpec = {
+app_home.mojom.Page_RemoveApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.Page.RemoveApp_Params',
@@ -556,7 +739,7 @@ app_home.mojom.mojom.Page_RemoveApp_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateApp
-app_home.mojom.mojom.Page_UpdateApp_ParamsSpec = {
+app_home.mojom.Page_UpdateApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.Page.UpdateApp_Params',
@@ -570,6 +753,6 @@ app_home.mojom.mojom.Page_UpdateApp_ParamsSpec = {
 };
 
 // Legacy compatibility
-app_home.mojom.mojom.PagePtr = app_home.mojom.mojom.PageRemote;
-app_home.mojom.mojom.PageRequest = app_home.mojom.mojom.PagePendingReceiver;
+app_home.mojom.PagePtr = app_home.mojom.PageRemote;
+app_home.mojom.PageRequest = app_home.mojom.PagePendingReceiver;
 

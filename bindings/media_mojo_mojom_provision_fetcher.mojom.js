@@ -11,24 +11,38 @@ var url = url || {};
 
 
 // Interface: ProvisionFetcher
-media.mojom.mojom.ProvisionFetcher = {};
+media.mojom.ProvisionFetcher = {};
 
-media.mojom.mojom.ProvisionFetcherPendingReceiver = class {
+media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ProvisionFetcher_Retrieve_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'default_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.ProvisionFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.ProvisionFetcherRemote = class {
+media.mojom.ProvisionFetcherRemote = class {
   static get $interfaceName() {
     return 'media.mojom.ProvisionFetcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.ProvisionFetcherPendingReceiver,
+      media.mojom.ProvisionFetcherPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.ProvisionFetcherRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.ProvisionFetcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +54,7 @@ media.mojom.mojom.ProvisionFetcherRemote = class {
   }
 };
 
-media.mojom.mojom.ProvisionFetcherRemoteCallHandler = class {
+media.mojom.ProvisionFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +63,15 @@ media.mojom.mojom.ProvisionFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.ProvisionFetcher_Retrieve_ParamsSpec,
-      media.mojom.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
+      media.mojom.ProvisionFetcher_Retrieve_ParamsSpec,
+      media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
       [default_url, request_data]);
   }
 
 };
 
-media.mojom.mojom.ProvisionFetcher.getRemote = function() {
-  let remote = new media.mojom.mojom.ProvisionFetcherRemote();
+media.mojom.ProvisionFetcher.getRemote = function() {
+  let remote = new media.mojom.ProvisionFetcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +81,7 @@ media.mojom.mojom.ProvisionFetcher.getRemote = function() {
 };
 
 // ParamsSpec for Retrieve
-media.mojom.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
+media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ProvisionFetcher.Retrieve_Params',
@@ -81,7 +95,7 @@ media.mojom.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
+media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ProvisionFetcher.Retrieve_ResponseParams',
@@ -96,6 +110,6 @@ media.mojom.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.ProvisionFetcherPtr = media.mojom.mojom.ProvisionFetcherRemote;
-media.mojom.mojom.ProvisionFetcherRequest = media.mojom.mojom.ProvisionFetcherPendingReceiver;
+media.mojom.ProvisionFetcherPtr = media.mojom.ProvisionFetcherRemote;
+media.mojom.ProvisionFetcherRequest = media.mojom.ProvisionFetcherPendingReceiver;
 

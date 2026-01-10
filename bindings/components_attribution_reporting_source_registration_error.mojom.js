@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Enum: SourceRegistrationError
-attribution_reporting.mojom.mojom.SourceRegistrationError = {
+attribution_reporting.mojom.SourceRegistrationError = {
   kInvalidJson: 0,
   kRootWrongType: 1,
   kDestinationMissing: 2,
@@ -55,4 +55,4 @@ attribution_reporting.mojom.mojom.SourceRegistrationError = {
   kAggregatableNamedBudgetsKeyTooLong: 41,
   kAggregatableNamedBudgetsValueInvalid: 42,
 };
-attribution_reporting.mojom.mojom.SourceRegistrationErrorSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.SourceRegistrationErrorSpec = { $: mojo.internal.Enum() };

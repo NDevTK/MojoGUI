@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Struct: UsbDeviceFilter
-device.mojom.mojom.UsbDeviceFilterSpec = {
+device.mojom.UsbDeviceFilterSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceFilter',
@@ -34,7 +34,7 @@ device.mojom.mojom.UsbDeviceFilterSpec = {
 };
 
 // Struct: UsbEnumerationOptions
-device.mojom.mojom.UsbEnumerationOptionsSpec = {
+device.mojom.UsbEnumerationOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbEnumerationOptions',

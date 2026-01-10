@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: SameDocumentNavigationType
-blink.mojom.mojom.SameDocumentNavigationType = {
+blink.mojom.SameDocumentNavigationType = {
   kFragment: 0,
   kHistoryApi: 1,
   kNavigationApiIntercept: 2,
   kPrerenderNoVarySearchActivation: 3,
 };
-blink.mojom.mojom.SameDocumentNavigationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SameDocumentNavigationTypeSpec = { $: mojo.internal.Enum() };

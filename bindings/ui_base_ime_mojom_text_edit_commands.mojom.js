@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: TextEditCommand
-ui.mojom.mojom.TextEditCommand = {
+ui.mojom.TextEditCommand = {
   kDeleteBackward: 0,
   kDeleteForward: 1,
   kDeleteToBeginningOfLine: 2,
@@ -75,4 +75,4 @@ ui.mojom.mojom.TextEditCommand = {
   kUnselect: 61,
   kInvalidCommand: 62,
 };
-ui.mojom.mojom.TextEditCommandSpec = { $: mojo.internal.Enum() };
+ui.mojom.TextEditCommandSpec = { $: mojo.internal.Enum() };

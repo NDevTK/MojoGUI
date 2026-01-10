@@ -10,24 +10,50 @@ media.mojom = media.mojom || {};
 
 
 // Interface: DCOMPSurfaceRegistry
-media.mojom.mojom.DCOMPSurfaceRegistry = {};
+media.mojom.DCOMPSurfaceRegistry = {};
 
-media.mojom.mojom.DCOMPSurfaceRegistryPendingReceiver = class {
+media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'surface_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.DCOMPSurfaceRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.DCOMPSurfaceRegistryRemote = class {
+media.mojom.DCOMPSurfaceRegistryRemote = class {
   static get $interfaceName() {
     return 'media.mojom.DCOMPSurfaceRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.DCOMPSurfaceRegistryPendingReceiver,
+      media.mojom.DCOMPSurfaceRegistryPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.DCOMPSurfaceRegistryRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.DCOMPSurfaceRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +65,7 @@ media.mojom.mojom.DCOMPSurfaceRegistryRemote = class {
   }
 };
 
-media.mojom.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
+media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +74,8 @@ media.mojom.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec,
-      media.mojom.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
+      media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec,
+      media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
       [surface_handle]);
   }
 
@@ -57,15 +83,15 @@ media.mojom.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec,
+      media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
       [token]);
   }
 
 };
 
-media.mojom.mojom.DCOMPSurfaceRegistry.getRemote = function() {
-  let remote = new media.mojom.mojom.DCOMPSurfaceRegistryRemote();
+media.mojom.DCOMPSurfaceRegistry.getRemote = function() {
+  let remote = new media.mojom.DCOMPSurfaceRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +101,7 @@ media.mojom.mojom.DCOMPSurfaceRegistry.getRemote = function() {
 };
 
 // ParamsSpec for RegisterDCOMPSurfaceHandle
-media.mojom.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec = {
+media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DCOMPSurfaceRegistry.RegisterDCOMPSurfaceHandle_Params',
@@ -88,7 +114,7 @@ media.mojom.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
+media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DCOMPSurfaceRegistry.RegisterDCOMPSurfaceHandle_ResponseParams',
@@ -102,7 +128,7 @@ media.mojom.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParams
 };
 
 // ParamsSpec for UnregisterDCOMPSurfaceHandle
-media.mojom.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
+media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DCOMPSurfaceRegistry.UnregisterDCOMPSurfaceHandle_Params',
@@ -116,6 +142,6 @@ media.mojom.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec =
 };
 
 // Legacy compatibility
-media.mojom.mojom.DCOMPSurfaceRegistryPtr = media.mojom.mojom.DCOMPSurfaceRegistryRemote;
-media.mojom.mojom.DCOMPSurfaceRegistryRequest = media.mojom.mojom.DCOMPSurfaceRegistryPendingReceiver;
+media.mojom.DCOMPSurfaceRegistryPtr = media.mojom.DCOMPSurfaceRegistryRemote;
+media.mojom.DCOMPSurfaceRegistryRequest = media.mojom.DCOMPSurfaceRegistryPendingReceiver;
 

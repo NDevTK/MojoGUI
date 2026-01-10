@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PauseSubresourceLoadingHandle
-blink.mojom.mojom.PauseSubresourceLoadingHandle = {};
+blink.mojom.PauseSubresourceLoadingHandle = {};
 
-blink.mojom.mojom.PauseSubresourceLoadingHandlePendingReceiver = class {
+blink.mojom.PauseSubresourceLoadingHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PauseSubresourceLoadingHandleRemote = class {
+blink.mojom.PauseSubresourceLoadingHandleRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PauseSubresourceLoadingHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PauseSubresourceLoadingHandlePendingReceiver,
+      blink.mojom.PauseSubresourceLoadingHandlePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PauseSubresourceLoadingHandleRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PauseSubresourceLoadingHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ blink.mojom.mojom.PauseSubresourceLoadingHandleRemote = class {
   }
 };
 
-blink.mojom.mojom.PauseSubresourceLoadingHandleRemoteCallHandler = class {
+blink.mojom.PauseSubresourceLoadingHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-blink.mojom.mojom.PauseSubresourceLoadingHandle.getRemote = function() {
-  let remote = new blink.mojom.mojom.PauseSubresourceLoadingHandleRemote();
+blink.mojom.PauseSubresourceLoadingHandle.getRemote = function() {
+  let remote = new blink.mojom.PauseSubresourceLoadingHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,6 +57,6 @@ blink.mojom.mojom.PauseSubresourceLoadingHandle.getRemote = function() {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PauseSubresourceLoadingHandlePtr = blink.mojom.mojom.PauseSubresourceLoadingHandleRemote;
-blink.mojom.mojom.PauseSubresourceLoadingHandleRequest = blink.mojom.mojom.PauseSubresourceLoadingHandlePendingReceiver;
+blink.mojom.PauseSubresourceLoadingHandlePtr = blink.mojom.PauseSubresourceLoadingHandleRemote;
+blink.mojom.PauseSubresourceLoadingHandleRequest = blink.mojom.PauseSubresourceLoadingHandlePendingReceiver;
 

@@ -13,7 +13,7 @@ var gfx = gfx || {};
 
 
 // Struct: FrameVisualProperties
-blink.mojom.mojom.FrameVisualPropertiesSpec = {
+blink.mojom.FrameVisualPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameVisualProperties',

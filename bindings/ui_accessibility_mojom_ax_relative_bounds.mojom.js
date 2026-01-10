@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: AXRelativeBounds
-ax.mojom.mojom.AXRelativeBoundsSpec = {
+ax.mojom.AXRelativeBoundsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXRelativeBounds',

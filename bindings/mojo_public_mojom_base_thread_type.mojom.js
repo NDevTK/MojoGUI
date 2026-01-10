@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: ThreadType
-mojo_base.mojom.mojom.ThreadType = {
+mojo_base.mojom.ThreadType = {
   kBackground: 0,
   kUtility: 1,
   kDefault: 2,
@@ -18,4 +18,4 @@ mojo_base.mojom.mojom.ThreadType = {
   kInteractive: 4,
   kRealtimeAudio: 5,
 };
-mojo_base.mojom.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };

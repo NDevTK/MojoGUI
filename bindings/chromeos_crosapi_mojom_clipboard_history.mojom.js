@@ -10,25 +10,25 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: ClipboardHistoryControllerShowSource
-crosapi.mojom.mojom.ClipboardHistoryControllerShowSource = {
+crosapi.mojom.ClipboardHistoryControllerShowSource = {
   kAccelerator: 0,
   kRenderViewContextMenu: 1,
   kTextfieldContextMenu: 2,
   kVirtualKeyboard: 3,
 };
-crosapi.mojom.mojom.ClipboardHistoryControllerShowSourceSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ClipboardHistoryControllerShowSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClipboardHistoryDisplayFormat
-crosapi.mojom.mojom.ClipboardHistoryDisplayFormat = {
+crosapi.mojom.ClipboardHistoryDisplayFormat = {
   kText: 0,
   kPng: 1,
   kHtml: 2,
   kFile: 3,
 };
-crosapi.mojom.mojom.ClipboardHistoryDisplayFormatSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ClipboardHistoryDisplayFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClipboardHistoryItemDescriptor
-crosapi.mojom.mojom.ClipboardHistoryItemDescriptorSpec = {
+crosapi.mojom.ClipboardHistoryItemDescriptorSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ClipboardHistoryItemDescriptor',

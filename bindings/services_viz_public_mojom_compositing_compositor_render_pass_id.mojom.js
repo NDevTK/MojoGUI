@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: CompositorRenderPassId
-viz.mojom.mojom.CompositorRenderPassIdSpec = {
+viz.mojom.CompositorRenderPassIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorRenderPassId',

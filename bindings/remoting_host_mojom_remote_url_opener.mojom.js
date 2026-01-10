@@ -11,33 +11,46 @@ var url = url || {};
 
 
 // Enum: OpenUrlResult
-remoting.mojom.mojom.OpenUrlResult = {
+remoting.mojom.OpenUrlResult = {
   UNSPECIFIED_OPEN_URL_RESULT: 0,
   SUCCESS: 1,
   FAILURE: 2,
   LOCAL_FALLBACK: 3,
 };
-remoting.mojom.mojom.OpenUrlResultSpec = { $: mojo.internal.Enum() };
+remoting.mojom.OpenUrlResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: RemoteUrlOpener
-remoting.mojom.mojom.RemoteUrlOpener = {};
+remoting.mojom.RemoteUrlOpener = {};
 
-remoting.mojom.mojom.RemoteUrlOpenerPendingReceiver = class {
+remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.RemoteUrlOpener_OpenUrl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remoting.mojom.RemoteUrlOpenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.mojom.RemoteUrlOpenerRemote = class {
+remoting.mojom.RemoteUrlOpenerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.RemoteUrlOpener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.mojom.RemoteUrlOpenerPendingReceiver,
+      remoting.mojom.RemoteUrlOpenerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.mojom.RemoteUrlOpenerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.RemoteUrlOpenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +62,7 @@ remoting.mojom.mojom.RemoteUrlOpenerRemote = class {
   }
 };
 
-remoting.mojom.mojom.RemoteUrlOpenerRemoteCallHandler = class {
+remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,15 +71,15 @@ remoting.mojom.mojom.RemoteUrlOpenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec,
-      remoting.mojom.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec,
+      remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec,
+      remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec,
       [url]);
   }
 
 };
 
-remoting.mojom.mojom.RemoteUrlOpener.getRemote = function() {
-  let remote = new remoting.mojom.mojom.RemoteUrlOpenerRemote();
+remoting.mojom.RemoteUrlOpener.getRemote = function() {
+  let remote = new remoting.mojom.RemoteUrlOpenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +89,7 @@ remoting.mojom.mojom.RemoteUrlOpener.getRemote = function() {
 };
 
 // ParamsSpec for OpenUrl
-remoting.mojom.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
+remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_Params',
@@ -89,7 +102,7 @@ remoting.mojom.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
   }
 };
 
-remoting.mojom.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
+remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_ResponseParams',
@@ -103,6 +116,6 @@ remoting.mojom.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.mojom.RemoteUrlOpenerPtr = remoting.mojom.mojom.RemoteUrlOpenerRemote;
-remoting.mojom.mojom.RemoteUrlOpenerRequest = remoting.mojom.mojom.RemoteUrlOpenerPendingReceiver;
+remoting.mojom.RemoteUrlOpenerPtr = remoting.mojom.RemoteUrlOpenerRemote;
+remoting.mojom.RemoteUrlOpenerRequest = remoting.mojom.RemoteUrlOpenerPendingReceiver;
 

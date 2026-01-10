@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: ANGLEFeature
-gfx.mojom.mojom.ANGLEFeatureSpec = {
+gfx.mojom.ANGLEFeatureSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ANGLEFeature',
@@ -26,7 +26,7 @@ gfx.mojom.mojom.ANGLEFeatureSpec = {
 };
 
 // Struct: GpuExtraInfo
-gfx.mojom.mojom.GpuExtraInfoSpec = {
+gfx.mojom.GpuExtraInfoSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.GpuExtraInfo',

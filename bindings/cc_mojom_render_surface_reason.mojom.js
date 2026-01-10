@@ -10,7 +10,7 @@ cc.mojom = cc.mojom || {};
 
 
 // Enum: RenderSurfaceReason
-cc.mojom.mojom.RenderSurfaceReason = {
+cc.mojom.RenderSurfaceReason = {
   kNone: 0,
   kRoot: 1,
   k3dTransformFlattening: 2,
@@ -37,4 +37,4 @@ cc.mojom.mojom.RenderSurfaceReason = {
   k2DScaleTransformWithCompositedDescendants: 23,
   kTest: 24,
 };
-cc.mojom.mojom.RenderSurfaceReasonSpec = { $: mojo.internal.Enum() };
+cc.mojom.RenderSurfaceReasonSpec = { $: mojo.internal.Enum() };

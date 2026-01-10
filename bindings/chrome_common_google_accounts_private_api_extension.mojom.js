@@ -10,24 +10,37 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: GoogleAccountsPrivateApiExtension
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtension = {};
+chrome.mojom.GoogleAccountsPrivateApiExtension = {};
 
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver = class {
+chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'consent_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRemote = class {
+chrome.mojom.GoogleAccountsPrivateApiExtensionRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.GoogleAccountsPrivateApiExtension';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver,
+      chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRemote = class {
   }
 };
 
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler = class {
+chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec,
+      chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec,
       null,
       [consent_result]);
   }
 
 };
 
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtension.getRemote = function() {
-  let remote = new chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRemote();
+chrome.mojom.GoogleAccountsPrivateApiExtension.getRemote = function() {
+  let remote = new chrome.mojom.GoogleAccountsPrivateApiExtensionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ chrome.mojom.mojom.GoogleAccountsPrivateApiExtension.getRemote = function() {
 };
 
 // ParamsSpec for SetConsentResult
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
+chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.GoogleAccountsPrivateApiExtension.SetConsentResult_Params',
@@ -80,6 +93,6 @@ chrome.mojom.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionPtr = chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRemote;
-chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionRequest = chrome.mojom.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver;
+chrome.mojom.GoogleAccountsPrivateApiExtensionPtr = chrome.mojom.GoogleAccountsPrivateApiExtensionRemote;
+chrome.mojom.GoogleAccountsPrivateApiExtensionRequest = chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver;
 

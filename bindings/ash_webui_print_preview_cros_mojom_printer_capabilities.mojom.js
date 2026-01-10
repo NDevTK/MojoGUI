@@ -7,38 +7,38 @@
 // Module namespace
 var ash = ash || {};
 ash.printing = ash.printing || {};
-ash.printing.printing.print_preview = ash.printing.printing.print_preview || {};
-ash.printing.printing.print_preview.print_preview.mojom = ash.printing.printing.print_preview.print_preview.mojom || {};
+ash.printing.print_preview = ash.printing.print_preview || {};
+ash.printing.print_preview.mojom = ash.printing.print_preview.mojom || {};
 
 
 // Enum: ColorType
-ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorType = {
+ash.printing.print_preview.mojom.ColorType = {
   kStandardColor: 0,
   kStandardMonochrome: 1,
   kCustomColor: 2,
   kCustomMonochrome: 3,
   kAutoColor: 4,
 };
-ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
+ash.printing.print_preview.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexType
-ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexType = {
+ash.printing.print_preview.mojom.DuplexType = {
   kNoDuplex: 0,
   kLongEdge: 1,
   kShortEdge: 2,
 };
-ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexTypeSpec = { $: mojo.internal.Enum() };
+ash.printing.print_preview.mojom.DuplexTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageOrientation
-ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientation = {
+ash.printing.print_preview.mojom.PageOrientation = {
   kPortrait: 0,
   kLandscape: 1,
   kAuto: 2,
 };
-ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
+ash.printing.print_preview.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
 
 // Struct: ColorOption
-ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorOptionSpec = {
+ash.printing.print_preview.mojom.ColorOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.ColorOption',
@@ -56,7 +56,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorOptionSpec = 
 };
 
 // Struct: ColorCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorCapabilitySpec = {
+ash.printing.print_preview.mojom.ColorCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.ColorCapability',
@@ -72,7 +72,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorCapabilitySpe
 };
 
 // Struct: CollateCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.CollateCapabilitySpec = {
+ash.printing.print_preview.mojom.CollateCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.CollateCapability',
@@ -86,7 +86,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.CollateCapabilityS
 };
 
 // Struct: CopiesCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.CopiesCapabilitySpec = {
+ash.printing.print_preview.mojom.CopiesCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.CopiesCapability',
@@ -101,7 +101,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.CopiesCapabilitySp
 };
 
 // Struct: DuplexOption
-ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexOptionSpec = {
+ash.printing.print_preview.mojom.DuplexOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DuplexOption',
@@ -117,7 +117,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexOptionSpec =
 };
 
 // Struct: DuplexCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexCapabilitySpec = {
+ash.printing.print_preview.mojom.DuplexCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DuplexCapability',
@@ -131,7 +131,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexCapabilitySp
 };
 
 // Struct: PageOrientationOption
-ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationOptionSpec = {
+ash.printing.print_preview.mojom.PageOrientationOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PageOrientationOption',
@@ -147,7 +147,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationOpt
 };
 
 // Struct: PageOrientationCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationCapabilitySpec = {
+ash.printing.print_preview.mojom.PageOrientationCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PageOrientationCapability',
@@ -163,7 +163,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationCap
 };
 
 // Struct: LocalizedString
-ash.printing.printing.print_preview.print_preview.mojom.mojom.LocalizedStringSpec = {
+ash.printing.print_preview.mojom.LocalizedStringSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.LocalizedString',
@@ -178,7 +178,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.LocalizedStringSpe
 };
 
 // Struct: MediaSizeOption
-ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaSizeOptionSpec = {
+ash.printing.print_preview.mojom.MediaSizeOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaSizeOption',
@@ -209,7 +209,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaSizeOptionSpe
 };
 
 // Struct: MediaSizeCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaSizeCapabilitySpec = {
+ash.printing.print_preview.mojom.MediaSizeCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaSizeCapability',
@@ -225,7 +225,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaSizeCapabilit
 };
 
 // Struct: MediaTypeOption
-ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaTypeOptionSpec = {
+ash.printing.print_preview.mojom.MediaTypeOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaTypeOption',
@@ -244,7 +244,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaTypeOptionSpe
 };
 
 // Struct: MediaTypeCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaTypeCapabilitySpec = {
+ash.printing.print_preview.mojom.MediaTypeCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaTypeCapability',
@@ -260,7 +260,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaTypeCapabilit
 };
 
 // Struct: DpiOption
-ash.printing.printing.print_preview.print_preview.mojom.mojom.DpiOptionSpec = {
+ash.printing.print_preview.mojom.DpiOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DpiOption',
@@ -278,7 +278,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.DpiOptionSpec = {
 };
 
 // Struct: DpiCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.DpiCapabilitySpec = {
+ash.printing.print_preview.mojom.DpiCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DpiCapability',
@@ -294,7 +294,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.DpiCapabilitySpec 
 };
 
 // Struct: PinCapability
-ash.printing.printing.print_preview.print_preview.mojom.mojom.PinCapabilitySpec = {
+ash.printing.print_preview.mojom.PinCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PinCapability',
@@ -309,7 +309,7 @@ ash.printing.printing.print_preview.print_preview.mojom.mojom.PinCapabilitySpec 
 };
 
 // Struct: Capabilities
-ash.printing.printing.print_preview.print_preview.mojom.mojom.CapabilitiesSpec = {
+ash.printing.print_preview.mojom.CapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.Capabilities',

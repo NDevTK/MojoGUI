@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: CastApplicationMediaInfo
-media.mojom.mojom.CastApplicationMediaInfoSpec = {
+media.mojom.CastApplicationMediaInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CastApplicationMediaInfo',
@@ -26,24 +26,36 @@ media.mojom.mojom.CastApplicationMediaInfoSpec = {
 };
 
 // Interface: CastApplicationMediaInfoManager
-media.mojom.mojom.CastApplicationMediaInfoManager = {};
+media.mojom.CastApplicationMediaInfoManager = {};
 
-media.mojom.mojom.CastApplicationMediaInfoManagerPendingReceiver = class {
+media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.CastApplicationMediaInfoManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.CastApplicationMediaInfoManagerRemote = class {
+media.mojom.CastApplicationMediaInfoManagerRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CastApplicationMediaInfoManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.CastApplicationMediaInfoManagerPendingReceiver,
+      media.mojom.CastApplicationMediaInfoManagerPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.CastApplicationMediaInfoManagerRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +67,7 @@ media.mojom.mojom.CastApplicationMediaInfoManagerRemote = class {
   }
 };
 
-media.mojom.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
+media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +76,15 @@ media.mojom.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec,
-      media.mojom.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec,
+      media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec,
+      media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec,
       []);
   }
 
 };
 
-media.mojom.mojom.CastApplicationMediaInfoManager.getRemote = function() {
-  let remote = new media.mojom.mojom.CastApplicationMediaInfoManagerRemote();
+media.mojom.CastApplicationMediaInfoManager.getRemote = function() {
+  let remote = new media.mojom.CastApplicationMediaInfoManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +94,7 @@ media.mojom.mojom.CastApplicationMediaInfoManager.getRemote = function() {
 };
 
 // ParamsSpec for GetCastApplicationMediaInfo
-media.mojom.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = {
+media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_Params',
@@ -94,7 +106,7 @@ media.mojom.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Pa
   }
 };
 
-media.mojom.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = {
+media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_ResponseParams',
@@ -108,6 +120,6 @@ media.mojom.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Re
 };
 
 // Legacy compatibility
-media.mojom.mojom.CastApplicationMediaInfoManagerPtr = media.mojom.mojom.CastApplicationMediaInfoManagerRemote;
-media.mojom.mojom.CastApplicationMediaInfoManagerRequest = media.mojom.mojom.CastApplicationMediaInfoManagerPendingReceiver;
+media.mojom.CastApplicationMediaInfoManagerPtr = media.mojom.CastApplicationMediaInfoManagerRemote;
+media.mojom.CastApplicationMediaInfoManagerRequest = media.mojom.CastApplicationMediaInfoManagerPendingReceiver;
 

@@ -7,45 +7,45 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.ime.mojom = ash.ime.ime.mojom || {};
+ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Enum: CommitTextCursorBehavior
-ash.ime.ime.mojom.mojom.CommitTextCursorBehavior = {
+ash.ime.mojom.CommitTextCursorBehavior = {
   kMoveCursorBeforeText: 0,
 };
-ash.ime.ime.mojom.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: CompositionSpanStyle
-ash.ime.ime.mojom.mojom.CompositionSpanStyle = {
+ash.ime.mojom.CompositionSpanStyle = {
   kNone: 0,
 };
-ash.ime.ime.mojom.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputMethodApiOperation
-ash.ime.ime.mojom.mojom.InputMethodApiOperation = {
+ash.ime.mojom.InputMethodApiOperation = {
   kCommitText: 0,
   kSetCompositionText: 1,
   kDeleteSurroundingText: 2,
 };
-ash.ime.ime.mojom.mojom.InputMethodApiOperationSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.InputMethodApiOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: KoreanAction
-ash.ime.ime.mojom.mojom.KoreanAction = {
+ash.ime.mojom.KoreanAction = {
   kHanjaKey: 0,
   kHangeulKey: 1,
   kComposeOutOfOrder: 2,
 };
-ash.ime.ime.mojom.mojom.KoreanActionSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.KoreanActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: HistogramBucketType
-ash.ime.ime.mojom.mojom.HistogramBucketType = {
+ash.ime.mojom.HistogramBucketType = {
   kLinear: 0,
 };
-ash.ime.ime.mojom.mojom.HistogramBucketTypeSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.HistogramBucketTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: UkmEntry
-ash.ime.ime.mojom.mojom.UkmEntrySpec = { $: mojo.internal.Union(
+ash.ime.mojom.UkmEntrySpec = { $: mojo.internal.Union(
     'ash.ime.mojom.UkmEntry', {
       'non_compliant_api': {
         'ordinal': 0,
@@ -55,7 +55,7 @@ ash.ime.ime.mojom.mojom.UkmEntrySpec = { $: mojo.internal.Union(
 };
 
 // Struct: CompositionSpan
-ash.ime.ime.mojom.mojom.CompositionSpanSpec = {
+ash.ime.mojom.CompositionSpanSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.CompositionSpan',
@@ -71,7 +71,7 @@ ash.ime.ime.mojom.mojom.CompositionSpanSpec = {
 };
 
 // Struct: TextRange
-ash.ime.ime.mojom.mojom.TextRangeSpec = {
+ash.ime.mojom.TextRangeSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.TextRange',
@@ -86,7 +86,7 @@ ash.ime.ime.mojom.mojom.TextRangeSpec = {
 };
 
 // Struct: AutocorrectSpan
-ash.ime.ime.mojom.mojom.AutocorrectSpanSpec = {
+ash.ime.mojom.AutocorrectSpanSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.AutocorrectSpan',
@@ -102,7 +102,7 @@ ash.ime.ime.mojom.mojom.AutocorrectSpanSpec = {
 };
 
 // Struct: CompletionCandidate
-ash.ime.ime.mojom.mojom.CompletionCandidateSpec = {
+ash.ime.mojom.CompletionCandidateSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.CompletionCandidate',
@@ -117,7 +117,7 @@ ash.ime.ime.mojom.mojom.CompletionCandidateSpec = {
 };
 
 // Struct: SuggestionsRequest
-ash.ime.ime.mojom.mojom.SuggestionsRequestSpec = {
+ash.ime.mojom.SuggestionsRequestSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.SuggestionsRequest',
@@ -133,7 +133,7 @@ ash.ime.ime.mojom.mojom.SuggestionsRequestSpec = {
 };
 
 // Struct: SuggestionsResponse
-ash.ime.ime.mojom.mojom.SuggestionsResponseSpec = {
+ash.ime.mojom.SuggestionsResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.SuggestionsResponse',
@@ -147,7 +147,7 @@ ash.ime.ime.mojom.mojom.SuggestionsResponseSpec = {
 };
 
 // Struct: SuggestionsTextContext
-ash.ime.ime.mojom.mojom.SuggestionsTextContextSpec = {
+ash.ime.mojom.SuggestionsTextContextSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.SuggestionsTextContext',
@@ -162,7 +162,7 @@ ash.ime.ime.mojom.mojom.SuggestionsTextContextSpec = {
 };
 
 // Struct: NonCompliantApiMetric
-ash.ime.ime.mojom.mojom.NonCompliantApiMetricSpec = {
+ash.ime.mojom.NonCompliantApiMetricSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.NonCompliantApiMetric',
@@ -176,7 +176,7 @@ ash.ime.ime.mojom.mojom.NonCompliantApiMetricSpec = {
 };
 
 // Struct: Candidate
-ash.ime.ime.mojom.mojom.CandidateSpec = {
+ash.ime.mojom.CandidateSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.Candidate',
@@ -192,7 +192,7 @@ ash.ime.ime.mojom.mojom.CandidateSpec = {
 };
 
 // Struct: HighlightedCandidate
-ash.ime.ime.mojom.mojom.HighlightedCandidateSpec = {
+ash.ime.mojom.HighlightedCandidateSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.HighlightedCandidate',
@@ -206,7 +206,7 @@ ash.ime.ime.mojom.mojom.HighlightedCandidateSpec = {
 };
 
 // Struct: CandidatesWindow
-ash.ime.ime.mojom.mojom.CandidatesWindowSpec = {
+ash.ime.mojom.CandidatesWindowSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.CandidatesWindow',
@@ -223,7 +223,7 @@ ash.ime.ime.mojom.mojom.CandidatesWindowSpec = {
 };
 
 // Struct: BucketedHistogram
-ash.ime.ime.mojom.mojom.BucketedHistogramSpec = {
+ash.ime.mojom.BucketedHistogramSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.BucketedHistogram',
@@ -241,24 +241,254 @@ ash.ime.ime.mojom.mojom.BucketedHistogramSpec = {
 };
 
 // Interface: InputMethodHost
-ash.ime.ime.mojom.mojom.InputMethodHost = {};
+ash.ime.mojom.InputMethodHost = {};
 
-ash.ime.ime.mojom.mojom.InputMethodHostPendingReceiver = class {
+ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_CommitText_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'cursor_behavior', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.CommitTextCursorBehaviorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_SetComposition_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), nullable: false, minVersion: 0 },
+        { name: 'new_cursor_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_SetCompositionRange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'end_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_FinishComposition_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_DeleteSurroundingText_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_before_cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'num_after_cursor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'num_before_cursor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'num_after_cursor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_HandleAutocorrect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'autocorrect_span', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.AutocorrectSpanSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_DisplaySuggestions_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsTextContextSpec, nullable: true, minVersion: 10 },
+      ],
+      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.CandidatesWindowSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_RequestSuggestions_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_UpdateQuickSettings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodQuickSettingsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_RecordUkm_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.KoreanActionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.KoreanSettingsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'histogram', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.BucketedHistogramSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodHostRemote = class {
+ash.ime.mojom.InputMethodHostRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.InputMethodHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.ime.mojom.mojom.InputMethodHostPendingReceiver,
+      ash.ime.mojom.InputMethodHostPendingReceiver,
       handle);
-    this.$ = new ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.mojom.InputMethodHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -270,7 +500,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemote = class {
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
+ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -279,7 +509,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_CommitText_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec,
       null,
       [text, cursor_behavior]);
   }
@@ -288,7 +518,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec,
       null,
       [text, spans]);
   }
@@ -297,7 +527,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_SetComposition_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec,
       null,
       [text, spans, new_cursor_position]);
   }
@@ -306,7 +536,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_SetCompositionRange_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec,
       null,
       [start_index, end_index]);
   }
@@ -315,7 +545,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_FinishComposition_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec,
       null,
       []);
   }
@@ -324,7 +554,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec,
       null,
       [num_before_cursor, num_after_cursor]);
   }
@@ -333,7 +563,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec,
       null,
       [num_before_cursor, num_after_cursor, text]);
   }
@@ -342,7 +572,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec,
       null,
       [autocorrect_span]);
   }
@@ -351,7 +581,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec,
       null,
       [suggestions, context]);
   }
@@ -360,7 +590,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec,
       null,
       [window]);
   }
@@ -369,8 +599,8 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_RequestSuggestions_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec,
       [request]);
   }
 
@@ -378,7 +608,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec,
       null,
       [settings]);
   }
@@ -387,7 +617,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_RecordUkm_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec,
       null,
       [entry]);
   }
@@ -396,7 +626,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec,
       null,
       [action]);
   }
@@ -405,7 +635,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec,
       null,
       [settings]);
   }
@@ -414,7 +644,7 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec,
       null,
       [mode]);
   }
@@ -423,15 +653,15 @@ ash.ime.ime.mojom.mojom.InputMethodHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec,
+      ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec,
       null,
       [histogram, value]);
   }
 
 };
 
-ash.ime.ime.mojom.mojom.InputMethodHost.getRemote = function() {
-  let remote = new ash.ime.ime.mojom.mojom.InputMethodHostRemote();
+ash.ime.mojom.InputMethodHost.getRemote = function() {
+  let remote = new ash.ime.mojom.InputMethodHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -441,7 +671,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost.getRemote = function() {
 };
 
 // ParamsSpec for CommitText
-ash.ime.ime.mojom.mojom.InputMethodHost_CommitText_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.CommitText_Params',
@@ -456,7 +686,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_CommitText_ParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_SetComposition
-ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_SetComposition_Params',
@@ -471,7 +701,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = {
 };
 
 // ParamsSpec for SetComposition
-ash.ime.ime.mojom.mojom.InputMethodHost_SetComposition_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.SetComposition_Params',
@@ -487,7 +717,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_SetComposition_ParamsSpec = {
 };
 
 // ParamsSpec for SetCompositionRange
-ash.ime.ime.mojom.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.SetCompositionRange_Params',
@@ -502,7 +732,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = {
 };
 
 // ParamsSpec for FinishComposition
-ash.ime.ime.mojom.mojom.InputMethodHost_FinishComposition_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.FinishComposition_Params',
@@ -515,7 +745,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_FinishComposition_ParamsSpec = {
 };
 
 // ParamsSpec for DeleteSurroundingText
-ash.ime.ime.mojom.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.DeleteSurroundingText_Params',
@@ -530,7 +760,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = {
 };
 
 // ParamsSpec for ReplaceSurroundingText
-ash.ime.ime.mojom.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.ReplaceSurroundingText_Params',
@@ -546,7 +776,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = {
 };
 
 // ParamsSpec for HandleAutocorrect
-ash.ime.ime.mojom.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.HandleAutocorrect_Params',
@@ -560,7 +790,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = {
 };
 
 // ParamsSpec for DisplaySuggestions
-ash.ime.ime.mojom.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.DisplaySuggestions_Params',
@@ -575,7 +805,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateCandidatesWindow
-ash.ime.ime.mojom.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.UpdateCandidatesWindow_Params',
@@ -589,7 +819,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSuggestions
-ash.ime.ime.mojom.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.RequestSuggestions_Params',
@@ -602,7 +832,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = {
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.RequestSuggestions_ResponseParams',
@@ -616,7 +846,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = 
 };
 
 // ParamsSpec for UpdateQuickSettings
-ash.ime.ime.mojom.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.UpdateQuickSettings_Params',
@@ -630,7 +860,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = {
 };
 
 // ParamsSpec for RecordUkm
-ash.ime.ime.mojom.mojom.InputMethodHost_RecordUkm_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.RecordUkm_Params',
@@ -644,7 +874,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_RecordUkm_ParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_ReportKoreanAction
-ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportKoreanAction_Params',
@@ -658,7 +888,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec
 };
 
 // ParamsSpec for DEPRECATED_ReportKoreanSettings
-ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportKoreanSettings_Params',
@@ -672,7 +902,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSp
 };
 
 // ParamsSpec for DEPRECATED_ReportSuggestionOpportunity
-ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportSuggestionOpportunity_Params',
@@ -686,7 +916,7 @@ ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_P
 };
 
 // ParamsSpec for DEPRECATED_ReportHistogramSample
-ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = {
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportHistogramSample_Params',
@@ -701,6 +931,6 @@ ash.ime.ime.mojom.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsS
 };
 
 // Legacy compatibility
-ash.ime.ime.mojom.mojom.InputMethodHostPtr = ash.ime.ime.mojom.mojom.InputMethodHostRemote;
-ash.ime.ime.mojom.mojom.InputMethodHostRequest = ash.ime.ime.mojom.mojom.InputMethodHostPendingReceiver;
+ash.ime.mojom.InputMethodHostPtr = ash.ime.mojom.InputMethodHostRemote;
+ash.ime.mojom.InputMethodHostRequest = ash.ime.mojom.InputMethodHostPendingReceiver;
 

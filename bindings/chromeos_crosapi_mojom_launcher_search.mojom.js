@@ -13,29 +13,29 @@ var url = url || {};
 
 
 // Enum: SearchStatus
-crosapi.mojom.mojom.SearchStatus = {
+crosapi.mojom.SearchStatus = {
   kDone: 0,
   kInProgress: 1,
   kCancelled: 2,
 };
-crosapi.mojom.mojom.SearchStatusSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.SearchStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: SearchResultType
-crosapi.mojom.mojom.SearchResultType = {
+crosapi.mojom.SearchResultType = {
   kOmniboxResult: 0,
 };
-crosapi.mojom.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionalBool
-crosapi.mojom.mojom.OptionalBool = {
+crosapi.mojom.OptionalBool = {
   kUnset: 0,
   kFalse: 1,
   kTrue: 2,
 };
-crosapi.mojom.mojom.OptionalBoolSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionalBoolSpec = { $: mojo.internal.Enum() };
 
 // Enum: OmniboxType
-crosapi.mojom.mojom.OmniboxType = {
+crosapi.mojom.OmniboxType = {
   kRichImageDeprecated: 0,
   kFaviconDeprecated: 1,
   kCalculatorDeprecated: 2,
@@ -44,10 +44,10 @@ crosapi.mojom.mojom.OmniboxType = {
   kSearch: 5,
   kHistory: 6,
 };
-crosapi.mojom.mojom.OmniboxTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OmniboxTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricsType
-crosapi.mojom.mojom.MetricsType = {
+crosapi.mojom.MetricsType = {
   kWhatYouTyped: 0,
   kRecentlyVisitedWebsite: 1,
   kHistoryTitle: 2,
@@ -60,10 +60,10 @@ crosapi.mojom.mojom.MetricsType = {
   kNavSuggest: 9,
   kCalculator: 10,
 };
-crosapi.mojom.mojom.MetricsTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.MetricsTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnswerType
-crosapi.mojom.mojom.AnswerType = {
+crosapi.mojom.AnswerType = {
   kDefaultAnswer: 0,
   kWeather: 1,
   kCurrency: 2,
@@ -73,24 +73,24 @@ crosapi.mojom.mojom.AnswerType = {
   kTranslation: 6,
   kWhenIs: 7,
 };
-crosapi.mojom.mojom.AnswerTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.AnswerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextType
-crosapi.mojom.mojom.TextType = {
+crosapi.mojom.TextType = {
   kPositive: 0,
   kNegative: 1,
 };
-crosapi.mojom.mojom.TextTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TextTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageTransition
-crosapi.mojom.mojom.PageTransition = {
+crosapi.mojom.PageTransition = {
   kTyped: 0,
   kGenerated: 1,
 };
-crosapi.mojom.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
-crosapi.mojom.mojom.SearchResultSpec = {
+crosapi.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SearchResult',
@@ -126,24 +126,38 @@ crosapi.mojom.mojom.SearchResultSpec = {
 };
 
 // Interface: SearchResultsPublisher
-crosapi.mojom.mojom.SearchResultsPublisher = {};
+crosapi.mojom.SearchResultsPublisher = {};
 
-crosapi.mojom.mojom.SearchResultsPublisherPendingReceiver = class {
+crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.SearchStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.SearchResultSpec, false), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.SearchResultsPublisherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.SearchResultsPublisherRemote = class {
+crosapi.mojom.SearchResultsPublisherRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.SearchResultsPublisher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.SearchResultsPublisherPendingReceiver,
+      crosapi.mojom.SearchResultsPublisherPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.SearchResultsPublisherRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.SearchResultsPublisherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -155,7 +169,7 @@ crosapi.mojom.mojom.SearchResultsPublisherRemote = class {
   }
 };
 
-crosapi.mojom.mojom.SearchResultsPublisherRemoteCallHandler = class {
+crosapi.mojom.SearchResultsPublisherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -164,15 +178,15 @@ crosapi.mojom.mojom.SearchResultsPublisherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec,
+      crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec,
       null,
       [status, result]);
   }
 
 };
 
-crosapi.mojom.mojom.SearchResultsPublisher.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.SearchResultsPublisherRemote();
+crosapi.mojom.SearchResultsPublisher.getRemote = function() {
+  let remote = new crosapi.mojom.SearchResultsPublisherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -182,7 +196,7 @@ crosapi.mojom.mojom.SearchResultsPublisher.getRemote = function() {
 };
 
 // ParamsSpec for OnSearchResultsReceived
-crosapi.mojom.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = {
+crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SearchResultsPublisher.OnSearchResultsReceived_Params',
@@ -197,29 +211,42 @@ crosapi.mojom.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = 
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.SearchResultsPublisherPtr = crosapi.mojom.mojom.SearchResultsPublisherRemote;
-crosapi.mojom.mojom.SearchResultsPublisherRequest = crosapi.mojom.mojom.SearchResultsPublisherPendingReceiver;
+crosapi.mojom.SearchResultsPublisherPtr = crosapi.mojom.SearchResultsPublisherRemote;
+crosapi.mojom.SearchResultsPublisherRequest = crosapi.mojom.SearchResultsPublisherPendingReceiver;
 
 
 // Interface: SearchController
-crosapi.mojom.mojom.SearchController = {};
+crosapi.mojom.SearchController = {};
 
-crosapi.mojom.mojom.SearchControllerPendingReceiver = class {
+crosapi.mojom.SearchController_Search_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SearchController_Search_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.SearchControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.SearchControllerRemote = class {
+crosapi.mojom.SearchControllerRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.SearchController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.SearchControllerPendingReceiver,
+      crosapi.mojom.SearchControllerPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.SearchControllerRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.SearchControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -231,7 +258,7 @@ crosapi.mojom.mojom.SearchControllerRemote = class {
   }
 };
 
-crosapi.mojom.mojom.SearchControllerRemoteCallHandler = class {
+crosapi.mojom.SearchControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -240,15 +267,15 @@ crosapi.mojom.mojom.SearchControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.SearchController_Search_ParamsSpec,
-      crosapi.mojom.mojom.SearchController_Search_ResponseParamsSpec,
+      crosapi.mojom.SearchController_Search_ParamsSpec,
+      crosapi.mojom.SearchController_Search_ResponseParamsSpec,
       [query]);
   }
 
 };
 
-crosapi.mojom.mojom.SearchController.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.SearchControllerRemote();
+crosapi.mojom.SearchController.getRemote = function() {
+  let remote = new crosapi.mojom.SearchControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -258,7 +285,7 @@ crosapi.mojom.mojom.SearchController.getRemote = function() {
 };
 
 // ParamsSpec for Search
-crosapi.mojom.mojom.SearchController_Search_ParamsSpec = {
+crosapi.mojom.SearchController_Search_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SearchController.Search_Params',
@@ -271,7 +298,7 @@ crosapi.mojom.mojom.SearchController_Search_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.SearchController_Search_ResponseParamsSpec = {
+crosapi.mojom.SearchController_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SearchController.Search_ResponseParams',
@@ -285,29 +312,42 @@ crosapi.mojom.mojom.SearchController_Search_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.SearchControllerPtr = crosapi.mojom.mojom.SearchControllerRemote;
-crosapi.mojom.mojom.SearchControllerRequest = crosapi.mojom.mojom.SearchControllerPendingReceiver;
+crosapi.mojom.SearchControllerPtr = crosapi.mojom.SearchControllerRemote;
+crosapi.mojom.SearchControllerRequest = crosapi.mojom.SearchControllerPendingReceiver;
 
 
 // Interface: SearchResultConsumer
-crosapi.mojom.mojom.SearchResultConsumer = {};
+crosapi.mojom.SearchResultConsumer = {};
 
-crosapi.mojom.mojom.SearchResultConsumerPendingReceiver = class {
+crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SearchResultConsumer_OnFaviconReceived_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.SearchResultConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.SearchResultConsumerRemote = class {
+crosapi.mojom.SearchResultConsumerRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.SearchResultConsumer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.SearchResultConsumerPendingReceiver,
+      crosapi.mojom.SearchResultConsumerPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.SearchResultConsumerRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.SearchResultConsumerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -319,7 +359,7 @@ crosapi.mojom.mojom.SearchResultConsumerRemote = class {
   }
 };
 
-crosapi.mojom.mojom.SearchResultConsumerRemoteCallHandler = class {
+crosapi.mojom.SearchResultConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -328,15 +368,15 @@ crosapi.mojom.mojom.SearchResultConsumerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec,
+      crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec,
       null,
       [favicon]);
   }
 
 };
 
-crosapi.mojom.mojom.SearchResultConsumer.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.SearchResultConsumerRemote();
+crosapi.mojom.SearchResultConsumer.getRemote = function() {
+  let remote = new crosapi.mojom.SearchResultConsumerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -346,7 +386,7 @@ crosapi.mojom.mojom.SearchResultConsumer.getRemote = function() {
 };
 
 // ParamsSpec for OnFaviconReceived
-crosapi.mojom.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = {
+crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SearchResultConsumer.OnFaviconReceived_Params',
@@ -360,6 +400,6 @@ crosapi.mojom.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.SearchResultConsumerPtr = crosapi.mojom.mojom.SearchResultConsumerRemote;
-crosapi.mojom.mojom.SearchResultConsumerRequest = crosapi.mojom.mojom.SearchResultConsumerPendingReceiver;
+crosapi.mojom.SearchResultConsumerPtr = crosapi.mojom.SearchResultConsumerRemote;
+crosapi.mojom.SearchResultConsumerRequest = crosapi.mojom.SearchResultConsumerPendingReceiver;
 

@@ -11,15 +11,15 @@ var blink = blink || {};
 
 
 // Enum: BlobDataItemType
-storage.mojom.mojom.BlobDataItemType = {
+storage.mojom.BlobDataItemType = {
   kUnknown: 0,
   kCacheStorage: 1,
   kIndexedDB: 2,
 };
-storage.mojom.mojom.BlobDataItemTypeSpec = { $: mojo.internal.Enum() };
+storage.mojom.BlobDataItemTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WriteBlobToFileResult
-storage.mojom.mojom.WriteBlobToFileResult = {
+storage.mojom.WriteBlobToFileResult = {
   kError: 0,
   kBadPath: 1,
   kInvalidBlob: 2,
@@ -27,10 +27,10 @@ storage.mojom.mojom.WriteBlobToFileResult = {
   kTimestampError: 4,
   kSuccess: 5,
 };
-storage.mojom.mojom.WriteBlobToFileResultSpec = { $: mojo.internal.Enum() };
+storage.mojom.WriteBlobToFileResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: BlobDataItem
-storage.mojom.mojom.BlobDataItemSpec = {
+storage.mojom.BlobDataItemSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobDataItem',
@@ -48,24 +48,51 @@ storage.mojom.mojom.BlobDataItemSpec = {
 };
 
 // Interface: BlobDataItemReader
-storage.mojom.mojom.BlobDataItemReader = {};
+storage.mojom.BlobDataItemReader = {};
 
-storage.mojom.mojom.BlobDataItemReaderPendingReceiver = class {
+storage.mojom.BlobDataItemReader_Read_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobDataItemReader_Read_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobDataItemReader_ReadSideData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.BlobDataItemReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.BlobDataItemReaderRemote = class {
+storage.mojom.BlobDataItemReaderRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.BlobDataItemReader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.BlobDataItemReaderPendingReceiver,
+      storage.mojom.BlobDataItemReaderPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.BlobDataItemReaderRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.BlobDataItemReaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -77,7 +104,7 @@ storage.mojom.mojom.BlobDataItemReaderRemote = class {
   }
 };
 
-storage.mojom.mojom.BlobDataItemReaderRemoteCallHandler = class {
+storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -86,8 +113,8 @@ storage.mojom.mojom.BlobDataItemReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.BlobDataItemReader_Read_ParamsSpec,
-      storage.mojom.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
+      storage.mojom.BlobDataItemReader_Read_ParamsSpec,
+      storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
       [offset, length, pipe]);
   }
 
@@ -95,15 +122,15 @@ storage.mojom.mojom.BlobDataItemReaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.BlobDataItemReader_ReadSideData_ParamsSpec,
-      storage.mojom.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
+      storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec,
+      storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
       []);
   }
 
 };
 
-storage.mojom.mojom.BlobDataItemReader.getRemote = function() {
-  let remote = new storage.mojom.mojom.BlobDataItemReaderRemote();
+storage.mojom.BlobDataItemReader.getRemote = function() {
+  let remote = new storage.mojom.BlobDataItemReaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -113,7 +140,7 @@ storage.mojom.mojom.BlobDataItemReader.getRemote = function() {
 };
 
 // ParamsSpec for Read
-storage.mojom.mojom.BlobDataItemReader_Read_ParamsSpec = {
+storage.mojom.BlobDataItemReader_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobDataItemReader.Read_Params',
@@ -128,7 +155,7 @@ storage.mojom.mojom.BlobDataItemReader_Read_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
+storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobDataItemReader.Read_ResponseParams',
@@ -142,7 +169,7 @@ storage.mojom.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadSideData
-storage.mojom.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
+storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobDataItemReader.ReadSideData_Params',
@@ -154,7 +181,7 @@ storage.mojom.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
+storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobDataItemReader.ReadSideData_ResponseParams',
@@ -169,29 +196,88 @@ storage.mojom.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.BlobDataItemReaderPtr = storage.mojom.mojom.BlobDataItemReaderRemote;
-storage.mojom.mojom.BlobDataItemReaderRequest = storage.mojom.mojom.BlobDataItemReaderPendingReceiver;
+storage.mojom.BlobDataItemReaderPtr = storage.mojom.BlobDataItemReaderRemote;
+storage.mojom.BlobDataItemReaderRequest = storage.mojom.BlobDataItemReaderPendingReceiver;
 
 
 // Interface: BlobStorageContext
-storage.mojom.mojom.BlobStorageContext = {};
+storage.mojom.BlobStorageContext = {};
 
-storage.mojom.mojom.BlobStorageContextPendingReceiver = class {
+storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext_RegisterFromDataItem_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'item', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.BlobDataItemSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext_RegisterFromMemory_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext_WriteBlobToFile_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'flush_on_write', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'last_modified', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+storage.mojom.BlobStorageContext_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.BlobStorageContextRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.BlobStorageContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.BlobStorageContextRemote = class {
+storage.mojom.BlobStorageContextRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.BlobStorageContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.BlobStorageContextPendingReceiver,
+      storage.mojom.BlobStorageContextPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.BlobStorageContextRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.BlobStorageContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -203,7 +289,7 @@ storage.mojom.mojom.BlobStorageContextRemote = class {
   }
 };
 
-storage.mojom.mojom.BlobStorageContextRemoteCallHandler = class {
+storage.mojom.BlobStorageContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -212,7 +298,7 @@ storage.mojom.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec,
+      storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec,
       null,
       [blob, uuid, item]);
   }
@@ -221,7 +307,7 @@ storage.mojom.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec,
+      storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec,
       null,
       [blob, uuid, data]);
   }
@@ -230,8 +316,8 @@ storage.mojom.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
-      storage.mojom.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
+      storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
+      storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
       [blob, path, flush_on_write, last_modified]);
   }
 
@@ -239,15 +325,15 @@ storage.mojom.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.mojom.BlobStorageContext_Clone_ParamsSpec,
+      storage.mojom.BlobStorageContext_Clone_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-storage.mojom.mojom.BlobStorageContext.getRemote = function() {
-  let remote = new storage.mojom.mojom.BlobStorageContextRemote();
+storage.mojom.BlobStorageContext.getRemote = function() {
+  let remote = new storage.mojom.BlobStorageContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -257,7 +343,7 @@ storage.mojom.mojom.BlobStorageContext.getRemote = function() {
 };
 
 // ParamsSpec for RegisterFromDataItem
-storage.mojom.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
+storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobStorageContext.RegisterFromDataItem_Params',
@@ -273,7 +359,7 @@ storage.mojom.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterFromMemory
-storage.mojom.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
+storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobStorageContext.RegisterFromMemory_Params',
@@ -289,7 +375,7 @@ storage.mojom.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
 };
 
 // ParamsSpec for WriteBlobToFile
-storage.mojom.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
+storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobStorageContext.WriteBlobToFile_Params',
@@ -305,7 +391,7 @@ storage.mojom.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
+storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobStorageContext.WriteBlobToFile_ResponseParams',
@@ -319,7 +405,7 @@ storage.mojom.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Clone
-storage.mojom.mojom.BlobStorageContext_Clone_ParamsSpec = {
+storage.mojom.BlobStorageContext_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BlobStorageContext.Clone_Params',
@@ -333,6 +419,6 @@ storage.mojom.mojom.BlobStorageContext_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.BlobStorageContextPtr = storage.mojom.mojom.BlobStorageContextRemote;
-storage.mojom.mojom.BlobStorageContextRequest = storage.mojom.mojom.BlobStorageContextPendingReceiver;
+storage.mojom.BlobStorageContextPtr = storage.mojom.BlobStorageContextRemote;
+storage.mojom.BlobStorageContextRequest = storage.mojom.BlobStorageContextPendingReceiver;
 

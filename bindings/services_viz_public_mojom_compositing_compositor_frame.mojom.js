@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: CompositorFrame
-viz.mojom.mojom.CompositorFrameSpec = {
+viz.mojom.CompositorFrameSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrame',

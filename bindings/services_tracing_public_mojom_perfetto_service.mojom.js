@@ -9,54 +9,54 @@ var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
 
-tracing.mojom.mojom.kPerfettoProducerNamePrefix = "org.chromium-";
+tracing.mojom.kPerfettoProducerNamePrefix = "org.chromium-";
 
-tracing.mojom.mojom.kTraceEventDataSourceName = "org.chromium.trace_event";
+tracing.mojom.kTraceEventDataSourceName = "org.chromium.trace_event";
 
-tracing.mojom.mojom.kMemoryInstrumentationDataSourceName = "org.chromium.memory_instrumentation";
+tracing.mojom.kMemoryInstrumentationDataSourceName = "org.chromium.memory_instrumentation";
 
-tracing.mojom.mojom.kMetaData2SourceName = "org.chromium.trace_metadata2";
+tracing.mojom.kMetaData2SourceName = "org.chromium.trace_metadata2";
 
-tracing.mojom.mojom.kSystemTraceDataSourceName = "org.chromium.trace_system";
+tracing.mojom.kSystemTraceDataSourceName = "org.chromium.trace_system";
 
-tracing.mojom.mojom.kArcTraceDataSourceName = "org.chromium.trace_arc";
+tracing.mojom.kArcTraceDataSourceName = "org.chromium.trace_arc";
 
-tracing.mojom.mojom.kSamplerProfilerSourceName = "org.chromium.sampler_profiler";
+tracing.mojom.kSamplerProfilerSourceName = "org.chromium.sampler_profiler";
 
-tracing.mojom.mojom.kJavaHeapProfilerSourceName = "org.chromium.java_heap_profiler";
+tracing.mojom.kJavaHeapProfilerSourceName = "org.chromium.java_heap_profiler";
 
-tracing.mojom.mojom.kNativeHeapProfilerSourceName = "org.chromium.native_heap_profiler";
+tracing.mojom.kNativeHeapProfilerSourceName = "org.chromium.native_heap_profiler";
 
-tracing.mojom.mojom.kSystemMetricsSourceName = "org.chromium.system_metrics";
+tracing.mojom.kSystemMetricsSourceName = "org.chromium.system_metrics";
 
-tracing.mojom.mojom.kHistogramSampleSourceName = "org.chromium.histogram_sample";
+tracing.mojom.kHistogramSampleSourceName = "org.chromium.histogram_sample";
 
 // Enum: ConsoleOutput
-tracing.mojom.mojom.ConsoleOutput = {
+tracing.mojom.ConsoleOutput = {
   kOutputUnspecified: 0,
   kOutputStdOut: 1,
   kOutputStdErr: 2,
 };
-tracing.mojom.mojom.ConsoleOutputSpec = { $: mojo.internal.Enum() };
+tracing.mojom.ConsoleOutputSpec = { $: mojo.internal.Enum() };
 
 // Enum: BufferFillPolicy
-tracing.mojom.mojom.BufferFillPolicy = {
+tracing.mojom.BufferFillPolicy = {
   kUnspecified: 0,
   kRingBuffer: 1,
   kDiscard: 2,
 };
-tracing.mojom.mojom.BufferFillPolicySpec = { $: mojo.internal.Enum() };
+tracing.mojom.BufferFillPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: TracingClientPriority
-tracing.mojom.mojom.TracingClientPriority = {
+tracing.mojom.TracingClientPriority = {
   kUnknown: 0,
   kBackground: 1,
   kUserInitiated: 2,
 };
-tracing.mojom.mojom.TracingClientPrioritySpec = { $: mojo.internal.Enum() };
+tracing.mojom.TracingClientPrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: ChunksToMove
-tracing.mojom.mojom.ChunksToMoveSpec = {
+tracing.mojom.ChunksToMoveSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ChunksToMove',
@@ -72,7 +72,7 @@ tracing.mojom.mojom.ChunksToMoveSpec = {
 };
 
 // Struct: ChunkPatch
-tracing.mojom.mojom.ChunkPatchSpec = {
+tracing.mojom.ChunkPatchSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ChunkPatch',
@@ -87,7 +87,7 @@ tracing.mojom.mojom.ChunkPatchSpec = {
 };
 
 // Struct: ChunksToPatch
-tracing.mojom.mojom.ChunksToPatchSpec = {
+tracing.mojom.ChunksToPatchSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ChunksToPatch',
@@ -105,7 +105,7 @@ tracing.mojom.mojom.ChunksToPatchSpec = {
 };
 
 // Struct: CommitDataRequest
-tracing.mojom.mojom.CommitDataRequestSpec = {
+tracing.mojom.CommitDataRequestSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.CommitDataRequest',
@@ -121,7 +121,7 @@ tracing.mojom.mojom.CommitDataRequestSpec = {
 };
 
 // Struct: ChromeConfig
-tracing.mojom.mojom.ChromeConfigSpec = {
+tracing.mojom.ChromeConfigSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ChromeConfig',
@@ -138,7 +138,7 @@ tracing.mojom.mojom.ChromeConfigSpec = {
 };
 
 // Struct: ConsoleConfig
-tracing.mojom.mojom.ConsoleConfigSpec = {
+tracing.mojom.ConsoleConfigSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ConsoleConfig',
@@ -153,7 +153,7 @@ tracing.mojom.mojom.ConsoleConfigSpec = {
 };
 
 // Struct: InterceptorConfig
-tracing.mojom.mojom.InterceptorConfigSpec = {
+tracing.mojom.InterceptorConfigSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.InterceptorConfig',
@@ -168,7 +168,7 @@ tracing.mojom.mojom.InterceptorConfigSpec = {
 };
 
 // Struct: DataSourceConfig
-tracing.mojom.mojom.DataSourceConfigSpec = {
+tracing.mojom.DataSourceConfigSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.DataSourceConfig',
@@ -192,7 +192,7 @@ tracing.mojom.mojom.DataSourceConfigSpec = {
 };
 
 // Struct: DataSourceRegistration
-tracing.mojom.mojom.DataSourceRegistrationSpec = {
+tracing.mojom.DataSourceRegistrationSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.DataSourceRegistration',
@@ -210,7 +210,7 @@ tracing.mojom.mojom.DataSourceRegistrationSpec = {
 };
 
 // Struct: BufferConfig
-tracing.mojom.mojom.BufferConfigSpec = {
+tracing.mojom.BufferConfigSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BufferConfig',
@@ -225,7 +225,7 @@ tracing.mojom.mojom.BufferConfigSpec = {
 };
 
 // Struct: DataSource
-tracing.mojom.mojom.DataSourceSpec = {
+tracing.mojom.DataSourceSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.DataSource',
@@ -240,7 +240,7 @@ tracing.mojom.mojom.DataSourceSpec = {
 };
 
 // Struct: PerfettoBuiltinDataSource
-tracing.mojom.mojom.PerfettoBuiltinDataSourceSpec = {
+tracing.mojom.PerfettoBuiltinDataSourceSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.PerfettoBuiltinDataSource',
@@ -258,7 +258,7 @@ tracing.mojom.mojom.PerfettoBuiltinDataSourceSpec = {
 };
 
 // Struct: IncrementalStateConfig
-tracing.mojom.mojom.IncrementalStateConfigSpec = {
+tracing.mojom.IncrementalStateConfigSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.IncrementalStateConfig',
@@ -272,7 +272,7 @@ tracing.mojom.mojom.IncrementalStateConfigSpec = {
 };
 
 // Struct: TraceConfig
-tracing.mojom.mojom.TraceConfigSpec = {
+tracing.mojom.TraceConfigSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TraceConfig',
@@ -293,24 +293,90 @@ tracing.mojom.mojom.TraceConfigSpec = {
 };
 
 // Interface: ProducerHost
-tracing.mojom.mojom.ProducerHost = {};
+tracing.mojom.ProducerHost = {};
 
-tracing.mojom.mojom.ProducerHostPendingReceiver = class {
+tracing.mojom.ProducerHost_CommitData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerHost_CommitData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data_request', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.CommitDataRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerHost_RegisterDataSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.DataSourceRegistrationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerHost_UpdateDataSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.DataSourceRegistrationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerHost_RegisterTraceWriter_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'writer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'target_buffer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerHost_UnregisterTraceWriter_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'writer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.ProducerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.mojom.ProducerHostRemote = class {
+tracing.mojom.ProducerHostRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.ProducerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.mojom.ProducerHostPendingReceiver,
+      tracing.mojom.ProducerHostPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.mojom.ProducerHostRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.ProducerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -322,7 +388,7 @@ tracing.mojom.mojom.ProducerHostRemote = class {
   }
 };
 
-tracing.mojom.mojom.ProducerHostRemoteCallHandler = class {
+tracing.mojom.ProducerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -331,7 +397,7 @@ tracing.mojom.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.mojom.ProducerHost_CommitData_ParamsSpec,
+      tracing.mojom.ProducerHost_CommitData_ParamsSpec,
       null,
       [data_request]);
   }
@@ -340,7 +406,7 @@ tracing.mojom.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.mojom.ProducerHost_RegisterDataSource_ParamsSpec,
+      tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec,
       null,
       [registration_info]);
   }
@@ -349,7 +415,7 @@ tracing.mojom.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.mojom.ProducerHost_UpdateDataSource_ParamsSpec,
+      tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec,
       null,
       [registration_info]);
   }
@@ -358,7 +424,7 @@ tracing.mojom.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      tracing.mojom.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec,
+      tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec,
       null,
       [writer_id, target_buffer]);
   }
@@ -367,15 +433,15 @@ tracing.mojom.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      tracing.mojom.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec,
+      tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec,
       null,
       [writer_id]);
   }
 
 };
 
-tracing.mojom.mojom.ProducerHost.getRemote = function() {
-  let remote = new tracing.mojom.mojom.ProducerHostRemote();
+tracing.mojom.ProducerHost.getRemote = function() {
+  let remote = new tracing.mojom.ProducerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -385,7 +451,7 @@ tracing.mojom.mojom.ProducerHost.getRemote = function() {
 };
 
 // ParamsSpec for CommitData
-tracing.mojom.mojom.ProducerHost_CommitData_ParamsSpec = {
+tracing.mojom.ProducerHost_CommitData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerHost.CommitData_Params',
@@ -399,7 +465,7 @@ tracing.mojom.mojom.ProducerHost_CommitData_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterDataSource
-tracing.mojom.mojom.ProducerHost_RegisterDataSource_ParamsSpec = {
+tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerHost.RegisterDataSource_Params',
@@ -413,7 +479,7 @@ tracing.mojom.mojom.ProducerHost_RegisterDataSource_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateDataSource
-tracing.mojom.mojom.ProducerHost_UpdateDataSource_ParamsSpec = {
+tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerHost.UpdateDataSource_Params',
@@ -427,7 +493,7 @@ tracing.mojom.mojom.ProducerHost_UpdateDataSource_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterTraceWriter
-tracing.mojom.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = {
+tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerHost.RegisterTraceWriter_Params',
@@ -442,7 +508,7 @@ tracing.mojom.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = {
 };
 
 // ParamsSpec for UnregisterTraceWriter
-tracing.mojom.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = {
+tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerHost.UnregisterTraceWriter_Params',
@@ -456,29 +522,94 @@ tracing.mojom.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.mojom.ProducerHostPtr = tracing.mojom.mojom.ProducerHostRemote;
-tracing.mojom.mojom.ProducerHostRequest = tracing.mojom.mojom.ProducerHostPendingReceiver;
+tracing.mojom.ProducerHostPtr = tracing.mojom.ProducerHostRemote;
+tracing.mojom.ProducerHostRequest = tracing.mojom.ProducerHostPendingReceiver;
 
 
 // Interface: ProducerClient
-tracing.mojom.mojom.ProducerClient = {};
+tracing.mojom.ProducerClient = {};
 
-tracing.mojom.mojom.ProducerClientPendingReceiver = class {
+tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerClient_OnTracingStart_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+tracing.mojom.ProducerClient_StartDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerClient_StartDataSource_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'data_source_config', packedOffset: 8, packedBitOffset: 0, type: tracing.mojom.DataSourceConfigSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+tracing.mojom.ProducerClient_StopDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerClient_StopDataSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.ProducerClient_Flush_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerClient_Flush_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'flush_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'data_source_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ProducerClient_ClearIncrementalState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+tracing.mojom.ProducerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.mojom.ProducerClientRemote = class {
+tracing.mojom.ProducerClientRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.ProducerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.mojom.ProducerClientPendingReceiver,
+      tracing.mojom.ProducerClientPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.mojom.ProducerClientRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.ProducerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -490,7 +621,7 @@ tracing.mojom.mojom.ProducerClientRemote = class {
   }
 };
 
-tracing.mojom.mojom.ProducerClientRemoteCallHandler = class {
+tracing.mojom.ProducerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -499,7 +630,7 @@ tracing.mojom.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.mojom.ProducerClient_OnTracingStart_ParamsSpec,
+      tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec,
       null,
       []);
   }
@@ -508,7 +639,7 @@ tracing.mojom.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.mojom.ProducerClient_StartDataSource_ParamsSpec,
+      tracing.mojom.ProducerClient_StartDataSource_ParamsSpec,
       null,
       [id, data_source_config]);
   }
@@ -517,7 +648,7 @@ tracing.mojom.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.mojom.ProducerClient_StopDataSource_ParamsSpec,
+      tracing.mojom.ProducerClient_StopDataSource_ParamsSpec,
       null,
       [id]);
   }
@@ -526,7 +657,7 @@ tracing.mojom.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      tracing.mojom.mojom.ProducerClient_Flush_ParamsSpec,
+      tracing.mojom.ProducerClient_Flush_ParamsSpec,
       null,
       [flush_request_id, data_source_ids]);
   }
@@ -535,15 +666,15 @@ tracing.mojom.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      tracing.mojom.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
+      tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
       null,
       []);
   }
 
 };
 
-tracing.mojom.mojom.ProducerClient.getRemote = function() {
-  let remote = new tracing.mojom.mojom.ProducerClientRemote();
+tracing.mojom.ProducerClient.getRemote = function() {
+  let remote = new tracing.mojom.ProducerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -553,7 +684,7 @@ tracing.mojom.mojom.ProducerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnTracingStart
-tracing.mojom.mojom.ProducerClient_OnTracingStart_ParamsSpec = {
+tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerClient.OnTracingStart_Params',
@@ -566,7 +697,7 @@ tracing.mojom.mojom.ProducerClient_OnTracingStart_ParamsSpec = {
 };
 
 // ParamsSpec for StartDataSource
-tracing.mojom.mojom.ProducerClient_StartDataSource_ParamsSpec = {
+tracing.mojom.ProducerClient_StartDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerClient.StartDataSource_Params',
@@ -581,7 +712,7 @@ tracing.mojom.mojom.ProducerClient_StartDataSource_ParamsSpec = {
 };
 
 // ParamsSpec for StopDataSource
-tracing.mojom.mojom.ProducerClient_StopDataSource_ParamsSpec = {
+tracing.mojom.ProducerClient_StopDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerClient.StopDataSource_Params',
@@ -595,7 +726,7 @@ tracing.mojom.mojom.ProducerClient_StopDataSource_ParamsSpec = {
 };
 
 // ParamsSpec for Flush
-tracing.mojom.mojom.ProducerClient_Flush_ParamsSpec = {
+tracing.mojom.ProducerClient_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerClient.Flush_Params',
@@ -610,7 +741,7 @@ tracing.mojom.mojom.ProducerClient_Flush_ParamsSpec = {
 };
 
 // ParamsSpec for ClearIncrementalState
-tracing.mojom.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = {
+tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ProducerClient.ClearIncrementalState_Params',
@@ -623,29 +754,45 @@ tracing.mojom.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.mojom.ProducerClientPtr = tracing.mojom.mojom.ProducerClientRemote;
-tracing.mojom.mojom.ProducerClientRequest = tracing.mojom.mojom.ProducerClientPendingReceiver;
+tracing.mojom.ProducerClientPtr = tracing.mojom.ProducerClientRemote;
+tracing.mojom.ProducerClientRequest = tracing.mojom.ProducerClientPendingReceiver;
 
 
 // Interface: PerfettoService
-tracing.mojom.mojom.PerfettoService = {};
+tracing.mojom.PerfettoService = {};
 
-tracing.mojom.mojom.PerfettoServicePendingReceiver = class {
+tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.PerfettoService_ConnectToProducerHost_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'producer_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.ProducerClientRemote), nullable: false, minVersion: 0 },
+        { name: 'producer_host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.ProducerHostRemote), nullable: false, minVersion: 0 },
+        { name: 'shared_memory', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_buffer_page_size_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+tracing.mojom.PerfettoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.mojom.PerfettoServiceRemote = class {
+tracing.mojom.PerfettoServiceRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.PerfettoService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.mojom.PerfettoServicePendingReceiver,
+      tracing.mojom.PerfettoServicePendingReceiver,
       handle);
-    this.$ = new tracing.mojom.mojom.PerfettoServiceRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.PerfettoServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -657,7 +804,7 @@ tracing.mojom.mojom.PerfettoServiceRemote = class {
   }
 };
 
-tracing.mojom.mojom.PerfettoServiceRemoteCallHandler = class {
+tracing.mojom.PerfettoServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -666,15 +813,15 @@ tracing.mojom.mojom.PerfettoServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec,
+      tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec,
       null,
       [producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes]);
   }
 
 };
 
-tracing.mojom.mojom.PerfettoService.getRemote = function() {
-  let remote = new tracing.mojom.mojom.PerfettoServiceRemote();
+tracing.mojom.PerfettoService.getRemote = function() {
+  let remote = new tracing.mojom.PerfettoServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -684,7 +831,7 @@ tracing.mojom.mojom.PerfettoService.getRemote = function() {
 };
 
 // ParamsSpec for ConnectToProducerHost
-tracing.mojom.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
+tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.PerfettoService.ConnectToProducerHost_Params',
@@ -701,29 +848,61 @@ tracing.mojom.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.mojom.PerfettoServicePtr = tracing.mojom.mojom.PerfettoServiceRemote;
-tracing.mojom.mojom.PerfettoServiceRequest = tracing.mojom.mojom.PerfettoServicePendingReceiver;
+tracing.mojom.PerfettoServicePtr = tracing.mojom.PerfettoServiceRemote;
+tracing.mojom.PerfettoServiceRequest = tracing.mojom.PerfettoServicePendingReceiver;
 
 
 // Interface: ConsumerHost
-tracing.mojom.mojom.ConsumerHost = {};
+tracing.mojom.ConsumerHost = {};
 
-tracing.mojom.mojom.ConsumerHostPendingReceiver = class {
+tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ConsumerHost_EnableTracing_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'tracing_session_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostRemote), nullable: false, minVersion: 0 },
+        { name: 'tracing_session_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientRemote), nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: tracing.mojom.TraceConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ConsumerHost_CloneSession_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'tracing_session_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostRemote), nullable: false, minVersion: 0 },
+        { name: 'tracing_session_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientRemote), nullable: false, minVersion: 0 },
+        { name: 'unguessable_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'privacy_filtering_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+tracing.mojom.ConsumerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.mojom.ConsumerHostRemote = class {
+tracing.mojom.ConsumerHostRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.ConsumerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.mojom.ConsumerHostPendingReceiver,
+      tracing.mojom.ConsumerHostPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.mojom.ConsumerHostRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.ConsumerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -735,7 +914,7 @@ tracing.mojom.mojom.ConsumerHostRemote = class {
   }
 };
 
-tracing.mojom.mojom.ConsumerHostRemoteCallHandler = class {
+tracing.mojom.ConsumerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -744,7 +923,7 @@ tracing.mojom.mojom.ConsumerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.mojom.ConsumerHost_EnableTracing_ParamsSpec,
+      tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec,
       null,
       [tracing_session_host, tracing_session_client, config, output_file]);
   }
@@ -753,15 +932,15 @@ tracing.mojom.mojom.ConsumerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.mojom.ConsumerHost_CloneSession_ParamsSpec,
-      tracing.mojom.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
+      tracing.mojom.ConsumerHost_CloneSession_ParamsSpec,
+      tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
       [tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled]);
   }
 
 };
 
-tracing.mojom.mojom.ConsumerHost.getRemote = function() {
-  let remote = new tracing.mojom.mojom.ConsumerHostRemote();
+tracing.mojom.ConsumerHost.getRemote = function() {
+  let remote = new tracing.mojom.ConsumerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -771,7 +950,7 @@ tracing.mojom.mojom.ConsumerHost.getRemote = function() {
 };
 
 // ParamsSpec for EnableTracing
-tracing.mojom.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
+tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ConsumerHost.EnableTracing_Params',
@@ -788,7 +967,7 @@ tracing.mojom.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
 };
 
 // ParamsSpec for CloneSession
-tracing.mojom.mojom.ConsumerHost_CloneSession_ParamsSpec = {
+tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ConsumerHost.CloneSession_Params',
@@ -804,7 +983,7 @@ tracing.mojom.mojom.ConsumerHost_CloneSession_ParamsSpec = {
   }
 };
 
-tracing.mojom.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
+tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ConsumerHost.CloneSession_ResponseParams',
@@ -820,29 +999,94 @@ tracing.mojom.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.mojom.ConsumerHostPtr = tracing.mojom.mojom.ConsumerHostRemote;
-tracing.mojom.mojom.ConsumerHostRequest = tracing.mojom.mojom.ConsumerHostPendingReceiver;
+tracing.mojom.ConsumerHostPtr = tracing.mojom.ConsumerHostRemote;
+tracing.mojom.ConsumerHostRequest = tracing.mojom.ConsumerHostPendingReceiver;
 
 
 // Interface: TracingSessionHost
-tracing.mojom.mojom.TracingSessionHost = {};
+tracing.mojom.TracingSessionHost = {};
 
-tracing.mojom.mojom.TracingSessionHostPendingReceiver = class {
+tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TracingSessionHost_ChangeTraceConfig_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.TraceConfigSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TracingSessionHost_DisableTracing_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TracingSessionHost_ReadBuffers_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TracingSessionHost_RequestBufferUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'agent_label_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'privacy_filtering_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+tracing.mojom.TracingSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.mojom.TracingSessionHostRemote = class {
+tracing.mojom.TracingSessionHostRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.TracingSessionHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.mojom.TracingSessionHostPendingReceiver,
+      tracing.mojom.TracingSessionHostPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.mojom.TracingSessionHostRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.TracingSessionHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -854,7 +1098,7 @@ tracing.mojom.mojom.TracingSessionHostRemote = class {
   }
 };
 
-tracing.mojom.mojom.TracingSessionHostRemoteCallHandler = class {
+tracing.mojom.TracingSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -863,7 +1107,7 @@ tracing.mojom.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec,
+      tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec,
       null,
       [config]);
   }
@@ -872,7 +1116,7 @@ tracing.mojom.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.mojom.TracingSessionHost_DisableTracing_ParamsSpec,
+      tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec,
       null,
       []);
   }
@@ -881,7 +1125,7 @@ tracing.mojom.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.mojom.TracingSessionHost_ReadBuffers_ParamsSpec,
+      tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec,
       null,
       [stream]);
   }
@@ -890,8 +1134,8 @@ tracing.mojom.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      tracing.mojom.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec,
-      tracing.mojom.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
+      tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec,
+      tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
       []);
   }
 
@@ -899,15 +1143,15 @@ tracing.mojom.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      tracing.mojom.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec,
+      tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec,
       null,
       [agent_label_filter, stream, privacy_filtering_enabled]);
   }
 
 };
 
-tracing.mojom.mojom.TracingSessionHost.getRemote = function() {
-  let remote = new tracing.mojom.mojom.TracingSessionHostRemote();
+tracing.mojom.TracingSessionHost.getRemote = function() {
+  let remote = new tracing.mojom.TracingSessionHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -917,7 +1161,7 @@ tracing.mojom.mojom.TracingSessionHost.getRemote = function() {
 };
 
 // ParamsSpec for ChangeTraceConfig
-tracing.mojom.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = {
+tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionHost.ChangeTraceConfig_Params',
@@ -931,7 +1175,7 @@ tracing.mojom.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = {
 };
 
 // ParamsSpec for DisableTracing
-tracing.mojom.mojom.TracingSessionHost_DisableTracing_ParamsSpec = {
+tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionHost.DisableTracing_Params',
@@ -944,7 +1188,7 @@ tracing.mojom.mojom.TracingSessionHost_DisableTracing_ParamsSpec = {
 };
 
 // ParamsSpec for ReadBuffers
-tracing.mojom.mojom.TracingSessionHost_ReadBuffers_ParamsSpec = {
+tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionHost.ReadBuffers_Params',
@@ -958,7 +1202,7 @@ tracing.mojom.mojom.TracingSessionHost_ReadBuffers_ParamsSpec = {
 };
 
 // ParamsSpec for RequestBufferUsage
-tracing.mojom.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
+tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionHost.RequestBufferUsage_Params',
@@ -970,7 +1214,7 @@ tracing.mojom.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
   }
 };
 
-tracing.mojom.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
+tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionHost.RequestBufferUsage_ResponseParams',
@@ -986,7 +1230,7 @@ tracing.mojom.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DisableTracingAndEmitJson
-tracing.mojom.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = {
+tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionHost.DisableTracingAndEmitJson_Params',
@@ -1002,29 +1246,54 @@ tracing.mojom.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.mojom.TracingSessionHostPtr = tracing.mojom.mojom.TracingSessionHostRemote;
-tracing.mojom.mojom.TracingSessionHostRequest = tracing.mojom.mojom.TracingSessionHostPendingReceiver;
+tracing.mojom.TracingSessionHostPtr = tracing.mojom.TracingSessionHostRemote;
+tracing.mojom.TracingSessionHostRequest = tracing.mojom.TracingSessionHostPendingReceiver;
 
 
 // Interface: TracingSessionClient
-tracing.mojom.mojom.TracingSessionClient = {};
+tracing.mojom.TracingSessionClient = {};
 
-tracing.mojom.mojom.TracingSessionClientPendingReceiver = class {
+tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TracingSessionClient_OnTracingEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TracingSessionClient_OnTracingDisabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tracing_succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+tracing.mojom.TracingSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.mojom.TracingSessionClientRemote = class {
+tracing.mojom.TracingSessionClientRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.TracingSessionClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.mojom.TracingSessionClientPendingReceiver,
+      tracing.mojom.TracingSessionClientPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.mojom.TracingSessionClientRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.TracingSessionClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1036,7 +1305,7 @@ tracing.mojom.mojom.TracingSessionClientRemote = class {
   }
 };
 
-tracing.mojom.mojom.TracingSessionClientRemoteCallHandler = class {
+tracing.mojom.TracingSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1045,7 +1314,7 @@ tracing.mojom.mojom.TracingSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec,
+      tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec,
       null,
       []);
   }
@@ -1054,15 +1323,15 @@ tracing.mojom.mojom.TracingSessionClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec,
+      tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec,
       null,
       [tracing_succeeded]);
   }
 
 };
 
-tracing.mojom.mojom.TracingSessionClient.getRemote = function() {
-  let remote = new tracing.mojom.mojom.TracingSessionClientRemote();
+tracing.mojom.TracingSessionClient.getRemote = function() {
+  let remote = new tracing.mojom.TracingSessionClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1072,7 +1341,7 @@ tracing.mojom.mojom.TracingSessionClient.getRemote = function() {
 };
 
 // ParamsSpec for OnTracingEnabled
-tracing.mojom.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = {
+tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionClient.OnTracingEnabled_Params',
@@ -1085,7 +1354,7 @@ tracing.mojom.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for OnTracingDisabled
-tracing.mojom.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = {
+tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionClient.OnTracingDisabled_Params',
@@ -1099,6 +1368,6 @@ tracing.mojom.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.mojom.TracingSessionClientPtr = tracing.mojom.mojom.TracingSessionClientRemote;
-tracing.mojom.mojom.TracingSessionClientRequest = tracing.mojom.mojom.TracingSessionClientPendingReceiver;
+tracing.mojom.TracingSessionClientPtr = tracing.mojom.TracingSessionClientRemote;
+tracing.mojom.TracingSessionClientRequest = tracing.mojom.TracingSessionClientPendingReceiver;
 

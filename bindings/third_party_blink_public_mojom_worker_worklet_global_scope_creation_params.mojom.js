@@ -16,7 +16,7 @@ var url = url || {};
 
 
 // Struct: WorkletGlobalScopeCreationParams
-blink.mojom.mojom.WorkletGlobalScopeCreationParamsSpec = {
+blink.mojom.WorkletGlobalScopeCreationParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkletGlobalScopeCreationParams',
@@ -37,24 +37,38 @@ blink.mojom.mojom.WorkletGlobalScopeCreationParamsSpec = {
 };
 
 // Interface: WorkletDevToolsHost
-blink.mojom.mojom.WorkletDevToolsHost = {};
+blink.mojom.WorkletDevToolsHost = {};
 
-blink.mojom.mojom.WorkletDevToolsHostPendingReceiver = class {
+blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WorkletDevToolsHost_OnReadyForInspection_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
+        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.WorkletDevToolsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.WorkletDevToolsHostRemote = class {
+blink.mojom.WorkletDevToolsHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WorkletDevToolsHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.WorkletDevToolsHostPendingReceiver,
+      blink.mojom.WorkletDevToolsHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.WorkletDevToolsHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.WorkletDevToolsHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -66,7 +80,7 @@ blink.mojom.mojom.WorkletDevToolsHostRemote = class {
   }
 };
 
-blink.mojom.mojom.WorkletDevToolsHostRemoteCallHandler = class {
+blink.mojom.WorkletDevToolsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -75,15 +89,15 @@ blink.mojom.mojom.WorkletDevToolsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec,
+      blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec,
       null,
       [agent, agent_host]);
   }
 
 };
 
-blink.mojom.mojom.WorkletDevToolsHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.WorkletDevToolsHostRemote();
+blink.mojom.WorkletDevToolsHost.getRemote = function() {
+  let remote = new blink.mojom.WorkletDevToolsHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +107,7 @@ blink.mojom.mojom.WorkletDevToolsHost.getRemote = function() {
 };
 
 // ParamsSpec for OnReadyForInspection
-blink.mojom.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
+blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkletDevToolsHost.OnReadyForInspection_Params',
@@ -108,6 +122,6 @@ blink.mojom.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.WorkletDevToolsHostPtr = blink.mojom.mojom.WorkletDevToolsHostRemote;
-blink.mojom.mojom.WorkletDevToolsHostRequest = blink.mojom.mojom.WorkletDevToolsHostPendingReceiver;
+blink.mojom.WorkletDevToolsHostPtr = blink.mojom.WorkletDevToolsHostRemote;
+blink.mojom.WorkletDevToolsHostRequest = blink.mojom.WorkletDevToolsHostPendingReceiver;
 

@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: OriginWithPossibleWildcards
-network.mojom.mojom.OriginWithPossibleWildcardsSpec = {
+network.mojom.OriginWithPossibleWildcardsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.OriginWithPossibleWildcards',
@@ -29,7 +29,7 @@ network.mojom.mojom.OriginWithPossibleWildcardsSpec = {
 };
 
 // Struct: ParsedPermissionsPolicyDeclaration
-network.mojom.mojom.ParsedPermissionsPolicyDeclarationSpec = {
+network.mojom.ParsedPermissionsPolicyDeclarationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ParsedPermissionsPolicyDeclaration',
@@ -48,7 +48,7 @@ network.mojom.mojom.ParsedPermissionsPolicyDeclarationSpec = {
 };
 
 // Struct: PermissionsPolicy
-network.mojom.mojom.PermissionsPolicySpec = {
+network.mojom.PermissionsPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PermissionsPolicy',

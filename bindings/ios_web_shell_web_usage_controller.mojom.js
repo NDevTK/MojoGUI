@@ -10,24 +10,37 @@ web.mojom = web.mojom || {};
 
 
 // Interface: WebUsageController
-web.mojom.mojom.WebUsageController = {};
+web.mojom.WebUsageController = {};
 
-web.mojom.mojom.WebUsageControllerPendingReceiver = class {
+web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'web.mojom.WebUsageController_SetWebUsageEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+web.mojom.WebUsageControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-web.mojom.mojom.WebUsageControllerRemote = class {
+web.mojom.WebUsageControllerRemote = class {
   static get $interfaceName() {
     return 'web.mojom.WebUsageController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      web.mojom.mojom.WebUsageControllerPendingReceiver,
+      web.mojom.WebUsageControllerPendingReceiver,
       handle);
-    this.$ = new web.mojom.mojom.WebUsageControllerRemoteCallHandler(this.proxy);
+    this.$ = new web.mojom.WebUsageControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ web.mojom.mojom.WebUsageControllerRemote = class {
   }
 };
 
-web.mojom.mojom.WebUsageControllerRemoteCallHandler = class {
+web.mojom.WebUsageControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ web.mojom.mojom.WebUsageControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web.mojom.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec,
+      web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-web.mojom.mojom.WebUsageController.getRemote = function() {
-  let remote = new web.mojom.mojom.WebUsageControllerRemote();
+web.mojom.WebUsageController.getRemote = function() {
+  let remote = new web.mojom.WebUsageControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ web.mojom.mojom.WebUsageController.getRemote = function() {
 };
 
 // ParamsSpec for SetWebUsageEnabled
-web.mojom.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
+web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web.mojom.WebUsageController.SetWebUsageEnabled_Params',
@@ -80,6 +93,6 @@ web.mojom.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
 };
 
 // Legacy compatibility
-web.mojom.mojom.WebUsageControllerPtr = web.mojom.mojom.WebUsageControllerRemote;
-web.mojom.mojom.WebUsageControllerRequest = web.mojom.mojom.WebUsageControllerPendingReceiver;
+web.mojom.WebUsageControllerPtr = web.mojom.WebUsageControllerRemote;
+web.mojom.WebUsageControllerRequest = web.mojom.WebUsageControllerPendingReceiver;
 

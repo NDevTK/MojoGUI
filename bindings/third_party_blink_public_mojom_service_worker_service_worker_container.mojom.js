@@ -20,13 +20,13 @@ var url = url || {};
 
 
 // Enum: ControllerServiceWorkerPurpose
-blink.mojom.mojom.ControllerServiceWorkerPurpose = {
+blink.mojom.ControllerServiceWorkerPurpose = {
   FETCH_SUB_RESOURCE: 0,
 };
-blink.mojom.mojom.ControllerServiceWorkerPurposeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ControllerServiceWorkerPurposeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerContainerInfoForClient
-blink.mojom.mojom.ServiceWorkerContainerInfoForClientSpec = {
+blink.mojom.ServiceWorkerContainerInfoForClientSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerInfoForClient',
@@ -41,24 +41,140 @@ blink.mojom.mojom.ServiceWorkerContainerInfoForClientSpec = {
 };
 
 // Interface: ServiceWorkerContainerHost
-blink.mojom.mojom.ServiceWorkerContainerHost = {};
+blink.mojom.ServiceWorkerContainerHost = {};
 
-blink.mojom.mojom.ServiceWorkerContainerHostPendingReceiver = class {
+blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_Register_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'outside_fetch_client_settings_object', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FetchClientSettingsObjectSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_GetRegistration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_GetRegistrations_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ControllerServiceWorkerRemote), nullable: false, minVersion: 0 },
+        { name: 'purpose', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerPurposeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'container_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerContainerHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerHostRemote = class {
+blink.mojom.ServiceWorkerContainerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerContainerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerContainerHostPendingReceiver,
+      blink.mojom.ServiceWorkerContainerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerContainerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -70,7 +186,7 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
+blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -79,8 +195,8 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_Register_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec,
       [script_url, options, outside_fetch_client_settings_object]);
   }
 
@@ -88,8 +204,8 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec,
       [client_url]);
   }
 
@@ -97,8 +213,8 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec,
       []);
   }
 
@@ -106,8 +222,8 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec,
       []);
   }
 
@@ -115,7 +231,7 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec,
       null,
       [receiver, purpose]);
   }
@@ -124,7 +240,7 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec,
       null,
       [container_host]);
   }
@@ -133,7 +249,7 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec,
       null,
       []);
   }
@@ -142,7 +258,7 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec,
       null,
       [files]);
   }
@@ -151,15 +267,15 @@ blink.mojom.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerContainerHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerContainerHostRemote();
+blink.mojom.ServiceWorkerContainerHost.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerContainerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,7 +285,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost.getRemote = function() {
 };
 
 // ParamsSpec for Register
-blink.mojom.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.Register_Params',
@@ -184,7 +300,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.Register_ResponseParams',
@@ -200,7 +316,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetRegistration
-blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistration_Params',
@@ -213,7 +329,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistration_ResponseParams',
@@ -229,7 +345,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec 
 };
 
 // ParamsSpec for GetRegistrations
-blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrations_Params',
@@ -241,7 +357,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrations_ResponseParams',
@@ -257,7 +373,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec
 };
 
 // ParamsSpec for GetRegistrationForReady
-blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrationForReady_Params',
@@ -269,7 +385,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec 
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrationForReady_ResponseParams',
@@ -283,7 +399,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponsePar
 };
 
 // ParamsSpec for EnsureControllerServiceWorker
-blink.mojom.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.EnsureControllerServiceWorker_Params',
@@ -298,7 +414,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_Param
 };
 
 // ParamsSpec for CloneContainerHost
-blink.mojom.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.CloneContainerHost_Params',
@@ -312,7 +428,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
 };
 
 // ParamsSpec for HintToUpdateServiceWorker
-blink.mojom.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.HintToUpdateServiceWorker_Params',
@@ -325,7 +441,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpe
 };
 
 // ParamsSpec for EnsureFileAccess
-blink.mojom.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.EnsureFileAccess_Params',
@@ -339,7 +455,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
 };
 
 // ParamsSpec for OnExecutionReady
-blink.mojom.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
+blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.OnExecutionReady_Params',
@@ -352,29 +468,70 @@ blink.mojom.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerContainerHostPtr = blink.mojom.mojom.ServiceWorkerContainerHostRemote;
-blink.mojom.mojom.ServiceWorkerContainerHostRequest = blink.mojom.mojom.ServiceWorkerContainerHostPendingReceiver;
+blink.mojom.ServiceWorkerContainerHostPtr = blink.mojom.ServiceWorkerContainerHostRemote;
+blink.mojom.ServiceWorkerContainerHostRequest = blink.mojom.ServiceWorkerContainerHostPendingReceiver;
 
 
 // Interface: ServiceWorkerContainer
-blink.mojom.mojom.ServiceWorkerContainer = {};
+blink.mojom.ServiceWorkerContainer = {};
 
-blink.mojom.mojom.ServiceWorkerContainerPendingReceiver = class {
+blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainer_SetController_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'controller_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'should_notify_controllerchange', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainer_PostMessageToClient_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainer_CountFeature_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebFeatureSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerContainerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerRemote = class {
+blink.mojom.ServiceWorkerContainerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerContainer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerContainerPendingReceiver,
+      blink.mojom.ServiceWorkerContainerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerContainerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerContainerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -386,7 +543,7 @@ blink.mojom.mojom.ServiceWorkerContainerRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerContainerRemoteCallHandler = class {
+blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -395,7 +552,7 @@ blink.mojom.mojom.ServiceWorkerContainerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainer_SetController_ParamsSpec,
+      blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec,
       null,
       [controller_info, should_notify_controllerchange]);
   }
@@ -404,7 +561,7 @@ blink.mojom.mojom.ServiceWorkerContainerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec,
+      blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec,
       null,
       [source, message]);
   }
@@ -413,15 +570,15 @@ blink.mojom.mojom.ServiceWorkerContainerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec,
+      blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec,
       null,
       [feature]);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerContainer.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerContainerRemote();
+blink.mojom.ServiceWorkerContainer.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerContainerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -431,7 +588,7 @@ blink.mojom.mojom.ServiceWorkerContainer.getRemote = function() {
 };
 
 // ParamsSpec for SetController
-blink.mojom.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
+blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainer.SetController_Params',
@@ -446,7 +603,7 @@ blink.mojom.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
 };
 
 // ParamsSpec for PostMessageToClient
-blink.mojom.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
+blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainer.PostMessageToClient_Params',
@@ -461,7 +618,7 @@ blink.mojom.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
 };
 
 // ParamsSpec for CountFeature
-blink.mojom.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
+blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainer.CountFeature_Params',
@@ -475,6 +632,6 @@ blink.mojom.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerContainerPtr = blink.mojom.mojom.ServiceWorkerContainerRemote;
-blink.mojom.mojom.ServiceWorkerContainerRequest = blink.mojom.mojom.ServiceWorkerContainerPendingReceiver;
+blink.mojom.ServiceWorkerContainerPtr = blink.mojom.ServiceWorkerContainerRemote;
+blink.mojom.ServiceWorkerContainerRequest = blink.mojom.ServiceWorkerContainerPendingReceiver;
 

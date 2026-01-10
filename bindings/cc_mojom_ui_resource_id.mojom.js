@@ -10,7 +10,7 @@ cc.mojom = cc.mojom || {};
 
 
 // Struct: UIResourceId
-cc.mojom.mojom.UIResourceIdSpec = {
+cc.mojom.UIResourceIdSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.UIResourceId',

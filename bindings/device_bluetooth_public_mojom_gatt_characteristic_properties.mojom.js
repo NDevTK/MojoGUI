@@ -10,7 +10,7 @@ bluetooth.mojom = bluetooth.mojom || {};
 
 
 // Struct: GattCharacteristicProperties
-bluetooth.mojom.mojom.GattCharacteristicPropertiesSpec = {
+bluetooth.mojom.GattCharacteristicPropertiesSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattCharacteristicProperties',

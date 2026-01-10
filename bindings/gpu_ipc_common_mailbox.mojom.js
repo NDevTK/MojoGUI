@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: Mailbox
-gpu.mojom.mojom.MailboxSpec = {
+gpu.mojom.MailboxSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.Mailbox',

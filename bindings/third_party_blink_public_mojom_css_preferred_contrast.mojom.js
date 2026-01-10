@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: PreferredContrast
-blink.mojom.mojom.PreferredContrast = {
+blink.mojom.PreferredContrast = {
   kMore: 0,
   kLess: 1,
   kNoPreference: 2,
   kCustom: 3,
 };
-blink.mojom.mojom.PreferredContrastSpec = { $: mojo.internal.Enum() };
+blink.mojom.PreferredContrastSpec = { $: mojo.internal.Enum() };

@@ -10,8 +10,8 @@ enterprise_companion.mojom = enterprise_companion.mojom || {};
 
 
 // Enum: PolicyFetchReason
-enterprise_companion.mojom.mojom.PolicyFetchReason = {
+enterprise_companion.mojom.PolicyFetchReason = {
   USER_REQUEST: 0,
   SCHEDULED: 1,
 };
-enterprise_companion.mojom.mojom.PolicyFetchReasonSpec = { $: mojo.internal.Enum() };
+enterprise_companion.mojom.PolicyFetchReasonSpec = { $: mojo.internal.Enum() };

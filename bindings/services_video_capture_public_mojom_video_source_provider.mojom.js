@@ -10,31 +10,125 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Enum: GetSourceInfosResult
-video_capture.mojom.mojom.GetSourceInfosResult = {
+video_capture.mojom.GetSourceInfosResult = {
   kSuccess: 0,
   kErrorDroppedRequest: 1,
 };
-video_capture.mojom.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum() };
+video_capture.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: VideoSourceProvider
-video_capture.mojom.mojom.VideoSourceProvider = {};
+video_capture.mojom.VideoSourceProvider = {};
 
-video_capture.mojom.mojom.VideoSourceProviderPendingReceiver = class {
+video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.VideoSourceProvider_GetVideoSource_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.ProducerRemote), nullable: false, minVersion: 0 },
+        { name: 'virtual_device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.SharedMemoryVirtualDeviceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.TextureVirtualDeviceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.DevicesChangedObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.DevicesChangedObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.VideoSourceProvider_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+video_capture.mojom.VideoSourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-video_capture.mojom.mojom.VideoSourceProviderRemote = class {
+video_capture.mojom.VideoSourceProviderRemote = class {
   static get $interfaceName() {
     return 'video_capture.mojom.VideoSourceProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      video_capture.mojom.mojom.VideoSourceProviderPendingReceiver,
+      video_capture.mojom.VideoSourceProviderPendingReceiver,
       handle);
-    this.$ = new video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler(this.proxy);
+    this.$ = new video_capture.mojom.VideoSourceProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -46,7 +140,7 @@ video_capture.mojom.mojom.VideoSourceProviderRemote = class {
   }
 };
 
-video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
+video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -55,8 +149,8 @@ video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec,
-      video_capture.mojom.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec,
+      video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec,
       []);
   }
 
@@ -64,7 +158,7 @@ video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec,
       null,
       [source_id, stream]);
   }
@@ -73,7 +167,7 @@ video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec,
       null,
       [device_info, producer, virtual_device_receiver]);
   }
@@ -82,7 +176,7 @@ video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec,
       null,
       [device_info, virtual_device_receiver]);
   }
@@ -91,7 +185,7 @@ video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      video_capture.mojom.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec,
       null,
       [observer, raise_event_if_virtual_devices_already_present]);
   }
@@ -100,7 +194,7 @@ video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      video_capture.mojom.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -109,15 +203,15 @@ video_capture.mojom.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      video_capture.mojom.mojom.VideoSourceProvider_Close_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-video_capture.mojom.mojom.VideoSourceProvider.getRemote = function() {
-  let remote = new video_capture.mojom.mojom.VideoSourceProviderRemote();
+video_capture.mojom.VideoSourceProvider.getRemote = function() {
+  let remote = new video_capture.mojom.VideoSourceProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -127,7 +221,7 @@ video_capture.mojom.mojom.VideoSourceProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetSourceInfos
-video_capture.mojom.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
+video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.GetSourceInfos_Params',
@@ -139,7 +233,7 @@ video_capture.mojom.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
   }
 };
 
-video_capture.mojom.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
+video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.GetSourceInfos_ResponseParams',
@@ -154,7 +248,7 @@ video_capture.mojom.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec 
 };
 
 // ParamsSpec for GetVideoSource
-video_capture.mojom.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
+video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.GetVideoSource_Params',
@@ -169,7 +263,7 @@ video_capture.mojom.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
 };
 
 // ParamsSpec for AddSharedMemoryVirtualDevice
-video_capture.mojom.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec = {
+video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.AddSharedMemoryVirtualDevice_Params',
@@ -185,7 +279,7 @@ video_capture.mojom.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_Param
 };
 
 // ParamsSpec for AddTextureVirtualDevice
-video_capture.mojom.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
+video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.AddTextureVirtualDevice_Params',
@@ -200,7 +294,7 @@ video_capture.mojom.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec
 };
 
 // ParamsSpec for RegisterVirtualDevicesChangedObserver
-video_capture.mojom.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec = {
+video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.RegisterVirtualDevicesChangedObserver_Params',
@@ -215,7 +309,7 @@ video_capture.mojom.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObser
 };
 
 // ParamsSpec for RegisterDevicesChangedObserver
-video_capture.mojom.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec = {
+video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.RegisterDevicesChangedObserver_Params',
@@ -229,7 +323,7 @@ video_capture.mojom.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_Par
 };
 
 // ParamsSpec for Close
-video_capture.mojom.mojom.VideoSourceProvider_Close_ParamsSpec = {
+video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.Close_Params',
@@ -242,6 +336,6 @@ video_capture.mojom.mojom.VideoSourceProvider_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-video_capture.mojom.mojom.VideoSourceProviderPtr = video_capture.mojom.mojom.VideoSourceProviderRemote;
-video_capture.mojom.mojom.VideoSourceProviderRequest = video_capture.mojom.mojom.VideoSourceProviderPendingReceiver;
+video_capture.mojom.VideoSourceProviderPtr = video_capture.mojom.VideoSourceProviderRemote;
+video_capture.mojom.VideoSourceProviderRequest = video_capture.mojom.VideoSourceProviderPendingReceiver;
 

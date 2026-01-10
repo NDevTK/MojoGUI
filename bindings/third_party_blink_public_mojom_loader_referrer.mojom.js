@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: Referrer
-blink.mojom.mojom.ReferrerSpec = {
+blink.mojom.ReferrerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Referrer',

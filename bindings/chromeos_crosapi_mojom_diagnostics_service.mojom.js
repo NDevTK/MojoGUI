@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: DiagnosticsRoutineEnum
-crosapi.mojom.mojom.DiagnosticsRoutineEnum = {
+crosapi.mojom.DiagnosticsRoutineEnum = {
   kBatteryCapacity: 0,
   kBatteryHealth: 1,
   kSmartctlCheck: 2,
@@ -35,10 +35,10 @@ crosapi.mojom.mojom.DiagnosticsRoutineEnum = {
   kSmartctlCheckWithPercentageUsed: 21,
   kEmmcLifetime: 22,
 };
-crosapi.mojom.mojom.DiagnosticsRoutineEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DiagnosticsRoutineEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticsRoutineStatusEnum
-crosapi.mojom.mojom.DiagnosticsRoutineStatusEnum = {
+crosapi.mojom.DiagnosticsRoutineStatusEnum = {
   kReady: 0,
   kRunning: 1,
   kWaiting: 2,
@@ -52,47 +52,47 @@ crosapi.mojom.mojom.DiagnosticsRoutineStatusEnum = {
   kUnsupported: 10,
   kNotRun: 11,
 };
-crosapi.mojom.mojom.DiagnosticsRoutineStatusEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DiagnosticsRoutineStatusEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticsRoutineUserMessageEnum
-crosapi.mojom.mojom.DiagnosticsRoutineUserMessageEnum = {
+crosapi.mojom.DiagnosticsRoutineUserMessageEnum = {
   kUnplugACPower: 0,
   kPlugInACPower: 1,
 };
-crosapi.mojom.mojom.DiagnosticsRoutineUserMessageEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DiagnosticsRoutineUserMessageEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticsRoutineCommandEnum
-crosapi.mojom.mojom.DiagnosticsRoutineCommandEnum = {
+crosapi.mojom.DiagnosticsRoutineCommandEnum = {
   kContinue: 0,
   kCancel: 1,
   kGetStatus: 2,
   kRemove: 3,
 };
-crosapi.mojom.mojom.DiagnosticsRoutineCommandEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DiagnosticsRoutineCommandEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticsAcPowerStatusEnum
-crosapi.mojom.mojom.DiagnosticsAcPowerStatusEnum = {
+crosapi.mojom.DiagnosticsAcPowerStatusEnum = {
   kConnected: 0,
   kDisconnected: 1,
 };
-crosapi.mojom.mojom.DiagnosticsAcPowerStatusEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticsNvmeSelfTestTypeEnum
-crosapi.mojom.mojom.DiagnosticsNvmeSelfTestTypeEnum = {
+crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnum = {
   kShortSelfTest: 0,
   kLongSelfTest: 1,
 };
-crosapi.mojom.mojom.DiagnosticsNvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticsDiskReadRoutineTypeEnum
-crosapi.mojom.mojom.DiagnosticsDiskReadRoutineTypeEnum = {
+crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnum = {
   kLinearRead: 0,
   kRandomRead: 1,
 };
-crosapi.mojom.mojom.DiagnosticsDiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum() };
 
 // Union: DiagnosticsRoutineUpdateUnion
-crosapi.mojom.mojom.DiagnosticsRoutineUpdateUnionSpec = { $: mojo.internal.Union(
+crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec = { $: mojo.internal.Union(
     'crosapi.mojom.DiagnosticsRoutineUpdateUnion', {
       'interactive_update': {
         'ordinal': 0,
@@ -106,7 +106,7 @@ crosapi.mojom.mojom.DiagnosticsRoutineUpdateUnionSpec = { $: mojo.internal.Union
 };
 
 // Struct: DiagnosticsInteractiveRoutineUpdate
-crosapi.mojom.mojom.DiagnosticsInteractiveRoutineUpdateSpec = {
+crosapi.mojom.DiagnosticsInteractiveRoutineUpdateSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsInteractiveRoutineUpdate',
@@ -120,7 +120,7 @@ crosapi.mojom.mojom.DiagnosticsInteractiveRoutineUpdateSpec = {
 };
 
 // Struct: DiagnosticsNonInteractiveRoutineUpdate
-crosapi.mojom.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec = {
+crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdate',
@@ -135,7 +135,7 @@ crosapi.mojom.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec = {
 };
 
 // Struct: DiagnosticsRoutineUpdate
-crosapi.mojom.mojom.DiagnosticsRoutineUpdateSpec = {
+crosapi.mojom.DiagnosticsRoutineUpdateSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsRoutineUpdate',
@@ -151,7 +151,7 @@ crosapi.mojom.mojom.DiagnosticsRoutineUpdateSpec = {
 };
 
 // Struct: DiagnosticsRunRoutineResponse
-crosapi.mojom.mojom.DiagnosticsRunRoutineResponseSpec = {
+crosapi.mojom.DiagnosticsRunRoutineResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsRunRoutineResponse',
@@ -166,24 +166,430 @@ crosapi.mojom.mojom.DiagnosticsRunRoutineResponseSpec = {
 };
 
 // Interface: DiagnosticsService
-crosapi.mojom.mojom.DiagnosticsService = {};
+crosapi.mojom.DiagnosticsService = {};
 
-crosapi.mojom.mojom.DiagnosticsServicePendingReceiver = class {
+crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_GetAvailableRoutines_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_GetRoutineUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'command', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRoutineCommandEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'include_output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'percentage_used_threshold', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 1 },
+      ],
+      versions: [{version: 1, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'expected_status', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_power_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'wear_level_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'nvme_self_test_type', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnumSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'length_seconds', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'file_size_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maximum_discharge_percent_allowed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'minimum_charge_percent_required', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunMemoryRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'timeout_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'peripheral_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsService_RunFanRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.DiagnosticsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsServiceRemote = class {
+crosapi.mojom.DiagnosticsServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.DiagnosticsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.DiagnosticsServicePendingReceiver,
+      crosapi.mojom.DiagnosticsServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.DiagnosticsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -195,7 +601,7 @@ crosapi.mojom.mojom.DiagnosticsServiceRemote = class {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
+crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -204,8 +610,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
       []);
   }
 
@@ -213,8 +619,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
       [id, command, include_output]);
   }
 
@@ -222,8 +628,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -231,8 +637,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -240,8 +646,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
       [percentage_used_threshold]);
   }
 
@@ -249,8 +655,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
       [expected_status, expected_power_type]);
   }
 
@@ -258,8 +664,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -267,8 +673,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -276,8 +682,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -285,8 +691,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
       [wear_level_threshold]);
   }
 
@@ -294,8 +700,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
       [nvme_self_test_type]);
   }
 
@@ -303,8 +709,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
       [type, length_seconds, file_size_mb]);
   }
 
@@ -312,8 +718,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -321,8 +727,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
       [length_seconds, maximum_discharge_percent_allowed]);
   }
 
@@ -330,8 +736,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
       [length_seconds, minimum_charge_percent_required]);
   }
 
@@ -339,8 +745,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -348,8 +754,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -357,8 +763,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -366,8 +772,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -375,8 +781,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -384,8 +790,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -393,8 +799,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -402,8 +808,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -411,8 +817,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -420,8 +826,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -429,8 +835,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -438,8 +844,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
       [timeout_seconds]);
   }
 
@@ -447,8 +853,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -456,8 +862,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -465,8 +871,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -474,8 +880,8 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
       [peripheral_id]);
   }
 
@@ -483,15 +889,15 @@ crosapi.mojom.mojom.DiagnosticsServiceRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      crosapi.mojom.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec,
-      crosapi.mojom.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec,
+      crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec,
       []);
   }
 
 };
 
-crosapi.mojom.mojom.DiagnosticsService.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.DiagnosticsServiceRemote();
+crosapi.mojom.DiagnosticsService.getRemote = function() {
+  let remote = new crosapi.mojom.DiagnosticsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -501,7 +907,7 @@ crosapi.mojom.mojom.DiagnosticsService.getRemote = function() {
 };
 
 // ParamsSpec for GetAvailableRoutines
-crosapi.mojom.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.GetAvailableRoutines_Params',
@@ -513,7 +919,7 @@ crosapi.mojom.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.GetAvailableRoutines_ResponseParams',
@@ -527,7 +933,7 @@ crosapi.mojom.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec =
 };
 
 // ParamsSpec for GetRoutineUpdate
-crosapi.mojom.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.GetRoutineUpdate_Params',
@@ -542,7 +948,7 @@ crosapi.mojom.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.GetRoutineUpdate_ResponseParams',
@@ -556,7 +962,7 @@ crosapi.mojom.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RunBatteryCapacityRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryCapacityRoutine_Params',
@@ -568,7 +974,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryCapacityRoutine_ResponseParams',
@@ -582,7 +988,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsS
 };
 
 // ParamsSpec for RunBatteryHealthRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryHealthRoutine_Params',
@@ -594,7 +1000,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryHealthRoutine_ResponseParams',
@@ -608,7 +1014,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpe
 };
 
 // ParamsSpec for RunSmartctlCheckRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunSmartctlCheckRoutine_Params',
@@ -621,7 +1027,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunSmartctlCheckRoutine_ResponseParams',
@@ -635,7 +1041,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpe
 };
 
 // ParamsSpec for RunAcPowerRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunAcPowerRoutine_Params',
@@ -649,7 +1055,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunAcPowerRoutine_ResponseParams',
@@ -663,7 +1069,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RunCpuCacheRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunCpuCacheRoutine_Params',
@@ -676,7 +1082,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunCpuCacheRoutine_ResponseParams',
@@ -690,7 +1096,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RunCpuStressRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunCpuStressRoutine_Params',
@@ -703,7 +1109,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunCpuStressRoutine_ResponseParams',
@@ -717,7 +1123,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec = 
 };
 
 // ParamsSpec for RunFloatingPointAccuracyRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunFloatingPointAccuracyRoutine_Params',
@@ -730,7 +1136,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpe
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunFloatingPointAccuracyRoutine_ResponseParams',
@@ -744,7 +1150,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseP
 };
 
 // ParamsSpec for DEPRECATED_RunNvmeWearLevelRoutine
-crosapi.mojom.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutine_Params',
@@ -757,7 +1163,7 @@ crosapi.mojom.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_Params
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutine_ResponseParams',
@@ -771,7 +1177,7 @@ crosapi.mojom.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_Respon
 };
 
 // ParamsSpec for RunNvmeSelfTestRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunNvmeSelfTestRoutine_Params',
@@ -784,7 +1190,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunNvmeSelfTestRoutine_ResponseParams',
@@ -798,7 +1204,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec
 };
 
 // ParamsSpec for RunDiskReadRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunDiskReadRoutine_Params',
@@ -813,7 +1219,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunDiskReadRoutine_ResponseParams',
@@ -827,7 +1233,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RunPrimeSearchRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunPrimeSearchRoutine_Params',
@@ -840,7 +1246,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunPrimeSearchRoutine_ResponseParams',
@@ -854,7 +1260,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec 
 };
 
 // ParamsSpec for RunBatteryDischargeRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryDischargeRoutine_Params',
@@ -868,7 +1274,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryDischargeRoutine_ResponseParams',
@@ -882,7 +1288,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParams
 };
 
 // ParamsSpec for RunBatteryChargeRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryChargeRoutine_Params',
@@ -896,7 +1302,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBatteryChargeRoutine_ResponseParams',
@@ -910,7 +1316,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpe
 };
 
 // ParamsSpec for RunMemoryRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunMemoryRoutine_Params',
@@ -922,7 +1328,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunMemoryRoutine_ResponseParams',
@@ -936,7 +1342,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RunLanConnectivityRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunLanConnectivityRoutine_Params',
@@ -948,7 +1354,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunLanConnectivityRoutine_ResponseParams',
@@ -962,7 +1368,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsS
 };
 
 // ParamsSpec for RunDnsResolutionRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunDnsResolutionRoutine_Params',
@@ -974,7 +1380,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunDnsResolutionRoutine_ResponseParams',
@@ -988,7 +1394,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpe
 };
 
 // ParamsSpec for RunSignalStrengthRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunSignalStrengthRoutine_Params',
@@ -1000,7 +1406,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunSignalStrengthRoutine_ResponseParams',
@@ -1014,7 +1420,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSp
 };
 
 // ParamsSpec for RunGatewayCanBePingedRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunGatewayCanBePingedRoutine_Params',
@@ -1026,7 +1432,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec =
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunGatewayCanBePingedRoutine_ResponseParams',
@@ -1040,7 +1446,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponsePara
 };
 
 // ParamsSpec for RunDnsResolverPresentRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunDnsResolverPresentRoutine_Params',
@@ -1052,7 +1458,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec =
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunDnsResolverPresentRoutine_ResponseParams',
@@ -1066,7 +1472,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponsePara
 };
 
 // ParamsSpec for RunSensitiveSensorRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunSensitiveSensorRoutine_Params',
@@ -1078,7 +1484,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunSensitiveSensorRoutine_ResponseParams',
@@ -1092,7 +1498,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsS
 };
 
 // ParamsSpec for RunFingerprintAliveRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunFingerprintAliveRoutine_Params',
@@ -1104,7 +1510,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunFingerprintAliveRoutine_ResponseParams',
@@ -1118,7 +1524,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParams
 };
 
 // ParamsSpec for RunEmmcLifetimeRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunEmmcLifetimeRoutine_Params',
@@ -1130,7 +1536,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunEmmcLifetimeRoutine_ResponseParams',
@@ -1144,7 +1550,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec
 };
 
 // ParamsSpec for RunBluetoothPowerRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothPowerRoutine_Params',
@@ -1156,7 +1562,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothPowerRoutine_ResponseParams',
@@ -1170,7 +1576,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSp
 };
 
 // ParamsSpec for RunUfsLifetimeRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunUfsLifetimeRoutine_Params',
@@ -1182,7 +1588,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunUfsLifetimeRoutine_ResponseParams',
@@ -1196,7 +1602,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec 
 };
 
 // ParamsSpec for RunPowerButtonRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunPowerButtonRoutine_Params',
@@ -1209,7 +1615,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunPowerButtonRoutine_ResponseParams',
@@ -1223,7 +1629,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec 
 };
 
 // ParamsSpec for RunAudioDriverRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunAudioDriverRoutine_Params',
@@ -1235,7 +1641,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunAudioDriverRoutine_ResponseParams',
@@ -1249,7 +1655,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec 
 };
 
 // ParamsSpec for RunBluetoothDiscoveryRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothDiscoveryRoutine_Params',
@@ -1261,7 +1667,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec =
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothDiscoveryRoutine_ResponseParams',
@@ -1275,7 +1681,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponsePara
 };
 
 // ParamsSpec for RunBluetoothScanningRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothScanningRoutine_Params',
@@ -1288,7 +1694,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = 
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothScanningRoutine_ResponseParams',
@@ -1302,7 +1708,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParam
 };
 
 // ParamsSpec for RunBluetoothPairingRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothPairingRoutine_Params',
@@ -1315,7 +1721,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunBluetoothPairingRoutine_ResponseParams',
@@ -1329,7 +1735,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParams
 };
 
 // ParamsSpec for RunFanRoutine
-crosapi.mojom.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunFanRoutine_Params',
@@ -1341,7 +1747,7 @@ crosapi.mojom.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec = {
+crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DiagnosticsService.RunFanRoutine_ResponseParams',
@@ -1355,6 +1761,6 @@ crosapi.mojom.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.DiagnosticsServicePtr = crosapi.mojom.mojom.DiagnosticsServiceRemote;
-crosapi.mojom.mojom.DiagnosticsServiceRequest = crosapi.mojom.mojom.DiagnosticsServicePendingReceiver;
+crosapi.mojom.DiagnosticsServicePtr = crosapi.mojom.DiagnosticsServiceRemote;
+crosapi.mojom.DiagnosticsServiceRequest = crosapi.mojom.DiagnosticsServicePendingReceiver;
 

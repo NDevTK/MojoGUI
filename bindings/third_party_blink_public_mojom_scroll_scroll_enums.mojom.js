@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ScrollType
-blink.mojom.mojom.ScrollType = {
+blink.mojom.ScrollType = {
   kUser: 0,
   kProgrammatic: 1,
   kClamping: 2,
@@ -18,12 +18,12 @@ blink.mojom.mojom.ScrollType = {
   kAnchoring: 4,
   kScrollStart: 5,
 };
-blink.mojom.mojom.ScrollTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ScrollTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollBehavior
-blink.mojom.mojom.ScrollBehavior = {
+blink.mojom.ScrollBehavior = {
   kAuto: 0,
   kInstant: 1,
   kSmooth: 2,
 };
-blink.mojom.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
+blink.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };

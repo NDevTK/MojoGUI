@@ -10,24 +10,50 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: NearbySharingDecoder
-sharing.mojom.mojom.NearbySharingDecoder = {};
+sharing.mojom.NearbySharingDecoder = {};
 
-sharing.mojom.mojom.NearbySharingDecoderPendingReceiver = class {
+sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.NearbySharingDecoder_DecodeFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+sharing.mojom.NearbySharingDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.mojom.NearbySharingDecoderRemote = class {
+sharing.mojom.NearbySharingDecoderRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.NearbySharingDecoder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.mojom.NearbySharingDecoderPendingReceiver,
+      sharing.mojom.NearbySharingDecoderPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.mojom.NearbySharingDecoderRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.NearbySharingDecoderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +65,7 @@ sharing.mojom.mojom.NearbySharingDecoderRemote = class {
   }
 };
 
-sharing.mojom.mojom.NearbySharingDecoderRemoteCallHandler = class {
+sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +74,8 @@ sharing.mojom.mojom.NearbySharingDecoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec,
-      sharing.mojom.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec,
+      sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec,
+      sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec,
       [data]);
   }
 
@@ -57,15 +83,15 @@ sharing.mojom.mojom.NearbySharingDecoderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec,
-      sharing.mojom.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec,
+      sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec,
+      sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec,
       [data]);
   }
 
 };
 
-sharing.mojom.mojom.NearbySharingDecoder.getRemote = function() {
-  let remote = new sharing.mojom.mojom.NearbySharingDecoderRemote();
+sharing.mojom.NearbySharingDecoder.getRemote = function() {
+  let remote = new sharing.mojom.NearbySharingDecoderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +101,7 @@ sharing.mojom.mojom.NearbySharingDecoder.getRemote = function() {
 };
 
 // ParamsSpec for DecodeAdvertisement
-sharing.mojom.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
+sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_Params',
@@ -88,7 +114,7 @@ sharing.mojom.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
   }
 };
 
-sharing.mojom.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
+sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_ResponseParams',
@@ -102,7 +128,7 @@ sharing.mojom.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec 
 };
 
 // ParamsSpec for DecodeFrame
-sharing.mojom.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
+sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_Params',
@@ -115,7 +141,7 @@ sharing.mojom.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
   }
 };
 
-sharing.mojom.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
+sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_ResponseParams',
@@ -129,6 +155,6 @@ sharing.mojom.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.mojom.NearbySharingDecoderPtr = sharing.mojom.mojom.NearbySharingDecoderRemote;
-sharing.mojom.mojom.NearbySharingDecoderRequest = sharing.mojom.mojom.NearbySharingDecoderPendingReceiver;
+sharing.mojom.NearbySharingDecoderPtr = sharing.mojom.NearbySharingDecoderRemote;
+sharing.mojom.NearbySharingDecoderRequest = sharing.mojom.NearbySharingDecoderPendingReceiver;
 

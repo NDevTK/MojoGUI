@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: PaintFilter
-viz.mojom.mojom.PaintFilterSpec = {
+viz.mojom.PaintFilterSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.PaintFilter',

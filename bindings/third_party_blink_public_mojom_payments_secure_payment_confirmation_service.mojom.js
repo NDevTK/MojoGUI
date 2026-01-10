@@ -11,41 +11,81 @@ var blink = blink || {};
 
 
 // Enum: PaymentCredentialStorageStatus
-payments.mojom.mojom.PaymentCredentialStorageStatus = {
+payments.mojom.PaymentCredentialStorageStatus = {
   SUCCESS: 0,
   FAILED_TO_STORE_CREDENTIAL: 1,
 };
-payments.mojom.mojom.PaymentCredentialStorageStatusSpec = { $: mojo.internal.Enum() };
+payments.mojom.PaymentCredentialStorageStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurePaymentConfirmationAvailabilityEnum
-payments.mojom.mojom.SecurePaymentConfirmationAvailabilityEnum = {
+payments.mojom.SecurePaymentConfirmationAvailabilityEnum = {
   kAvailable: 0,
   kUnavailableUnknownReason: 1,
   kUnavailableFeatureNotEnabled: 2,
   kUnavailableNoPermissionPolicy: 3,
   kUnavailableNoUserVerifyingPlatformAuthenticator: 4,
 };
-payments.mojom.mojom.SecurePaymentConfirmationAvailabilityEnumSpec = { $: mojo.internal.Enum() };
+payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec = { $: mojo.internal.Enum() };
 
 // Interface: SecurePaymentConfirmationService
-payments.mojom.mojom.SecurePaymentConfirmationService = {};
+payments.mojom.SecurePaymentConfirmationService = {};
 
-payments.mojom.mojom.SecurePaymentConfirmationServicePendingReceiver = class {
+payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'credential_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'rp_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'user_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialCreationOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.SecurePaymentConfirmationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.mojom.mojom.SecurePaymentConfirmationServiceRemote = class {
+payments.mojom.SecurePaymentConfirmationServiceRemote = class {
   static get $interfaceName() {
     return 'payments.mojom.SecurePaymentConfirmationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.mojom.mojom.SecurePaymentConfirmationServicePendingReceiver,
+      payments.mojom.SecurePaymentConfirmationServicePendingReceiver,
       handle);
-    this.$ = new payments.mojom.mojom.SecurePaymentConfirmationServiceRemoteCallHandler(this.proxy);
+    this.$ = new payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +97,7 @@ payments.mojom.mojom.SecurePaymentConfirmationServiceRemote = class {
   }
 };
 
-payments.mojom.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
+payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,8 +106,8 @@ payments.mojom.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec,
-      payments.mojom.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +115,8 @@ payments.mojom.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec,
-      payments.mojom.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
       [credential_id, rp_id, user_id]);
   }
 
@@ -84,15 +124,15 @@ payments.mojom.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec,
-      payments.mojom.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
       [options]);
   }
 
 };
 
-payments.mojom.mojom.SecurePaymentConfirmationService.getRemote = function() {
-  let remote = new payments.mojom.mojom.SecurePaymentConfirmationServiceRemote();
+payments.mojom.SecurePaymentConfirmationService.getRemote = function() {
+  let remote = new payments.mojom.SecurePaymentConfirmationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +142,7 @@ payments.mojom.mojom.SecurePaymentConfirmationService.getRemote = function() {
 };
 
 // ParamsSpec for SecurePaymentConfirmationAvailability
-payments.mojom.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec = {
+payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.SecurePaymentConfirmationService.SecurePaymentConfirmationAvailability_Params',
@@ -114,7 +154,7 @@ payments.mojom.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationA
   }
 };
 
-payments.mojom.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec = {
+payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.SecurePaymentConfirmationService.SecurePaymentConfirmationAvailability_ResponseParams',
@@ -128,7 +168,7 @@ payments.mojom.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationA
 };
 
 // ParamsSpec for StorePaymentCredential
-payments.mojom.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec = {
+payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.SecurePaymentConfirmationService.StorePaymentCredential_Params',
@@ -143,7 +183,7 @@ payments.mojom.mojom.SecurePaymentConfirmationService_StorePaymentCredential_Par
   }
 };
 
-payments.mojom.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec = {
+payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.SecurePaymentConfirmationService.StorePaymentCredential_ResponseParams',
@@ -157,7 +197,7 @@ payments.mojom.mojom.SecurePaymentConfirmationService_StorePaymentCredential_Res
 };
 
 // ParamsSpec for MakePaymentCredential
-payments.mojom.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec = {
+payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.SecurePaymentConfirmationService.MakePaymentCredential_Params',
@@ -170,7 +210,7 @@ payments.mojom.mojom.SecurePaymentConfirmationService_MakePaymentCredential_Para
   }
 };
 
-payments.mojom.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec = {
+payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.SecurePaymentConfirmationService.MakePaymentCredential_ResponseParams',
@@ -186,6 +226,6 @@ payments.mojom.mojom.SecurePaymentConfirmationService_MakePaymentCredential_Resp
 };
 
 // Legacy compatibility
-payments.mojom.mojom.SecurePaymentConfirmationServicePtr = payments.mojom.mojom.SecurePaymentConfirmationServiceRemote;
-payments.mojom.mojom.SecurePaymentConfirmationServiceRequest = payments.mojom.mojom.SecurePaymentConfirmationServicePendingReceiver;
+payments.mojom.SecurePaymentConfirmationServicePtr = payments.mojom.SecurePaymentConfirmationServiceRemote;
+payments.mojom.SecurePaymentConfirmationServiceRequest = payments.mojom.SecurePaymentConfirmationServicePendingReceiver;
 

@@ -11,24 +11,37 @@ var ui = ui || {};
 
 
 // Interface: ScenicGpuService
-ui.mojom.mojom.ScenicGpuService = {};
+ui.mojom.ScenicGpuService = {};
 
-ui.mojom.mojom.ScenicGpuServicePendingReceiver = class {
+ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.mojom.ScenicGpuService_Initialize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'scenic_gpu_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ui.mojom.ScenicGpuHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ui.mojom.ScenicGpuServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ui.mojom.mojom.ScenicGpuServiceRemote = class {
+ui.mojom.ScenicGpuServiceRemote = class {
   static get $interfaceName() {
     return 'ui.mojom.ScenicGpuService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ui.mojom.mojom.ScenicGpuServicePendingReceiver,
+      ui.mojom.ScenicGpuServicePendingReceiver,
       handle);
-    this.$ = new ui.mojom.mojom.ScenicGpuServiceRemoteCallHandler(this.proxy);
+    this.$ = new ui.mojom.ScenicGpuServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ ui.mojom.mojom.ScenicGpuServiceRemote = class {
   }
 };
 
-ui.mojom.mojom.ScenicGpuServiceRemoteCallHandler = class {
+ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ ui.mojom.mojom.ScenicGpuServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.mojom.mojom.ScenicGpuService_Initialize_ParamsSpec,
+      ui.mojom.ScenicGpuService_Initialize_ParamsSpec,
       null,
       [scenic_gpu_host]);
   }
 
 };
 
-ui.mojom.mojom.ScenicGpuService.getRemote = function() {
-  let remote = new ui.mojom.mojom.ScenicGpuServiceRemote();
+ui.mojom.ScenicGpuService.getRemote = function() {
+  let remote = new ui.mojom.ScenicGpuServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ ui.mojom.mojom.ScenicGpuService.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-ui.mojom.mojom.ScenicGpuService_Initialize_ParamsSpec = {
+ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ScenicGpuService.Initialize_Params',
@@ -81,6 +94,6 @@ ui.mojom.mojom.ScenicGpuService_Initialize_ParamsSpec = {
 };
 
 // Legacy compatibility
-ui.mojom.mojom.ScenicGpuServicePtr = ui.mojom.mojom.ScenicGpuServiceRemote;
-ui.mojom.mojom.ScenicGpuServiceRequest = ui.mojom.mojom.ScenicGpuServicePendingReceiver;
+ui.mojom.ScenicGpuServicePtr = ui.mojom.ScenicGpuServiceRemote;
+ui.mojom.ScenicGpuServiceRequest = ui.mojom.ScenicGpuServicePendingReceiver;
 

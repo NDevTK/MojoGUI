@@ -10,8 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: CSSOrigin
-extensions.mojom.mojom.CSSOrigin = {
+extensions.mojom.CSSOrigin = {
   kAuthor: 0,
   kUser: 1,
 };
-extensions.mojom.mojom.CSSOriginSpec = { $: mojo.internal.Enum() };
+extensions.mojom.CSSOriginSpec = { $: mojo.internal.Enum() };

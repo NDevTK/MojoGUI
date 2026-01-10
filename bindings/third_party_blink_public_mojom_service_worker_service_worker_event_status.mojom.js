@@ -10,18 +10,18 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ServiceWorkerEventStatus
-blink.mojom.mojom.ServiceWorkerEventStatus = {
+blink.mojom.ServiceWorkerEventStatus = {
   COMPLETED: 0,
   REJECTED: 1,
   ABORTED: 2,
   TIMEOUT: 3,
   MAX: 4,
 };
-blink.mojom.mojom.ServiceWorkerEventStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerEventStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerStartStatus
-blink.mojom.mojom.ServiceWorkerStartStatus = {
+blink.mojom.ServiceWorkerStartStatus = {
   kNormalCompletion: 0,
   kAbruptCompletion: 1,
 };
-blink.mojom.mojom.ServiceWorkerStartStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerStartStatusSpec = { $: mojo.internal.Enum() };

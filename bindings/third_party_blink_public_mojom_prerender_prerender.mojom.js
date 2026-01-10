@@ -14,14 +14,14 @@ var url = url || {};
 
 
 // Enum: PrerenderTriggerType
-blink.mojom.mojom.PrerenderTriggerType = {
+blink.mojom.PrerenderTriggerType = {
   kLinkRelPrerender: 0,
   kLinkRelNext: 1,
 };
-blink.mojom.mojom.PrerenderTriggerTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PrerenderTriggerTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PrerenderAttributes
-blink.mojom.mojom.PrerenderAttributesSpec = {
+blink.mojom.PrerenderAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrerenderAttributes',
@@ -38,24 +38,49 @@ blink.mojom.mojom.PrerenderAttributesSpec = {
 };
 
 // Interface: NoStatePrefetchProcessor
-blink.mojom.mojom.NoStatePrefetchProcessor = {};
+blink.mojom.NoStatePrefetchProcessor = {};
 
-blink.mojom.mojom.NoStatePrefetchProcessorPendingReceiver = class {
+blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NoStatePrefetchProcessor_Start_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'prerender_attribute', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PrerenderAttributesSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NoStatePrefetchProcessor_Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.NoStatePrefetchProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.NoStatePrefetchProcessorRemote = class {
+blink.mojom.NoStatePrefetchProcessorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.NoStatePrefetchProcessor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.NoStatePrefetchProcessorPendingReceiver,
+      blink.mojom.NoStatePrefetchProcessorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.NoStatePrefetchProcessorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.NoStatePrefetchProcessorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -67,7 +92,7 @@ blink.mojom.mojom.NoStatePrefetchProcessorRemote = class {
   }
 };
 
-blink.mojom.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
+blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -76,7 +101,7 @@ blink.mojom.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.NoStatePrefetchProcessor_Start_ParamsSpec,
+      blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec,
       null,
       [prerender_attribute]);
   }
@@ -85,15 +110,15 @@ blink.mojom.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec,
+      blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.NoStatePrefetchProcessor.getRemote = function() {
-  let remote = new blink.mojom.mojom.NoStatePrefetchProcessorRemote();
+blink.mojom.NoStatePrefetchProcessor.getRemote = function() {
+  let remote = new blink.mojom.NoStatePrefetchProcessorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +128,7 @@ blink.mojom.mojom.NoStatePrefetchProcessor.getRemote = function() {
 };
 
 // ParamsSpec for Start
-blink.mojom.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
+blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NoStatePrefetchProcessor.Start_Params',
@@ -117,7 +142,7 @@ blink.mojom.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-blink.mojom.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
+blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NoStatePrefetchProcessor.Cancel_Params',
@@ -130,6 +155,6 @@ blink.mojom.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.NoStatePrefetchProcessorPtr = blink.mojom.mojom.NoStatePrefetchProcessorRemote;
-blink.mojom.mojom.NoStatePrefetchProcessorRequest = blink.mojom.mojom.NoStatePrefetchProcessorPendingReceiver;
+blink.mojom.NoStatePrefetchProcessorPtr = blink.mojom.NoStatePrefetchProcessorRemote;
+blink.mojom.NoStatePrefetchProcessorRequest = blink.mojom.NoStatePrefetchProcessorPendingReceiver;
 

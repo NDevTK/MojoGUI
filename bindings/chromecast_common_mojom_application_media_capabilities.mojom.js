@@ -7,11 +7,11 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
-chromecast.shell.shell.mojom = chromecast.shell.shell.mojom || {};
+chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
 // Struct: BitstreamAudioCodecsInfo
-chromecast.shell.shell.mojom.mojom.BitstreamAudioCodecsInfoSpec = {
+chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.BitstreamAudioCodecsInfo',
@@ -26,24 +26,37 @@ chromecast.shell.shell.mojom.mojom.BitstreamAudioCodecsInfoSpec = {
 };
 
 // Interface: ApplicationMediaCapabilitiesObserver
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserver = {};
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver = {};
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver = class {
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRemote = class {
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote = class {
   static get $interfaceName() {
     return 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver,
+      chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver,
       handle);
-    this.$ = new chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +68,7 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRemote = 
   }
 };
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = class {
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +77,15 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRemoteCal
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec,
+      chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserver.getRemote = function() {
-  let remote = new chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRemote();
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.getRemote = function() {
+  let remote = new chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +95,7 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserver.getRemot
 };
 
 // ParamsSpec for OnSupportedBitstreamAudioCodecsChanged
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec = {
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.OnSupportedBitstreamAudioCodecsChanged_Params',
@@ -96,29 +109,42 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserver_OnSuppor
 };
 
 // Legacy compatibility
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverPtr = chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRemote;
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverRequest = chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver;
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPtr = chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote;
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRequest = chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver;
 
 
 // Interface: ApplicationMediaCapabilities
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilities = {};
+chromecast.shell.mojom.ApplicationMediaCapabilities = {};
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesPendingReceiver = class {
+chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.shell.mojom.ApplicationMediaCapabilitiesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRemote = class {
+chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote = class {
   static get $interfaceName() {
     return 'chromecast.shell.mojom.ApplicationMediaCapabilities';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesPendingReceiver,
+      chromecast.shell.mojom.ApplicationMediaCapabilitiesPendingReceiver,
       handle);
-    this.$ = new chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,7 +156,7 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRemote = class {
   }
 };
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
+chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -139,15 +165,15 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRemoteCallHandler
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec,
+      chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilities.getRemote = function() {
-  let remote = new chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRemote();
+chromecast.shell.mojom.ApplicationMediaCapabilities.getRemote = function() {
+  let remote = new chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -157,7 +183,7 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilities.getRemote = func
 };
 
 // ParamsSpec for AddObserver
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = {
+chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.ApplicationMediaCapabilities.AddObserver_Params',
@@ -171,6 +197,6 @@ chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilities_AddObserver_Para
 };
 
 // Legacy compatibility
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesPtr = chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRemote;
-chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesRequest = chromecast.shell.shell.mojom.mojom.ApplicationMediaCapabilitiesPendingReceiver;
+chromecast.shell.mojom.ApplicationMediaCapabilitiesPtr = chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote;
+chromecast.shell.mojom.ApplicationMediaCapabilitiesRequest = chromecast.shell.mojom.ApplicationMediaCapabilitiesPendingReceiver;
 

@@ -10,24 +10,24 @@ media_session.mojom = media_session.mojom || {};
 
 
 // Enum: EnforcementMode
-media_session.mojom.mojom.EnforcementMode = {
+media_session.mojom.EnforcementMode = {
   kNone: 0,
   kSingleGroup: 1,
   kSingleSession: 2,
 };
-media_session.mojom.mojom.EnforcementModeSpec = { $: mojo.internal.Enum() };
+media_session.mojom.EnforcementModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AudioFocusType
-media_session.mojom.mojom.AudioFocusType = {
+media_session.mojom.AudioFocusType = {
   kGain: 0,
   kGainTransientMayDuck: 1,
   kGainTransient: 2,
   kAmbient: 3,
 };
-media_session.mojom.mojom.AudioFocusTypeSpec = { $: mojo.internal.Enum() };
+media_session.mojom.AudioFocusTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AudioFocusRequestState
-media_session.mojom.mojom.AudioFocusRequestStateSpec = {
+media_session.mojom.AudioFocusRequestStateSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusRequestState',
@@ -45,24 +45,63 @@ media_session.mojom.mojom.AudioFocusRequestStateSpec = {
 };
 
 // Interface: AudioFocusObserver
-media_session.mojom.mojom.AudioFocusObserver = {};
+media_session.mojom.AudioFocusObserver = {};
 
-media_session.mojom.mojom.AudioFocusObserverPendingReceiver = class {
+media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusObserver_OnFocusGained_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.AudioFocusRequestStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusObserver_OnFocusLost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.AudioFocusRequestStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusObserver_OnRequestIdReleased_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_session.mojom.mojom.AudioFocusObserverRemote = class {
+media_session.mojom.AudioFocusObserverRemote = class {
   static get $interfaceName() {
     return 'media_session.mojom.AudioFocusObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_session.mojom.mojom.AudioFocusObserverPendingReceiver,
+      media_session.mojom.AudioFocusObserverPendingReceiver,
       handle);
-    this.$ = new media_session.mojom.mojom.AudioFocusObserverRemoteCallHandler(this.proxy);
+    this.$ = new media_session.mojom.AudioFocusObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +113,7 @@ media_session.mojom.mojom.AudioFocusObserverRemote = class {
   }
 };
 
-media_session.mojom.mojom.AudioFocusObserverRemoteCallHandler = class {
+media_session.mojom.AudioFocusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,7 +122,7 @@ media_session.mojom.mojom.AudioFocusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_session.mojom.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec,
+      media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec,
       null,
       [state]);
   }
@@ -92,7 +131,7 @@ media_session.mojom.mojom.AudioFocusObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_session.mojom.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec,
+      media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec,
       null,
       [state]);
   }
@@ -101,15 +140,15 @@ media_session.mojom.mojom.AudioFocusObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_session.mojom.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec,
+      media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec,
       null,
       [request_id]);
   }
 
 };
 
-media_session.mojom.mojom.AudioFocusObserver.getRemote = function() {
-  let remote = new media_session.mojom.mojom.AudioFocusObserverRemote();
+media_session.mojom.AudioFocusObserver.getRemote = function() {
+  let remote = new media_session.mojom.AudioFocusObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +158,7 @@ media_session.mojom.mojom.AudioFocusObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnFocusGained
-media_session.mojom.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec = {
+media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusObserver.OnFocusGained_Params',
@@ -133,7 +172,7 @@ media_session.mojom.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec = {
 };
 
 // ParamsSpec for OnFocusLost
-media_session.mojom.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec = {
+media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusObserver.OnFocusLost_Params',
@@ -147,7 +186,7 @@ media_session.mojom.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec = {
 };
 
 // ParamsSpec for OnRequestIdReleased
-media_session.mojom.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec = {
+media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusObserver.OnRequestIdReleased_Params',
@@ -161,29 +200,68 @@ media_session.mojom.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec = {
 };
 
 // Legacy compatibility
-media_session.mojom.mojom.AudioFocusObserverPtr = media_session.mojom.mojom.AudioFocusObserverRemote;
-media_session.mojom.mojom.AudioFocusObserverRequest = media_session.mojom.mojom.AudioFocusObserverPendingReceiver;
+media_session.mojom.AudioFocusObserverPtr = media_session.mojom.AudioFocusObserverRemote;
+media_session.mojom.AudioFocusObserverRequest = media_session.mojom.AudioFocusObserverPendingReceiver;
 
 
 // Interface: AudioFocusRequestClient
-media_session.mojom.mojom.AudioFocusRequestClient = {};
+media_session.mojom.AudioFocusRequestClient = {};
 
-media_session.mojom.mojom.AudioFocusRequestClientPendingReceiver = class {
+media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_session.mojom.mojom.AudioFocusRequestClientRemote = class {
+media_session.mojom.AudioFocusRequestClientRemote = class {
   static get $interfaceName() {
     return 'media_session.mojom.AudioFocusRequestClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_session.mojom.mojom.AudioFocusRequestClientPendingReceiver,
+      media_session.mojom.AudioFocusRequestClientPendingReceiver,
       handle);
-    this.$ = new media_session.mojom.mojom.AudioFocusRequestClientRemoteCallHandler(this.proxy);
+    this.$ = new media_session.mojom.AudioFocusRequestClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -195,7 +273,7 @@ media_session.mojom.mojom.AudioFocusRequestClientRemote = class {
   }
 };
 
-media_session.mojom.mojom.AudioFocusRequestClientRemoteCallHandler = class {
+media_session.mojom.AudioFocusRequestClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -204,7 +282,7 @@ media_session.mojom.mojom.AudioFocusRequestClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_session.mojom.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec,
+      media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec,
       null,
       [session_info, type]);
   }
@@ -213,7 +291,7 @@ media_session.mojom.mojom.AudioFocusRequestClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_session.mojom.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec,
+      media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec,
       null,
       []);
   }
@@ -222,15 +300,15 @@ media_session.mojom.mojom.AudioFocusRequestClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_session.mojom.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec,
+      media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec,
       null,
       [session_info]);
   }
 
 };
 
-media_session.mojom.mojom.AudioFocusRequestClient.getRemote = function() {
-  let remote = new media_session.mojom.mojom.AudioFocusRequestClientRemote();
+media_session.mojom.AudioFocusRequestClient.getRemote = function() {
+  let remote = new media_session.mojom.AudioFocusRequestClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -240,7 +318,7 @@ media_session.mojom.mojom.AudioFocusRequestClient.getRemote = function() {
 };
 
 // ParamsSpec for RequestAudioFocus
-media_session.mojom.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec = {
+media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusRequestClient.RequestAudioFocus_Params',
@@ -255,7 +333,7 @@ media_session.mojom.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec =
 };
 
 // ParamsSpec for AbandonAudioFocus
-media_session.mojom.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec = {
+media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusRequestClient.AbandonAudioFocus_Params',
@@ -268,7 +346,7 @@ media_session.mojom.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec =
 };
 
 // ParamsSpec for MediaSessionInfoChanged
-media_session.mojom.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec = {
+media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusRequestClient.MediaSessionInfoChanged_Params',
@@ -282,29 +360,192 @@ media_session.mojom.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_Params
 };
 
 // Legacy compatibility
-media_session.mojom.mojom.AudioFocusRequestClientPtr = media_session.mojom.mojom.AudioFocusRequestClientRemote;
-media_session.mojom.mojom.AudioFocusRequestClientRequest = media_session.mojom.mojom.AudioFocusRequestClientPendingReceiver;
+media_session.mojom.AudioFocusRequestClientPtr = media_session.mojom.AudioFocusRequestClientRemote;
+media_session.mojom.AudioFocusRequestClientRequest = media_session.mojom.AudioFocusRequestClientPendingReceiver;
 
 
 // Interface: AudioFocusManager
-media_session.mojom.mojom.AudioFocusManager = {};
+media_session.mojom.AudioFocusManager = {};
 
-media_session.mojom.mojom.AudioFocusManagerPendingReceiver = class {
+media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_RequestAudioFocus_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'session_info', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'session_info', packedOffset: 24, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_GetFocusRequests_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_SetSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_SetSource_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_SetEnforcementMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.EnforcementModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_AddSourceObserver_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_GetSourceFocusRequests_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_RequestIdReleased_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_StartDuckingAllAudio_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'exempted_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_StopDuckingAllAudio_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManager_FlushForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_session.mojom.mojom.AudioFocusManagerRemote = class {
+media_session.mojom.AudioFocusManagerRemote = class {
   static get $interfaceName() {
     return 'media_session.mojom.AudioFocusManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_session.mojom.mojom.AudioFocusManagerPendingReceiver,
+      media_session.mojom.AudioFocusManagerPendingReceiver,
       handle);
-    this.$ = new media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler(this.proxy);
+    this.$ = new media_session.mojom.AudioFocusManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -316,7 +557,7 @@ media_session.mojom.mojom.AudioFocusManagerRemote = class {
   }
 };
 
-media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
+media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -325,8 +566,8 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec,
-      media_session.mojom.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec,
+      media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec,
+      media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec,
       [client, session, session_info, type]);
   }
 
@@ -334,8 +575,8 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec,
-      media_session.mojom.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec,
+      media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec,
+      media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec,
       [request_id, client, session, session_info, type, group_id]);
   }
 
@@ -343,8 +584,8 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec,
-      media_session.mojom.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec,
+      media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec,
+      media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec,
       []);
   }
 
@@ -352,7 +593,7 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_AddObserver_ParamsSpec,
+      media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -361,7 +602,7 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_SetSource_ParamsSpec,
+      media_session.mojom.AudioFocusManager_SetSource_ParamsSpec,
       null,
       [identity, name]);
   }
@@ -370,7 +611,7 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec,
+      media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec,
       null,
       [mode]);
   }
@@ -379,7 +620,7 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec,
+      media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec,
       null,
       [source_id, observer]);
   }
@@ -388,8 +629,8 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec,
-      media_session.mojom.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec,
+      media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec,
+      media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec,
       [source_id]);
   }
 
@@ -397,7 +638,7 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec,
+      media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec,
       null,
       [request_id]);
   }
@@ -406,7 +647,7 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec,
+      media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec,
       null,
       [exempted_request_id]);
   }
@@ -415,7 +656,7 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec,
+      media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec,
       null,
       []);
   }
@@ -424,15 +665,15 @@ media_session.mojom.mojom.AudioFocusManagerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      media_session.mojom.mojom.AudioFocusManager_FlushForTesting_ParamsSpec,
+      media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec,
       null,
       []);
   }
 
 };
 
-media_session.mojom.mojom.AudioFocusManager.getRemote = function() {
-  let remote = new media_session.mojom.mojom.AudioFocusManagerRemote();
+media_session.mojom.AudioFocusManager.getRemote = function() {
+  let remote = new media_session.mojom.AudioFocusManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -442,7 +683,7 @@ media_session.mojom.mojom.AudioFocusManager.getRemote = function() {
 };
 
 // ParamsSpec for RequestAudioFocus
-media_session.mojom.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = {
+media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.RequestAudioFocus_Params',
@@ -458,7 +699,7 @@ media_session.mojom.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = {
   }
 };
 
-media_session.mojom.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec = {
+media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.RequestAudioFocus_ResponseParams',
@@ -472,7 +713,7 @@ media_session.mojom.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec
 };
 
 // ParamsSpec for RequestGroupedAudioFocus
-media_session.mojom.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec = {
+media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.RequestGroupedAudioFocus_Params',
@@ -490,7 +731,7 @@ media_session.mojom.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec 
   }
 };
 
-media_session.mojom.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec = {
+media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.RequestGroupedAudioFocus_ResponseParams',
@@ -504,7 +745,7 @@ media_session.mojom.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponsePar
 };
 
 // ParamsSpec for GetFocusRequests
-media_session.mojom.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec = {
+media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.GetFocusRequests_Params',
@@ -516,7 +757,7 @@ media_session.mojom.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec = {
   }
 };
 
-media_session.mojom.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec = {
+media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.GetFocusRequests_ResponseParams',
@@ -530,7 +771,7 @@ media_session.mojom.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec 
 };
 
 // ParamsSpec for AddObserver
-media_session.mojom.mojom.AudioFocusManager_AddObserver_ParamsSpec = {
+media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.AddObserver_Params',
@@ -544,7 +785,7 @@ media_session.mojom.mojom.AudioFocusManager_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for SetSource
-media_session.mojom.mojom.AudioFocusManager_SetSource_ParamsSpec = {
+media_session.mojom.AudioFocusManager_SetSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.SetSource_Params',
@@ -559,7 +800,7 @@ media_session.mojom.mojom.AudioFocusManager_SetSource_ParamsSpec = {
 };
 
 // ParamsSpec for SetEnforcementMode
-media_session.mojom.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec = {
+media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.SetEnforcementMode_Params',
@@ -573,7 +814,7 @@ media_session.mojom.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec = {
 };
 
 // ParamsSpec for AddSourceObserver
-media_session.mojom.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec = {
+media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.AddSourceObserver_Params',
@@ -588,7 +829,7 @@ media_session.mojom.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec = {
 };
 
 // ParamsSpec for GetSourceFocusRequests
-media_session.mojom.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec = {
+media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.GetSourceFocusRequests_Params',
@@ -601,7 +842,7 @@ media_session.mojom.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec = 
   }
 };
 
-media_session.mojom.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec = {
+media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.GetSourceFocusRequests_ResponseParams',
@@ -615,7 +856,7 @@ media_session.mojom.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParam
 };
 
 // ParamsSpec for RequestIdReleased
-media_session.mojom.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec = {
+media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.RequestIdReleased_Params',
@@ -629,7 +870,7 @@ media_session.mojom.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec = {
 };
 
 // ParamsSpec for StartDuckingAllAudio
-media_session.mojom.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec = {
+media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.StartDuckingAllAudio_Params',
@@ -643,7 +884,7 @@ media_session.mojom.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec = {
 };
 
 // ParamsSpec for StopDuckingAllAudio
-media_session.mojom.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec = {
+media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.StopDuckingAllAudio_Params',
@@ -656,7 +897,7 @@ media_session.mojom.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec = {
 };
 
 // ParamsSpec for FlushForTesting
-media_session.mojom.mojom.AudioFocusManager_FlushForTesting_ParamsSpec = {
+media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.FlushForTesting_Params',
@@ -669,29 +910,42 @@ media_session.mojom.mojom.AudioFocusManager_FlushForTesting_ParamsSpec = {
 };
 
 // Legacy compatibility
-media_session.mojom.mojom.AudioFocusManagerPtr = media_session.mojom.mojom.AudioFocusManagerRemote;
-media_session.mojom.mojom.AudioFocusManagerRequest = media_session.mojom.mojom.AudioFocusManagerPendingReceiver;
+media_session.mojom.AudioFocusManagerPtr = media_session.mojom.AudioFocusManagerRemote;
+media_session.mojom.AudioFocusManagerRequest = media_session.mojom.AudioFocusManagerPendingReceiver;
 
 
 // Interface: AudioFocusManagerDebug
-media_session.mojom.mojom.AudioFocusManagerDebug = {};
+media_session.mojom.AudioFocusManagerDebug = {};
 
-media_session.mojom.mojom.AudioFocusManagerDebugPendingReceiver = class {
+media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_session.mojom.AudioFocusManagerDebugPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_session.mojom.mojom.AudioFocusManagerDebugRemote = class {
+media_session.mojom.AudioFocusManagerDebugRemote = class {
   static get $interfaceName() {
     return 'media_session.mojom.AudioFocusManagerDebug';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_session.mojom.mojom.AudioFocusManagerDebugPendingReceiver,
+      media_session.mojom.AudioFocusManagerDebugPendingReceiver,
       handle);
-    this.$ = new media_session.mojom.mojom.AudioFocusManagerDebugRemoteCallHandler(this.proxy);
+    this.$ = new media_session.mojom.AudioFocusManagerDebugRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -703,7 +957,7 @@ media_session.mojom.mojom.AudioFocusManagerDebugRemote = class {
   }
 };
 
-media_session.mojom.mojom.AudioFocusManagerDebugRemoteCallHandler = class {
+media_session.mojom.AudioFocusManagerDebugRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -712,15 +966,15 @@ media_session.mojom.mojom.AudioFocusManagerDebugRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_session.mojom.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec,
-      media_session.mojom.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec,
+      media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec,
+      media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec,
       [request_id]);
   }
 
 };
 
-media_session.mojom.mojom.AudioFocusManagerDebug.getRemote = function() {
-  let remote = new media_session.mojom.mojom.AudioFocusManagerDebugRemote();
+media_session.mojom.AudioFocusManagerDebug.getRemote = function() {
+  let remote = new media_session.mojom.AudioFocusManagerDebugRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -730,7 +984,7 @@ media_session.mojom.mojom.AudioFocusManagerDebug.getRemote = function() {
 };
 
 // ParamsSpec for GetDebugInfoForRequest
-media_session.mojom.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec = {
+media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManagerDebug.GetDebugInfoForRequest_Params',
@@ -743,7 +997,7 @@ media_session.mojom.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSp
   }
 };
 
-media_session.mojom.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec = {
+media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManagerDebug.GetDebugInfoForRequest_ResponseParams',
@@ -757,6 +1011,6 @@ media_session.mojom.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_Response
 };
 
 // Legacy compatibility
-media_session.mojom.mojom.AudioFocusManagerDebugPtr = media_session.mojom.mojom.AudioFocusManagerDebugRemote;
-media_session.mojom.mojom.AudioFocusManagerDebugRequest = media_session.mojom.mojom.AudioFocusManagerDebugPendingReceiver;
+media_session.mojom.AudioFocusManagerDebugPtr = media_session.mojom.AudioFocusManagerDebugRemote;
+media_session.mojom.AudioFocusManagerDebugRequest = media_session.mojom.AudioFocusManagerDebugPendingReceiver;
 

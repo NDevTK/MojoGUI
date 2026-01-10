@@ -10,15 +10,15 @@ on_device_translation_internals.mojom = on_device_translation_internals.mojom ||
 
 
 // Enum: LanguagePackStatus
-on_device_translation_internals.mojom.mojom.LanguagePackStatus = {
+on_device_translation_internals.mojom.LanguagePackStatus = {
   kNotInstalled: 0,
   kInstalling: 1,
   kInstalled: 2,
 };
-on_device_translation_internals.mojom.mojom.LanguagePackStatusSpec = { $: mojo.internal.Enum() };
+on_device_translation_internals.mojom.LanguagePackStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: LanguagePackInfo
-on_device_translation_internals.mojom.mojom.LanguagePackInfoSpec = {
+on_device_translation_internals.mojom.LanguagePackInfoSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation_internals.mojom.LanguagePackInfo',
@@ -33,24 +33,38 @@ on_device_translation_internals.mojom.mojom.LanguagePackInfoSpec = {
 };
 
 // Interface: PageHandlerFactory
-on_device_translation_internals.mojom.mojom.PageHandlerFactory = {};
+on_device_translation_internals.mojom.PageHandlerFactory = {};
 
-on_device_translation_internals.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_translation_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_translation_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_translation_internals.mojom.mojom.PageHandlerFactoryRemote = class {
+on_device_translation_internals.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'on_device_translation_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_translation_internals.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new on_device_translation_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new on_device_translation_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +76,7 @@ on_device_translation_internals.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-on_device_translation_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+on_device_translation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,15 +85,15 @@ on_device_translation_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-on_device_translation_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new on_device_translation_internals.mojom.mojom.PageHandlerFactoryRemote();
+on_device_translation_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new on_device_translation_internals.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,7 +103,7 @@ on_device_translation_internals.mojom.mojom.PageHandlerFactory.getRemote = funct
 };
 
 // ParamsSpec for CreatePageHandler
-on_device_translation_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -104,29 +118,55 @@ on_device_translation_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler
 };
 
 // Legacy compatibility
-on_device_translation_internals.mojom.mojom.PageHandlerFactoryPtr = on_device_translation_internals.mojom.mojom.PageHandlerFactoryRemote;
-on_device_translation_internals.mojom.mojom.PageHandlerFactoryRequest = on_device_translation_internals.mojom.mojom.PageHandlerFactoryPendingReceiver;
+on_device_translation_internals.mojom.PageHandlerFactoryPtr = on_device_translation_internals.mojom.PageHandlerFactoryRemote;
+on_device_translation_internals.mojom.PageHandlerFactoryRequest = on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-on_device_translation_internals.mojom.mojom.PageHandler = {};
+on_device_translation_internals.mojom.PageHandler = {};
 
-on_device_translation_internals.mojom.mojom.PageHandlerPendingReceiver = class {
+on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+on_device_translation_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_translation_internals.mojom.mojom.PageHandlerRemote = class {
+on_device_translation_internals.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'on_device_translation_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_translation_internals.mojom.mojom.PageHandlerPendingReceiver,
+      on_device_translation_internals.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new on_device_translation_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new on_device_translation_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -138,7 +178,7 @@ on_device_translation_internals.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-on_device_translation_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
+on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -147,7 +187,7 @@ on_device_translation_internals.mojom.mojom.PageHandlerRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation_internals.mojom.mojom.PageHandler_InstallLanguagePackage_ParamsSpec,
+      on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec,
       null,
       [package_index]);
   }
@@ -156,15 +196,15 @@ on_device_translation_internals.mojom.mojom.PageHandlerRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation_internals.mojom.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec,
+      on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec,
       null,
       [package_index]);
   }
 
 };
 
-on_device_translation_internals.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new on_device_translation_internals.mojom.mojom.PageHandlerRemote();
+on_device_translation_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new on_device_translation_internals.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -174,7 +214,7 @@ on_device_translation_internals.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for InstallLanguagePackage
-on_device_translation_internals.mojom.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = {
+on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation_internals.mojom.PageHandler.InstallLanguagePackage_Params',
@@ -188,7 +228,7 @@ on_device_translation_internals.mojom.mojom.PageHandler_InstallLanguagePackage_P
 };
 
 // ParamsSpec for UninstallLanguagePackage
-on_device_translation_internals.mojom.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = {
+on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation_internals.mojom.PageHandler.UninstallLanguagePackage_Params',
@@ -202,29 +242,42 @@ on_device_translation_internals.mojom.mojom.PageHandler_UninstallLanguagePackage
 };
 
 // Legacy compatibility
-on_device_translation_internals.mojom.mojom.PageHandlerPtr = on_device_translation_internals.mojom.mojom.PageHandlerRemote;
-on_device_translation_internals.mojom.mojom.PageHandlerRequest = on_device_translation_internals.mojom.mojom.PageHandlerPendingReceiver;
+on_device_translation_internals.mojom.PageHandlerPtr = on_device_translation_internals.mojom.PageHandlerRemote;
+on_device_translation_internals.mojom.PageHandlerRequest = on_device_translation_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-on_device_translation_internals.mojom.mojom.Page = {};
+on_device_translation_internals.mojom.Page = {};
 
-on_device_translation_internals.mojom.mojom.PagePendingReceiver = class {
+on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_translation_internals.mojom.Page_OnLanguagePackStatus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(on_device_translation_internals.mojom.LanguagePackInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+on_device_translation_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_translation_internals.mojom.mojom.PageRemote = class {
+on_device_translation_internals.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'on_device_translation_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_translation_internals.mojom.mojom.PagePendingReceiver,
+      on_device_translation_internals.mojom.PagePendingReceiver,
       handle);
-    this.$ = new on_device_translation_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new on_device_translation_internals.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -236,7 +289,7 @@ on_device_translation_internals.mojom.mojom.PageRemote = class {
   }
 };
 
-on_device_translation_internals.mojom.mojom.PageRemoteCallHandler = class {
+on_device_translation_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -245,15 +298,15 @@ on_device_translation_internals.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation_internals.mojom.mojom.Page_OnLanguagePackStatus_ParamsSpec,
+      on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-on_device_translation_internals.mojom.mojom.Page.getRemote = function() {
-  let remote = new on_device_translation_internals.mojom.mojom.PageRemote();
+on_device_translation_internals.mojom.Page.getRemote = function() {
+  let remote = new on_device_translation_internals.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -263,7 +316,7 @@ on_device_translation_internals.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnLanguagePackStatus
-on_device_translation_internals.mojom.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
+on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation_internals.mojom.Page.OnLanguagePackStatus_Params',
@@ -277,6 +330,6 @@ on_device_translation_internals.mojom.mojom.Page_OnLanguagePackStatus_ParamsSpec
 };
 
 // Legacy compatibility
-on_device_translation_internals.mojom.mojom.PagePtr = on_device_translation_internals.mojom.mojom.PageRemote;
-on_device_translation_internals.mojom.mojom.PageRequest = on_device_translation_internals.mojom.mojom.PagePendingReceiver;
+on_device_translation_internals.mojom.PagePtr = on_device_translation_internals.mojom.PageRemote;
+on_device_translation_internals.mojom.PageRequest = on_device_translation_internals.mojom.PagePendingReceiver;
 

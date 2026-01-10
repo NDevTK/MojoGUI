@@ -10,9 +10,9 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: ExecutionWorld
-extensions.mojom.mojom.ExecutionWorld = {
+extensions.mojom.ExecutionWorld = {
   kIsolated: 0,
   kMain: 1,
   kUserScript: 2,
 };
-extensions.mojom.mojom.ExecutionWorldSpec = { $: mojo.internal.Enum() };
+extensions.mojom.ExecutionWorldSpec = { $: mojo.internal.Enum() };

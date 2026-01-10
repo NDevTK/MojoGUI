@@ -10,24 +10,37 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: DocumentAnalysisService
-chrome.mojom.mojom.DocumentAnalysisService = {};
+chrome.mojom.DocumentAnalysisService = {};
 
-chrome.mojom.mojom.DocumentAnalysisServicePendingReceiver = class {
+chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.SafeDocumentAnalyzerSpec), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chrome.mojom.DocumentAnalysisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.DocumentAnalysisServiceRemote = class {
+chrome.mojom.DocumentAnalysisServiceRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.DocumentAnalysisService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.DocumentAnalysisServicePendingReceiver,
+      chrome.mojom.DocumentAnalysisServicePendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.DocumentAnalysisServiceRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.DocumentAnalysisServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ chrome.mojom.mojom.DocumentAnalysisServiceRemote = class {
   }
 };
 
-chrome.mojom.mojom.DocumentAnalysisServiceRemoteCallHandler = class {
+chrome.mojom.DocumentAnalysisServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ chrome.mojom.mojom.DocumentAnalysisServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec,
+      chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-chrome.mojom.mojom.DocumentAnalysisService.getRemote = function() {
-  let remote = new chrome.mojom.mojom.DocumentAnalysisServiceRemote();
+chrome.mojom.DocumentAnalysisService.getRemote = function() {
+  let remote = new chrome.mojom.DocumentAnalysisServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ chrome.mojom.mojom.DocumentAnalysisService.getRemote = function() {
 };
 
 // ParamsSpec for BindSafeDocumentAnalyzer
-chrome.mojom.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
+chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.DocumentAnalysisService.BindSafeDocumentAnalyzer_Params',
@@ -80,6 +93,6 @@ chrome.mojom.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec =
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.DocumentAnalysisServicePtr = chrome.mojom.mojom.DocumentAnalysisServiceRemote;
-chrome.mojom.mojom.DocumentAnalysisServiceRequest = chrome.mojom.mojom.DocumentAnalysisServicePendingReceiver;
+chrome.mojom.DocumentAnalysisServicePtr = chrome.mojom.DocumentAnalysisServiceRemote;
+chrome.mojom.DocumentAnalysisServiceRequest = chrome.mojom.DocumentAnalysisServicePendingReceiver;
 

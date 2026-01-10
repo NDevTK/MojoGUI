@@ -18,25 +18,25 @@ var gfx = gfx || {};
 
 
 // Enum: VideoRotation
-media.mojom.mojom.VideoRotation = {
+media.mojom.VideoRotation = {
   kVideoRotation0: 0,
   kVideoRotation90: 1,
   kVideoRotation180: 2,
   kVideoRotation270: 3,
 };
-media.mojom.mojom.VideoRotationSpec = { $: mojo.internal.Enum() };
+media.mojom.VideoRotationSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionType
-media.mojom.mojom.EncryptionType = {
+media.mojom.EncryptionType = {
   kNone: 0,
   kClear: 1,
   kEncrypted: 2,
   kEncryptedWithClearLead: 3,
 };
-media.mojom.mojom.EncryptionTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.EncryptionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SVCScalabilityMode
-media.mojom.mojom.SVCScalabilityMode = {
+media.mojom.SVCScalabilityMode = {
   kL1T1: 0,
   kL1T2: 1,
   kL1T3: 2,
@@ -75,52 +75,52 @@ media.mojom.mojom.SVCScalabilityMode = {
   kL3T2h: 35,
   kL3T3h: 36,
 };
-media.mojom.mojom.SVCScalabilityModeSpec = { $: mojo.internal.Enum() };
+media.mojom.SVCScalabilityModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SVCInterLayerPredMode
-media.mojom.mojom.SVCInterLayerPredMode = {
+media.mojom.SVCInterLayerPredMode = {
   kOff: 0,
   kOn: 1,
   kOnKeyPic: 2,
 };
-media.mojom.mojom.SVCInterLayerPredModeSpec = { $: mojo.internal.Enum() };
+media.mojom.SVCInterLayerPredModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-media.mojom.mojom.Type = {
+media.mojom.Type = {
   kDisplay: 0,
   kPixel: 1,
 };
-media.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+media.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CdmEvent
-media.mojom.mojom.CdmEvent = {
+media.mojom.CdmEvent = {
   kSignificantPlayback: 0,
   kPlaybackError: 1,
   kCdmError: 2,
   kHardwareContextReset: 3,
 };
-media.mojom.mojom.CdmEventSpec = { $: mojo.internal.Enum() };
+media.mojom.CdmEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: CdmSessionClosedReason
-media.mojom.mojom.CdmSessionClosedReason = {
+media.mojom.CdmSessionClosedReason = {
   kInternalError: 0,
   kClose: 1,
   kReleaseAcknowledged: 2,
   kHardwareContextReset: 3,
   kResourceEvicted: 4,
 };
-media.mojom.mojom.CdmSessionClosedReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.CdmSessionClosedReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: EffectState
-media.mojom.mojom.EffectState = {
+media.mojom.EffectState = {
   kUnknown: 0,
   kDisabled: 1,
   kEnabled: 2,
 };
-media.mojom.mojom.EffectStateSpec = { $: mojo.internal.Enum() };
+media.mojom.EffectStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaStreamType
-media.mojom.mojom.MediaStreamType = {
+media.mojom.MediaStreamType = {
   kLocalElementCapture: 0,
   kLocalDeviceCapture: 1,
   kLocalTabCapture: 2,
@@ -129,19 +129,19 @@ media.mojom.mojom.MediaStreamType = {
   kRemote: 5,
   kNone: 6,
 };
-media.mojom.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputStreamErrorCode
-media.mojom.mojom.InputStreamErrorCode = {
+media.mojom.InputStreamErrorCode = {
   kUnknown: 0,
   kSystemPermissions: 1,
   kDeviceInUse: 2,
   kSocketError: 3,
 };
-media.mojom.mojom.InputStreamErrorCodeSpec = { $: mojo.internal.Enum() };
+media.mojom.InputStreamErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererType
-media.mojom.mojom.RendererType = {
+media.mojom.RendererType = {
   kRendererImpl: 0,
   kMojo: 1,
   kCourier: 2,
@@ -153,10 +153,10 @@ media.mojom.mojom.RendererType = {
   kContentEmbedderDefined: 8,
   kTest: 9,
 };
-media.mojom.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DemuxerType
-media.mojom.mojom.DemuxerType = {
+media.mojom.DemuxerType = {
   kUnknownDemuxer: 0,
   kMockDemuxer: 1,
   kFFmpegDemuxer: 2,
@@ -165,10 +165,10 @@ media.mojom.mojom.DemuxerType = {
   kStreamProviderDemuxer: 5,
   kManifestDemuxer: 6,
 };
-media.mojom.mojom.DemuxerTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.DemuxerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateCdmStatus
-media.mojom.mojom.CreateCdmStatus = {
+media.mojom.CreateCdmStatus = {
   kSuccess: 0,
   kUnknownError: 1,
   kCdmCreationAborted: 2,
@@ -198,19 +198,19 @@ media.mojom.mojom.CreateCdmStatus = {
   kAndroidFailedMediaCryptoCreate: 26,
   kAndroidUnsupportedMediaCryptoScheme: 27,
 };
-media.mojom.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
+media.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutoPipReason
-media.mojom.mojom.AutoPipReason = {
+media.mojom.AutoPipReason = {
   kUnknown: 0,
   kVideoConferencing: 1,
   kMediaPlayback: 2,
   kBrowserInitiated: 3,
 };
-media.mojom.mojom.AutoPipReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.AutoPipReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: DecoderBufferSideDataNextConfig
-media.mojom.mojom.DecoderBufferSideDataNextConfigSpec = { $: mojo.internal.Union(
+media.mojom.DecoderBufferSideDataNextConfigSpec = { $: mojo.internal.Union(
     'media.mojom.DecoderBufferSideDataNextConfig', {
       'next_audio_config': {
         'ordinal': 0,
@@ -224,7 +224,7 @@ media.mojom.mojom.DecoderBufferSideDataNextConfigSpec = { $: mojo.internal.Union
 };
 
 // Union: DecoderBuffer
-media.mojom.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
+media.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
     'media.mojom.DecoderBuffer', {
       'eos': {
         'ordinal': 0,
@@ -238,7 +238,7 @@ media.mojom.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
 };
 
 // Union: VideoFrameData
-media.mojom.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
+media.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
     'media.mojom.VideoFrameData', {
       'eos_data': {
         'ordinal': 0,
@@ -264,7 +264,7 @@ media.mojom.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: VideoTransformation
-media.mojom.mojom.VideoTransformationSpec = {
+media.mojom.VideoTransformationSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoTransformation',
@@ -279,7 +279,7 @@ media.mojom.mojom.VideoTransformationSpec = {
 };
 
 // Struct: VideoAspectRatio
-media.mojom.mojom.VideoAspectRatioSpec = {
+media.mojom.VideoAspectRatioSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoAspectRatio',
@@ -293,7 +293,7 @@ media.mojom.mojom.VideoAspectRatioSpec = {
 };
 
 // Struct: VideoColorSpace
-media.mojom.mojom.VideoColorSpaceSpec = {
+media.mojom.VideoColorSpaceSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoColorSpace',
@@ -314,7 +314,7 @@ media.mojom.mojom.VideoColorSpaceSpec = {
 };
 
 // Struct: AudioDecoderConfig
-media.mojom.mojom.AudioDecoderConfigSpec = {
+media.mojom.AudioDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoderConfig',
@@ -339,7 +339,7 @@ media.mojom.mojom.AudioDecoderConfigSpec = {
 };
 
 // Struct: VideoDecoderConfig
-media.mojom.mojom.VideoDecoderConfigSpec = {
+media.mojom.VideoDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecoderConfig',
@@ -365,7 +365,7 @@ media.mojom.mojom.VideoDecoderConfigSpec = {
 };
 
 // Struct: DecryptConfig
-media.mojom.mojom.DecryptConfigSpec = {
+media.mojom.DecryptConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DecryptConfig',
@@ -383,7 +383,7 @@ media.mojom.mojom.DecryptConfigSpec = {
 };
 
 // Struct: DecoderBufferSideData
-media.mojom.mojom.DecoderBufferSideDataSpec = {
+media.mojom.DecoderBufferSideDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DecoderBufferSideData',
@@ -401,7 +401,7 @@ media.mojom.mojom.DecoderBufferSideDataSpec = {
 };
 
 // Struct: DataDecoderBuffer
-media.mojom.mojom.DataDecoderBufferSpec = {
+media.mojom.DataDecoderBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DataDecoderBuffer',
@@ -420,7 +420,7 @@ media.mojom.mojom.DataDecoderBufferSpec = {
 };
 
 // Struct: EosDecoderBuffer
-media.mojom.mojom.EosDecoderBufferSpec = {
+media.mojom.EosDecoderBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.EosDecoderBuffer',
@@ -434,7 +434,7 @@ media.mojom.mojom.EosDecoderBufferSpec = {
 };
 
 // Struct: AudioBuffer
-media.mojom.mojom.AudioBufferSpec = {
+media.mojom.AudioBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioBuffer',
@@ -455,7 +455,7 @@ media.mojom.mojom.AudioBufferSpec = {
 };
 
 // Struct: CaptureVersion
-media.mojom.mojom.CaptureVersionSpec = {
+media.mojom.CaptureVersionSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CaptureVersion',
@@ -470,7 +470,7 @@ media.mojom.mojom.CaptureVersionSpec = {
 };
 
 // Struct: VideoFrameMetadata
-media.mojom.mojom.VideoFrameMetadataSpec = {
+media.mojom.VideoFrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoFrameMetadata',
@@ -531,7 +531,7 @@ media.mojom.mojom.VideoFrameMetadataSpec = {
 };
 
 // Struct: VideoFrame
-media.mojom.mojom.VideoFrameSpec = {
+media.mojom.VideoFrameSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoFrame',
@@ -553,7 +553,7 @@ media.mojom.mojom.VideoFrameSpec = {
 };
 
 // Struct: EosVideoFrameData
-media.mojom.mojom.EosVideoFrameDataSpec = {
+media.mojom.EosVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.EosVideoFrameData',
@@ -566,7 +566,7 @@ media.mojom.mojom.EosVideoFrameDataSpec = {
 };
 
 // Struct: SharedMemoryVideoFrameData
-media.mojom.mojom.SharedMemoryVideoFrameDataSpec = {
+media.mojom.SharedMemoryVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SharedMemoryVideoFrameData',
@@ -582,7 +582,7 @@ media.mojom.mojom.SharedMemoryVideoFrameDataSpec = {
 };
 
 // Struct: SharedImageVideoFrameData
-media.mojom.mojom.SharedImageVideoFrameDataSpec = {
+media.mojom.SharedImageVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SharedImageVideoFrameData',
@@ -599,7 +599,7 @@ media.mojom.mojom.SharedImageVideoFrameDataSpec = {
 };
 
 // Struct: OpaqueVideoFrameData
-media.mojom.mojom.OpaqueVideoFrameDataSpec = {
+media.mojom.OpaqueVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.OpaqueVideoFrameData',
@@ -612,7 +612,7 @@ media.mojom.mojom.OpaqueVideoFrameDataSpec = {
 };
 
 // Struct: ColorPlaneLayout
-media.mojom.mojom.ColorPlaneLayoutSpec = {
+media.mojom.ColorPlaneLayoutSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ColorPlaneLayout',
@@ -628,7 +628,7 @@ media.mojom.mojom.ColorPlaneLayoutSpec = {
 };
 
 // Struct: DmabufVideoFrameData
-media.mojom.mojom.DmabufVideoFrameDataSpec = {
+media.mojom.DmabufVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DmabufVideoFrameData',
@@ -646,7 +646,7 @@ media.mojom.mojom.DmabufVideoFrameDataSpec = {
 };
 
 // Struct: PipelineStatistics
-media.mojom.mojom.PipelineStatisticsSpec = {
+media.mojom.PipelineStatisticsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PipelineStatistics',
@@ -665,7 +665,7 @@ media.mojom.mojom.PipelineStatisticsSpec = {
 };
 
 // Struct: PredictionFeatures
-media.mojom.mojom.PredictionFeaturesSpec = {
+media.mojom.PredictionFeaturesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PredictionFeatures',
@@ -683,7 +683,7 @@ media.mojom.mojom.PredictionFeaturesSpec = {
 };
 
 // Struct: PredictionTargets
-media.mojom.mojom.PredictionTargetsSpec = {
+media.mojom.PredictionTargetsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PredictionTargets',
@@ -699,7 +699,7 @@ media.mojom.mojom.PredictionTargetsSpec = {
 };
 
 // Struct: AudioPipelineInfo
-media.mojom.mojom.AudioPipelineInfoSpec = {
+media.mojom.AudioPipelineInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioPipelineInfo',
@@ -716,7 +716,7 @@ media.mojom.mojom.AudioPipelineInfoSpec = {
 };
 
 // Struct: VideoPipelineInfo
-media.mojom.mojom.VideoPipelineInfoSpec = {
+media.mojom.VideoPipelineInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoPipelineInfo',
@@ -733,7 +733,7 @@ media.mojom.mojom.VideoPipelineInfoSpec = {
 };
 
 // Struct: StatusData
-media.mojom.mojom.StatusDataSpec = {
+media.mojom.StatusDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.StatusData',
@@ -752,7 +752,7 @@ media.mojom.mojom.StatusDataSpec = {
 };
 
 // Struct: EncoderStatus
-media.mojom.mojom.EncoderStatusSpec = {
+media.mojom.EncoderStatusSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.EncoderStatus',
@@ -766,7 +766,7 @@ media.mojom.mojom.EncoderStatusSpec = {
 };
 
 // Struct: DecoderStatus
-media.mojom.mojom.DecoderStatusSpec = {
+media.mojom.DecoderStatusSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DecoderStatus',
@@ -780,7 +780,7 @@ media.mojom.mojom.DecoderStatusSpec = {
 };
 
 // Struct: PipelineStatus
-media.mojom.mojom.PipelineStatusSpec = {
+media.mojom.PipelineStatusSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PipelineStatus',
@@ -794,7 +794,7 @@ media.mojom.mojom.PipelineStatusSpec = {
 };
 
 // Struct: AutoPipInfo
-media.mojom.mojom.AutoPipInfoSpec = {
+media.mojom.AutoPipInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AutoPipInfo',

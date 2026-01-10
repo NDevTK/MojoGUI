@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Struct: AlternativeErrorPageOverrideInfo
-content.mojom.mojom.AlternativeErrorPageOverrideInfoSpec = {
+content.mojom.AlternativeErrorPageOverrideInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AlternativeErrorPageOverrideInfo',

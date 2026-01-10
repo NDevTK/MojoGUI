@@ -7,11 +7,11 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
-chromecast.shell.shell.mojom = chromecast.shell.shell.mojom || {};
+chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
 // Struct: Feature
-chromecast.shell.shell.mojom.mojom.FeatureSpec = {
+chromecast.shell.mojom.FeatureSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.Feature',
@@ -26,24 +26,37 @@ chromecast.shell.shell.mojom.mojom.FeatureSpec = {
 };
 
 // Interface: FeatureManager
-chromecast.shell.shell.mojom.mojom.FeatureManager = {};
+chromecast.shell.mojom.FeatureManager = {};
 
-chromecast.shell.shell.mojom.mojom.FeatureManagerPendingReceiver = class {
+chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.shell.mojom.FeatureManager_ConfigureFeatures_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.shell.mojom.FeatureSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.shell.mojom.FeatureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.shell.shell.mojom.mojom.FeatureManagerRemote = class {
+chromecast.shell.mojom.FeatureManagerRemote = class {
   static get $interfaceName() {
     return 'chromecast.shell.mojom.FeatureManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.shell.shell.mojom.mojom.FeatureManagerPendingReceiver,
+      chromecast.shell.mojom.FeatureManagerPendingReceiver,
       handle);
-    this.$ = new chromecast.shell.shell.mojom.mojom.FeatureManagerRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.shell.mojom.FeatureManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +68,7 @@ chromecast.shell.shell.mojom.mojom.FeatureManagerRemote = class {
   }
 };
 
-chromecast.shell.shell.mojom.mojom.FeatureManagerRemoteCallHandler = class {
+chromecast.shell.mojom.FeatureManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +77,15 @@ chromecast.shell.shell.mojom.mojom.FeatureManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.shell.mojom.mojom.FeatureManager_ConfigureFeatures_ParamsSpec,
+      chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec,
       null,
       [features]);
   }
 
 };
 
-chromecast.shell.shell.mojom.mojom.FeatureManager.getRemote = function() {
-  let remote = new chromecast.shell.shell.mojom.mojom.FeatureManagerRemote();
+chromecast.shell.mojom.FeatureManager.getRemote = function() {
+  let remote = new chromecast.shell.mojom.FeatureManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +95,7 @@ chromecast.shell.shell.mojom.mojom.FeatureManager.getRemote = function() {
 };
 
 // ParamsSpec for ConfigureFeatures
-chromecast.shell.shell.mojom.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
+chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.FeatureManager.ConfigureFeatures_Params',
@@ -96,6 +109,6 @@ chromecast.shell.shell.mojom.mojom.FeatureManager_ConfigureFeatures_ParamsSpec =
 };
 
 // Legacy compatibility
-chromecast.shell.shell.mojom.mojom.FeatureManagerPtr = chromecast.shell.shell.mojom.mojom.FeatureManagerRemote;
-chromecast.shell.shell.mojom.mojom.FeatureManagerRequest = chromecast.shell.shell.mojom.mojom.FeatureManagerPendingReceiver;
+chromecast.shell.mojom.FeatureManagerPtr = chromecast.shell.mojom.FeatureManagerRemote;
+chromecast.shell.mojom.FeatureManagerRequest = chromecast.shell.mojom.FeatureManagerPendingReceiver;
 

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: WorkerMainScriptLoadParams
-blink.mojom.mojom.WorkerMainScriptLoadParamsSpec = {
+blink.mojom.WorkerMainScriptLoadParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerMainScriptLoadParams',

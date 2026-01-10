@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Enum: PushErrorType
-blink.mojom.mojom.PushErrorType = {
+blink.mojom.PushErrorType = {
   ABORT: 0,
   NETWORK: 1,
   NONE: 2,
@@ -21,10 +21,10 @@ blink.mojom.mojom.PushErrorType = {
   NOT_SUPPORTED: 5,
   INVALID_STATE: 6,
 };
-blink.mojom.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PushSubscriptionOptions
-blink.mojom.mojom.PushSubscriptionOptionsSpec = {
+blink.mojom.PushSubscriptionOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushSubscriptionOptions',
@@ -39,7 +39,7 @@ blink.mojom.mojom.PushSubscriptionOptionsSpec = {
 };
 
 // Struct: PushSubscription
-blink.mojom.mojom.PushSubscriptionSpec = {
+blink.mojom.PushSubscriptionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushSubscription',
@@ -57,24 +57,65 @@ blink.mojom.mojom.PushSubscriptionSpec = {
 };
 
 // Interface: PushMessaging
-blink.mojom.mojom.PushMessaging = {};
+blink.mojom.PushMessaging = {};
 
-blink.mojom.mojom.PushMessagingPendingReceiver = class {
+blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PushMessaging_Subscribe_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PushMessaging_Unsubscribe_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PushMessaging_GetSubscription_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PushMessagingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PushMessagingRemote = class {
+blink.mojom.PushMessagingRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PushMessaging';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PushMessagingPendingReceiver,
+      blink.mojom.PushMessagingPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PushMessagingRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PushMessagingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -86,7 +127,7 @@ blink.mojom.mojom.PushMessagingRemote = class {
   }
 };
 
-blink.mojom.mojom.PushMessagingRemoteCallHandler = class {
+blink.mojom.PushMessagingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -95,8 +136,8 @@ blink.mojom.mojom.PushMessagingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PushMessaging_Subscribe_ParamsSpec,
-      blink.mojom.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
+      blink.mojom.PushMessaging_Subscribe_ParamsSpec,
+      blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
       [service_worker_registration_id, options, user_gesture]);
   }
 
@@ -104,8 +145,8 @@ blink.mojom.mojom.PushMessagingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.PushMessaging_Unsubscribe_ParamsSpec,
-      blink.mojom.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
+      blink.mojom.PushMessaging_Unsubscribe_ParamsSpec,
+      blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
@@ -113,15 +154,15 @@ blink.mojom.mojom.PushMessagingRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.PushMessaging_GetSubscription_ParamsSpec,
-      blink.mojom.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
+      blink.mojom.PushMessaging_GetSubscription_ParamsSpec,
+      blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
 };
 
-blink.mojom.mojom.PushMessaging.getRemote = function() {
-  let remote = new blink.mojom.mojom.PushMessagingRemote();
+blink.mojom.PushMessaging.getRemote = function() {
+  let remote = new blink.mojom.PushMessagingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -131,7 +172,7 @@ blink.mojom.mojom.PushMessaging.getRemote = function() {
 };
 
 // ParamsSpec for Subscribe
-blink.mojom.mojom.PushMessaging_Subscribe_ParamsSpec = {
+blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushMessaging.Subscribe_Params',
@@ -146,7 +187,7 @@ blink.mojom.mojom.PushMessaging_Subscribe_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
+blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushMessaging.Subscribe_ResponseParams',
@@ -161,7 +202,7 @@ blink.mojom.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Unsubscribe
-blink.mojom.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
+blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushMessaging.Unsubscribe_Params',
@@ -174,7 +215,7 @@ blink.mojom.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
+blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushMessaging.Unsubscribe_ResponseParams',
@@ -190,7 +231,7 @@ blink.mojom.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSubscription
-blink.mojom.mojom.PushMessaging_GetSubscription_ParamsSpec = {
+blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushMessaging.GetSubscription_Params',
@@ -203,7 +244,7 @@ blink.mojom.mojom.PushMessaging_GetSubscription_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
+blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushMessaging.GetSubscription_ResponseParams',
@@ -218,6 +259,6 @@ blink.mojom.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PushMessagingPtr = blink.mojom.mojom.PushMessagingRemote;
-blink.mojom.mojom.PushMessagingRequest = blink.mojom.mojom.PushMessagingPendingReceiver;
+blink.mojom.PushMessagingPtr = blink.mojom.PushMessagingRemote;
+blink.mojom.PushMessagingRequest = blink.mojom.PushMessagingPendingReceiver;
 

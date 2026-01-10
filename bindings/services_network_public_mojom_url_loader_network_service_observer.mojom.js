@@ -12,24 +12,24 @@ var url = url || {};
 
 
 // Enum: LocalNetworkAccessResult
-network.mojom.mojom.LocalNetworkAccessResult = {
+network.mojom.LocalNetworkAccessResult = {
   kGranted: 0,
   kDenied: 1,
   kRetryDueToCache: 2,
 };
-network.mojom.mojom.LocalNetworkAccessResultSpec = { $: mojo.internal.Enum() };
+network.mojom.LocalNetworkAccessResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: TransportType
-network.mojom.mojom.TransportType = {
+network.mojom.TransportType = {
   kDirect: 0,
   kProxied: 1,
   kCached: 2,
   kCachedFromProxy: 3,
 };
-network.mojom.mojom.TransportTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.TransportTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LoadInfo
-network.mojom.mojom.LoadInfoSpec = {
+network.mojom.LoadInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.LoadInfo',
@@ -48,24 +48,64 @@ network.mojom.mojom.LoadInfoSpec = {
 };
 
 // Interface: ClientCertificateResponder
-network.mojom.mojom.ClientCertificateResponder = {};
+network.mojom.ClientCertificateResponder = {};
 
-network.mojom.mojom.ClientCertificateResponderPendingReceiver = class {
+network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ClientCertificateResponder_ContinueWithCertificate_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'x509_certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+        { name: 'provider_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'algorithm_preferences', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'ssl_private_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SSLPrivateKeyRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ClientCertificateResponder_CancelRequest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.ClientCertificateResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.ClientCertificateResponderRemote = class {
+network.mojom.ClientCertificateResponderRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ClientCertificateResponder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.ClientCertificateResponderPendingReceiver,
+      network.mojom.ClientCertificateResponderPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.ClientCertificateResponderRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.ClientCertificateResponderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -77,7 +117,7 @@ network.mojom.mojom.ClientCertificateResponderRemote = class {
   }
 };
 
-network.mojom.mojom.ClientCertificateResponderRemoteCallHandler = class {
+network.mojom.ClientCertificateResponderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -86,7 +126,7 @@ network.mojom.mojom.ClientCertificateResponderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec,
+      network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec,
       null,
       [x509_certificate, provider_name, algorithm_preferences, ssl_private_key]);
   }
@@ -95,7 +135,7 @@ network.mojom.mojom.ClientCertificateResponderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec,
+      network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec,
       null,
       []);
   }
@@ -104,15 +144,15 @@ network.mojom.mojom.ClientCertificateResponderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec,
+      network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.mojom.ClientCertificateResponder.getRemote = function() {
-  let remote = new network.mojom.mojom.ClientCertificateResponderRemote();
+network.mojom.ClientCertificateResponder.getRemote = function() {
+  let remote = new network.mojom.ClientCertificateResponderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -122,7 +162,7 @@ network.mojom.mojom.ClientCertificateResponder.getRemote = function() {
 };
 
 // ParamsSpec for ContinueWithCertificate
-network.mojom.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = {
+network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ClientCertificateResponder.ContinueWithCertificate_Params',
@@ -139,7 +179,7 @@ network.mojom.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpe
 };
 
 // ParamsSpec for ContinueWithoutCertificate
-network.mojom.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec = {
+network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ClientCertificateResponder.ContinueWithoutCertificate_Params',
@@ -152,7 +192,7 @@ network.mojom.mojom.ClientCertificateResponder_ContinueWithoutCertificate_Params
 };
 
 // ParamsSpec for CancelRequest
-network.mojom.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = {
+network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ClientCertificateResponder.CancelRequest_Params',
@@ -165,29 +205,43 @@ network.mojom.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.ClientCertificateResponderPtr = network.mojom.mojom.ClientCertificateResponderRemote;
-network.mojom.mojom.ClientCertificateResponderRequest = network.mojom.mojom.ClientCertificateResponderPendingReceiver;
+network.mojom.ClientCertificateResponderPtr = network.mojom.ClientCertificateResponderRemote;
+network.mojom.ClientCertificateResponderRequest = network.mojom.ClientCertificateResponderPendingReceiver;
 
 
 // Interface: SSLPrivateKey
-network.mojom.mojom.SSLPrivateKey = {};
+network.mojom.SSLPrivateKey = {};
 
-network.mojom.mojom.SSLPrivateKeyPendingReceiver = class {
+network.mojom.SSLPrivateKey_Sign_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SSLPrivateKey_Sign_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.SSLPrivateKeyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.SSLPrivateKeyRemote = class {
+network.mojom.SSLPrivateKeyRemote = class {
   static get $interfaceName() {
     return 'network.mojom.SSLPrivateKey';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.SSLPrivateKeyPendingReceiver,
+      network.mojom.SSLPrivateKeyPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.SSLPrivateKeyRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.SSLPrivateKeyRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -199,7 +253,7 @@ network.mojom.mojom.SSLPrivateKeyRemote = class {
   }
 };
 
-network.mojom.mojom.SSLPrivateKeyRemoteCallHandler = class {
+network.mojom.SSLPrivateKeyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -208,15 +262,15 @@ network.mojom.mojom.SSLPrivateKeyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.SSLPrivateKey_Sign_ParamsSpec,
-      network.mojom.mojom.SSLPrivateKey_Sign_ResponseParamsSpec,
+      network.mojom.SSLPrivateKey_Sign_ParamsSpec,
+      network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec,
       [algorithm, input]);
   }
 
 };
 
-network.mojom.mojom.SSLPrivateKey.getRemote = function() {
-  let remote = new network.mojom.mojom.SSLPrivateKeyRemote();
+network.mojom.SSLPrivateKey.getRemote = function() {
+  let remote = new network.mojom.SSLPrivateKeyRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -226,7 +280,7 @@ network.mojom.mojom.SSLPrivateKey.getRemote = function() {
 };
 
 // ParamsSpec for Sign
-network.mojom.mojom.SSLPrivateKey_Sign_ParamsSpec = {
+network.mojom.SSLPrivateKey_Sign_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLPrivateKey.Sign_Params',
@@ -240,7 +294,7 @@ network.mojom.mojom.SSLPrivateKey_Sign_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = {
+network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLPrivateKey.Sign_ResponseParams',
@@ -255,29 +309,42 @@ network.mojom.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.SSLPrivateKeyPtr = network.mojom.mojom.SSLPrivateKeyRemote;
-network.mojom.mojom.SSLPrivateKeyRequest = network.mojom.mojom.SSLPrivateKeyPendingReceiver;
+network.mojom.SSLPrivateKeyPtr = network.mojom.SSLPrivateKeyRemote;
+network.mojom.SSLPrivateKeyRequest = network.mojom.SSLPrivateKeyPendingReceiver;
 
 
 // Interface: AuthChallengeResponder
-network.mojom.mojom.AuthChallengeResponder = {};
+network.mojom.AuthChallengeResponder = {};
 
-network.mojom.mojom.AuthChallengeResponderPendingReceiver = class {
+network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.AuthChallengeResponder_OnAuthCredentials_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AuthCredentialsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.AuthChallengeResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.AuthChallengeResponderRemote = class {
+network.mojom.AuthChallengeResponderRemote = class {
   static get $interfaceName() {
     return 'network.mojom.AuthChallengeResponder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.AuthChallengeResponderPendingReceiver,
+      network.mojom.AuthChallengeResponderPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.AuthChallengeResponderRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.AuthChallengeResponderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -289,7 +356,7 @@ network.mojom.mojom.AuthChallengeResponderRemote = class {
   }
 };
 
-network.mojom.mojom.AuthChallengeResponderRemoteCallHandler = class {
+network.mojom.AuthChallengeResponderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -298,15 +365,15 @@ network.mojom.mojom.AuthChallengeResponderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec,
+      network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec,
       null,
       [credentials]);
   }
 
 };
 
-network.mojom.mojom.AuthChallengeResponder.getRemote = function() {
-  let remote = new network.mojom.mojom.AuthChallengeResponderRemote();
+network.mojom.AuthChallengeResponder.getRemote = function() {
+  let remote = new network.mojom.AuthChallengeResponderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -316,7 +383,7 @@ network.mojom.mojom.AuthChallengeResponder.getRemote = function() {
 };
 
 // ParamsSpec for OnAuthCredentials
-network.mojom.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
+network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AuthChallengeResponder.OnAuthCredentials_Params',
@@ -330,29 +397,210 @@ network.mojom.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.AuthChallengeResponderPtr = network.mojom.mojom.AuthChallengeResponderRemote;
-network.mojom.mojom.AuthChallengeResponderRequest = network.mojom.mojom.AuthChallengeResponderPendingReceiver;
+network.mojom.AuthChallengeResponderPtr = network.mojom.AuthChallengeResponderRemote;
+network.mojom.AuthChallengeResponderRequest = network.mojom.AuthChallengeResponderPendingReceiver;
 
 
 // Interface: URLLoaderNetworkServiceObserver
-network.mojom.mojom.URLLoaderNetworkServiceObserver = {};
+network.mojom.URLLoaderNetworkServiceObserver = {};
 
-network.mojom.mojom.URLLoaderNetworkServiceObserverPendingReceiver = class {
+network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'net_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'ssl_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'fatal', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'cert_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SSLCertRequestInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'cert_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ClientCertificateResponderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'request_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'first_auth_attempt', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'auth_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AuthChallengeInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'head_headers', packedOffset: 24, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: true, minVersion: 0 },
+        { name: 'auth_challenge_responder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.AuthChallengeResponderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'transport_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransportTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'ip_address_space', packedOffset: 4, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'header_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'load_flags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'cookie_partition_key', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true, minVersion: 0 },
+        { name: 'partitioned_state_allowed_only', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.LoadInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'network_traffic_annotation_id_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'recv_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'sent_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'request_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'methods_with_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, nullable: false, minVersion: 0 },
+        { name: 'with_lock', packedOffset: 16, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'ad_auction_event_record', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AdAuctionEventRecordSpec, nullable: false, minVersion: 0 },
+        { name: 'top_frame_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderNetworkServiceObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'response_address_space', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'client_address_space', packedOffset: 12, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'target_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.URLLoaderNetworkServiceObserverRemote = class {
+network.mojom.URLLoaderNetworkServiceObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.URLLoaderNetworkServiceObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.URLLoaderNetworkServiceObserverPendingReceiver,
+      network.mojom.URLLoaderNetworkServiceObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -364,7 +612,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemote = class {
   }
 };
 
-network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
+network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -373,8 +621,8 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec,
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec,
       [url, net_error, ssl_info, fatal]);
   }
 
@@ -382,7 +630,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec,
       null,
       [window_id, cert_info, cert_responder]);
   }
@@ -391,7 +639,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec,
       null,
       [window_id, request_id, url, first_auth_attempt, auth_info, head_headers, auth_challenge_responder]);
   }
@@ -400,8 +648,8 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec,
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec,
       [transport_type, ip_address_space]);
   }
 
@@ -409,7 +657,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec,
       null,
       [url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only]);
   }
@@ -418,7 +666,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec,
       null,
       [info]);
   }
@@ -427,7 +675,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec,
       null,
       [network_traffic_annotation_id_hash, recv_bytes, sent_bytes]);
   }
@@ -436,7 +684,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec,
       null,
       [request_origin, methods_with_options, with_lock]);
   }
@@ -445,7 +693,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec,
       null,
       [ad_auction_event_record, top_frame_origin]);
   }
@@ -454,7 +702,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }
@@ -463,7 +711,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec,
       null,
       [request_url, ip_address_space]);
   }
@@ -472,15 +720,15 @@ network.mojom.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec,
+      network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec,
       null,
       [request_url, response_address_space, client_address_space, target_address_space]);
   }
 
 };
 
-network.mojom.mojom.URLLoaderNetworkServiceObserver.getRemote = function() {
-  let remote = new network.mojom.mojom.URLLoaderNetworkServiceObserverRemote();
+network.mojom.URLLoaderNetworkServiceObserver.getRemote = function() {
+  let remote = new network.mojom.URLLoaderNetworkServiceObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -490,7 +738,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnSSLCertificateError
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnSSLCertificateError_Params',
@@ -506,7 +754,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_Params
   }
 };
 
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnSSLCertificateError_ResponseParams',
@@ -520,7 +768,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_Respon
 };
 
 // ParamsSpec for OnCertificateRequested
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnCertificateRequested_Params',
@@ -536,7 +784,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_Param
 };
 
 // ParamsSpec for OnAuthRequired
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnAuthRequired_Params',
@@ -556,7 +804,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = 
 };
 
 // ParamsSpec for OnLocalNetworkAccessPermissionRequired
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnLocalNetworkAccessPermissionRequired_Params',
@@ -570,7 +818,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissi
   }
 };
 
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnLocalNetworkAccessPermissionRequired_ResponseParams',
@@ -584,7 +832,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissi
 };
 
 // ParamsSpec for OnClearSiteData
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnClearSiteData_Params',
@@ -602,7 +850,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec =
 };
 
 // ParamsSpec for OnLoadingStateUpdate
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnLoadingStateUpdate_Params',
@@ -616,7 +864,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsS
 };
 
 // ParamsSpec for OnDataUseUpdate
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnDataUseUpdate_Params',
@@ -632,7 +880,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec =
 };
 
 // ParamsSpec for OnSharedStorageHeaderReceived
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnSharedStorageHeaderReceived_Params',
@@ -648,7 +896,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceive
 };
 
 // ParamsSpec for OnAdAuctionEventRecordHeaderReceived
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnAdAuctionEventRecordHeaderReceived_Params',
@@ -663,7 +911,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeader
 };
 
 // ParamsSpec for Clone
-network.mojom.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.Clone_Params',
@@ -677,7 +925,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = {
 };
 
 // ParamsSpec for OnWebSocketConnectedToPrivateNetwork
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnWebSocketConnectedToPrivateNetwork_Params',
@@ -692,7 +940,7 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivat
 };
 
 // ParamsSpec for OnUrlLoaderConnectedToPrivateNetwork
-network.mojom.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec = {
+network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnUrlLoaderConnectedToPrivateNetwork_Params',
@@ -709,6 +957,6 @@ network.mojom.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivat
 };
 
 // Legacy compatibility
-network.mojom.mojom.URLLoaderNetworkServiceObserverPtr = network.mojom.mojom.URLLoaderNetworkServiceObserverRemote;
-network.mojom.mojom.URLLoaderNetworkServiceObserverRequest = network.mojom.mojom.URLLoaderNetworkServiceObserverPendingReceiver;
+network.mojom.URLLoaderNetworkServiceObserverPtr = network.mojom.URLLoaderNetworkServiceObserverRemote;
+network.mojom.URLLoaderNetworkServiceObserverRequest = network.mojom.URLLoaderNetworkServiceObserverPendingReceiver;
 

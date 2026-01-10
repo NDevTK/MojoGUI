@@ -10,23 +10,23 @@ display.mojom = display.mojom || {};
 
 
 // Enum: Position
-display.mojom.mojom.Position = {
+display.mojom.Position = {
   TOP: 0,
   RIGHT: 1,
   BOTTOM: 2,
   LEFT: 3,
 };
-display.mojom.mojom.PositionSpec = { $: mojo.internal.Enum() };
+display.mojom.PositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: OffsetReference
-display.mojom.mojom.OffsetReference = {
+display.mojom.OffsetReference = {
   TOP_LEFT: 0,
   BOTTOM_RIGHT: 1,
 };
-display.mojom.mojom.OffsetReferenceSpec = { $: mojo.internal.Enum() };
+display.mojom.OffsetReferenceSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayPlacement
-display.mojom.mojom.DisplayPlacementSpec = {
+display.mojom.DisplayPlacementSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayPlacement',
@@ -44,7 +44,7 @@ display.mojom.mojom.DisplayPlacementSpec = {
 };
 
 // Struct: DisplayLayout
-display.mojom.mojom.DisplayLayoutSpec = {
+display.mojom.DisplayLayoutSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayLayout',

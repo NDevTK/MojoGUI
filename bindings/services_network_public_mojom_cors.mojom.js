@@ -10,14 +10,14 @@ network.mojom = network.mojom || {};
 
 
 // Enum: CorsPreflightPolicy
-network.mojom.mojom.CorsPreflightPolicy = {
+network.mojom.CorsPreflightPolicy = {
   kConsiderPreflight: 0,
   kPreventPreflight: 1,
 };
-network.mojom.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsError
-network.mojom.mojom.CorsError = {
+network.mojom.CorsError = {
   kDisallowedByMode: 0,
   kInvalidResponse: 1,
   kWildcardOriginNotAllowed: 2,
@@ -44,10 +44,10 @@ network.mojom.mojom.CorsError = {
   kInvalidPrivateNetworkAccess: 23,
   kLocalNetworkAccessPermissionDenied: 24,
 };
-network.mojom.mojom.CorsErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.CorsErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: CorsErrorStatus
-network.mojom.mojom.CorsErrorStatusSpec = {
+network.mojom.CorsErrorStatusSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CorsErrorStatus',

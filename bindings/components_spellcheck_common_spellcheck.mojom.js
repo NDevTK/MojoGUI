@@ -12,14 +12,14 @@ var gfx = gfx || {};
 
 
 // Enum: Decoration
-spellcheck.mojom.mojom.Decoration = {
+spellcheck.mojom.Decoration = {
   kSpelling: 0,
   kGrammar: 1,
 };
-spellcheck.mojom.mojom.DecorationSpec = { $: mojo.internal.Enum() };
+spellcheck.mojom.DecorationSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpellCheckBDictLanguage
-spellcheck.mojom.mojom.SpellCheckBDictLanguageSpec = {
+spellcheck.mojom.SpellCheckBDictLanguageSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckBDictLanguage',
@@ -34,7 +34,7 @@ spellcheck.mojom.mojom.SpellCheckBDictLanguageSpec = {
 };
 
 // Struct: SpellCheckResult
-spellcheck.mojom.mojom.SpellCheckResultSpec = {
+spellcheck.mojom.SpellCheckResultSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckResult',
@@ -52,24 +52,53 @@ spellcheck.mojom.mojom.SpellCheckResultSpec = {
 };
 
 // Interface: SpellChecker
-spellcheck.mojom.mojom.SpellChecker = {};
+spellcheck.mojom.SpellChecker = {};
 
-spellcheck.mojom.mojom.SpellCheckerPendingReceiver = class {
+spellcheck.mojom.SpellChecker_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellChecker_Initialize_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'dictionaries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(spellcheck.mojom.SpellCheckBDictLanguageSpec, false), nullable: false, minVersion: 0 },
+        { name: 'custom_words', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'enable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellChecker_CustomDictionaryChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'words_added', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'words_removed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckerRemote = class {
+spellcheck.mojom.SpellCheckerRemote = class {
   static get $interfaceName() {
     return 'spellcheck.mojom.SpellChecker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      spellcheck.mojom.mojom.SpellCheckerPendingReceiver,
+      spellcheck.mojom.SpellCheckerPendingReceiver,
       handle);
-    this.$ = new spellcheck.mojom.mojom.SpellCheckerRemoteCallHandler(this.proxy);
+    this.$ = new spellcheck.mojom.SpellCheckerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -81,7 +110,7 @@ spellcheck.mojom.mojom.SpellCheckerRemote = class {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckerRemoteCallHandler = class {
+spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -90,7 +119,7 @@ spellcheck.mojom.mojom.SpellCheckerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.mojom.SpellChecker_Initialize_ParamsSpec,
+      spellcheck.mojom.SpellChecker_Initialize_ParamsSpec,
       null,
       [dictionaries, custom_words, enable]);
   }
@@ -99,15 +128,15 @@ spellcheck.mojom.mojom.SpellCheckerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec,
+      spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec,
       null,
       [words_added, words_removed]);
   }
 
 };
 
-spellcheck.mojom.mojom.SpellChecker.getRemote = function() {
-  let remote = new spellcheck.mojom.mojom.SpellCheckerRemote();
+spellcheck.mojom.SpellChecker.getRemote = function() {
+  let remote = new spellcheck.mojom.SpellCheckerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -117,7 +146,7 @@ spellcheck.mojom.mojom.SpellChecker.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-spellcheck.mojom.mojom.SpellChecker_Initialize_ParamsSpec = {
+spellcheck.mojom.SpellChecker_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellChecker.Initialize_Params',
@@ -133,7 +162,7 @@ spellcheck.mojom.mojom.SpellChecker_Initialize_ParamsSpec = {
 };
 
 // ParamsSpec for CustomDictionaryChanged
-spellcheck.mojom.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = {
+spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellChecker.CustomDictionaryChanged_Params',
@@ -148,29 +177,41 @@ spellcheck.mojom.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-spellcheck.mojom.mojom.SpellCheckerPtr = spellcheck.mojom.mojom.SpellCheckerRemote;
-spellcheck.mojom.mojom.SpellCheckerRequest = spellcheck.mojom.mojom.SpellCheckerPendingReceiver;
+spellcheck.mojom.SpellCheckerPtr = spellcheck.mojom.SpellCheckerRemote;
+spellcheck.mojom.SpellCheckerRequest = spellcheck.mojom.SpellCheckerPendingReceiver;
 
 
 // Interface: SpellCheckInitializationHost
-spellcheck.mojom.mojom.SpellCheckInitializationHost = {};
+spellcheck.mojom.SpellCheckInitializationHost = {};
 
-spellcheck.mojom.mojom.SpellCheckInitializationHostPendingReceiver = class {
+spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckInitializationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckInitializationHostRemote = class {
+spellcheck.mojom.SpellCheckInitializationHostRemote = class {
   static get $interfaceName() {
     return 'spellcheck.mojom.SpellCheckInitializationHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      spellcheck.mojom.mojom.SpellCheckInitializationHostPendingReceiver,
+      spellcheck.mojom.SpellCheckInitializationHostPendingReceiver,
       handle);
-    this.$ = new spellcheck.mojom.mojom.SpellCheckInitializationHostRemoteCallHandler(this.proxy);
+    this.$ = new spellcheck.mojom.SpellCheckInitializationHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -182,7 +223,7 @@ spellcheck.mojom.mojom.SpellCheckInitializationHostRemote = class {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckInitializationHostRemoteCallHandler = class {
+spellcheck.mojom.SpellCheckInitializationHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -191,15 +232,15 @@ spellcheck.mojom.mojom.SpellCheckInitializationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec,
+      spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec,
       null,
       []);
   }
 
 };
 
-spellcheck.mojom.mojom.SpellCheckInitializationHost.getRemote = function() {
-  let remote = new spellcheck.mojom.mojom.SpellCheckInitializationHostRemote();
+spellcheck.mojom.SpellCheckInitializationHost.getRemote = function() {
+  let remote = new spellcheck.mojom.SpellCheckInitializationHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -209,7 +250,7 @@ spellcheck.mojom.mojom.SpellCheckInitializationHost.getRemote = function() {
 };
 
 // ParamsSpec for RequestDictionary
-spellcheck.mojom.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = {
+spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckInitializationHost.RequestDictionary_Params',
@@ -222,29 +263,120 @@ spellcheck.mojom.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec
 };
 
 // Legacy compatibility
-spellcheck.mojom.mojom.SpellCheckInitializationHostPtr = spellcheck.mojom.mojom.SpellCheckInitializationHostRemote;
-spellcheck.mojom.mojom.SpellCheckInitializationHostRequest = spellcheck.mojom.mojom.SpellCheckInitializationHostPendingReceiver;
+spellcheck.mojom.SpellCheckInitializationHostPtr = spellcheck.mojom.SpellCheckInitializationHostRemote;
+spellcheck.mojom.SpellCheckInitializationHostRequest = spellcheck.mojom.SpellCheckInitializationHostPendingReceiver;
 
 
 // Interface: SpellCheckHost
-spellcheck.mojom.mojom.SpellCheckHost = {};
+spellcheck.mojom.SpellCheckHost = {};
 
-spellcheck.mojom.mojom.SpellCheckHostPendingReceiver = class {
+spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckHost_NotifyChecked_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'misspelled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckHost_CallSpellingService_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckHost_RequestTextCheck_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'spelling_markers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RangeSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckHost_CheckSpelling_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckHost_FillSuggestionList_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckHost_InitializeDictionaries_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+spellcheck.mojom.SpellCheckHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckHostRemote = class {
+spellcheck.mojom.SpellCheckHostRemote = class {
   static get $interfaceName() {
     return 'spellcheck.mojom.SpellCheckHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      spellcheck.mojom.mojom.SpellCheckHostPendingReceiver,
+      spellcheck.mojom.SpellCheckHostPendingReceiver,
       handle);
-    this.$ = new spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler(this.proxy);
+    this.$ = new spellcheck.mojom.SpellCheckHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -256,7 +388,7 @@ spellcheck.mojom.mojom.SpellCheckHostRemote = class {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
+spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -265,7 +397,7 @@ spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckHost_NotifyChecked_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec,
       null,
       [word, misspelled]);
   }
@@ -274,8 +406,8 @@ spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckHost_CallSpellingService_ParamsSpec,
-      spellcheck.mojom.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec,
+      spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec,
       [text]);
   }
 
@@ -283,8 +415,8 @@ spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec,
-      spellcheck.mojom.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec,
+      spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec,
       [text, spelling_markers]);
   }
 
@@ -292,7 +424,7 @@ spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec,
       null,
       []);
   }
@@ -301,8 +433,8 @@ spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckHost_CheckSpelling_ParamsSpec,
-      spellcheck.mojom.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec,
+      spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec,
       [word]);
   }
 
@@ -310,8 +442,8 @@ spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec,
-      spellcheck.mojom.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec,
+      spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec,
       [word]);
   }
 
@@ -319,15 +451,15 @@ spellcheck.mojom.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      spellcheck.mojom.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec,
-      spellcheck.mojom.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec,
+      spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec,
       []);
   }
 
 };
 
-spellcheck.mojom.mojom.SpellCheckHost.getRemote = function() {
-  let remote = new spellcheck.mojom.mojom.SpellCheckHostRemote();
+spellcheck.mojom.SpellCheckHost.getRemote = function() {
+  let remote = new spellcheck.mojom.SpellCheckHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -337,7 +469,7 @@ spellcheck.mojom.mojom.SpellCheckHost.getRemote = function() {
 };
 
 // ParamsSpec for NotifyChecked
-spellcheck.mojom.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = {
+spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.NotifyChecked_Params',
@@ -352,7 +484,7 @@ spellcheck.mojom.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = {
 };
 
 // ParamsSpec for CallSpellingService
-spellcheck.mojom.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
+spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.CallSpellingService_Params',
@@ -365,7 +497,7 @@ spellcheck.mojom.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = {
+spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.CallSpellingService_ResponseParams',
@@ -380,7 +512,7 @@ spellcheck.mojom.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestTextCheck
-spellcheck.mojom.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
+spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.RequestTextCheck_Params',
@@ -394,7 +526,7 @@ spellcheck.mojom.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = {
+spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.RequestTextCheck_ResponseParams',
@@ -408,7 +540,7 @@ spellcheck.mojom.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DisconnectSessionBridge
-spellcheck.mojom.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec = {
+spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.DisconnectSessionBridge_Params',
@@ -421,7 +553,7 @@ spellcheck.mojom.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec = {
 };
 
 // ParamsSpec for CheckSpelling
-spellcheck.mojom.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
+spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.CheckSpelling_Params',
@@ -434,7 +566,7 @@ spellcheck.mojom.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = {
+spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.CheckSpelling_ResponseParams',
@@ -448,7 +580,7 @@ spellcheck.mojom.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = {
 };
 
 // ParamsSpec for FillSuggestionList
-spellcheck.mojom.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
+spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.FillSuggestionList_Params',
@@ -461,7 +593,7 @@ spellcheck.mojom.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = {
+spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.FillSuggestionList_ResponseParams',
@@ -475,7 +607,7 @@ spellcheck.mojom.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InitializeDictionaries
-spellcheck.mojom.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = {
+spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.InitializeDictionaries_Params',
@@ -487,7 +619,7 @@ spellcheck.mojom.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = {
   }
 };
 
-spellcheck.mojom.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = {
+spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckHost.InitializeDictionaries_ResponseParams',
@@ -503,6 +635,6 @@ spellcheck.mojom.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-spellcheck.mojom.mojom.SpellCheckHostPtr = spellcheck.mojom.mojom.SpellCheckHostRemote;
-spellcheck.mojom.mojom.SpellCheckHostRequest = spellcheck.mojom.mojom.SpellCheckHostPendingReceiver;
+spellcheck.mojom.SpellCheckHostPtr = spellcheck.mojom.SpellCheckHostRemote;
+spellcheck.mojom.SpellCheckHostRequest = spellcheck.mojom.SpellCheckHostPendingReceiver;
 

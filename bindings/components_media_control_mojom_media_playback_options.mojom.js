@@ -7,29 +7,68 @@
 // Module namespace
 var components = components || {};
 components.media_control = components.media_control || {};
-components.media_control.media_control.mojom = components.media_control.media_control.mojom || {};
+components.media_control.mojom = components.media_control.mojom || {};
 var content = content || {};
 
 
 // Interface: MediaPlaybackOptions
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptions = {};
+components.media_control.mojom.MediaPlaybackOptions = {};
 
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsPendingReceiver = class {
+components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'components.media_control.mojom.MediaPlaybackOptions_SetRendererType_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+components.media_control.mojom.MediaPlaybackOptionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemote = class {
+components.media_control.mojom.MediaPlaybackOptionsRemote = class {
   static get $interfaceName() {
     return 'components.media_control.mojom.MediaPlaybackOptions';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsPendingReceiver,
+      components.media_control.mojom.MediaPlaybackOptionsPendingReceiver,
       handle);
-    this.$ = new components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemoteCallHandler(this.proxy);
+    this.$ = new components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +80,7 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemote = 
   }
 };
 
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
+components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +89,7 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemoteCal
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec,
+      components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec,
       null,
       [blocked]);
   }
@@ -59,7 +98,7 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemoteCal
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec,
+      components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -68,15 +107,15 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemoteCal
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec,
+      components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec,
       null,
       [type]);
   }
 
 };
 
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptions.getRemote = function() {
-  let remote = new components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemote();
+components.media_control.mojom.MediaPlaybackOptions.getRemote = function() {
+  let remote = new components.media_control.mojom.MediaPlaybackOptionsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -86,7 +125,7 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptions.getRemot
 };
 
 // ParamsSpec for SetMediaLoadingBlocked
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = {
+components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'components.media_control.mojom.MediaPlaybackOptions.SetMediaLoadingBlocked_Params',
@@ -100,7 +139,7 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetMedia
 };
 
 // ParamsSpec for SetBackgroundVideoPlaybackEnabled
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = {
+components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'components.media_control.mojom.MediaPlaybackOptions.SetBackgroundVideoPlaybackEnabled_Params',
@@ -114,7 +153,7 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetBackg
 };
 
 // ParamsSpec for SetRendererType
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = {
+components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'components.media_control.mojom.MediaPlaybackOptions.SetRendererType_Params',
@@ -128,6 +167,6 @@ components.media_control.media_control.mojom.mojom.MediaPlaybackOptions_SetRende
 };
 
 // Legacy compatibility
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsPtr = components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRemote;
-components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsRequest = components.media_control.media_control.mojom.mojom.MediaPlaybackOptionsPendingReceiver;
+components.media_control.mojom.MediaPlaybackOptionsPtr = components.media_control.mojom.MediaPlaybackOptionsRemote;
+components.media_control.mojom.MediaPlaybackOptionsRequest = components.media_control.mojom.MediaPlaybackOptionsPendingReceiver;
 

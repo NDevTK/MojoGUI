@@ -12,28 +12,28 @@ var url = url || {};
 
 
 // Enum: ContentSecurityPolicyType
-network.mojom.mojom.ContentSecurityPolicyType = {
+network.mojom.ContentSecurityPolicyType = {
   kReport: 0,
   kEnforce: 1,
 };
-network.mojom.mojom.ContentSecurityPolicyTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.ContentSecurityPolicyTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentSecurityPolicySource
-network.mojom.mojom.ContentSecurityPolicySource = {
+network.mojom.ContentSecurityPolicySource = {
   kHTTP: 0,
   kMeta: 1,
 };
-network.mojom.mojom.ContentSecurityPolicySourceSpec = { $: mojo.internal.Enum() };
+network.mojom.ContentSecurityPolicySourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: CSPDisposition
-network.mojom.mojom.CSPDisposition = {
+network.mojom.CSPDisposition = {
   CHECK: 0,
   DO_NOT_CHECK: 1,
 };
-network.mojom.mojom.CSPDispositionSpec = { $: mojo.internal.Enum() };
+network.mojom.CSPDispositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CSPDirectiveName
-network.mojom.mojom.CSPDirectiveName = {
+network.mojom.CSPDirectiveName = {
   Unknown: 0,
   BaseURI: 1,
   BlockAllMixedContent: 2,
@@ -65,17 +65,17 @@ network.mojom.mojom.CSPDirectiveName = {
   UpgradeInsecureRequests: 28,
   WorkerSrc: 29,
 };
-network.mojom.mojom.CSPDirectiveNameSpec = { $: mojo.internal.Enum() };
+network.mojom.CSPDirectiveNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: CSPRequireTrustedTypesFor
-network.mojom.mojom.CSPRequireTrustedTypesFor = {
+network.mojom.CSPRequireTrustedTypesFor = {
   None: 0,
   Script: 1,
 };
-network.mojom.mojom.CSPRequireTrustedTypesForSpec = { $: mojo.internal.Enum() };
+network.mojom.CSPRequireTrustedTypesForSpec = { $: mojo.internal.Enum() };
 
 // Union: AllowCSPFromHeaderValue
-network.mojom.mojom.AllowCSPFromHeaderValueSpec = { $: mojo.internal.Union(
+network.mojom.AllowCSPFromHeaderValueSpec = { $: mojo.internal.Union(
     'network.mojom.AllowCSPFromHeaderValue', {
       'allow_star': {
         'ordinal': 0,
@@ -93,7 +93,7 @@ network.mojom.mojom.AllowCSPFromHeaderValueSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ContentSecurityPolicyHeader
-network.mojom.mojom.ContentSecurityPolicyHeaderSpec = {
+network.mojom.ContentSecurityPolicyHeaderSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ContentSecurityPolicyHeader',
@@ -109,7 +109,7 @@ network.mojom.mojom.ContentSecurityPolicyHeaderSpec = {
 };
 
 // Struct: CSPSource
-network.mojom.mojom.CSPSourceSpec = {
+network.mojom.CSPSourceSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CSPSource',
@@ -128,7 +128,7 @@ network.mojom.mojom.CSPSourceSpec = {
 };
 
 // Struct: CSPSourceList
-network.mojom.mojom.CSPSourceListSpec = {
+network.mojom.CSPSourceListSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CSPSourceList',
@@ -159,7 +159,7 @@ network.mojom.mojom.CSPSourceListSpec = {
 };
 
 // Struct: CSPTrustedTypes
-network.mojom.mojom.CSPTrustedTypesSpec = {
+network.mojom.CSPTrustedTypesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CSPTrustedTypes',
@@ -175,7 +175,7 @@ network.mojom.mojom.CSPTrustedTypesSpec = {
 };
 
 // Struct: ContentSecurityPolicy
-network.mojom.mojom.ContentSecurityPolicySpec = {
+network.mojom.ContentSecurityPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ContentSecurityPolicy',
@@ -200,7 +200,7 @@ network.mojom.mojom.ContentSecurityPolicySpec = {
 };
 
 // Struct: CSPViolation
-network.mojom.mojom.CSPViolationSpec = {
+network.mojom.CSPViolationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CSPViolation',

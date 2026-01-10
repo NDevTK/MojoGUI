@@ -30,17 +30,17 @@ var url = url || {};
 
 
 // Enum: NavigationClientDisconnectReason
-content.mojom.mojom.NavigationClientDisconnectReason = {
+content.mojom.NavigationClientDisconnectReason = {
   kNoExplicitReason: 0,
   kResetForSwap: 1,
   kResetForAbort: 2,
   kResetForNewNavigation: 3,
   kResetForDuplicateNavigation: 4,
 };
-content.mojom.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
+content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: DidCommitProvisionalLoadParams
-content.mojom.mojom.DidCommitProvisionalLoadParamsSpec = {
+content.mojom.DidCommitProvisionalLoadParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.DidCommitProvisionalLoadParams',
@@ -85,7 +85,7 @@ content.mojom.mojom.DidCommitProvisionalLoadParamsSpec = {
 };
 
 // Struct: DidCommitSameDocumentNavigationParams
-content.mojom.mojom.DidCommitSameDocumentNavigationParamsSpec = {
+content.mojom.DidCommitSameDocumentNavigationParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.DidCommitSameDocumentNavigationParams',
@@ -105,7 +105,7 @@ content.mojom.mojom.DidCommitSameDocumentNavigationParamsSpec = {
 };
 
 // Struct: CookieManagerInfo
-content.mojom.mojom.CookieManagerInfoSpec = {
+content.mojom.CookieManagerInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.CookieManagerInfo',
@@ -120,7 +120,7 @@ content.mojom.mojom.CookieManagerInfoSpec = {
 };
 
 // Struct: StorageInfo
-content.mojom.mojom.StorageInfoSpec = {
+content.mojom.StorageInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.StorageInfo',
@@ -135,24 +135,81 @@ content.mojom.mojom.StorageInfoSpec = {
 };
 
 // Interface: NavigationClient
-content.mojom.mojom.NavigationClient = {};
+content.mojom.NavigationClient = {};
 
-content.mojom.mojom.NavigationClientPendingReceiver = class {
+content.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.NavigationClient_CommitNavigation_Params',
+      packedSize: 176,
+      fields: [
+        { name: 'common_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CommonNavigationParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'request_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CommitNavigationParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'response_head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
+        { name: 'response_body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'url_loader_client_endpoints', packedOffset: 32, packedBitOffset: 0, type: network.mojom.URLLoaderClientEndpointsSpec, nullable: true, minVersion: 0 },
+        { name: 'subresource_loader_factories', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: true, minVersion: 0 },
+        { name: 'subresource_overrides', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.TransferrableURLLoaderSpec, false), nullable: true, minVersion: 0 },
+        { name: 'controller_service_worker_info', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'container_info', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.ServiceWorkerContainerInfoForClientSpec, nullable: true, minVersion: 0 },
+        { name: 'subresource_proxying_loader_factory', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'keep_alive_loader_factory', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'fetch_later_loader_factory', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.FetchLaterLoaderFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'document_token', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'devtools_navigation_token', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'base_auction_nonce', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
+        { name: 'permissions_policy', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: true, minVersion: 0 },
+        { name: 'policy_container', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.PolicyContainerSpec, nullable: false, minVersion: 0 },
+        { name: 'code_cache_host', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), nullable: true, minVersion: 0 },
+        { name: 'code_cache_host_for_background', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), nullable: true, minVersion: 0 },
+        { name: 'cookie_manager_info', packedOffset: 152, packedBitOffset: 0, type: content.mojom.CookieManagerInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'storage_info', packedOffset: 160, packedBitOffset: 0, type: content.mojom.StorageInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 176}]
+    }
+  }
+};
+
+content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.NavigationClient_CommitFailedNavigation_Params',
+      packedSize: 96,
+      fields: [
+        { name: 'common_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CommonNavigationParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'request_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CommitNavigationParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'has_stale_copy_in_cache', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error_code', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'extended_error_code', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'resolve_error_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'error_page_content', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'subresource_loader_factories', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: true, minVersion: 0 },
+        { name: 'document_token', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'devtools_navigation_token', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'policy_container', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.PolicyContainerSpec, nullable: false, minVersion: 0 },
+        { name: 'alternative_error_page_info', packedOffset: 64, packedBitOffset: 0, type: content.mojom.AlternativeErrorPageOverrideInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 96}]
+    }
+  }
+};
+
+content.mojom.NavigationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.NavigationClientRemote = class {
+content.mojom.NavigationClientRemote = class {
   static get $interfaceName() {
     return 'content.mojom.NavigationClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.NavigationClientPendingReceiver,
+      content.mojom.NavigationClientPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.NavigationClientRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.NavigationClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -164,7 +221,7 @@ content.mojom.mojom.NavigationClientRemote = class {
   }
 };
 
-content.mojom.mojom.NavigationClientRemoteCallHandler = class {
+content.mojom.NavigationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -173,8 +230,8 @@ content.mojom.mojom.NavigationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.NavigationClient_CommitNavigation_ParamsSpec,
-      content.mojom.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
+      content.mojom.NavigationClient_CommitNavigation_ParamsSpec,
+      content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
       [common_params, request_params, response_head, response_body, url_loader_client_endpoints, subresource_loader_factories, subresource_overrides, controller_service_worker_info, container_info, subresource_proxying_loader_factory, keep_alive_loader_factory, fetch_later_loader_factory, document_token, devtools_navigation_token, base_auction_nonce, permissions_policy, policy_container, code_cache_host, code_cache_host_for_background, cookie_manager_info, storage_info]);
   }
 
@@ -182,15 +239,15 @@ content.mojom.mojom.NavigationClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec,
-      content.mojom.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec,
+      content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec,
+      content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec,
       [common_params, request_params, has_stale_copy_in_cache, error_code, extended_error_code, resolve_error_info, error_page_content, subresource_loader_factories, document_token, devtools_navigation_token, policy_container, alternative_error_page_info]);
   }
 
 };
 
-content.mojom.mojom.NavigationClient.getRemote = function() {
-  let remote = new content.mojom.mojom.NavigationClientRemote();
+content.mojom.NavigationClient.getRemote = function() {
+  let remote = new content.mojom.NavigationClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -200,7 +257,7 @@ content.mojom.mojom.NavigationClient.getRemote = function() {
 };
 
 // ParamsSpec for CommitNavigation
-content.mojom.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
+content.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.NavigationClient.CommitNavigation_Params',
@@ -233,7 +290,7 @@ content.mojom.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
+content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.NavigationClient.CommitNavigation_ResponseParams',
@@ -248,7 +305,7 @@ content.mojom.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CommitFailedNavigation
-content.mojom.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
+content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.NavigationClient.CommitFailedNavigation_Params',
@@ -272,7 +329,7 @@ content.mojom.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = {
+content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.NavigationClient.CommitFailedNavigation_ResponseParams',
@@ -287,6 +344,6 @@ content.mojom.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-content.mojom.mojom.NavigationClientPtr = content.mojom.mojom.NavigationClientRemote;
-content.mojom.mojom.NavigationClientRequest = content.mojom.mojom.NavigationClientPendingReceiver;
+content.mojom.NavigationClientPtr = content.mojom.NavigationClientRemote;
+content.mojom.NavigationClientRequest = content.mojom.NavigationClientPendingReceiver;
 

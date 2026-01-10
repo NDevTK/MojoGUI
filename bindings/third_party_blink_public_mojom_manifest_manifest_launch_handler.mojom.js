@@ -10,16 +10,16 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ClientMode
-blink.mojom.mojom.ClientMode = {
+blink.mojom.ClientMode = {
   kAuto: 0,
   kNavigateNew: 1,
   kNavigateExisting: 2,
   kFocusExisting: 3,
 };
-blink.mojom.mojom.ClientModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ClientModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ManifestLaunchHandler
-blink.mojom.mojom.ManifestLaunchHandlerSpec = {
+blink.mojom.ManifestLaunchHandlerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestLaunchHandler',

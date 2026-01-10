@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: WaylandPresentationInfo
-wl.mojom.mojom.WaylandPresentationInfoSpec = {
+wl.mojom.WaylandPresentationInfoSpec = {
   $: {
     structSpec: {
       name: 'wl.mojom.WaylandPresentationInfo',

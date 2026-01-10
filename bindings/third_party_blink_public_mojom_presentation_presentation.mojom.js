@@ -11,44 +11,44 @@ var url = url || {};
 
 
 // Enum: ScreenAvailability
-blink.mojom.mojom.ScreenAvailability = {
+blink.mojom.ScreenAvailability = {
   UNKNOWN: 0,
   UNAVAILABLE: 1,
   SOURCE_NOT_SUPPORTED: 2,
   DISABLED: 3,
   AVAILABLE: 4,
 };
-blink.mojom.mojom.ScreenAvailabilitySpec = { $: mojo.internal.Enum() };
+blink.mojom.ScreenAvailabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: PresentationConnectionState
-blink.mojom.mojom.PresentationConnectionState = {
+blink.mojom.PresentationConnectionState = {
   CONNECTING: 0,
   CONNECTED: 1,
   CLOSED: 2,
   TERMINATED: 3,
 };
-blink.mojom.mojom.PresentationConnectionStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.PresentationConnectionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: PresentationConnectionCloseReason
-blink.mojom.mojom.PresentationConnectionCloseReason = {
+blink.mojom.PresentationConnectionCloseReason = {
   CONNECTION_ERROR: 0,
   CLOSED: 1,
   WENT_AWAY: 2,
 };
-blink.mojom.mojom.PresentationConnectionCloseReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.PresentationConnectionCloseReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PresentationErrorType
-blink.mojom.mojom.PresentationErrorType = {
+blink.mojom.PresentationErrorType = {
   NO_AVAILABLE_SCREENS: 0,
   PRESENTATION_REQUEST_CANCELLED: 1,
   NO_PRESENTATION_FOUND: 2,
   PREVIOUS_START_IN_PROGRESS: 3,
   UNKNOWN: 4,
 };
-blink.mojom.mojom.PresentationErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PresentationErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: PresentationConnectionMessage
-blink.mojom.mojom.PresentationConnectionMessageSpec = { $: mojo.internal.Union(
+blink.mojom.PresentationConnectionMessageSpec = { $: mojo.internal.Union(
     'blink.mojom.PresentationConnectionMessage', {
       'message': {
         'ordinal': 0,
@@ -62,7 +62,7 @@ blink.mojom.mojom.PresentationConnectionMessageSpec = { $: mojo.internal.Union(
 };
 
 // Struct: PresentationInfo
-blink.mojom.mojom.PresentationInfoSpec = {
+blink.mojom.PresentationInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationInfo',
@@ -77,7 +77,7 @@ blink.mojom.mojom.PresentationInfoSpec = {
 };
 
 // Struct: PresentationError
-blink.mojom.mojom.PresentationErrorSpec = {
+blink.mojom.PresentationErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationError',
@@ -92,7 +92,7 @@ blink.mojom.mojom.PresentationErrorSpec = {
 };
 
 // Struct: PresentationConnectionResult
-blink.mojom.mojom.PresentationConnectionResultSpec = {
+blink.mojom.PresentationConnectionResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationConnectionResult',
@@ -108,24 +108,63 @@ blink.mojom.mojom.PresentationConnectionResultSpec = {
 };
 
 // Interface: PresentationConnection
-blink.mojom.mojom.PresentationConnection = {};
+blink.mojom.PresentationConnection = {};
 
-blink.mojom.mojom.PresentationConnectionPendingReceiver = class {
+blink.mojom.PresentationConnection_OnMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationConnection_OnMessage_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionMessageSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationConnection_DidChangeState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationConnection_DidClose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationConnection_DidClose_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionCloseReasonSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PresentationConnectionRemote = class {
+blink.mojom.PresentationConnectionRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PresentationConnection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PresentationConnectionPendingReceiver,
+      blink.mojom.PresentationConnectionPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PresentationConnectionRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PresentationConnectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -137,7 +176,7 @@ blink.mojom.mojom.PresentationConnectionRemote = class {
   }
 };
 
-blink.mojom.mojom.PresentationConnectionRemoteCallHandler = class {
+blink.mojom.PresentationConnectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -146,7 +185,7 @@ blink.mojom.mojom.PresentationConnectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PresentationConnection_OnMessage_ParamsSpec,
+      blink.mojom.PresentationConnection_OnMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -155,7 +194,7 @@ blink.mojom.mojom.PresentationConnectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.PresentationConnection_DidChangeState_ParamsSpec,
+      blink.mojom.PresentationConnection_DidChangeState_ParamsSpec,
       null,
       [state]);
   }
@@ -164,15 +203,15 @@ blink.mojom.mojom.PresentationConnectionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.PresentationConnection_DidClose_ParamsSpec,
+      blink.mojom.PresentationConnection_DidClose_ParamsSpec,
       null,
       [reason]);
   }
 
 };
 
-blink.mojom.mojom.PresentationConnection.getRemote = function() {
-  let remote = new blink.mojom.mojom.PresentationConnectionRemote();
+blink.mojom.PresentationConnection.getRemote = function() {
+  let remote = new blink.mojom.PresentationConnectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -182,7 +221,7 @@ blink.mojom.mojom.PresentationConnection.getRemote = function() {
 };
 
 // ParamsSpec for OnMessage
-blink.mojom.mojom.PresentationConnection_OnMessage_ParamsSpec = {
+blink.mojom.PresentationConnection_OnMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationConnection.OnMessage_Params',
@@ -196,7 +235,7 @@ blink.mojom.mojom.PresentationConnection_OnMessage_ParamsSpec = {
 };
 
 // ParamsSpec for DidChangeState
-blink.mojom.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
+blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationConnection.DidChangeState_Params',
@@ -210,7 +249,7 @@ blink.mojom.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
 };
 
 // ParamsSpec for DidClose
-blink.mojom.mojom.PresentationConnection_DidClose_ParamsSpec = {
+blink.mojom.PresentationConnection_DidClose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationConnection.DidClose_Params',
@@ -224,29 +263,149 @@ blink.mojom.mojom.PresentationConnection_DidClose_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PresentationConnectionPtr = blink.mojom.mojom.PresentationConnectionRemote;
-blink.mojom.mojom.PresentationConnectionRequest = blink.mojom.mojom.PresentationConnectionPendingReceiver;
+blink.mojom.PresentationConnectionPtr = blink.mojom.PresentationConnectionRemote;
+blink.mojom.PresentationConnectionRequest = blink.mojom.PresentationConnectionPendingReceiver;
 
 
 // Interface: PresentationService
-blink.mojom.mojom.PresentationService = {};
+blink.mojom.PresentationService = {};
 
-blink.mojom.mojom.PresentationServicePendingReceiver = class {
+blink.mojom.PresentationService_SetController_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_SetController_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PresentationControllerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_SetReceiver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_SetReceiver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PresentationReceiverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_SetDefaultPresentationUrls_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'presentation_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_ListenForScreenAvailability_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_StopListeningForScreenAvailability_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_StartPresentation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_StartPresentation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'presentation_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_ReconnectPresentation_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'presentation_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_CloseConnection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_CloseConnection_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PresentationService_Terminate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationService_Terminate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PresentationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PresentationServiceRemote = class {
+blink.mojom.PresentationServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PresentationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PresentationServicePendingReceiver,
+      blink.mojom.PresentationServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PresentationServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PresentationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -258,7 +417,7 @@ blink.mojom.mojom.PresentationServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
+blink.mojom.PresentationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -267,7 +426,7 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PresentationService_SetController_ParamsSpec,
+      blink.mojom.PresentationService_SetController_ParamsSpec,
       null,
       [controller]);
   }
@@ -276,7 +435,7 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.PresentationService_SetReceiver_ParamsSpec,
+      blink.mojom.PresentationService_SetReceiver_ParamsSpec,
       null,
       [receiver]);
   }
@@ -285,7 +444,7 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec,
+      blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec,
       null,
       [presentation_urls]);
   }
@@ -294,7 +453,7 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec,
+      blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec,
       null,
       [availability_url]);
   }
@@ -303,7 +462,7 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec,
+      blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec,
       null,
       [availability_url]);
   }
@@ -312,8 +471,8 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.PresentationService_StartPresentation_ParamsSpec,
-      blink.mojom.mojom.PresentationService_StartPresentation_ResponseParamsSpec,
+      blink.mojom.PresentationService_StartPresentation_ParamsSpec,
+      blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec,
       [presentation_urls]);
   }
 
@@ -321,8 +480,8 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.mojom.PresentationService_ReconnectPresentation_ParamsSpec,
-      blink.mojom.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec,
+      blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec,
+      blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec,
       [presentation_urls, presentation_id]);
   }
 
@@ -330,7 +489,7 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.mojom.PresentationService_CloseConnection_ParamsSpec,
+      blink.mojom.PresentationService_CloseConnection_ParamsSpec,
       null,
       [presentation_url, presentation_id]);
   }
@@ -339,15 +498,15 @@ blink.mojom.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.mojom.PresentationService_Terminate_ParamsSpec,
+      blink.mojom.PresentationService_Terminate_ParamsSpec,
       null,
       [presentation_url, presentation_id]);
   }
 
 };
 
-blink.mojom.mojom.PresentationService.getRemote = function() {
-  let remote = new blink.mojom.mojom.PresentationServiceRemote();
+blink.mojom.PresentationService.getRemote = function() {
+  let remote = new blink.mojom.PresentationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -357,7 +516,7 @@ blink.mojom.mojom.PresentationService.getRemote = function() {
 };
 
 // ParamsSpec for SetController
-blink.mojom.mojom.PresentationService_SetController_ParamsSpec = {
+blink.mojom.PresentationService_SetController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.SetController_Params',
@@ -371,7 +530,7 @@ blink.mojom.mojom.PresentationService_SetController_ParamsSpec = {
 };
 
 // ParamsSpec for SetReceiver
-blink.mojom.mojom.PresentationService_SetReceiver_ParamsSpec = {
+blink.mojom.PresentationService_SetReceiver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.SetReceiver_Params',
@@ -385,7 +544,7 @@ blink.mojom.mojom.PresentationService_SetReceiver_ParamsSpec = {
 };
 
 // ParamsSpec for SetDefaultPresentationUrls
-blink.mojom.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = {
+blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.SetDefaultPresentationUrls_Params',
@@ -399,7 +558,7 @@ blink.mojom.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = {
 };
 
 // ParamsSpec for ListenForScreenAvailability
-blink.mojom.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
+blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.ListenForScreenAvailability_Params',
@@ -413,7 +572,7 @@ blink.mojom.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
 };
 
 // ParamsSpec for StopListeningForScreenAvailability
-blink.mojom.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = {
+blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.StopListeningForScreenAvailability_Params',
@@ -427,7 +586,7 @@ blink.mojom.mojom.PresentationService_StopListeningForScreenAvailability_ParamsS
 };
 
 // ParamsSpec for StartPresentation
-blink.mojom.mojom.PresentationService_StartPresentation_ParamsSpec = {
+blink.mojom.PresentationService_StartPresentation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.StartPresentation_Params',
@@ -440,7 +599,7 @@ blink.mojom.mojom.PresentationService_StartPresentation_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
+blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.StartPresentation_ResponseParams',
@@ -455,7 +614,7 @@ blink.mojom.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReconnectPresentation
-blink.mojom.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
+blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.ReconnectPresentation_Params',
@@ -469,7 +628,7 @@ blink.mojom.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = {
+blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.ReconnectPresentation_ResponseParams',
@@ -484,7 +643,7 @@ blink.mojom.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec =
 };
 
 // ParamsSpec for CloseConnection
-blink.mojom.mojom.PresentationService_CloseConnection_ParamsSpec = {
+blink.mojom.PresentationService_CloseConnection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.CloseConnection_Params',
@@ -499,7 +658,7 @@ blink.mojom.mojom.PresentationService_CloseConnection_ParamsSpec = {
 };
 
 // ParamsSpec for Terminate
-blink.mojom.mojom.PresentationService_Terminate_ParamsSpec = {
+blink.mojom.PresentationService_Terminate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationService.Terminate_Params',
@@ -514,29 +673,85 @@ blink.mojom.mojom.PresentationService_Terminate_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PresentationServicePtr = blink.mojom.mojom.PresentationServiceRemote;
-blink.mojom.mojom.PresentationServiceRequest = blink.mojom.mojom.PresentationServicePendingReceiver;
+blink.mojom.PresentationServicePtr = blink.mojom.PresentationServiceRemote;
+blink.mojom.PresentationServiceRequest = blink.mojom.PresentationServicePendingReceiver;
 
 
 // Interface: PresentationController
-blink.mojom.mojom.PresentationController = {};
+blink.mojom.PresentationController = {};
 
-blink.mojom.mojom.PresentationControllerPendingReceiver = class {
+blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationController_OnScreenAvailabilityUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'availability', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScreenAvailabilitySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationController_OnDefaultPresentationStarted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationController_OnConnectionStateChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'newState', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PresentationConnectionStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationController_OnConnectionClosed_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PresentationConnectionCloseReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.PresentationControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PresentationControllerRemote = class {
+blink.mojom.PresentationControllerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PresentationController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PresentationControllerPendingReceiver,
+      blink.mojom.PresentationControllerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PresentationControllerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PresentationControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -548,7 +763,7 @@ blink.mojom.mojom.PresentationControllerRemote = class {
   }
 };
 
-blink.mojom.mojom.PresentationControllerRemoteCallHandler = class {
+blink.mojom.PresentationControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -557,7 +772,7 @@ blink.mojom.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec,
+      blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec,
       null,
       [url, availability]);
   }
@@ -566,7 +781,7 @@ blink.mojom.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec,
+      blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec,
       null,
       [result]);
   }
@@ -575,7 +790,7 @@ blink.mojom.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec,
+      blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec,
       null,
       [presentation_info, newState]);
   }
@@ -584,15 +799,15 @@ blink.mojom.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.PresentationController_OnConnectionClosed_ParamsSpec,
+      blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec,
       null,
       [presentation_info, reason, message]);
   }
 
 };
 
-blink.mojom.mojom.PresentationController.getRemote = function() {
-  let remote = new blink.mojom.mojom.PresentationControllerRemote();
+blink.mojom.PresentationController.getRemote = function() {
+  let remote = new blink.mojom.PresentationControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -602,7 +817,7 @@ blink.mojom.mojom.PresentationController.getRemote = function() {
 };
 
 // ParamsSpec for OnScreenAvailabilityUpdated
-blink.mojom.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = {
+blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationController.OnScreenAvailabilityUpdated_Params',
@@ -617,7 +832,7 @@ blink.mojom.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec 
 };
 
 // ParamsSpec for OnDefaultPresentationStarted
-blink.mojom.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = {
+blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationController.OnDefaultPresentationStarted_Params',
@@ -631,7 +846,7 @@ blink.mojom.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec
 };
 
 // ParamsSpec for OnConnectionStateChanged
-blink.mojom.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
+blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationController.OnConnectionStateChanged_Params',
@@ -646,7 +861,7 @@ blink.mojom.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnectionClosed
-blink.mojom.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
+blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationController.OnConnectionClosed_Params',
@@ -662,29 +877,42 @@ blink.mojom.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PresentationControllerPtr = blink.mojom.mojom.PresentationControllerRemote;
-blink.mojom.mojom.PresentationControllerRequest = blink.mojom.mojom.PresentationControllerPendingReceiver;
+blink.mojom.PresentationControllerPtr = blink.mojom.PresentationControllerRemote;
+blink.mojom.PresentationControllerRequest = blink.mojom.PresentationControllerPendingReceiver;
 
 
 // Interface: PresentationReceiver
-blink.mojom.mojom.PresentationReceiver = {};
+blink.mojom.PresentationReceiver = {};
 
-blink.mojom.mojom.PresentationReceiverPendingReceiver = class {
+blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PresentationReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PresentationReceiverRemote = class {
+blink.mojom.PresentationReceiverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PresentationReceiver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PresentationReceiverPendingReceiver,
+      blink.mojom.PresentationReceiverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PresentationReceiverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PresentationReceiverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -696,7 +924,7 @@ blink.mojom.mojom.PresentationReceiverRemote = class {
   }
 };
 
-blink.mojom.mojom.PresentationReceiverRemoteCallHandler = class {
+blink.mojom.PresentationReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -705,15 +933,15 @@ blink.mojom.mojom.PresentationReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec,
+      blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-blink.mojom.mojom.PresentationReceiver.getRemote = function() {
-  let remote = new blink.mojom.mojom.PresentationReceiverRemote();
+blink.mojom.PresentationReceiver.getRemote = function() {
+  let remote = new blink.mojom.PresentationReceiverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -723,7 +951,7 @@ blink.mojom.mojom.PresentationReceiver.getRemote = function() {
 };
 
 // ParamsSpec for OnReceiverConnectionAvailable
-blink.mojom.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = {
+blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PresentationReceiver.OnReceiverConnectionAvailable_Params',
@@ -737,6 +965,6 @@ blink.mojom.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PresentationReceiverPtr = blink.mojom.mojom.PresentationReceiverRemote;
-blink.mojom.mojom.PresentationReceiverRequest = blink.mojom.mojom.PresentationReceiverPendingReceiver;
+blink.mojom.PresentationReceiverPtr = blink.mojom.PresentationReceiverRemote;
+blink.mojom.PresentationReceiverRequest = blink.mojom.PresentationReceiverPendingReceiver;
 

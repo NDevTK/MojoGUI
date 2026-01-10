@@ -13,12 +13,12 @@ var ui = ui || {};
 var gfx = gfx || {};
 
 
-device.mojom.mojom.kXrSandbox = sandbox.mojom.Sandbox.kXrCompositing;
+device.mojom.kXrSandbox = sandbox.mojom.Sandbox.kXrCompositing;
 
-device.mojom.mojom.kXrSandbox = sandbox.mojom.Sandbox.kUtility;
+device.mojom.kXrSandbox = sandbox.mojom.Sandbox.kUtility;
 
 // Struct: XRRuntimeSessionOptions
-device.mojom.mojom.XRRuntimeSessionOptionsSpec = {
+device.mojom.XRRuntimeSessionOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntimeSessionOptions',
@@ -39,7 +39,7 @@ device.mojom.mojom.XRRuntimeSessionOptionsSpec = {
 };
 
 // Struct: XRRuntimeSessionResult
-device.mojom.mojom.XRRuntimeSessionResultSpec = {
+device.mojom.XRRuntimeSessionResultSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntimeSessionResult',
@@ -56,7 +56,7 @@ device.mojom.mojom.XRRuntimeSessionResultSpec = {
 };
 
 // Struct: XRDeviceData
-device.mojom.mojom.XRDeviceDataSpec = {
+device.mojom.XRDeviceDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDeviceData',
@@ -72,24 +72,37 @@ device.mojom.mojom.XRDeviceDataSpec = {
 };
 
 // Interface: XRSessionController
-device.mojom.mojom.XRSessionController = {};
+device.mojom.XRSessionController = {};
 
-device.mojom.mojom.XRSessionControllerPendingReceiver = class {
+device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRSessionController_SetFrameDataRestricted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'restricted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.XRSessionControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.XRSessionControllerRemote = class {
+device.mojom.XRSessionControllerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRSessionController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.XRSessionControllerPendingReceiver,
+      device.mojom.XRSessionControllerPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.XRSessionControllerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.XRSessionControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -101,7 +114,7 @@ device.mojom.mojom.XRSessionControllerRemote = class {
   }
 };
 
-device.mojom.mojom.XRSessionControllerRemoteCallHandler = class {
+device.mojom.XRSessionControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -110,15 +123,15 @@ device.mojom.mojom.XRSessionControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec,
+      device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec,
       null,
       [restricted]);
   }
 
 };
 
-device.mojom.mojom.XRSessionController.getRemote = function() {
-  let remote = new device.mojom.mojom.XRSessionControllerRemote();
+device.mojom.XRSessionController.getRemote = function() {
+  let remote = new device.mojom.XRSessionControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -128,7 +141,7 @@ device.mojom.mojom.XRSessionController.getRemote = function() {
 };
 
 // ParamsSpec for SetFrameDataRestricted
-device.mojom.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
+device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSessionController.SetFrameDataRestricted_Params',
@@ -142,29 +155,54 @@ device.mojom.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.XRSessionControllerPtr = device.mojom.mojom.XRSessionControllerRemote;
-device.mojom.mojom.XRSessionControllerRequest = device.mojom.mojom.XRSessionControllerPendingReceiver;
+device.mojom.XRSessionControllerPtr = device.mojom.XRSessionControllerRemote;
+device.mojom.XRSessionControllerRequest = device.mojom.XRSessionControllerPendingReceiver;
 
 
 // Interface: XRRuntimeEventListener
-device.mojom.mojom.XRRuntimeEventListener = {};
+device.mojom.XRRuntimeEventListener = {};
 
-device.mojom.mojom.XRRuntimeEventListenerPendingReceiver = class {
+device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visibility_state', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRVisibilityStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRuntimeEventListener_OnExitPresent_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.XRRuntimeEventListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.XRRuntimeEventListenerRemote = class {
+device.mojom.XRRuntimeEventListenerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRRuntimeEventListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.XRRuntimeEventListenerPendingReceiver,
+      device.mojom.XRRuntimeEventListenerPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.XRRuntimeEventListenerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.XRRuntimeEventListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -176,7 +214,7 @@ device.mojom.mojom.XRRuntimeEventListenerRemote = class {
   }
 };
 
-device.mojom.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
+device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -185,7 +223,7 @@ device.mojom.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec,
+      device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec,
       null,
       [visibility_state]);
   }
@@ -194,15 +232,15 @@ device.mojom.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec,
+      device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.mojom.XRRuntimeEventListener.getRemote = function() {
-  let remote = new device.mojom.mojom.XRRuntimeEventListenerRemote();
+device.mojom.XRRuntimeEventListener.getRemote = function() {
+  let remote = new device.mojom.XRRuntimeEventListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -212,7 +250,7 @@ device.mojom.mojom.XRRuntimeEventListener.getRemote = function() {
 };
 
 // ParamsSpec for OnVisibilityStateChanged
-device.mojom.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = {
+device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntimeEventListener.OnVisibilityStateChanged_Params',
@@ -226,7 +264,7 @@ device.mojom.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = 
 };
 
 // ParamsSpec for OnExitPresent
-device.mojom.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = {
+device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntimeEventListener.OnExitPresent_Params',
@@ -239,29 +277,67 @@ device.mojom.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.XRRuntimeEventListenerPtr = device.mojom.mojom.XRRuntimeEventListenerRemote;
-device.mojom.mojom.XRRuntimeEventListenerRequest = device.mojom.mojom.XRRuntimeEventListenerPendingReceiver;
+device.mojom.XRRuntimeEventListenerPtr = device.mojom.XRRuntimeEventListenerRemote;
+device.mojom.XRRuntimeEventListenerRequest = device.mojom.XRRuntimeEventListenerPendingReceiver;
 
 
 // Interface: XRRuntime
-device.mojom.mojom.XRRuntime = {};
+device.mojom.XRRuntime = {};
 
-device.mojom.mojom.XRRuntimePendingReceiver = class {
+device.mojom.XRRuntime_RequestSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRuntime_RequestSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRRuntimeSessionOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.XRRuntime_ShutdownSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRuntime_ShutdownSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRuntime_ListenToDeviceChanges_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.XRRuntimeEventListenerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.XRRuntimePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.XRRuntimeRemote = class {
+device.mojom.XRRuntimeRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRRuntime';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.XRRuntimePendingReceiver,
+      device.mojom.XRRuntimePendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.XRRuntimeRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.XRRuntimeRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -273,7 +349,7 @@ device.mojom.mojom.XRRuntimeRemote = class {
   }
 };
 
-device.mojom.mojom.XRRuntimeRemoteCallHandler = class {
+device.mojom.XRRuntimeRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -282,8 +358,8 @@ device.mojom.mojom.XRRuntimeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.XRRuntime_RequestSession_ParamsSpec,
-      device.mojom.mojom.XRRuntime_RequestSession_ResponseParamsSpec,
+      device.mojom.XRRuntime_RequestSession_ParamsSpec,
+      device.mojom.XRRuntime_RequestSession_ResponseParamsSpec,
       [options]);
   }
 
@@ -291,7 +367,7 @@ device.mojom.mojom.XRRuntimeRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.XRRuntime_ShutdownSession_ParamsSpec,
+      device.mojom.XRRuntime_ShutdownSession_ParamsSpec,
       null,
       []);
   }
@@ -300,15 +376,15 @@ device.mojom.mojom.XRRuntimeRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec,
+      device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-device.mojom.mojom.XRRuntime.getRemote = function() {
-  let remote = new device.mojom.mojom.XRRuntimeRemote();
+device.mojom.XRRuntime.getRemote = function() {
+  let remote = new device.mojom.XRRuntimeRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -318,7 +394,7 @@ device.mojom.mojom.XRRuntime.getRemote = function() {
 };
 
 // ParamsSpec for RequestSession
-device.mojom.mojom.XRRuntime_RequestSession_ParamsSpec = {
+device.mojom.XRRuntime_RequestSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntime.RequestSession_Params',
@@ -331,7 +407,7 @@ device.mojom.mojom.XRRuntime_RequestSession_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
+device.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntime.RequestSession_ResponseParams',
@@ -345,7 +421,7 @@ device.mojom.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ShutdownSession
-device.mojom.mojom.XRRuntime_ShutdownSession_ParamsSpec = {
+device.mojom.XRRuntime_ShutdownSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntime.ShutdownSession_Params',
@@ -358,7 +434,7 @@ device.mojom.mojom.XRRuntime_ShutdownSession_ParamsSpec = {
 };
 
 // ParamsSpec for ListenToDeviceChanges
-device.mojom.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
+device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntime.ListenToDeviceChanges_Params',
@@ -372,29 +448,84 @@ device.mojom.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.XRRuntimePtr = device.mojom.mojom.XRRuntimeRemote;
-device.mojom.mojom.XRRuntimeRequest = device.mojom.mojom.XRRuntimePendingReceiver;
+device.mojom.XRRuntimePtr = device.mojom.XRRuntimeRemote;
+device.mojom.XRRuntimeRequest = device.mojom.XRRuntimePendingReceiver;
 
 
 // Interface: ImmersiveOverlay
-device.mojom.mojom.ImmersiveOverlay = {};
+device.mojom.ImmersiveOverlay = {};
 
-device.mojom.mojom.ImmersiveOverlayPendingReceiver = class {
+device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.ImmersiveOverlay_RequestNextOverlayPose_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.ImmersiveOverlay_SubmitOverlayTexture_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'frame_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'texture', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'left_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'right_bounds', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'overlay_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'webxr_visible', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.ImmersiveOverlayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.ImmersiveOverlayRemote = class {
+device.mojom.ImmersiveOverlayRemote = class {
   static get $interfaceName() {
     return 'device.mojom.ImmersiveOverlay';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.ImmersiveOverlayPendingReceiver,
+      device.mojom.ImmersiveOverlayPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.ImmersiveOverlayRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.ImmersiveOverlayRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -406,7 +537,7 @@ device.mojom.mojom.ImmersiveOverlayRemote = class {
   }
 };
 
-device.mojom.mojom.ImmersiveOverlayRemoteCallHandler = class {
+device.mojom.ImmersiveOverlayRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -415,8 +546,8 @@ device.mojom.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec,
-      device.mojom.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec,
+      device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec,
+      device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec,
       []);
   }
 
@@ -424,8 +555,8 @@ device.mojom.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec,
-      device.mojom.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec,
+      device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec,
+      device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec,
       [frame_id, texture, sync_token, left_bounds, right_bounds]);
   }
 
@@ -433,7 +564,7 @@ device.mojom.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec,
+      device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec,
       null,
       [overlay_visible, webxr_visible]);
   }
@@ -442,15 +573,15 @@ device.mojom.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec,
+      device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.mojom.ImmersiveOverlay.getRemote = function() {
-  let remote = new device.mojom.mojom.ImmersiveOverlayRemote();
+device.mojom.ImmersiveOverlay.getRemote = function() {
+  let remote = new device.mojom.ImmersiveOverlayRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -460,7 +591,7 @@ device.mojom.mojom.ImmersiveOverlay.getRemote = function() {
 };
 
 // ParamsSpec for RequestNextOverlayPose
-device.mojom.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
+device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.ImmersiveOverlay.RequestNextOverlayPose_Params',
@@ -472,7 +603,7 @@ device.mojom.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
+device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.ImmersiveOverlay.RequestNextOverlayPose_ResponseParams',
@@ -486,7 +617,7 @@ device.mojom.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = 
 };
 
 // ParamsSpec for SubmitOverlayTexture
-device.mojom.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
+device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.ImmersiveOverlay.SubmitOverlayTexture_Params',
@@ -503,7 +634,7 @@ device.mojom.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
+device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.ImmersiveOverlay.SubmitOverlayTexture_ResponseParams',
@@ -517,7 +648,7 @@ device.mojom.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetOverlayAndWebXRVisibility
-device.mojom.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
+device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.ImmersiveOverlay.SetOverlayAndWebXRVisibility_Params',
@@ -532,7 +663,7 @@ device.mojom.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
 };
 
 // ParamsSpec for RequestNotificationOnWebXrSubmitted
-device.mojom.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec = {
+device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.ImmersiveOverlay.RequestNotificationOnWebXrSubmitted_Params',
@@ -545,29 +676,69 @@ device.mojom.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSp
 };
 
 // Legacy compatibility
-device.mojom.mojom.ImmersiveOverlayPtr = device.mojom.mojom.ImmersiveOverlayRemote;
-device.mojom.mojom.ImmersiveOverlayRequest = device.mojom.mojom.ImmersiveOverlayPendingReceiver;
+device.mojom.ImmersiveOverlayPtr = device.mojom.ImmersiveOverlayRemote;
+device.mojom.ImmersiveOverlayRequest = device.mojom.ImmersiveOverlayPendingReceiver;
 
 
 // Interface: IsolatedXRRuntimeProviderClient
-device.mojom.mojom.IsolatedXRRuntimeProviderClient = {};
+device.mojom.IsolatedXRRuntimeProviderClient = {};
 
-device.mojom.mojom.IsolatedXRRuntimeProviderClientPendingReceiver = class {
+device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'runtime', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.XRRuntimeRemote), nullable: false, minVersion: 0 },
+        { name: 'device_data', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceDataSpec, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_index', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.IsolatedXRRuntimeProviderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.IsolatedXRRuntimeProviderClientRemote = class {
+device.mojom.IsolatedXRRuntimeProviderClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.IsolatedXRRuntimeProviderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.IsolatedXRRuntimeProviderClientPendingReceiver,
+      device.mojom.IsolatedXRRuntimeProviderClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -579,7 +750,7 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClientRemote = class {
   }
 };
 
-device.mojom.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
+device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -588,7 +759,7 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec,
+      device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec,
       null,
       [runtime, device_data, device_id]);
   }
@@ -597,7 +768,7 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec,
+      device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec,
       null,
       [device_index]);
   }
@@ -606,15 +777,15 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec,
+      device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.mojom.IsolatedXRRuntimeProviderClient.getRemote = function() {
-  let remote = new device.mojom.mojom.IsolatedXRRuntimeProviderClientRemote();
+device.mojom.IsolatedXRRuntimeProviderClient.getRemote = function() {
+  let remote = new device.mojom.IsolatedXRRuntimeProviderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -624,7 +795,7 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDeviceAdded
-device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
+device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.IsolatedXRRuntimeProviderClient.OnDeviceAdded_Params',
@@ -640,7 +811,7 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceRemoved
-device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = {
+device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.IsolatedXRRuntimeProviderClient.OnDeviceRemoved_Params',
@@ -654,7 +825,7 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = 
 };
 
 // ParamsSpec for OnDevicesEnumerated
-device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec = {
+device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.IsolatedXRRuntimeProviderClient.OnDevicesEnumerated_Params',
@@ -667,29 +838,42 @@ device.mojom.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpe
 };
 
 // Legacy compatibility
-device.mojom.mojom.IsolatedXRRuntimeProviderClientPtr = device.mojom.mojom.IsolatedXRRuntimeProviderClientRemote;
-device.mojom.mojom.IsolatedXRRuntimeProviderClientRequest = device.mojom.mojom.IsolatedXRRuntimeProviderClientPendingReceiver;
+device.mojom.IsolatedXRRuntimeProviderClientPtr = device.mojom.IsolatedXRRuntimeProviderClientRemote;
+device.mojom.IsolatedXRRuntimeProviderClientRequest = device.mojom.IsolatedXRRuntimeProviderClientPendingReceiver;
 
 
 // Interface: IsolatedXRRuntimeProvider
-device.mojom.mojom.IsolatedXRRuntimeProvider = {};
+device.mojom.IsolatedXRRuntimeProvider = {};
 
-device.mojom.mojom.IsolatedXRRuntimeProviderPendingReceiver = class {
+device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.IsolatedXRRuntimeProvider_RequestDevices_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.IsolatedXRRuntimeProviderClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.IsolatedXRRuntimeProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.IsolatedXRRuntimeProviderRemote = class {
+device.mojom.IsolatedXRRuntimeProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.IsolatedXRRuntimeProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.IsolatedXRRuntimeProviderPendingReceiver,
+      device.mojom.IsolatedXRRuntimeProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.IsolatedXRRuntimeProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -701,7 +885,7 @@ device.mojom.mojom.IsolatedXRRuntimeProviderRemote = class {
   }
 };
 
-device.mojom.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
+device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -710,15 +894,15 @@ device.mojom.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec,
+      device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-device.mojom.mojom.IsolatedXRRuntimeProvider.getRemote = function() {
-  let remote = new device.mojom.mojom.IsolatedXRRuntimeProviderRemote();
+device.mojom.IsolatedXRRuntimeProvider.getRemote = function() {
+  let remote = new device.mojom.IsolatedXRRuntimeProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -728,7 +912,7 @@ device.mojom.mojom.IsolatedXRRuntimeProvider.getRemote = function() {
 };
 
 // ParamsSpec for RequestDevices
-device.mojom.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
+device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.IsolatedXRRuntimeProvider.RequestDevices_Params',
@@ -742,29 +926,56 @@ device.mojom.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.IsolatedXRRuntimeProviderPtr = device.mojom.mojom.IsolatedXRRuntimeProviderRemote;
-device.mojom.mojom.IsolatedXRRuntimeProviderRequest = device.mojom.mojom.IsolatedXRRuntimeProviderPendingReceiver;
+device.mojom.IsolatedXRRuntimeProviderPtr = device.mojom.IsolatedXRRuntimeProviderRemote;
+device.mojom.IsolatedXRRuntimeProviderRequest = device.mojom.IsolatedXRRuntimeProviderPendingReceiver;
 
 
 // Interface: XRDeviceService
-device.mojom.mojom.XRDeviceService = {};
+device.mojom.XRDeviceService = {};
 
-device.mojom.mojom.XRDeviceServicePendingReceiver = class {
+device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDeviceService_BindRuntimeProvider_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.IsolatedXRRuntimeProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.XRDeviceServiceHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDeviceService_BindTestHook_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device_test.mojom.XRServiceTestHookRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.XRDeviceServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.XRDeviceServiceRemote = class {
+device.mojom.XRDeviceServiceRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRDeviceService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.XRDeviceServicePendingReceiver,
+      device.mojom.XRDeviceServicePendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.XRDeviceServiceRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.XRDeviceServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -776,7 +987,7 @@ device.mojom.mojom.XRDeviceServiceRemote = class {
   }
 };
 
-device.mojom.mojom.XRDeviceServiceRemoteCallHandler = class {
+device.mojom.XRDeviceServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -785,7 +996,7 @@ device.mojom.mojom.XRDeviceServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec,
+      device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec,
       null,
       [receiver, host]);
   }
@@ -794,15 +1005,15 @@ device.mojom.mojom.XRDeviceServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.XRDeviceService_BindTestHook_ParamsSpec,
+      device.mojom.XRDeviceService_BindTestHook_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-device.mojom.mojom.XRDeviceService.getRemote = function() {
-  let remote = new device.mojom.mojom.XRDeviceServiceRemote();
+device.mojom.XRDeviceService.getRemote = function() {
+  let remote = new device.mojom.XRDeviceServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -812,7 +1023,7 @@ device.mojom.mojom.XRDeviceService.getRemote = function() {
 };
 
 // ParamsSpec for BindRuntimeProvider
-device.mojom.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
+device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDeviceService.BindRuntimeProvider_Params',
@@ -827,7 +1038,7 @@ device.mojom.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
 };
 
 // ParamsSpec for BindTestHook
-device.mojom.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
+device.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDeviceService.BindTestHook_Params',
@@ -841,29 +1052,42 @@ device.mojom.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.XRDeviceServicePtr = device.mojom.mojom.XRDeviceServiceRemote;
-device.mojom.mojom.XRDeviceServiceRequest = device.mojom.mojom.XRDeviceServicePendingReceiver;
+device.mojom.XRDeviceServicePtr = device.mojom.XRDeviceServiceRemote;
+device.mojom.XRDeviceServiceRequest = device.mojom.XRDeviceServicePendingReceiver;
 
 
 // Interface: XRDeviceServiceHost
-device.mojom.mojom.XRDeviceServiceHost = {};
+device.mojom.XRDeviceServiceHost = {};
 
-device.mojom.mojom.XRDeviceServiceHostPendingReceiver = class {
+device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDeviceServiceHost_BindGpu_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.GpuRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.XRDeviceServiceHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.XRDeviceServiceHostRemote = class {
+device.mojom.XRDeviceServiceHostRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRDeviceServiceHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.XRDeviceServiceHostPendingReceiver,
+      device.mojom.XRDeviceServiceHostPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.XRDeviceServiceHostRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.XRDeviceServiceHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -875,7 +1099,7 @@ device.mojom.mojom.XRDeviceServiceHostRemote = class {
   }
 };
 
-device.mojom.mojom.XRDeviceServiceHostRemoteCallHandler = class {
+device.mojom.XRDeviceServiceHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -884,15 +1108,15 @@ device.mojom.mojom.XRDeviceServiceHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec,
+      device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-device.mojom.mojom.XRDeviceServiceHost.getRemote = function() {
-  let remote = new device.mojom.mojom.XRDeviceServiceHostRemote();
+device.mojom.XRDeviceServiceHost.getRemote = function() {
+  let remote = new device.mojom.XRDeviceServiceHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -902,7 +1126,7 @@ device.mojom.mojom.XRDeviceServiceHost.getRemote = function() {
 };
 
 // ParamsSpec for BindGpu
-device.mojom.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
+device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDeviceServiceHost.BindGpu_Params',
@@ -916,6 +1140,6 @@ device.mojom.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.XRDeviceServiceHostPtr = device.mojom.mojom.XRDeviceServiceHostRemote;
-device.mojom.mojom.XRDeviceServiceHostRequest = device.mojom.mojom.XRDeviceServiceHostPendingReceiver;
+device.mojom.XRDeviceServiceHostPtr = device.mojom.XRDeviceServiceHostRemote;
+device.mojom.XRDeviceServiceHostRequest = device.mojom.XRDeviceServiceHostPendingReceiver;
 

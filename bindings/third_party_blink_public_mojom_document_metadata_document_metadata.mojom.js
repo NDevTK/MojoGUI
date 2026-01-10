@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: WebPage
-blink.mojom.mojom.WebPageSpec = {
+blink.mojom.WebPageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPage',
@@ -27,24 +27,36 @@ blink.mojom.mojom.WebPageSpec = {
 };
 
 // Interface: DocumentMetadata
-blink.mojom.mojom.DocumentMetadata = {};
+blink.mojom.DocumentMetadata = {};
 
-blink.mojom.mojom.DocumentMetadataPendingReceiver = class {
+blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DocumentMetadata_GetEntities_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DocumentMetadataPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DocumentMetadataRemote = class {
+blink.mojom.DocumentMetadataRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DocumentMetadata';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DocumentMetadataPendingReceiver,
+      blink.mojom.DocumentMetadataPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DocumentMetadataRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DocumentMetadataRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +68,7 @@ blink.mojom.mojom.DocumentMetadataRemote = class {
   }
 };
 
-blink.mojom.mojom.DocumentMetadataRemoteCallHandler = class {
+blink.mojom.DocumentMetadataRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,15 +77,15 @@ blink.mojom.mojom.DocumentMetadataRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DocumentMetadata_GetEntities_ParamsSpec,
-      blink.mojom.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
+      blink.mojom.DocumentMetadata_GetEntities_ParamsSpec,
+      blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.DocumentMetadata.getRemote = function() {
-  let remote = new blink.mojom.mojom.DocumentMetadataRemote();
+blink.mojom.DocumentMetadata.getRemote = function() {
+  let remote = new blink.mojom.DocumentMetadataRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +95,7 @@ blink.mojom.mojom.DocumentMetadata.getRemote = function() {
 };
 
 // ParamsSpec for GetEntities
-blink.mojom.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
+blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DocumentMetadata.GetEntities_Params',
@@ -95,7 +107,7 @@ blink.mojom.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
+blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DocumentMetadata.GetEntities_ResponseParams',
@@ -109,6 +121,6 @@ blink.mojom.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DocumentMetadataPtr = blink.mojom.mojom.DocumentMetadataRemote;
-blink.mojom.mojom.DocumentMetadataRequest = blink.mojom.mojom.DocumentMetadataPendingReceiver;
+blink.mojom.DocumentMetadataPtr = blink.mojom.DocumentMetadataRemote;
+blink.mojom.DocumentMetadataRequest = blink.mojom.DocumentMetadataPendingReceiver;
 

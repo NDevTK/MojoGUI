@@ -10,50 +10,50 @@ cros.mojom = cros.mojom || {};
 
 
 // Enum: CameraEffect
-cros.mojom.mojom.CameraEffect = {
+cros.mojom.CameraEffect = {
   kBackgroundBlur: 0,
   kBackgroundReplace: 1,
   kPortraitRelight: 2,
 };
-cros.mojom.mojom.CameraEffectSpec = { $: mojo.internal.Enum() };
+cros.mojom.CameraEffectSpec = { $: mojo.internal.Enum() };
 
 // Enum: GpuApi
-cros.mojom.mojom.GpuApi = {
+cros.mojom.GpuApi = {
   kOpenCL: 0,
 };
-cros.mojom.mojom.GpuApiSpec = { $: mojo.internal.Enum() };
+cros.mojom.GpuApiSpec = { $: mojo.internal.Enum() };
 
 // Enum: SetEffectResult
-cros.mojom.mojom.SetEffectResult = {
+cros.mojom.SetEffectResult = {
   kError: 0,
 };
-cros.mojom.mojom.SetEffectResultSpec = { $: mojo.internal.Enum() };
+cros.mojom.SetEffectResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: BlurLevel
-cros.mojom.mojom.BlurLevel = {
+cros.mojom.BlurLevel = {
   kLowest: 0,
   kLight: 1,
   kHeavy: 2,
   kMaximum: 3,
 };
-cros.mojom.mojom.BlurLevelSpec = { $: mojo.internal.Enum() };
+cros.mojom.BlurLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: SegmentationModel
-cros.mojom.mojom.SegmentationModel = {
+cros.mojom.SegmentationModel = {
   kAuto: 0,
   kLowerResolution: 1,
 };
-cros.mojom.mojom.SegmentationModelSpec = { $: mojo.internal.Enum() };
+cros.mojom.SegmentationModelSpec = { $: mojo.internal.Enum() };
 
 // Enum: InferenceBackend
-cros.mojom.mojom.InferenceBackend = {
+cros.mojom.InferenceBackend = {
   kGpu: 0,
   kNpu: 1,
 };
-cros.mojom.mojom.InferenceBackendSpec = { $: mojo.internal.Enum() };
+cros.mojom.InferenceBackendSpec = { $: mojo.internal.Enum() };
 
 // Struct: EffectsConfig
-cros.mojom.mojom.EffectsConfigSpec = {
+cros.mojom.EffectsConfigSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.EffectsConfig',

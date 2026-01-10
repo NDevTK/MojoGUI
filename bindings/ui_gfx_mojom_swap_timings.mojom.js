@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: SwapTimings
-gfx.mojom.mojom.SwapTimingsSpec = {
+gfx.mojom.SwapTimingsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.SwapTimings',

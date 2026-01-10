@@ -10,14 +10,14 @@ drivefs.mojom = drivefs.mojom || {};
 
 
 // Enum: CancelUploadMode
-drivefs.mojom.mojom.CancelUploadMode = {
+drivefs.mojom.CancelUploadMode = {
   kTrashAfterCancellation: 0,
   kDeleteAfterCancellation: 1,
 };
-drivefs.mojom.mojom.CancelUploadModeSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.CancelUploadModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DocsOfflineEnableStatus
-drivefs.mojom.mojom.DocsOfflineEnableStatus = {
+drivefs.mojom.DocsOfflineEnableStatus = {
   kSuccess: 0,
   kAlreadyEnabled: 1,
   kUnknownError: 2,
@@ -33,55 +33,55 @@ drivefs.mojom.mojom.DocsOfflineEnableStatus = {
   kNativeMessageClientError: 12,
   kSystemError: 13,
 };
-drivefs.mojom.mojom.DocsOfflineEnableStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.DocsOfflineEnableStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateOrDelete
-drivefs.mojom.mojom.CreateOrDelete = {
+drivefs.mojom.CreateOrDelete = {
   kCreated: 0,
   kDeleted: 1,
 };
-drivefs.mojom.mojom.CreateOrDeleteSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.CreateOrDeleteSpec = { $: mojo.internal.Enum() };
 
 // Enum: CSESupport
-drivefs.mojom.mojom.CSESupport = {
+drivefs.mojom.CSESupport = {
   kListing: 0,
 };
-drivefs.mojom.mojom.CSESupportSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.CSESupportSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessTokenStatus
-drivefs.mojom.mojom.AccessTokenStatus = {
+drivefs.mojom.AccessTokenStatus = {
   kSuccess: 0,
   kTransientError: 1,
   kAuthError: 2,
 };
-drivefs.mojom.mojom.AccessTokenStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.AccessTokenStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: MirrorSyncStatus
-drivefs.mojom.mojom.MirrorSyncStatus = {
+drivefs.mojom.MirrorSyncStatus = {
   kSuccess: 0,
   kFailure: 1,
   kFeatureNotEnabled: 2,
 };
-drivefs.mojom.mojom.MirrorSyncStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.MirrorSyncStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: MirrorPathStatus
-drivefs.mojom.mojom.MirrorPathStatus = {
+drivefs.mojom.MirrorPathStatus = {
   kStart: 0,
   kStop: 1,
 };
-drivefs.mojom.mojom.MirrorPathStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.MirrorPathStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: DialogResult
-drivefs.mojom.mojom.DialogResult = {
+drivefs.mojom.DialogResult = {
   kNotDisplayed: 0,
   kAccept: 1,
   kReject: 2,
   kDismiss: 3,
 };
-drivefs.mojom.mojom.DialogResultSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.DialogResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileError
-drivefs.mojom.mojom.FileError = {
+drivefs.mojom.FileError = {
   kOk: 0,
   kFailed: 1,
   kInUse: 2,
@@ -103,55 +103,55 @@ drivefs.mojom.mojom.FileError = {
   kServiceUnavailable: 18,
   kOkWithMoreResults: 19,
 };
-drivefs.mojom.mojom.FileErrorSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.FileErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-drivefs.mojom.mojom.Type = {
+drivefs.mojom.Type = {
   kCantUploadStorageFull: 0,
   kPinningFailedDiskFull: 1,
   kCantUploadStorageFullOrganization: 2,
   kCantUploadSharedDriveStorageFull: 3,
 };
-drivefs.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-drivefs.mojom.mojom.Type = {
+drivefs.mojom.Type = {
   kEnableDocsOffline: 0,
 };
-drivefs.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-drivefs.mojom.mojom.Type = {
+drivefs.mojom.Type = {
   kFile: 0,
   kHosted: 1,
   kDirectory: 2,
 };
-drivefs.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CanPinStatus
-drivefs.mojom.mojom.CanPinStatus = {
+drivefs.mojom.CanPinStatus = {
   kOk: 0,
   kDisabled: 1,
 };
-drivefs.mojom.mojom.CanPinStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.CanPinStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: LookupStatus
-drivefs.mojom.mojom.LookupStatus = {
+drivefs.mojom.LookupStatus = {
   kOk: 0,
   kNotFound: 1,
   kPermissionDenied: 2,
 };
-drivefs.mojom.mojom.LookupStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.LookupStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ItemEventReason
-drivefs.mojom.mojom.ItemEventReason = {
+drivefs.mojom.ItemEventReason = {
   kTransfer: 0,
   kPin: 1,
 };
-drivefs.mojom.mojom.ItemEventReasonSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.ItemEventReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-drivefs.mojom.mojom.State = {
+drivefs.mojom.State = {
   kQueued: 0,
   kInProgress: 1,
   kCompleted: 2,
@@ -159,67 +159,67 @@ drivefs.mojom.mojom.State = {
   kCancelledAndDeleted: 4,
   kCancelledAndTrashed: 5,
 };
-drivefs.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-drivefs.mojom.mojom.Type = {
+drivefs.mojom.Type = {
   kCreate: 0,
   kDelete: 1,
   kModify: 2,
 };
-drivefs.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: QuerySource
-drivefs.mojom.mojom.QuerySource = {
+drivefs.mojom.QuerySource = {
   kLocalOnly: 0,
   kCloudOnly: 1,
   kLocalAndCloud: 2,
 };
-drivefs.mojom.mojom.QuerySourceSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.QuerySourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: SortField
-drivefs.mojom.mojom.SortField = {
+drivefs.mojom.SortField = {
   kNone: 0,
   kLastModified: 1,
   kLastViewedByMe: 2,
   kFileSize: 3,
   kSharedWithMe: 4,
 };
-drivefs.mojom.mojom.SortFieldSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.SortFieldSpec = { $: mojo.internal.Enum() };
 
 // Enum: SortDirection
-drivefs.mojom.mojom.SortDirection = {
+drivefs.mojom.SortDirection = {
   kAscending: 0,
   kDescending: 1,
 };
-drivefs.mojom.mojom.SortDirectionSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.SortDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: DateComparisonOperator
-drivefs.mojom.mojom.DateComparisonOperator = {
+drivefs.mojom.DateComparisonOperator = {
   kLessOrEqual: 0,
   kLessThan: 1,
   kEqual: 2,
   kGreaterThan: 3,
   kGreaterOrEqual: 4,
 };
-drivefs.mojom.mojom.DateComparisonOperatorSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.DateComparisonOperatorSpec = { $: mojo.internal.Enum() };
 
 // Enum: QueryKind
-drivefs.mojom.mojom.QueryKind = {
+drivefs.mojom.QueryKind = {
   kRegular: 0,
   kQuickAccess: 1,
 };
-drivefs.mojom.mojom.QueryKindSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.QueryKindSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserType
-drivefs.mojom.mojom.UserType = {
+drivefs.mojom.UserType = {
   kUnmanaged: 0,
   kOrganization: 1,
 };
-drivefs.mojom.mojom.UserTypeSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.UserTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetError
-drivefs.mojom.mojom.NetError = {
+drivefs.mojom.NetError = {
   kOk: 0,
   kIOPending: 1,
   kFailed: 2,
@@ -232,19 +232,19 @@ drivefs.mojom.mojom.NetError = {
   kInternetDisconnected: 9,
   kAddressUnreachable: 10,
 };
-drivefs.mojom.mojom.NetErrorSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.NetErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: MirrorItemSyncingStatus
-drivefs.mojom.mojom.MirrorItemSyncingStatus = {
+drivefs.mojom.MirrorItemSyncingStatus = {
   kUnknown: 0,
   kSynced: 1,
   kSyncing: 2,
   kSyncError: 3,
 };
-drivefs.mojom.mojom.MirrorItemSyncingStatusSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.MirrorItemSyncingStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-drivefs.mojom.mojom.Type = {
+drivefs.mojom.Type = {
   kGenericUploadFailure: 0,
   kGenericDownloadFailure: 1,
   kMultipleFailures: 2,
@@ -253,10 +253,10 @@ drivefs.mojom.mojom.Type = {
   kExceedsCloudStorageQuota: 5,
   kExceedsCloudUploadQuota: 6,
 };
-drivefs.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+drivefs.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Union: FilePathOrError
-drivefs.mojom.mojom.FilePathOrErrorSpec = { $: mojo.internal.Union(
+drivefs.mojom.FilePathOrErrorSpec = { $: mojo.internal.Union(
     'drivefs.mojom.FilePathOrError', {
       'error': {
         'ordinal': 0,
@@ -270,7 +270,7 @@ drivefs.mojom.mojom.FilePathOrErrorSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DriveFsConfiguration
-drivefs.mojom.mojom.DriveFsConfigurationSpec = {
+drivefs.mojom.DriveFsConfigurationSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsConfiguration',
@@ -292,7 +292,7 @@ drivefs.mojom.mojom.DriveFsConfigurationSpec = {
 };
 
 // Struct: AccessToken
-drivefs.mojom.mojom.AccessTokenSpec = {
+drivefs.mojom.AccessTokenSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.AccessToken',
@@ -307,7 +307,7 @@ drivefs.mojom.mojom.AccessTokenSpec = {
 };
 
 // Struct: DriveError
-drivefs.mojom.mojom.DriveErrorSpec = {
+drivefs.mojom.DriveErrorSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveError',
@@ -321,7 +321,7 @@ drivefs.mojom.mojom.DriveErrorSpec = {
 };
 
 // Struct: DialogReason
-drivefs.mojom.mojom.DialogReasonSpec = {
+drivefs.mojom.DialogReasonSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DialogReason',
@@ -335,7 +335,7 @@ drivefs.mojom.mojom.DialogReasonSpec = {
 };
 
 // Struct: UserInfo
-drivefs.mojom.mojom.UserInfoSpec = {
+drivefs.mojom.UserInfoSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.UserInfo',
@@ -349,7 +349,7 @@ drivefs.mojom.mojom.UserInfoSpec = {
 };
 
 // Struct: FileMetadata
-drivefs.mojom.mojom.FileMetadataSpec = {
+drivefs.mojom.FileMetadataSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.FileMetadata',
@@ -363,7 +363,7 @@ drivefs.mojom.mojom.FileMetadataSpec = {
 };
 
 // Struct: ShortcutDetails
-drivefs.mojom.mojom.ShortcutDetailsSpec = {
+drivefs.mojom.ShortcutDetailsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ShortcutDetails',
@@ -378,7 +378,7 @@ drivefs.mojom.mojom.ShortcutDetailsSpec = {
 };
 
 // Struct: ImageMetadata
-drivefs.mojom.mojom.ImageMetadataSpec = {
+drivefs.mojom.ImageMetadataSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ImageMetadata',
@@ -394,7 +394,7 @@ drivefs.mojom.mojom.ImageMetadataSpec = {
 };
 
 // Struct: Capabilities
-drivefs.mojom.mojom.CapabilitiesSpec = {
+drivefs.mojom.CapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.Capabilities',
@@ -412,7 +412,7 @@ drivefs.mojom.mojom.CapabilitiesSpec = {
 };
 
 // Struct: FolderFeature
-drivefs.mojom.mojom.FolderFeatureSpec = {
+drivefs.mojom.FolderFeatureSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.FolderFeature',
@@ -428,7 +428,7 @@ drivefs.mojom.mojom.FolderFeatureSpec = {
 };
 
 // Struct: QuickAccess
-drivefs.mojom.mojom.QuickAccessSpec = {
+drivefs.mojom.QuickAccessSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.QuickAccess',
@@ -442,7 +442,7 @@ drivefs.mojom.mojom.QuickAccessSpec = {
 };
 
 // Struct: SharedDriveQuota
-drivefs.mojom.mojom.SharedDriveQuotaSpec = {
+drivefs.mojom.SharedDriveQuotaSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.SharedDriveQuota',
@@ -457,7 +457,7 @@ drivefs.mojom.mojom.SharedDriveQuotaSpec = {
 };
 
 // Struct: ItemEvent
-drivefs.mojom.mojom.ItemEventSpec = {
+drivefs.mojom.ItemEventSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ItemEvent',
@@ -471,7 +471,7 @@ drivefs.mojom.mojom.ItemEventSpec = {
 };
 
 // Struct: ProgressEvent
-drivefs.mojom.mojom.ProgressEventSpec = {
+drivefs.mojom.ProgressEventSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ProgressEvent',
@@ -488,7 +488,7 @@ drivefs.mojom.mojom.ProgressEventSpec = {
 };
 
 // Struct: SyncingStatus
-drivefs.mojom.mojom.SyncingStatusSpec = {
+drivefs.mojom.SyncingStatusSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.SyncingStatus',
@@ -502,7 +502,7 @@ drivefs.mojom.mojom.SyncingStatusSpec = {
 };
 
 // Struct: FileChange
-drivefs.mojom.mojom.FileChangeSpec = {
+drivefs.mojom.FileChangeSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.FileChange',
@@ -517,7 +517,7 @@ drivefs.mojom.mojom.FileChangeSpec = {
 };
 
 // Struct: QueryParameters
-drivefs.mojom.mojom.QueryParametersSpec = {
+drivefs.mojom.QueryParametersSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.QueryParameters',
@@ -531,7 +531,7 @@ drivefs.mojom.mojom.QueryParametersSpec = {
 };
 
 // Struct: QueryItem
-drivefs.mojom.mojom.QueryItemSpec = {
+drivefs.mojom.QueryItemSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.QueryItem',
@@ -546,7 +546,7 @@ drivefs.mojom.mojom.QueryItemSpec = {
 };
 
 // Struct: FetchChangeLogOptions
-drivefs.mojom.mojom.FetchChangeLogOptionsSpec = {
+drivefs.mojom.FetchChangeLogOptionsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.FetchChangeLogOptions',
@@ -561,7 +561,7 @@ drivefs.mojom.mojom.FetchChangeLogOptionsSpec = {
 };
 
 // Struct: PooledQuotaUsage
-drivefs.mojom.mojom.PooledQuotaUsageSpec = {
+drivefs.mojom.PooledQuotaUsageSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.PooledQuotaUsage',
@@ -579,7 +579,7 @@ drivefs.mojom.mojom.PooledQuotaUsageSpec = {
 };
 
 // Struct: QuotaUsage
-drivefs.mojom.mojom.QuotaUsageSpec = {
+drivefs.mojom.QuotaUsageSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.QuotaUsage',
@@ -594,7 +594,7 @@ drivefs.mojom.mojom.QuotaUsageSpec = {
 };
 
 // Struct: HttpHeader
-drivefs.mojom.mojom.HttpHeaderSpec = {
+drivefs.mojom.HttpHeaderSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpHeader',
@@ -609,7 +609,7 @@ drivefs.mojom.mojom.HttpHeaderSpec = {
 };
 
 // Struct: HttpRequest
-drivefs.mojom.mojom.HttpRequestSpec = {
+drivefs.mojom.HttpRequestSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpRequest',
@@ -626,7 +626,7 @@ drivefs.mojom.mojom.HttpRequestSpec = {
 };
 
 // Struct: HttpResponse
-drivefs.mojom.mojom.HttpResponseSpec = {
+drivefs.mojom.HttpResponseSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpResponse',
@@ -641,7 +641,7 @@ drivefs.mojom.mojom.HttpResponseSpec = {
 };
 
 // Struct: HttpCompletionStatus
-drivefs.mojom.mojom.HttpCompletionStatusSpec = {
+drivefs.mojom.HttpCompletionStatusSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpCompletionStatus',
@@ -656,7 +656,7 @@ drivefs.mojom.mojom.HttpCompletionStatusSpec = {
 };
 
 // Struct: DocsOfflineStats
-drivefs.mojom.mojom.DocsOfflineStatsSpec = {
+drivefs.mojom.DocsOfflineStatsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DocsOfflineStats',
@@ -671,7 +671,7 @@ drivefs.mojom.mojom.DocsOfflineStatsSpec = {
 };
 
 // Struct: MirrorSyncError
-drivefs.mojom.mojom.MirrorSyncErrorSpec = {
+drivefs.mojom.MirrorSyncErrorSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.MirrorSyncError',
@@ -685,7 +685,7 @@ drivefs.mojom.mojom.MirrorSyncErrorSpec = {
 };
 
 // Struct: MirrorSyncErrorList
-drivefs.mojom.mojom.MirrorSyncErrorListSpec = {
+drivefs.mojom.MirrorSyncErrorListSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.MirrorSyncErrorList',
@@ -699,24 +699,39 @@ drivefs.mojom.mojom.MirrorSyncErrorListSpec = {
 };
 
 // Interface: DriveFsBootstrap
-drivefs.mojom.mojom.DriveFsBootstrap = {};
+drivefs.mojom.DriveFsBootstrap = {};
 
-drivefs.mojom.mojom.DriveFsBootstrapPendingReceiver = class {
+drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsBootstrap_Init_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.DriveFsConfigurationSpec, nullable: false, minVersion: 0 },
+        { name: 'drive_fs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.DriveFsRemote), nullable: false, minVersion: 0 },
+        { name: 'delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.DriveFsDelegateRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.mojom.DriveFsBootstrapRemote = class {
+drivefs.mojom.DriveFsBootstrapRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.DriveFsBootstrap';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.mojom.DriveFsBootstrapPendingReceiver,
+      drivefs.mojom.DriveFsBootstrapPendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.mojom.DriveFsBootstrapRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.DriveFsBootstrapRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -728,7 +743,7 @@ drivefs.mojom.mojom.DriveFsBootstrapRemote = class {
   }
 };
 
-drivefs.mojom.mojom.DriveFsBootstrapRemoteCallHandler = class {
+drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -737,15 +752,15 @@ drivefs.mojom.mojom.DriveFsBootstrapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.mojom.DriveFsBootstrap_Init_ParamsSpec,
+      drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec,
       null,
       [config, drive_fs, delegate]);
   }
 
 };
 
-drivefs.mojom.mojom.DriveFsBootstrap.getRemote = function() {
-  let remote = new drivefs.mojom.mojom.DriveFsBootstrapRemote();
+drivefs.mojom.DriveFsBootstrap.getRemote = function() {
+  let remote = new drivefs.mojom.DriveFsBootstrapRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -755,7 +770,7 @@ drivefs.mojom.mojom.DriveFsBootstrap.getRemote = function() {
 };
 
 // ParamsSpec for Init
-drivefs.mojom.mojom.DriveFsBootstrap_Init_ParamsSpec = {
+drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsBootstrap.Init_Params',
@@ -771,29 +786,508 @@ drivefs.mojom.mojom.DriveFsBootstrap_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-drivefs.mojom.mojom.DriveFsBootstrapPtr = drivefs.mojom.mojom.DriveFsBootstrapRemote;
-drivefs.mojom.mojom.DriveFsBootstrapRequest = drivefs.mojom.mojom.DriveFsBootstrapPendingReceiver;
+drivefs.mojom.DriveFsBootstrapPtr = drivefs.mojom.DriveFsBootstrapRemote;
+drivefs.mojom.DriveFsBootstrapRequest = drivefs.mojom.DriveFsBootstrapPendingReceiver;
 
 
 // Interface: DriveFs
-drivefs.mojom.mojom.DriveFs = {};
+drivefs.mojom.DriveFs = {};
 
-drivefs.mojom.mojom.DriveFsPendingReceiver = class {
+drivefs.mojom.DriveFs_GetMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetMetadata_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_SetPinned_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_SetPinned_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_UpdateNetworkState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pause_syncing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_offline', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_ResetCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_ResetCache_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetThumbnail_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'crop_to_square', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_CopyFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_CopyFile_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_StartSearchQuery_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.SearchQueryRemote), nullable: false, minVersion: 0 },
+        { name: 'query_params', packedOffset: 8, packedBitOffset: 0, type: drivefs.mojom.QueryParametersSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_FetchAllChangeLogs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_FetchChangeLog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(drivefs.mojom.FetchChangeLogOptionsSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_SendNativeMessageRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_SetStartupArguments_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'arguments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetStartupArguments_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_SetTracingEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_SetNetworkingEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_ForcePauseSyncing_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_DumpAccountSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_LoadAccountSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_CreateNativeHostSession_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.NativeMessagingHostRemote), nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.NativeMessagingPortRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_LocateFilesByItemIds_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetQuotaUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_ToggleMirroring_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_ToggleSyncForPath_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: drivefs.mojom.MirrorPathStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetSyncingPaths_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_PollHostedFilePinStates_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetPooledQuotaUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_SetPinnedByStableId_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'stable_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetMetadataByStableId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stable_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_CancelUploadByPath_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'cancel_mode', packedOffset: 8, packedBitOffset: 0, type: drivefs.mojom.CancelUploadModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_SetDocsOfflineEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_ClearOfflineFiles_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_ImmediatelyUpload_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_UpdateFromPairedDoc_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetItemFromCloudStore_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetDocsOfflineStats_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.mojom.DriveFsRemote = class {
+drivefs.mojom.DriveFsRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.DriveFs';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.mojom.DriveFsPendingReceiver,
+      drivefs.mojom.DriveFsPendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.mojom.DriveFsRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.DriveFsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -805,7 +1299,7 @@ drivefs.mojom.mojom.DriveFsRemote = class {
   }
 };
 
-drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
+drivefs.mojom.DriveFsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -814,8 +1308,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetMetadata_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetMetadata_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetMetadata_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec,
       [path]);
   }
 
@@ -823,8 +1317,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      drivefs.mojom.mojom.DriveFs_SetPinned_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_SetPinned_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_SetPinned_ParamsSpec,
+      drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec,
       [path, pinned]);
   }
 
@@ -832,7 +1326,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      drivefs.mojom.mojom.DriveFs_UpdateNetworkState_ParamsSpec,
+      drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec,
       null,
       [pause_syncing, is_offline]);
   }
@@ -841,8 +1335,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      drivefs.mojom.mojom.DriveFs_ResetCache_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_ResetCache_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_ResetCache_ParamsSpec,
+      drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec,
       []);
   }
 
@@ -850,8 +1344,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetThumbnail_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetThumbnail_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec,
+      drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec,
       [path, crop_to_square]);
   }
 
@@ -859,8 +1353,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      drivefs.mojom.mojom.DriveFs_CopyFile_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_CopyFile_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_CopyFile_ParamsSpec,
+      drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec,
       [source, target]);
   }
 
@@ -868,7 +1362,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      drivefs.mojom.mojom.DriveFs_StartSearchQuery_ParamsSpec,
+      drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec,
       null,
       [query, query_params]);
   }
@@ -877,7 +1371,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      drivefs.mojom.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec,
+      drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec,
       null,
       []);
   }
@@ -886,7 +1380,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      drivefs.mojom.mojom.DriveFs_FetchChangeLog_ParamsSpec,
+      drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec,
       null,
       [options]);
   }
@@ -895,8 +1389,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      drivefs.mojom.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec,
+      drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec,
       [request]);
   }
 
@@ -904,8 +1398,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      drivefs.mojom.mojom.DriveFs_SetStartupArguments_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec,
+      drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec,
       [arguments]);
   }
 
@@ -913,8 +1407,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetStartupArguments_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec,
+      drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec,
       []);
   }
 
@@ -922,7 +1416,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      drivefs.mojom.mojom.DriveFs_SetTracingEnabled_ParamsSpec,
+      drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -931,7 +1425,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      drivefs.mojom.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec,
+      drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -940,7 +1434,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      drivefs.mojom.mojom.DriveFs_ForcePauseSyncing_ParamsSpec,
+      drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec,
       null,
       [enable]);
   }
@@ -949,7 +1443,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      drivefs.mojom.mojom.DriveFs_DumpAccountSettings_ParamsSpec,
+      drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec,
       null,
       []);
   }
@@ -958,7 +1452,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      drivefs.mojom.mojom.DriveFs_LoadAccountSettings_ParamsSpec,
+      drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec,
       null,
       []);
   }
@@ -967,7 +1461,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      drivefs.mojom.mojom.DriveFs_CreateNativeHostSession_ParamsSpec,
+      drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec,
       null,
       [params, host, port]);
   }
@@ -976,8 +1470,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      drivefs.mojom.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec,
+      drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec,
       [item_ids]);
   }
 
@@ -985,8 +1479,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetQuotaUsage_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec,
+      drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec,
       []);
   }
 
@@ -994,8 +1488,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      drivefs.mojom.mojom.DriveFs_ToggleMirroring_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec,
+      drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec,
       [enabled]);
   }
 
@@ -1003,8 +1497,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      drivefs.mojom.mojom.DriveFs_ToggleSyncForPath_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec,
+      drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec,
       [path, status]);
   }
 
@@ -1012,8 +1506,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetSyncingPaths_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec,
+      drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec,
       []);
   }
 
@@ -1021,7 +1515,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      drivefs.mojom.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec,
+      drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec,
       null,
       []);
   }
@@ -1030,8 +1524,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec,
+      drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec,
       []);
   }
 
@@ -1039,8 +1533,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      drivefs.mojom.mojom.DriveFs_SetPinnedByStableId_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec,
+      drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec,
       [stable_id, pinned]);
   }
 
@@ -1048,8 +1542,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetMetadataByStableId_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec,
       [stable_id]);
   }
 
@@ -1057,7 +1551,7 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      drivefs.mojom.mojom.DriveFs_CancelUploadByPath_ParamsSpec,
+      drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec,
       null,
       [path, cancel_mode]);
   }
@@ -1066,8 +1560,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      drivefs.mojom.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec,
+      drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec,
       [enabled]);
   }
 
@@ -1075,8 +1569,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec,
+      drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec,
       []);
   }
 
@@ -1084,8 +1578,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      drivefs.mojom.mojom.DriveFs_ClearOfflineFiles_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec,
+      drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec,
       []);
   }
 
@@ -1093,8 +1587,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      drivefs.mojom.mojom.DriveFs_ImmediatelyUpload_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec,
+      drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec,
       [path]);
   }
 
@@ -1102,8 +1596,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      drivefs.mojom.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec,
+      drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec,
       [path]);
   }
 
@@ -1111,8 +1605,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec,
+      drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec,
       [path]);
   }
 
@@ -1120,8 +1614,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec,
+      drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec,
       []);
   }
 
@@ -1129,8 +1623,8 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -1138,15 +1632,15 @@ drivefs.mojom.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec,
-      drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-drivefs.mojom.mojom.DriveFs.getRemote = function() {
-  let remote = new drivefs.mojom.mojom.DriveFsRemote();
+drivefs.mojom.DriveFs.getRemote = function() {
+  let remote = new drivefs.mojom.DriveFsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1156,7 +1650,7 @@ drivefs.mojom.mojom.DriveFs.getRemote = function() {
 };
 
 // ParamsSpec for GetMetadata
-drivefs.mojom.mojom.DriveFs_GetMetadata_ParamsSpec = {
+drivefs.mojom.DriveFs_GetMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMetadata_Params',
@@ -1169,7 +1663,7 @@ drivefs.mojom.mojom.DriveFs_GetMetadata_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetMetadata_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMetadata_ResponseParams',
@@ -1184,7 +1678,7 @@ drivefs.mojom.mojom.DriveFs_GetMetadata_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetPinned
-drivefs.mojom.mojom.DriveFs_SetPinned_ParamsSpec = {
+drivefs.mojom.DriveFs_SetPinned_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetPinned_Params',
@@ -1198,7 +1692,7 @@ drivefs.mojom.mojom.DriveFs_SetPinned_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_SetPinned_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetPinned_ResponseParams',
@@ -1212,7 +1706,7 @@ drivefs.mojom.mojom.DriveFs_SetPinned_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpdateNetworkState
-drivefs.mojom.mojom.DriveFs_UpdateNetworkState_ParamsSpec = {
+drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.UpdateNetworkState_Params',
@@ -1227,7 +1721,7 @@ drivefs.mojom.mojom.DriveFs_UpdateNetworkState_ParamsSpec = {
 };
 
 // ParamsSpec for ResetCache
-drivefs.mojom.mojom.DriveFs_ResetCache_ParamsSpec = {
+drivefs.mojom.DriveFs_ResetCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ResetCache_Params',
@@ -1239,7 +1733,7 @@ drivefs.mojom.mojom.DriveFs_ResetCache_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_ResetCache_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ResetCache_ResponseParams',
@@ -1253,7 +1747,7 @@ drivefs.mojom.mojom.DriveFs_ResetCache_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetThumbnail
-drivefs.mojom.mojom.DriveFs_GetThumbnail_ParamsSpec = {
+drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetThumbnail_Params',
@@ -1267,7 +1761,7 @@ drivefs.mojom.mojom.DriveFs_GetThumbnail_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetThumbnail_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetThumbnail_ResponseParams',
@@ -1281,7 +1775,7 @@ drivefs.mojom.mojom.DriveFs_GetThumbnail_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CopyFile
-drivefs.mojom.mojom.DriveFs_CopyFile_ParamsSpec = {
+drivefs.mojom.DriveFs_CopyFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.CopyFile_Params',
@@ -1295,7 +1789,7 @@ drivefs.mojom.mojom.DriveFs_CopyFile_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_CopyFile_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.CopyFile_ResponseParams',
@@ -1309,7 +1803,7 @@ drivefs.mojom.mojom.DriveFs_CopyFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartSearchQuery
-drivefs.mojom.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
+drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.StartSearchQuery_Params',
@@ -1324,7 +1818,7 @@ drivefs.mojom.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
 };
 
 // ParamsSpec for FetchAllChangeLogs
-drivefs.mojom.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec = {
+drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.FetchAllChangeLogs_Params',
@@ -1337,7 +1831,7 @@ drivefs.mojom.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec = {
 };
 
 // ParamsSpec for FetchChangeLog
-drivefs.mojom.mojom.DriveFs_FetchChangeLog_ParamsSpec = {
+drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.FetchChangeLog_Params',
@@ -1351,7 +1845,7 @@ drivefs.mojom.mojom.DriveFs_FetchChangeLog_ParamsSpec = {
 };
 
 // ParamsSpec for SendNativeMessageRequest
-drivefs.mojom.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec = {
+drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SendNativeMessageRequest_Params',
@@ -1364,7 +1858,7 @@ drivefs.mojom.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SendNativeMessageRequest_ResponseParams',
@@ -1379,7 +1873,7 @@ drivefs.mojom.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetStartupArguments
-drivefs.mojom.mojom.DriveFs_SetStartupArguments_ParamsSpec = {
+drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetStartupArguments_Params',
@@ -1392,7 +1886,7 @@ drivefs.mojom.mojom.DriveFs_SetStartupArguments_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetStartupArguments_ResponseParams',
@@ -1406,7 +1900,7 @@ drivefs.mojom.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetStartupArguments
-drivefs.mojom.mojom.DriveFs_GetStartupArguments_ParamsSpec = {
+drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetStartupArguments_Params',
@@ -1418,7 +1912,7 @@ drivefs.mojom.mojom.DriveFs_GetStartupArguments_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetStartupArguments_ResponseParams',
@@ -1432,7 +1926,7 @@ drivefs.mojom.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetTracingEnabled
-drivefs.mojom.mojom.DriveFs_SetTracingEnabled_ParamsSpec = {
+drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetTracingEnabled_Params',
@@ -1446,7 +1940,7 @@ drivefs.mojom.mojom.DriveFs_SetTracingEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for SetNetworkingEnabled
-drivefs.mojom.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec = {
+drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetNetworkingEnabled_Params',
@@ -1460,7 +1954,7 @@ drivefs.mojom.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for ForcePauseSyncing
-drivefs.mojom.mojom.DriveFs_ForcePauseSyncing_ParamsSpec = {
+drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ForcePauseSyncing_Params',
@@ -1474,7 +1968,7 @@ drivefs.mojom.mojom.DriveFs_ForcePauseSyncing_ParamsSpec = {
 };
 
 // ParamsSpec for DumpAccountSettings
-drivefs.mojom.mojom.DriveFs_DumpAccountSettings_ParamsSpec = {
+drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.DumpAccountSettings_Params',
@@ -1487,7 +1981,7 @@ drivefs.mojom.mojom.DriveFs_DumpAccountSettings_ParamsSpec = {
 };
 
 // ParamsSpec for LoadAccountSettings
-drivefs.mojom.mojom.DriveFs_LoadAccountSettings_ParamsSpec = {
+drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.LoadAccountSettings_Params',
@@ -1500,7 +1994,7 @@ drivefs.mojom.mojom.DriveFs_LoadAccountSettings_ParamsSpec = {
 };
 
 // ParamsSpec for CreateNativeHostSession
-drivefs.mojom.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
+drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.CreateNativeHostSession_Params',
@@ -1516,7 +2010,7 @@ drivefs.mojom.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
 };
 
 // ParamsSpec for LocateFilesByItemIds
-drivefs.mojom.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec = {
+drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.LocateFilesByItemIds_Params',
@@ -1529,7 +2023,7 @@ drivefs.mojom.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.LocateFilesByItemIds_ResponseParams',
@@ -1543,7 +2037,7 @@ drivefs.mojom.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetQuotaUsage
-drivefs.mojom.mojom.DriveFs_GetQuotaUsage_ParamsSpec = {
+drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetQuotaUsage_Params',
@@ -1555,7 +2049,7 @@ drivefs.mojom.mojom.DriveFs_GetQuotaUsage_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetQuotaUsage_ResponseParams',
@@ -1570,7 +2064,7 @@ drivefs.mojom.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ToggleMirroring
-drivefs.mojom.mojom.DriveFs_ToggleMirroring_ParamsSpec = {
+drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ToggleMirroring_Params',
@@ -1583,7 +2077,7 @@ drivefs.mojom.mojom.DriveFs_ToggleMirroring_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ToggleMirroring_ResponseParams',
@@ -1597,7 +2091,7 @@ drivefs.mojom.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ToggleSyncForPath
-drivefs.mojom.mojom.DriveFs_ToggleSyncForPath_ParamsSpec = {
+drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ToggleSyncForPath_Params',
@@ -1611,7 +2105,7 @@ drivefs.mojom.mojom.DriveFs_ToggleSyncForPath_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ToggleSyncForPath_ResponseParams',
@@ -1625,7 +2119,7 @@ drivefs.mojom.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSyncingPaths
-drivefs.mojom.mojom.DriveFs_GetSyncingPaths_ParamsSpec = {
+drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetSyncingPaths_Params',
@@ -1637,7 +2131,7 @@ drivefs.mojom.mojom.DriveFs_GetSyncingPaths_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetSyncingPaths_ResponseParams',
@@ -1652,7 +2146,7 @@ drivefs.mojom.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PollHostedFilePinStates
-drivefs.mojom.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec = {
+drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.PollHostedFilePinStates_Params',
@@ -1665,7 +2159,7 @@ drivefs.mojom.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec = {
 };
 
 // ParamsSpec for GetPooledQuotaUsage
-drivefs.mojom.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec = {
+drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetPooledQuotaUsage_Params',
@@ -1677,7 +2171,7 @@ drivefs.mojom.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetPooledQuotaUsage_ResponseParams',
@@ -1692,7 +2186,7 @@ drivefs.mojom.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetPinnedByStableId
-drivefs.mojom.mojom.DriveFs_SetPinnedByStableId_ParamsSpec = {
+drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetPinnedByStableId_Params',
@@ -1706,7 +2200,7 @@ drivefs.mojom.mojom.DriveFs_SetPinnedByStableId_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetPinnedByStableId_ResponseParams',
@@ -1720,7 +2214,7 @@ drivefs.mojom.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMetadataByStableId
-drivefs.mojom.mojom.DriveFs_GetMetadataByStableId_ParamsSpec = {
+drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMetadataByStableId_Params',
@@ -1733,7 +2227,7 @@ drivefs.mojom.mojom.DriveFs_GetMetadataByStableId_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMetadataByStableId_ResponseParams',
@@ -1748,7 +2242,7 @@ drivefs.mojom.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelUploadByPath
-drivefs.mojom.mojom.DriveFs_CancelUploadByPath_ParamsSpec = {
+drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.CancelUploadByPath_Params',
@@ -1763,7 +2257,7 @@ drivefs.mojom.mojom.DriveFs_CancelUploadByPath_ParamsSpec = {
 };
 
 // ParamsSpec for SetDocsOfflineEnabled
-drivefs.mojom.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec = {
+drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetDocsOfflineEnabled_Params',
@@ -1776,7 +2270,7 @@ drivefs.mojom.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.SetDocsOfflineEnabled_ResponseParams',
@@ -1791,7 +2285,7 @@ drivefs.mojom.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetOfflineFilesSpaceUsage
-drivefs.mojom.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec = {
+drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetOfflineFilesSpaceUsage_Params',
@@ -1803,7 +2297,7 @@ drivefs.mojom.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetOfflineFilesSpaceUsage_ResponseParams',
@@ -1818,7 +2312,7 @@ drivefs.mojom.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ClearOfflineFiles
-drivefs.mojom.mojom.DriveFs_ClearOfflineFiles_ParamsSpec = {
+drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ClearOfflineFiles_Params',
@@ -1830,7 +2324,7 @@ drivefs.mojom.mojom.DriveFs_ClearOfflineFiles_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ClearOfflineFiles_ResponseParams',
@@ -1844,7 +2338,7 @@ drivefs.mojom.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ImmediatelyUpload
-drivefs.mojom.mojom.DriveFs_ImmediatelyUpload_ParamsSpec = {
+drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ImmediatelyUpload_Params',
@@ -1857,7 +2351,7 @@ drivefs.mojom.mojom.DriveFs_ImmediatelyUpload_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.ImmediatelyUpload_ResponseParams',
@@ -1871,7 +2365,7 @@ drivefs.mojom.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpdateFromPairedDoc
-drivefs.mojom.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec = {
+drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.UpdateFromPairedDoc_Params',
@@ -1884,7 +2378,7 @@ drivefs.mojom.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.UpdateFromPairedDoc_ResponseParams',
@@ -1898,7 +2392,7 @@ drivefs.mojom.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetItemFromCloudStore
-drivefs.mojom.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec = {
+drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetItemFromCloudStore_Params',
@@ -1911,7 +2405,7 @@ drivefs.mojom.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetItemFromCloudStore_ResponseParams',
@@ -1925,7 +2419,7 @@ drivefs.mojom.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDocsOfflineStats
-drivefs.mojom.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec = {
+drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetDocsOfflineStats_Params',
@@ -1937,7 +2431,7 @@ drivefs.mojom.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetDocsOfflineStats_ResponseParams',
@@ -1952,7 +2446,7 @@ drivefs.mojom.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMirrorSyncStatusForFile
-drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec = {
+drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMirrorSyncStatusForFile_Params',
@@ -1965,7 +2459,7 @@ drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMirrorSyncStatusForFile_ResponseParams',
@@ -1979,7 +2473,7 @@ drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMirrorSyncStatusForDirectory
-drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec = {
+drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMirrorSyncStatusForDirectory_Params',
@@ -1992,7 +2486,7 @@ drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec = {
+drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.GetMirrorSyncStatusForDirectory_ResponseParams',
@@ -2006,29 +2500,294 @@ drivefs.mojom.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-drivefs.mojom.mojom.DriveFsPtr = drivefs.mojom.mojom.DriveFsRemote;
-drivefs.mojom.mojom.DriveFsRequest = drivefs.mojom.mojom.DriveFsPendingReceiver;
+drivefs.mojom.DriveFsPtr = drivefs.mojom.DriveFsRemote;
+drivefs.mojom.DriveFsRequest = drivefs.mojom.DriveFsPendingReceiver;
 
 
 // Interface: DriveFsDelegate
-drivefs.mojom.mojom.DriveFsDelegate = {};
+drivefs.mojom.DriveFsDelegate = {};
 
-drivefs.mojom.mojom.DriveFsDelegatePendingReceiver = class {
+drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_GetAccessToken_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnMounted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnMountFailed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'retry_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnUnmounted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'retry_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.SyncingStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnFilesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(drivefs.mojom.FileChangeSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.DriveErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'team_drive_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'team_drive_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'change_type', packedOffset: 8, packedBitOffset: 0, type: drivefs.mojom.CreateOrDeleteSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnHeartbeat_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_ConnectToExtension_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.NativeMessagingPortRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.NativeMessagingHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.DialogReasonSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.HttpRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.HttpDelegateRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_GetMachineRootID_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_PersistMachineRootID_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'doc_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.SyncingStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnItemProgress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'progress_event', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ProgressEventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnNotificationReceived_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.DriveFsNotificationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error_list', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.MirrorSyncErrorListSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.DriveFsDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.mojom.DriveFsDelegateRemote = class {
+drivefs.mojom.DriveFsDelegateRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.DriveFsDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.mojom.DriveFsDelegatePendingReceiver,
+      drivefs.mojom.DriveFsDelegatePendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.DriveFsDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2040,7 +2799,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemote = class {
   }
 };
 
-drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
+drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2049,8 +2808,8 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec,
-      drivefs.mojom.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec,
       [client_id, app_id, scopes]);
   }
 
@@ -2058,7 +2817,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnMounted_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec,
       null,
       []);
   }
@@ -2067,7 +2826,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec,
       null,
       [retry_delay]);
   }
@@ -2076,7 +2835,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec,
       null,
       [retry_delay]);
   }
@@ -2085,7 +2844,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec,
       null,
       [status]);
   }
@@ -2094,7 +2853,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec,
       null,
       [changes]);
   }
@@ -2103,7 +2862,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnError_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec,
       null,
       [error]);
   }
@@ -2112,7 +2871,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec,
       null,
       [team_drive_ids]);
   }
@@ -2121,7 +2880,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec,
       null,
       [team_drive_id, change_type]);
   }
@@ -2130,7 +2889,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec,
       null,
       []);
   }
@@ -2139,8 +2898,8 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec,
-      drivefs.mojom.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec,
+      drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec,
       [params, port, host]);
   }
 
@@ -2148,8 +2907,8 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec,
-      drivefs.mojom.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec,
+      drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec,
       [reason]);
   }
 
@@ -2157,7 +2916,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec,
       null,
       [request, delegate]);
   }
@@ -2166,8 +2925,8 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec,
-      drivefs.mojom.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec,
       []);
   }
 
@@ -2175,7 +2934,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec,
       null,
       [doc_id]);
   }
@@ -2184,7 +2943,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec,
       null,
       [status]);
   }
@@ -2193,7 +2952,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec,
       null,
       [progress_event]);
   }
@@ -2202,8 +2961,8 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec,
-      drivefs.mojom.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec,
       [client_id, app_id, scopes]);
   }
 
@@ -2211,7 +2970,7 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec,
       null,
       [notification]);
   }
@@ -2220,15 +2979,15 @@ drivefs.mojom.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      drivefs.mojom.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec,
       null,
       [error_list]);
   }
 
 };
 
-drivefs.mojom.mojom.DriveFsDelegate.getRemote = function() {
-  let remote = new drivefs.mojom.mojom.DriveFsDelegateRemote();
+drivefs.mojom.DriveFsDelegate.getRemote = function() {
+  let remote = new drivefs.mojom.DriveFsDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2238,7 +2997,7 @@ drivefs.mojom.mojom.DriveFsDelegate.getRemote = function() {
 };
 
 // ParamsSpec for GetAccessToken
-drivefs.mojom.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.GetAccessToken_Params',
@@ -2253,7 +3012,7 @@ drivefs.mojom.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec = {
+drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.GetAccessToken_ResponseParams',
@@ -2268,7 +3027,7 @@ drivefs.mojom.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnMounted
-drivefs.mojom.mojom.DriveFsDelegate_OnMounted_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnMounted_Params',
@@ -2281,7 +3040,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnMounted_ParamsSpec = {
 };
 
 // ParamsSpec for OnMountFailed
-drivefs.mojom.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnMountFailed_Params',
@@ -2295,7 +3054,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec = {
 };
 
 // ParamsSpec for OnUnmounted
-drivefs.mojom.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnUnmounted_Params',
@@ -2309,7 +3068,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec = {
 };
 
 // ParamsSpec for OnSyncingStatusUpdate
-drivefs.mojom.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnSyncingStatusUpdate_Params',
@@ -2323,7 +3082,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec = {
 };
 
 // ParamsSpec for OnFilesChanged
-drivefs.mojom.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnFilesChanged_Params',
@@ -2337,7 +3096,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-drivefs.mojom.mojom.DriveFsDelegate_OnError_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnError_Params',
@@ -2351,7 +3110,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnError_ParamsSpec = {
 };
 
 // ParamsSpec for OnTeamDrivesListReady
-drivefs.mojom.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnTeamDrivesListReady_Params',
@@ -2365,7 +3124,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnTeamDriveChanged
-drivefs.mojom.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnTeamDriveChanged_Params',
@@ -2380,7 +3139,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnHeartbeat
-drivefs.mojom.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnHeartbeat_Params',
@@ -2393,7 +3152,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec = {
 };
 
 // ParamsSpec for ConnectToExtension
-drivefs.mojom.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.ConnectToExtension_Params',
@@ -2408,7 +3167,7 @@ drivefs.mojom.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec = {
+drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.ConnectToExtension_ResponseParams',
@@ -2422,7 +3181,7 @@ drivefs.mojom.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DisplayConfirmDialog
-drivefs.mojom.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.DisplayConfirmDialog_Params',
@@ -2435,7 +3194,7 @@ drivefs.mojom.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec = {
+drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.DisplayConfirmDialog_ResponseParams',
@@ -2449,7 +3208,7 @@ drivefs.mojom.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExecuteHttpRequest
-drivefs.mojom.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.ExecuteHttpRequest_Params',
@@ -2464,7 +3223,7 @@ drivefs.mojom.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec = {
 };
 
 // ParamsSpec for GetMachineRootID
-drivefs.mojom.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.GetMachineRootID_Params',
@@ -2476,7 +3235,7 @@ drivefs.mojom.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec = {
+drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.GetMachineRootID_ResponseParams',
@@ -2490,7 +3249,7 @@ drivefs.mojom.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PersistMachineRootID
-drivefs.mojom.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.PersistMachineRootID_Params',
@@ -2504,7 +3263,7 @@ drivefs.mojom.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec = {
 };
 
 // ParamsSpec for OnMirrorSyncingStatusUpdate
-drivefs.mojom.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnMirrorSyncingStatusUpdate_Params',
@@ -2518,7 +3277,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec = {
 };
 
 // ParamsSpec for OnItemProgress
-drivefs.mojom.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnItemProgress_Params',
@@ -2532,7 +3291,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec = {
 };
 
 // ParamsSpec for GetAccessTokenWithExpiry
-drivefs.mojom.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.GetAccessTokenWithExpiry_Params',
@@ -2547,7 +3306,7 @@ drivefs.mojom.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec = {
+drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.GetAccessTokenWithExpiry_ResponseParams',
@@ -2562,7 +3321,7 @@ drivefs.mojom.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec 
 };
 
 // ParamsSpec for OnNotificationReceived
-drivefs.mojom.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnNotificationReceived_Params',
@@ -2576,7 +3335,7 @@ drivefs.mojom.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec = {
 };
 
 // ParamsSpec for OnMirrorSyncError
-drivefs.mojom.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec = {
+drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.OnMirrorSyncError_Params',
@@ -2590,29 +3349,41 @@ drivefs.mojom.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec = {
 };
 
 // Legacy compatibility
-drivefs.mojom.mojom.DriveFsDelegatePtr = drivefs.mojom.mojom.DriveFsDelegateRemote;
-drivefs.mojom.mojom.DriveFsDelegateRequest = drivefs.mojom.mojom.DriveFsDelegatePendingReceiver;
+drivefs.mojom.DriveFsDelegatePtr = drivefs.mojom.DriveFsDelegateRemote;
+drivefs.mojom.DriveFsDelegateRequest = drivefs.mojom.DriveFsDelegatePendingReceiver;
 
 
 // Interface: SearchQuery
-drivefs.mojom.mojom.SearchQuery = {};
+drivefs.mojom.SearchQuery = {};
 
-drivefs.mojom.mojom.SearchQueryPendingReceiver = class {
+drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.SearchQuery_GetNextPage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+drivefs.mojom.SearchQueryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.mojom.SearchQueryRemote = class {
+drivefs.mojom.SearchQueryRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.SearchQuery';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.mojom.SearchQueryPendingReceiver,
+      drivefs.mojom.SearchQueryPendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.mojom.SearchQueryRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.SearchQueryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2624,7 +3395,7 @@ drivefs.mojom.mojom.SearchQueryRemote = class {
   }
 };
 
-drivefs.mojom.mojom.SearchQueryRemoteCallHandler = class {
+drivefs.mojom.SearchQueryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2633,15 +3404,15 @@ drivefs.mojom.mojom.SearchQueryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.mojom.SearchQuery_GetNextPage_ParamsSpec,
-      drivefs.mojom.mojom.SearchQuery_GetNextPage_ResponseParamsSpec,
+      drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec,
+      drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec,
       []);
   }
 
 };
 
-drivefs.mojom.mojom.SearchQuery.getRemote = function() {
-  let remote = new drivefs.mojom.mojom.SearchQueryRemote();
+drivefs.mojom.SearchQuery.getRemote = function() {
+  let remote = new drivefs.mojom.SearchQueryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2651,7 +3422,7 @@ drivefs.mojom.mojom.SearchQuery.getRemote = function() {
 };
 
 // ParamsSpec for GetNextPage
-drivefs.mojom.mojom.SearchQuery_GetNextPage_ParamsSpec = {
+drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.SearchQuery.GetNextPage_Params',
@@ -2663,7 +3434,7 @@ drivefs.mojom.mojom.SearchQuery_GetNextPage_ParamsSpec = {
   }
 };
 
-drivefs.mojom.mojom.SearchQuery_GetNextPage_ResponseParamsSpec = {
+drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.SearchQuery.GetNextPage_ResponseParams',
@@ -2678,29 +3449,81 @@ drivefs.mojom.mojom.SearchQuery_GetNextPage_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-drivefs.mojom.mojom.SearchQueryPtr = drivefs.mojom.mojom.SearchQueryRemote;
-drivefs.mojom.mojom.SearchQueryRequest = drivefs.mojom.mojom.SearchQueryPendingReceiver;
+drivefs.mojom.SearchQueryPtr = drivefs.mojom.SearchQueryRemote;
+drivefs.mojom.SearchQueryRequest = drivefs.mojom.SearchQueryPendingReceiver;
 
 
 // Interface: HttpDelegate
-drivefs.mojom.mojom.HttpDelegate = {};
+drivefs.mojom.HttpDelegate = {};
 
-drivefs.mojom.mojom.HttpDelegatePendingReceiver = class {
+drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpDelegate_GetRequestBody_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpDelegate_OnReceiveResponse_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.HttpResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpDelegate_OnReceiveBody_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpDelegate_OnRequestComplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.HttpCompletionStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+drivefs.mojom.HttpDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.mojom.HttpDelegateRemote = class {
+drivefs.mojom.HttpDelegateRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.HttpDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.mojom.HttpDelegatePendingReceiver,
+      drivefs.mojom.HttpDelegatePendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.mojom.HttpDelegateRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.HttpDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2712,7 +3535,7 @@ drivefs.mojom.mojom.HttpDelegateRemote = class {
   }
 };
 
-drivefs.mojom.mojom.HttpDelegateRemoteCallHandler = class {
+drivefs.mojom.HttpDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2721,7 +3544,7 @@ drivefs.mojom.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.mojom.HttpDelegate_GetRequestBody_ParamsSpec,
+      drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec,
       null,
       [request_body]);
   }
@@ -2730,7 +3553,7 @@ drivefs.mojom.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      drivefs.mojom.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec,
+      drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec,
       null,
       [response]);
   }
@@ -2739,7 +3562,7 @@ drivefs.mojom.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      drivefs.mojom.mojom.HttpDelegate_OnReceiveBody_ParamsSpec,
+      drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec,
       null,
       [response_body]);
   }
@@ -2748,15 +3571,15 @@ drivefs.mojom.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      drivefs.mojom.mojom.HttpDelegate_OnRequestComplete_ParamsSpec,
+      drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-drivefs.mojom.mojom.HttpDelegate.getRemote = function() {
-  let remote = new drivefs.mojom.mojom.HttpDelegateRemote();
+drivefs.mojom.HttpDelegate.getRemote = function() {
+  let remote = new drivefs.mojom.HttpDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2766,7 +3589,7 @@ drivefs.mojom.mojom.HttpDelegate.getRemote = function() {
 };
 
 // ParamsSpec for GetRequestBody
-drivefs.mojom.mojom.HttpDelegate_GetRequestBody_ParamsSpec = {
+drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpDelegate.GetRequestBody_Params',
@@ -2780,7 +3603,7 @@ drivefs.mojom.mojom.HttpDelegate_GetRequestBody_ParamsSpec = {
 };
 
 // ParamsSpec for OnReceiveResponse
-drivefs.mojom.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec = {
+drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpDelegate.OnReceiveResponse_Params',
@@ -2794,7 +3617,7 @@ drivefs.mojom.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec = {
 };
 
 // ParamsSpec for OnReceiveBody
-drivefs.mojom.mojom.HttpDelegate_OnReceiveBody_ParamsSpec = {
+drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpDelegate.OnReceiveBody_Params',
@@ -2808,7 +3631,7 @@ drivefs.mojom.mojom.HttpDelegate_OnReceiveBody_ParamsSpec = {
 };
 
 // ParamsSpec for OnRequestComplete
-drivefs.mojom.mojom.HttpDelegate_OnRequestComplete_ParamsSpec = {
+drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpDelegate.OnRequestComplete_Params',
@@ -2822,6 +3645,6 @@ drivefs.mojom.mojom.HttpDelegate_OnRequestComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-drivefs.mojom.mojom.HttpDelegatePtr = drivefs.mojom.mojom.HttpDelegateRemote;
-drivefs.mojom.mojom.HttpDelegateRequest = drivefs.mojom.mojom.HttpDelegatePendingReceiver;
+drivefs.mojom.HttpDelegatePtr = drivefs.mojom.HttpDelegateRemote;
+drivefs.mojom.HttpDelegateRequest = drivefs.mojom.HttpDelegatePendingReceiver;
 

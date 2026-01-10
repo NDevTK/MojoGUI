@@ -7,11 +7,11 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-content.mojom.mojom.sandbox = content.mojom.mojom.sandbox || {};
+content.mojom.sandbox = content.mojom.sandbox || {};
 
 
 // Struct: UtilityConfig
-content.mojom.mojom.sandbox.sandbox.UtilityConfigSpec = {
+content.mojom.sandbox.UtilityConfigSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.sandbox.UtilityConfig',

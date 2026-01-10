@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: ParsedRequestCookie
-network.mojom.mojom.ParsedRequestCookieSpec = {
+network.mojom.ParsedRequestCookieSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ParsedRequestCookie',

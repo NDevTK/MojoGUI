@@ -12,10 +12,10 @@ var url = url || {};
 var url = url || {};
 
 
-blink.mojom.mojom.kPublicKeyCredentialDescriptorListMaxSize = 64;
+blink.mojom.kPublicKeyCredentialDescriptorListMaxSize = 64;
 
 // Enum: AuthenticatorStatus
-blink.mojom.mojom.AuthenticatorStatus = {
+blink.mojom.AuthenticatorStatus = {
   SUCCESS: 0,
   PENDING_REQUEST: 1,
   NOT_ALLOWED_ERROR: 2,
@@ -48,92 +48,92 @@ blink.mojom.mojom.AuthenticatorStatus = {
   IMMEDIATE_NOT_FOUND: 29,
   UNKNOWN_ERROR: 30,
 };
-blink.mojom.mojom.AuthenticatorStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.AuthenticatorStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AuthenticatorTransport
-blink.mojom.mojom.AuthenticatorTransport = {
+blink.mojom.AuthenticatorTransport = {
   USB: 0,
   NFC: 1,
   BLE: 2,
   HYBRID: 3,
   INTERNAL: 4,
 };
-blink.mojom.mojom.AuthenticatorTransportSpec = { $: mojo.internal.Enum() };
+blink.mojom.AuthenticatorTransportSpec = { $: mojo.internal.Enum() };
 
 // Enum: Hint
-blink.mojom.mojom.Hint = {
+blink.mojom.Hint = {
   SECURITY_KEY: 0,
   CLIENT_DEVICE: 1,
   HYBRID: 2,
 };
-blink.mojom.mojom.HintSpec = { $: mojo.internal.Enum() };
+blink.mojom.HintSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserVerificationRequirement
-blink.mojom.mojom.UserVerificationRequirement = {
+blink.mojom.UserVerificationRequirement = {
   REQUIRED: 0,
   PREFERRED: 1,
   DISCOURAGED: 2,
 };
-blink.mojom.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum() };
+blink.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mediation
-blink.mojom.mojom.Mediation = {
+blink.mojom.Mediation = {
   MODAL: 0,
   CONDITIONAL: 1,
   IMMEDIATE: 2,
 };
-blink.mojom.mojom.MediationSpec = { $: mojo.internal.Enum() };
+blink.mojom.MediationSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResidentKeyRequirement
-blink.mojom.mojom.ResidentKeyRequirement = {
+blink.mojom.ResidentKeyRequirement = {
   DISCOURAGED: 0,
   PREFERRED: 1,
   REQUIRED: 2,
 };
-blink.mojom.mojom.ResidentKeyRequirementSpec = { $: mojo.internal.Enum() };
+blink.mojom.ResidentKeyRequirementSpec = { $: mojo.internal.Enum() };
 
 // Enum: AuthenticatorAttachment
-blink.mojom.mojom.AuthenticatorAttachment = {
+blink.mojom.AuthenticatorAttachment = {
   NO_PREFERENCE: 0,
   PLATFORM: 1,
   CROSS_PLATFORM: 2,
 };
-blink.mojom.mojom.AuthenticatorAttachmentSpec = { $: mojo.internal.Enum() };
+blink.mojom.AuthenticatorAttachmentSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProtectionPolicy
-blink.mojom.mojom.ProtectionPolicy = {
+blink.mojom.ProtectionPolicy = {
   UNSPECIFIED: 0,
   NONE: 1,
   UV_OR_CRED_ID_REQUIRED: 2,
   UV_REQUIRED: 3,
 };
-blink.mojom.mojom.ProtectionPolicySpec = { $: mojo.internal.Enum() };
+blink.mojom.ProtectionPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: LargeBlobSupport
-blink.mojom.mojom.LargeBlobSupport = {
+blink.mojom.LargeBlobSupport = {
   NOT_REQUESTED: 0,
   REQUIRED: 1,
   PREFERRED: 2,
 };
-blink.mojom.mojom.LargeBlobSupportSpec = { $: mojo.internal.Enum() };
+blink.mojom.LargeBlobSupportSpec = { $: mojo.internal.Enum() };
 
 // Enum: AttestationConveyancePreference
-blink.mojom.mojom.AttestationConveyancePreference = {
+blink.mojom.AttestationConveyancePreference = {
   NONE: 0,
   INDIRECT: 1,
   DIRECT: 2,
   ENTERPRISE: 3,
 };
-blink.mojom.mojom.AttestationConveyancePreferenceSpec = { $: mojo.internal.Enum() };
+blink.mojom.AttestationConveyancePreferenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: PublicKeyCredentialType
-blink.mojom.mojom.PublicKeyCredentialType = {
+blink.mojom.PublicKeyCredentialType = {
   PUBLIC_KEY: 0,
 };
-blink.mojom.mojom.PublicKeyCredentialTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PublicKeyCredentialTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: GetCredentialResponse
-blink.mojom.mojom.GetCredentialResponseSpec = { $: mojo.internal.Union(
+blink.mojom.GetCredentialResponseSpec = { $: mojo.internal.Union(
     'blink.mojom.GetCredentialResponse', {
       'get_assertion_response': {
         'ordinal': 0,
@@ -147,7 +147,7 @@ blink.mojom.mojom.GetCredentialResponseSpec = { $: mojo.internal.Union(
 };
 
 // Struct: CommonCredentialInfo
-blink.mojom.mojom.CommonCredentialInfoSpec = {
+blink.mojom.CommonCredentialInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CommonCredentialInfo',
@@ -164,7 +164,7 @@ blink.mojom.mojom.CommonCredentialInfoSpec = {
 };
 
 // Struct: UvmEntry
-blink.mojom.mojom.UvmEntrySpec = {
+blink.mojom.UvmEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UvmEntry',
@@ -180,7 +180,7 @@ blink.mojom.mojom.UvmEntrySpec = {
 };
 
 // Struct: SupplementalPubKeysResponse
-blink.mojom.mojom.SupplementalPubKeysResponseSpec = {
+blink.mojom.SupplementalPubKeysResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SupplementalPubKeysResponse',
@@ -194,7 +194,7 @@ blink.mojom.mojom.SupplementalPubKeysResponseSpec = {
 };
 
 // Struct: AuthenticationExtensionsPaymentResponse
-blink.mojom.mojom.AuthenticationExtensionsPaymentResponseSpec = {
+blink.mojom.AuthenticationExtensionsPaymentResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuthenticationExtensionsPaymentResponse',
@@ -208,7 +208,7 @@ blink.mojom.mojom.AuthenticationExtensionsPaymentResponseSpec = {
 };
 
 // Struct: MakeCredentialAuthenticatorResponse
-blink.mojom.mojom.MakeCredentialAuthenticatorResponseSpec = {
+blink.mojom.MakeCredentialAuthenticatorResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MakeCredentialAuthenticatorResponse',
@@ -241,7 +241,7 @@ blink.mojom.mojom.MakeCredentialAuthenticatorResponseSpec = {
 };
 
 // Struct: GetAssertionAuthenticatorResponse
-blink.mojom.mojom.GetAssertionAuthenticatorResponseSpec = {
+blink.mojom.GetAssertionAuthenticatorResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetAssertionAuthenticatorResponse',
@@ -259,7 +259,7 @@ blink.mojom.mojom.GetAssertionAuthenticatorResponseSpec = {
 };
 
 // Struct: AuthenticationExtensionsClientOutputs
-blink.mojom.mojom.AuthenticationExtensionsClientOutputsSpec = {
+blink.mojom.AuthenticationExtensionsClientOutputsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuthenticationExtensionsClientOutputs',
@@ -286,7 +286,7 @@ blink.mojom.mojom.AuthenticationExtensionsClientOutputsSpec = {
 };
 
 // Struct: PublicKeyCredentialRpEntity
-blink.mojom.mojom.PublicKeyCredentialRpEntitySpec = {
+blink.mojom.PublicKeyCredentialRpEntitySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PublicKeyCredentialRpEntity',
@@ -301,7 +301,7 @@ blink.mojom.mojom.PublicKeyCredentialRpEntitySpec = {
 };
 
 // Struct: PublicKeyCredentialUserEntity
-blink.mojom.mojom.PublicKeyCredentialUserEntitySpec = {
+blink.mojom.PublicKeyCredentialUserEntitySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PublicKeyCredentialUserEntity',
@@ -317,7 +317,7 @@ blink.mojom.mojom.PublicKeyCredentialUserEntitySpec = {
 };
 
 // Struct: PublicKeyCredentialParameters
-blink.mojom.mojom.PublicKeyCredentialParametersSpec = {
+blink.mojom.PublicKeyCredentialParametersSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PublicKeyCredentialParameters',
@@ -332,7 +332,7 @@ blink.mojom.mojom.PublicKeyCredentialParametersSpec = {
 };
 
 // Struct: CableAuthentication
-blink.mojom.mojom.CableAuthenticationSpec = {
+blink.mojom.CableAuthenticationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CableAuthentication',
@@ -351,7 +351,7 @@ blink.mojom.mojom.CableAuthenticationSpec = {
 };
 
 // Struct: PRFValues
-blink.mojom.mojom.PRFValuesSpec = {
+blink.mojom.PRFValuesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PRFValues',
@@ -367,7 +367,7 @@ blink.mojom.mojom.PRFValuesSpec = {
 };
 
 // Struct: PaymentOptions
-blink.mojom.mojom.PaymentOptionsSpec = {
+blink.mojom.PaymentOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PaymentOptions',
@@ -386,7 +386,7 @@ blink.mojom.mojom.PaymentOptionsSpec = {
 };
 
 // Struct: PaymentCredentialInstrument
-blink.mojom.mojom.PaymentCredentialInstrumentSpec = {
+blink.mojom.PaymentCredentialInstrumentSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PaymentCredentialInstrument',
@@ -403,7 +403,7 @@ blink.mojom.mojom.PaymentCredentialInstrumentSpec = {
 };
 
 // Struct: ShownPaymentEntityLogo
-blink.mojom.mojom.ShownPaymentEntityLogoSpec = {
+blink.mojom.ShownPaymentEntityLogoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ShownPaymentEntityLogo',
@@ -418,7 +418,7 @@ blink.mojom.mojom.ShownPaymentEntityLogoSpec = {
 };
 
 // Struct: RemoteDesktopClientOverride
-blink.mojom.mojom.RemoteDesktopClientOverrideSpec = {
+blink.mojom.RemoteDesktopClientOverrideSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteDesktopClientOverride',
@@ -433,7 +433,7 @@ blink.mojom.mojom.RemoteDesktopClientOverrideSpec = {
 };
 
 // Struct: SupplementalPubKeysRequest
-blink.mojom.mojom.SupplementalPubKeysRequestSpec = {
+blink.mojom.SupplementalPubKeysRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SupplementalPubKeysRequest',
@@ -450,7 +450,7 @@ blink.mojom.mojom.SupplementalPubKeysRequestSpec = {
 };
 
 // Struct: PublicKeyCredentialRequestOptions
-blink.mojom.mojom.PublicKeyCredentialRequestOptionsSpec = {
+blink.mojom.PublicKeyCredentialRequestOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PublicKeyCredentialRequestOptions',
@@ -471,7 +471,7 @@ blink.mojom.mojom.PublicKeyCredentialRequestOptionsSpec = {
 };
 
 // Struct: AuthenticationExtensionsClientInputs
-blink.mojom.mojom.AuthenticationExtensionsClientInputsSpec = {
+blink.mojom.AuthenticationExtensionsClientInputsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuthenticationExtensionsClientInputs',
@@ -495,7 +495,7 @@ blink.mojom.mojom.AuthenticationExtensionsClientInputsSpec = {
 };
 
 // Struct: GetCredentialOptions
-blink.mojom.mojom.GetCredentialOptionsSpec = {
+blink.mojom.GetCredentialOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetCredentialOptions',
@@ -511,7 +511,7 @@ blink.mojom.mojom.GetCredentialOptionsSpec = {
 };
 
 // Struct: AuthenticatorSelectionCriteria
-blink.mojom.mojom.AuthenticatorSelectionCriteriaSpec = {
+blink.mojom.AuthenticatorSelectionCriteriaSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuthenticatorSelectionCriteria',
@@ -527,7 +527,7 @@ blink.mojom.mojom.AuthenticatorSelectionCriteriaSpec = {
 };
 
 // Struct: PublicKeyCredentialCreationOptions
-blink.mojom.mojom.PublicKeyCredentialCreationOptionsSpec = {
+blink.mojom.PublicKeyCredentialCreationOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PublicKeyCredentialCreationOptions',
@@ -565,7 +565,7 @@ blink.mojom.mojom.PublicKeyCredentialCreationOptionsSpec = {
 };
 
 // Struct: PublicKeyCredentialDescriptor
-blink.mojom.mojom.PublicKeyCredentialDescriptorSpec = {
+blink.mojom.PublicKeyCredentialDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PublicKeyCredentialDescriptor',
@@ -581,7 +581,7 @@ blink.mojom.mojom.PublicKeyCredentialDescriptorSpec = {
 };
 
 // Struct: WebAuthnDOMExceptionDetails
-blink.mojom.mojom.WebAuthnDOMExceptionDetailsSpec = {
+blink.mojom.WebAuthnDOMExceptionDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebAuthnDOMExceptionDetails',
@@ -596,7 +596,7 @@ blink.mojom.mojom.WebAuthnDOMExceptionDetailsSpec = {
 };
 
 // Struct: PublicKeyCredentialReportOptions
-blink.mojom.mojom.PublicKeyCredentialReportOptionsSpec = {
+blink.mojom.PublicKeyCredentialReportOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PublicKeyCredentialReportOptions',
@@ -613,7 +613,7 @@ blink.mojom.mojom.PublicKeyCredentialReportOptionsSpec = {
 };
 
 // Struct: AllAcceptedCredentialsOptions
-blink.mojom.mojom.AllAcceptedCredentialsOptionsSpec = {
+blink.mojom.AllAcceptedCredentialsOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AllAcceptedCredentialsOptions',
@@ -628,7 +628,7 @@ blink.mojom.mojom.AllAcceptedCredentialsOptionsSpec = {
 };
 
 // Struct: CurrentUserDetailsOptions
-blink.mojom.mojom.CurrentUserDetailsOptionsSpec = {
+blink.mojom.CurrentUserDetailsOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CurrentUserDetailsOptions',
@@ -644,7 +644,7 @@ blink.mojom.mojom.CurrentUserDetailsOptionsSpec = {
 };
 
 // Struct: WebAuthnClientCapability
-blink.mojom.mojom.WebAuthnClientCapabilitySpec = {
+blink.mojom.WebAuthnClientCapabilitySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebAuthnClientCapability',
@@ -659,7 +659,7 @@ blink.mojom.mojom.WebAuthnClientCapabilitySpec = {
 };
 
 // Struct: GetAssertionResponse
-blink.mojom.mojom.GetAssertionResponseSpec = {
+blink.mojom.GetAssertionResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetAssertionResponse',
@@ -675,24 +675,111 @@ blink.mojom.mojom.GetAssertionResponseSpec = {
 };
 
 // Interface: Authenticator
-blink.mojom.mojom.Authenticator = {};
+blink.mojom.Authenticator = {};
 
-blink.mojom.mojom.AuthenticatorPendingReceiver = class {
+blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator_MakeCredential_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialCreationOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.Authenticator_GetCredential_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator_GetCredential_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetCredentialOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator_IsConditionalMediationAvailable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.Authenticator_Report_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator_Report_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialReportOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator_GetClientCapabilities_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.Authenticator_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator_Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.AuthenticatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AuthenticatorRemote = class {
+blink.mojom.AuthenticatorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.Authenticator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AuthenticatorPendingReceiver,
+      blink.mojom.AuthenticatorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AuthenticatorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AuthenticatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -704,7 +791,7 @@ blink.mojom.mojom.AuthenticatorRemote = class {
   }
 };
 
-blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
+blink.mojom.AuthenticatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -713,8 +800,8 @@ blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.Authenticator_MakeCredential_ParamsSpec,
-      blink.mojom.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
+      blink.mojom.Authenticator_MakeCredential_ParamsSpec,
+      blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
       [options]);
   }
 
@@ -722,8 +809,8 @@ blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.Authenticator_GetCredential_ParamsSpec,
-      blink.mojom.mojom.Authenticator_GetCredential_ResponseParamsSpec,
+      blink.mojom.Authenticator_GetCredential_ParamsSpec,
+      blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
       [options]);
   }
 
@@ -731,8 +818,8 @@ blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
-      blink.mojom.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
+      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
+      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -740,8 +827,8 @@ blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
-      blink.mojom.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
+      blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
+      blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -749,8 +836,8 @@ blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.Authenticator_Report_ParamsSpec,
-      blink.mojom.mojom.Authenticator_Report_ResponseParamsSpec,
+      blink.mojom.Authenticator_Report_ParamsSpec,
+      blink.mojom.Authenticator_Report_ResponseParamsSpec,
       [options]);
   }
 
@@ -758,8 +845,8 @@ blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
-      blink.mojom.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
+      blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
+      blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
       []);
   }
 
@@ -767,15 +854,15 @@ blink.mojom.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.mojom.Authenticator_Cancel_ParamsSpec,
+      blink.mojom.Authenticator_Cancel_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.Authenticator.getRemote = function() {
-  let remote = new blink.mojom.mojom.AuthenticatorRemote();
+blink.mojom.Authenticator.getRemote = function() {
+  let remote = new blink.mojom.AuthenticatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -785,7 +872,7 @@ blink.mojom.mojom.Authenticator.getRemote = function() {
 };
 
 // ParamsSpec for MakeCredential
-blink.mojom.mojom.Authenticator_MakeCredential_ParamsSpec = {
+blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.MakeCredential_Params',
@@ -798,7 +885,7 @@ blink.mojom.mojom.Authenticator_MakeCredential_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
+blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.MakeCredential_ResponseParams',
@@ -814,7 +901,7 @@ blink.mojom.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCredential
-blink.mojom.mojom.Authenticator_GetCredential_ParamsSpec = {
+blink.mojom.Authenticator_GetCredential_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.GetCredential_Params',
@@ -827,7 +914,7 @@ blink.mojom.mojom.Authenticator_GetCredential_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
+blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.GetCredential_ResponseParams',
@@ -841,7 +928,7 @@ blink.mojom.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsUserVerifyingPlatformAuthenticatorAvailable
-blink.mojom.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
+blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.IsUserVerifyingPlatformAuthenticatorAvailable_Params',
@@ -853,7 +940,7 @@ blink.mojom.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Pa
   }
 };
 
-blink.mojom.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
+blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
@@ -867,7 +954,7 @@ blink.mojom.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Re
 };
 
 // ParamsSpec for IsConditionalMediationAvailable
-blink.mojom.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
+blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.IsConditionalMediationAvailable_Params',
@@ -879,7 +966,7 @@ blink.mojom.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
+blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.IsConditionalMediationAvailable_ResponseParams',
@@ -893,7 +980,7 @@ blink.mojom.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSp
 };
 
 // ParamsSpec for Report
-blink.mojom.mojom.Authenticator_Report_ParamsSpec = {
+blink.mojom.Authenticator_Report_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.Report_Params',
@@ -906,7 +993,7 @@ blink.mojom.mojom.Authenticator_Report_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.Authenticator_Report_ResponseParamsSpec = {
+blink.mojom.Authenticator_Report_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.Report_ResponseParams',
@@ -921,7 +1008,7 @@ blink.mojom.mojom.Authenticator_Report_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetClientCapabilities
-blink.mojom.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
+blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.GetClientCapabilities_Params',
@@ -933,7 +1020,7 @@ blink.mojom.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
+blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.GetClientCapabilities_ResponseParams',
@@ -947,7 +1034,7 @@ blink.mojom.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-blink.mojom.mojom.Authenticator_Cancel_ParamsSpec = {
+blink.mojom.Authenticator_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Authenticator.Cancel_Params',
@@ -960,6 +1047,6 @@ blink.mojom.mojom.Authenticator_Cancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AuthenticatorPtr = blink.mojom.mojom.AuthenticatorRemote;
-blink.mojom.mojom.AuthenticatorRequest = blink.mojom.mojom.AuthenticatorPendingReceiver;
+blink.mojom.AuthenticatorPtr = blink.mojom.AuthenticatorRemote;
+blink.mojom.AuthenticatorRequest = blink.mojom.AuthenticatorPendingReceiver;
 

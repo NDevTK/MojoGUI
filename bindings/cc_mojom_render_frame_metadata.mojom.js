@@ -13,15 +13,15 @@ var gfx = gfx || {};
 
 
 // Enum: RootScrollOffsetUpdateFrequency
-cc.mojom.mojom.RootScrollOffsetUpdateFrequency = {
+cc.mojom.RootScrollOffsetUpdateFrequency = {
   kNone: 0,
   kOnScrollEnd: 1,
   kAllUpdates: 2,
 };
-cc.mojom.mojom.RootScrollOffsetUpdateFrequencySpec = { $: mojo.internal.Enum() };
+cc.mojom.RootScrollOffsetUpdateFrequencySpec = { $: mojo.internal.Enum() };
 
 // Struct: DelegatedInkBrowserMetadata
-cc.mojom.mojom.DelegatedInkBrowserMetadataSpec = {
+cc.mojom.DelegatedInkBrowserMetadataSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.DelegatedInkBrowserMetadata',
@@ -35,7 +35,7 @@ cc.mojom.mojom.DelegatedInkBrowserMetadataSpec = {
 };
 
 // Struct: RenderFrameMetadata
-cc.mojom.mojom.RenderFrameMetadataSpec = {
+cc.mojom.RenderFrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadata',
@@ -73,24 +73,50 @@ cc.mojom.mojom.RenderFrameMetadataSpec = {
 };
 
 // Interface: RenderFrameMetadataObserver
-cc.mojom.mojom.RenderFrameMetadataObserver = {};
+cc.mojom.RenderFrameMetadataObserver = {};
 
-cc.mojom.mojom.RenderFrameMetadataObserverPendingReceiver = class {
+cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.RootScrollOffsetUpdateFrequencySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cc.mojom.RenderFrameMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cc.mojom.mojom.RenderFrameMetadataObserverRemote = class {
+cc.mojom.RenderFrameMetadataObserverRemote = class {
   static get $interfaceName() {
     return 'cc.mojom.RenderFrameMetadataObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cc.mojom.mojom.RenderFrameMetadataObserverPendingReceiver,
+      cc.mojom.RenderFrameMetadataObserverPendingReceiver,
       handle);
-    this.$ = new cc.mojom.mojom.RenderFrameMetadataObserverRemoteCallHandler(this.proxy);
+    this.$ = new cc.mojom.RenderFrameMetadataObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -102,7 +128,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverRemote = class {
   }
 };
 
-cc.mojom.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
+cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -111,7 +137,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cc.mojom.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec,
+      cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec,
       null,
       [frequency]);
   }
@@ -120,15 +146,15 @@ cc.mojom.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cc.mojom.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
+      cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-cc.mojom.mojom.RenderFrameMetadataObserver.getRemote = function() {
-  let remote = new cc.mojom.mojom.RenderFrameMetadataObserverRemote();
+cc.mojom.RenderFrameMetadataObserver.getRemote = function() {
+  let remote = new cc.mojom.RenderFrameMetadataObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -138,7 +164,7 @@ cc.mojom.mojom.RenderFrameMetadataObserver.getRemote = function() {
 };
 
 // ParamsSpec for UpdateRootScrollOffsetUpdateFrequency
-cc.mojom.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec = {
+cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserver.UpdateRootScrollOffsetUpdateFrequency_Params',
@@ -152,7 +178,7 @@ cc.mojom.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency
 };
 
 // ParamsSpec for ReportAllFrameSubmissionsForTesting
-cc.mojom.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = {
+cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserver.ReportAllFrameSubmissionsForTesting_Params',
@@ -166,29 +192,69 @@ cc.mojom.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_P
 };
 
 // Legacy compatibility
-cc.mojom.mojom.RenderFrameMetadataObserverPtr = cc.mojom.mojom.RenderFrameMetadataObserverRemote;
-cc.mojom.mojom.RenderFrameMetadataObserverRequest = cc.mojom.mojom.RenderFrameMetadataObserverPendingReceiver;
+cc.mojom.RenderFrameMetadataObserverPtr = cc.mojom.RenderFrameMetadataObserverRemote;
+cc.mojom.RenderFrameMetadataObserverRequest = cc.mojom.RenderFrameMetadataObserverPendingReceiver;
 
 
 // Interface: RenderFrameMetadataObserverClient
-cc.mojom.mojom.RenderFrameMetadataObserverClient = {};
+cc.mojom.RenderFrameMetadataObserverClient = {};
 
-cc.mojom.mojom.RenderFrameMetadataObserverClientPendingReceiver = class {
+cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.RenderFrameMetadataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'root_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cc.mojom.RenderFrameMetadataObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cc.mojom.mojom.RenderFrameMetadataObserverClientRemote = class {
+cc.mojom.RenderFrameMetadataObserverClientRemote = class {
   static get $interfaceName() {
     return 'cc.mojom.RenderFrameMetadataObserverClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cc.mojom.mojom.RenderFrameMetadataObserverClientPendingReceiver,
+      cc.mojom.RenderFrameMetadataObserverClientPendingReceiver,
       handle);
-    this.$ = new cc.mojom.mojom.RenderFrameMetadataObserverClientRemoteCallHandler(this.proxy);
+    this.$ = new cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -200,7 +266,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverClientRemote = class {
   }
 };
 
-cc.mojom.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
+cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -209,7 +275,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
+      cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
       null,
       [frame_token, metadata]);
   }
@@ -218,7 +284,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cc.mojom.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
+      cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
       null,
       [frame_token]);
   }
@@ -227,15 +293,15 @@ cc.mojom.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec,
+      cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec,
       null,
       [root_scroll_offset]);
   }
 
 };
 
-cc.mojom.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
-  let remote = new cc.mojom.mojom.RenderFrameMetadataObserverClientRemote();
+cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
+  let remote = new cc.mojom.RenderFrameMetadataObserverClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -245,7 +311,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
 };
 
 // ParamsSpec for OnRenderFrameMetadataChanged
-cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = {
+cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnRenderFrameMetadataChanged_Params',
@@ -260,7 +326,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_Pa
 };
 
 // ParamsSpec for OnFrameSubmissionForTesting
-cc.mojom.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = {
+cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnFrameSubmissionForTesting_Params',
@@ -274,7 +340,7 @@ cc.mojom.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_Par
 };
 
 // ParamsSpec for OnRootScrollOffsetChanged
-cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec = {
+cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnRootScrollOffsetChanged_Params',
@@ -288,6 +354,6 @@ cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_Param
 };
 
 // Legacy compatibility
-cc.mojom.mojom.RenderFrameMetadataObserverClientPtr = cc.mojom.mojom.RenderFrameMetadataObserverClientRemote;
-cc.mojom.mojom.RenderFrameMetadataObserverClientRequest = cc.mojom.mojom.RenderFrameMetadataObserverClientPendingReceiver;
+cc.mojom.RenderFrameMetadataObserverClientPtr = cc.mojom.RenderFrameMetadataObserverClientRemote;
+cc.mojom.RenderFrameMetadataObserverClientRequest = cc.mojom.RenderFrameMetadataObserverClientPendingReceiver;
 

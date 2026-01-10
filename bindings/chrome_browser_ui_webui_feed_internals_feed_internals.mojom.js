@@ -11,15 +11,15 @@ var url = url || {};
 
 
 // Enum: FeedOrder
-feed_internals.mojom.mojom.FeedOrder = {
+feed_internals.mojom.FeedOrder = {
   kUnspecified: 0,
   kGrouped: 1,
   kReverseChron: 2,
 };
-feed_internals.mojom.mojom.FeedOrderSpec = { $: mojo.internal.Enum() };
+feed_internals.mojom.FeedOrderSpec = { $: mojo.internal.Enum() };
 
 // Struct: Properties
-feed_internals.mojom.mojom.PropertiesSpec = {
+feed_internals.mojom.PropertiesSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.Properties',
@@ -42,7 +42,7 @@ feed_internals.mojom.mojom.PropertiesSpec = {
 };
 
 // Struct: LastFetchProperties
-feed_internals.mojom.mojom.LastFetchPropertiesSpec = {
+feed_internals.mojom.LastFetchPropertiesSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.LastFetchProperties',
@@ -62,24 +62,186 @@ feed_internals.mojom.mojom.LastFetchPropertiesSpec = {
 };
 
 // Interface: PageHandler
-feed_internals.mojom.mojom.PageHandler = {};
+feed_internals.mojom.PageHandler = {};
 
-feed_internals.mojom.mojom.PageHandlerPendingReceiver = class {
+feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_GetGeneralProperties_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_GetLastFetchProperties_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_RefreshForYouFeed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_RefreshFollowingFeed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_GetFeedHistograms_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_OverrideFeedHost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'endpoint_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_OverrideFeedStreamData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'use_legacy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.PageHandler_SetFollowingFeedOrder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'order', packedOffset: 0, packedBitOffset: 0, type: feed_internals.mojom.FeedOrderSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+feed_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-feed_internals.mojom.mojom.PageHandlerRemote = class {
+feed_internals.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'feed_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      feed_internals.mojom.mojom.PageHandlerPendingReceiver,
+      feed_internals.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new feed_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new feed_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -91,7 +253,7 @@ feed_internals.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
+feed_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -100,8 +262,8 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_GetGeneralProperties_ParamsSpec,
-      feed_internals.mojom.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec,
+      feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec,
+      feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec,
       []);
   }
 
@@ -109,8 +271,8 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_GetLastFetchProperties_ParamsSpec,
-      feed_internals.mojom.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec,
+      feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec,
+      feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec,
       []);
   }
 
@@ -118,7 +280,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_RefreshForYouFeed_ParamsSpec,
+      feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec,
       null,
       []);
   }
@@ -127,7 +289,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec,
+      feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec,
       null,
       []);
   }
@@ -136,7 +298,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec,
+      feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec,
       null,
       []);
   }
@@ -145,8 +307,8 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec,
-      feed_internals.mojom.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec,
+      feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec,
+      feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec,
       []);
   }
 
@@ -154,8 +316,8 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_GetFeedHistograms_ParamsSpec,
-      feed_internals.mojom.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec,
+      feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec,
+      feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec,
       []);
   }
 
@@ -163,7 +325,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_OverrideFeedHost_ParamsSpec,
+      feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec,
       null,
       [host]);
   }
@@ -172,7 +334,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec,
+      feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec,
       null,
       [endpoint_url]);
   }
@@ -181,7 +343,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec,
+      feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec,
       null,
       [data]);
   }
@@ -190,7 +352,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec,
+      feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -199,7 +361,7 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec,
+      feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec,
       null,
       [use_legacy]);
   }
@@ -208,15 +370,15 @@ feed_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      feed_internals.mojom.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec,
+      feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec,
       null,
       [order]);
   }
 
 };
 
-feed_internals.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new feed_internals.mojom.mojom.PageHandlerRemote();
+feed_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new feed_internals.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -226,7 +388,7 @@ feed_internals.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetGeneralProperties
-feed_internals.mojom.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
+feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetGeneralProperties_Params',
@@ -238,7 +400,7 @@ feed_internals.mojom.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
   }
 };
 
-feed_internals.mojom.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
+feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetGeneralProperties_ResponseParams',
@@ -252,7 +414,7 @@ feed_internals.mojom.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec =
 };
 
 // ParamsSpec for GetLastFetchProperties
-feed_internals.mojom.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
+feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetLastFetchProperties_Params',
@@ -264,7 +426,7 @@ feed_internals.mojom.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
   }
 };
 
-feed_internals.mojom.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
+feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetLastFetchProperties_ResponseParams',
@@ -278,7 +440,7 @@ feed_internals.mojom.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec
 };
 
 // ParamsSpec for RefreshForYouFeed
-feed_internals.mojom.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
+feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.RefreshForYouFeed_Params',
@@ -291,7 +453,7 @@ feed_internals.mojom.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
 };
 
 // ParamsSpec for RefreshFollowingFeed
-feed_internals.mojom.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
+feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.RefreshFollowingFeed_Params',
@@ -304,7 +466,7 @@ feed_internals.mojom.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
 };
 
 // ParamsSpec for RefreshWebFeedSuggestions
-feed_internals.mojom.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
+feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.RefreshWebFeedSuggestions_Params',
@@ -317,7 +479,7 @@ feed_internals.mojom.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
 };
 
 // ParamsSpec for GetFeedProcessScopeDump
-feed_internals.mojom.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
+feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetFeedProcessScopeDump_Params',
@@ -329,7 +491,7 @@ feed_internals.mojom.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
   }
 };
 
-feed_internals.mojom.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
+feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetFeedProcessScopeDump_ResponseParams',
@@ -343,7 +505,7 @@ feed_internals.mojom.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpe
 };
 
 // ParamsSpec for GetFeedHistograms
-feed_internals.mojom.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
+feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetFeedHistograms_Params',
@@ -355,7 +517,7 @@ feed_internals.mojom.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
   }
 };
 
-feed_internals.mojom.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
+feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.GetFeedHistograms_ResponseParams',
@@ -369,7 +531,7 @@ feed_internals.mojom.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OverrideFeedHost
-feed_internals.mojom.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
+feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.OverrideFeedHost_Params',
@@ -383,7 +545,7 @@ feed_internals.mojom.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
 };
 
 // ParamsSpec for OverrideDiscoverApiEndpoint
-feed_internals.mojom.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
+feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.OverrideDiscoverApiEndpoint_Params',
@@ -397,7 +559,7 @@ feed_internals.mojom.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = 
 };
 
 // ParamsSpec for OverrideFeedStreamData
-feed_internals.mojom.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
+feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.OverrideFeedStreamData_Params',
@@ -411,7 +573,7 @@ feed_internals.mojom.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
 };
 
 // ParamsSpec for SetWebFeedFollowIntroDebugEnabled
-feed_internals.mojom.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = {
+feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.SetWebFeedFollowIntroDebugEnabled_Params',
@@ -425,7 +587,7 @@ feed_internals.mojom.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsS
 };
 
 // ParamsSpec for SetUseFeedQueryRequests
-feed_internals.mojom.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
+feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.SetUseFeedQueryRequests_Params',
@@ -439,7 +601,7 @@ feed_internals.mojom.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
 };
 
 // ParamsSpec for SetFollowingFeedOrder
-feed_internals.mojom.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
+feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.PageHandler.SetFollowingFeedOrder_Params',
@@ -453,6 +615,6 @@ feed_internals.mojom.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
 };
 
 // Legacy compatibility
-feed_internals.mojom.mojom.PageHandlerPtr = feed_internals.mojom.mojom.PageHandlerRemote;
-feed_internals.mojom.mojom.PageHandlerRequest = feed_internals.mojom.mojom.PageHandlerPendingReceiver;
+feed_internals.mojom.PageHandlerPtr = feed_internals.mojom.PageHandlerRemote;
+feed_internals.mojom.PageHandlerRequest = feed_internals.mojom.PageHandlerPendingReceiver;
 

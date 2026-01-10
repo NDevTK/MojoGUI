@@ -9,44 +9,73 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
-network.mojom.mojom.kUnlimitedFileSize = 0xFFFFFFFFFFFFFFFF;
+network.mojom.kUnlimitedFileSize = 0xFFFFFFFFFFFFFFFF;
 
 // Enum: NetLogCaptureMode
-network.mojom.mojom.NetLogCaptureMode = {
+network.mojom.NetLogCaptureMode = {
   HEAVILY_REDACTED: 0,
   DEFAULT: 1,
   INCLUDE_PRIVACY_INFO: 2,
   EVERYTHING: 3,
 };
-network.mojom.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum() };
+network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetLogEventPhase
-network.mojom.mojom.NetLogEventPhase = {
+network.mojom.NetLogEventPhase = {
   BEGIN: 0,
   END: 1,
   NONE: 2,
 };
-network.mojom.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum() };
+network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum() };
 
 // Interface: NetLogExporter
-network.mojom.mojom.NetLogExporter = {};
+network.mojom.NetLogExporter = {};
 
-network.mojom.mojom.NetLogExporterPendingReceiver = class {
+network.mojom.NetLogExporter_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetLogExporter_Start_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
+        { name: 'extra_constants', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'capture_mode', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogCaptureModeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_file_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetLogExporter_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetLogExporter_Stop_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'polled_values', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetLogExporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.NetLogExporterRemote = class {
+network.mojom.NetLogExporterRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetLogExporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.NetLogExporterPendingReceiver,
+      network.mojom.NetLogExporterPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.NetLogExporterRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.NetLogExporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +87,7 @@ network.mojom.mojom.NetLogExporterRemote = class {
   }
 };
 
-network.mojom.mojom.NetLogExporterRemoteCallHandler = class {
+network.mojom.NetLogExporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,8 +96,8 @@ network.mojom.mojom.NetLogExporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.NetLogExporter_Start_ParamsSpec,
-      network.mojom.mojom.NetLogExporter_Start_ResponseParamsSpec,
+      network.mojom.NetLogExporter_Start_ParamsSpec,
+      network.mojom.NetLogExporter_Start_ResponseParamsSpec,
       [destination, extra_constants, capture_mode, max_file_size]);
   }
 
@@ -76,15 +105,15 @@ network.mojom.mojom.NetLogExporterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.NetLogExporter_Stop_ParamsSpec,
-      network.mojom.mojom.NetLogExporter_Stop_ResponseParamsSpec,
+      network.mojom.NetLogExporter_Stop_ParamsSpec,
+      network.mojom.NetLogExporter_Stop_ResponseParamsSpec,
       [polled_values]);
   }
 
 };
 
-network.mojom.mojom.NetLogExporter.getRemote = function() {
-  let remote = new network.mojom.mojom.NetLogExporterRemote();
+network.mojom.NetLogExporter.getRemote = function() {
+  let remote = new network.mojom.NetLogExporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +123,7 @@ network.mojom.mojom.NetLogExporter.getRemote = function() {
 };
 
 // ParamsSpec for Start
-network.mojom.mojom.NetLogExporter_Start_ParamsSpec = {
+network.mojom.NetLogExporter_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogExporter.Start_Params',
@@ -110,7 +139,7 @@ network.mojom.mojom.NetLogExporter_Start_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetLogExporter_Start_ResponseParamsSpec = {
+network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogExporter.Start_ResponseParams',
@@ -124,7 +153,7 @@ network.mojom.mojom.NetLogExporter_Start_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Stop
-network.mojom.mojom.NetLogExporter_Stop_ParamsSpec = {
+network.mojom.NetLogExporter_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogExporter.Stop_Params',
@@ -137,7 +166,7 @@ network.mojom.mojom.NetLogExporter_Stop_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
+network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogExporter.Stop_ResponseParams',
@@ -151,29 +180,42 @@ network.mojom.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.NetLogExporterPtr = network.mojom.mojom.NetLogExporterRemote;
-network.mojom.mojom.NetLogExporterRequest = network.mojom.mojom.NetLogExporterPendingReceiver;
+network.mojom.NetLogExporterPtr = network.mojom.NetLogExporterRemote;
+network.mojom.NetLogExporterRequest = network.mojom.NetLogExporterPendingReceiver;
 
 
 // Interface: NetLogProxySource
-network.mojom.mojom.NetLogProxySource = {};
+network.mojom.NetLogProxySource = {};
 
-network.mojom.mojom.NetLogProxySourcePendingReceiver = class {
+network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetLogProxySource_UpdateCaptureModes_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetLogProxySourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.NetLogProxySourceRemote = class {
+network.mojom.NetLogProxySourceRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetLogProxySource';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.NetLogProxySourcePendingReceiver,
+      network.mojom.NetLogProxySourcePendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.NetLogProxySourceRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.NetLogProxySourceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -185,7 +227,7 @@ network.mojom.mojom.NetLogProxySourceRemote = class {
   }
 };
 
-network.mojom.mojom.NetLogProxySourceRemoteCallHandler = class {
+network.mojom.NetLogProxySourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -194,15 +236,15 @@ network.mojom.mojom.NetLogProxySourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec,
+      network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec,
       null,
       [modes]);
   }
 
 };
 
-network.mojom.mojom.NetLogProxySource.getRemote = function() {
-  let remote = new network.mojom.mojom.NetLogProxySourceRemote();
+network.mojom.NetLogProxySource.getRemote = function() {
+  let remote = new network.mojom.NetLogProxySourceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -212,7 +254,7 @@ network.mojom.mojom.NetLogProxySource.getRemote = function() {
 };
 
 // ParamsSpec for UpdateCaptureModes
-network.mojom.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
+network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogProxySource.UpdateCaptureModes_Params',
@@ -226,29 +268,46 @@ network.mojom.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.NetLogProxySourcePtr = network.mojom.mojom.NetLogProxySourceRemote;
-network.mojom.mojom.NetLogProxySourceRequest = network.mojom.mojom.NetLogProxySourcePendingReceiver;
+network.mojom.NetLogProxySourcePtr = network.mojom.NetLogProxySourceRemote;
+network.mojom.NetLogProxySourceRequest = network.mojom.NetLogProxySourcePendingReceiver;
 
 
 // Interface: NetLogProxySink
-network.mojom.mojom.NetLogProxySink = {};
+network.mojom.NetLogProxySink = {};
 
-network.mojom.mojom.NetLogProxySinkPendingReceiver = class {
+network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetLogProxySink_AddEntry_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'net_log_source', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'phase', packedOffset: 28, packedBitOffset: 0, type: network.mojom.NetLogEventPhaseSpec, nullable: false, minVersion: 0 },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.NetLogProxySinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.NetLogProxySinkRemote = class {
+network.mojom.NetLogProxySinkRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetLogProxySink';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.NetLogProxySinkPendingReceiver,
+      network.mojom.NetLogProxySinkPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.NetLogProxySinkRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.NetLogProxySinkRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -260,7 +319,7 @@ network.mojom.mojom.NetLogProxySinkRemote = class {
   }
 };
 
-network.mojom.mojom.NetLogProxySinkRemoteCallHandler = class {
+network.mojom.NetLogProxySinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -269,15 +328,15 @@ network.mojom.mojom.NetLogProxySinkRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.NetLogProxySink_AddEntry_ParamsSpec,
+      network.mojom.NetLogProxySink_AddEntry_ParamsSpec,
       null,
       [type, net_log_source, phase, time, params]);
   }
 
 };
 
-network.mojom.mojom.NetLogProxySink.getRemote = function() {
-  let remote = new network.mojom.mojom.NetLogProxySinkRemote();
+network.mojom.NetLogProxySink.getRemote = function() {
+  let remote = new network.mojom.NetLogProxySinkRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -287,7 +346,7 @@ network.mojom.mojom.NetLogProxySink.getRemote = function() {
 };
 
 // ParamsSpec for AddEntry
-network.mojom.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
+network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogProxySink.AddEntry_Params',
@@ -305,6 +364,6 @@ network.mojom.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.NetLogProxySinkPtr = network.mojom.mojom.NetLogProxySinkRemote;
-network.mojom.mojom.NetLogProxySinkRequest = network.mojom.mojom.NetLogProxySinkPendingReceiver;
+network.mojom.NetLogProxySinkPtr = network.mojom.NetLogProxySinkRemote;
+network.mojom.NetLogProxySinkRequest = network.mojom.NetLogProxySinkPendingReceiver;
 

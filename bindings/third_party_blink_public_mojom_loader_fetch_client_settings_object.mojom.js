@@ -11,14 +11,14 @@ var url = url || {};
 
 
 // Enum: InsecureRequestsPolicy
-blink.mojom.mojom.InsecureRequestsPolicy = {
+blink.mojom.InsecureRequestsPolicy = {
   kDoNotUpgrade: 0,
   kUpgrade: 1,
 };
-blink.mojom.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
+blink.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: FetchClientSettingsObject
-blink.mojom.mojom.FetchClientSettingsObjectSpec = {
+blink.mojom.FetchClientSettingsObjectSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchClientSettingsObject',

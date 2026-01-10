@@ -10,14 +10,14 @@ network.mojom = network.mojom || {};
 
 
 // Enum: RestrictedUDPSocketMode
-network.mojom.mojom.RestrictedUDPSocketMode = {
+network.mojom.RestrictedUDPSocketMode = {
   CONNECTED: 0,
   BOUND: 1,
 };
-network.mojom.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum() };
+network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: RestrictedUDPSocketParams
-network.mojom.mojom.RestrictedUDPSocketParamsSpec = {
+network.mojom.RestrictedUDPSocketParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocketParams',
@@ -32,24 +32,91 @@ network.mojom.mojom.RestrictedUDPSocketParamsSpec = {
 };
 
 // Interface: RestrictedUDPSocket
-network.mojom.mojom.RestrictedUDPSocket = {};
+network.mojom.RestrictedUDPSocket = {};
 
-network.mojom.mojom.RestrictedUDPSocketPendingReceiver = class {
+network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.RestrictedUDPSocket_JoinGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.RestrictedUDPSocket_LeaveGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.RestrictedUDPSocket_ReceiveMore_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.RestrictedUDPSocket_Send_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.RestrictedUDPSocket_SendTo_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
+        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.RestrictedUDPSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.RestrictedUDPSocketRemote = class {
+network.mojom.RestrictedUDPSocketRemote = class {
   static get $interfaceName() {
     return 'network.mojom.RestrictedUDPSocket';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.RestrictedUDPSocketPendingReceiver,
+      network.mojom.RestrictedUDPSocketPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.RestrictedUDPSocketRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.RestrictedUDPSocketRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +128,7 @@ network.mojom.mojom.RestrictedUDPSocketRemote = class {
   }
 };
 
-network.mojom.mojom.RestrictedUDPSocketRemoteCallHandler = class {
+network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,8 +137,8 @@ network.mojom.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec,
-      network.mojom.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec,
+      network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -79,8 +146,8 @@ network.mojom.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec,
-      network.mojom.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec,
+      network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -88,7 +155,7 @@ network.mojom.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec,
       null,
       [num_additional_datagrams]);
   }
@@ -97,8 +164,8 @@ network.mojom.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.RestrictedUDPSocket_Send_ParamsSpec,
-      network.mojom.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec,
+      network.mojom.RestrictedUDPSocket_Send_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec,
       [data]);
   }
 
@@ -106,15 +173,15 @@ network.mojom.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.RestrictedUDPSocket_SendTo_ParamsSpec,
-      network.mojom.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec,
+      network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec,
       [data, dest_addr, dns_query_type]);
   }
 
 };
 
-network.mojom.mojom.RestrictedUDPSocket.getRemote = function() {
-  let remote = new network.mojom.mojom.RestrictedUDPSocketRemote();
+network.mojom.RestrictedUDPSocket.getRemote = function() {
+  let remote = new network.mojom.RestrictedUDPSocketRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -124,7 +191,7 @@ network.mojom.mojom.RestrictedUDPSocket.getRemote = function() {
 };
 
 // ParamsSpec for JoinGroup
-network.mojom.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
+network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.JoinGroup_Params',
@@ -137,7 +204,7 @@ network.mojom.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
+network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.JoinGroup_ResponseParams',
@@ -151,7 +218,7 @@ network.mojom.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LeaveGroup
-network.mojom.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
+network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_Params',
@@ -164,7 +231,7 @@ network.mojom.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
+network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_ResponseParams',
@@ -178,7 +245,7 @@ network.mojom.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReceiveMore
-network.mojom.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
+network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.ReceiveMore_Params',
@@ -192,7 +259,7 @@ network.mojom.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
 };
 
 // ParamsSpec for Send
-network.mojom.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
+network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.Send_Params',
@@ -205,7 +272,7 @@ network.mojom.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
+network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.Send_ResponseParams',
@@ -219,7 +286,7 @@ network.mojom.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SendTo
-network.mojom.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
+network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.SendTo_Params',
@@ -234,7 +301,7 @@ network.mojom.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
+network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocket.SendTo_ResponseParams',
@@ -248,6 +315,6 @@ network.mojom.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.RestrictedUDPSocketPtr = network.mojom.mojom.RestrictedUDPSocketRemote;
-network.mojom.mojom.RestrictedUDPSocketRequest = network.mojom.mojom.RestrictedUDPSocketPendingReceiver;
+network.mojom.RestrictedUDPSocketPtr = network.mojom.RestrictedUDPSocketRemote;
+network.mojom.RestrictedUDPSocketRequest = network.mojom.RestrictedUDPSocketPendingReceiver;
 

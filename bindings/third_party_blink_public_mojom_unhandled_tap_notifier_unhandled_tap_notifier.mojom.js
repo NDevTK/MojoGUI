@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: UnhandledTapInfo
-blink.mojom.mojom.UnhandledTapInfoSpec = {
+blink.mojom.UnhandledTapInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UnhandledTapInfo',
@@ -26,24 +26,37 @@ blink.mojom.mojom.UnhandledTapInfoSpec = {
 };
 
 // Interface: UnhandledTapNotifier
-blink.mojom.mojom.UnhandledTapNotifier = {};
+blink.mojom.UnhandledTapNotifier = {};
 
-blink.mojom.mojom.UnhandledTapNotifierPendingReceiver = class {
+blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UnhandledTapInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.UnhandledTapNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.UnhandledTapNotifierRemote = class {
+blink.mojom.UnhandledTapNotifierRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.UnhandledTapNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.UnhandledTapNotifierPendingReceiver,
+      blink.mojom.UnhandledTapNotifierPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.UnhandledTapNotifierRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.UnhandledTapNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +68,7 @@ blink.mojom.mojom.UnhandledTapNotifierRemote = class {
   }
 };
 
-blink.mojom.mojom.UnhandledTapNotifierRemoteCallHandler = class {
+blink.mojom.UnhandledTapNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +77,15 @@ blink.mojom.mojom.UnhandledTapNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec,
+      blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec,
       null,
       [unhandled_tap_info]);
   }
 
 };
 
-blink.mojom.mojom.UnhandledTapNotifier.getRemote = function() {
-  let remote = new blink.mojom.mojom.UnhandledTapNotifierRemote();
+blink.mojom.UnhandledTapNotifier.getRemote = function() {
+  let remote = new blink.mojom.UnhandledTapNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +95,7 @@ blink.mojom.mojom.UnhandledTapNotifier.getRemote = function() {
 };
 
 // ParamsSpec for ShowUnhandledTapUIIfNeeded
-blink.mojom.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
+blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UnhandledTapNotifier.ShowUnhandledTapUIIfNeeded_Params',
@@ -96,6 +109,6 @@ blink.mojom.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.UnhandledTapNotifierPtr = blink.mojom.mojom.UnhandledTapNotifierRemote;
-blink.mojom.mojom.UnhandledTapNotifierRequest = blink.mojom.mojom.UnhandledTapNotifierPendingReceiver;
+blink.mojom.UnhandledTapNotifierPtr = blink.mojom.UnhandledTapNotifierRemote;
+blink.mojom.UnhandledTapNotifierRequest = blink.mojom.UnhandledTapNotifierPendingReceiver;
 

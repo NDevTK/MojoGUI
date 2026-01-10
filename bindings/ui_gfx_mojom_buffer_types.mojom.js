@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Enum: BufferFormat
-gfx.mojom.mojom.BufferFormat = {
+gfx.mojom.BufferFormat = {
   R_8: 0,
   R_16: 1,
   RG_88: 2,
@@ -31,10 +31,10 @@ gfx.mojom.mojom.BufferFormat = {
   YUVA_420_TRIPLANAR: 15,
   P010: 16,
 };
-gfx.mojom.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
+gfx.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: BufferUsage
-gfx.mojom.mojom.BufferUsage = {
+gfx.mojom.BufferUsage = {
   GPU_READ: 0,
   SCANOUT: 1,
   SCANOUT_CAMERA_READ_WRITE: 2,
@@ -48,10 +48,10 @@ gfx.mojom.mojom.BufferUsage = {
   VEA_READ_CAMERA_AND_CPU_READ_WRITE: 10,
   SCANOUT_FRONT_RENDERING: 11,
 };
-gfx.mojom.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
+gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuMemoryBufferId
-gfx.mojom.mojom.GpuMemoryBufferIdSpec = {
+gfx.mojom.GpuMemoryBufferIdSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.GpuMemoryBufferId',
@@ -65,7 +65,7 @@ gfx.mojom.mojom.GpuMemoryBufferIdSpec = {
 };
 
 // Struct: GpuMemoryBufferHandle
-gfx.mojom.mojom.GpuMemoryBufferHandleSpec = {
+gfx.mojom.GpuMemoryBufferHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.GpuMemoryBufferHandle',

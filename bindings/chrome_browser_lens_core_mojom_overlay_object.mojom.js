@@ -10,7 +10,7 @@ lens.mojom = lens.mojom || {};
 
 
 // Struct: OverlayObject
-lens.mojom.mojom.OverlayObjectSpec = {
+lens.mojom.OverlayObjectSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.OverlayObject',

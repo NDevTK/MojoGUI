@@ -7,28 +7,653 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.cros_healthd.mojom = ash.cros_healthd.cros_healthd.mojom || {};
+ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Interface: CrosHealthdDiagnosticsService
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService = {};
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServicePendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'command', packedOffset: 4, packedBitOffset: 0, type: ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'include_output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'percentage_used_threshold', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 6 },
+      ],
+      versions: [{version: 6, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'expected_status', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.AcPowerStatusEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_power_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'wear_level_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'wear_level_threshold', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'nvme_self_test_type', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'length_seconds', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'file_size_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maximum_discharge_percent_allowed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'minimum_charge_percent_required', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'max_testing_mem_kib_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 10, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_testing_mem_kib_$value', originalFieldName: 'max_testing_mem_kib' } },
+        { name: 'max_testing_mem_kib_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 10, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_testing_mem_kib_$flag', originalFieldName: 'max_testing_mem_kib' } },
+      ],
+      versions: [{version: 10, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stun_server_hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'target_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 12, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, nullable: false, minVersion: 0 },
+        { name: 'replier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'mute_on', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'gain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'deprecated_mute_on', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length_seconds', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'peripheral_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'timeout_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemote = class {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServicePendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsServicePendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +665,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemote = 
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +674,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
       []);
   }
 
@@ -58,8 +683,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
       [id, command, include_output]);
   }
 
@@ -67,8 +692,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -76,8 +701,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -85,8 +710,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -94,8 +719,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
       [percentage_used_threshold]);
   }
 
@@ -103,8 +728,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
       [expected_status, expected_power_type]);
   }
 
@@ -112,8 +737,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -121,8 +746,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -130,8 +755,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -139,8 +764,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec,
       [wear_level_threshold]);
   }
 
@@ -148,8 +773,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
       [wear_level_threshold]);
   }
 
@@ -157,8 +782,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
       [nvme_self_test_type]);
   }
 
@@ -166,8 +791,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
       [type, length_seconds, file_size_mb]);
   }
 
@@ -175,8 +800,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -184,8 +809,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
       [length_seconds, maximum_discharge_percent_allowed]);
   }
 
@@ -193,8 +818,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
       [length_seconds, minimum_charge_percent_required]);
   }
 
@@ -202,8 +827,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
       [max_testing_mem_kib]);
   }
 
@@ -211,8 +836,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -220,8 +845,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -229,8 +854,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -238,8 +863,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -247,8 +872,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -256,8 +881,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -265,8 +890,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -274,8 +899,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -283,8 +908,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -292,8 +917,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -301,8 +926,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -310,8 +935,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec,
       [stun_server_hostname]);
   }
 
@@ -319,8 +944,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -328,8 +953,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -337,8 +962,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -346,8 +971,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -355,8 +980,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -364,8 +989,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -373,8 +998,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec,
       [target_state]);
   }
 
@@ -382,8 +1007,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec,
       [name, color, replier]);
   }
 
@@ -391,8 +1016,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -400,8 +1025,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec,
       [node_id, volume, mute_on]);
   }
 
@@ -409,8 +1034,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec,
       [node_id, gain, deprecated_mute_on]);
   }
 
@@ -418,8 +1043,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -427,8 +1052,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -436,8 +1061,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
       [length_seconds]);
   }
 
@@ -445,8 +1070,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
       [peripheral_id]);
   }
 
@@ -454,8 +1079,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
       [timeout_seconds]);
   }
 
@@ -463,8 +1088,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -472,8 +1097,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
       []);
   }
 
@@ -481,15 +1106,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemoteCal
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemote();
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -499,7 +1124,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService.getRemot
 };
 
 // ParamsSpec for GetAvailableRoutines
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.GetAvailableRoutines_Params',
@@ -511,7 +1136,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetAvail
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.GetAvailableRoutines_ResponseParams',
@@ -525,7 +1150,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetAvail
 };
 
 // ParamsSpec for GetRoutineUpdate
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.GetRoutineUpdate_Params',
@@ -540,7 +1165,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetRouti
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.GetRoutineUpdate_ResponseParams',
@@ -554,7 +1179,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_GetRouti
 };
 
 // ParamsSpec for RunUrandomRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunUrandomRoutine_Params',
@@ -567,7 +1192,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUrand
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunUrandomRoutine_ResponseParams',
@@ -581,7 +1206,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUrand
 };
 
 // ParamsSpec for RunBatteryCapacityRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryCapacityRoutine_Params',
@@ -593,7 +1218,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryCapacityRoutine_ResponseParams',
@@ -607,7 +1232,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
 };
 
 // ParamsSpec for RunBatteryHealthRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryHealthRoutine_Params',
@@ -619,7 +1244,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryHealthRoutine_ResponseParams',
@@ -633,7 +1258,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
 };
 
 // ParamsSpec for RunSmartctlCheckRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSmartctlCheckRoutine_Params',
@@ -646,7 +1271,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSmart
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSmartctlCheckRoutine_ResponseParams',
@@ -660,7 +1285,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSmart
 };
 
 // ParamsSpec for RunAcPowerRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunAcPowerRoutine_Params',
@@ -674,7 +1299,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAcPow
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunAcPowerRoutine_ResponseParams',
@@ -688,7 +1313,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAcPow
 };
 
 // ParamsSpec for RunCpuCacheRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCpuCacheRoutine_Params',
@@ -701,7 +1326,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuCa
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCpuCacheRoutine_ResponseParams',
@@ -715,7 +1340,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuCa
 };
 
 // ParamsSpec for RunCpuStressRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCpuStressRoutine_Params',
@@ -728,7 +1353,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuSt
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCpuStressRoutine_ResponseParams',
@@ -742,7 +1367,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCpuSt
 };
 
 // ParamsSpec for RunFloatingPointAccuracyRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFloatingPointAccuracyRoutine_Params',
@@ -755,7 +1380,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFloat
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFloatingPointAccuracyRoutine_ResponseParams',
@@ -769,7 +1394,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFloat
 };
 
 // ParamsSpec for DEPRECATED_RunNvmeWearLevelRoutineWithThreshold
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_Params',
@@ -782,7 +1407,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParams',
@@ -796,7 +1421,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
 };
 
 // ParamsSpec for DEPRECATED_RunNvmeWearLevelRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutine_Params',
@@ -809,7 +1434,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutine_ResponseParams',
@@ -823,7 +1448,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
 };
 
 // ParamsSpec for RunNvmeSelfTestRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunNvmeSelfTestRoutine_Params',
@@ -836,7 +1461,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunNvmeS
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunNvmeSelfTestRoutine_ResponseParams',
@@ -850,7 +1475,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunNvmeS
 };
 
 // ParamsSpec for RunDiskReadRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDiskReadRoutine_Params',
@@ -865,7 +1490,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDiskR
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDiskReadRoutine_ResponseParams',
@@ -879,7 +1504,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDiskR
 };
 
 // ParamsSpec for RunPrimeSearchRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPrimeSearchRoutine_Params',
@@ -892,7 +1517,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrime
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPrimeSearchRoutine_ResponseParams',
@@ -906,7 +1531,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrime
 };
 
 // ParamsSpec for RunBatteryDischargeRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryDischargeRoutine_Params',
@@ -920,7 +1545,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryDischargeRoutine_ResponseParams',
@@ -934,7 +1559,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
 };
 
 // ParamsSpec for RunBatteryChargeRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryChargeRoutine_Params',
@@ -948,7 +1573,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryChargeRoutine_ResponseParams',
@@ -962,7 +1587,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBatte
 };
 
 // ParamsSpec for RunMemoryRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunMemoryRoutine_Params',
@@ -976,7 +1601,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunMemor
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunMemoryRoutine_ResponseParams',
@@ -990,7 +1615,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunMemor
 };
 
 // ParamsSpec for RunLanConnectivityRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunLanConnectivityRoutine_Params',
@@ -1002,7 +1627,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunLanCo
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunLanConnectivityRoutine_ResponseParams',
@@ -1016,7 +1641,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunLanCo
 };
 
 // ParamsSpec for RunSignalStrengthRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSignalStrengthRoutine_Params',
@@ -1028,7 +1653,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSigna
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSignalStrengthRoutine_ResponseParams',
@@ -1042,7 +1667,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSigna
 };
 
 // ParamsSpec for RunGatewayCanBePingedRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunGatewayCanBePingedRoutine_Params',
@@ -1054,7 +1679,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunGatew
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunGatewayCanBePingedRoutine_ResponseParams',
@@ -1068,7 +1693,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunGatew
 };
 
 // ParamsSpec for RunHasSecureWiFiConnectionRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHasSecureWiFiConnectionRoutine_Params',
@@ -1080,7 +1705,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHasSe
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHasSecureWiFiConnectionRoutine_ResponseParams',
@@ -1094,7 +1719,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHasSe
 };
 
 // ParamsSpec for RunDnsResolverPresentRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsResolverPresentRoutine_Params',
@@ -1106,7 +1731,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsRe
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsResolverPresentRoutine_ResponseParams',
@@ -1120,7 +1745,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsRe
 };
 
 // ParamsSpec for RunDnsLatencyRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsLatencyRoutine_Params',
@@ -1132,7 +1757,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsLa
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsLatencyRoutine_ResponseParams',
@@ -1146,7 +1771,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsLa
 };
 
 // ParamsSpec for RunDnsResolutionRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsResolutionRoutine_Params',
@@ -1158,7 +1783,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsRe
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsResolutionRoutine_ResponseParams',
@@ -1172,7 +1797,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunDnsRe
 };
 
 // ParamsSpec for RunCaptivePortalRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCaptivePortalRoutine_Params',
@@ -1184,7 +1809,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCapti
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCaptivePortalRoutine_ResponseParams',
@@ -1198,7 +1823,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunCapti
 };
 
 // ParamsSpec for RunHttpFirewallRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpFirewallRoutine_Params',
@@ -1210,7 +1835,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpF
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpFirewallRoutine_ResponseParams',
@@ -1224,7 +1849,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpF
 };
 
 // ParamsSpec for RunHttpsFirewallRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpsFirewallRoutine_Params',
@@ -1236,7 +1861,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttps
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpsFirewallRoutine_ResponseParams',
@@ -1250,7 +1875,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttps
 };
 
 // ParamsSpec for RunHttpsLatencyRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpsLatencyRoutine_Params',
@@ -1262,7 +1887,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttps
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpsLatencyRoutine_ResponseParams',
@@ -1276,7 +1901,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunHttps
 };
 
 // ParamsSpec for RunVideoConferencingRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunVideoConferencingRoutine_Params',
@@ -1289,7 +1914,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunVideo
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunVideoConferencingRoutine_ResponseParams',
@@ -1303,7 +1928,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunVideo
 };
 
 // ParamsSpec for RunArcHttpRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcHttpRoutine_Params',
@@ -1315,7 +1940,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcHt
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcHttpRoutine_ResponseParams',
@@ -1329,7 +1954,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcHt
 };
 
 // ParamsSpec for RunArcPingRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcPingRoutine_Params',
@@ -1341,7 +1966,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcPi
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcPingRoutine_ResponseParams',
@@ -1355,7 +1980,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcPi
 };
 
 // ParamsSpec for RunArcDnsResolutionRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcDnsResolutionRoutine_Params',
@@ -1367,7 +1992,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcDn
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcDnsResolutionRoutine_ResponseParams',
@@ -1381,7 +2006,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunArcDn
 };
 
 // ParamsSpec for RunSensitiveSensorRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSensitiveSensorRoutine_Params',
@@ -1393,7 +2018,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSensi
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSensitiveSensorRoutine_ResponseParams',
@@ -1407,7 +2032,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunSensi
 };
 
 // ParamsSpec for RunFingerprintRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFingerprintRoutine_Params',
@@ -1419,7 +2044,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFinge
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFingerprintRoutine_ResponseParams',
@@ -1433,7 +2058,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFinge
 };
 
 // ParamsSpec for RunFingerprintAliveRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFingerprintAliveRoutine_Params',
@@ -1445,7 +2070,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFinge
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFingerprintAliveRoutine_ResponseParams',
@@ -1459,7 +2084,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFinge
 };
 
 // ParamsSpec for RunPrivacyScreenRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPrivacyScreenRoutine_Params',
@@ -1472,7 +2097,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPriva
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPrivacyScreenRoutine_ResponseParams',
@@ -1486,7 +2111,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPriva
 };
 
 // ParamsSpec for DEPRECATED_RunLedLitUpRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunLedLitUpRoutine_Params',
@@ -1501,7 +2126,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunLedLitUpRoutine_ResponseParams',
@@ -1515,7 +2140,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
 };
 
 // ParamsSpec for RunEmmcLifetimeRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunEmmcLifetimeRoutine_Params',
@@ -1527,7 +2152,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunEmmcL
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunEmmcLifetimeRoutine_ResponseParams',
@@ -1541,7 +2166,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunEmmcL
 };
 
 // ParamsSpec for DEPRECATED_RunAudioSetVolumeRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunAudioSetVolumeRoutine_Params',
@@ -1556,7 +2181,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunAudioSetVolumeRoutine_ResponseParams',
@@ -1570,7 +2195,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
 };
 
 // ParamsSpec for DEPRECATED_RunAudioSetGainRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunAudioSetGainRoutine_Params',
@@ -1585,7 +2210,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunAudioSetGainRoutine_ResponseParams',
@@ -1599,7 +2224,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
 };
 
 // ParamsSpec for RunBluetoothPowerRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothPowerRoutine_Params',
@@ -1611,7 +2236,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothPowerRoutine_ResponseParams',
@@ -1625,7 +2250,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
 };
 
 // ParamsSpec for RunBluetoothDiscoveryRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothDiscoveryRoutine_Params',
@@ -1637,7 +2262,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothDiscoveryRoutine_ResponseParams',
@@ -1651,7 +2276,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
 };
 
 // ParamsSpec for RunBluetoothScanningRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothScanningRoutine_Params',
@@ -1664,7 +2289,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothScanningRoutine_ResponseParams',
@@ -1678,7 +2303,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
 };
 
 // ParamsSpec for RunBluetoothPairingRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothPairingRoutine_Params',
@@ -1691,7 +2316,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothPairingRoutine_ResponseParams',
@@ -1705,7 +2330,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunBluet
 };
 
 // ParamsSpec for RunPowerButtonRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPowerButtonRoutine_Params',
@@ -1718,7 +2343,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPower
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPowerButtonRoutine_ResponseParams',
@@ -1732,7 +2357,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunPower
 };
 
 // ParamsSpec for RunAudioDriverRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunAudioDriverRoutine_Params',
@@ -1744,7 +2369,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAudio
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunAudioDriverRoutine_ResponseParams',
@@ -1758,7 +2383,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunAudio
 };
 
 // ParamsSpec for RunUfsLifetimeRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunUfsLifetimeRoutine_Params',
@@ -1770,7 +2395,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUfsLi
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunUfsLifetimeRoutine_ResponseParams',
@@ -1784,7 +2409,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunUfsLi
 };
 
 // ParamsSpec for RunFanRoutine
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFanRoutine_Params',
@@ -1796,7 +2421,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFanRo
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFanRoutine_ResponseParams',
@@ -1810,29 +2435,147 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_RunFanRo
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServicePtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServiceRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsServicePendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsServicePtr = ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemote;
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRequest = ash.cros_healthd.mojom.CrosHealthdDiagnosticsServicePendingReceiver;
 
 
 // Interface: CrosHealthdEventService
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService = {};
+ash.cros_healthd.mojom.CrosHealthdEventService = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServicePendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdLidObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.network_health.mojom.NetworkEventsObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.EventCategoryEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.EventObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.EventCategoryEnumSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdEventServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemote = class {
+ash.cros_healthd.mojom.CrosHealthdEventServiceRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdEventService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServicePendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdEventServicePendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1844,7 +2587,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemote = class 
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1853,7 +2596,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1862,7 +2605,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1871,7 +2614,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1880,7 +2623,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1889,7 +2632,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1898,7 +2641,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1907,7 +2650,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1916,7 +2659,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec,
       null,
       [category, observer]);
   }
@@ -1925,15 +2668,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemoteCallHandl
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec,
       [category]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemote();
+ash.cros_healthd.mojom.CrosHealthdEventService.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdEventServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1943,7 +2686,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService.getRemote = fu
 };
 
 // ParamsSpec for DEPRECATED_AddBluetoothObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddBluetoothObserver_Params',
@@ -1957,7 +2700,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
 };
 
 // ParamsSpec for DEPRECATED_AddLidObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddLidObserver_Params',
@@ -1971,7 +2714,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
 };
 
 // ParamsSpec for DEPRECATED_AddPowerObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddPowerObserver_Params',
@@ -1985,7 +2728,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
 };
 
 // ParamsSpec for AddNetworkObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.AddNetworkObserver_Params',
@@ -1999,7 +2742,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddNetworkObse
 };
 
 // ParamsSpec for DEPRECATED_AddAudioObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddAudioObserver_Params',
@@ -2013,7 +2756,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
 };
 
 // ParamsSpec for DEPRECATED_AddThunderboltObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddThunderboltObserver_Params',
@@ -2027,7 +2770,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
 };
 
 // ParamsSpec for DEPRECATED_AddUsbObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddUsbObserver_Params',
@@ -2041,7 +2784,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
 };
 
 // ParamsSpec for AddEventObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.AddEventObserver_Params',
@@ -2056,7 +2799,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddEventObserv
 };
 
 // ParamsSpec for IsEventSupported
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.IsEventSupported_Params',
@@ -2069,7 +2812,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_IsEventSupport
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.IsEventSupported_ResponseParams',
@@ -2083,29 +2826,69 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_IsEventSupport
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServicePtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServiceRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventServicePendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdEventServicePtr = ash.cros_healthd.mojom.CrosHealthdEventServiceRemote;
+ash.cros_healthd.mojom.CrosHealthdEventServiceRequest = ash.cros_healthd.mojom.CrosHealthdEventServicePendingReceiver;
 
 
 // Interface: CrosHealthdProbeService
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService = {};
+ash.cros_healthd.mojom.CrosHealthdProbeService = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServicePendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.ProbeCategoryEnumSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'process_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 0 },
+        { name: 'ignore_single_process_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdProbeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemote = class {
+ash.cros_healthd.mojom.CrosHealthdProbeServiceRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdProbeService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServicePendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdProbeServicePendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2117,7 +2900,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemote = class 
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2126,8 +2909,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec,
       [process_id]);
   }
 
@@ -2135,8 +2918,8 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
       [categories]);
   }
 
@@ -2144,15 +2927,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemoteCallHandl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec,
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec,
       [process_ids, ignore_single_process_error]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemote();
+ash.cros_healthd.mojom.CrosHealthdProbeService.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdProbeServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2162,7 +2945,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService.getRemote = fu
 };
 
 // ParamsSpec for ProbeProcessInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeProcessInfo_Params',
@@ -2175,7 +2958,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeProcessIn
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeProcessInfo_ResponseParams',
@@ -2189,7 +2972,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeProcessIn
 };
 
 // ParamsSpec for ProbeTelemetryInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeTelemetryInfo_Params',
@@ -2202,7 +2985,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeTelemetry
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeTelemetryInfo_ResponseParams',
@@ -2216,7 +2999,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeTelemetry
 };
 
 // ParamsSpec for ProbeMultipleProcessInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeMultipleProcessInfo_Params',
@@ -2230,7 +3013,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeMultipleP
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeMultipleProcessInfo_ResponseParams',
@@ -2244,6 +3027,6 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeService_ProbeMultipleP
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServicePtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServiceRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdProbeServicePendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdProbeServicePtr = ash.cros_healthd.mojom.CrosHealthdProbeServiceRemote;
+ash.cros_healthd.mojom.CrosHealthdProbeServiceRequest = ash.cros_healthd.mojom.CrosHealthdProbeServicePendingReceiver;
 

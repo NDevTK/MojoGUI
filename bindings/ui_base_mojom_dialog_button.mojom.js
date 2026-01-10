@@ -10,9 +10,9 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: DialogButton
-ui.mojom.mojom.DialogButton = {
+ui.mojom.DialogButton = {
   kNone: 0,
   kOk: 1,
   kCancel: 2,
 };
-ui.mojom.mojom.DialogButtonSpec = { $: mojo.internal.Enum() };
+ui.mojom.DialogButtonSpec = { $: mojo.internal.Enum() };

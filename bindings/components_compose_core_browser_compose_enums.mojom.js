@@ -10,7 +10,7 @@ compose.mojom = compose.mojom || {};
 
 
 // Enum: ComposeStatus
-compose.mojom.mojom.ComposeStatus = {
+compose.mojom.ComposeStatus = {
   kOk: 0,
   kClientError: 1,
   kMisconfiguration: 2,
@@ -28,4 +28,4 @@ compose.mojom.mojom.ComposeStatus = {
   kOffline: 14,
   kRequestTimeout: 15,
 };
-compose.mojom.mojom.ComposeStatusSpec = { $: mojo.internal.Enum() };
+compose.mojom.ComposeStatusSpec = { $: mojo.internal.Enum() };

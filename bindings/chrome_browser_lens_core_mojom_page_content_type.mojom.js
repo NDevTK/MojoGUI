@@ -10,9 +10,9 @@ lens.mojom = lens.mojom || {};
 
 
 // Enum: PageContentType
-lens.mojom.mojom.PageContentType = {
+lens.mojom.PageContentType = {
   kUnknown: 0,
   kPdf: 1,
   kHtml: 2,
 };
-lens.mojom.mojom.PageContentTypeSpec = { $: mojo.internal.Enum() };
+lens.mojom.PageContentTypeSpec = { $: mojo.internal.Enum() };

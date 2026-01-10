@@ -10,7 +10,7 @@ cert_verifier.mojom = cert_verifier.mojom || {};
 
 
 // Struct: CIDR
-cert_verifier.mojom.mojom.CIDRSpec = {
+cert_verifier.mojom.CIDRSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CIDR',
@@ -25,7 +25,7 @@ cert_verifier.mojom.mojom.CIDRSpec = {
 };
 
 // Struct: CertWithConstraints
-cert_verifier.mojom.mojom.CertWithConstraintsSpec = {
+cert_verifier.mojom.CertWithConstraintsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertWithConstraints',
@@ -41,7 +41,7 @@ cert_verifier.mojom.mojom.CertWithConstraintsSpec = {
 };
 
 // Struct: AdditionalCertificates
-cert_verifier.mojom.mojom.AdditionalCertificatesSpec = {
+cert_verifier.mojom.AdditionalCertificatesSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.AdditionalCertificates',
@@ -62,24 +62,62 @@ cert_verifier.mojom.mojom.AdditionalCertificatesSpec = {
 };
 
 // Interface: CertVerifierServiceUpdater
-cert_verifier.mojom.mojom.CertVerifierServiceUpdater = {};
+cert_verifier.mojom.CertVerifierServiceUpdater = {};
 
-cert_verifier.mojom.mojom.CertVerifierServiceUpdaterPendingReceiver = class {
+cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CTPolicySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemote = class {
+cert_verifier.mojom.CertVerifierServiceUpdaterRemote = class {
   static get $interfaceName() {
     return 'cert_verifier.mojom.CertVerifierServiceUpdater';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cert_verifier.mojom.mojom.CertVerifierServiceUpdaterPendingReceiver,
+      cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver,
       handle);
-    this.$ = new cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemoteCallHandler(this.proxy);
+    this.$ = new cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -91,7 +129,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemote = class {
   }
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
+cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -100,7 +138,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec,
       null,
       [certificates]);
   }
@@ -109,7 +147,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
       null,
       []);
   }
@@ -118,15 +156,15 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec,
       null,
       [ct_policy]);
   }
 
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceUpdater.getRemote = function() {
-  let remote = new cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemote();
+cert_verifier.mojom.CertVerifierServiceUpdater.getRemote = function() {
+  let remote = new cert_verifier.mojom.CertVerifierServiceUpdaterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -136,7 +174,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdater.getRemote = function() {
 };
 
 // ParamsSpec for UpdateAdditionalCertificates
-cert_verifier.mojom.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.UpdateAdditionalCertificates_Params',
@@ -150,7 +188,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificate
 };
 
 // ParamsSpec for WaitUntilNextUpdateForTesting
-cert_verifier.mojom.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.WaitUntilNextUpdateForTesting_Params',
@@ -163,7 +201,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesti
 };
 
 // ParamsSpec for SetCTPolicy
-cert_verifier.mojom.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.SetCTPolicy_Params',
@@ -177,6 +215,6 @@ cert_verifier.mojom.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
 };
 
 // Legacy compatibility
-cert_verifier.mojom.mojom.CertVerifierServiceUpdaterPtr = cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRemote;
-cert_verifier.mojom.mojom.CertVerifierServiceUpdaterRequest = cert_verifier.mojom.mojom.CertVerifierServiceUpdaterPendingReceiver;
+cert_verifier.mojom.CertVerifierServiceUpdaterPtr = cert_verifier.mojom.CertVerifierServiceUpdaterRemote;
+cert_verifier.mojom.CertVerifierServiceUpdaterRequest = cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver;
 

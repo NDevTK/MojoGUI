@@ -7,20 +7,20 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
+chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 
 // Enum: LoadHeatmapPalmRejectionResult
-chromeos.machine_learning.machine_learning.mojom.mojom.LoadHeatmapPalmRejectionResult = {
+chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResult = {
   OK: 0,
   LOAD_MODEL_ERROR: 1,
   CREATE_GRAPH_EXECUTOR_ERROR: 2,
   OPEN_DEVICE_ERROR: 3,
 };
-chromeos.machine_learning.machine_learning.mojom.mojom.LoadHeatmapPalmRejectionResultSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: HeatmapPalmRejectionConfig
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionConfigSpec = {
+chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HeatmapPalmRejectionConfig',
@@ -39,7 +39,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionConfi
 };
 
 // Struct: HeatmapProcessedEvent
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapProcessedEventSpec = {
+chromeos.machine_learning.mojom.HeatmapProcessedEventSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HeatmapProcessedEvent',
@@ -54,7 +54,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapProcessedEventSpec
 };
 
 // Struct: CropHeatmap
-chromeos.machine_learning.machine_learning.mojom.mojom.CropHeatmapSpec = {
+chromeos.machine_learning.mojom.CropHeatmapSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.CropHeatmap',
@@ -71,24 +71,37 @@ chromeos.machine_learning.machine_learning.mojom.mojom.CropHeatmapSpec = {
 };
 
 // Interface: HeatmapPalmRejectionClient
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClient = {};
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClient = {};
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientPendingReceiver = class {
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HeatmapProcessedEventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientRemote = class {
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientPendingReceiver,
+      chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -100,7 +113,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClien
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientRemoteCallHandler = class {
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -109,15 +122,15 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClien
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec,
+      chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec,
       null,
       [event]);
   }
 
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClient.getRemote = function() {
-  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientRemote();
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClient.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -127,7 +140,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClien
 };
 
 // ParamsSpec for OnHeatmapProcessedEvent
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec = {
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient.OnHeatmapProcessedEvent_Params',
@@ -141,6 +154,6 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClien
 };
 
 // Legacy compatibility
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientPtr = chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientRemote;
-chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientRequest = chromeos.machine_learning.machine_learning.mojom.mojom.HeatmapPalmRejectionClientPendingReceiver;
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPtr = chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote;
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRequest = chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver;
 

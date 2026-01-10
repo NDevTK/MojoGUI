@@ -14,14 +14,14 @@ var ui = ui || {};
 
 
 // Enum: EmulatedScreenType
-blink.mojom.mojom.EmulatedScreenType = {
+blink.mojom.EmulatedScreenType = {
   kDesktop: 0,
   kMobile: 1,
 };
-blink.mojom.mojom.EmulatedScreenTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.EmulatedScreenTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DeviceEmulationParams
-blink.mojom.mojom.DeviceEmulationParamsSpec = {
+blink.mojom.DeviceEmulationParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceEmulationParams',

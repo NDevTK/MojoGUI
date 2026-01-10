@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Enum: ResourceType
-blink.mojom.mojom.ResourceType = {
+blink.mojom.ResourceType = {
   kMainFrame: 0,
   kSubFrame: 1,
   kStylesheet: 2,
@@ -35,10 +35,10 @@ blink.mojom.mojom.ResourceType = {
   kNavigationPreloadSubFrame: 19,
   kJson: 20,
 };
-blink.mojom.mojom.ResourceTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ResourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CommonNetworkInfo
-blink.mojom.mojom.CommonNetworkInfoSpec = {
+blink.mojom.CommonNetworkInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CommonNetworkInfo',
@@ -54,7 +54,7 @@ blink.mojom.mojom.CommonNetworkInfoSpec = {
 };
 
 // Struct: RedirectInfo
-blink.mojom.mojom.RedirectInfoSpec = {
+blink.mojom.RedirectInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RedirectInfo',
@@ -69,7 +69,7 @@ blink.mojom.mojom.RedirectInfoSpec = {
 };
 
 // Struct: ResourceLoadInfo
-blink.mojom.mojom.ResourceLoadInfoSpec = {
+blink.mojom.ResourceLoadInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfo',

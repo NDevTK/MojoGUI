@@ -12,24 +12,50 @@ var gfx = gfx || {};
 
 
 // Interface: TextInputHost
-blink.mojom.mojom.TextInputHost = {};
+blink.mojom.TextInputHost = {};
 
-blink.mojom.mojom.TextInputHostPendingReceiver = class {
+blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextInputHost_GotCharacterIndexAtPoint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextInputHost_GotFirstRectForRange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.TextInputHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.TextInputHostRemote = class {
+blink.mojom.TextInputHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.TextInputHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.TextInputHostPendingReceiver,
+      blink.mojom.TextInputHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.TextInputHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.TextInputHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +67,7 @@ blink.mojom.mojom.TextInputHostRemote = class {
   }
 };
 
-blink.mojom.mojom.TextInputHostRemoteCallHandler = class {
+blink.mojom.TextInputHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +76,7 @@ blink.mojom.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
+      blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
       null,
       [index]);
   }
@@ -59,15 +85,15 @@ blink.mojom.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
+      blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
       null,
       [rect]);
   }
 
 };
 
-blink.mojom.mojom.TextInputHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.TextInputHostRemote();
+blink.mojom.TextInputHost.getRemote = function() {
+  let remote = new blink.mojom.TextInputHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -77,7 +103,7 @@ blink.mojom.mojom.TextInputHost.getRemote = function() {
 };
 
 // ParamsSpec for GotCharacterIndexAtPoint
-blink.mojom.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
+blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextInputHost.GotCharacterIndexAtPoint_Params',
@@ -91,7 +117,7 @@ blink.mojom.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
 };
 
 // ParamsSpec for GotFirstRectForRange
-blink.mojom.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
+blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextInputHost.GotFirstRectForRange_Params',
@@ -105,6 +131,6 @@ blink.mojom.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.TextInputHostPtr = blink.mojom.mojom.TextInputHostRemote;
-blink.mojom.mojom.TextInputHostRequest = blink.mojom.mojom.TextInputHostPendingReceiver;
+blink.mojom.TextInputHostPtr = blink.mojom.TextInputHostRemote;
+blink.mojom.TextInputHostRequest = blink.mojom.TextInputHostPendingReceiver;
 

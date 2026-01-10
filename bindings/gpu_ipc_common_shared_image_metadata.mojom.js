@@ -16,7 +16,7 @@ var skia = skia || {};
 
 
 // Struct: SharedImageMetadata
-gpu.mojom.mojom.SharedImageMetadataSpec = {
+gpu.mojom.SharedImageMetadataSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImageMetadata',

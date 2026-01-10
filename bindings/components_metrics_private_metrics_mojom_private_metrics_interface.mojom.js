@@ -7,18 +7,18 @@
 // Module namespace
 var metrics = metrics || {};
 metrics.private_metrics = metrics.private_metrics || {};
-metrics.private_metrics.private_metrics.mojom = metrics.private_metrics.private_metrics.mojom || {};
+metrics.private_metrics.mojom = metrics.private_metrics.mojom || {};
 
 
 // Enum: Type
-metrics.private_metrics.private_metrics.mojom.mojom.Type = {
+metrics.private_metrics.mojom.Type = {
   kDwa: 0,
   kDkm: 1,
 };
-metrics.private_metrics.private_metrics.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+metrics.private_metrics.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PrivateMetricsEntry
-metrics.private_metrics.private_metrics.mojom.mojom.PrivateMetricsEntrySpec = {
+metrics.private_metrics.mojom.PrivateMetricsEntrySpec = {
   $: {
     structSpec: {
       name: 'metrics.private_metrics.mojom.PrivateMetricsEntry',

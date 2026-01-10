@@ -10,7 +10,7 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Union: ReadTensorResult
-webnn.mojom.mojom.ReadTensorResultSpec = { $: mojo.internal.Union(
+webnn.mojom.ReadTensorResultSpec = { $: mojo.internal.Union(
     'webnn.mojom.ReadTensorResult', {
       'buffer': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ webnn.mojom.mojom.ReadTensorResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TensorUsage
-webnn.mojom.mojom.TensorUsageSpec = {
+webnn.mojom.TensorUsageSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.TensorUsage',
@@ -41,7 +41,7 @@ webnn.mojom.mojom.TensorUsageSpec = {
 };
 
 // Struct: TensorInfo
-webnn.mojom.mojom.TensorInfoSpec = {
+webnn.mojom.TensorInfoSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.TensorInfo',
@@ -56,24 +56,74 @@ webnn.mojom.mojom.TensorInfoSpec = {
 };
 
 // Interface: WebNNTensor
-webnn.mojom.mojom.WebNNTensor = {};
+webnn.mojom.WebNNTensor = {};
 
-webnn.mojom.mojom.WebNNTensorPendingReceiver = class {
+webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNTensor_ReadTensor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNTensor_WriteTensor_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNTensor_ExportTensor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNTensor_ImportTensor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webnn.mojom.WebNNTensorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webnn.mojom.mojom.WebNNTensorRemote = class {
+webnn.mojom.WebNNTensorRemote = class {
   static get $interfaceName() {
     return 'webnn.mojom.WebNNTensor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webnn.mojom.mojom.WebNNTensorPendingReceiver,
+      webnn.mojom.WebNNTensorPendingReceiver,
       handle);
-    this.$ = new webnn.mojom.mojom.WebNNTensorRemoteCallHandler(this.proxy);
+    this.$ = new webnn.mojom.WebNNTensorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +135,7 @@ webnn.mojom.mojom.WebNNTensorRemote = class {
   }
 };
 
-webnn.mojom.mojom.WebNNTensorRemoteCallHandler = class {
+webnn.mojom.WebNNTensorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,8 +144,8 @@ webnn.mojom.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.mojom.WebNNTensor_ReadTensor_ParamsSpec,
-      webnn.mojom.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
+      webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec,
+      webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
       []);
   }
 
@@ -103,7 +153,7 @@ webnn.mojom.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webnn.mojom.mojom.WebNNTensor_WriteTensor_ParamsSpec,
+      webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec,
       null,
       [src_buffer]);
   }
@@ -112,7 +162,7 @@ webnn.mojom.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webnn.mojom.mojom.WebNNTensor_ExportTensor_ParamsSpec,
+      webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec,
       null,
       []);
   }
@@ -121,15 +171,15 @@ webnn.mojom.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webnn.mojom.mojom.WebNNTensor_ImportTensor_ParamsSpec,
+      webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec,
       null,
       [fence]);
   }
 
 };
 
-webnn.mojom.mojom.WebNNTensor.getRemote = function() {
-  let remote = new webnn.mojom.mojom.WebNNTensorRemote();
+webnn.mojom.WebNNTensor.getRemote = function() {
+  let remote = new webnn.mojom.WebNNTensorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -139,7 +189,7 @@ webnn.mojom.mojom.WebNNTensor.getRemote = function() {
 };
 
 // ParamsSpec for ReadTensor
-webnn.mojom.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
+webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNTensor.ReadTensor_Params',
@@ -151,7 +201,7 @@ webnn.mojom.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
   }
 };
 
-webnn.mojom.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
+webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNTensor.ReadTensor_ResponseParams',
@@ -165,7 +215,7 @@ webnn.mojom.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WriteTensor
-webnn.mojom.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
+webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNTensor.WriteTensor_Params',
@@ -179,7 +229,7 @@ webnn.mojom.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
 };
 
 // ParamsSpec for ExportTensor
-webnn.mojom.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
+webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNTensor.ExportTensor_Params',
@@ -192,7 +242,7 @@ webnn.mojom.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
 };
 
 // ParamsSpec for ImportTensor
-webnn.mojom.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
+webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNTensor.ImportTensor_Params',
@@ -206,6 +256,6 @@ webnn.mojom.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
 };
 
 // Legacy compatibility
-webnn.mojom.mojom.WebNNTensorPtr = webnn.mojom.mojom.WebNNTensorRemote;
-webnn.mojom.mojom.WebNNTensorRequest = webnn.mojom.mojom.WebNNTensorPendingReceiver;
+webnn.mojom.WebNNTensorPtr = webnn.mojom.WebNNTensorRemote;
+webnn.mojom.WebNNTensorRequest = webnn.mojom.WebNNTensorPendingReceiver;
 

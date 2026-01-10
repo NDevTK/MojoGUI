@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: UserActivationSnapshot
-blink.mojom.mojom.UserActivationSnapshotSpec = {
+blink.mojom.UserActivationSnapshotSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserActivationSnapshot',

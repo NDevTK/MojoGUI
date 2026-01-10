@@ -10,15 +10,15 @@ related_website_sets.mojom = related_website_sets.mojom || {};
 
 
 // Enum: SiteType
-related_website_sets.mojom.mojom.SiteType = {
+related_website_sets.mojom.SiteType = {
   kPrimary: 0,
   kAssociated: 1,
   kService: 2,
 };
-related_website_sets.mojom.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
+related_website_sets.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: GetRelatedWebsiteSetsResponse
-related_website_sets.mojom.mojom.GetRelatedWebsiteSetsResponseSpec = { $: mojo.internal.Union(
+related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec = { $: mojo.internal.Union(
     'related_website_sets.mojom.GetRelatedWebsiteSetsResponse', {
       'related_website_sets': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ related_website_sets.mojom.mojom.GetRelatedWebsiteSetsResponseSpec = { $: mojo.i
 };
 
 // Struct: Member
-related_website_sets.mojom.mojom.MemberSpec = {
+related_website_sets.mojom.MemberSpec = {
   $: {
     structSpec: {
       name: 'related_website_sets.mojom.Member',
@@ -47,7 +47,7 @@ related_website_sets.mojom.mojom.MemberSpec = {
 };
 
 // Struct: RelatedWebsiteSet
-related_website_sets.mojom.mojom.RelatedWebsiteSetSpec = {
+related_website_sets.mojom.RelatedWebsiteSetSpec = {
   $: {
     structSpec: {
       name: 'related_website_sets.mojom.RelatedWebsiteSet',
@@ -63,24 +63,36 @@ related_website_sets.mojom.mojom.RelatedWebsiteSetSpec = {
 };
 
 // Interface: RelatedWebsiteSetsPageHandler
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler = {};
+related_website_sets.mojom.RelatedWebsiteSetsPageHandler = {};
 
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver = class {
+related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRemote = class {
+related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemote = class {
   static get $interfaceName() {
     return 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver,
+      related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver,
       handle);
-    this.$ = new related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -92,7 +104,7 @@ related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRemote = class {
   }
 };
 
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = class {
+related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -101,15 +113,15 @@ related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec,
-      related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec,
+      related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec,
+      related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec,
       []);
   }
 
 };
 
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler.getRemote = function() {
-  let remote = new related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRemote();
+related_website_sets.mojom.RelatedWebsiteSetsPageHandler.getRemote = function() {
+  let remote = new related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +131,7 @@ related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler.getRemote = funct
 };
 
 // ParamsSpec for GetRelatedWebsiteSets
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec = {
+related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec = {
   $: {
     structSpec: {
       name: 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler.GetRelatedWebsiteSets_Params',
@@ -131,7 +143,7 @@ related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsite
   }
 };
 
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec = {
+related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler.GetRelatedWebsiteSets_ResponseParams',
@@ -145,6 +157,6 @@ related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsite
 };
 
 // Legacy compatibility
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerPtr = related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRemote;
-related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerRequest = related_website_sets.mojom.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver;
+related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPtr = related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemote;
+related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRequest = related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver;
 

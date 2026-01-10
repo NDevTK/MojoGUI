@@ -12,24 +12,50 @@ var ui = ui || {};
 
 
 // Interface: TraitsTestService
-gl.mojom.mojom.TraitsTestService = {};
+gl.mojom.TraitsTestService = {};
 
-gl.mojom.mojom.TraitsTestServicePendingReceiver = class {
+gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gl.mojom.TraitsTestService_EchoGpuPreference_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gl.mojom.TraitsTestService_EchoGLImplementationParts_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'impl', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gl.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gl.mojom.mojom.TraitsTestServiceRemote = class {
+gl.mojom.TraitsTestServiceRemote = class {
   static get $interfaceName() {
     return 'gl.mojom.TraitsTestService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gl.mojom.mojom.TraitsTestServicePendingReceiver,
+      gl.mojom.TraitsTestServicePendingReceiver,
       handle);
-    this.$ = new gl.mojom.mojom.TraitsTestServiceRemoteCallHandler(this.proxy);
+    this.$ = new gl.mojom.TraitsTestServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +67,7 @@ gl.mojom.mojom.TraitsTestServiceRemote = class {
   }
 };
 
-gl.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
+gl.mojom.TraitsTestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +76,8 @@ gl.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gl.mojom.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec,
-      gl.mojom.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
+      gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec,
+      gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
       [g]);
   }
 
@@ -59,15 +85,15 @@ gl.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gl.mojom.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec,
-      gl.mojom.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
+      gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec,
+      gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
       [impl]);
   }
 
 };
 
-gl.mojom.mojom.TraitsTestService.getRemote = function() {
-  let remote = new gl.mojom.mojom.TraitsTestServiceRemote();
+gl.mojom.TraitsTestService.getRemote = function() {
+  let remote = new gl.mojom.TraitsTestServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -77,7 +103,7 @@ gl.mojom.mojom.TraitsTestService.getRemote = function() {
 };
 
 // ParamsSpec for EchoGpuPreference
-gl.mojom.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
+gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gl.mojom.TraitsTestService.EchoGpuPreference_Params',
@@ -90,7 +116,7 @@ gl.mojom.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
   }
 };
 
-gl.mojom.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
+gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gl.mojom.TraitsTestService.EchoGpuPreference_ResponseParams',
@@ -104,7 +130,7 @@ gl.mojom.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoGLImplementationParts
-gl.mojom.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
+gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gl.mojom.TraitsTestService.EchoGLImplementationParts_Params',
@@ -117,7 +143,7 @@ gl.mojom.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
   }
 };
 
-gl.mojom.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
+gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gl.mojom.TraitsTestService.EchoGLImplementationParts_ResponseParams',
@@ -131,6 +157,6 @@ gl.mojom.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-gl.mojom.mojom.TraitsTestServicePtr = gl.mojom.mojom.TraitsTestServiceRemote;
-gl.mojom.mojom.TraitsTestServiceRequest = gl.mojom.mojom.TraitsTestServicePendingReceiver;
+gl.mojom.TraitsTestServicePtr = gl.mojom.TraitsTestServiceRemote;
+gl.mojom.TraitsTestServiceRequest = gl.mojom.TraitsTestServicePendingReceiver;
 

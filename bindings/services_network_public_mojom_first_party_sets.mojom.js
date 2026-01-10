@@ -10,15 +10,15 @@ network.mojom = network.mojom || {};
 
 
 // Enum: SiteType
-network.mojom.mojom.SiteType = {
+network.mojom.SiteType = {
   kPrimary: 0,
   kAssociated: 1,
   kService: 2,
 };
-network.mojom.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FirstPartySetEntry
-network.mojom.mojom.FirstPartySetEntrySpec = {
+network.mojom.FirstPartySetEntrySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetEntry',
@@ -33,7 +33,7 @@ network.mojom.mojom.FirstPartySetEntrySpec = {
 };
 
 // Struct: FirstPartySetMetadata
-network.mojom.mojom.FirstPartySetMetadataSpec = {
+network.mojom.FirstPartySetMetadataSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetMetadata',
@@ -48,7 +48,7 @@ network.mojom.mojom.FirstPartySetMetadataSpec = {
 };
 
 // Struct: FirstPartySetEntryOverride
-network.mojom.mojom.FirstPartySetEntryOverrideSpec = {
+network.mojom.FirstPartySetEntryOverrideSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetEntryOverride',
@@ -62,7 +62,7 @@ network.mojom.mojom.FirstPartySetEntryOverrideSpec = {
 };
 
 // Struct: FirstPartySetsContextConfig
-network.mojom.mojom.FirstPartySetsContextConfigSpec = {
+network.mojom.FirstPartySetsContextConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsContextConfig',
@@ -77,7 +77,7 @@ network.mojom.mojom.FirstPartySetsContextConfigSpec = {
 };
 
 // Struct: FirstPartySetsCacheFilter
-network.mojom.mojom.FirstPartySetsCacheFilterSpec = {
+network.mojom.FirstPartySetsCacheFilterSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsCacheFilter',
@@ -92,7 +92,7 @@ network.mojom.mojom.FirstPartySetsCacheFilterSpec = {
 };
 
 // Struct: GlobalFirstPartySets
-network.mojom.mojom.GlobalFirstPartySetsSpec = {
+network.mojom.GlobalFirstPartySetsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.GlobalFirstPartySets',

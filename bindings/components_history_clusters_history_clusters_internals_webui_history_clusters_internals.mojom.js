@@ -10,24 +10,38 @@ history_clusters_internals.mojom = history_clusters_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
-history_clusters_internals.mojom.mojom.PageHandlerFactory = {};
+history_clusters_internals.mojom.PageHandlerFactory = {};
 
-history_clusters_internals.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(history_clusters_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'page_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(history_clusters_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_clusters_internals.mojom.mojom.PageHandlerFactoryRemote = class {
+history_clusters_internals.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'history_clusters_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_clusters_internals.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new history_clusters_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new history_clusters_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +53,7 @@ history_clusters_internals.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-history_clusters_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+history_clusters_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +62,15 @@ history_clusters_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, page_handler]);
   }
 
 };
 
-history_clusters_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new history_clusters_internals.mojom.mojom.PageHandlerFactoryRemote();
+history_clusters_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new history_clusters_internals.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +80,7 @@ history_clusters_internals.mojom.mojom.PageHandlerFactory.getRemote = function()
 };
 
 // ParamsSpec for CreatePageHandler
-history_clusters_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -81,29 +95,53 @@ history_clusters_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_Para
 };
 
 // Legacy compatibility
-history_clusters_internals.mojom.mojom.PageHandlerFactoryPtr = history_clusters_internals.mojom.mojom.PageHandlerFactoryRemote;
-history_clusters_internals.mojom.mojom.PageHandlerFactoryRequest = history_clusters_internals.mojom.mojom.PageHandlerFactoryPendingReceiver;
+history_clusters_internals.mojom.PageHandlerFactoryPtr = history_clusters_internals.mojom.PageHandlerFactoryRemote;
+history_clusters_internals.mojom.PageHandlerFactoryRequest = history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-history_clusters_internals.mojom.mojom.PageHandler = {};
+history_clusters_internals.mojom.PageHandler = {};
 
-history_clusters_internals.mojom.mojom.PageHandlerPendingReceiver = class {
+history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+history_clusters_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_clusters_internals.mojom.mojom.PageHandlerRemote = class {
+history_clusters_internals.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'history_clusters_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_clusters_internals.mojom.mojom.PageHandlerPendingReceiver,
+      history_clusters_internals.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new history_clusters_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new history_clusters_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +153,7 @@ history_clusters_internals.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-history_clusters_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
+history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,8 +162,8 @@ history_clusters_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters_internals.mojom.mojom.PageHandler_GetContextClustersJson_ParamsSpec,
-      history_clusters_internals.mojom.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
+      history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec,
+      history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
       []);
   }
 
@@ -133,15 +171,15 @@ history_clusters_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_clusters_internals.mojom.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec,
+      history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec,
       null,
       []);
   }
 
 };
 
-history_clusters_internals.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new history_clusters_internals.mojom.mojom.PageHandlerRemote();
+history_clusters_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new history_clusters_internals.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -151,7 +189,7 @@ history_clusters_internals.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetContextClustersJson
-history_clusters_internals.mojom.mojom.PageHandler_GetContextClustersJson_ParamsSpec = {
+history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters_internals.mojom.PageHandler.GetContextClustersJson_Params',
@@ -163,7 +201,7 @@ history_clusters_internals.mojom.mojom.PageHandler_GetContextClustersJson_Params
   }
 };
 
-history_clusters_internals.mojom.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = {
+history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters_internals.mojom.PageHandler.GetContextClustersJson_ResponseParams',
@@ -177,7 +215,7 @@ history_clusters_internals.mojom.mojom.PageHandler_GetContextClustersJson_Respon
 };
 
 // ParamsSpec for PrintKeywordBagStateToLogMessages
-history_clusters_internals.mojom.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = {
+history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters_internals.mojom.PageHandler.PrintKeywordBagStateToLogMessages_Params',
@@ -190,29 +228,42 @@ history_clusters_internals.mojom.mojom.PageHandler_PrintKeywordBagStateToLogMess
 };
 
 // Legacy compatibility
-history_clusters_internals.mojom.mojom.PageHandlerPtr = history_clusters_internals.mojom.mojom.PageHandlerRemote;
-history_clusters_internals.mojom.mojom.PageHandlerRequest = history_clusters_internals.mojom.mojom.PageHandlerPendingReceiver;
+history_clusters_internals.mojom.PageHandlerPtr = history_clusters_internals.mojom.PageHandlerRemote;
+history_clusters_internals.mojom.PageHandlerRequest = history_clusters_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-history_clusters_internals.mojom.mojom.Page = {};
+history_clusters_internals.mojom.Page = {};
 
-history_clusters_internals.mojom.mojom.PagePendingReceiver = class {
+history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'history_clusters_internals.mojom.Page_OnLogMessageAdded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+history_clusters_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_clusters_internals.mojom.mojom.PageRemote = class {
+history_clusters_internals.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'history_clusters_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_clusters_internals.mojom.mojom.PagePendingReceiver,
+      history_clusters_internals.mojom.PagePendingReceiver,
       handle);
-    this.$ = new history_clusters_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new history_clusters_internals.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -224,7 +275,7 @@ history_clusters_internals.mojom.mojom.PageRemote = class {
   }
 };
 
-history_clusters_internals.mojom.mojom.PageRemoteCallHandler = class {
+history_clusters_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -233,15 +284,15 @@ history_clusters_internals.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters_internals.mojom.mojom.Page_OnLogMessageAdded_ParamsSpec,
+      history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
       [message]);
   }
 
 };
 
-history_clusters_internals.mojom.mojom.Page.getRemote = function() {
-  let remote = new history_clusters_internals.mojom.mojom.PageRemote();
+history_clusters_internals.mojom.Page.getRemote = function() {
+  let remote = new history_clusters_internals.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -251,7 +302,7 @@ history_clusters_internals.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnLogMessageAdded
-history_clusters_internals.mojom.mojom.Page_OnLogMessageAdded_ParamsSpec = {
+history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters_internals.mojom.Page.OnLogMessageAdded_Params',
@@ -265,6 +316,6 @@ history_clusters_internals.mojom.mojom.Page_OnLogMessageAdded_ParamsSpec = {
 };
 
 // Legacy compatibility
-history_clusters_internals.mojom.mojom.PagePtr = history_clusters_internals.mojom.mojom.PageRemote;
-history_clusters_internals.mojom.mojom.PageRequest = history_clusters_internals.mojom.mojom.PagePendingReceiver;
+history_clusters_internals.mojom.PagePtr = history_clusters_internals.mojom.PageRemote;
+history_clusters_internals.mojom.PageRequest = history_clusters_internals.mojom.PagePendingReceiver;
 

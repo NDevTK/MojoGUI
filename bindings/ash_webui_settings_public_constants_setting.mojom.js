@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.settings = chromeos.settings || {};
-chromeos.settings.settings.mojom = chromeos.settings.settings.mojom || {};
+chromeos.settings.mojom = chromeos.settings.mojom || {};
 
 
 // Enum: Setting
-chromeos.settings.settings.mojom.mojom.Setting = {
+chromeos.settings.mojom.Setting = {
   kConfigureEthernet: 0,
   kEthernetAutoConfigureIp: 1,
   kEthernetDns: 2,
@@ -279,4 +279,4 @@ chromeos.settings.settings.mojom.mojom.Setting = {
   kSetActiveKerberosTicketV2: 264,
   kSnapWindowSuggestions: 265,
 };
-chromeos.settings.settings.mojom.mojom.SettingSpec = { $: mojo.internal.Enum() };
+chromeos.settings.mojom.SettingSpec = { $: mojo.internal.Enum() };

@@ -17,7 +17,7 @@ var url = url || {};
 
 
 // Struct: ChangedServiceWorkerObjectsMask
-blink.mojom.mojom.ChangedServiceWorkerObjectsMaskSpec = {
+blink.mojom.ChangedServiceWorkerObjectsMaskSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ChangedServiceWorkerObjectsMask',
@@ -33,7 +33,7 @@ blink.mojom.mojom.ChangedServiceWorkerObjectsMaskSpec = {
 };
 
 // Struct: ServiceWorkerRegistrationObjectInfo
-blink.mojom.mojom.ServiceWorkerRegistrationObjectInfoSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectInfo',
@@ -54,24 +54,87 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectInfoSpec = {
 };
 
 // Interface: ServiceWorkerRegistrationObjectHost
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost = {};
+blink.mojom.ServiceWorkerRegistrationObjectHost = {};
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver = class {
+blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost_Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'outside_fetch_client_settings_object', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchClientSettingsObjectSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemote = class {
+blink.mojom.ServiceWorkerRegistrationObjectHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerRegistrationObjectHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver,
+      blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +146,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
+blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,8 +155,8 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec,
       [outside_fetch_client_settings_object]);
   }
 
@@ -101,8 +164,8 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec,
       []);
   }
 
@@ -110,8 +173,8 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec,
       [enable]);
   }
 
@@ -119,8 +182,8 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec,
       []);
   }
 
@@ -128,15 +191,15 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec,
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec,
       [value]);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemote();
+blink.mojom.ServiceWorkerRegistrationObjectHost.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerRegistrationObjectHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -146,7 +209,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost.getRemote = function() {
 };
 
 // ParamsSpec for Update
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Update_Params',
@@ -159,7 +222,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Update_ResponseParams',
@@ -174,7 +237,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec 
 };
 
 // ParamsSpec for Unregister
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Unregister_Params',
@@ -186,7 +249,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Unregister_ResponseParams',
@@ -201,7 +264,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsS
 };
 
 // ParamsSpec for EnableNavigationPreload
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.EnableNavigationPreload_Params',
@@ -214,7 +277,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_Pa
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.EnableNavigationPreload_ResponseParams',
@@ -229,7 +292,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_Re
 };
 
 // ParamsSpec for GetNavigationPreloadState
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.GetNavigationPreloadState_Params',
@@ -241,7 +304,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.GetNavigationPreloadState_ResponseParams',
@@ -257,7 +320,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_
 };
 
 // ParamsSpec for SetNavigationPreloadHeader
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.SetNavigationPreloadHeader_Params',
@@ -270,7 +333,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.SetNavigationPreloadHeader_ResponseParams',
@@ -285,29 +348,70 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHostPtr = blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRemote;
-blink.mojom.mojom.ServiceWorkerRegistrationObjectHostRequest = blink.mojom.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver;
+blink.mojom.ServiceWorkerRegistrationObjectHostPtr = blink.mojom.ServiceWorkerRegistrationObjectHostRemote;
+blink.mojom.ServiceWorkerRegistrationObjectHostRequest = blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver;
 
 
 // Interface: ServiceWorkerRegistrationObject
-blink.mojom.mojom.ServiceWorkerRegistrationObject = {};
+blink.mojom.ServiceWorkerRegistrationObject = {};
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectPendingReceiver = class {
+blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'changed_mask', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ChangedServiceWorkerObjectsMaskSpec, nullable: false, minVersion: 0 },
+        { name: 'installing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'waiting', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'active', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update_via_cache', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerUpdateViaCacheSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectRemote = class {
+blink.mojom.ServiceWorkerRegistrationObjectRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerRegistrationObject';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ServiceWorkerRegistrationObjectPendingReceiver,
+      blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -319,7 +423,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectRemote = class {
   }
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
+blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -328,7 +432,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec,
       null,
       [changed_mask, installing, waiting, active]);
   }
@@ -337,7 +441,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec,
       null,
       [update_via_cache]);
   }
@@ -346,15 +450,15 @@ blink.mojom.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec,
+      blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.ServiceWorkerRegistrationObject.getRemote = function() {
-  let remote = new blink.mojom.mojom.ServiceWorkerRegistrationObjectRemote();
+blink.mojom.ServiceWorkerRegistrationObject.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerRegistrationObjectRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -364,7 +468,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObject.getRemote = function() {
 };
 
 // ParamsSpec for SetServiceWorkerObjects
-blink.mojom.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObject.SetServiceWorkerObjects_Params',
@@ -381,7 +485,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_Params
 };
 
 // ParamsSpec for SetUpdateViaCache
-blink.mojom.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObject.SetUpdateViaCache_Params',
@@ -395,7 +499,7 @@ blink.mojom.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec =
 };
 
 // ParamsSpec for UpdateFound
-blink.mojom.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
+blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationObject.UpdateFound_Params',
@@ -408,6 +512,6 @@ blink.mojom.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ServiceWorkerRegistrationObjectPtr = blink.mojom.mojom.ServiceWorkerRegistrationObjectRemote;
-blink.mojom.mojom.ServiceWorkerRegistrationObjectRequest = blink.mojom.mojom.ServiceWorkerRegistrationObjectPendingReceiver;
+blink.mojom.ServiceWorkerRegistrationObjectPtr = blink.mojom.ServiceWorkerRegistrationObjectRemote;
+blink.mojom.ServiceWorkerRegistrationObjectRequest = blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver;
 

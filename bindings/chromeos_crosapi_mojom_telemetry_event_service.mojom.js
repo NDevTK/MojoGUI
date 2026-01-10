@@ -10,86 +10,86 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceType
-crosapi.mojom.mojom.DeviceType = {
+crosapi.mojom.DeviceType = {
   kHeadphone: 0,
   kMicrophone: 1,
 };
-crosapi.mojom.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kClosed: 0,
   kOpened: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kAcInserted: 0,
   kAcRemoved: 1,
   kOsSuspend: 2,
   kOsResume: 3,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kInserted: 0,
   kRemoved: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryInputTouchButton
-crosapi.mojom.mojom.TelemetryInputTouchButton = {
+crosapi.mojom.TelemetryInputTouchButton = {
   kLeft: 0,
   kMiddle: 1,
   kRight: 2,
 };
-crosapi.mojom.mojom.TelemetryInputTouchButtonSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryInputTouchButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kPressed: 0,
   kReleased: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryEventCategoryEnum
-crosapi.mojom.mojom.TelemetryEventCategoryEnum = {
+crosapi.mojom.TelemetryEventCategoryEnum = {
   kAudioJack: 0,
 };
-crosapi.mojom.mojom.TelemetryEventCategoryEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryEventCategoryEnumSpec = { $: mojo.internal.Enum() };
 
 // Union: TelemetryEventInfo
-crosapi.mojom.mojom.TelemetryEventInfoSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryEventInfoSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryEventInfo', {
       'default_type': {
         'ordinal': 0,
@@ -159,7 +159,7 @@ crosapi.mojom.mojom.TelemetryEventInfoSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TelemetryAudioJackEventInfo
-crosapi.mojom.mojom.TelemetryAudioJackEventInfoSpec = {
+crosapi.mojom.TelemetryAudioJackEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryAudioJackEventInfo',
@@ -173,7 +173,7 @@ crosapi.mojom.mojom.TelemetryAudioJackEventInfoSpec = {
 };
 
 // Struct: TelemetryLidEventInfo
-crosapi.mojom.mojom.TelemetryLidEventInfoSpec = {
+crosapi.mojom.TelemetryLidEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryLidEventInfo',
@@ -187,7 +187,7 @@ crosapi.mojom.mojom.TelemetryLidEventInfoSpec = {
 };
 
 // Struct: TelemetryUsbEventInfo
-crosapi.mojom.mojom.TelemetryUsbEventInfoSpec = {
+crosapi.mojom.TelemetryUsbEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryUsbEventInfo',
@@ -206,7 +206,7 @@ crosapi.mojom.mojom.TelemetryUsbEventInfoSpec = {
 };
 
 // Struct: TelemetryExternalDisplayEventInfo
-crosapi.mojom.mojom.TelemetryExternalDisplayEventInfoSpec = {
+crosapi.mojom.TelemetryExternalDisplayEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExternalDisplayEventInfo',
@@ -220,7 +220,7 @@ crosapi.mojom.mojom.TelemetryExternalDisplayEventInfoSpec = {
 };
 
 // Struct: TelemetrySdCardEventInfo
-crosapi.mojom.mojom.TelemetrySdCardEventInfoSpec = {
+crosapi.mojom.TelemetrySdCardEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetrySdCardEventInfo',
@@ -234,7 +234,7 @@ crosapi.mojom.mojom.TelemetrySdCardEventInfoSpec = {
 };
 
 // Struct: TelemetryPowerEventInfo
-crosapi.mojom.mojom.TelemetryPowerEventInfoSpec = {
+crosapi.mojom.TelemetryPowerEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryPowerEventInfo',
@@ -248,7 +248,7 @@ crosapi.mojom.mojom.TelemetryPowerEventInfoSpec = {
 };
 
 // Struct: TelemetryStylusGarageEventInfo
-crosapi.mojom.mojom.TelemetryStylusGarageEventInfoSpec = {
+crosapi.mojom.TelemetryStylusGarageEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusGarageEventInfo',
@@ -262,7 +262,7 @@ crosapi.mojom.mojom.TelemetryStylusGarageEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchpadButtonEventInfo
-crosapi.mojom.mojom.TelemetryTouchpadButtonEventInfoSpec = {
+crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchpadButtonEventInfo',
@@ -277,7 +277,7 @@ crosapi.mojom.mojom.TelemetryTouchpadButtonEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchPointInfo
-crosapi.mojom.mojom.TelemetryTouchPointInfoSpec = {
+crosapi.mojom.TelemetryTouchPointInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchPointInfo',
@@ -296,7 +296,7 @@ crosapi.mojom.mojom.TelemetryTouchPointInfoSpec = {
 };
 
 // Struct: TelemetryTouchpadTouchEventInfo
-crosapi.mojom.mojom.TelemetryTouchpadTouchEventInfoSpec = {
+crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchpadTouchEventInfo',
@@ -310,7 +310,7 @@ crosapi.mojom.mojom.TelemetryTouchpadTouchEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchpadConnectedEventInfo
-crosapi.mojom.mojom.TelemetryTouchpadConnectedEventInfoSpec = {
+crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchpadConnectedEventInfo',
@@ -327,7 +327,7 @@ crosapi.mojom.mojom.TelemetryTouchpadConnectedEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchscreenTouchEventInfo
-crosapi.mojom.mojom.TelemetryTouchscreenTouchEventInfoSpec = {
+crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchscreenTouchEventInfo',
@@ -341,7 +341,7 @@ crosapi.mojom.mojom.TelemetryTouchscreenTouchEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchscreenConnectedEventInfo
-crosapi.mojom.mojom.TelemetryTouchscreenConnectedEventInfoSpec = {
+crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchscreenConnectedEventInfo',
@@ -360,7 +360,7 @@ crosapi.mojom.mojom.TelemetryTouchscreenConnectedEventInfoSpec = {
 };
 
 // Struct: TelemetryStylusTouchPointInfo
-crosapi.mojom.mojom.TelemetryStylusTouchPointInfoSpec = {
+crosapi.mojom.TelemetryStylusTouchPointInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusTouchPointInfo',
@@ -379,7 +379,7 @@ crosapi.mojom.mojom.TelemetryStylusTouchPointInfoSpec = {
 };
 
 // Struct: TelemetryStylusTouchEventInfo
-crosapi.mojom.mojom.TelemetryStylusTouchEventInfoSpec = {
+crosapi.mojom.TelemetryStylusTouchEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusTouchEventInfo',
@@ -393,7 +393,7 @@ crosapi.mojom.mojom.TelemetryStylusTouchEventInfoSpec = {
 };
 
 // Struct: TelemetryStylusConnectedEventInfo
-crosapi.mojom.mojom.TelemetryStylusConnectedEventInfoSpec = {
+crosapi.mojom.TelemetryStylusConnectedEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusConnectedEventInfo',
@@ -412,24 +412,37 @@ crosapi.mojom.mojom.TelemetryStylusConnectedEventInfoSpec = {
 };
 
 // Interface: TelemetryEventObserver
-crosapi.mojom.mojom.TelemetryEventObserver = {};
+crosapi.mojom.TelemetryEventObserver = {};
 
-crosapi.mojom.mojom.TelemetryEventObserverPendingReceiver = class {
+crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryEventObserver_OnEvent_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryEventInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.TelemetryEventObserverRemote = class {
+crosapi.mojom.TelemetryEventObserverRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryEventObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.TelemetryEventObserverPendingReceiver,
+      crosapi.mojom.TelemetryEventObserverPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.TelemetryEventObserverRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.TelemetryEventObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -441,7 +454,7 @@ crosapi.mojom.mojom.TelemetryEventObserverRemote = class {
   }
 };
 
-crosapi.mojom.mojom.TelemetryEventObserverRemoteCallHandler = class {
+crosapi.mojom.TelemetryEventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -450,15 +463,15 @@ crosapi.mojom.mojom.TelemetryEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.TelemetryEventObserver_OnEvent_ParamsSpec,
+      crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-crosapi.mojom.mojom.TelemetryEventObserver.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.TelemetryEventObserverRemote();
+crosapi.mojom.TelemetryEventObserver.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryEventObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -468,7 +481,7 @@ crosapi.mojom.mojom.TelemetryEventObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnEvent
-crosapi.mojom.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = {
+crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventObserver.OnEvent_Params',
@@ -482,29 +495,56 @@ crosapi.mojom.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.TelemetryEventObserverPtr = crosapi.mojom.mojom.TelemetryEventObserverRemote;
-crosapi.mojom.mojom.TelemetryEventObserverRequest = crosapi.mojom.mojom.TelemetryEventObserverPendingReceiver;
+crosapi.mojom.TelemetryEventObserverPtr = crosapi.mojom.TelemetryEventObserverRemote;
+crosapi.mojom.TelemetryEventObserverRequest = crosapi.mojom.TelemetryEventObserverPendingReceiver;
 
 
 // Interface: TelemetryEventService
-crosapi.mojom.mojom.TelemetryEventService = {};
+crosapi.mojom.TelemetryEventService = {};
 
-crosapi.mojom.mojom.TelemetryEventServicePendingReceiver = class {
+crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryEventService_AddEventObserver_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.TelemetryEventCategoryEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryEventObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryEventService_IsEventSupported_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryEventCategoryEnumSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryEventServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.TelemetryEventServiceRemote = class {
+crosapi.mojom.TelemetryEventServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryEventService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.TelemetryEventServicePendingReceiver,
+      crosapi.mojom.TelemetryEventServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.TelemetryEventServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.TelemetryEventServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -516,7 +556,7 @@ crosapi.mojom.mojom.TelemetryEventServiceRemote = class {
   }
 };
 
-crosapi.mojom.mojom.TelemetryEventServiceRemoteCallHandler = class {
+crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -525,7 +565,7 @@ crosapi.mojom.mojom.TelemetryEventServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.TelemetryEventService_AddEventObserver_ParamsSpec,
+      crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec,
       null,
       [category, observer]);
   }
@@ -534,15 +574,15 @@ crosapi.mojom.mojom.TelemetryEventServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ParamsSpec,
-      crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec,
+      crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec,
+      crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec,
       [category]);
   }
 
 };
 
-crosapi.mojom.mojom.TelemetryEventService.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.TelemetryEventServiceRemote();
+crosapi.mojom.TelemetryEventService.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryEventServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -552,7 +592,7 @@ crosapi.mojom.mojom.TelemetryEventService.getRemote = function() {
 };
 
 // ParamsSpec for AddEventObserver
-crosapi.mojom.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
+crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventService.AddEventObserver_Params',
@@ -567,7 +607,7 @@ crosapi.mojom.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
 };
 
 // ParamsSpec for IsEventSupported
-crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
+crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventService.IsEventSupported_Params',
@@ -580,7 +620,7 @@ crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = {
+crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventService.IsEventSupported_ResponseParams',
@@ -594,6 +634,6 @@ crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.TelemetryEventServicePtr = crosapi.mojom.mojom.TelemetryEventServiceRemote;
-crosapi.mojom.mojom.TelemetryEventServiceRequest = crosapi.mojom.mojom.TelemetryEventServicePendingReceiver;
+crosapi.mojom.TelemetryEventServicePtr = crosapi.mojom.TelemetryEventServiceRemote;
+crosapi.mojom.TelemetryEventServiceRequest = crosapi.mojom.TelemetryEventServicePendingReceiver;
 

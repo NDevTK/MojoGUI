@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: SyncedScrollOffset
-cc.mojom.mojom.SyncedScrollOffsetSpec = {
+cc.mojom.SyncedScrollOffsetSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.SyncedScrollOffset',

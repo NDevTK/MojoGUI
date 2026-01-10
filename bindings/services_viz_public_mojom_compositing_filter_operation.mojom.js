@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Enum: FilterType
-viz.mojom.mojom.FilterType = {
+viz.mojom.FilterType = {
   GRAYSCALE: 0,
   SEPIA: 1,
   SATURATE: 2,
@@ -33,10 +33,10 @@ viz.mojom.mojom.FilterType = {
   OFFSET: 15,
   FILTER_TYPE_LAST: 16,
 };
-viz.mojom.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FilterOperation
-viz.mojom.mojom.FilterOperationSpec = {
+viz.mojom.FilterOperationSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FilterOperation',

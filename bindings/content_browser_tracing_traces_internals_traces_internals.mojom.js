@@ -11,16 +11,16 @@ var url = url || {};
 
 
 // Enum: ReportUploadState
-traces_internals.mojom.mojom.ReportUploadState = {
+traces_internals.mojom.ReportUploadState = {
   kNotUploaded: 0,
   kPending: 1,
   kPending_UserRequested: 2,
   kUploaded: 3,
 };
-traces_internals.mojom.mojom.ReportUploadStateSpec = { $: mojo.internal.Enum() };
+traces_internals.mojom.ReportUploadStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: SkipUploadReason
-traces_internals.mojom.mojom.SkipUploadReason = {
+traces_internals.mojom.SkipUploadReason = {
   kNoSkip: 0,
   kSizeLimitExceeded: 1,
   kNotAnonymized: 2,
@@ -28,10 +28,10 @@ traces_internals.mojom.mojom.SkipUploadReason = {
   kUploadTimedOut: 4,
   kLocalScenario: 5,
 };
-traces_internals.mojom.mojom.SkipUploadReasonSpec = { $: mojo.internal.Enum() };
+traces_internals.mojom.SkipUploadReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: TracingScenarioState
-traces_internals.mojom.mojom.TracingScenarioState = {
+traces_internals.mojom.TracingScenarioState = {
   kDisabled: 0,
   kEnabled: 1,
   kSetup: 2,
@@ -41,10 +41,10 @@ traces_internals.mojom.mojom.TracingScenarioState = {
   kFinalizing: 6,
   kCloning: 7,
 };
-traces_internals.mojom.mojom.TracingScenarioStateSpec = { $: mojo.internal.Enum() };
+traces_internals.mojom.TracingScenarioStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClientTraceReport
-traces_internals.mojom.mojom.ClientTraceReportSpec = {
+traces_internals.mojom.ClientTraceReportSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.ClientTraceReport',
@@ -68,7 +68,7 @@ traces_internals.mojom.mojom.ClientTraceReportSpec = {
 };
 
 // Struct: Scenario
-traces_internals.mojom.mojom.ScenarioSpec = {
+traces_internals.mojom.ScenarioSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.Scenario',
@@ -86,7 +86,7 @@ traces_internals.mojom.mojom.ScenarioSpec = {
 };
 
 // Struct: TraceCategory
-traces_internals.mojom.mojom.TraceCategorySpec = {
+traces_internals.mojom.TraceCategorySpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.TraceCategory',
@@ -103,24 +103,38 @@ traces_internals.mojom.mojom.TraceCategorySpec = {
 };
 
 // Interface: TracesInternalsHandlerFactory
-traces_internals.mojom.mojom.TracesInternalsHandlerFactory = {};
+traces_internals.mojom.TracesInternalsHandlerFactory = {};
 
-traces_internals.mojom.mojom.TracesInternalsHandlerFactoryPendingReceiver = class {
+traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(traces_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(traces_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+traces_internals.mojom.TracesInternalsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRemote = class {
+traces_internals.mojom.TracesInternalsHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'traces_internals.mojom.TracesInternalsHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      traces_internals.mojom.mojom.TracesInternalsHandlerFactoryPendingReceiver,
+      traces_internals.mojom.TracesInternalsHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new traces_internals.mojom.TracesInternalsHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -132,7 +146,7 @@ traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRemote = class {
   }
 };
 
-traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = class {
+traces_internals.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -141,15 +155,15 @@ traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      traces_internals.mojom.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec,
+      traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-traces_internals.mojom.mojom.TracesInternalsHandlerFactory.getRemote = function() {
-  let remote = new traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRemote();
+traces_internals.mojom.TracesInternalsHandlerFactory.getRemote = function() {
+  let remote = new traces_internals.mojom.TracesInternalsHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +173,7 @@ traces_internals.mojom.mojom.TracesInternalsHandlerFactory.getRemote = function(
 };
 
 // ParamsSpec for CreatePageHandler
-traces_internals.mojom.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = {
+traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.TracesInternalsHandlerFactory.CreatePageHandler_Params',
@@ -174,29 +188,278 @@ traces_internals.mojom.mojom.TracesInternalsHandlerFactory_CreatePageHandler_Par
 };
 
 // Legacy compatibility
-traces_internals.mojom.mojom.TracesInternalsHandlerFactoryPtr = traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRemote;
-traces_internals.mojom.mojom.TracesInternalsHandlerFactoryRequest = traces_internals.mojom.mojom.TracesInternalsHandlerFactoryPendingReceiver;
+traces_internals.mojom.TracesInternalsHandlerFactoryPtr = traces_internals.mojom.TracesInternalsHandlerFactoryRemote;
+traces_internals.mojom.TracesInternalsHandlerFactoryRequest = traces_internals.mojom.TracesInternalsHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-traces_internals.mojom.mojom.PageHandler = {};
+traces_internals.mojom.PageHandler = {};
 
-traces_internals.mojom.mojom.PageHandlerPendingReceiver = class {
+traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_StartTraceSession_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_privacy_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_CloneTraceSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_StopTraceSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_GetTrackEventCategories_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_GetBufferUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_GetAllTraceReports_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_DeleteSingleTrace_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_DeleteAllTraces_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_UserUploadSingleTrace_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_DownloadTrace_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_GetAllScenarios_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_SetEnabledScenarios_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_SetScenariosConfigFromString_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_GetSystemTracingState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_EnableSystemTracing_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.PageHandler_DisableSystemTracing_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+traces_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-traces_internals.mojom.mojom.PageHandlerRemote = class {
+traces_internals.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'traces_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      traces_internals.mojom.mojom.PageHandlerPendingReceiver,
+      traces_internals.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new traces_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new traces_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -208,7 +471,7 @@ traces_internals.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
+traces_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -217,8 +480,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_StartTraceSession_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_StartTraceSession_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec,
+      traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec,
       [config_pb, enable_privacy_filters]);
   }
 
@@ -226,8 +489,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_CloneTraceSession_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec,
+      traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec,
       []);
   }
 
@@ -235,8 +498,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_StopTraceSession_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_StopTraceSession_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec,
+      traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec,
       []);
   }
 
@@ -244,8 +507,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_GetTrackEventCategories_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec,
+      traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec,
       []);
   }
 
@@ -253,8 +516,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_GetBufferUsage_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec,
+      traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec,
       []);
   }
 
@@ -262,8 +525,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_GetAllTraceReports_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec,
+      traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec,
       []);
   }
 
@@ -271,8 +534,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_DeleteSingleTrace_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec,
+      traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec,
       [uuid]);
   }
 
@@ -280,8 +543,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_DeleteAllTraces_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec,
+      traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec,
       []);
   }
 
@@ -289,8 +552,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec,
+      traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec,
       [uuid]);
   }
 
@@ -298,8 +561,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_DownloadTrace_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_DownloadTrace_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec,
+      traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec,
       [uuid]);
   }
 
@@ -307,8 +570,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_GetAllScenarios_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec,
+      traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec,
       []);
   }
 
@@ -316,8 +579,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_SetEnabledScenarios_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec,
+      traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec,
       [new_config]);
   }
 
@@ -325,8 +588,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec,
+      traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec,
       [config_string]);
   }
 
@@ -334,8 +597,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec,
+      traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec,
       [config_pb]);
   }
 
@@ -343,8 +606,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec,
+      traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -352,7 +615,7 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec,
+      traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec,
       null,
       [enable]);
   }
@@ -361,8 +624,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_GetSystemTracingState_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec,
+      traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec,
       []);
   }
 
@@ -370,8 +633,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec,
+      traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec,
       []);
   }
 
@@ -379,8 +642,8 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_EnableSystemTracing_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec,
+      traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec,
       []);
   }
 
@@ -388,15 +651,15 @@ traces_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      traces_internals.mojom.mojom.PageHandler_DisableSystemTracing_ParamsSpec,
-      traces_internals.mojom.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec,
+      traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec,
+      traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec,
       []);
   }
 
 };
 
-traces_internals.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new traces_internals.mojom.mojom.PageHandlerRemote();
+traces_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new traces_internals.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -406,7 +669,7 @@ traces_internals.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for StartTraceSession
-traces_internals.mojom.mojom.PageHandler_StartTraceSession_ParamsSpec = {
+traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.StartTraceSession_Params',
@@ -420,7 +683,7 @@ traces_internals.mojom.mojom.PageHandler_StartTraceSession_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.StartTraceSession_ResponseParams',
@@ -434,7 +697,7 @@ traces_internals.mojom.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = 
 };
 
 // ParamsSpec for CloneTraceSession
-traces_internals.mojom.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
+traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.CloneTraceSession_Params',
@@ -446,7 +709,7 @@ traces_internals.mojom.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.CloneTraceSession_ResponseParams',
@@ -461,7 +724,7 @@ traces_internals.mojom.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = 
 };
 
 // ParamsSpec for StopTraceSession
-traces_internals.mojom.mojom.PageHandler_StopTraceSession_ParamsSpec = {
+traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.StopTraceSession_Params',
@@ -473,7 +736,7 @@ traces_internals.mojom.mojom.PageHandler_StopTraceSession_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.StopTraceSession_ResponseParams',
@@ -487,7 +750,7 @@ traces_internals.mojom.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetTrackEventCategories
-traces_internals.mojom.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
+traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetTrackEventCategories_Params',
@@ -499,7 +762,7 @@ traces_internals.mojom.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetTrackEventCategories_ResponseParams',
@@ -513,7 +776,7 @@ traces_internals.mojom.mojom.PageHandler_GetTrackEventCategories_ResponseParamsS
 };
 
 // ParamsSpec for GetBufferUsage
-traces_internals.mojom.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
+traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetBufferUsage_Params',
@@ -525,7 +788,7 @@ traces_internals.mojom.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetBufferUsage_ResponseParams',
@@ -541,7 +804,7 @@ traces_internals.mojom.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAllTraceReports
-traces_internals.mojom.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
+traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetAllTraceReports_Params',
@@ -553,7 +816,7 @@ traces_internals.mojom.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetAllTraceReports_ResponseParams',
@@ -567,7 +830,7 @@ traces_internals.mojom.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec =
 };
 
 // ParamsSpec for DeleteSingleTrace
-traces_internals.mojom.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
+traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DeleteSingleTrace_Params',
@@ -580,7 +843,7 @@ traces_internals.mojom.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DeleteSingleTrace_ResponseParams',
@@ -594,7 +857,7 @@ traces_internals.mojom.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = 
 };
 
 // ParamsSpec for DeleteAllTraces
-traces_internals.mojom.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
+traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DeleteAllTraces_Params',
@@ -606,7 +869,7 @@ traces_internals.mojom.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DeleteAllTraces_ResponseParams',
@@ -620,7 +883,7 @@ traces_internals.mojom.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UserUploadSingleTrace
-traces_internals.mojom.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
+traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.UserUploadSingleTrace_Params',
@@ -633,7 +896,7 @@ traces_internals.mojom.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.UserUploadSingleTrace_ResponseParams',
@@ -647,7 +910,7 @@ traces_internals.mojom.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpe
 };
 
 // ParamsSpec for DownloadTrace
-traces_internals.mojom.mojom.PageHandler_DownloadTrace_ParamsSpec = {
+traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DownloadTrace_Params',
@@ -660,7 +923,7 @@ traces_internals.mojom.mojom.PageHandler_DownloadTrace_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DownloadTrace_ResponseParams',
@@ -674,7 +937,7 @@ traces_internals.mojom.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAllScenarios
-traces_internals.mojom.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
+traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetAllScenarios_Params',
@@ -686,7 +949,7 @@ traces_internals.mojom.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetAllScenarios_ResponseParams',
@@ -700,7 +963,7 @@ traces_internals.mojom.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetEnabledScenarios
-traces_internals.mojom.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
+traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.SetEnabledScenarios_Params',
@@ -713,7 +976,7 @@ traces_internals.mojom.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.SetEnabledScenarios_ResponseParams',
@@ -727,7 +990,7 @@ traces_internals.mojom.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec 
 };
 
 // ParamsSpec for SetScenariosConfigFromString
-traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
+traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromString_Params',
@@ -740,7 +1003,7 @@ traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromString_ResponseParams',
@@ -754,7 +1017,7 @@ traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromString_ResponsePa
 };
 
 // ParamsSpec for SetScenariosConfigFromBuffer
-traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
+traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromBuffer_Params',
@@ -767,7 +1030,7 @@ traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromBuffer_ResponseParams',
@@ -781,7 +1044,7 @@ traces_internals.mojom.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponsePa
 };
 
 // ParamsSpec for GetPrivacyFilterEnabled
-traces_internals.mojom.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
+traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetPrivacyFilterEnabled_Params',
@@ -793,7 +1056,7 @@ traces_internals.mojom.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetPrivacyFilterEnabled_ResponseParams',
@@ -807,7 +1070,7 @@ traces_internals.mojom.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsS
 };
 
 // ParamsSpec for SetPrivacyFilterEnabled
-traces_internals.mojom.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
+traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.SetPrivacyFilterEnabled_Params',
@@ -821,7 +1084,7 @@ traces_internals.mojom.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for GetSystemTracingState
-traces_internals.mojom.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
+traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetSystemTracingState_Params',
@@ -833,7 +1096,7 @@ traces_internals.mojom.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetSystemTracingState_ResponseParams',
@@ -848,7 +1111,7 @@ traces_internals.mojom.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpe
 };
 
 // ParamsSpec for GetSecurityShieldIconUrl
-traces_internals.mojom.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
+traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetSecurityShieldIconUrl_Params',
@@ -860,7 +1123,7 @@ traces_internals.mojom.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetSecurityShieldIconUrl_ResponseParams',
@@ -874,7 +1137,7 @@ traces_internals.mojom.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParams
 };
 
 // ParamsSpec for EnableSystemTracing
-traces_internals.mojom.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
+traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.EnableSystemTracing_Params',
@@ -886,7 +1149,7 @@ traces_internals.mojom.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.EnableSystemTracing_ResponseParams',
@@ -900,7 +1163,7 @@ traces_internals.mojom.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec 
 };
 
 // ParamsSpec for DisableSystemTracing
-traces_internals.mojom.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
+traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DisableSystemTracing_Params',
@@ -912,7 +1175,7 @@ traces_internals.mojom.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
   }
 };
 
-traces_internals.mojom.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = {
+traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.DisableSystemTracing_ResponseParams',
@@ -926,29 +1189,43 @@ traces_internals.mojom.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec
 };
 
 // Legacy compatibility
-traces_internals.mojom.mojom.PageHandlerPtr = traces_internals.mojom.mojom.PageHandlerRemote;
-traces_internals.mojom.mojom.PageHandlerRequest = traces_internals.mojom.mojom.PageHandlerPendingReceiver;
+traces_internals.mojom.PageHandlerPtr = traces_internals.mojom.PageHandlerRemote;
+traces_internals.mojom.PageHandlerRequest = traces_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-traces_internals.mojom.mojom.Page = {};
+traces_internals.mojom.Page = {};
 
-traces_internals.mojom.mojom.PagePendingReceiver = class {
+traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.Page_OnTraceComplete_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
+        { name: 'uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+traces_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-traces_internals.mojom.mojom.PageRemote = class {
+traces_internals.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'traces_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      traces_internals.mojom.mojom.PagePendingReceiver,
+      traces_internals.mojom.PagePendingReceiver,
       handle);
-    this.$ = new traces_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new traces_internals.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -960,7 +1237,7 @@ traces_internals.mojom.mojom.PageRemote = class {
   }
 };
 
-traces_internals.mojom.mojom.PageRemoteCallHandler = class {
+traces_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -969,15 +1246,15 @@ traces_internals.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      traces_internals.mojom.mojom.Page_OnTraceComplete_ParamsSpec,
+      traces_internals.mojom.Page_OnTraceComplete_ParamsSpec,
       null,
       [trace, uuid]);
   }
 
 };
 
-traces_internals.mojom.mojom.Page.getRemote = function() {
-  let remote = new traces_internals.mojom.mojom.PageRemote();
+traces_internals.mojom.Page.getRemote = function() {
+  let remote = new traces_internals.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -987,7 +1264,7 @@ traces_internals.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnTraceComplete
-traces_internals.mojom.mojom.Page_OnTraceComplete_ParamsSpec = {
+traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.Page.OnTraceComplete_Params',
@@ -1002,6 +1279,6 @@ traces_internals.mojom.mojom.Page_OnTraceComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-traces_internals.mojom.mojom.PagePtr = traces_internals.mojom.mojom.PageRemote;
-traces_internals.mojom.mojom.PageRequest = traces_internals.mojom.mojom.PagePendingReceiver;
+traces_internals.mojom.PagePtr = traces_internals.mojom.PageRemote;
+traces_internals.mojom.PageRequest = traces_internals.mojom.PagePendingReceiver;
 

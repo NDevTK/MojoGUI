@@ -11,43 +11,43 @@ var ui = ui || {};
 
 
 // Enum: AcceleratorSource
-ash.mojom.mojom.AcceleratorSource = {
+ash.mojom.AcceleratorSource = {
   kAsh: 0,
   kEventRewriter: 1,
   kBrowser: 2,
   kAmbient: 3,
   kAndroid: 4,
 };
-ash.mojom.mojom.AcceleratorSourceSpec = { $: mojo.internal.Enum() };
+ash.mojom.AcceleratorSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorType
-ash.mojom.mojom.AcceleratorType = {
+ash.mojom.AcceleratorType = {
   kDefault: 0,
   kUser: 1,
   kDeprecated: 2,
   kDeveloper: 3,
   kDebug: 4,
 };
-ash.mojom.mojom.AcceleratorTypeSpec = { $: mojo.internal.Enum() };
+ash.mojom.AcceleratorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorState
-ash.mojom.mojom.AcceleratorState = {
+ash.mojom.AcceleratorState = {
   kEnabled: 0,
   kDisabledByConflict: 1,
   kDisabledByUser: 2,
   kDisabledByUnavailableKeys: 3,
 };
-ash.mojom.mojom.AcceleratorStateSpec = { $: mojo.internal.Enum() };
+ash.mojom.AcceleratorStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorLayoutStyle
-ash.mojom.mojom.AcceleratorLayoutStyle = {
+ash.mojom.AcceleratorLayoutStyle = {
   kDefault: 0,
   kText: 1,
 };
-ash.mojom.mojom.AcceleratorLayoutStyleSpec = { $: mojo.internal.Enum() };
+ash.mojom.AcceleratorLayoutStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorCategory
-ash.mojom.mojom.AcceleratorCategory = {
+ash.mojom.AcceleratorCategory = {
   kGeneral: 0,
   kDevice: 1,
   kBrowser: 2,
@@ -57,10 +57,10 @@ ash.mojom.mojom.AcceleratorCategory = {
   kDebug: 6,
   kDeveloper: 7,
 };
-ash.mojom.mojom.AcceleratorCategorySpec = { $: mojo.internal.Enum() };
+ash.mojom.AcceleratorCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorSubcategory
-ash.mojom.mojom.AcceleratorSubcategory = {
+ash.mojom.AcceleratorSubcategory = {
   kGeneralControls: 0,
   kApps: 1,
   kMedia: 2,
@@ -81,19 +81,19 @@ ash.mojom.mojom.AcceleratorSubcategory = {
   kVisibility: 17,
   kAccessibilityNavigation: 18,
 };
-ash.mojom.mojom.AcceleratorSubcategorySpec = { $: mojo.internal.Enum() };
+ash.mojom.AcceleratorSubcategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: TextAcceleratorPartType
-ash.mojom.mojom.TextAcceleratorPartType = {
+ash.mojom.TextAcceleratorPartType = {
   kPlainText: 0,
   kModifier: 1,
   kKey: 2,
   kDelimiter: 3,
 };
-ash.mojom.mojom.TextAcceleratorPartTypeSpec = { $: mojo.internal.Enum() };
+ash.mojom.TextAcceleratorPartTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: LayoutStyleProperties
-ash.mojom.mojom.LayoutStylePropertiesSpec = { $: mojo.internal.Union(
+ash.mojom.LayoutStylePropertiesSpec = { $: mojo.internal.Union(
     'ash.mojom.LayoutStyleProperties', {
       'standard_accelerator': {
         'ordinal': 0,
@@ -107,7 +107,7 @@ ash.mojom.mojom.LayoutStylePropertiesSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TextAcceleratorPart
-ash.mojom.mojom.TextAcceleratorPartSpec = {
+ash.mojom.TextAcceleratorPartSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.TextAcceleratorPart',
@@ -122,7 +122,7 @@ ash.mojom.mojom.TextAcceleratorPartSpec = {
 };
 
 // Struct: TextAcceleratorProperties
-ash.mojom.mojom.TextAcceleratorPropertiesSpec = {
+ash.mojom.TextAcceleratorPropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.TextAcceleratorProperties',
@@ -136,7 +136,7 @@ ash.mojom.mojom.TextAcceleratorPropertiesSpec = {
 };
 
 // Struct: StandardAcceleratorProperties
-ash.mojom.mojom.StandardAcceleratorPropertiesSpec = {
+ash.mojom.StandardAcceleratorPropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.StandardAcceleratorProperties',
@@ -152,7 +152,7 @@ ash.mojom.mojom.StandardAcceleratorPropertiesSpec = {
 };
 
 // Struct: AcceleratorInfo
-ash.mojom.mojom.AcceleratorInfoSpec = {
+ash.mojom.AcceleratorInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.AcceleratorInfo',
@@ -170,7 +170,7 @@ ash.mojom.mojom.AcceleratorInfoSpec = {
 };
 
 // Struct: AcceleratorLayoutInfo
-ash.mojom.mojom.AcceleratorLayoutInfoSpec = {
+ash.mojom.AcceleratorLayoutInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.AcceleratorLayoutInfo',

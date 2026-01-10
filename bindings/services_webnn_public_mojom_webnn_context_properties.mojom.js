@@ -10,29 +10,29 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Enum: InputOperandLayout
-webnn.mojom.mojom.InputOperandLayout = {
+webnn.mojom.InputOperandLayout = {
   kChannelsFirst: 0,
   kChannelsLast: 1,
 };
-webnn.mojom.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum() };
+webnn.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: Resample2DAxes
-webnn.mojom.mojom.Resample2DAxes = {
+webnn.mojom.Resample2DAxes = {
   kAny: 0,
   kChannelsFirst: 1,
   kChannelsLast: 2,
 };
-webnn.mojom.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum() };
+webnn.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum() };
 
 // Enum: BatchNormalizationAxis
-webnn.mojom.mojom.BatchNormalizationAxis = {
+webnn.mojom.BatchNormalizationAxis = {
   kAny: 0,
   kChannelsFirst: 1,
 };
-webnn.mojom.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum() };
+webnn.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum() };
 
 // Struct: SupportedDataTypes
-webnn.mojom.mojom.SupportedDataTypesSpec = {
+webnn.mojom.SupportedDataTypesSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.SupportedDataTypes',
@@ -55,7 +55,7 @@ webnn.mojom.mojom.SupportedDataTypesSpec = {
 };
 
 // Struct: SupportedRanks
-webnn.mojom.mojom.SupportedRanksSpec = {
+webnn.mojom.SupportedRanksSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.SupportedRanks',
@@ -70,7 +70,7 @@ webnn.mojom.mojom.SupportedRanksSpec = {
 };
 
 // Struct: SupportedTensors
-webnn.mojom.mojom.SupportedTensorsSpec = {
+webnn.mojom.SupportedTensorsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.SupportedTensors',
@@ -85,7 +85,7 @@ webnn.mojom.mojom.SupportedTensorsSpec = {
 };
 
 // Struct: DataTypeLimits
-webnn.mojom.mojom.DataTypeLimitsSpec = {
+webnn.mojom.DataTypeLimitsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.DataTypeLimits',
@@ -217,7 +217,7 @@ webnn.mojom.mojom.DataTypeLimitsSpec = {
 };
 
 // Struct: ContextProperties
-webnn.mojom.mojom.ContextPropertiesSpec = {
+webnn.mojom.ContextPropertiesSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ContextProperties',

@@ -10,24 +10,276 @@ security_interstitials.mojom = security_interstitials.mojom || {};
 
 
 // Interface: InterstitialCommands
-security_interstitials.mojom.mojom.InterstitialCommands = {};
+security_interstitials.mojom.InterstitialCommands = {};
 
-security_interstitials.mojom.mojom.InterstitialCommandsPendingReceiver = class {
+security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_DontProceed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_Proceed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_ShowMoreSection_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_Reload_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenDateSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenLogin_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_DoReport_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_DontReport_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_ReportPhishingError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+security_interstitials.mojom.InterstitialCommandsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-security_interstitials.mojom.mojom.InterstitialCommandsRemote = class {
+security_interstitials.mojom.InterstitialCommandsRemote = class {
   static get $interfaceName() {
     return 'security_interstitials.mojom.InterstitialCommands';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      security_interstitials.mojom.mojom.InterstitialCommandsPendingReceiver,
+      security_interstitials.mojom.InterstitialCommandsPendingReceiver,
       handle);
-    this.$ = new security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler(this.proxy);
+    this.$ = new security_interstitials.mojom.InterstitialCommandsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +291,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemote = class {
   }
 };
 
-security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class {
+security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +300,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_DontProceed_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +309,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_Proceed_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +318,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +327,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +336,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +345,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_Reload_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +354,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec,
       null,
       []);
   }
@@ -111,7 +363,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenLogin_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec,
       null,
       []);
   }
@@ -120,7 +372,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_DoReport_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec,
       null,
       []);
   }
@@ -129,7 +381,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_DontReport_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec,
       null,
       []);
   }
@@ -138,7 +390,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec,
       null,
       []);
   }
@@ -147,7 +399,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +408,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -165,7 +417,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -174,7 +426,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -183,7 +435,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -192,7 +444,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -201,7 +453,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec,
       null,
       []);
   }
@@ -210,7 +462,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec,
       null,
       []);
   }
@@ -219,7 +471,7 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec,
       null,
       []);
   }
@@ -228,15 +480,15 @@ security_interstitials.mojom.mojom.InterstitialCommandsRemoteCallHandler = class
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      security_interstitials.mojom.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec,
+      security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec,
       null,
       []);
   }
 
 };
 
-security_interstitials.mojom.mojom.InterstitialCommands.getRemote = function() {
-  let remote = new security_interstitials.mojom.mojom.InterstitialCommandsRemote();
+security_interstitials.mojom.InterstitialCommands.getRemote = function() {
+  let remote = new security_interstitials.mojom.InterstitialCommandsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -246,7 +498,7 @@ security_interstitials.mojom.mojom.InterstitialCommands.getRemote = function() {
 };
 
 // ParamsSpec for DontProceed
-security_interstitials.mojom.mojom.InterstitialCommands_DontProceed_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.DontProceed_Params',
@@ -259,7 +511,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_DontProceed_ParamsSpec =
 };
 
 // ParamsSpec for Proceed
-security_interstitials.mojom.mojom.InterstitialCommands_Proceed_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.Proceed_Params',
@@ -272,7 +524,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_Proceed_ParamsSpec = {
 };
 
 // ParamsSpec for ShowMoreSection
-security_interstitials.mojom.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.ShowMoreSection_Params',
@@ -285,7 +537,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_ShowMoreSection_ParamsSp
 };
 
 // ParamsSpec for OpenHelpCenter
-security_interstitials.mojom.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenHelpCenter_Params',
@@ -298,7 +550,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpe
 };
 
 // ParamsSpec for OpenDiagnostic
-security_interstitials.mojom.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenDiagnostic_Params',
@@ -311,7 +563,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpe
 };
 
 // ParamsSpec for Reload
-security_interstitials.mojom.mojom.InterstitialCommands_Reload_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.Reload_Params',
@@ -324,7 +576,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_Reload_ParamsSpec = {
 };
 
 // ParamsSpec for OpenDateSettings
-security_interstitials.mojom.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenDateSettings_Params',
@@ -337,7 +589,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenDateSettings_ParamsS
 };
 
 // ParamsSpec for OpenLogin
-security_interstitials.mojom.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenLogin_Params',
@@ -350,7 +602,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
 };
 
 // ParamsSpec for DoReport
-security_interstitials.mojom.mojom.InterstitialCommands_DoReport_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.DoReport_Params',
@@ -363,7 +615,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_DoReport_ParamsSpec = {
 };
 
 // ParamsSpec for DontReport
-security_interstitials.mojom.mojom.InterstitialCommands_DontReport_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.DontReport_Params',
@@ -376,7 +628,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_DontReport_ParamsSpec = 
 };
 
 // ParamsSpec for OpenReportingPrivacy
-security_interstitials.mojom.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenReportingPrivacy_Params',
@@ -389,7 +641,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenReportingPrivacy_Par
 };
 
 // ParamsSpec for OpenWhitepaper
-security_interstitials.mojom.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenWhitepaper_Params',
@@ -402,7 +654,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpe
 };
 
 // ParamsSpec for OpenHelpCenterInNewTab
-security_interstitials.mojom.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenHelpCenterInNewTab_Params',
@@ -415,7 +667,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenHelpCenterInNewTab_P
 };
 
 // ParamsSpec for OpenDiagnosticInNewTab
-security_interstitials.mojom.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenDiagnosticInNewTab_Params',
@@ -428,7 +680,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenDiagnosticInNewTab_P
 };
 
 // ParamsSpec for OpenReportingPrivacyInNewTab
-security_interstitials.mojom.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenReportingPrivacyInNewTab_Params',
@@ -441,7 +693,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenReportingPrivacyInNe
 };
 
 // ParamsSpec for OpenWhitepaperInNewTab
-security_interstitials.mojom.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenWhitepaperInNewTab_Params',
@@ -454,7 +706,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenWhitepaperInNewTab_P
 };
 
 // ParamsSpec for ReportPhishingErrorInNewTab
-security_interstitials.mojom.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.ReportPhishingErrorInNewTab_Params',
@@ -467,7 +719,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_ReportPhishingErrorInNew
 };
 
 // ParamsSpec for ReportPhishingError
-security_interstitials.mojom.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.ReportPhishingError_Params',
@@ -480,7 +732,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_ReportPhishingError_Para
 };
 
 // ParamsSpec for OpenEnhancedProtectionSettings
-security_interstitials.mojom.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenEnhancedProtectionSettings_Params',
@@ -493,7 +745,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenEnhancedProtectionSe
 };
 
 // ParamsSpec for ShowCertificateViewer
-security_interstitials.mojom.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.ShowCertificateViewer_Params',
@@ -506,7 +758,7 @@ security_interstitials.mojom.mojom.InterstitialCommands_ShowCertificateViewer_Pa
 };
 
 // ParamsSpec for OpenAndroidAdvancedProtectionSettings
-security_interstitials.mojom.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec = {
+security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'security_interstitials.mojom.InterstitialCommands.OpenAndroidAdvancedProtectionSettings_Params',
@@ -519,6 +771,6 @@ security_interstitials.mojom.mojom.InterstitialCommands_OpenAndroidAdvancedProte
 };
 
 // Legacy compatibility
-security_interstitials.mojom.mojom.InterstitialCommandsPtr = security_interstitials.mojom.mojom.InterstitialCommandsRemote;
-security_interstitials.mojom.mojom.InterstitialCommandsRequest = security_interstitials.mojom.mojom.InterstitialCommandsPendingReceiver;
+security_interstitials.mojom.InterstitialCommandsPtr = security_interstitials.mojom.InterstitialCommandsRemote;
+security_interstitials.mojom.InterstitialCommandsRequest = security_interstitials.mojom.InterstitialCommandsPendingReceiver;
 

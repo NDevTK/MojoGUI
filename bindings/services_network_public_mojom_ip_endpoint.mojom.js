@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: IPEndPoint
-network.mojom.mojom.IPEndPointSpec = {
+network.mojom.IPEndPointSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.IPEndPoint',

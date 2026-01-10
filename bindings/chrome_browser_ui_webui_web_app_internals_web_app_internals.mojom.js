@@ -149,6 +149,214 @@ mojom.InstallFromBundleUrlParamsSpec = {
 // Interface: WebAppInternalsHandler
 mojom.WebAppInternalsHandler = {};
 
+mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojom.InstallFromBundleUrlParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'update_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pinned_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'allow_downgrades', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.WebAppInternalsHandler_RotateKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebAppInternalsHandler_RotateKey_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'web_bundle_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rotated_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
 mojom.WebAppInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

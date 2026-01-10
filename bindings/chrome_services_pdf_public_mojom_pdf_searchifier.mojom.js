@@ -10,24 +10,37 @@ pdf.mojom = pdf.mojom || {};
 
 
 // Interface: PdfSearchifier
-pdf.mojom.mojom.PdfSearchifier = {};
+pdf.mojom.PdfSearchifier = {};
 
-pdf.mojom.mojom.PdfSearchifierPendingReceiver = class {
+pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfSearchifier_Searchify_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+pdf.mojom.PdfSearchifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-pdf.mojom.mojom.PdfSearchifierRemote = class {
+pdf.mojom.PdfSearchifierRemote = class {
   static get $interfaceName() {
     return 'pdf.mojom.PdfSearchifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      pdf.mojom.mojom.PdfSearchifierPendingReceiver,
+      pdf.mojom.PdfSearchifierPendingReceiver,
       handle);
-    this.$ = new pdf.mojom.mojom.PdfSearchifierRemoteCallHandler(this.proxy);
+    this.$ = new pdf.mojom.PdfSearchifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ pdf.mojom.mojom.PdfSearchifierRemote = class {
   }
 };
 
-pdf.mojom.mojom.PdfSearchifierRemoteCallHandler = class {
+pdf.mojom.PdfSearchifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ pdf.mojom.mojom.PdfSearchifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.mojom.PdfSearchifier_Searchify_ParamsSpec,
-      pdf.mojom.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
+      pdf.mojom.PdfSearchifier_Searchify_ParamsSpec,
+      pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
       [pdf]);
   }
 
 };
 
-pdf.mojom.mojom.PdfSearchifier.getRemote = function() {
-  let remote = new pdf.mojom.mojom.PdfSearchifierRemote();
+pdf.mojom.PdfSearchifier.getRemote = function() {
+  let remote = new pdf.mojom.PdfSearchifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ pdf.mojom.mojom.PdfSearchifier.getRemote = function() {
 };
 
 // ParamsSpec for Searchify
-pdf.mojom.mojom.PdfSearchifier_Searchify_ParamsSpec = {
+pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfSearchifier.Searchify_Params',
@@ -79,7 +92,7 @@ pdf.mojom.mojom.PdfSearchifier_Searchify_ParamsSpec = {
   }
 };
 
-pdf.mojom.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
+pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfSearchifier.Searchify_ResponseParams',
@@ -93,6 +106,6 @@ pdf.mojom.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-pdf.mojom.mojom.PdfSearchifierPtr = pdf.mojom.mojom.PdfSearchifierRemote;
-pdf.mojom.mojom.PdfSearchifierRequest = pdf.mojom.mojom.PdfSearchifierPendingReceiver;
+pdf.mojom.PdfSearchifierPtr = pdf.mojom.PdfSearchifierRemote;
+pdf.mojom.PdfSearchifierRequest = pdf.mojom.PdfSearchifierPendingReceiver;
 

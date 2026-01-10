@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Struct: EventLatencyMetadata
-ui.mojom.mojom.EventLatencyMetadataSpec = {
+ui.mojom.EventLatencyMetadataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.EventLatencyMetadata',

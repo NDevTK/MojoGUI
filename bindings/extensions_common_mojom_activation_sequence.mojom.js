@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Struct: ActivationSequence
-extensions.mojom.mojom.ActivationSequenceSpec = {
+extensions.mojom.ActivationSequenceSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ActivationSequence',

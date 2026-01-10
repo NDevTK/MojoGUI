@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: AXActionData
-ax.mojom.mojom.AXActionDataSpec = {
+ax.mojom.AXActionDataSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXActionData',

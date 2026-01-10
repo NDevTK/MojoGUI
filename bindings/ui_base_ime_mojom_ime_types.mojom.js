@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: TextInputMode
-ui.mojom.mojom.TextInputMode = {
+ui.mojom.TextInputMode = {
   kDefault: 0,
   kNone: 1,
   kText: 2,
@@ -21,10 +21,10 @@ ui.mojom.mojom.TextInputMode = {
   kDecimal: 7,
   kSearch: 8,
 };
-ui.mojom.mojom.TextInputModeSpec = { $: mojo.internal.Enum() };
+ui.mojom.TextInputModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextInputAction
-ui.mojom.mojom.TextInputAction = {
+ui.mojom.TextInputAction = {
   kDefault: 0,
   kEnter: 1,
   kDone: 2,
@@ -34,10 +34,10 @@ ui.mojom.mojom.TextInputAction = {
   kSearch: 6,
   kSend: 7,
 };
-ui.mojom.mojom.TextInputActionSpec = { $: mojo.internal.Enum() };
+ui.mojom.TextInputActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextInputType
-ui.mojom.mojom.TextInputType = {
+ui.mojom.TextInputType = {
   NONE: 0,
   TEXT: 1,
   PASSWORD: 2,
@@ -58,38 +58,38 @@ ui.mojom.mojom.TextInputType = {
   TYPE_NULL: 17,
   MAX: 18,
 };
-ui.mojom.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanType
-ui.mojom.mojom.ImeTextSpanType = {
+ui.mojom.ImeTextSpanType = {
   kComposition: 0,
   kSuggestion: 1,
   kMisspellingSuggestion: 2,
   kAutocorrect: 3,
   kGrammarSuggestion: 4,
 };
-ui.mojom.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanThickness
-ui.mojom.mojom.ImeTextSpanThickness = {
+ui.mojom.ImeTextSpanThickness = {
   kNone: 0,
   kThin: 1,
   kThick: 2,
 };
-ui.mojom.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum() };
+ui.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanUnderlineStyle
-ui.mojom.mojom.ImeTextSpanUnderlineStyle = {
+ui.mojom.ImeTextSpanUnderlineStyle = {
   kNone: 0,
   kSolid: 1,
   kDot: 2,
   kDash: 3,
   kSquiggle: 4,
 };
-ui.mojom.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum() };
+ui.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImeTextSpan
-ui.mojom.mojom.ImeTextSpanSpec = {
+ui.mojom.ImeTextSpanSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ImeTextSpan',

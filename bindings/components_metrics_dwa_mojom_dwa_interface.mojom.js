@@ -7,11 +7,11 @@
 // Module namespace
 var metrics = metrics || {};
 metrics.dwa = metrics.dwa || {};
-metrics.dwa.dwa.mojom = metrics.dwa.dwa.mojom || {};
+metrics.dwa.mojom = metrics.dwa.mojom || {};
 
 
 // Struct: DwaEntry
-metrics.dwa.dwa.mojom.mojom.DwaEntrySpec = {
+metrics.dwa.mojom.DwaEntrySpec = {
   $: {
     structSpec: {
       name: 'metrics.dwa.mojom.DwaEntry',
@@ -28,24 +28,24 @@ metrics.dwa.dwa.mojom.mojom.DwaEntrySpec = {
 };
 
 // Interface: DwaRecorderClientInterface
-metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterface = {};
+metrics.dwa.mojom.DwaRecorderClientInterface = {};
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfacePendingReceiver = class {
+metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfaceRemote = class {
+metrics.dwa.mojom.DwaRecorderClientInterfaceRemote = class {
   static get $interfaceName() {
     return 'metrics.dwa.mojom.DwaRecorderClientInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfacePendingReceiver,
+      metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver,
       handle);
-    this.$ = new metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new metrics.dwa.mojom.DwaRecorderClientInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,15 +57,15 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfaceRemote = class {
   }
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfaceRemoteCallHandler = class {
+metrics.dwa.mojom.DwaRecorderClientInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterface.getRemote = function() {
-  let remote = new metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfaceRemote();
+metrics.dwa.mojom.DwaRecorderClientInterface.getRemote = function() {
+  let remote = new metrics.dwa.mojom.DwaRecorderClientInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,29 +75,42 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterface.getRemote = function() {
 };
 
 // Legacy compatibility
-metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfacePtr = metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfaceRemote;
-metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfaceRequest = metrics.dwa.dwa.mojom.mojom.DwaRecorderClientInterfacePendingReceiver;
+metrics.dwa.mojom.DwaRecorderClientInterfacePtr = metrics.dwa.mojom.DwaRecorderClientInterfaceRemote;
+metrics.dwa.mojom.DwaRecorderClientInterfaceRequest = metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver;
 
 
 // Interface: DwaRecorderInterface
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterface = {};
+metrics.dwa.mojom.DwaRecorderInterface = {};
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfacePendingReceiver = class {
+metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics.dwa.mojom.DwaRecorderInterface_AddEntry_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: metrics.dwa.mojom.DwaEntrySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRemote = class {
+metrics.dwa.mojom.DwaRecorderInterfaceRemote = class {
   static get $interfaceName() {
     return 'metrics.dwa.mojom.DwaRecorderInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfacePendingReceiver,
+      metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver,
       handle);
-    this.$ = new metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -109,7 +122,7 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRemote = class {
   }
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
+metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -118,15 +131,15 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.dwa.dwa.mojom.mojom.DwaRecorderInterface_AddEntry_ParamsSpec,
+      metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec,
       null,
       [entry]);
   }
 
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterface.getRemote = function() {
-  let remote = new metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRemote();
+metrics.dwa.mojom.DwaRecorderInterface.getRemote = function() {
+  let remote = new metrics.dwa.mojom.DwaRecorderInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -136,7 +149,7 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderInterface.getRemote = function() {
 };
 
 // ParamsSpec for AddEntry
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
+metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.dwa.mojom.DwaRecorderInterface.AddEntry_Params',
@@ -150,29 +163,43 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
 };
 
 // Legacy compatibility
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfacePtr = metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRemote;
-metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfaceRequest = metrics.dwa.dwa.mojom.mojom.DwaRecorderInterfacePendingReceiver;
+metrics.dwa.mojom.DwaRecorderInterfacePtr = metrics.dwa.mojom.DwaRecorderInterfaceRemote;
+metrics.dwa.mojom.DwaRecorderInterfaceRequest = metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver;
 
 
 // Interface: DwaRecorderFactory
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactory = {};
+metrics.dwa.mojom.DwaRecorderFactory = {};
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryPendingReceiver = class {
+metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.dwa.mojom.DwaRecorderInterfaceRemote), nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRemote = class {
+metrics.dwa.mojom.DwaRecorderFactoryRemote = class {
   static get $interfaceName() {
     return 'metrics.dwa.mojom.DwaRecorderFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryPendingReceiver,
+      metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver,
       handle);
-    this.$ = new metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRemoteCallHandler(this.proxy);
+    this.$ = new metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -184,7 +211,7 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRemote = class {
   }
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRemoteCallHandler = class {
+metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -193,15 +220,15 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.dwa.dwa.mojom.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec,
+      metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec,
       null,
       [receiver, client_remote]);
   }
 
 };
 
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactory.getRemote = function() {
-  let remote = new metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRemote();
+metrics.dwa.mojom.DwaRecorderFactory.getRemote = function() {
+  let remote = new metrics.dwa.mojom.DwaRecorderFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -211,7 +238,7 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateDwaRecorder
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
+metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.dwa.mojom.DwaRecorderFactory.CreateDwaRecorder_Params',
@@ -226,6 +253,6 @@ metrics.dwa.dwa.mojom.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
 };
 
 // Legacy compatibility
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryPtr = metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRemote;
-metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryRequest = metrics.dwa.dwa.mojom.mojom.DwaRecorderFactoryPendingReceiver;
+metrics.dwa.mojom.DwaRecorderFactoryPtr = metrics.dwa.mojom.DwaRecorderFactoryRemote;
+metrics.dwa.mojom.DwaRecorderFactoryRequest = metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver;
 

@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: ExtraResponseData
-extensions.mojom.mojom.ExtraResponseDataSpec = {
+extensions.mojom.ExtraResponseDataSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExtraResponseData',

@@ -10,24 +10,38 @@ content.mojom = content.mojom || {};
 
 
 // Interface: WebUIHost
-content.mojom.mojom.WebUIHost = {};
+content.mojom.WebUIHost = {};
 
-content.mojom.mojom.WebUIHostPendingReceiver = class {
+content.mojom.WebUIHost_Send_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebUIHost_Send_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.WebUIHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.WebUIHostRemote = class {
+content.mojom.WebUIHostRemote = class {
   static get $interfaceName() {
     return 'content.mojom.WebUIHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.WebUIHostPendingReceiver,
+      content.mojom.WebUIHostPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.WebUIHostRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.WebUIHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +53,7 @@ content.mojom.mojom.WebUIHostRemote = class {
   }
 };
 
-content.mojom.mojom.WebUIHostRemoteCallHandler = class {
+content.mojom.WebUIHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +62,15 @@ content.mojom.mojom.WebUIHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.WebUIHost_Send_ParamsSpec,
+      content.mojom.WebUIHost_Send_ParamsSpec,
       null,
       [message, args]);
   }
 
 };
 
-content.mojom.mojom.WebUIHost.getRemote = function() {
-  let remote = new content.mojom.mojom.WebUIHostRemote();
+content.mojom.WebUIHost.getRemote = function() {
+  let remote = new content.mojom.WebUIHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +80,7 @@ content.mojom.mojom.WebUIHost.getRemote = function() {
 };
 
 // ParamsSpec for Send
-content.mojom.mojom.WebUIHost_Send_ParamsSpec = {
+content.mojom.WebUIHost_Send_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebUIHost.Send_Params',
@@ -81,29 +95,43 @@ content.mojom.mojom.WebUIHost_Send_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.WebUIHostPtr = content.mojom.mojom.WebUIHostRemote;
-content.mojom.mojom.WebUIHostRequest = content.mojom.mojom.WebUIHostPendingReceiver;
+content.mojom.WebUIHostPtr = content.mojom.WebUIHostRemote;
+content.mojom.WebUIHostRequest = content.mojom.WebUIHostPendingReceiver;
 
 
 // Interface: WebUI
-content.mojom.mojom.WebUI = {};
+content.mojom.WebUI = {};
 
-content.mojom.mojom.WebUIPendingReceiver = class {
+content.mojom.WebUI_SetProperty_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebUI_SetProperty_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'property_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'property_value_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.WebUIPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.WebUIRemote = class {
+content.mojom.WebUIRemote = class {
   static get $interfaceName() {
     return 'content.mojom.WebUI';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.WebUIPendingReceiver,
+      content.mojom.WebUIPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.WebUIRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.WebUIRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +143,7 @@ content.mojom.mojom.WebUIRemote = class {
   }
 };
 
-content.mojom.mojom.WebUIRemoteCallHandler = class {
+content.mojom.WebUIRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +152,15 @@ content.mojom.mojom.WebUIRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.WebUI_SetProperty_ParamsSpec,
+      content.mojom.WebUI_SetProperty_ParamsSpec,
       null,
       [property_name, property_value_json]);
   }
 
 };
 
-content.mojom.mojom.WebUI.getRemote = function() {
-  let remote = new content.mojom.mojom.WebUIRemote();
+content.mojom.WebUI.getRemote = function() {
+  let remote = new content.mojom.WebUIRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +170,7 @@ content.mojom.mojom.WebUI.getRemote = function() {
 };
 
 // ParamsSpec for SetProperty
-content.mojom.mojom.WebUI_SetProperty_ParamsSpec = {
+content.mojom.WebUI_SetProperty_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebUI.SetProperty_Params',
@@ -157,6 +185,6 @@ content.mojom.mojom.WebUI_SetProperty_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.WebUIPtr = content.mojom.mojom.WebUIRemote;
-content.mojom.mojom.WebUIRequest = content.mojom.mojom.WebUIPendingReceiver;
+content.mojom.WebUIPtr = content.mojom.WebUIRemote;
+content.mojom.WebUIRequest = content.mojom.WebUIPendingReceiver;
 

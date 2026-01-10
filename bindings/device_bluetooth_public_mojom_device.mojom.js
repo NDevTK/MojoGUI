@@ -10,7 +10,7 @@ bluetooth.mojom = bluetooth.mojom || {};
 
 
 // Enum: Property
-bluetooth.mojom.mojom.Property = {
+bluetooth.mojom.Property = {
   NONE: 0,
   BROADCAST: 1,
   READ: 2,
@@ -27,10 +27,10 @@ bluetooth.mojom.mojom.Property = {
   READ_ENCRYPTED_AUTHENTICATED: 13,
   WRITE_ENCRYPTED_AUTHENTICATED: 14,
 };
-bluetooth.mojom.mojom.PropertySpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.PropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: GattResult
-bluetooth.mojom.mojom.GattResult = {
+bluetooth.mojom.GattResult = {
   SUCCESS: 0,
   UNKNOWN: 1,
   FAILED: 2,
@@ -44,10 +44,10 @@ bluetooth.mojom.mojom.GattResult = {
   CHARACTERISTIC_NOT_FOUND: 10,
   DESCRIPTOR_NOT_FOUND: 11,
 };
-bluetooth.mojom.mojom.GattResultSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.GattResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: RSSIWrapper
-bluetooth.mojom.mojom.RSSIWrapperSpec = {
+bluetooth.mojom.RSSIWrapperSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.RSSIWrapper',
@@ -61,7 +61,7 @@ bluetooth.mojom.mojom.RSSIWrapperSpec = {
 };
 
 // Struct: DeviceInfo
-bluetooth.mojom.mojom.DeviceInfoSpec = {
+bluetooth.mojom.DeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.DeviceInfo',
@@ -82,7 +82,7 @@ bluetooth.mojom.mojom.DeviceInfoSpec = {
 };
 
 // Struct: ServiceInfo
-bluetooth.mojom.mojom.ServiceInfoSpec = {
+bluetooth.mojom.ServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ServiceInfo',
@@ -98,7 +98,7 @@ bluetooth.mojom.mojom.ServiceInfoSpec = {
 };
 
 // Struct: CharacteristicInfo
-bluetooth.mojom.mojom.CharacteristicInfoSpec = {
+bluetooth.mojom.CharacteristicInfoSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.CharacteristicInfo',
@@ -116,7 +116,7 @@ bluetooth.mojom.mojom.CharacteristicInfoSpec = {
 };
 
 // Struct: DescriptorInfo
-bluetooth.mojom.mojom.DescriptorInfoSpec = {
+bluetooth.mojom.DescriptorInfoSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.DescriptorInfo',
@@ -132,24 +132,147 @@ bluetooth.mojom.mojom.DescriptorInfoSpec = {
 };
 
 // Interface: Device
-bluetooth.mojom.mojom.Device = {};
+bluetooth.mojom.Device = {};
 
-bluetooth.mojom.mojom.DevicePendingReceiver = class {
+bluetooth.mojom.Device_Disconnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_Disconnect_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_GetInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_GetInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_GetServices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_GetServices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_GetCharacteristics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_GetCharacteristics_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_ReadValueForCharacteristic_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_WriteValueForCharacteristic_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_GetDescriptors_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_GetDescriptors_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_ReadValueForDescriptor_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'descriptor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Device_WriteValueForDescriptor_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'descriptor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+bluetooth.mojom.DevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.mojom.DeviceRemote = class {
+bluetooth.mojom.DeviceRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.Device';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.mojom.DevicePendingReceiver,
+      bluetooth.mojom.DevicePendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.mojom.DeviceRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.DeviceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -161,7 +284,7 @@ bluetooth.mojom.mojom.DeviceRemote = class {
   }
 };
 
-bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
+bluetooth.mojom.DeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -170,7 +293,7 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.mojom.Device_Disconnect_ParamsSpec,
+      bluetooth.mojom.Device_Disconnect_ParamsSpec,
       null,
       []);
   }
@@ -179,8 +302,8 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.mojom.Device_GetInfo_ParamsSpec,
-      bluetooth.mojom.mojom.Device_GetInfo_ResponseParamsSpec,
+      bluetooth.mojom.Device_GetInfo_ParamsSpec,
+      bluetooth.mojom.Device_GetInfo_ResponseParamsSpec,
       []);
   }
 
@@ -188,8 +311,8 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.mojom.Device_GetServices_ParamsSpec,
-      bluetooth.mojom.mojom.Device_GetServices_ResponseParamsSpec,
+      bluetooth.mojom.Device_GetServices_ParamsSpec,
+      bluetooth.mojom.Device_GetServices_ResponseParamsSpec,
       []);
   }
 
@@ -197,8 +320,8 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.mojom.Device_GetCharacteristics_ParamsSpec,
-      bluetooth.mojom.mojom.Device_GetCharacteristics_ResponseParamsSpec,
+      bluetooth.mojom.Device_GetCharacteristics_ParamsSpec,
+      bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec,
       [service_id]);
   }
 
@@ -206,8 +329,8 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.mojom.Device_ReadValueForCharacteristic_ParamsSpec,
-      bluetooth.mojom.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec,
+      bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec,
+      bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec,
       [service_id, characteristic_id]);
   }
 
@@ -215,8 +338,8 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.mojom.Device_WriteValueForCharacteristic_ParamsSpec,
-      bluetooth.mojom.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec,
+      bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec,
+      bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec,
       [service_id, characteristic_id, value]);
   }
 
@@ -224,8 +347,8 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.mojom.Device_GetDescriptors_ParamsSpec,
-      bluetooth.mojom.mojom.Device_GetDescriptors_ResponseParamsSpec,
+      bluetooth.mojom.Device_GetDescriptors_ParamsSpec,
+      bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec,
       [service_id, characteristic_id]);
   }
 
@@ -233,8 +356,8 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      bluetooth.mojom.mojom.Device_ReadValueForDescriptor_ParamsSpec,
-      bluetooth.mojom.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec,
+      bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec,
+      bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec,
       [service_id, characteristic_id, descriptor_id]);
   }
 
@@ -242,15 +365,15 @@ bluetooth.mojom.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      bluetooth.mojom.mojom.Device_WriteValueForDescriptor_ParamsSpec,
-      bluetooth.mojom.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec,
+      bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec,
+      bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec,
       [service_id, characteristic_id, descriptor_id, value]);
   }
 
 };
 
-bluetooth.mojom.mojom.Device.getRemote = function() {
-  let remote = new bluetooth.mojom.mojom.DeviceRemote();
+bluetooth.mojom.Device.getRemote = function() {
+  let remote = new bluetooth.mojom.DeviceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -260,7 +383,7 @@ bluetooth.mojom.mojom.Device.getRemote = function() {
 };
 
 // ParamsSpec for Disconnect
-bluetooth.mojom.mojom.Device_Disconnect_ParamsSpec = {
+bluetooth.mojom.Device_Disconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.Disconnect_Params',
@@ -273,7 +396,7 @@ bluetooth.mojom.mojom.Device_Disconnect_ParamsSpec = {
 };
 
 // ParamsSpec for GetInfo
-bluetooth.mojom.mojom.Device_GetInfo_ParamsSpec = {
+bluetooth.mojom.Device_GetInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetInfo_Params',
@@ -285,7 +408,7 @@ bluetooth.mojom.mojom.Device_GetInfo_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_GetInfo_ResponseParamsSpec = {
+bluetooth.mojom.Device_GetInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetInfo_ResponseParams',
@@ -299,7 +422,7 @@ bluetooth.mojom.mojom.Device_GetInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetServices
-bluetooth.mojom.mojom.Device_GetServices_ParamsSpec = {
+bluetooth.mojom.Device_GetServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetServices_Params',
@@ -311,7 +434,7 @@ bluetooth.mojom.mojom.Device_GetServices_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_GetServices_ResponseParamsSpec = {
+bluetooth.mojom.Device_GetServices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetServices_ResponseParams',
@@ -325,7 +448,7 @@ bluetooth.mojom.mojom.Device_GetServices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCharacteristics
-bluetooth.mojom.mojom.Device_GetCharacteristics_ParamsSpec = {
+bluetooth.mojom.Device_GetCharacteristics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetCharacteristics_Params',
@@ -338,7 +461,7 @@ bluetooth.mojom.mojom.Device_GetCharacteristics_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_GetCharacteristics_ResponseParamsSpec = {
+bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetCharacteristics_ResponseParams',
@@ -352,7 +475,7 @@ bluetooth.mojom.mojom.Device_GetCharacteristics_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadValueForCharacteristic
-bluetooth.mojom.mojom.Device_ReadValueForCharacteristic_ParamsSpec = {
+bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.ReadValueForCharacteristic_Params',
@@ -366,7 +489,7 @@ bluetooth.mojom.mojom.Device_ReadValueForCharacteristic_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec = {
+bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.ReadValueForCharacteristic_ResponseParams',
@@ -381,7 +504,7 @@ bluetooth.mojom.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WriteValueForCharacteristic
-bluetooth.mojom.mojom.Device_WriteValueForCharacteristic_ParamsSpec = {
+bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.WriteValueForCharacteristic_Params',
@@ -396,7 +519,7 @@ bluetooth.mojom.mojom.Device_WriteValueForCharacteristic_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec = {
+bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.WriteValueForCharacteristic_ResponseParams',
@@ -410,7 +533,7 @@ bluetooth.mojom.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDescriptors
-bluetooth.mojom.mojom.Device_GetDescriptors_ParamsSpec = {
+bluetooth.mojom.Device_GetDescriptors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetDescriptors_Params',
@@ -424,7 +547,7 @@ bluetooth.mojom.mojom.Device_GetDescriptors_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_GetDescriptors_ResponseParamsSpec = {
+bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.GetDescriptors_ResponseParams',
@@ -438,7 +561,7 @@ bluetooth.mojom.mojom.Device_GetDescriptors_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadValueForDescriptor
-bluetooth.mojom.mojom.Device_ReadValueForDescriptor_ParamsSpec = {
+bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.ReadValueForDescriptor_Params',
@@ -453,7 +576,7 @@ bluetooth.mojom.mojom.Device_ReadValueForDescriptor_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec = {
+bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.ReadValueForDescriptor_ResponseParams',
@@ -468,7 +591,7 @@ bluetooth.mojom.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WriteValueForDescriptor
-bluetooth.mojom.mojom.Device_WriteValueForDescriptor_ParamsSpec = {
+bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.WriteValueForDescriptor_Params',
@@ -484,7 +607,7 @@ bluetooth.mojom.mojom.Device_WriteValueForDescriptor_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec = {
+bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Device.WriteValueForDescriptor_ResponseParams',
@@ -498,6 +621,6 @@ bluetooth.mojom.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.mojom.DevicePtr = bluetooth.mojom.mojom.DeviceRemote;
-bluetooth.mojom.mojom.DeviceRequest = bluetooth.mojom.mojom.DevicePendingReceiver;
+bluetooth.mojom.DevicePtr = bluetooth.mojom.DeviceRemote;
+bluetooth.mojom.DeviceRequest = bluetooth.mojom.DevicePendingReceiver;
 

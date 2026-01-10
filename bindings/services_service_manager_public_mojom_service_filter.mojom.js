@@ -10,7 +10,7 @@ service_manager.mojom = service_manager.mojom || {};
 
 
 // Struct: ServiceFilter
-service_manager.mojom.mojom.ServiceFilterSpec = {
+service_manager.mojom.ServiceFilterSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.ServiceFilter',

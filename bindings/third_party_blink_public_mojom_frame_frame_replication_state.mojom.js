@@ -14,7 +14,7 @@ var url = url || {};
 
 
 // Struct: FrameReplicationState
-blink.mojom.mojom.FrameReplicationStateSpec = {
+blink.mojom.FrameReplicationStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameReplicationState',

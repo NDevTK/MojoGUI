@@ -15,7 +15,7 @@ var gfx = gfx || {};
 
 
 // Enum: TimingStepPosition
-viz.mojom.mojom.TimingStepPosition = {
+viz.mojom.TimingStepPosition = {
   kStart: 0,
   kEnd: 1,
   kJumpBoth: 2,
@@ -23,29 +23,29 @@ viz.mojom.mojom.TimingStepPosition = {
   kJumpNone: 4,
   kJumpStart: 5,
 };
-viz.mojom.mojom.TimingStepPositionSpec = { $: mojo.internal.Enum() };
+viz.mojom.TimingStepPositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnimationDirection
-viz.mojom.mojom.AnimationDirection = {
+viz.mojom.AnimationDirection = {
   kNormal: 0,
   kReverse: 1,
   kAlternateNormal: 2,
   kAlternateReverse: 3,
 };
-viz.mojom.mojom.AnimationDirectionSpec = { $: mojo.internal.Enum() };
+viz.mojom.AnimationDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnimationFillMode
-viz.mojom.mojom.AnimationFillMode = {
+viz.mojom.AnimationFillMode = {
   kNone: 0,
   kForwards: 1,
   kBackwards: 2,
   kBoth: 3,
   kAuto: 4,
 };
-viz.mojom.mojom.AnimationFillModeSpec = { $: mojo.internal.Enum() };
+viz.mojom.AnimationFillModeSpec = { $: mojo.internal.Enum() };
 
 // Union: TimingFunction
-viz.mojom.mojom.TimingFunctionSpec = { $: mojo.internal.Union(
+viz.mojom.TimingFunctionSpec = { $: mojo.internal.Union(
     'viz.mojom.TimingFunction', {
       'cubic_bezier': {
         'ordinal': 0,
@@ -63,7 +63,7 @@ viz.mojom.mojom.TimingFunctionSpec = { $: mojo.internal.Union(
 };
 
 // Union: TransformOperation
-viz.mojom.mojom.TransformOperationSpec = { $: mojo.internal.Union(
+viz.mojom.TransformOperationSpec = { $: mojo.internal.Union(
     'viz.mojom.TransformOperation', {
       'identity': {
         'ordinal': 0,
@@ -97,7 +97,7 @@ viz.mojom.mojom.TransformOperationSpec = { $: mojo.internal.Union(
 };
 
 // Union: AnimationKeyframeValue
-viz.mojom.mojom.AnimationKeyframeValueSpec = { $: mojo.internal.Union(
+viz.mojom.AnimationKeyframeValueSpec = { $: mojo.internal.Union(
     'viz.mojom.AnimationKeyframeValue', {
       'scalar': {
         'ordinal': 0,
@@ -123,7 +123,7 @@ viz.mojom.mojom.AnimationKeyframeValueSpec = { $: mojo.internal.Union(
 };
 
 // Struct: CubicBezierTimingFunction
-viz.mojom.mojom.CubicBezierTimingFunctionSpec = {
+viz.mojom.CubicBezierTimingFunctionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CubicBezierTimingFunction',
@@ -140,7 +140,7 @@ viz.mojom.mojom.CubicBezierTimingFunctionSpec = {
 };
 
 // Struct: StepsTimingFunction
-viz.mojom.mojom.StepsTimingFunctionSpec = {
+viz.mojom.StepsTimingFunctionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.StepsTimingFunction',
@@ -155,7 +155,7 @@ viz.mojom.mojom.StepsTimingFunctionSpec = {
 };
 
 // Struct: LinearEasingPoint
-viz.mojom.mojom.LinearEasingPointSpec = {
+viz.mojom.LinearEasingPointSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LinearEasingPoint',
@@ -170,7 +170,7 @@ viz.mojom.mojom.LinearEasingPointSpec = {
 };
 
 // Struct: AxisAngle
-viz.mojom.mojom.AxisAngleSpec = {
+viz.mojom.AxisAngleSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AxisAngle',
@@ -185,7 +185,7 @@ viz.mojom.mojom.AxisAngleSpec = {
 };
 
 // Struct: AnimationKeyframe
-viz.mojom.mojom.AnimationKeyframeSpec = {
+viz.mojom.AnimationKeyframeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AnimationKeyframe',
@@ -201,7 +201,7 @@ viz.mojom.mojom.AnimationKeyframeSpec = {
 };
 
 // Struct: AnimationKeyframeModel
-viz.mojom.mojom.AnimationKeyframeModelSpec = {
+viz.mojom.AnimationKeyframeModelSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AnimationKeyframeModel',
@@ -227,7 +227,7 @@ viz.mojom.mojom.AnimationKeyframeModelSpec = {
 };
 
 // Struct: Animation
-viz.mojom.mojom.AnimationSpec = {
+viz.mojom.AnimationSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Animation',
@@ -243,7 +243,7 @@ viz.mojom.mojom.AnimationSpec = {
 };
 
 // Struct: AnimationTimeline
-viz.mojom.mojom.AnimationTimelineSpec = {
+viz.mojom.AnimationTimelineSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AnimationTimeline',

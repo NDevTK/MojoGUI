@@ -11,7 +11,7 @@ var skia = skia || {};
 
 
 // Struct: BitmapN32
-skia.mojom.mojom.BitmapN32Spec = {
+skia.mojom.BitmapN32Spec = {
   $: {
     structSpec: {
       name: 'skia.mojom.BitmapN32',
@@ -26,7 +26,7 @@ skia.mojom.mojom.BitmapN32Spec = {
 };
 
 // Struct: BitmapWithArbitraryBpp
-skia.mojom.mojom.BitmapWithArbitraryBppSpec = {
+skia.mojom.BitmapWithArbitraryBppSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.BitmapWithArbitraryBpp',
@@ -42,7 +42,7 @@ skia.mojom.mojom.BitmapWithArbitraryBppSpec = {
 };
 
 // Struct: BitmapMappedFromTrustedProcess
-skia.mojom.mojom.BitmapMappedFromTrustedProcessSpec = {
+skia.mojom.BitmapMappedFromTrustedProcessSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.BitmapMappedFromTrustedProcess',
@@ -58,7 +58,7 @@ skia.mojom.mojom.BitmapMappedFromTrustedProcessSpec = {
 };
 
 // Struct: InlineBitmap
-skia.mojom.mojom.InlineBitmapSpec = {
+skia.mojom.InlineBitmapSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.InlineBitmap',

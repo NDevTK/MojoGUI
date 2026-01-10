@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: PrinterCapsAndInfo
-printing.mojom.mojom.PrinterCapsAndInfoSpec = {
+printing.mojom.PrinterCapsAndInfoSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrinterCapsAndInfo',
@@ -27,24 +27,37 @@ printing.mojom.mojom.PrinterCapsAndInfoSpec = {
 };
 
 // Interface: UnsandboxedPrintBackendHost
-printing.mojom.mojom.UnsandboxedPrintBackendHost = {};
+printing.mojom.UnsandboxedPrintBackendHost = {};
 
-printing.mojom.mojom.UnsandboxedPrintBackendHostPendingReceiver = class {
+printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.UnsandboxedPrintBackendHost_BindBackend_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.UnsandboxedPrintBackendHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.mojom.UnsandboxedPrintBackendHostRemote = class {
+printing.mojom.UnsandboxedPrintBackendHostRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.UnsandboxedPrintBackendHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.mojom.UnsandboxedPrintBackendHostPendingReceiver,
+      printing.mojom.UnsandboxedPrintBackendHostPendingReceiver,
       handle);
-    this.$ = new printing.mojom.mojom.UnsandboxedPrintBackendHostRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +69,7 @@ printing.mojom.mojom.UnsandboxedPrintBackendHostRemote = class {
   }
 };
 
-printing.mojom.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
+printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,15 +78,15 @@ printing.mojom.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec,
+      printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
       [service]);
   }
 
 };
 
-printing.mojom.mojom.UnsandboxedPrintBackendHost.getRemote = function() {
-  let remote = new printing.mojom.mojom.UnsandboxedPrintBackendHostRemote();
+printing.mojom.UnsandboxedPrintBackendHost.getRemote = function() {
+  let remote = new printing.mojom.UnsandboxedPrintBackendHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +96,7 @@ printing.mojom.mojom.UnsandboxedPrintBackendHost.getRemote = function() {
 };
 
 // ParamsSpec for BindBackend
-printing.mojom.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
+printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.UnsandboxedPrintBackendHost.BindBackend_Params',
@@ -97,29 +110,42 @@ printing.mojom.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.mojom.UnsandboxedPrintBackendHostPtr = printing.mojom.mojom.UnsandboxedPrintBackendHostRemote;
-printing.mojom.mojom.UnsandboxedPrintBackendHostRequest = printing.mojom.mojom.UnsandboxedPrintBackendHostPendingReceiver;
+printing.mojom.UnsandboxedPrintBackendHostPtr = printing.mojom.UnsandboxedPrintBackendHostRemote;
+printing.mojom.UnsandboxedPrintBackendHostRequest = printing.mojom.UnsandboxedPrintBackendHostPendingReceiver;
 
 
 // Interface: SandboxedPrintBackendHost
-printing.mojom.mojom.SandboxedPrintBackendHost = {};
+printing.mojom.SandboxedPrintBackendHost = {};
 
-printing.mojom.mojom.SandboxedPrintBackendHostPendingReceiver = class {
+printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.SandboxedPrintBackendHost_BindBackend_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.SandboxedPrintBackendHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.mojom.SandboxedPrintBackendHostRemote = class {
+printing.mojom.SandboxedPrintBackendHostRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.SandboxedPrintBackendHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.mojom.SandboxedPrintBackendHostPendingReceiver,
+      printing.mojom.SandboxedPrintBackendHostPendingReceiver,
       handle);
-    this.$ = new printing.mojom.mojom.SandboxedPrintBackendHostRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.SandboxedPrintBackendHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -131,7 +157,7 @@ printing.mojom.mojom.SandboxedPrintBackendHostRemote = class {
   }
 };
 
-printing.mojom.mojom.SandboxedPrintBackendHostRemoteCallHandler = class {
+printing.mojom.SandboxedPrintBackendHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -140,15 +166,15 @@ printing.mojom.mojom.SandboxedPrintBackendHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec,
+      printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
       [service]);
   }
 
 };
 
-printing.mojom.mojom.SandboxedPrintBackendHost.getRemote = function() {
-  let remote = new printing.mojom.mojom.SandboxedPrintBackendHostRemote();
+printing.mojom.SandboxedPrintBackendHost.getRemote = function() {
+  let remote = new printing.mojom.SandboxedPrintBackendHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -158,7 +184,7 @@ printing.mojom.mojom.SandboxedPrintBackendHost.getRemote = function() {
 };
 
 // ParamsSpec for BindBackend
-printing.mojom.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
+printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.SandboxedPrintBackendHost.BindBackend_Params',
@@ -172,29 +198,253 @@ printing.mojom.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.mojom.SandboxedPrintBackendHostPtr = printing.mojom.mojom.SandboxedPrintBackendHostRemote;
-printing.mojom.mojom.SandboxedPrintBackendHostRequest = printing.mojom.mojom.SandboxedPrintBackendHostPendingReceiver;
+printing.mojom.SandboxedPrintBackendHostPtr = printing.mojom.SandboxedPrintBackendHostRemote;
+printing.mojom.SandboxedPrintBackendHostRequest = printing.mojom.SandboxedPrintBackendHostPendingReceiver;
 
 
 // Interface: PrintBackendService
-printing.mojom.mojom.PrintBackendService = {};
+printing.mojom.PrintBackendService = {};
 
-printing.mojom.mojom.PrintBackendServicePendingReceiver = class {
+printing.mojom.PrintBackendService_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_Init_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(printing.mojom.PrinterXmlParserRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_Poke_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_Poke_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_EnumeratePrinters_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_GetDefaultPrinterName_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_FetchCapabilities_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_GetPaperPrintableArea_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'media', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.RequestedMediaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_EstablishPrintingContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'parent_window_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_UseDefaultSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_AskUserForSettings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'max_pages', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'has_selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_scripted', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_UpdatePrintSettings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'job_settings', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_StartPrinting_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'context_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'document_cookie', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'document_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PrintSettingsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_RenderPrintedPage_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'document_cookie', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'page_index', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'page_data_type', packedOffset: 32, packedBitOffset: 0, type: printing.mojom.MetafileDataTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'serialized_page', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'page_content_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'shrink_factor', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_RenderPrintedDocument_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'document_cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'page_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data_type', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.MetafileDataTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'serialized_doc', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_DocumentDone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendService_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintBackendService_Cancel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PrintBackendServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.mojom.PrintBackendServiceRemote = class {
+printing.mojom.PrintBackendServiceRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PrintBackendService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.mojom.PrintBackendServicePendingReceiver,
+      printing.mojom.PrintBackendServicePendingReceiver,
       handle);
-    this.$ = new printing.mojom.mojom.PrintBackendServiceRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.PrintBackendServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -206,7 +456,7 @@ printing.mojom.mojom.PrintBackendServiceRemote = class {
   }
 };
 
-printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
+printing.mojom.PrintBackendServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -215,7 +465,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.mojom.PrintBackendService_Init_ParamsSpec,
+      printing.mojom.PrintBackendService_Init_ParamsSpec,
       null,
       [locale, remote]);
   }
@@ -224,7 +474,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.mojom.PrintBackendService_Poke_ParamsSpec,
+      printing.mojom.PrintBackendService_Poke_ParamsSpec,
       null,
       []);
   }
@@ -233,7 +483,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec,
+      printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec,
       null,
       []);
   }
@@ -242,7 +492,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec,
+      printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec,
       null,
       []);
   }
@@ -251,7 +501,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      printing.mojom.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec,
+      printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec,
       null,
       [printer_name]);
   }
@@ -260,7 +510,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      printing.mojom.mojom.PrintBackendService_FetchCapabilities_ParamsSpec,
+      printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec,
       null,
       [printer_name]);
   }
@@ -269,8 +519,8 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      printing.mojom.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec,
-      printing.mojom.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec,
+      printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec,
+      printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec,
       [printer_name, media]);
   }
 
@@ -278,7 +528,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      printing.mojom.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec,
+      printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec,
       null,
       [context_id, parent_window_id]);
   }
@@ -287,7 +537,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      printing.mojom.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec,
+      printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec,
       null,
       [context_id]);
   }
@@ -296,7 +546,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      printing.mojom.mojom.PrintBackendService_AskUserForSettings_ParamsSpec,
+      printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec,
       null,
       [context_id, max_pages, has_selection, is_scripted]);
   }
@@ -305,7 +555,7 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      printing.mojom.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec,
+      printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec,
       null,
       [context_id, job_settings]);
   }
@@ -314,8 +564,8 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      printing.mojom.mojom.PrintBackendService_StartPrinting_ParamsSpec,
-      printing.mojom.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
+      printing.mojom.PrintBackendService_StartPrinting_ParamsSpec,
+      printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
       [context_id, document_cookie, document_name, settings]);
   }
 
@@ -323,8 +573,8 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      printing.mojom.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec,
-      printing.mojom.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec,
+      printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec,
+      printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec,
       [document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor]);
   }
 
@@ -332,8 +582,8 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      printing.mojom.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec,
-      printing.mojom.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec,
+      printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec,
+      printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec,
       [document_cookie, page_count, data_type, serialized_doc]);
   }
 
@@ -341,8 +591,8 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      printing.mojom.mojom.PrintBackendService_DocumentDone_ParamsSpec,
-      printing.mojom.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec,
+      printing.mojom.PrintBackendService_DocumentDone_ParamsSpec,
+      printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec,
       [document_cookie]);
   }
 
@@ -350,15 +600,15 @@ printing.mojom.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      printing.mojom.mojom.PrintBackendService_Cancel_ParamsSpec,
+      printing.mojom.PrintBackendService_Cancel_ParamsSpec,
       null,
       [document_cookie]);
   }
 
 };
 
-printing.mojom.mojom.PrintBackendService.getRemote = function() {
-  let remote = new printing.mojom.mojom.PrintBackendServiceRemote();
+printing.mojom.PrintBackendService.getRemote = function() {
+  let remote = new printing.mojom.PrintBackendServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -368,7 +618,7 @@ printing.mojom.mojom.PrintBackendService.getRemote = function() {
 };
 
 // ParamsSpec for Init
-printing.mojom.mojom.PrintBackendService_Init_ParamsSpec = {
+printing.mojom.PrintBackendService_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.Init_Params',
@@ -383,7 +633,7 @@ printing.mojom.mojom.PrintBackendService_Init_ParamsSpec = {
 };
 
 // ParamsSpec for Poke
-printing.mojom.mojom.PrintBackendService_Poke_ParamsSpec = {
+printing.mojom.PrintBackendService_Poke_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.Poke_Params',
@@ -396,7 +646,7 @@ printing.mojom.mojom.PrintBackendService_Poke_ParamsSpec = {
 };
 
 // ParamsSpec for EnumeratePrinters
-printing.mojom.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = {
+printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.EnumeratePrinters_Params',
@@ -409,7 +659,7 @@ printing.mojom.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = {
 };
 
 // ParamsSpec for GetDefaultPrinterName
-printing.mojom.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = {
+printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.GetDefaultPrinterName_Params',
@@ -422,7 +672,7 @@ printing.mojom.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = {
 };
 
 // ParamsSpec for GetPrinterSemanticCapsAndDefaults
-printing.mojom.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec = {
+printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.GetPrinterSemanticCapsAndDefaults_Params',
@@ -436,7 +686,7 @@ printing.mojom.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_Param
 };
 
 // ParamsSpec for FetchCapabilities
-printing.mojom.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = {
+printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.FetchCapabilities_Params',
@@ -450,7 +700,7 @@ printing.mojom.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = {
 };
 
 // ParamsSpec for GetPaperPrintableArea
-printing.mojom.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
+printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.GetPaperPrintableArea_Params',
@@ -464,7 +714,7 @@ printing.mojom.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = {
+printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.GetPaperPrintableArea_ResponseParams',
@@ -478,7 +728,7 @@ printing.mojom.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpe
 };
 
 // ParamsSpec for EstablishPrintingContext
-printing.mojom.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
+printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.EstablishPrintingContext_Params',
@@ -493,7 +743,7 @@ printing.mojom.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
 };
 
 // ParamsSpec for UseDefaultSettings
-printing.mojom.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = {
+printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.UseDefaultSettings_Params',
@@ -507,7 +757,7 @@ printing.mojom.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = {
 };
 
 // ParamsSpec for AskUserForSettings
-printing.mojom.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
+printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.AskUserForSettings_Params',
@@ -524,7 +774,7 @@ printing.mojom.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
 };
 
 // ParamsSpec for UpdatePrintSettings
-printing.mojom.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = {
+printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.UpdatePrintSettings_Params',
@@ -539,7 +789,7 @@ printing.mojom.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = {
 };
 
 // ParamsSpec for StartPrinting
-printing.mojom.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
+printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.StartPrinting_Params',
@@ -555,7 +805,7 @@ printing.mojom.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
+printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.StartPrinting_ResponseParams',
@@ -570,7 +820,7 @@ printing.mojom.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RenderPrintedPage
-printing.mojom.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
+printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.RenderPrintedPage_Params',
@@ -589,7 +839,7 @@ printing.mojom.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = {
+printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.RenderPrintedPage_ResponseParams',
@@ -603,7 +853,7 @@ printing.mojom.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = 
 };
 
 // ParamsSpec for RenderPrintedDocument
-printing.mojom.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
+printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.RenderPrintedDocument_Params',
@@ -619,7 +869,7 @@ printing.mojom.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = {
+printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.RenderPrintedDocument_ResponseParams',
@@ -633,7 +883,7 @@ printing.mojom.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpe
 };
 
 // ParamsSpec for DocumentDone
-printing.mojom.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
+printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.DocumentDone_Params',
@@ -646,7 +896,7 @@ printing.mojom.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
+printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.DocumentDone_ResponseParams',
@@ -660,7 +910,7 @@ printing.mojom.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-printing.mojom.mojom.PrintBackendService_Cancel_ParamsSpec = {
+printing.mojom.PrintBackendService_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.Cancel_Params',
@@ -674,6 +924,6 @@ printing.mojom.mojom.PrintBackendService_Cancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.mojom.PrintBackendServicePtr = printing.mojom.mojom.PrintBackendServiceRemote;
-printing.mojom.mojom.PrintBackendServiceRequest = printing.mojom.mojom.PrintBackendServicePendingReceiver;
+printing.mojom.PrintBackendServicePtr = printing.mojom.PrintBackendServiceRemote;
+printing.mojom.PrintBackendServiceRequest = printing.mojom.PrintBackendServicePendingReceiver;
 

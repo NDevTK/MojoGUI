@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Struct: APIPermission
-extensions.mojom.mojom.APIPermissionSpec = {
+extensions.mojom.APIPermissionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.APIPermission',
@@ -25,7 +25,7 @@ extensions.mojom.mojom.APIPermissionSpec = {
 };
 
 // Struct: APIPermissionSet
-extensions.mojom.mojom.APIPermissionSetSpec = {
+extensions.mojom.APIPermissionSetSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.APIPermissionSet',
@@ -39,7 +39,7 @@ extensions.mojom.mojom.APIPermissionSetSpec = {
 };
 
 // Struct: ManifestPermission
-extensions.mojom.mojom.ManifestPermissionSpec = {
+extensions.mojom.ManifestPermissionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ManifestPermission',
@@ -54,7 +54,7 @@ extensions.mojom.mojom.ManifestPermissionSpec = {
 };
 
 // Struct: ManifestPermissionSet
-extensions.mojom.mojom.ManifestPermissionSetSpec = {
+extensions.mojom.ManifestPermissionSetSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ManifestPermissionSet',
@@ -68,7 +68,7 @@ extensions.mojom.mojom.ManifestPermissionSetSpec = {
 };
 
 // Struct: PermissionSet
-extensions.mojom.mojom.PermissionSetSpec = {
+extensions.mojom.PermissionSetSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.PermissionSet',

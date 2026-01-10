@@ -12,23 +12,23 @@ var url = url || {};
 
 
 // Enum: ServiceWorkerClientType
-blink.mojom.mojom.ServiceWorkerClientType = {
+blink.mojom.ServiceWorkerClientType = {
   kWindow: 0,
   kDedicatedWorker: 1,
   kSharedWorker: 2,
   kAll: 3,
 };
-blink.mojom.mojom.ServiceWorkerClientTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerClientLifecycleState
-blink.mojom.mojom.ServiceWorkerClientLifecycleState = {
+blink.mojom.ServiceWorkerClientLifecycleState = {
   kActive: 0,
   kFrozen: 1,
 };
-blink.mojom.mojom.ServiceWorkerClientLifecycleStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerClientLifecycleStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerClientQueryOptions
-blink.mojom.mojom.ServiceWorkerClientQueryOptionsSpec = {
+blink.mojom.ServiceWorkerClientQueryOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerClientQueryOptions',
@@ -43,7 +43,7 @@ blink.mojom.mojom.ServiceWorkerClientQueryOptionsSpec = {
 };
 
 // Struct: ServiceWorkerClientInfo
-blink.mojom.mojom.ServiceWorkerClientInfoSpec = {
+blink.mojom.ServiceWorkerClientInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerClientInfo',

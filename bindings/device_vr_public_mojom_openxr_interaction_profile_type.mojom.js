@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Enum: OpenXrInteractionProfileType
-device.mojom.mojom.OpenXrInteractionProfileType = {
+device.mojom.OpenXrInteractionProfileType = {
   kMicrosoftMotion: 0,
   kKHRSimple: 1,
   kOculusTouch: 2,
@@ -24,4 +24,4 @@ device.mojom.mojom.OpenXrInteractionProfileType = {
   kMetaHandAim: 10,
   kInvalid: 11,
 };
-device.mojom.mojom.OpenXrInteractionProfileTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.OpenXrInteractionProfileTypeSpec = { $: mojo.internal.Enum() };

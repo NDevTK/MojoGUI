@@ -10,11 +10,11 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: BrowserColorVariant
-ui.mojom.mojom.BrowserColorVariant = {
+ui.mojom.BrowserColorVariant = {
   kSystem: 0,
   kTonalSpot: 1,
   kNeutral: 2,
   kVibrant: 3,
   kExpressive: 4,
 };
-ui.mojom.mojom.BrowserColorVariantSpec = { $: mojo.internal.Enum() };
+ui.mojom.BrowserColorVariantSpec = { $: mojo.internal.Enum() };

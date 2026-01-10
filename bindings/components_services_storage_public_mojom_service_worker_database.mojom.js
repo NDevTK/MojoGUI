@@ -21,7 +21,7 @@ var url = url || {};
 
 
 // Enum: ServiceWorkerDatabaseStatus
-storage.mojom.mojom.ServiceWorkerDatabaseStatus = {
+storage.mojom.ServiceWorkerDatabaseStatus = {
   kOk: 0,
   kErrorNotFound: 1,
   kErrorIOError: 2,
@@ -31,10 +31,10 @@ storage.mojom.mojom.ServiceWorkerDatabaseStatus = {
   kErrorDisabled: 6,
   kErrorStorageDisconnected: 7,
 };
-storage.mojom.mojom.ServiceWorkerDatabaseStatusSpec = { $: mojo.internal.Enum() };
+storage.mojom.ServiceWorkerDatabaseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerRegistrationData
-storage.mojom.mojom.ServiceWorkerRegistrationDataSpec = {
+storage.mojom.ServiceWorkerRegistrationDataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerRegistrationData',
@@ -65,7 +65,7 @@ storage.mojom.mojom.ServiceWorkerRegistrationDataSpec = {
 };
 
 // Struct: ServiceWorkerResourceRecord
-storage.mojom.mojom.ServiceWorkerResourceRecordSpec = {
+storage.mojom.ServiceWorkerResourceRecordSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceRecord',

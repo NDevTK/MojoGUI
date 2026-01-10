@@ -10,21 +10,21 @@ network.mojom = network.mojom || {};
 
 
 // Enum: SSLVersion
-network.mojom.mojom.SSLVersion = {
+network.mojom.SSLVersion = {
   kTLS12: 0,
   kTLS13: 1,
 };
-network.mojom.mojom.SSLVersionSpec = { $: mojo.internal.Enum() };
+network.mojom.SSLVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SSLNamedGroupsPreset
-network.mojom.mojom.SSLNamedGroupsPreset = {
+network.mojom.SSLNamedGroupsPreset = {
   kDefault: 0,
   kCnsa2: 1,
 };
-network.mojom.mojom.SSLNamedGroupsPresetSpec = { $: mojo.internal.Enum() };
+network.mojom.SSLNamedGroupsPresetSpec = { $: mojo.internal.Enum() };
 
 // Struct: SSLConfig
-network.mojom.mojom.SSLConfigSpec = {
+network.mojom.SSLConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLConfig',
@@ -50,24 +50,37 @@ network.mojom.mojom.SSLConfigSpec = {
 };
 
 // Interface: SSLConfigClient
-network.mojom.mojom.SSLConfigClient = {};
+network.mojom.SSLConfigClient = {};
 
-network.mojom.mojom.SSLConfigClientPendingReceiver = class {
+network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SSLConfigClient_OnSSLConfigUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SSLConfigSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.SSLConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.SSLConfigClientRemote = class {
+network.mojom.SSLConfigClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.SSLConfigClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.SSLConfigClientPendingReceiver,
+      network.mojom.SSLConfigClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.SSLConfigClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.SSLConfigClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -79,7 +92,7 @@ network.mojom.mojom.SSLConfigClientRemote = class {
   }
 };
 
-network.mojom.mojom.SSLConfigClientRemoteCallHandler = class {
+network.mojom.SSLConfigClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -88,15 +101,15 @@ network.mojom.mojom.SSLConfigClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec,
+      network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec,
       null,
       [ssl_config]);
   }
 
 };
 
-network.mojom.mojom.SSLConfigClient.getRemote = function() {
-  let remote = new network.mojom.mojom.SSLConfigClientRemote();
+network.mojom.SSLConfigClient.getRemote = function() {
+  let remote = new network.mojom.SSLConfigClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -106,7 +119,7 @@ network.mojom.mojom.SSLConfigClient.getRemote = function() {
 };
 
 // ParamsSpec for OnSSLConfigUpdated
-network.mojom.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
+network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLConfigClient.OnSSLConfigUpdated_Params',
@@ -120,6 +133,6 @@ network.mojom.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.SSLConfigClientPtr = network.mojom.mojom.SSLConfigClientRemote;
-network.mojom.mojom.SSLConfigClientRequest = network.mojom.mojom.SSLConfigClientPendingReceiver;
+network.mojom.SSLConfigClientPtr = network.mojom.SSLConfigClientRemote;
+network.mojom.SSLConfigClientRequest = network.mojom.SSLConfigClientPendingReceiver;
 

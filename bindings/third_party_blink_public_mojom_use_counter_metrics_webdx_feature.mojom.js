@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: WebDXFeature
-blink.mojom.mojom.WebDXFeature = {
+blink.mojom.WebDXFeature = {
   kPageVisits: 0,
   kCompressionStreams: 1,
   kViewTransitions: 2,
@@ -431,4 +431,4 @@ blink.mojom.mojom.WebDXFeature = {
   kDRAFT_MetaTextScale: 417,
   kJpegxl: 418,
 };
-blink.mojom.mojom.WebDXFeatureSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebDXFeatureSpec = { $: mojo.internal.Enum() };

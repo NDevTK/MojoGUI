@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: SharedImageCapabilities
-gpu.mojom.mojom.SharedImageCapabilitiesSpec = {
+gpu.mojom.SharedImageCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImageCapabilities',

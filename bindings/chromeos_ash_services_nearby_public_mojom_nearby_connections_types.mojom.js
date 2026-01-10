@@ -7,11 +7,11 @@
 // Module namespace
 var nearby = nearby || {};
 nearby.connections = nearby.connections || {};
-nearby.connections.connections.mojom = nearby.connections.connections.mojom || {};
+nearby.connections.mojom = nearby.connections.mojom || {};
 
 
 // Enum: Status
-nearby.connections.connections.mojom.mojom.Status = {
+nearby.connections.mojom.Status = {
   kSuccess: 0,
   kError: 1,
   kOutOfOrderApiCall: 2,
@@ -33,36 +33,36 @@ nearby.connections.connections.mojom.mojom.Status = {
   kUnknown: 18,
   kNextValue: 19,
 };
-nearby.connections.connections.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
+nearby.connections.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Strategy
-nearby.connections.connections.mojom.mojom.Strategy = {
+nearby.connections.mojom.Strategy = {
   kP2pCluster: 0,
   kP2pStar: 1,
   kP2pPointToPoint: 2,
 };
-nearby.connections.connections.mojom.mojom.StrategySpec = { $: mojo.internal.Enum() };
+nearby.connections.mojom.StrategySpec = { $: mojo.internal.Enum() };
 
 // Enum: PayloadStatus
-nearby.connections.connections.mojom.mojom.PayloadStatus = {
+nearby.connections.mojom.PayloadStatus = {
   kSuccess: 0,
   kFailure: 1,
   kInProgress: 2,
   kCanceled: 3,
 };
-nearby.connections.connections.mojom.mojom.PayloadStatusSpec = { $: mojo.internal.Enum() };
+nearby.connections.mojom.PayloadStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: BandwidthQuality
-nearby.connections.connections.mojom.mojom.BandwidthQuality = {
+nearby.connections.mojom.BandwidthQuality = {
   kUnknown: 0,
   kLow: 1,
   kMedium: 2,
   kHigh: 3,
 };
-nearby.connections.connections.mojom.mojom.BandwidthQualitySpec = { $: mojo.internal.Enum() };
+nearby.connections.mojom.BandwidthQualitySpec = { $: mojo.internal.Enum() };
 
 // Enum: Medium
-nearby.connections.connections.mojom.mojom.Medium = {
+nearby.connections.mojom.Medium = {
   kUnknown: 0,
   kMdns: 1,
   kBluetooth: 2,
@@ -78,28 +78,28 @@ nearby.connections.connections.mojom.mojom.Medium = {
   kWebRtcNonCellular: 12,
   kAwdl: 13,
 };
-nearby.connections.connections.mojom.mojom.MediumSpec = { $: mojo.internal.Enum() };
+nearby.connections.mojom.MediumSpec = { $: mojo.internal.Enum() };
 
 // Enum: LogSeverity
-nearby.connections.connections.mojom.mojom.LogSeverity = {
+nearby.connections.mojom.LogSeverity = {
   kVerbose: 0,
   kInfo: 1,
   kWarning: 2,
   kError: 3,
   kFatal: 4,
 };
-nearby.connections.connections.mojom.mojom.LogSeveritySpec = { $: mojo.internal.Enum() };
+nearby.connections.mojom.LogSeveritySpec = { $: mojo.internal.Enum() };
 
 // Enum: AuthenticationStatus
-nearby.connections.connections.mojom.mojom.AuthenticationStatus = {
+nearby.connections.mojom.AuthenticationStatus = {
   kUnknown: 0,
   kSuccess: 1,
   kFailure: 2,
 };
-nearby.connections.connections.mojom.mojom.AuthenticationStatusSpec = { $: mojo.internal.Enum() };
+nearby.connections.mojom.AuthenticationStatusSpec = { $: mojo.internal.Enum() };
 
 // Union: PayloadContent
-nearby.connections.connections.mojom.mojom.PayloadContentSpec = { $: mojo.internal.Union(
+nearby.connections.mojom.PayloadContentSpec = { $: mojo.internal.Union(
     'nearby.connections.mojom.PayloadContent', {
       'bytes': {
         'ordinal': 0,
@@ -113,7 +113,7 @@ nearby.connections.connections.mojom.mojom.PayloadContentSpec = { $: mojo.intern
 };
 
 // Struct: ConnectionInfo
-nearby.connections.connections.mojom.mojom.ConnectionInfoSpec = {
+nearby.connections.mojom.ConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.ConnectionInfo',
@@ -130,7 +130,7 @@ nearby.connections.connections.mojom.mojom.ConnectionInfoSpec = {
 };
 
 // Struct: DiscoveredEndpointInfo
-nearby.connections.connections.mojom.mojom.DiscoveredEndpointInfoSpec = {
+nearby.connections.mojom.DiscoveredEndpointInfoSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.DiscoveredEndpointInfo',
@@ -145,7 +145,7 @@ nearby.connections.connections.mojom.mojom.DiscoveredEndpointInfoSpec = {
 };
 
 // Struct: MediumSelection
-nearby.connections.connections.mojom.mojom.MediumSelectionSpec = {
+nearby.connections.mojom.MediumSelectionSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.MediumSelection',
@@ -163,7 +163,7 @@ nearby.connections.connections.mojom.mojom.MediumSelectionSpec = {
 };
 
 // Struct: AdvertisingOptions
-nearby.connections.connections.mojom.mojom.AdvertisingOptionsSpec = {
+nearby.connections.mojom.AdvertisingOptionsSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.AdvertisingOptions',
@@ -183,7 +183,7 @@ nearby.connections.connections.mojom.mojom.AdvertisingOptionsSpec = {
 };
 
 // Struct: DiscoveryOptions
-nearby.connections.connections.mojom.mojom.DiscoveryOptionsSpec = {
+nearby.connections.mojom.DiscoveryOptionsSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.DiscoveryOptions',
@@ -200,7 +200,7 @@ nearby.connections.connections.mojom.mojom.DiscoveryOptionsSpec = {
 };
 
 // Struct: ConnectionOptions
-nearby.connections.connections.mojom.mojom.ConnectionOptionsSpec = {
+nearby.connections.mojom.ConnectionOptionsSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.ConnectionOptions',
@@ -217,7 +217,7 @@ nearby.connections.connections.mojom.mojom.ConnectionOptionsSpec = {
 };
 
 // Struct: BytesPayload
-nearby.connections.connections.mojom.mojom.BytesPayloadSpec = {
+nearby.connections.mojom.BytesPayloadSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.BytesPayload',
@@ -231,7 +231,7 @@ nearby.connections.connections.mojom.mojom.BytesPayloadSpec = {
 };
 
 // Struct: FilePayload
-nearby.connections.connections.mojom.mojom.FilePayloadSpec = {
+nearby.connections.mojom.FilePayloadSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.FilePayload',
@@ -245,7 +245,7 @@ nearby.connections.connections.mojom.mojom.FilePayloadSpec = {
 };
 
 // Struct: Payload
-nearby.connections.connections.mojom.mojom.PayloadSpec = {
+nearby.connections.mojom.PayloadSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.Payload',
@@ -260,7 +260,7 @@ nearby.connections.connections.mojom.mojom.PayloadSpec = {
 };
 
 // Struct: PayloadTransferUpdate
-nearby.connections.connections.mojom.mojom.PayloadTransferUpdateSpec = {
+nearby.connections.mojom.PayloadTransferUpdateSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.PayloadTransferUpdate',
@@ -277,7 +277,7 @@ nearby.connections.connections.mojom.mojom.PayloadTransferUpdateSpec = {
 };
 
 // Struct: InitialConnectionInfoV3
-nearby.connections.connections.mojom.mojom.InitialConnectionInfoV3Spec = {
+nearby.connections.mojom.InitialConnectionInfoV3Spec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.InitialConnectionInfoV3',
@@ -294,7 +294,7 @@ nearby.connections.connections.mojom.mojom.InitialConnectionInfoV3Spec = {
 };
 
 // Struct: BandwidthInfo
-nearby.connections.connections.mojom.mojom.BandwidthInfoSpec = {
+nearby.connections.mojom.BandwidthInfoSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.BandwidthInfo',

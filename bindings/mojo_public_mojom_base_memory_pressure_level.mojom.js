@@ -10,9 +10,9 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: MemoryPressureLevel
-mojo_base.mojom.mojom.MemoryPressureLevel = {
+mojo_base.mojom.MemoryPressureLevel = {
   NONE: 0,
   MODERATE: 1,
   CRITICAL: 2,
 };
-mojo_base.mojom.mojom.MemoryPressureLevelSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.MemoryPressureLevelSpec = { $: mojo.internal.Enum() };

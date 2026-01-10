@@ -7,12 +7,12 @@
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
-ash.mojom.mojom.scanner_feedback_ui = ash.mojom.mojom.scanner_feedback_ui || {};
+ash.mojom.scanner_feedback_ui = ash.mojom.scanner_feedback_ui || {};
 var url = url || {};
 
 
 // Struct: FeedbackInfo
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.FeedbackInfoSpec = {
+ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.scanner_feedback_ui.FeedbackInfo',
@@ -27,24 +27,61 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.FeedbackInfoSpec = {
 };
 
 // Interface: PageHandler
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler = {};
+ash.mojom.scanner_feedback_ui.PageHandler = {};
 
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerPendingReceiver = class {
+ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'user_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemote = class {
+ash.mojom.scanner_feedback_ui.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.scanner_feedback_ui.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerPendingReceiver,
+      ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +93,7 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemote = clas
   }
 };
 
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
+ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,8 +102,8 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemoteCallHan
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec,
-      ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
+      ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec,
+      ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
       []);
   }
 
@@ -74,7 +111,7 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemoteCallHan
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec,
+      ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec,
       null,
       []);
   }
@@ -83,15 +120,15 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemoteCallHan
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec,
+      ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec,
       null,
       [user_description]);
   }
 
 };
 
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler.getRemote = function() {
-  let remote = new ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemote();
+ash.mojom.scanner_feedback_ui.PageHandler.getRemote = function() {
+  let remote = new ash.mojom.scanner_feedback_ui.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -101,7 +138,7 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler.getRemote = 
 };
 
 // ParamsSpec for GetFeedbackInfo
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
+ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.scanner_feedback_ui.PageHandler.GetFeedbackInfo_Params',
@@ -113,7 +150,7 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_GetFeedbackI
   }
 };
 
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
+ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.scanner_feedback_ui.PageHandler.GetFeedbackInfo_ResponseParams',
@@ -127,7 +164,7 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_GetFeedbackI
 };
 
 // ParamsSpec for CloseDialog
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
+ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.scanner_feedback_ui.PageHandler.CloseDialog_Params',
@@ -140,7 +177,7 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_CloseDialog_
 };
 
 // ParamsSpec for SendFeedback
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
+ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.scanner_feedback_ui.PageHandler.SendFeedback_Params',
@@ -154,6 +191,6 @@ ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandler_SendFeedback
 };
 
 // Legacy compatibility
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerPtr = ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRemote;
-ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerRequest = ash.mojom.mojom.scanner_feedback_ui.scanner_feedback_ui.PageHandlerPendingReceiver;
+ash.mojom.scanner_feedback_ui.PageHandlerPtr = ash.mojom.scanner_feedback_ui.PageHandlerRemote;
+ash.mojom.scanner_feedback_ui.PageHandlerRequest = ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver;
 

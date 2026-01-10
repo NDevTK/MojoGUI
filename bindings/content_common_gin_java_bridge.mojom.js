@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Enum: GinJavaBridgeError
-content.mojom.mojom.GinJavaBridgeError = {
+content.mojom.GinJavaBridgeError = {
   kGinJavaBridgeNoError: 0,
   kGinJavaBridgeUnknownObjectId: 1,
   kGinJavaBridgeObjectIsGone: 2,
@@ -20,27 +20,68 @@ content.mojom.mojom.GinJavaBridgeError = {
   kGinJavaBridgeNonAssignableTypes: 6,
   kGinJavaBridgeRenderFrameDeleted: 7,
 };
-content.mojom.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum() };
+content.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: GinJavaBridge
-content.mojom.mojom.GinJavaBridge = {};
+content.mojom.GinJavaBridge = {};
 
-content.mojom.mojom.GinJavaBridgePendingReceiver = class {
+content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridge_AddNamedObject_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'object_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridge_RemoveNamedObject_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridge_SetHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridge_SetHost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content.mojom.GinJavaBridgeHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridgePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.GinJavaBridgeRemote = class {
+content.mojom.GinJavaBridgeRemote = class {
   static get $interfaceName() {
     return 'content.mojom.GinJavaBridge';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.GinJavaBridgePendingReceiver,
+      content.mojom.GinJavaBridgePendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.GinJavaBridgeRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.GinJavaBridgeRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -52,7 +93,7 @@ content.mojom.mojom.GinJavaBridgeRemote = class {
   }
 };
 
-content.mojom.mojom.GinJavaBridgeRemoteCallHandler = class {
+content.mojom.GinJavaBridgeRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -61,7 +102,7 @@ content.mojom.mojom.GinJavaBridgeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.GinJavaBridge_AddNamedObject_ParamsSpec,
+      content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec,
       null,
       [name, object_id, origin_matcher]);
   }
@@ -70,7 +111,7 @@ content.mojom.mojom.GinJavaBridgeRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec,
+      content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec,
       null,
       [name]);
   }
@@ -79,15 +120,15 @@ content.mojom.mojom.GinJavaBridgeRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.mojom.GinJavaBridge_SetHost_ParamsSpec,
+      content.mojom.GinJavaBridge_SetHost_ParamsSpec,
       null,
       [host]);
   }
 
 };
 
-content.mojom.mojom.GinJavaBridge.getRemote = function() {
-  let remote = new content.mojom.mojom.GinJavaBridgeRemote();
+content.mojom.GinJavaBridge.getRemote = function() {
+  let remote = new content.mojom.GinJavaBridgeRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +138,7 @@ content.mojom.mojom.GinJavaBridge.getRemote = function() {
 };
 
 // ParamsSpec for AddNamedObject
-content.mojom.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
+content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridge.AddNamedObject_Params',
@@ -113,7 +154,7 @@ content.mojom.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveNamedObject
-content.mojom.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
+content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridge.RemoveNamedObject_Params',
@@ -127,7 +168,7 @@ content.mojom.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
 };
 
 // ParamsSpec for SetHost
-content.mojom.mojom.GinJavaBridge_SetHost_ParamsSpec = {
+content.mojom.GinJavaBridge_SetHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridge.SetHost_Params',
@@ -141,29 +182,68 @@ content.mojom.mojom.GinJavaBridge_SetHost_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.GinJavaBridgePtr = content.mojom.mojom.GinJavaBridgeRemote;
-content.mojom.mojom.GinJavaBridgeRequest = content.mojom.mojom.GinJavaBridgePendingReceiver;
+content.mojom.GinJavaBridgePtr = content.mojom.GinJavaBridgeRemote;
+content.mojom.GinJavaBridgeRequest = content.mojom.GinJavaBridgePendingReceiver;
 
 
 // Interface: GinJavaBridgeRemoteObject
-content.mojom.mojom.GinJavaBridgeRemoteObject = {};
+content.mojom.GinJavaBridgeRemoteObject = {};
 
-content.mojom.mojom.GinJavaBridgeRemoteObjectPendingReceiver = class {
+content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridgeRemoteObject_GetMethods_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridgeRemoteObject_HasMethod_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridgeRemoteObjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.GinJavaBridgeRemoteObjectRemote = class {
+content.mojom.GinJavaBridgeRemoteObjectRemote = class {
   static get $interfaceName() {
     return 'content.mojom.GinJavaBridgeRemoteObject';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.GinJavaBridgeRemoteObjectPendingReceiver,
+      content.mojom.GinJavaBridgeRemoteObjectPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -175,7 +255,7 @@ content.mojom.mojom.GinJavaBridgeRemoteObjectRemote = class {
   }
 };
 
-content.mojom.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
+content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -184,8 +264,8 @@ content.mojom.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec,
-      content.mojom.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
       []);
   }
 
@@ -193,8 +273,8 @@ content.mojom.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec,
-      content.mojom.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
       [method_name]);
   }
 
@@ -202,15 +282,15 @@ content.mojom.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec,
-      content.mojom.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
       [method_name, arguments]);
   }
 
 };
 
-content.mojom.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
-  let remote = new content.mojom.mojom.GinJavaBridgeRemoteObjectRemote();
+content.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
+  let remote = new content.mojom.GinJavaBridgeRemoteObjectRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -220,7 +300,7 @@ content.mojom.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
 };
 
 // ParamsSpec for GetMethods
-content.mojom.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
+content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeRemoteObject.GetMethods_Params',
@@ -232,7 +312,7 @@ content.mojom.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
+content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeRemoteObject.GetMethods_ResponseParams',
@@ -246,7 +326,7 @@ content.mojom.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
 };
 
 // ParamsSpec for HasMethod
-content.mojom.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
+content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeRemoteObject.HasMethod_Params',
@@ -259,7 +339,7 @@ content.mojom.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
+content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeRemoteObject.HasMethod_ResponseParams',
@@ -273,7 +353,7 @@ content.mojom.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InvokeMethod
-content.mojom.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
+content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeRemoteObject.InvokeMethod_Params',
@@ -287,7 +367,7 @@ content.mojom.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
+content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeRemoteObject.InvokeMethod_ResponseParams',
@@ -302,29 +382,56 @@ content.mojom.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-content.mojom.mojom.GinJavaBridgeRemoteObjectPtr = content.mojom.mojom.GinJavaBridgeRemoteObjectRemote;
-content.mojom.mojom.GinJavaBridgeRemoteObjectRequest = content.mojom.mojom.GinJavaBridgeRemoteObjectPendingReceiver;
+content.mojom.GinJavaBridgeRemoteObjectPtr = content.mojom.GinJavaBridgeRemoteObjectRemote;
+content.mojom.GinJavaBridgeRemoteObjectRequest = content.mojom.GinJavaBridgeRemoteObjectPendingReceiver;
 
 
 // Interface: GinJavaBridgeHost
-content.mojom.mojom.GinJavaBridgeHost = {};
+content.mojom.GinJavaBridgeHost = {};
 
-content.mojom.mojom.GinJavaBridgeHostPendingReceiver = class {
+content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridgeHost_GetObject_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.GinJavaBridgeHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.GinJavaBridgeHostRemote = class {
+content.mojom.GinJavaBridgeHostRemote = class {
   static get $interfaceName() {
     return 'content.mojom.GinJavaBridgeHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.GinJavaBridgeHostPendingReceiver,
+      content.mojom.GinJavaBridgeHostPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.GinJavaBridgeHostRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.GinJavaBridgeHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -336,7 +443,7 @@ content.mojom.mojom.GinJavaBridgeHostRemote = class {
   }
 };
 
-content.mojom.mojom.GinJavaBridgeHostRemoteCallHandler = class {
+content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -345,7 +452,7 @@ content.mojom.mojom.GinJavaBridgeHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.GinJavaBridgeHost_GetObject_ParamsSpec,
+      content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec,
       null,
       [object_id, receiver]);
   }
@@ -354,15 +461,15 @@ content.mojom.mojom.GinJavaBridgeHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec,
+      content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec,
       null,
       [object_id]);
   }
 
 };
 
-content.mojom.mojom.GinJavaBridgeHost.getRemote = function() {
-  let remote = new content.mojom.mojom.GinJavaBridgeHostRemote();
+content.mojom.GinJavaBridgeHost.getRemote = function() {
+  let remote = new content.mojom.GinJavaBridgeHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -372,7 +479,7 @@ content.mojom.mojom.GinJavaBridgeHost.getRemote = function() {
 };
 
 // ParamsSpec for GetObject
-content.mojom.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
+content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeHost.GetObject_Params',
@@ -387,7 +494,7 @@ content.mojom.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
 };
 
 // ParamsSpec for ObjectWrapperDeleted
-content.mojom.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
+content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.GinJavaBridgeHost.ObjectWrapperDeleted_Params',
@@ -401,6 +508,6 @@ content.mojom.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.GinJavaBridgeHostPtr = content.mojom.mojom.GinJavaBridgeHostRemote;
-content.mojom.mojom.GinJavaBridgeHostRequest = content.mojom.mojom.GinJavaBridgeHostPendingReceiver;
+content.mojom.GinJavaBridgeHostPtr = content.mojom.GinJavaBridgeHostRemote;
+content.mojom.GinJavaBridgeHostRequest = content.mojom.GinJavaBridgeHostPendingReceiver;
 

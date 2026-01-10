@@ -7,12 +7,12 @@
 // Module namespace
 var schema_org = schema_org || {};
 schema_org.improved = schema_org.improved || {};
-schema_org.improved.improved.mojom = schema_org.improved.improved.mojom || {};
+schema_org.improved.mojom = schema_org.improved.mojom || {};
 var url = url || {};
 
 
 // Struct: Values
-schema_org.improved.improved.mojom.mojom.ValuesSpec = {
+schema_org.improved.mojom.ValuesSpec = {
   $: {
     structSpec: {
       name: 'schema_org.improved.mojom.Values',
@@ -33,7 +33,7 @@ schema_org.improved.improved.mojom.mojom.ValuesSpec = {
 };
 
 // Struct: Property
-schema_org.improved.improved.mojom.mojom.PropertySpec = {
+schema_org.improved.mojom.PropertySpec = {
   $: {
     structSpec: {
       name: 'schema_org.improved.mojom.Property',
@@ -48,7 +48,7 @@ schema_org.improved.improved.mojom.mojom.PropertySpec = {
 };
 
 // Struct: Entity
-schema_org.improved.improved.mojom.mojom.EntitySpec = {
+schema_org.improved.mojom.EntitySpec = {
   $: {
     structSpec: {
       name: 'schema_org.improved.mojom.Entity',

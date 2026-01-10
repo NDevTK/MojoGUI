@@ -10,7 +10,7 @@ crostini.mojom = crostini.mojom || {};
 
 
 // Enum: InstallerState
-crostini.mojom.mojom.InstallerState = {
+crostini.mojom.InstallerState = {
   kStart: 0,
   kInstallImageLoader: 1,
   kCreateDiskImage: 2,
@@ -23,10 +23,10 @@ crostini.mojom.mojom.InstallerState = {
   kMountContainer_DEPRECATED: 9,
   kConfigureContainer: 10,
 };
-crostini.mojom.mojom.InstallerStateSpec = { $: mojo.internal.Enum() };
+crostini.mojom.InstallerStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: InstallerError
-crostini.mojom.mojom.InstallerError = {
+crostini.mojom.InstallerError = {
   kNone: 0,
   kErrorLoadingTermina: 1,
   kNeedUpdate: 2,
@@ -41,10 +41,10 @@ crostini.mojom.mojom.InstallerError = {
   kErrorCreateContainer: 11,
   kErrorUnknown: 12,
 };
-crostini.mojom.mojom.InstallerErrorSpec = { $: mojo.internal.Enum() };
+crostini.mojom.InstallerErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: DiskSliderTick
-crostini.mojom.mojom.DiskSliderTickSpec = {
+crostini.mojom.DiskSliderTickSpec = {
   $: {
     structSpec: {
       name: 'crostini.mojom.DiskSliderTick',

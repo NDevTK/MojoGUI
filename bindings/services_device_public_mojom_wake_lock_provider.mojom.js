@@ -10,24 +10,81 @@ device.mojom = device.mojom || {};
 
 
 // Interface: WakeLockProvider
-device.mojom.mojom.WakeLockProvider = {};
+device.mojom.WakeLockProvider = {};
 
-device.mojom.mojom.WakeLockProviderPendingReceiver = class {
+device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.WakeLockProvider_GetWakeLockContextForID_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockContextRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.WakeLockProvider_GetWakeLockWithoutContext_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 20, packedBitOffset: 0, type: device.mojom.WakeLockReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'wake_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.WakeLockObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.WakeLockProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.WakeLockProviderRemote = class {
+device.mojom.WakeLockProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.WakeLockProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.WakeLockProviderPendingReceiver,
+      device.mojom.WakeLockProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.WakeLockProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.WakeLockProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +96,7 @@ device.mojom.mojom.WakeLockProviderRemote = class {
   }
 };
 
-device.mojom.mojom.WakeLockProviderRemoteCallHandler = class {
+device.mojom.WakeLockProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +105,7 @@ device.mojom.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec,
+      device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec,
       null,
       [context_id, context]);
   }
@@ -57,7 +114,7 @@ device.mojom.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec,
+      device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec,
       null,
       [type, reason, description, wake_lock]);
   }
@@ -66,7 +123,7 @@ device.mojom.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec,
+      device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec,
       null,
       [type, observer]);
   }
@@ -75,15 +132,15 @@ device.mojom.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec,
-      device.mojom.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec,
+      device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec,
+      device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec,
       [type]);
   }
 
 };
 
-device.mojom.mojom.WakeLockProvider.getRemote = function() {
-  let remote = new device.mojom.mojom.WakeLockProviderRemote();
+device.mojom.WakeLockProvider.getRemote = function() {
+  let remote = new device.mojom.WakeLockProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +150,7 @@ device.mojom.mojom.WakeLockProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetWakeLockContextForID
-device.mojom.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
+device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.GetWakeLockContextForID_Params',
@@ -108,7 +165,7 @@ device.mojom.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
 };
 
 // ParamsSpec for GetWakeLockWithoutContext
-device.mojom.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
+device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.GetWakeLockWithoutContext_Params',
@@ -125,7 +182,7 @@ device.mojom.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyOnWakeLockDeactivation
-device.mojom.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
+device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.NotifyOnWakeLockDeactivation_Params',
@@ -140,7 +197,7 @@ device.mojom.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
 };
 
 // ParamsSpec for GetActiveWakeLocksForTests
-device.mojom.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
+device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.GetActiveWakeLocksForTests_Params',
@@ -153,7 +210,7 @@ device.mojom.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = {
+device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.GetActiveWakeLocksForTests_ResponseParams',
@@ -167,29 +224,42 @@ device.mojom.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpe
 };
 
 // Legacy compatibility
-device.mojom.mojom.WakeLockProviderPtr = device.mojom.mojom.WakeLockProviderRemote;
-device.mojom.mojom.WakeLockProviderRequest = device.mojom.mojom.WakeLockProviderPendingReceiver;
+device.mojom.WakeLockProviderPtr = device.mojom.WakeLockProviderRemote;
+device.mojom.WakeLockProviderRequest = device.mojom.WakeLockProviderPendingReceiver;
 
 
 // Interface: WakeLockObserver
-device.mojom.mojom.WakeLockObserver = {};
+device.mojom.WakeLockObserver = {};
 
-device.mojom.mojom.WakeLockObserverPendingReceiver = class {
+device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.WakeLockObserver_OnWakeLockDeactivated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.WakeLockObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.WakeLockObserverRemote = class {
+device.mojom.WakeLockObserverRemote = class {
   static get $interfaceName() {
     return 'device.mojom.WakeLockObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.WakeLockObserverPendingReceiver,
+      device.mojom.WakeLockObserverPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.WakeLockObserverRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.WakeLockObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -201,7 +271,7 @@ device.mojom.mojom.WakeLockObserverRemote = class {
   }
 };
 
-device.mojom.mojom.WakeLockObserverRemoteCallHandler = class {
+device.mojom.WakeLockObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -210,15 +280,15 @@ device.mojom.mojom.WakeLockObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec,
+      device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec,
       null,
       [type]);
   }
 
 };
 
-device.mojom.mojom.WakeLockObserver.getRemote = function() {
-  let remote = new device.mojom.mojom.WakeLockObserverRemote();
+device.mojom.WakeLockObserver.getRemote = function() {
+  let remote = new device.mojom.WakeLockObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -228,7 +298,7 @@ device.mojom.mojom.WakeLockObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnWakeLockDeactivated
-device.mojom.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
+device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockObserver.OnWakeLockDeactivated_Params',
@@ -242,6 +312,6 @@ device.mojom.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.WakeLockObserverPtr = device.mojom.mojom.WakeLockObserverRemote;
-device.mojom.mojom.WakeLockObserverRequest = device.mojom.mojom.WakeLockObserverPendingReceiver;
+device.mojom.WakeLockObserverPtr = device.mojom.WakeLockObserverRemote;
+device.mojom.WakeLockObserverRequest = device.mojom.WakeLockObserverPendingReceiver;
 

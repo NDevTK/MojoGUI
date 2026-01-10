@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: UDPSocketOptions
-network.mojom.mojom.UDPSocketOptionsSpec = {
+network.mojom.UDPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocketOptions',
@@ -33,24 +33,185 @@ network.mojom.mojom.UDPSocketOptionsSpec = {
 };
 
 // Interface: UDPSocket
-network.mojom.mojom.UDPSocket = {};
+network.mojom.UDPSocket = {};
 
-network.mojom.mojom.UDPSocketPendingReceiver = class {
+network.mojom.UDPSocket_Bind_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_Bind_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_Connect_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_SetBroadcast_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_SetBroadcast_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'broadcast', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_SetSendBufferSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'send_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_SetReceiveBufferSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receive_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_JoinGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_JoinGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_LeaveGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_LeaveGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_ReceiveMore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_ReceiveMore_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_ReceiveMoreWithBufferSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'buffer_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_SendTo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_SendTo_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'dest_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_Send_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_Send_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.UDPSocket_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocket_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.UDPSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.UDPSocketRemote = class {
+network.mojom.UDPSocketRemote = class {
   static get $interfaceName() {
     return 'network.mojom.UDPSocket';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.UDPSocketPendingReceiver,
+      network.mojom.UDPSocketPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.UDPSocketRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.UDPSocketRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +223,7 @@ network.mojom.mojom.UDPSocketRemote = class {
   }
 };
 
-network.mojom.mojom.UDPSocketRemoteCallHandler = class {
+network.mojom.UDPSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,8 +232,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.UDPSocket_Bind_ParamsSpec,
-      network.mojom.mojom.UDPSocket_Bind_ResponseParamsSpec,
+      network.mojom.UDPSocket_Bind_ParamsSpec,
+      network.mojom.UDPSocket_Bind_ResponseParamsSpec,
       [local_addr, socket_options]);
   }
 
@@ -80,8 +241,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.UDPSocket_Connect_ParamsSpec,
-      network.mojom.mojom.UDPSocket_Connect_ResponseParamsSpec,
+      network.mojom.UDPSocket_Connect_ParamsSpec,
+      network.mojom.UDPSocket_Connect_ResponseParamsSpec,
       [remote_addr, socket_options]);
   }
 
@@ -89,8 +250,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.UDPSocket_SetBroadcast_ParamsSpec,
-      network.mojom.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec,
+      network.mojom.UDPSocket_SetBroadcast_ParamsSpec,
+      network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec,
       [broadcast]);
   }
 
@@ -98,8 +259,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.UDPSocket_SetSendBufferSize_ParamsSpec,
-      network.mojom.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec,
+      network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec,
+      network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec,
       [send_buffer_size]);
   }
 
@@ -107,8 +268,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec,
-      network.mojom.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec,
+      network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec,
+      network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec,
       [receive_buffer_size]);
   }
 
@@ -116,8 +277,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.UDPSocket_JoinGroup_ParamsSpec,
-      network.mojom.mojom.UDPSocket_JoinGroup_ResponseParamsSpec,
+      network.mojom.UDPSocket_JoinGroup_ParamsSpec,
+      network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -125,8 +286,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.mojom.UDPSocket_LeaveGroup_ParamsSpec,
-      network.mojom.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec,
+      network.mojom.UDPSocket_LeaveGroup_ParamsSpec,
+      network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -134,7 +295,7 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.mojom.UDPSocket_ReceiveMore_ParamsSpec,
+      network.mojom.UDPSocket_ReceiveMore_ParamsSpec,
       null,
       [num_additional_datagrams]);
   }
@@ -143,7 +304,7 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec,
+      network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec,
       null,
       [num_additional_datagrams, buffer_size]);
   }
@@ -152,8 +313,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.mojom.UDPSocket_SendTo_ParamsSpec,
-      network.mojom.mojom.UDPSocket_SendTo_ResponseParamsSpec,
+      network.mojom.UDPSocket_SendTo_ParamsSpec,
+      network.mojom.UDPSocket_SendTo_ResponseParamsSpec,
       [dest_addr, data, traffic_annotation]);
   }
 
@@ -161,8 +322,8 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.mojom.UDPSocket_Send_ParamsSpec,
-      network.mojom.mojom.UDPSocket_Send_ResponseParamsSpec,
+      network.mojom.UDPSocket_Send_ParamsSpec,
+      network.mojom.UDPSocket_Send_ResponseParamsSpec,
       [data, traffic_annotation]);
   }
 
@@ -170,15 +331,15 @@ network.mojom.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.mojom.UDPSocket_Close_ParamsSpec,
+      network.mojom.UDPSocket_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.mojom.UDPSocket.getRemote = function() {
-  let remote = new network.mojom.mojom.UDPSocketRemote();
+network.mojom.UDPSocket.getRemote = function() {
+  let remote = new network.mojom.UDPSocketRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -188,7 +349,7 @@ network.mojom.mojom.UDPSocket.getRemote = function() {
 };
 
 // ParamsSpec for Bind
-network.mojom.mojom.UDPSocket_Bind_ParamsSpec = {
+network.mojom.UDPSocket_Bind_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.Bind_Params',
@@ -202,7 +363,7 @@ network.mojom.mojom.UDPSocket_Bind_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_Bind_ResponseParamsSpec = {
+network.mojom.UDPSocket_Bind_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.Bind_ResponseParams',
@@ -217,7 +378,7 @@ network.mojom.mojom.UDPSocket_Bind_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Connect
-network.mojom.mojom.UDPSocket_Connect_ParamsSpec = {
+network.mojom.UDPSocket_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.Connect_Params',
@@ -231,7 +392,7 @@ network.mojom.mojom.UDPSocket_Connect_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_Connect_ResponseParamsSpec = {
+network.mojom.UDPSocket_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.Connect_ResponseParams',
@@ -246,7 +407,7 @@ network.mojom.mojom.UDPSocket_Connect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetBroadcast
-network.mojom.mojom.UDPSocket_SetBroadcast_ParamsSpec = {
+network.mojom.UDPSocket_SetBroadcast_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SetBroadcast_Params',
@@ -259,7 +420,7 @@ network.mojom.mojom.UDPSocket_SetBroadcast_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec = {
+network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SetBroadcast_ResponseParams',
@@ -273,7 +434,7 @@ network.mojom.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetSendBufferSize
-network.mojom.mojom.UDPSocket_SetSendBufferSize_ParamsSpec = {
+network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SetSendBufferSize_Params',
@@ -286,7 +447,7 @@ network.mojom.mojom.UDPSocket_SetSendBufferSize_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec = {
+network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SetSendBufferSize_ResponseParams',
@@ -300,7 +461,7 @@ network.mojom.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetReceiveBufferSize
-network.mojom.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec = {
+network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SetReceiveBufferSize_Params',
@@ -313,7 +474,7 @@ network.mojom.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec = {
+network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SetReceiveBufferSize_ResponseParams',
@@ -327,7 +488,7 @@ network.mojom.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for JoinGroup
-network.mojom.mojom.UDPSocket_JoinGroup_ParamsSpec = {
+network.mojom.UDPSocket_JoinGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.JoinGroup_Params',
@@ -340,7 +501,7 @@ network.mojom.mojom.UDPSocket_JoinGroup_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_JoinGroup_ResponseParamsSpec = {
+network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.JoinGroup_ResponseParams',
@@ -354,7 +515,7 @@ network.mojom.mojom.UDPSocket_JoinGroup_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LeaveGroup
-network.mojom.mojom.UDPSocket_LeaveGroup_ParamsSpec = {
+network.mojom.UDPSocket_LeaveGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.LeaveGroup_Params',
@@ -367,7 +528,7 @@ network.mojom.mojom.UDPSocket_LeaveGroup_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec = {
+network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.LeaveGroup_ResponseParams',
@@ -381,7 +542,7 @@ network.mojom.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReceiveMore
-network.mojom.mojom.UDPSocket_ReceiveMore_ParamsSpec = {
+network.mojom.UDPSocket_ReceiveMore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.ReceiveMore_Params',
@@ -395,7 +556,7 @@ network.mojom.mojom.UDPSocket_ReceiveMore_ParamsSpec = {
 };
 
 // ParamsSpec for ReceiveMoreWithBufferSize
-network.mojom.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec = {
+network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.ReceiveMoreWithBufferSize_Params',
@@ -410,7 +571,7 @@ network.mojom.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec = {
 };
 
 // ParamsSpec for SendTo
-network.mojom.mojom.UDPSocket_SendTo_ParamsSpec = {
+network.mojom.UDPSocket_SendTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SendTo_Params',
@@ -425,7 +586,7 @@ network.mojom.mojom.UDPSocket_SendTo_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_SendTo_ResponseParamsSpec = {
+network.mojom.UDPSocket_SendTo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.SendTo_ResponseParams',
@@ -439,7 +600,7 @@ network.mojom.mojom.UDPSocket_SendTo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Send
-network.mojom.mojom.UDPSocket_Send_ParamsSpec = {
+network.mojom.UDPSocket_Send_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.Send_Params',
@@ -453,7 +614,7 @@ network.mojom.mojom.UDPSocket_Send_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.UDPSocket_Send_ResponseParamsSpec = {
+network.mojom.UDPSocket_Send_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.Send_ResponseParams',
@@ -467,7 +628,7 @@ network.mojom.mojom.UDPSocket_Send_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Close
-network.mojom.mojom.UDPSocket_Close_ParamsSpec = {
+network.mojom.UDPSocket_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocket.Close_Params',
@@ -480,29 +641,44 @@ network.mojom.mojom.UDPSocket_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.UDPSocketPtr = network.mojom.mojom.UDPSocketRemote;
-network.mojom.mojom.UDPSocketRequest = network.mojom.mojom.UDPSocketPendingReceiver;
+network.mojom.UDPSocketPtr = network.mojom.UDPSocketRemote;
+network.mojom.UDPSocketRequest = network.mojom.UDPSocketPendingReceiver;
 
 
 // Interface: UDPSocketListener
-network.mojom.mojom.UDPSocketListener = {};
+network.mojom.UDPSocketListener = {};
 
-network.mojom.mojom.UDPSocketListenerPendingReceiver = class {
+network.mojom.UDPSocketListener_OnReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocketListener_OnReceived_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'src_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+network.mojom.UDPSocketListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.UDPSocketListenerRemote = class {
+network.mojom.UDPSocketListenerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.UDPSocketListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.UDPSocketListenerPendingReceiver,
+      network.mojom.UDPSocketListenerPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.UDPSocketListenerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.UDPSocketListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -514,7 +690,7 @@ network.mojom.mojom.UDPSocketListenerRemote = class {
   }
 };
 
-network.mojom.mojom.UDPSocketListenerRemoteCallHandler = class {
+network.mojom.UDPSocketListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -523,15 +699,15 @@ network.mojom.mojom.UDPSocketListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.UDPSocketListener_OnReceived_ParamsSpec,
+      network.mojom.UDPSocketListener_OnReceived_ParamsSpec,
       null,
       [result, src_addr, data]);
   }
 
 };
 
-network.mojom.mojom.UDPSocketListener.getRemote = function() {
-  let remote = new network.mojom.mojom.UDPSocketListenerRemote();
+network.mojom.UDPSocketListener.getRemote = function() {
+  let remote = new network.mojom.UDPSocketListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -541,7 +717,7 @@ network.mojom.mojom.UDPSocketListener.getRemote = function() {
 };
 
 // ParamsSpec for OnReceived
-network.mojom.mojom.UDPSocketListener_OnReceived_ParamsSpec = {
+network.mojom.UDPSocketListener_OnReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocketListener.OnReceived_Params',
@@ -557,6 +733,6 @@ network.mojom.mojom.UDPSocketListener_OnReceived_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.UDPSocketListenerPtr = network.mojom.mojom.UDPSocketListenerRemote;
-network.mojom.mojom.UDPSocketListenerRequest = network.mojom.mojom.UDPSocketListenerPendingReceiver;
+network.mojom.UDPSocketListenerPtr = network.mojom.UDPSocketListenerRemote;
+network.mojom.UDPSocketListenerRequest = network.mojom.UDPSocketListenerPendingReceiver;
 

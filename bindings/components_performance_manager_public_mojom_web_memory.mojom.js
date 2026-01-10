@@ -10,24 +10,24 @@ performance_manager.mojom = performance_manager.mojom || {};
 
 
 // Enum: Scope
-performance_manager.mojom.mojom.Scope = {
+performance_manager.mojom.Scope = {
   kCrossOriginAggregated: 0,
   kWindow: 1,
   kDedicatedWorker: 2,
   kServiceWorker: 3,
   kSharedWorker: 4,
 };
-performance_manager.mojom.mojom.ScopeSpec = { $: mojo.internal.Enum() };
+performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
-performance_manager.mojom.mojom.Mode = {
+performance_manager.mojom.Mode = {
   kDefault: 0,
   kEager: 1,
 };
-performance_manager.mojom.mojom.ModeSpec = { $: mojo.internal.Enum() };
+performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebMemoryAttribution
-performance_manager.mojom.mojom.WebMemoryAttributionSpec = {
+performance_manager.mojom.WebMemoryAttributionSpec = {
   $: {
     structSpec: {
       name: 'performance_manager.mojom.WebMemoryAttribution',
@@ -41,7 +41,7 @@ performance_manager.mojom.mojom.WebMemoryAttributionSpec = {
 };
 
 // Struct: WebMemoryBreakdownEntry
-performance_manager.mojom.mojom.WebMemoryBreakdownEntrySpec = {
+performance_manager.mojom.WebMemoryBreakdownEntrySpec = {
   $: {
     structSpec: {
       name: 'performance_manager.mojom.WebMemoryBreakdownEntry',
@@ -57,7 +57,7 @@ performance_manager.mojom.mojom.WebMemoryBreakdownEntrySpec = {
 };
 
 // Struct: WebMemoryMeasurement
-performance_manager.mojom.mojom.WebMemoryMeasurementSpec = {
+performance_manager.mojom.WebMemoryMeasurementSpec = {
   $: {
     structSpec: {
       name: 'performance_manager.mojom.WebMemoryMeasurement',

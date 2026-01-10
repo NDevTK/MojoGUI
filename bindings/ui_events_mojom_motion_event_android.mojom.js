@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: PointerCoordinates
-ui.mojom.mojom.PointerCoordinatesSpec = {
+ui.mojom.PointerCoordinatesSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.PointerCoordinates',
@@ -27,7 +27,7 @@ ui.mojom.mojom.PointerCoordinatesSpec = {
 };
 
 // Struct: MotionEventAndroidCachedPointer
-ui.mojom.mojom.MotionEventAndroidCachedPointerSpec = {
+ui.mojom.MotionEventAndroidCachedPointerSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.MotionEventAndroidCachedPointer',
@@ -48,7 +48,7 @@ ui.mojom.mojom.MotionEventAndroidCachedPointerSpec = {
 };
 
 // Struct: HistoricalCachedPointer
-ui.mojom.mojom.HistoricalCachedPointerSpec = {
+ui.mojom.HistoricalCachedPointerSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.HistoricalCachedPointer',
@@ -63,7 +63,7 @@ ui.mojom.mojom.HistoricalCachedPointerSpec = {
 };
 
 // Struct: CachedMotionEventAndroid
-ui.mojom.mojom.CachedMotionEventAndroidSpec = {
+ui.mojom.CachedMotionEventAndroidSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.CachedMotionEventAndroid',

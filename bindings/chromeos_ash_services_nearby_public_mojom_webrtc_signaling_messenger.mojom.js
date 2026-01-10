@@ -10,14 +10,14 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Enum: LocationStandardFormat
-sharing.mojom.mojom.LocationStandardFormat = {
+sharing.mojom.LocationStandardFormat = {
   E164_CALLING: 0,
   ISO_3166_1_ALPHA_2: 1,
 };
-sharing.mojom.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum() };
+sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: LocationHint
-sharing.mojom.mojom.LocationHintSpec = {
+sharing.mojom.LocationHintSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.LocationHint',
@@ -32,24 +32,50 @@ sharing.mojom.mojom.LocationHintSpec = {
 };
 
 // Interface: IncomingMessagesListener
-sharing.mojom.mojom.IncomingMessagesListener = {};
+sharing.mojom.IncomingMessagesListener = {};
 
-sharing.mojom.mojom.IncomingMessagesListenerPendingReceiver = class {
+sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.IncomingMessagesListener_OnMessage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.IncomingMessagesListener_OnComplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+sharing.mojom.IncomingMessagesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.mojom.IncomingMessagesListenerRemote = class {
+sharing.mojom.IncomingMessagesListenerRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.IncomingMessagesListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.mojom.IncomingMessagesListenerPendingReceiver,
+      sharing.mojom.IncomingMessagesListenerPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.mojom.IncomingMessagesListenerRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.IncomingMessagesListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +87,7 @@ sharing.mojom.mojom.IncomingMessagesListenerRemote = class {
   }
 };
 
-sharing.mojom.mojom.IncomingMessagesListenerRemoteCallHandler = class {
+sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,7 +96,7 @@ sharing.mojom.mojom.IncomingMessagesListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.mojom.IncomingMessagesListener_OnMessage_ParamsSpec,
+      sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -79,15 +105,15 @@ sharing.mojom.mojom.IncomingMessagesListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.mojom.IncomingMessagesListener_OnComplete_ParamsSpec,
+      sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec,
       null,
       [success]);
   }
 
 };
 
-sharing.mojom.mojom.IncomingMessagesListener.getRemote = function() {
-  let remote = new sharing.mojom.mojom.IncomingMessagesListenerRemote();
+sharing.mojom.IncomingMessagesListener.getRemote = function() {
+  let remote = new sharing.mojom.IncomingMessagesListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +123,7 @@ sharing.mojom.mojom.IncomingMessagesListener.getRemote = function() {
 };
 
 // ParamsSpec for OnMessage
-sharing.mojom.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
+sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IncomingMessagesListener.OnMessage_Params',
@@ -111,7 +137,7 @@ sharing.mojom.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
 };
 
 // ParamsSpec for OnComplete
-sharing.mojom.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
+sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IncomingMessagesListener.OnComplete_Params',
@@ -125,29 +151,41 @@ sharing.mojom.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.mojom.IncomingMessagesListenerPtr = sharing.mojom.mojom.IncomingMessagesListenerRemote;
-sharing.mojom.mojom.IncomingMessagesListenerRequest = sharing.mojom.mojom.IncomingMessagesListenerPendingReceiver;
+sharing.mojom.IncomingMessagesListenerPtr = sharing.mojom.IncomingMessagesListenerRemote;
+sharing.mojom.IncomingMessagesListenerRequest = sharing.mojom.IncomingMessagesListenerPendingReceiver;
 
 
 // Interface: ReceiveMessagesSession
-sharing.mojom.mojom.ReceiveMessagesSession = {};
+sharing.mojom.ReceiveMessagesSession = {};
 
-sharing.mojom.mojom.ReceiveMessagesSessionPendingReceiver = class {
+sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+sharing.mojom.ReceiveMessagesSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.mojom.ReceiveMessagesSessionRemote = class {
+sharing.mojom.ReceiveMessagesSessionRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.ReceiveMessagesSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.mojom.ReceiveMessagesSessionPendingReceiver,
+      sharing.mojom.ReceiveMessagesSessionPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.mojom.ReceiveMessagesSessionRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.ReceiveMessagesSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -159,7 +197,7 @@ sharing.mojom.mojom.ReceiveMessagesSessionRemote = class {
   }
 };
 
-sharing.mojom.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
+sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -168,15 +206,15 @@ sharing.mojom.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec,
+      sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec,
       null,
       []);
   }
 
 };
 
-sharing.mojom.mojom.ReceiveMessagesSession.getRemote = function() {
-  let remote = new sharing.mojom.mojom.ReceiveMessagesSessionRemote();
+sharing.mojom.ReceiveMessagesSession.getRemote = function() {
+  let remote = new sharing.mojom.ReceiveMessagesSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -186,7 +224,7 @@ sharing.mojom.mojom.ReceiveMessagesSession.getRemote = function() {
 };
 
 // ParamsSpec for StopReceivingMessages
-sharing.mojom.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
+sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.ReceiveMessagesSession.StopReceivingMessages_Params',
@@ -199,29 +237,60 @@ sharing.mojom.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.mojom.ReceiveMessagesSessionPtr = sharing.mojom.mojom.ReceiveMessagesSessionRemote;
-sharing.mojom.mojom.ReceiveMessagesSessionRequest = sharing.mojom.mojom.ReceiveMessagesSessionPendingReceiver;
+sharing.mojom.ReceiveMessagesSessionPtr = sharing.mojom.ReceiveMessagesSessionRemote;
+sharing.mojom.ReceiveMessagesSessionRequest = sharing.mojom.ReceiveMessagesSessionPendingReceiver;
 
 
 // Interface: WebRtcSignalingMessenger
-sharing.mojom.mojom.WebRtcSignalingMessenger = {};
+sharing.mojom.WebRtcSignalingMessenger = {};
 
-sharing.mojom.mojom.WebRtcSignalingMessengerPendingReceiver = class {
+sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'location_hint', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'location_hint', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.IncomingMessagesListenerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+sharing.mojom.WebRtcSignalingMessengerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.mojom.WebRtcSignalingMessengerRemote = class {
+sharing.mojom.WebRtcSignalingMessengerRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.WebRtcSignalingMessenger';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.mojom.WebRtcSignalingMessengerPendingReceiver,
+      sharing.mojom.WebRtcSignalingMessengerPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.mojom.WebRtcSignalingMessengerRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -233,7 +302,7 @@ sharing.mojom.mojom.WebRtcSignalingMessengerRemote = class {
   }
 };
 
-sharing.mojom.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
+sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -242,8 +311,8 @@ sharing.mojom.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec,
-      sharing.mojom.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
+      sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec,
+      sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
       [self_id, peer_id, location_hint, message]);
   }
 
@@ -251,15 +320,15 @@ sharing.mojom.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec,
-      sharing.mojom.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
+      sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec,
+      sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
       [self_id, location_hint, listener]);
   }
 
 };
 
-sharing.mojom.mojom.WebRtcSignalingMessenger.getRemote = function() {
-  let remote = new sharing.mojom.mojom.WebRtcSignalingMessengerRemote();
+sharing.mojom.WebRtcSignalingMessenger.getRemote = function() {
+  let remote = new sharing.mojom.WebRtcSignalingMessengerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -269,7 +338,7 @@ sharing.mojom.mojom.WebRtcSignalingMessenger.getRemote = function() {
 };
 
 // ParamsSpec for SendMessage
-sharing.mojom.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
+sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WebRtcSignalingMessenger.SendMessage_Params',
@@ -285,7 +354,7 @@ sharing.mojom.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
   }
 };
 
-sharing.mojom.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
+sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WebRtcSignalingMessenger.SendMessage_ResponseParams',
@@ -299,7 +368,7 @@ sharing.mojom.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartReceivingMessages
-sharing.mojom.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
+sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WebRtcSignalingMessenger.StartReceivingMessages_Params',
@@ -314,7 +383,7 @@ sharing.mojom.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec =
   }
 };
 
-sharing.mojom.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = {
+sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WebRtcSignalingMessenger.StartReceivingMessages_ResponseParams',
@@ -329,6 +398,6 @@ sharing.mojom.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponsePara
 };
 
 // Legacy compatibility
-sharing.mojom.mojom.WebRtcSignalingMessengerPtr = sharing.mojom.mojom.WebRtcSignalingMessengerRemote;
-sharing.mojom.mojom.WebRtcSignalingMessengerRequest = sharing.mojom.mojom.WebRtcSignalingMessengerPendingReceiver;
+sharing.mojom.WebRtcSignalingMessengerPtr = sharing.mojom.WebRtcSignalingMessengerRemote;
+sharing.mojom.WebRtcSignalingMessengerRequest = sharing.mojom.WebRtcSignalingMessengerPendingReceiver;
 

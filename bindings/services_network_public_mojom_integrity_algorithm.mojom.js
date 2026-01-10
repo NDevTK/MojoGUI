@@ -10,10 +10,10 @@ network.mojom = network.mojom || {};
 
 
 // Enum: IntegrityAlgorithm
-network.mojom.mojom.IntegrityAlgorithm = {
+network.mojom.IntegrityAlgorithm = {
   kSha256: 0,
   kSha384: 1,
   kSha512: 2,
   kEd25519: 3,
 };
-network.mojom.mojom.IntegrityAlgorithmSpec = { $: mojo.internal.Enum() };
+network.mojom.IntegrityAlgorithmSpec = { $: mojo.internal.Enum() };

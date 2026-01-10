@@ -11,7 +11,7 @@ var ui = ui || {};
 
 
 // Union: AXTreeID
-ax.mojom.mojom.AXTreeIDSpec = { $: mojo.internal.Union(
+ax.mojom.AXTreeIDSpec = { $: mojo.internal.Union(
     'ax.mojom.AXTreeID', {
       'unknown': {
         'ordinal': 0,

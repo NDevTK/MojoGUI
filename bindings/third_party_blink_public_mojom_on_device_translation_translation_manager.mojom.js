@@ -12,7 +12,7 @@ var blink = blink || {};
 
 
 // Enum: CanCreateTranslatorResult
-blink.mojom.mojom.CanCreateTranslatorResult = {
+blink.mojom.CanCreateTranslatorResult = {
   kReadily: 0,
   kAfterDownloadLibraryNotReady: 1,
   kAfterDownloadLanguagePackNotReady: 2,
@@ -24,10 +24,10 @@ blink.mojom.mojom.CanCreateTranslatorResult = {
   kNoExceedsServiceCountLimitation: 8,
   kNoInvalidStoragePartition: 9,
 };
-blink.mojom.mojom.CanCreateTranslatorResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.CanCreateTranslatorResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateTranslatorError
-blink.mojom.mojom.CreateTranslatorError = {
+blink.mojom.CreateTranslatorError = {
   kInvalidBinary: 0,
   kInvalidFunctionPointer: 1,
   kFailedToInitialize: 2,
@@ -39,10 +39,10 @@ blink.mojom.mojom.CreateTranslatorError = {
   kInvalidVersion: 8,
   kInvalidStoragePartition: 9,
 };
-blink.mojom.mojom.CreateTranslatorErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.CreateTranslatorErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: CreateTranslatorResult
-blink.mojom.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Union(
+blink.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Union(
     'blink.mojom.CreateTranslatorResult', {
       'translator': {
         'ordinal': 0,
@@ -56,7 +56,7 @@ blink.mojom.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TranslatorLanguageCode
-blink.mojom.mojom.TranslatorLanguageCodeSpec = {
+blink.mojom.TranslatorLanguageCodeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslatorLanguageCode',
@@ -70,7 +70,7 @@ blink.mojom.mojom.TranslatorLanguageCodeSpec = {
 };
 
 // Struct: TranslatorCreateOptions
-blink.mojom.mojom.TranslatorCreateOptionsSpec = {
+blink.mojom.TranslatorCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslatorCreateOptions',
@@ -86,24 +86,39 @@ blink.mojom.mojom.TranslatorCreateOptionsSpec = {
 };
 
 // Interface: TranslationManagerCreateTranslatorClient
-blink.mojom.mojom.TranslationManagerCreateTranslatorClient = {};
+blink.mojom.TranslationManagerCreateTranslatorClient = {};
 
-blink.mojom.mojom.TranslationManagerCreateTranslatorClientPendingReceiver = class {
+blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CreateTranslatorResultSpec, nullable: false, minVersion: 0 },
+        { name: 'source_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true, minVersion: 0 },
+        { name: 'target_lang', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.TranslationManagerCreateTranslatorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.TranslationManagerCreateTranslatorClientRemote = class {
+blink.mojom.TranslationManagerCreateTranslatorClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.TranslationManagerCreateTranslatorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.TranslationManagerCreateTranslatorClientPendingReceiver,
+      blink.mojom.TranslationManagerCreateTranslatorClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +130,7 @@ blink.mojom.mojom.TranslationManagerCreateTranslatorClientRemote = class {
   }
 };
 
-blink.mojom.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
+blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +139,15 @@ blink.mojom.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec,
+      blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec,
       null,
       [result, source_lang, target_lang]);
   }
 
 };
 
-blink.mojom.mojom.TranslationManagerCreateTranslatorClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.TranslationManagerCreateTranslatorClientRemote();
+blink.mojom.TranslationManagerCreateTranslatorClient.getRemote = function() {
+  let remote = new blink.mojom.TranslationManagerCreateTranslatorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +157,7 @@ blink.mojom.mojom.TranslationManagerCreateTranslatorClient.getRemote = function(
 };
 
 // ParamsSpec for OnResult
-blink.mojom.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
+blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslationManagerCreateTranslatorClient.OnResult_Params',
@@ -158,29 +173,57 @@ blink.mojom.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec =
 };
 
 // Legacy compatibility
-blink.mojom.mojom.TranslationManagerCreateTranslatorClientPtr = blink.mojom.mojom.TranslationManagerCreateTranslatorClientRemote;
-blink.mojom.mojom.TranslationManagerCreateTranslatorClientRequest = blink.mojom.mojom.TranslationManagerCreateTranslatorClientPendingReceiver;
+blink.mojom.TranslationManagerCreateTranslatorClientPtr = blink.mojom.TranslationManagerCreateTranslatorClientRemote;
+blink.mojom.TranslationManagerCreateTranslatorClientRequest = blink.mojom.TranslationManagerCreateTranslatorClientPendingReceiver;
 
 
 // Interface: TranslationManager
-blink.mojom.mojom.TranslationManager = {};
+blink.mojom.TranslationManager = {};
 
-blink.mojom.mojom.TranslationManagerPendingReceiver = class {
+blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TranslationManager_CreateTranslator_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.TranslationManagerCreateTranslatorClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorCreateOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TranslationManager_TranslationAvailable_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.TranslationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.TranslationManagerRemote = class {
+blink.mojom.TranslationManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.TranslationManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.TranslationManagerPendingReceiver,
+      blink.mojom.TranslationManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.TranslationManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.TranslationManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -192,7 +235,7 @@ blink.mojom.mojom.TranslationManagerRemote = class {
   }
 };
 
-blink.mojom.mojom.TranslationManagerRemoteCallHandler = class {
+blink.mojom.TranslationManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -201,7 +244,7 @@ blink.mojom.mojom.TranslationManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.TranslationManager_CreateTranslator_ParamsSpec,
+      blink.mojom.TranslationManager_CreateTranslator_ParamsSpec,
       null,
       [client, options]);
   }
@@ -210,15 +253,15 @@ blink.mojom.mojom.TranslationManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.TranslationManager_TranslationAvailable_ParamsSpec,
-      blink.mojom.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
+      blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec,
+      blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
       [source_lang, target_lang]);
   }
 
 };
 
-blink.mojom.mojom.TranslationManager.getRemote = function() {
-  let remote = new blink.mojom.mojom.TranslationManagerRemote();
+blink.mojom.TranslationManager.getRemote = function() {
+  let remote = new blink.mojom.TranslationManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -228,7 +271,7 @@ blink.mojom.mojom.TranslationManager.getRemote = function() {
 };
 
 // ParamsSpec for CreateTranslator
-blink.mojom.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
+blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslationManager.CreateTranslator_Params',
@@ -243,7 +286,7 @@ blink.mojom.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
 };
 
 // ParamsSpec for TranslationAvailable
-blink.mojom.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
+blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslationManager.TranslationAvailable_Params',
@@ -257,7 +300,7 @@ blink.mojom.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
+blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslationManager.TranslationAvailable_ResponseParams',
@@ -271,6 +314,6 @@ blink.mojom.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.TranslationManagerPtr = blink.mojom.mojom.TranslationManagerRemote;
-blink.mojom.mojom.TranslationManagerRequest = blink.mojom.mojom.TranslationManagerPendingReceiver;
+blink.mojom.TranslationManagerPtr = blink.mojom.TranslationManagerRemote;
+blink.mojom.TranslationManagerRequest = blink.mojom.TranslationManagerPendingReceiver;
 

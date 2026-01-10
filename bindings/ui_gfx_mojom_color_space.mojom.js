@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Enum: ColorSpacePrimaryID
-gfx.mojom.mojom.ColorSpacePrimaryID = {
+gfx.mojom.ColorSpacePrimaryID = {
   INVALID: 0,
   BT709: 1,
   BT470M: 2,
@@ -29,10 +29,10 @@ gfx.mojom.mojom.ColorSpacePrimaryID = {
   CUSTOM: 15,
   EBU_3213_E: 16,
 };
-gfx.mojom.mojom.ColorSpacePrimaryIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpacePrimaryIDSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorSpaceTransferID
-gfx.mojom.mojom.ColorSpaceTransferID = {
+gfx.mojom.ColorSpaceTransferID = {
   INVALID: 0,
   BT709: 1,
   BT709_APPLE: 2,
@@ -59,10 +59,10 @@ gfx.mojom.mojom.ColorSpaceTransferID = {
   CUSTOM_HDR: 23,
   SCRGB_LINEAR_80_NITS: 24,
 };
-gfx.mojom.mojom.ColorSpaceTransferIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpaceTransferIDSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorSpaceMatrixID
-gfx.mojom.mojom.ColorSpaceMatrixID = {
+gfx.mojom.ColorSpaceMatrixID = {
   INVALID: 0,
   RGB: 1,
   BT709: 2,
@@ -75,19 +75,19 @@ gfx.mojom.mojom.ColorSpaceMatrixID = {
   YDZDX: 9,
   GBR: 10,
 };
-gfx.mojom.mojom.ColorSpaceMatrixIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpaceMatrixIDSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorSpaceRangeID
-gfx.mojom.mojom.ColorSpaceRangeID = {
+gfx.mojom.ColorSpaceRangeID = {
   INVALID: 0,
   LIMITED: 1,
   FULL: 2,
   DERIVED: 3,
 };
-gfx.mojom.mojom.ColorSpaceRangeIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpaceRangeIDSpec = { $: mojo.internal.Enum() };
 
 // Struct: ColorSpace
-gfx.mojom.mojom.ColorSpaceSpec = {
+gfx.mojom.ColorSpaceSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ColorSpace',

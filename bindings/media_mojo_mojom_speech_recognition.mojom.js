@@ -12,43 +12,43 @@ var gfx = gfx || {};
 
 
 // Enum: ConfidenceLevel
-media.mojom.mojom.ConfidenceLevel = {
+media.mojom.ConfidenceLevel = {
   kUnknown: 0,
   kNotConfident: 1,
   kConfident: 2,
   kHighlyConfident: 3,
 };
-media.mojom.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };
+media.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: AsrSwitchResult
-media.mojom.mojom.AsrSwitchResult = {
+media.mojom.AsrSwitchResult = {
   kDefaultNoSwitch: 0,
   kSwitchSucceeded: 1,
   kSwitchFailed: 2,
   kSwitchSkipedNoLp: 3,
 };
-media.mojom.mojom.AsrSwitchResultSpec = { $: mojo.internal.Enum() };
+media.mojom.AsrSwitchResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeechRecognitionMode
-media.mojom.mojom.SpeechRecognitionMode = {
+media.mojom.SpeechRecognitionMode = {
   kUnknown: 0,
   kIme: 1,
   kCaption: 2,
 };
-media.mojom.mojom.SpeechRecognitionModeSpec = { $: mojo.internal.Enum() };
+media.mojom.SpeechRecognitionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RecognizerClientType
-media.mojom.mojom.RecognizerClientType = {
+media.mojom.RecognizerClientType = {
   kUnknown: 0,
   kDictation: 1,
   kLiveCaption: 2,
   kProjector: 3,
   kCastModerator: 4,
 };
-media.mojom.mojom.RecognizerClientTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.RecognizerClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HypothesisParts
-media.mojom.mojom.HypothesisPartsSpec = {
+media.mojom.HypothesisPartsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.HypothesisParts',
@@ -63,7 +63,7 @@ media.mojom.mojom.HypothesisPartsSpec = {
 };
 
 // Struct: MediaTimestampRange
-media.mojom.mojom.MediaTimestampRangeSpec = {
+media.mojom.MediaTimestampRangeSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaTimestampRange',
@@ -78,7 +78,7 @@ media.mojom.mojom.MediaTimestampRangeSpec = {
 };
 
 // Struct: TimingInformation
-media.mojom.mojom.TimingInformationSpec = {
+media.mojom.TimingInformationSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.TimingInformation',
@@ -95,7 +95,7 @@ media.mojom.mojom.TimingInformationSpec = {
 };
 
 // Struct: SpeechRecognitionResult
-media.mojom.mojom.SpeechRecognitionResultSpec = {
+media.mojom.SpeechRecognitionResultSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionResult',
@@ -111,7 +111,7 @@ media.mojom.mojom.SpeechRecognitionResultSpec = {
 };
 
 // Struct: LanguageIdentificationEvent
-media.mojom.mojom.LanguageIdentificationEventSpec = {
+media.mojom.LanguageIdentificationEventSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.LanguageIdentificationEvent',
@@ -127,7 +127,7 @@ media.mojom.mojom.LanguageIdentificationEventSpec = {
 };
 
 // Struct: SpeechRecognitionOptions
-media.mojom.mojom.SpeechRecognitionOptionsSpec = {
+media.mojom.SpeechRecognitionOptionsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionOptions',
@@ -150,24 +150,58 @@ media.mojom.mojom.SpeechRecognitionOptionsSpec = {
 };
 
 // Interface: SpeechRecognitionContext
-media.mojom.mojom.SpeechRecognitionContext = {};
+media.mojom.SpeechRecognitionContext = {};
 
-media.mojom.mojom.SpeechRecognitionContextPendingReceiver = class {
+media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionContext_BindRecognizer_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionRecognizerRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionRecognizerClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'session_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'session_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionSessionClientRemote), nullable: false, minVersion: 0 },
+        { name: 'audio_forwarder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionAudioForwarderRemote), nullable: false, minVersion: 0 },
+        { name: 'channel_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sample_rate', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'continuous', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SpeechRecognitionContextRemote = class {
+media.mojom.SpeechRecognitionContextRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SpeechRecognitionContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SpeechRecognitionContextPendingReceiver,
+      media.mojom.SpeechRecognitionContextPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SpeechRecognitionContextRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SpeechRecognitionContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -179,7 +213,7 @@ media.mojom.mojom.SpeechRecognitionContextRemote = class {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionContextRemoteCallHandler = class {
+media.mojom.SpeechRecognitionContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -188,8 +222,8 @@ media.mojom.mojom.SpeechRecognitionContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec,
-      media.mojom.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec,
+      media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec,
+      media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec,
       [receiver, client, options]);
   }
 
@@ -197,15 +231,15 @@ media.mojom.mojom.SpeechRecognitionContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec,
+      media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec,
       null,
       [session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous]);
   }
 
 };
 
-media.mojom.mojom.SpeechRecognitionContext.getRemote = function() {
-  let remote = new media.mojom.mojom.SpeechRecognitionContextRemote();
+media.mojom.SpeechRecognitionContext.getRemote = function() {
+  let remote = new media.mojom.SpeechRecognitionContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -215,7 +249,7 @@ media.mojom.mojom.SpeechRecognitionContext.getRemote = function() {
 };
 
 // ParamsSpec for BindRecognizer
-media.mojom.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec = {
+media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionContext.BindRecognizer_Params',
@@ -230,7 +264,7 @@ media.mojom.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec = {
+media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionContext.BindRecognizer_ResponseParams',
@@ -244,7 +278,7 @@ media.mojom.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BindWebSpeechRecognizer
-media.mojom.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec = {
+media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionContext.BindWebSpeechRecognizer_Params',
@@ -264,29 +298,94 @@ media.mojom.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec = 
 };
 
 // Legacy compatibility
-media.mojom.mojom.SpeechRecognitionContextPtr = media.mojom.mojom.SpeechRecognitionContextRemote;
-media.mojom.mojom.SpeechRecognitionContextRequest = media.mojom.mojom.SpeechRecognitionContextPendingReceiver;
+media.mojom.SpeechRecognitionContextPtr = media.mojom.SpeechRecognitionContextRemote;
+media.mojom.SpeechRecognitionContextRequest = media.mojom.SpeechRecognitionContextPendingReceiver;
 
 
 // Interface: SpeechRecognitionRecognizer
-media.mojom.mojom.SpeechRecognitionRecognizer = {};
+media.mojom.SpeechRecognitionRecognizer = {};
 
-media.mojom.mojom.SpeechRecognitionRecognizerPendingReceiver = class {
+media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDataS16Spec, nullable: false, minVersion: 0 },
+        { name: 'media_start_pts', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 10 },
+      ],
+      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizer_MarkDone_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mask_offensive_words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'recognition_context', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionRecognitionContextSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SpeechRecognitionRecognizerRemote = class {
+media.mojom.SpeechRecognitionRecognizerRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SpeechRecognitionRecognizer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SpeechRecognitionRecognizerPendingReceiver,
+      media.mojom.SpeechRecognitionRecognizerPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SpeechRecognitionRecognizerRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SpeechRecognitionRecognizerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -298,7 +397,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerRemote = class {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
+media.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -307,7 +406,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec,
       null,
       [buffer, media_start_pts]);
   }
@@ -316,7 +415,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec,
       null,
       []);
   }
@@ -325,7 +424,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec,
       null,
       [language]);
   }
@@ -334,7 +433,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec,
       null,
       [mask_offensive_words]);
   }
@@ -343,15 +442,15 @@ media.mojom.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec,
       null,
       [recognition_context]);
   }
 
 };
 
-media.mojom.mojom.SpeechRecognitionRecognizer.getRemote = function() {
-  let remote = new media.mojom.mojom.SpeechRecognitionRecognizerRemote();
+media.mojom.SpeechRecognitionRecognizer.getRemote = function() {
+  let remote = new media.mojom.SpeechRecognitionRecognizerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -361,7 +460,7 @@ media.mojom.mojom.SpeechRecognitionRecognizer.getRemote = function() {
 };
 
 // ParamsSpec for SendAudioToSpeechRecognitionService
-media.mojom.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizer.SendAudioToSpeechRecognitionService_Params',
@@ -376,7 +475,7 @@ media.mojom.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionServic
 };
 
 // ParamsSpec for MarkDone
-media.mojom.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizer.MarkDone_Params',
@@ -389,7 +488,7 @@ media.mojom.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec = {
 };
 
 // ParamsSpec for OnLanguageChanged
-media.mojom.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizer.OnLanguageChanged_Params',
@@ -403,7 +502,7 @@ media.mojom.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnMaskOffensiveWordsChanged
-media.mojom.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizer.OnMaskOffensiveWordsChanged_Params',
@@ -417,7 +516,7 @@ media.mojom.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_Params
 };
 
 // ParamsSpec for UpdateRecognitionContext
-media.mojom.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizer.UpdateRecognitionContext_Params',
@@ -431,29 +530,79 @@ media.mojom.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpe
 };
 
 // Legacy compatibility
-media.mojom.mojom.SpeechRecognitionRecognizerPtr = media.mojom.mojom.SpeechRecognitionRecognizerRemote;
-media.mojom.mojom.SpeechRecognitionRecognizerRequest = media.mojom.mojom.SpeechRecognitionRecognizerPendingReceiver;
+media.mojom.SpeechRecognitionRecognizerPtr = media.mojom.SpeechRecognitionRecognizerRemote;
+media.mojom.SpeechRecognitionRecognizerRequest = media.mojom.SpeechRecognitionRecognizerPendingReceiver;
 
 
 // Interface: SpeechRecognitionRecognizerClient
-media.mojom.mojom.SpeechRecognitionRecognizerClient = {};
+media.mojom.SpeechRecognitionRecognizerClient = {};
 
-media.mojom.mojom.SpeechRecognitionRecognizerClientPendingReceiver = class {
+media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: media.mojom.LanguageIdentificationEventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SpeechRecognitionRecognizerClientRemote = class {
+media.mojom.SpeechRecognitionRecognizerClientRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SpeechRecognitionRecognizerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SpeechRecognitionRecognizerClientPendingReceiver,
+      media.mojom.SpeechRecognitionRecognizerClientPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -465,7 +614,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClientRemote = class {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
+media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -474,8 +623,8 @@ media.mojom.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec,
-      media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec,
+      media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec,
       [result]);
   }
 
@@ -483,7 +632,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec,
       null,
       []);
   }
@@ -492,7 +641,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec,
       null,
       []);
   }
@@ -501,15 +650,15 @@ media.mojom.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec,
+      media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec,
       null,
       [event]);
   }
 
 };
 
-media.mojom.mojom.SpeechRecognitionRecognizerClient.getRemote = function() {
-  let remote = new media.mojom.mojom.SpeechRecognitionRecognizerClientRemote();
+media.mojom.SpeechRecognitionRecognizerClient.getRemote = function() {
+  let remote = new media.mojom.SpeechRecognitionRecognizerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -519,7 +668,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnSpeechRecognitionRecognitionEvent
-media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizerClient.OnSpeechRecognitionRecognitionEvent_Params',
@@ -532,7 +681,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecogniti
   }
 };
 
-media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec = {
+media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizerClient.OnSpeechRecognitionRecognitionEvent_ResponseParams',
@@ -546,7 +695,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecogniti
 };
 
 // ParamsSpec for OnSpeechRecognitionStopped
-media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizerClient.OnSpeechRecognitionStopped_Params',
@@ -559,7 +708,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_P
 };
 
 // ParamsSpec for OnSpeechRecognitionError
-media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizerClient.OnSpeechRecognitionError_Params',
@@ -572,7 +721,7 @@ media.mojom.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_Par
 };
 
 // ParamsSpec for OnLanguageIdentificationEvent
-media.mojom.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec = {
+media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognizerClient.OnLanguageIdentificationEvent_Params',
@@ -586,29 +735,68 @@ media.mojom.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEven
 };
 
 // Legacy compatibility
-media.mojom.mojom.SpeechRecognitionRecognizerClientPtr = media.mojom.mojom.SpeechRecognitionRecognizerClientRemote;
-media.mojom.mojom.SpeechRecognitionRecognizerClientRequest = media.mojom.mojom.SpeechRecognitionRecognizerClientPendingReceiver;
+media.mojom.SpeechRecognitionRecognizerClientPtr = media.mojom.SpeechRecognitionRecognizerClientRemote;
+media.mojom.SpeechRecognitionRecognizerClientRequest = media.mojom.SpeechRecognitionRecognizerClientPendingReceiver;
 
 
 // Interface: SpeechRecognitionBrowserObserver
-media.mojom.mojom.SpeechRecognitionBrowserObserver = {};
+media.mojom.SpeechRecognitionBrowserObserver = {};
 
-media.mojom.mojom.SpeechRecognitionBrowserObserverPendingReceiver = class {
+media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_speech_recognition_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mask_offensive_words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionBrowserObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SpeechRecognitionBrowserObserverRemote = class {
+media.mojom.SpeechRecognitionBrowserObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SpeechRecognitionBrowserObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SpeechRecognitionBrowserObserverPendingReceiver,
+      media.mojom.SpeechRecognitionBrowserObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -620,7 +808,7 @@ media.mojom.mojom.SpeechRecognitionBrowserObserverRemote = class {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
+media.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -629,7 +817,7 @@ media.mojom.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec,
+      media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec,
       null,
       [is_speech_recognition_available]);
   }
@@ -638,7 +826,7 @@ media.mojom.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec,
+      media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec,
       null,
       [language]);
   }
@@ -647,15 +835,15 @@ media.mojom.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec,
+      media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec,
       null,
       [mask_offensive_words]);
   }
 
 };
 
-media.mojom.mojom.SpeechRecognitionBrowserObserver.getRemote = function() {
-  let remote = new media.mojom.mojom.SpeechRecognitionBrowserObserverRemote();
+media.mojom.SpeechRecognitionBrowserObserver.getRemote = function() {
+  let remote = new media.mojom.SpeechRecognitionBrowserObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -665,7 +853,7 @@ media.mojom.mojom.SpeechRecognitionBrowserObserver.getRemote = function() {
 };
 
 // ParamsSpec for SpeechRecognitionAvailabilityChanged
-media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec = {
+media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionBrowserObserver.SpeechRecognitionAvailabilityChanged_Params',
@@ -679,7 +867,7 @@ media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailability
 };
 
 // ParamsSpec for SpeechRecognitionLanguageChanged
-media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec = {
+media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionBrowserObserver.SpeechRecognitionLanguageChanged_Params',
@@ -693,7 +881,7 @@ media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChan
 };
 
 // ParamsSpec for SpeechRecognitionMaskOffensiveWordsChanged
-media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec = {
+media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionBrowserObserver.SpeechRecognitionMaskOffensiveWordsChanged_Params',
@@ -707,29 +895,53 @@ media.mojom.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiv
 };
 
 // Legacy compatibility
-media.mojom.mojom.SpeechRecognitionBrowserObserverPtr = media.mojom.mojom.SpeechRecognitionBrowserObserverRemote;
-media.mojom.mojom.SpeechRecognitionBrowserObserverRequest = media.mojom.mojom.SpeechRecognitionBrowserObserverPendingReceiver;
+media.mojom.SpeechRecognitionBrowserObserverPtr = media.mojom.SpeechRecognitionBrowserObserverRemote;
+media.mojom.SpeechRecognitionBrowserObserverRequest = media.mojom.SpeechRecognitionBrowserObserverPendingReceiver;
 
 
 // Interface: SpeechRecognitionSurface
-media.mojom.mojom.SpeechRecognitionSurface = {};
+media.mojom.SpeechRecognitionSurface = {};
 
-media.mojom.mojom.SpeechRecognitionSurfacePendingReceiver = class {
+media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionSurface_Activate_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionSurface_GetBounds_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionSurfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SpeechRecognitionSurfaceRemote = class {
+media.mojom.SpeechRecognitionSurfaceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SpeechRecognitionSurface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SpeechRecognitionSurfacePendingReceiver,
+      media.mojom.SpeechRecognitionSurfacePendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SpeechRecognitionSurfaceRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SpeechRecognitionSurfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -741,7 +953,7 @@ media.mojom.mojom.SpeechRecognitionSurfaceRemote = class {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
+media.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -750,7 +962,7 @@ media.mojom.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SpeechRecognitionSurface_Activate_ParamsSpec,
+      media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec,
       null,
       []);
   }
@@ -759,15 +971,15 @@ media.mojom.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec,
-      media.mojom.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec,
+      media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec,
+      media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec,
       []);
   }
 
 };
 
-media.mojom.mojom.SpeechRecognitionSurface.getRemote = function() {
-  let remote = new media.mojom.mojom.SpeechRecognitionSurfaceRemote();
+media.mojom.SpeechRecognitionSurface.getRemote = function() {
+  let remote = new media.mojom.SpeechRecognitionSurfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -777,7 +989,7 @@ media.mojom.mojom.SpeechRecognitionSurface.getRemote = function() {
 };
 
 // ParamsSpec for Activate
-media.mojom.mojom.SpeechRecognitionSurface_Activate_ParamsSpec = {
+media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionSurface.Activate_Params',
@@ -790,7 +1002,7 @@ media.mojom.mojom.SpeechRecognitionSurface_Activate_ParamsSpec = {
 };
 
 // ParamsSpec for GetBounds
-media.mojom.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec = {
+media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionSurface.GetBounds_Params',
@@ -802,7 +1014,7 @@ media.mojom.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec = {
+media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionSurface.GetBounds_ResponseParams',
@@ -816,29 +1028,53 @@ media.mojom.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.SpeechRecognitionSurfacePtr = media.mojom.mojom.SpeechRecognitionSurfaceRemote;
-media.mojom.mojom.SpeechRecognitionSurfaceRequest = media.mojom.mojom.SpeechRecognitionSurfacePendingReceiver;
+media.mojom.SpeechRecognitionSurfacePtr = media.mojom.SpeechRecognitionSurfaceRemote;
+media.mojom.SpeechRecognitionSurfaceRequest = media.mojom.SpeechRecognitionSurfacePendingReceiver;
 
 
 // Interface: SpeechRecognitionSurfaceClient
-media.mojom.mojom.SpeechRecognitionSurfaceClient = {};
+media.mojom.SpeechRecognitionSurfaceClient = {};
 
-media.mojom.mojom.SpeechRecognitionSurfaceClientPendingReceiver = class {
+media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionSurfaceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SpeechRecognitionSurfaceClientRemote = class {
+media.mojom.SpeechRecognitionSurfaceClientRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SpeechRecognitionSurfaceClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SpeechRecognitionSurfaceClientPendingReceiver,
+      media.mojom.SpeechRecognitionSurfaceClientPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -850,7 +1086,7 @@ media.mojom.mojom.SpeechRecognitionSurfaceClientRemote = class {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler = class {
+media.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -859,7 +1095,7 @@ media.mojom.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec,
+      media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec,
       null,
       []);
   }
@@ -868,15 +1104,15 @@ media.mojom.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec,
+      media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec,
       null,
       []);
   }
 
 };
 
-media.mojom.mojom.SpeechRecognitionSurfaceClient.getRemote = function() {
-  let remote = new media.mojom.mojom.SpeechRecognitionSurfaceClientRemote();
+media.mojom.SpeechRecognitionSurfaceClient.getRemote = function() {
+  let remote = new media.mojom.SpeechRecognitionSurfaceClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -886,7 +1122,7 @@ media.mojom.mojom.SpeechRecognitionSurfaceClient.getRemote = function() {
 };
 
 // ParamsSpec for OnSessionEnded
-media.mojom.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec = {
+media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionSurfaceClient.OnSessionEnded_Params',
@@ -899,7 +1135,7 @@ media.mojom.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec = {
 };
 
 // ParamsSpec for OnFullscreenToggled
-media.mojom.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec = {
+media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionSurfaceClient.OnFullscreenToggled_Params',
@@ -912,29 +1148,67 @@ media.mojom.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec 
 };
 
 // Legacy compatibility
-media.mojom.mojom.SpeechRecognitionSurfaceClientPtr = media.mojom.mojom.SpeechRecognitionSurfaceClientRemote;
-media.mojom.mojom.SpeechRecognitionSurfaceClientRequest = media.mojom.mojom.SpeechRecognitionSurfaceClientPendingReceiver;
+media.mojom.SpeechRecognitionSurfaceClientPtr = media.mojom.SpeechRecognitionSurfaceClientRemote;
+media.mojom.SpeechRecognitionSurfaceClientRequest = media.mojom.SpeechRecognitionSurfaceClientPendingReceiver;
 
 
 // Interface: SpeechRecognitionClientBrowserInterface
-media.mojom.mojom.SpeechRecognitionClientBrowserInterface = {};
+media.mojom.SpeechRecognitionClientBrowserInterface = {};
 
-media.mojom.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver = class {
+media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemote = class {
+media.mojom.SpeechRecognitionClientBrowserInterfaceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SpeechRecognitionClientBrowserInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver,
+      media.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -946,7 +1220,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemote = class {
   }
 };
 
-media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = class {
+media.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -955,7 +1229,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec,
+      media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -964,7 +1238,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = cla
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec,
+      media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec,
       null,
       []);
   }
@@ -973,15 +1247,15 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = cla
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec,
+      media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-media.mojom.mojom.SpeechRecognitionClientBrowserInterface.getRemote = function() {
-  let remote = new media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemote();
+media.mojom.SpeechRecognitionClientBrowserInterface.getRemote = function() {
+  let remote = new media.mojom.SpeechRecognitionClientBrowserInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -991,7 +1265,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterface.getRemote = function()
 };
 
 // ParamsSpec for BindSpeechRecognitionBrowserObserver
-media.mojom.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec = {
+media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionClientBrowserInterface.BindSpeechRecognitionBrowserObserver_Params',
@@ -1005,7 +1279,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionB
 };
 
 // ParamsSpec for REMOVED_1
-media.mojom.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec = {
+media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionClientBrowserInterface.REMOVED_1_Params',
@@ -1018,7 +1292,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec =
 };
 
 // ParamsSpec for REMOVED_2
-media.mojom.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec = {
+media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionClientBrowserInterface.REMOVED_2_Params',
@@ -1032,6 +1306,6 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec =
 };
 
 // Legacy compatibility
-media.mojom.mojom.SpeechRecognitionClientBrowserInterfacePtr = media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRemote;
-media.mojom.mojom.SpeechRecognitionClientBrowserInterfaceRequest = media.mojom.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver;
+media.mojom.SpeechRecognitionClientBrowserInterfacePtr = media.mojom.SpeechRecognitionClientBrowserInterfaceRemote;
+media.mojom.SpeechRecognitionClientBrowserInterfaceRequest = media.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver;
 

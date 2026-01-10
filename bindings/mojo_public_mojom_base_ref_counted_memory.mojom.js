@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: RefCountedMemory
-mojo_base.mojom.mojom.RefCountedMemorySpec = {
+mojo_base.mojom.RefCountedMemorySpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.RefCountedMemory',

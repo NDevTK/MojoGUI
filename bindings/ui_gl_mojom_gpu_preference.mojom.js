@@ -10,10 +10,10 @@ gl.mojom = gl.mojom || {};
 
 
 // Enum: GpuPreference
-gl.mojom.mojom.GpuPreference = {
+gl.mojom.GpuPreference = {
   kNone: 0,
   kDefault: 1,
   kLowPower: 2,
   kHighPerformance: 3,
 };
-gl.mojom.mojom.GpuPreferenceSpec = { $: mojo.internal.Enum() };
+gl.mojom.GpuPreferenceSpec = { $: mojo.internal.Enum() };

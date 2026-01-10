@@ -10,12 +10,12 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ArcAuthCodeStatus
-arc.mojom.mojom.ArcAuthCodeStatus = {
+arc.mojom.ArcAuthCodeStatus = {
 };
-arc.mojom.mojom.ArcAuthCodeStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcAuthCodeStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: GeneralSignInError
-arc.mojom.mojom.GeneralSignInError = {
+arc.mojom.GeneralSignInError = {
   UNKNOWN_ERROR: 0,
   MOJO_VERSION_MISMATCH: 1,
   GENERIC_PROVISIONING_TIMEOUT: 2,
@@ -25,18 +25,18 @@ arc.mojom.mojom.GeneralSignInError = {
   UNSUPPORTED_ACCOUNT_TYPE: 6,
   CHROME_ACCOUNT_NOT_FOUND: 7,
 };
-arc.mojom.mojom.GeneralSignInErrorSpec = { $: mojo.internal.Enum() };
+arc.mojom.GeneralSignInErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: GMSCheckInError
-arc.mojom.mojom.GMSCheckInError = {
+arc.mojom.GMSCheckInError = {
   GMS_CHECK_IN_FAILED: 0,
   GMS_CHECK_IN_TIMEOUT: 1,
   GMS_CHECK_IN_INTERNAL_ERROR: 2,
 };
-arc.mojom.mojom.GMSCheckInErrorSpec = { $: mojo.internal.Enum() };
+arc.mojom.GMSCheckInErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: GMSSignInError
-arc.mojom.mojom.GMSSignInError = {
+arc.mojom.GMSSignInError = {
   GMS_SIGN_IN_NETWORK_ERROR: 0,
   GMS_SIGN_IN_SERVICE_UNAVAILABLE: 1,
   GMS_SIGN_IN_BAD_AUTHENTICATION: 2,
@@ -44,10 +44,10 @@ arc.mojom.mojom.GMSSignInError = {
   GMS_SIGN_IN_TIMEOUT: 4,
   GMS_SIGN_IN_INTERNAL_ERROR: 5,
 };
-arc.mojom.mojom.GMSSignInErrorSpec = { $: mojo.internal.Enum() };
+arc.mojom.GMSSignInErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: CloudProvisionFlowError
-arc.mojom.mojom.CloudProvisionFlowError = {
+arc.mojom.CloudProvisionFlowError = {
   ERROR_OTHER: 0,
   ERROR_ENROLLMENT_TOKEN_INVALID: 1,
   ERROR_DEVICE_QUOTA_EXCEEDED: 2,
@@ -76,65 +76,65 @@ arc.mojom.mojom.CloudProvisionFlowError = {
   ERROR_OAUTH_TOKEN_IO_EXCEPTION: 25,
   ERROR_OAUTH_TOKEN_OPERATION_CANCELED_EXCEPTION: 26,
 };
-arc.mojom.mojom.CloudProvisionFlowErrorSpec = { $: mojo.internal.Enum() };
+arc.mojom.CloudProvisionFlowErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcSignInSuccess
-arc.mojom.mojom.ArcSignInSuccess = {
+arc.mojom.ArcSignInSuccess = {
 };
-arc.mojom.mojom.ArcSignInSuccessSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcSignInSuccessSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccountCheckStatus
-arc.mojom.mojom.AccountCheckStatus = {
+arc.mojom.AccountCheckStatus = {
 };
-arc.mojom.mojom.AccountCheckStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.AccountCheckStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidIdSource
-arc.mojom.mojom.AndroidIdSource = {
+arc.mojom.AndroidIdSource = {
 };
-arc.mojom.mojom.AndroidIdSourceSpec = { $: mojo.internal.Enum() };
+arc.mojom.AndroidIdSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReauthReason
-arc.mojom.mojom.ReauthReason = {
+arc.mojom.ReauthReason = {
 };
-arc.mojom.mojom.ReauthReasonSpec = { $: mojo.internal.Enum() };
+arc.mojom.ReauthReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: MainAccountResolutionStatus
-arc.mojom.mojom.MainAccountResolutionStatus = {
+arc.mojom.MainAccountResolutionStatus = {
 };
-arc.mojom.mojom.MainAccountResolutionStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.MainAccountResolutionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ManagementChangeStatus
-arc.mojom.mojom.ManagementChangeStatus = {
+arc.mojom.ManagementChangeStatus = {
 };
-arc.mojom.mojom.ManagementChangeStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.ManagementChangeStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromeAccountType
-arc.mojom.mojom.ChromeAccountType = {
+arc.mojom.ChromeAccountType = {
   UNKNOWN: 0,
   USER_ACCOUNT: 1,
   ROBOT_ACCOUNT: 2,
   CHILD_ACCOUNT: 3,
 };
-arc.mojom.mojom.ChromeAccountTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ChromeAccountTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricsType
-arc.mojom.mojom.MetricsType = {
+arc.mojom.MetricsType = {
   NETWORK_WAITING_TIME_MILLISECONDS: 0,
   CHECKIN_ATTEMPTS: 1,
   CHECKIN_TIME_MILLISECONDS: 2,
   SIGNIN_TIME_MILLISECONDS: 3,
 };
-arc.mojom.mojom.MetricsTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.MetricsTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccountUpdateType
-arc.mojom.mojom.AccountUpdateType = {
+arc.mojom.AccountUpdateType = {
   UPSERT: 0,
   REMOVAL: 1,
 };
-arc.mojom.mojom.AccountUpdateTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.AccountUpdateTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: ArcSignInError
-arc.mojom.mojom.ArcSignInErrorSpec = { $: mojo.internal.Union(
+arc.mojom.ArcSignInErrorSpec = { $: mojo.internal.Union(
     'arc.mojom.ArcSignInError', {
       'cloud_provision_flow_error': {
         'ordinal': 0,
@@ -156,7 +156,7 @@ arc.mojom.mojom.ArcSignInErrorSpec = { $: mojo.internal.Union(
 };
 
 // Union: ArcSignInResult
-arc.mojom.mojom.ArcSignInResultSpec = { $: mojo.internal.Union(
+arc.mojom.ArcSignInResultSpec = { $: mojo.internal.Union(
     'arc.mojom.ArcSignInResult', {
       'success': {
         'ordinal': 0,
@@ -171,7 +171,7 @@ arc.mojom.mojom.ArcSignInResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ArcSignInAccount
-arc.mojom.mojom.ArcSignInAccountSpec = { $: mojo.internal.Union(
+arc.mojom.ArcSignInAccountSpec = { $: mojo.internal.Union(
     'arc.mojom.ArcSignInAccount', {
       'initial_signin': {
         'ordinal': 0,
@@ -186,7 +186,7 @@ arc.mojom.mojom.ArcSignInAccountSpec = { $: mojo.internal.Union(
 };
 
 // Struct: AccountInfo
-arc.mojom.mojom.AccountInfoSpec = {
+arc.mojom.AccountInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AccountInfo',
@@ -204,7 +204,7 @@ arc.mojom.mojom.AccountInfoSpec = {
 };
 
 // Struct: ArcAccountInfo
-arc.mojom.mojom.ArcAccountInfoSpec = {
+arc.mojom.ArcAccountInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcAccountInfo',
@@ -219,24 +219,178 @@ arc.mojom.mojom.ArcAccountInfoSpec = {
 };
 
 // Interface: AuthHost
-arc.mojom.mojom.AuthHost = {};
+arc.mojom.AuthHost = {};
 
-arc.mojom.mojom.AuthHostPendingReceiver = class {
+arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_OnAuthorizationResult_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcSignInResultSpec, nullable: false, minVersion: 0 },
+        { name: 'account', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ArcSignInAccountSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_ReportMetrics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_ReportMetrics_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'metrics_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MetricsTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_ReportAccountCheckStatus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AccountCheckStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_ReportManagementChangeStatus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ManagementChangeStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_RequestPrimaryAccount_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_RequestPrimaryAccountInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_RequestAccountInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_IsAccountManagerAvailable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_HandleAddAccountRequest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_HandleRemoveAccountRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_HandleUpdateCredentialsRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthHost_ReportAccountReauthReason_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ReauthReasonSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.AuthHostRemote = class {
+arc.mojom.AuthHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AuthHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.AuthHostPendingReceiver,
+      arc.mojom.AuthHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.AuthHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.AuthHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -248,7 +402,7 @@ arc.mojom.mojom.AuthHostRemote = class {
   }
 };
 
-arc.mojom.mojom.AuthHostRemoteCallHandler = class {
+arc.mojom.AuthHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -257,7 +411,7 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.mojom.AuthHost_OnAuthorizationResult_ParamsSpec,
+      arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec,
       null,
       [result, account]);
   }
@@ -266,7 +420,7 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.mojom.AuthHost_ReportMetrics_ParamsSpec,
+      arc.mojom.AuthHost_ReportMetrics_ParamsSpec,
       null,
       [metrics_type, value]);
   }
@@ -275,7 +429,7 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec,
+      arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec,
       null,
       [status]);
   }
@@ -284,7 +438,7 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec,
+      arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec,
       null,
       [status]);
   }
@@ -293,8 +447,8 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      arc.mojom.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec,
-      arc.mojom.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec,
+      arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec,
+      arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec,
       []);
   }
 
@@ -302,8 +456,8 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec,
-      arc.mojom.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec,
+      arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec,
+      arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec,
       []);
   }
 
@@ -311,8 +465,8 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.mojom.AuthHost_RequestAccountInfo_ParamsSpec,
-      arc.mojom.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec,
+      arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec,
+      arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec,
       [account_name]);
   }
 
@@ -320,8 +474,8 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec,
-      arc.mojom.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec,
+      arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec,
+      arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -329,7 +483,7 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec,
+      arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec,
       null,
       []);
   }
@@ -338,7 +492,7 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec,
+      arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec,
       null,
       [account_name]);
   }
@@ -347,7 +501,7 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      arc.mojom.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec,
+      arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec,
       null,
       [account_name]);
   }
@@ -356,15 +510,15 @@ arc.mojom.mojom.AuthHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec,
+      arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec,
       null,
       [reason]);
   }
 
 };
 
-arc.mojom.mojom.AuthHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.AuthHostRemote();
+arc.mojom.AuthHost.getRemote = function() {
+  let remote = new arc.mojom.AuthHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -374,7 +528,7 @@ arc.mojom.mojom.AuthHost.getRemote = function() {
 };
 
 // ParamsSpec for OnAuthorizationResult
-arc.mojom.mojom.AuthHost_OnAuthorizationResult_ParamsSpec = {
+arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.OnAuthorizationResult_Params',
@@ -389,7 +543,7 @@ arc.mojom.mojom.AuthHost_OnAuthorizationResult_ParamsSpec = {
 };
 
 // ParamsSpec for ReportMetrics
-arc.mojom.mojom.AuthHost_ReportMetrics_ParamsSpec = {
+arc.mojom.AuthHost_ReportMetrics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.ReportMetrics_Params',
@@ -404,7 +558,7 @@ arc.mojom.mojom.AuthHost_ReportMetrics_ParamsSpec = {
 };
 
 // ParamsSpec for ReportAccountCheckStatus
-arc.mojom.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec = {
+arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.ReportAccountCheckStatus_Params',
@@ -418,7 +572,7 @@ arc.mojom.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec = {
 };
 
 // ParamsSpec for ReportManagementChangeStatus
-arc.mojom.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec = {
+arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.ReportManagementChangeStatus_Params',
@@ -432,7 +586,7 @@ arc.mojom.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec = {
 };
 
 // ParamsSpec for RequestPrimaryAccount
-arc.mojom.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec = {
+arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.RequestPrimaryAccount_Params',
@@ -444,7 +598,7 @@ arc.mojom.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec = {
+arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.RequestPrimaryAccount_ResponseParams',
@@ -459,7 +613,7 @@ arc.mojom.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestPrimaryAccountInfo
-arc.mojom.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec = {
+arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.RequestPrimaryAccountInfo_Params',
@@ -471,7 +625,7 @@ arc.mojom.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec = {
+arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.RequestPrimaryAccountInfo_ResponseParams',
@@ -486,7 +640,7 @@ arc.mojom.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestAccountInfo
-arc.mojom.mojom.AuthHost_RequestAccountInfo_ParamsSpec = {
+arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.RequestAccountInfo_Params',
@@ -499,7 +653,7 @@ arc.mojom.mojom.AuthHost_RequestAccountInfo_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec = {
+arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.RequestAccountInfo_ResponseParams',
@@ -515,7 +669,7 @@ arc.mojom.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsAccountManagerAvailable
-arc.mojom.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec = {
+arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.IsAccountManagerAvailable_Params',
@@ -527,7 +681,7 @@ arc.mojom.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec = {
+arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.IsAccountManagerAvailable_ResponseParams',
@@ -541,7 +695,7 @@ arc.mojom.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec = {
 };
 
 // ParamsSpec for HandleAddAccountRequest
-arc.mojom.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec = {
+arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.HandleAddAccountRequest_Params',
@@ -554,7 +708,7 @@ arc.mojom.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec = {
 };
 
 // ParamsSpec for HandleRemoveAccountRequest
-arc.mojom.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec = {
+arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.HandleRemoveAccountRequest_Params',
@@ -568,7 +722,7 @@ arc.mojom.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec = {
 };
 
 // ParamsSpec for HandleUpdateCredentialsRequest
-arc.mojom.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec = {
+arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.HandleUpdateCredentialsRequest_Params',
@@ -582,7 +736,7 @@ arc.mojom.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec = {
 };
 
 // ParamsSpec for ReportAccountReauthReason
-arc.mojom.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec = {
+arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthHost.ReportAccountReauthReason_Params',
@@ -596,29 +750,93 @@ arc.mojom.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.AuthHostPtr = arc.mojom.mojom.AuthHostRemote;
-arc.mojom.mojom.AuthHostRequest = arc.mojom.mojom.AuthHostPendingReceiver;
+arc.mojom.AuthHostPtr = arc.mojom.AuthHostRemote;
+arc.mojom.AuthHostRequest = arc.mojom.AuthHostPendingReceiver;
 
 
 // Interface: AuthInstance
-arc.mojom.mojom.AuthInstance = {};
+arc.mojom.AuthInstance = {};
 
-arc.mojom.mojom.AuthInstancePendingReceiver = class {
+arc.mojom.AuthInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AuthHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthInstance_OnAccountUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AccountUpdateTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthInstance_GetGoogleAccounts_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthInstance_GetMainAccountResolutionStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.AuthInstance_SetAccounts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthInstance_SetAccounts_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcAccountInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.AuthInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.AuthInstanceRemote = class {
+arc.mojom.AuthInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AuthInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.AuthInstancePendingReceiver,
+      arc.mojom.AuthInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.AuthInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.AuthInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -630,7 +848,7 @@ arc.mojom.mojom.AuthInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.AuthInstanceRemoteCallHandler = class {
+arc.mojom.AuthInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -639,7 +857,7 @@ arc.mojom.mojom.AuthInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.AuthInstance_Init_ParamsSpec,
+      arc.mojom.AuthInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -648,7 +866,7 @@ arc.mojom.mojom.AuthInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.AuthInstance_OnAccountUpdated_ParamsSpec,
+      arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec,
       null,
       [account_name, update_type]);
   }
@@ -657,8 +875,8 @@ arc.mojom.mojom.AuthInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec,
-      arc.mojom.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec,
+      arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec,
+      arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec,
       []);
   }
 
@@ -666,8 +884,8 @@ arc.mojom.mojom.AuthInstanceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec,
-      arc.mojom.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec,
+      arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec,
+      arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec,
       []);
   }
 
@@ -675,15 +893,15 @@ arc.mojom.mojom.AuthInstanceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.mojom.AuthInstance_SetAccounts_ParamsSpec,
+      arc.mojom.AuthInstance_SetAccounts_ParamsSpec,
       null,
       [accounts]);
   }
 
 };
 
-arc.mojom.mojom.AuthInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.AuthInstanceRemote();
+arc.mojom.AuthInstance.getRemote = function() {
+  let remote = new arc.mojom.AuthInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -693,7 +911,7 @@ arc.mojom.mojom.AuthInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.AuthInstance_Init_ParamsSpec = {
+arc.mojom.AuthInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthInstance.Init_Params',
@@ -707,7 +925,7 @@ arc.mojom.mojom.AuthInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for OnAccountUpdated
-arc.mojom.mojom.AuthInstance_OnAccountUpdated_ParamsSpec = {
+arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthInstance.OnAccountUpdated_Params',
@@ -722,7 +940,7 @@ arc.mojom.mojom.AuthInstance_OnAccountUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for GetGoogleAccounts
-arc.mojom.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec = {
+arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthInstance.GetGoogleAccounts_Params',
@@ -734,7 +952,7 @@ arc.mojom.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec = {
+arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthInstance.GetGoogleAccounts_ResponseParams',
@@ -748,7 +966,7 @@ arc.mojom.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMainAccountResolutionStatus
-arc.mojom.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec = {
+arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthInstance.GetMainAccountResolutionStatus_Params',
@@ -760,7 +978,7 @@ arc.mojom.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec = {
+arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthInstance.GetMainAccountResolutionStatus_ResponseParams',
@@ -774,7 +992,7 @@ arc.mojom.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec =
 };
 
 // ParamsSpec for SetAccounts
-arc.mojom.mojom.AuthInstance_SetAccounts_ParamsSpec = {
+arc.mojom.AuthInstance_SetAccounts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthInstance.SetAccounts_Params',
@@ -788,6 +1006,6 @@ arc.mojom.mojom.AuthInstance_SetAccounts_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.AuthInstancePtr = arc.mojom.mojom.AuthInstanceRemote;
-arc.mojom.mojom.AuthInstanceRequest = arc.mojom.mojom.AuthInstancePendingReceiver;
+arc.mojom.AuthInstancePtr = arc.mojom.AuthInstanceRemote;
+arc.mojom.AuthInstanceRequest = arc.mojom.AuthInstancePendingReceiver;
 

@@ -13,7 +13,7 @@ var gfx = gfx || {};
 
 
 // Enum: Behavior
-blink.mojom.mojom.Behavior = {
+blink.mojom.Behavior = {
   kNoScroll: 0,
   kCenter: 1,
   kTop: 2,
@@ -22,10 +22,10 @@ blink.mojom.mojom.Behavior = {
   kRight: 5,
   kClosestEdge: 6,
 };
-blink.mojom.mojom.BehaviorSpec = { $: mojo.internal.Enum() };
+blink.mojom.BehaviorSpec = { $: mojo.internal.Enum() };
 
 // Struct: ScrollAlignment
-blink.mojom.mojom.ScrollAlignmentSpec = {
+blink.mojom.ScrollAlignmentSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScrollAlignment',
@@ -39,7 +39,7 @@ blink.mojom.mojom.ScrollAlignmentSpec = {
 };
 
 // Struct: FocusedEditableParams
-blink.mojom.mojom.FocusedEditableParamsSpec = {
+blink.mojom.FocusedEditableParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FocusedEditableParams',
@@ -55,7 +55,7 @@ blink.mojom.mojom.FocusedEditableParamsSpec = {
 };
 
 // Struct: ScrollIntoViewParams
-blink.mojom.mojom.ScrollIntoViewParamsSpec = {
+blink.mojom.ScrollIntoViewParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScrollIntoViewParams',

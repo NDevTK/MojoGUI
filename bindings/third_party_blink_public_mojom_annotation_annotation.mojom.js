@@ -13,24 +13,24 @@ var blink = blink || {};
 
 
 // Enum: AnnotationType
-blink.mojom.mojom.AnnotationType = {
+blink.mojom.AnnotationType = {
   kSharedHighlight: 0,
   kUserNote: 1,
   kTextFinder: 2,
   kGlic: 3,
 };
-blink.mojom.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AttachmentResult
-blink.mojom.mojom.AttachmentResult = {
+blink.mojom.AttachmentResult = {
   kSuccess: 0,
   kSelectorNotMatched: 1,
   kRangeInvalid: 2,
 };
-blink.mojom.mojom.AttachmentResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.AttachmentResultSpec = { $: mojo.internal.Enum() };
 
 // Union: Selector
-blink.mojom.mojom.SelectorSpec = { $: mojo.internal.Union(
+blink.mojom.SelectorSpec = { $: mojo.internal.Union(
     'blink.mojom.Selector', {
       'serialized_selector': {
         'ordinal': 0,
@@ -44,7 +44,7 @@ blink.mojom.mojom.SelectorSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SelectorCreationResult
-blink.mojom.mojom.SelectorCreationResultSpec = {
+blink.mojom.SelectorCreationResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SelectorCreationResult',
@@ -61,24 +61,37 @@ blink.mojom.mojom.SelectorCreationResultSpec = {
 };
 
 // Interface: AnnotationAgent
-blink.mojom.mojom.AnnotationAgent = {};
+blink.mojom.AnnotationAgent = {};
 
-blink.mojom.mojom.AnnotationAgentPendingReceiver = class {
+blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnnotationAgent_ScrollIntoView_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'applies_focus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AnnotationAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AnnotationAgentRemote = class {
+blink.mojom.AnnotationAgentRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AnnotationAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AnnotationAgentPendingReceiver,
+      blink.mojom.AnnotationAgentPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AnnotationAgentRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AnnotationAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -90,7 +103,7 @@ blink.mojom.mojom.AnnotationAgentRemote = class {
   }
 };
 
-blink.mojom.mojom.AnnotationAgentRemoteCallHandler = class {
+blink.mojom.AnnotationAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -99,15 +112,15 @@ blink.mojom.mojom.AnnotationAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec,
+      blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec,
       null,
       [applies_focus]);
   }
 
 };
 
-blink.mojom.mojom.AnnotationAgent.getRemote = function() {
-  let remote = new blink.mojom.mojom.AnnotationAgentRemote();
+blink.mojom.AnnotationAgent.getRemote = function() {
+  let remote = new blink.mojom.AnnotationAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -117,7 +130,7 @@ blink.mojom.mojom.AnnotationAgent.getRemote = function() {
 };
 
 // ParamsSpec for ScrollIntoView
-blink.mojom.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = {
+blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnnotationAgent.ScrollIntoView_Params',
@@ -131,29 +144,43 @@ blink.mojom.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AnnotationAgentPtr = blink.mojom.mojom.AnnotationAgentRemote;
-blink.mojom.mojom.AnnotationAgentRequest = blink.mojom.mojom.AnnotationAgentPendingReceiver;
+blink.mojom.AnnotationAgentPtr = blink.mojom.AnnotationAgentRemote;
+blink.mojom.AnnotationAgentRequest = blink.mojom.AnnotationAgentPendingReceiver;
 
 
 // Interface: AnnotationAgentHost
-blink.mojom.mojom.AnnotationAgentHost = {};
+blink.mojom.AnnotationAgentHost = {};
 
-blink.mojom.mojom.AnnotationAgentHostPendingReceiver = class {
+blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnnotationAgentHost_DidFinishAttachment_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'document_relative_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'attachment_result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttachmentResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AnnotationAgentHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AnnotationAgentHostRemote = class {
+blink.mojom.AnnotationAgentHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AnnotationAgentHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AnnotationAgentHostPendingReceiver,
+      blink.mojom.AnnotationAgentHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AnnotationAgentHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AnnotationAgentHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,7 +192,7 @@ blink.mojom.mojom.AnnotationAgentHostRemote = class {
   }
 };
 
-blink.mojom.mojom.AnnotationAgentHostRemoteCallHandler = class {
+blink.mojom.AnnotationAgentHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -174,15 +201,15 @@ blink.mojom.mojom.AnnotationAgentHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec,
+      blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec,
       null,
       [document_relative_rect, attachment_result]);
   }
 
 };
 
-blink.mojom.mojom.AnnotationAgentHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.AnnotationAgentHostRemote();
+blink.mojom.AnnotationAgentHost.getRemote = function() {
+  let remote = new blink.mojom.AnnotationAgentHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -192,7 +219,7 @@ blink.mojom.mojom.AnnotationAgentHost.getRemote = function() {
 };
 
 // ParamsSpec for DidFinishAttachment
-blink.mojom.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = {
+blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnnotationAgentHost.DidFinishAttachment_Params',
@@ -207,29 +234,73 @@ blink.mojom.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AnnotationAgentHostPtr = blink.mojom.mojom.AnnotationAgentHostRemote;
-blink.mojom.mojom.AnnotationAgentHostRequest = blink.mojom.mojom.AnnotationAgentHostPendingReceiver;
+blink.mojom.AnnotationAgentHostPtr = blink.mojom.AnnotationAgentHostRemote;
+blink.mojom.AnnotationAgentHostRequest = blink.mojom.AnnotationAgentHostPendingReceiver;
 
 
 // Interface: AnnotationAgentContainer
-blink.mojom.mojom.AnnotationAgentContainer = {};
+blink.mojom.AnnotationAgentContainer = {};
 
-blink.mojom.mojom.AnnotationAgentContainerPendingReceiver = class {
+blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnnotationAgentContainer_CreateAgent_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'host_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AnnotationAgentHostRemote), nullable: false, minVersion: 0 },
+        { name: 'agent_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.AnnotationAgentRemote), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectorSpec, nullable: false, minVersion: 0 },
+        { name: 'search_range_start_node_id_$flag', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' } },
+        { name: 'search_range_start_node_id_$value', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' } },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AnnotationAgentContainerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AnnotationAgentContainerRemote = class {
+blink.mojom.AnnotationAgentContainerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AnnotationAgentContainer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AnnotationAgentContainerPendingReceiver,
+      blink.mojom.AnnotationAgentContainerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AnnotationAgentContainerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AnnotationAgentContainerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -241,7 +312,7 @@ blink.mojom.mojom.AnnotationAgentContainerRemote = class {
   }
 };
 
-blink.mojom.mojom.AnnotationAgentContainerRemoteCallHandler = class {
+blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -250,7 +321,7 @@ blink.mojom.mojom.AnnotationAgentContainerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec,
+      blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec,
       null,
       [host_remote, agent_receiver, type, selector, search_range_start_node_id]);
   }
@@ -259,8 +330,8 @@ blink.mojom.mojom.AnnotationAgentContainerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec,
-      blink.mojom.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec,
+      blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec,
+      blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec,
       [type]);
   }
 
@@ -268,15 +339,15 @@ blink.mojom.mojom.AnnotationAgentContainerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec,
+      blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec,
       null,
       [type]);
   }
 
 };
 
-blink.mojom.mojom.AnnotationAgentContainer.getRemote = function() {
-  let remote = new blink.mojom.mojom.AnnotationAgentContainerRemote();
+blink.mojom.AnnotationAgentContainer.getRemote = function() {
+  let remote = new blink.mojom.AnnotationAgentContainerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -286,7 +357,7 @@ blink.mojom.mojom.AnnotationAgentContainer.getRemote = function() {
 };
 
 // ParamsSpec for CreateAgent
-blink.mojom.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
+blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnnotationAgentContainer.CreateAgent_Params',
@@ -305,7 +376,7 @@ blink.mojom.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
 };
 
 // ParamsSpec for CreateAgentFromSelection
-blink.mojom.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = {
+blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnnotationAgentContainer.CreateAgentFromSelection_Params',
@@ -318,7 +389,7 @@ blink.mojom.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec =
   }
 };
 
-blink.mojom.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec = {
+blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnnotationAgentContainer.CreateAgentFromSelection_ResponseParams',
@@ -334,7 +405,7 @@ blink.mojom.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponsePara
 };
 
 // ParamsSpec for RemoveAgentsOfType
-blink.mojom.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = {
+blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnnotationAgentContainer.RemoveAgentsOfType_Params',
@@ -348,6 +419,6 @@ blink.mojom.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AnnotationAgentContainerPtr = blink.mojom.mojom.AnnotationAgentContainerRemote;
-blink.mojom.mojom.AnnotationAgentContainerRequest = blink.mojom.mojom.AnnotationAgentContainerPendingReceiver;
+blink.mojom.AnnotationAgentContainerPtr = blink.mojom.AnnotationAgentContainerRemote;
+blink.mojom.AnnotationAgentContainerRequest = blink.mojom.AnnotationAgentContainerPendingReceiver;
 

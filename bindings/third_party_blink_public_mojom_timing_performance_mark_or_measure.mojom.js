@@ -10,14 +10,14 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: EntryType
-blink.mojom.mojom.EntryType = {
+blink.mojom.EntryType = {
   kMark: 0,
   kMeasure: 1,
 };
-blink.mojom.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PerformanceMarkOrMeasure
-blink.mojom.mojom.PerformanceMarkOrMeasureSpec = {
+blink.mojom.PerformanceMarkOrMeasureSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerformanceMarkOrMeasure',

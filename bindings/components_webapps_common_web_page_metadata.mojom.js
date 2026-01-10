@@ -11,15 +11,15 @@ var url = url || {};
 
 
 // Enum: WebPageMobileCapable
-webapps.mojom.mojom.WebPageMobileCapable = {
+webapps.mojom.WebPageMobileCapable = {
   UNSPECIFIED: 0,
   ENABLED: 1,
   ENABLED_APPLE: 2,
 };
-webapps.mojom.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };
+webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebPageIconInfo
-webapps.mojom.mojom.WebPageIconInfoSpec = {
+webapps.mojom.WebPageIconInfoSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageIconInfo',
@@ -34,7 +34,7 @@ webapps.mojom.mojom.WebPageIconInfoSpec = {
 };
 
 // Struct: WebPageMetadata
-webapps.mojom.mojom.WebPageMetadataSpec = {
+webapps.mojom.WebPageMetadataSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageMetadata',

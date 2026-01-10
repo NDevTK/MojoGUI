@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Enum: NDEFErrorType
-device.mojom.mojom.NDEFErrorType = {
+device.mojom.NDEFErrorType = {
   NOT_ALLOWED: 0,
   NOT_SUPPORTED: 1,
   NOT_READABLE: 2,
@@ -18,18 +18,18 @@ device.mojom.mojom.NDEFErrorType = {
   OPERATION_CANCELLED: 4,
   IO_ERROR: 5,
 };
-device.mojom.mojom.NDEFErrorTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.NDEFErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NDEFRecordTypeCategory
-device.mojom.mojom.NDEFRecordTypeCategory = {
+device.mojom.NDEFRecordTypeCategory = {
   kStandardized: 0,
   kExternal: 1,
   kLocal: 2,
 };
-device.mojom.mojom.NDEFRecordTypeCategorySpec = { $: mojo.internal.Enum() };
+device.mojom.NDEFRecordTypeCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: NSRawTypeNameFormat
-device.mojom.mojom.NSRawTypeNameFormat = {
+device.mojom.NSRawTypeNameFormat = {
   kAbsoluteURI: 0,
   kEmpty: 1,
   kMedia: 2,
@@ -38,10 +38,10 @@ device.mojom.mojom.NSRawTypeNameFormat = {
   kUnchanged: 5,
   kUnknown: 6,
 };
-device.mojom.mojom.NSRawTypeNameFormatSpec = { $: mojo.internal.Enum() };
+device.mojom.NSRawTypeNameFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: NDEFError
-device.mojom.mojom.NDEFErrorSpec = {
+device.mojom.NDEFErrorSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NDEFError',
@@ -56,7 +56,7 @@ device.mojom.mojom.NDEFErrorSpec = {
 };
 
 // Struct: NDEFRecord
-device.mojom.mojom.NDEFRecordSpec = {
+device.mojom.NDEFRecordSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NDEFRecord',
@@ -77,7 +77,7 @@ device.mojom.mojom.NDEFRecordSpec = {
 };
 
 // Struct: NDEFMessage
-device.mojom.mojom.NDEFMessageSpec = {
+device.mojom.NDEFMessageSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NDEFMessage',
@@ -91,7 +91,7 @@ device.mojom.mojom.NDEFMessageSpec = {
 };
 
 // Struct: NDEFRawRecord
-device.mojom.mojom.NDEFRawRecordSpec = {
+device.mojom.NDEFRawRecordSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NDEFRawRecord',
@@ -108,7 +108,7 @@ device.mojom.mojom.NDEFRawRecordSpec = {
 };
 
 // Struct: NDEFRawMessage
-device.mojom.mojom.NDEFRawMessageSpec = {
+device.mojom.NDEFRawMessageSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NDEFRawMessage',
@@ -122,7 +122,7 @@ device.mojom.mojom.NDEFRawMessageSpec = {
 };
 
 // Struct: NDEFWriteOptions
-device.mojom.mojom.NDEFWriteOptionsSpec = {
+device.mojom.NDEFWriteOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NDEFWriteOptions',
@@ -136,24 +136,113 @@ device.mojom.mojom.NDEFWriteOptionsSpec = {
 };
 
 // Interface: NFC
-device.mojom.mojom.NFC = {};
+device.mojom.NFC = {};
 
-device.mojom.mojom.NFCPendingReceiver = class {
+device.mojom.NFC_SetClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFC_SetClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.NFCClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.NFC_Push_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFC_Push_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFWriteOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.NFC_CancelPush_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFC_CancelPush_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.NFC_MakeReadOnly_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFC_MakeReadOnly_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFC_CancelMakeReadOnly_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+device.mojom.NFC_Watch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFC_Watch_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.NFC_CancelWatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFC_CancelWatch_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.NFCPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.NFCRemote = class {
+device.mojom.NFCRemote = class {
   static get $interfaceName() {
     return 'device.mojom.NFC';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.NFCPendingReceiver,
+      device.mojom.NFCPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.NFCRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.NFCRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,7 +254,7 @@ device.mojom.mojom.NFCRemote = class {
   }
 };
 
-device.mojom.mojom.NFCRemoteCallHandler = class {
+device.mojom.NFCRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -174,7 +263,7 @@ device.mojom.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.NFC_SetClient_ParamsSpec,
+      device.mojom.NFC_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -183,8 +272,8 @@ device.mojom.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.NFC_Push_ParamsSpec,
-      device.mojom.mojom.NFC_Push_ResponseParamsSpec,
+      device.mojom.NFC_Push_ParamsSpec,
+      device.mojom.NFC_Push_ResponseParamsSpec,
       [message, options]);
   }
 
@@ -192,7 +281,7 @@ device.mojom.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.NFC_CancelPush_ParamsSpec,
+      device.mojom.NFC_CancelPush_ParamsSpec,
       null,
       []);
   }
@@ -201,8 +290,8 @@ device.mojom.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.NFC_MakeReadOnly_ParamsSpec,
-      device.mojom.mojom.NFC_MakeReadOnly_ResponseParamsSpec,
+      device.mojom.NFC_MakeReadOnly_ParamsSpec,
+      device.mojom.NFC_MakeReadOnly_ResponseParamsSpec,
       []);
   }
 
@@ -210,7 +299,7 @@ device.mojom.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.mojom.NFC_CancelMakeReadOnly_ParamsSpec,
+      device.mojom.NFC_CancelMakeReadOnly_ParamsSpec,
       null,
       []);
   }
@@ -219,8 +308,8 @@ device.mojom.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.mojom.NFC_Watch_ParamsSpec,
-      device.mojom.mojom.NFC_Watch_ResponseParamsSpec,
+      device.mojom.NFC_Watch_ParamsSpec,
+      device.mojom.NFC_Watch_ResponseParamsSpec,
       [id]);
   }
 
@@ -228,15 +317,15 @@ device.mojom.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.mojom.NFC_CancelWatch_ParamsSpec,
+      device.mojom.NFC_CancelWatch_ParamsSpec,
       null,
       [id]);
   }
 
 };
 
-device.mojom.mojom.NFC.getRemote = function() {
-  let remote = new device.mojom.mojom.NFCRemote();
+device.mojom.NFC.getRemote = function() {
+  let remote = new device.mojom.NFCRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -246,7 +335,7 @@ device.mojom.mojom.NFC.getRemote = function() {
 };
 
 // ParamsSpec for SetClient
-device.mojom.mojom.NFC_SetClient_ParamsSpec = {
+device.mojom.NFC_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.SetClient_Params',
@@ -260,7 +349,7 @@ device.mojom.mojom.NFC_SetClient_ParamsSpec = {
 };
 
 // ParamsSpec for Push
-device.mojom.mojom.NFC_Push_ParamsSpec = {
+device.mojom.NFC_Push_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.Push_Params',
@@ -274,7 +363,7 @@ device.mojom.mojom.NFC_Push_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.NFC_Push_ResponseParamsSpec = {
+device.mojom.NFC_Push_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.Push_ResponseParams',
@@ -288,7 +377,7 @@ device.mojom.mojom.NFC_Push_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelPush
-device.mojom.mojom.NFC_CancelPush_ParamsSpec = {
+device.mojom.NFC_CancelPush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.CancelPush_Params',
@@ -301,7 +390,7 @@ device.mojom.mojom.NFC_CancelPush_ParamsSpec = {
 };
 
 // ParamsSpec for MakeReadOnly
-device.mojom.mojom.NFC_MakeReadOnly_ParamsSpec = {
+device.mojom.NFC_MakeReadOnly_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.MakeReadOnly_Params',
@@ -313,7 +402,7 @@ device.mojom.mojom.NFC_MakeReadOnly_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
+device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.MakeReadOnly_ResponseParams',
@@ -327,7 +416,7 @@ device.mojom.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelMakeReadOnly
-device.mojom.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
+device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.CancelMakeReadOnly_Params',
@@ -340,7 +429,7 @@ device.mojom.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
 };
 
 // ParamsSpec for Watch
-device.mojom.mojom.NFC_Watch_ParamsSpec = {
+device.mojom.NFC_Watch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.Watch_Params',
@@ -353,7 +442,7 @@ device.mojom.mojom.NFC_Watch_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.NFC_Watch_ResponseParamsSpec = {
+device.mojom.NFC_Watch_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.Watch_ResponseParams',
@@ -367,7 +456,7 @@ device.mojom.mojom.NFC_Watch_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelWatch
-device.mojom.mojom.NFC_CancelWatch_ParamsSpec = {
+device.mojom.NFC_CancelWatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFC.CancelWatch_Params',
@@ -381,29 +470,57 @@ device.mojom.mojom.NFC_CancelWatch_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.NFCPtr = device.mojom.mojom.NFCRemote;
-device.mojom.mojom.NFCRequest = device.mojom.mojom.NFCPendingReceiver;
+device.mojom.NFCPtr = device.mojom.NFCRemote;
+device.mojom.NFCRequest = device.mojom.NFCPendingReceiver;
 
 
 // Interface: NFCClient
-device.mojom.mojom.NFCClient = {};
+device.mojom.NFCClient = {};
 
-device.mojom.mojom.NFCClientPendingReceiver = class {
+device.mojom.NFCClient_OnWatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFCClient_OnWatch_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'watch_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.NFCClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NFCClient_OnError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.NFCClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.NFCClientRemote = class {
+device.mojom.NFCClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.NFCClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.NFCClientPendingReceiver,
+      device.mojom.NFCClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.NFCClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.NFCClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -415,7 +532,7 @@ device.mojom.mojom.NFCClientRemote = class {
   }
 };
 
-device.mojom.mojom.NFCClientRemoteCallHandler = class {
+device.mojom.NFCClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -424,7 +541,7 @@ device.mojom.mojom.NFCClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.NFCClient_OnWatch_ParamsSpec,
+      device.mojom.NFCClient_OnWatch_ParamsSpec,
       null,
       [watch_ids, serial_number, message]);
   }
@@ -433,15 +550,15 @@ device.mojom.mojom.NFCClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.NFCClient_OnError_ParamsSpec,
+      device.mojom.NFCClient_OnError_ParamsSpec,
       null,
       [error]);
   }
 
 };
 
-device.mojom.mojom.NFCClient.getRemote = function() {
-  let remote = new device.mojom.mojom.NFCClientRemote();
+device.mojom.NFCClient.getRemote = function() {
+  let remote = new device.mojom.NFCClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -451,7 +568,7 @@ device.mojom.mojom.NFCClient.getRemote = function() {
 };
 
 // ParamsSpec for OnWatch
-device.mojom.mojom.NFCClient_OnWatch_ParamsSpec = {
+device.mojom.NFCClient_OnWatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFCClient.OnWatch_Params',
@@ -467,7 +584,7 @@ device.mojom.mojom.NFCClient_OnWatch_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-device.mojom.mojom.NFCClient_OnError_ParamsSpec = {
+device.mojom.NFCClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFCClient.OnError_Params',
@@ -481,29 +598,56 @@ device.mojom.mojom.NFCClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.NFCClientPtr = device.mojom.mojom.NFCClientRemote;
-device.mojom.mojom.NFCClientRequest = device.mojom.mojom.NFCClientPendingReceiver;
+device.mojom.NFCClientPtr = device.mojom.NFCClientRemote;
+device.mojom.NFCClientRequest = device.mojom.NFCClientPendingReceiver;
 
 
 // Interface: RawNFCClient
-device.mojom.mojom.RawNFCClient = {};
+device.mojom.RawNFCClient = {};
 
-device.mojom.mojom.RawNFCClientPendingReceiver = class {
+device.mojom.RawNFCClient_OnWatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.RawNFCClient_OnWatch_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'watch_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFRawMessageSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.RawNFCClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.RawNFCClient_OnError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.RawNFCClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.RawNFCClientRemote = class {
+device.mojom.RawNFCClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.RawNFCClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.RawNFCClientPendingReceiver,
+      device.mojom.RawNFCClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.RawNFCClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.RawNFCClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -515,7 +659,7 @@ device.mojom.mojom.RawNFCClientRemote = class {
   }
 };
 
-device.mojom.mojom.RawNFCClientRemoteCallHandler = class {
+device.mojom.RawNFCClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -524,7 +668,7 @@ device.mojom.mojom.RawNFCClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.RawNFCClient_OnWatch_ParamsSpec,
+      device.mojom.RawNFCClient_OnWatch_ParamsSpec,
       null,
       [watch_ids, message]);
   }
@@ -533,15 +677,15 @@ device.mojom.mojom.RawNFCClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.RawNFCClient_OnError_ParamsSpec,
+      device.mojom.RawNFCClient_OnError_ParamsSpec,
       null,
       [error]);
   }
 
 };
 
-device.mojom.mojom.RawNFCClient.getRemote = function() {
-  let remote = new device.mojom.mojom.RawNFCClientRemote();
+device.mojom.RawNFCClient.getRemote = function() {
+  let remote = new device.mojom.RawNFCClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -551,7 +695,7 @@ device.mojom.mojom.RawNFCClient.getRemote = function() {
 };
 
 // ParamsSpec for OnWatch
-device.mojom.mojom.RawNFCClient_OnWatch_ParamsSpec = {
+device.mojom.RawNFCClient_OnWatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.RawNFCClient.OnWatch_Params',
@@ -566,7 +710,7 @@ device.mojom.mojom.RawNFCClient_OnWatch_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-device.mojom.mojom.RawNFCClient_OnError_ParamsSpec = {
+device.mojom.RawNFCClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.RawNFCClient.OnError_Params',
@@ -580,6 +724,6 @@ device.mojom.mojom.RawNFCClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.RawNFCClientPtr = device.mojom.mojom.RawNFCClientRemote;
-device.mojom.mojom.RawNFCClientRequest = device.mojom.mojom.RawNFCClientPendingReceiver;
+device.mojom.RawNFCClientPtr = device.mojom.RawNFCClientRemote;
+device.mojom.RawNFCClientRequest = device.mojom.RawNFCClientPendingReceiver;
 

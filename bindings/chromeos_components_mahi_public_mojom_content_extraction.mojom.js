@@ -11,15 +11,15 @@ var ui = ui || {};
 
 
 // Enum: ResponseStatus
-mahi.mojom.mojom.ResponseStatus = {
+mahi.mojom.ResponseStatus = {
   kSuccess: 0,
   kUnknownError: 1,
   kScreen2xNotAvailable: 2,
 };
-mahi.mojom.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
+mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ExtractionMethods
-mahi.mojom.mojom.ExtractionMethodsSpec = {
+mahi.mojom.ExtractionMethodsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionMethods',
@@ -34,7 +34,7 @@ mahi.mojom.mojom.ExtractionMethodsSpec = {
 };
 
 // Struct: ExtractionRequest
-mahi.mojom.mojom.ExtractionRequestSpec = {
+mahi.mojom.ExtractionRequestSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionRequest',
@@ -52,7 +52,7 @@ mahi.mojom.mojom.ExtractionRequestSpec = {
 };
 
 // Struct: ExtractionResponse
-mahi.mojom.mojom.ExtractionResponseSpec = {
+mahi.mojom.ExtractionResponseSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionResponse',
@@ -67,7 +67,7 @@ mahi.mojom.mojom.ExtractionResponseSpec = {
 };
 
 // Struct: ContentSizeResponse
-mahi.mojom.mojom.ContentSizeResponseSpec = {
+mahi.mojom.ContentSizeResponseSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentSizeResponse',
@@ -82,24 +82,50 @@ mahi.mojom.mojom.ContentSizeResponseSpec = {
 };
 
 // Interface: ContentExtractionService
-mahi.mojom.mojom.ContentExtractionService = {};
+mahi.mojom.ContentExtractionService = {};
 
-mahi.mojom.mojom.ContentExtractionServicePendingReceiver = class {
+mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionService_ExtractContent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extraction_request', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ExtractionRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionService_GetContentSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extraction_request', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ExtractionRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mahi.mojom.ContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mahi.mojom.mojom.ContentExtractionServiceRemote = class {
+mahi.mojom.ContentExtractionServiceRemote = class {
   static get $interfaceName() {
     return 'mahi.mojom.ContentExtractionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mahi.mojom.mojom.ContentExtractionServicePendingReceiver,
+      mahi.mojom.ContentExtractionServicePendingReceiver,
       handle);
-    this.$ = new mahi.mojom.mojom.ContentExtractionServiceRemoteCallHandler(this.proxy);
+    this.$ = new mahi.mojom.ContentExtractionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -111,7 +137,7 @@ mahi.mojom.mojom.ContentExtractionServiceRemote = class {
   }
 };
 
-mahi.mojom.mojom.ContentExtractionServiceRemoteCallHandler = class {
+mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -120,8 +146,8 @@ mahi.mojom.mojom.ContentExtractionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mahi.mojom.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
-      mahi.mojom.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
+      mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
+      mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
       [extraction_request]);
   }
 
@@ -129,15 +155,15 @@ mahi.mojom.mojom.ContentExtractionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mahi.mojom.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
-      mahi.mojom.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
+      mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
+      mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
       [extraction_request]);
   }
 
 };
 
-mahi.mojom.mojom.ContentExtractionService.getRemote = function() {
-  let remote = new mahi.mojom.mojom.ContentExtractionServiceRemote();
+mahi.mojom.ContentExtractionService.getRemote = function() {
+  let remote = new mahi.mojom.ContentExtractionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -147,7 +173,7 @@ mahi.mojom.mojom.ContentExtractionService.getRemote = function() {
 };
 
 // ParamsSpec for ExtractContent
-mahi.mojom.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
+mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.ExtractContent_Params',
@@ -160,7 +186,7 @@ mahi.mojom.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
   }
 };
 
-mahi.mojom.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
+mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.ExtractContent_ResponseParams',
@@ -174,7 +200,7 @@ mahi.mojom.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetContentSize
-mahi.mojom.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
+mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.GetContentSize_Params',
@@ -187,7 +213,7 @@ mahi.mojom.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
   }
 };
 
-mahi.mojom.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
+mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.GetContentSize_ResponseParams',
@@ -201,29 +227,55 @@ mahi.mojom.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-mahi.mojom.mojom.ContentExtractionServicePtr = mahi.mojom.mojom.ContentExtractionServiceRemote;
-mahi.mojom.mojom.ContentExtractionServiceRequest = mahi.mojom.mojom.ContentExtractionServicePendingReceiver;
+mahi.mojom.ContentExtractionServicePtr = mahi.mojom.ContentExtractionServiceRemote;
+mahi.mojom.ContentExtractionServiceRequest = mahi.mojom.ContentExtractionServicePendingReceiver;
 
 
 // Interface: ContentExtractionServiceFactory
-mahi.mojom.mojom.ContentExtractionServiceFactory = {};
+mahi.mojom.ContentExtractionServiceFactory = {};
 
-mahi.mojom.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
+mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'content_extraction_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mahi.mojom.ContentExtractionServiceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(screen_ai.mojom.Screen2xMainContentExtractorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mahi.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mahi.mojom.mojom.ContentExtractionServiceFactoryRemote = class {
+mahi.mojom.ContentExtractionServiceFactoryRemote = class {
   static get $interfaceName() {
     return 'mahi.mojom.ContentExtractionServiceFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mahi.mojom.mojom.ContentExtractionServiceFactoryPendingReceiver,
+      mahi.mojom.ContentExtractionServiceFactoryPendingReceiver,
       handle);
-    this.$ = new mahi.mojom.mojom.ContentExtractionServiceFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -235,7 +287,7 @@ mahi.mojom.mojom.ContentExtractionServiceFactoryRemote = class {
   }
 };
 
-mahi.mojom.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
+mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -244,7 +296,7 @@ mahi.mojom.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mahi.mojom.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
+      mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
       null,
       [content_extraction_service]);
   }
@@ -253,15 +305,15 @@ mahi.mojom.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mahi.mojom.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
+      mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
       null,
       [extractor]);
   }
 
 };
 
-mahi.mojom.mojom.ContentExtractionServiceFactory.getRemote = function() {
-  let remote = new mahi.mojom.mojom.ContentExtractionServiceFactoryRemote();
+mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
+  let remote = new mahi.mojom.ContentExtractionServiceFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -271,7 +323,7 @@ mahi.mojom.mojom.ContentExtractionServiceFactory.getRemote = function() {
 };
 
 // ParamsSpec for BindContentExtractionService
-mahi.mojom.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = {
+mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionServiceFactory.BindContentExtractionService_Params',
@@ -285,7 +337,7 @@ mahi.mojom.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Pa
 };
 
 // ParamsSpec for OnScreen2xReady
-mahi.mojom.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
+mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionServiceFactory.OnScreen2xReady_Params',
@@ -299,6 +351,6 @@ mahi.mojom.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
 };
 
 // Legacy compatibility
-mahi.mojom.mojom.ContentExtractionServiceFactoryPtr = mahi.mojom.mojom.ContentExtractionServiceFactoryRemote;
-mahi.mojom.mojom.ContentExtractionServiceFactoryRequest = mahi.mojom.mojom.ContentExtractionServiceFactoryPendingReceiver;
+mahi.mojom.ContentExtractionServiceFactoryPtr = mahi.mojom.ContentExtractionServiceFactoryRemote;
+mahi.mojom.ContentExtractionServiceFactoryRequest = mahi.mojom.ContentExtractionServiceFactoryPendingReceiver;
 

@@ -10,7 +10,7 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 
 // Struct: RealTimeReportingContribution
-auction_worklet.mojom.mojom.RealTimeReportingContributionSpec = {
+auction_worklet.mojom.RealTimeReportingContributionSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.RealTimeReportingContribution',

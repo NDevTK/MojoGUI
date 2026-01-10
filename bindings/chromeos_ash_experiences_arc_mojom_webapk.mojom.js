@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: WebApkInstallResult
-arc.mojom.mojom.WebApkInstallResult = {
+arc.mojom.WebApkInstallResult = {
   kSuccess: 0,
   kErrorUnknown: 1,
   kErrorServiceCommunication: 2,
@@ -23,10 +23,10 @@ arc.mojom.mojom.WebApkInstallResult = {
   kErrorResolveError: 9,
   kErrorNotGoogleSigned: 10,
 };
-arc.mojom.mojom.WebApkInstallResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.WebApkInstallResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebShareTargetInfo
-arc.mojom.mojom.WebShareTargetInfoSpec = {
+arc.mojom.WebShareTargetInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebShareTargetInfo',
@@ -47,7 +47,7 @@ arc.mojom.mojom.WebShareTargetInfoSpec = {
 };
 
 // Struct: WebApkInfo
-arc.mojom.mojom.WebApkInfoSpec = {
+arc.mojom.WebApkInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebApkInfo',
@@ -69,24 +69,53 @@ arc.mojom.mojom.WebApkInfoSpec = {
 };
 
 // Interface: WebApkInstance
-arc.mojom.mojom.WebApkInstance = {};
+arc.mojom.WebApkInstance = {};
 
-arc.mojom.mojom.WebApkInstancePendingReceiver = class {
+arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WebApkInstance_InstallWebApk_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WebApkInstance_GetWebApkInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.WebApkInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.WebApkInstanceRemote = class {
+arc.mojom.WebApkInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.WebApkInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.WebApkInstancePendingReceiver,
+      arc.mojom.WebApkInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.WebApkInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.WebApkInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -98,7 +127,7 @@ arc.mojom.mojom.WebApkInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.WebApkInstanceRemoteCallHandler = class {
+arc.mojom.WebApkInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -107,8 +136,8 @@ arc.mojom.mojom.WebApkInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.WebApkInstance_InstallWebApk_ParamsSpec,
-      arc.mojom.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec,
+      arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec,
+      arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec,
       [package_name, version, app_name, token]);
   }
 
@@ -116,15 +145,15 @@ arc.mojom.mojom.WebApkInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec,
-      arc.mojom.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec,
+      arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec,
+      arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec,
       [package_name]);
   }
 
 };
 
-arc.mojom.mojom.WebApkInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.WebApkInstanceRemote();
+arc.mojom.WebApkInstance.getRemote = function() {
+  let remote = new arc.mojom.WebApkInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -134,7 +163,7 @@ arc.mojom.mojom.WebApkInstance.getRemote = function() {
 };
 
 // ParamsSpec for InstallWebApk
-arc.mojom.mojom.WebApkInstance_InstallWebApk_ParamsSpec = {
+arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebApkInstance.InstallWebApk_Params',
@@ -150,7 +179,7 @@ arc.mojom.mojom.WebApkInstance_InstallWebApk_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = {
+arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebApkInstance.InstallWebApk_ResponseParams',
@@ -164,7 +193,7 @@ arc.mojom.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetWebApkInfo
-arc.mojom.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = {
+arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebApkInstance.GetWebApkInfo_Params',
@@ -177,7 +206,7 @@ arc.mojom.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = {
+arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebApkInstance.GetWebApkInfo_ResponseParams',
@@ -191,6 +220,6 @@ arc.mojom.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.WebApkInstancePtr = arc.mojom.mojom.WebApkInstanceRemote;
-arc.mojom.mojom.WebApkInstanceRequest = arc.mojom.mojom.WebApkInstancePendingReceiver;
+arc.mojom.WebApkInstancePtr = arc.mojom.WebApkInstanceRemote;
+arc.mojom.WebApkInstanceRequest = arc.mojom.WebApkInstancePendingReceiver;
 

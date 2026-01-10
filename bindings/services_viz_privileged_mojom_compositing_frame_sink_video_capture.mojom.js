@@ -13,15 +13,15 @@ var gfx = gfx || {};
 
 
 // Enum: BufferFormatPreference
-viz.mojom.mojom.BufferFormatPreference = {
+viz.mojom.BufferFormatPreference = {
   kDefault: 0,
   kPreferGpuMemoryBuffer: 1,
   kPreferSharedImageWithNativeHandle: 2,
 };
-viz.mojom.mojom.BufferFormatPreferenceSpec = { $: mojo.internal.Enum() };
+viz.mojom.BufferFormatPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Union: VideoCaptureSubTarget
-viz.mojom.mojom.VideoCaptureSubTargetSpec = { $: mojo.internal.Union(
+viz.mojom.VideoCaptureSubTargetSpec = { $: mojo.internal.Union(
     'viz.mojom.VideoCaptureSubTarget', {
       'subtree_capture_id': {
         'ordinal': 0,
@@ -35,7 +35,7 @@ viz.mojom.mojom.VideoCaptureSubTargetSpec = { $: mojo.internal.Union(
 };
 
 // Struct: VideoCaptureTarget
-viz.mojom.mojom.VideoCaptureTargetSpec = {
+viz.mojom.VideoCaptureTargetSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VideoCaptureTarget',
@@ -50,24 +50,49 @@ viz.mojom.mojom.VideoCaptureTargetSpec = {
 };
 
 // Interface: FrameSinkVideoConsumerFrameCallbacks
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks = {};
+viz.mojom.FrameSinkVideoConsumerFrameCallbacks = {};
 
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver = class {
+viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemote = class {
+viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver,
+      viz.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -79,7 +104,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemote = class {
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
+viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -88,7 +113,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec,
+      viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec,
       null,
       []);
   }
@@ -97,15 +122,15 @@ viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec,
+      viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec,
       null,
       [feedback]);
   }
 
 };
 
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks.getRemote = function() {
-  let remote = new viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemote();
+viz.mojom.FrameSinkVideoConsumerFrameCallbacks.getRemote = function() {
+  let remote = new viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -115,7 +140,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks.getRemote = function() {
 };
 
 // ParamsSpec for Done
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
+viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks.Done_Params',
@@ -128,7 +153,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
 };
 
 // ParamsSpec for ProvideFeedback
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
+viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks.ProvideFeedback_Params',
@@ -142,29 +167,95 @@ viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec 
 };
 
 // Legacy compatibility
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksPtr = viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRemote;
-viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksRequest = viz.mojom.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver;
+viz.mojom.FrameSinkVideoConsumerFrameCallbacksPtr = viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote;
+viz.mojom.FrameSinkVideoConsumerFrameCallbacksRequest = viz.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver;
 
 
 // Interface: FrameSinkVideoConsumer
-viz.mojom.mojom.FrameSinkVideoConsumer = {};
+viz.mojom.FrameSinkVideoConsumer = {};
 
-viz.mojom.mojom.FrameSinkVideoConsumerPendingReceiver = class {
+viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'content_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'callbacks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoConsumer_OnStopped_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoConsumer_OnLog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoConsumerRemote = class {
+viz.mojom.FrameSinkVideoConsumerRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinkVideoConsumer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.FrameSinkVideoConsumerPendingReceiver,
+      viz.mojom.FrameSinkVideoConsumerPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.FrameSinkVideoConsumerRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.FrameSinkVideoConsumerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -176,7 +267,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerRemote = class {
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
+viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -185,7 +276,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec,
+      viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec,
       null,
       [data, info, content_rect, callbacks]);
   }
@@ -194,7 +285,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec,
+      viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec,
       null,
       [capture_version]);
   }
@@ -203,7 +294,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec,
+      viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
       []);
   }
@@ -212,7 +303,7 @@ viz.mojom.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec,
+      viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec,
       null,
       []);
   }
@@ -221,15 +312,15 @@ viz.mojom.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec,
+      viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec,
       null,
       [message]);
   }
 
 };
 
-viz.mojom.mojom.FrameSinkVideoConsumer.getRemote = function() {
-  let remote = new viz.mojom.mojom.FrameSinkVideoConsumerRemote();
+viz.mojom.FrameSinkVideoConsumer.getRemote = function() {
+  let remote = new viz.mojom.FrameSinkVideoConsumerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -239,7 +330,7 @@ viz.mojom.mojom.FrameSinkVideoConsumer.getRemote = function() {
 };
 
 // ParamsSpec for OnFrameCaptured
-viz.mojom.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
+viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnFrameCaptured_Params',
@@ -256,7 +347,7 @@ viz.mojom.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
 };
 
 // ParamsSpec for OnNewCaptureVersion
-viz.mojom.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
+viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnNewCaptureVersion_Params',
@@ -270,7 +361,7 @@ viz.mojom.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
 };
 
 // ParamsSpec for OnFrameWithEmptyRegionCapture
-viz.mojom.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = {
+viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnFrameWithEmptyRegionCapture_Params',
@@ -283,7 +374,7 @@ viz.mojom.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec 
 };
 
 // ParamsSpec for OnStopped
-viz.mojom.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
+viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnStopped_Params',
@@ -296,7 +387,7 @@ viz.mojom.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
 };
 
 // ParamsSpec for OnLog
-viz.mojom.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
+viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnLog_Params',
@@ -310,29 +401,176 @@ viz.mojom.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.FrameSinkVideoConsumerPtr = viz.mojom.mojom.FrameSinkVideoConsumerRemote;
-viz.mojom.mojom.FrameSinkVideoConsumerRequest = viz.mojom.mojom.FrameSinkVideoConsumerPendingReceiver;
+viz.mojom.FrameSinkVideoConsumerPtr = viz.mojom.FrameSinkVideoConsumerRemote;
+viz.mojom.FrameSinkVideoConsumerRequest = viz.mojom.FrameSinkVideoConsumerPendingReceiver;
 
 
 // Interface: FrameSinkVideoCapturer
-viz.mojom.mojom.FrameSinkVideoCapturer = {};
+viz.mojom.FrameSinkVideoCapturer = {};
 
-viz.mojom.mojom.FrameSinkVideoCapturerPendingReceiver = class {
+viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_SetFormat_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'use_fixed_aspect_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'majority_damaged_pixel_min_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_ChangeTarget_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.VideoCaptureTargetSpec, nullable: true, minVersion: 0 },
+        { name: 'sub_capture_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_Start_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerRemote), nullable: false, minVersion: 0 },
+        { name: 'buffer_format_preference', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BufferFormatPreferenceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_Stop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCapturer_CreateOverlay_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'stacking_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.FrameSinkVideoCaptureOverlayRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoCapturerRemote = class {
+viz.mojom.FrameSinkVideoCapturerRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinkVideoCapturer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.FrameSinkVideoCapturerPendingReceiver,
+      viz.mojom.FrameSinkVideoCapturerPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.FrameSinkVideoCapturerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -344,7 +582,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemote = class {
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
+viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -353,7 +591,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec,
       null,
       [format]);
   }
@@ -362,7 +600,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec,
       null,
       [min_period]);
   }
@@ -371,7 +609,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec,
       null,
       [min_period]);
   }
@@ -380,7 +618,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec,
       null,
       [min_size, max_size, use_fixed_aspect_ratio]);
   }
@@ -389,7 +627,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -398,7 +636,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec,
       null,
       [enabled, majority_damaged_pixel_min_ratio]);
   }
@@ -407,7 +645,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec,
       null,
       [target, sub_capture_version]);
   }
@@ -416,7 +654,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_Start_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec,
       null,
       [consumer, buffer_format_preference]);
   }
@@ -425,7 +663,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec,
       null,
       []);
   }
@@ -434,7 +672,7 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec,
       null,
       []);
   }
@@ -443,15 +681,15 @@ viz.mojom.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec,
+      viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec,
       null,
       [stacking_index, receiver]);
   }
 
 };
 
-viz.mojom.mojom.FrameSinkVideoCapturer.getRemote = function() {
-  let remote = new viz.mojom.mojom.FrameSinkVideoCapturerRemote();
+viz.mojom.FrameSinkVideoCapturer.getRemote = function() {
+  let remote = new viz.mojom.FrameSinkVideoCapturerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -461,7 +699,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer.getRemote = function() {
 };
 
 // ParamsSpec for SetFormat
-viz.mojom.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetFormat_Params',
@@ -475,7 +713,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
 };
 
 // ParamsSpec for SetMinCapturePeriod
-viz.mojom.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetMinCapturePeriod_Params',
@@ -489,7 +727,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
 };
 
 // ParamsSpec for SetMinSizeChangePeriod
-viz.mojom.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetMinSizeChangePeriod_Params',
@@ -503,7 +741,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
 };
 
 // ParamsSpec for SetResolutionConstraints
-viz.mojom.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetResolutionConstraints_Params',
@@ -519,7 +757,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
 };
 
 // ParamsSpec for SetAutoThrottlingEnabled
-viz.mojom.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetAutoThrottlingEnabled_Params',
@@ -533,7 +771,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for SetAnimationFpsLockIn
-viz.mojom.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetAnimationFpsLockIn_Params',
@@ -548,7 +786,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
 };
 
 // ParamsSpec for ChangeTarget
-viz.mojom.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.ChangeTarget_Params',
@@ -563,7 +801,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
 };
 
 // ParamsSpec for Start
-viz.mojom.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.Start_Params',
@@ -578,7 +816,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
 };
 
 // ParamsSpec for Stop
-viz.mojom.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.Stop_Params',
@@ -591,7 +829,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for RequestRefreshFrame
-viz.mojom.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.RequestRefreshFrame_Params',
@@ -604,7 +842,7 @@ viz.mojom.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
 };
 
 // ParamsSpec for CreateOverlay
-viz.mojom.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
+viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.CreateOverlay_Params',
@@ -619,29 +857,69 @@ viz.mojom.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.FrameSinkVideoCapturerPtr = viz.mojom.mojom.FrameSinkVideoCapturerRemote;
-viz.mojom.mojom.FrameSinkVideoCapturerRequest = viz.mojom.mojom.FrameSinkVideoCapturerPendingReceiver;
+viz.mojom.FrameSinkVideoCapturerPtr = viz.mojom.FrameSinkVideoCapturerRemote;
+viz.mojom.FrameSinkVideoCapturerRequest = viz.mojom.FrameSinkVideoCapturerPendingReceiver;
 
 
 // Interface: FrameSinkVideoCaptureOverlay
-viz.mojom.mojom.FrameSinkVideoCaptureOverlay = {};
+viz.mojom.FrameSinkVideoCaptureOverlay = {};
 
-viz.mojom.mojom.FrameSinkVideoCaptureOverlayPendingReceiver = class {
+viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'coordinates', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.FrameSinkVideoCaptureOverlayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemote = class {
+viz.mojom.FrameSinkVideoCaptureOverlayRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinkVideoCaptureOverlay';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.FrameSinkVideoCaptureOverlayPendingReceiver,
+      viz.mojom.FrameSinkVideoCaptureOverlayPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -653,7 +931,7 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemote = class {
   }
 };
 
-viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
+viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -662,7 +940,7 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec,
+      viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec,
       null,
       [image, bounds]);
   }
@@ -671,7 +949,7 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec,
+      viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec,
       null,
       [bounds]);
   }
@@ -680,15 +958,15 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec,
+      viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec,
       null,
       [coordinates]);
   }
 
 };
 
-viz.mojom.mojom.FrameSinkVideoCaptureOverlay.getRemote = function() {
-  let remote = new viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemote();
+viz.mojom.FrameSinkVideoCaptureOverlay.getRemote = function() {
+  let remote = new viz.mojom.FrameSinkVideoCaptureOverlayRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -698,7 +976,7 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlay.getRemote = function() {
 };
 
 // ParamsSpec for SetImageAndBounds
-viz.mojom.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
+viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.SetImageAndBounds_Params',
@@ -713,7 +991,7 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
 };
 
 // ParamsSpec for SetBounds
-viz.mojom.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
+viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.SetBounds_Params',
@@ -727,7 +1005,7 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
 };
 
 // ParamsSpec for OnCapturedMouseEvent
-viz.mojom.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
+viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.OnCapturedMouseEvent_Params',
@@ -741,6 +1019,6 @@ viz.mojom.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.FrameSinkVideoCaptureOverlayPtr = viz.mojom.mojom.FrameSinkVideoCaptureOverlayRemote;
-viz.mojom.mojom.FrameSinkVideoCaptureOverlayRequest = viz.mojom.mojom.FrameSinkVideoCaptureOverlayPendingReceiver;
+viz.mojom.FrameSinkVideoCaptureOverlayPtr = viz.mojom.FrameSinkVideoCaptureOverlayRemote;
+viz.mojom.FrameSinkVideoCaptureOverlayRequest = viz.mojom.FrameSinkVideoCaptureOverlayPendingReceiver;
 

@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.payments = chromeos.payments || {};
-chromeos.payments.payments.mojom = chromeos.payments.payments.mojom || {};
+chromeos.payments.mojom = chromeos.payments.mojom || {};
 
 
 // Union: IsPaymentImplementedResult
-chromeos.payments.payments.mojom.mojom.IsPaymentImplementedResultSpec = { $: mojo.internal.Union(
+chromeos.payments.mojom.IsPaymentImplementedResultSpec = { $: mojo.internal.Union(
     'chromeos.payments.mojom.IsPaymentImplementedResult', {
       'valid': {
         'ordinal': 0,
@@ -25,7 +25,7 @@ chromeos.payments.payments.mojom.mojom.IsPaymentImplementedResultSpec = { $: moj
 };
 
 // Union: IsReadyToPayResult
-chromeos.payments.payments.mojom.mojom.IsReadyToPayResultSpec = { $: mojo.internal.Union(
+chromeos.payments.mojom.IsReadyToPayResultSpec = { $: mojo.internal.Union(
     'chromeos.payments.mojom.IsReadyToPayResult', {
       'response': {
         'ordinal': 0,
@@ -39,7 +39,7 @@ chromeos.payments.payments.mojom.mojom.IsReadyToPayResultSpec = { $: mojo.intern
 };
 
 // Union: InvokePaymentAppResult
-chromeos.payments.payments.mojom.mojom.InvokePaymentAppResultSpec = { $: mojo.internal.Union(
+chromeos.payments.mojom.InvokePaymentAppResultSpec = { $: mojo.internal.Union(
     'chromeos.payments.mojom.InvokePaymentAppResult', {
       'valid': {
         'ordinal': 0,
@@ -53,7 +53,7 @@ chromeos.payments.payments.mojom.mojom.InvokePaymentAppResultSpec = { $: mojo.in
 };
 
 // Struct: IsPaymentImplementedValidResult
-chromeos.payments.payments.mojom.mojom.IsPaymentImplementedValidResultSpec = {
+chromeos.payments.mojom.IsPaymentImplementedValidResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.payments.mojom.IsPaymentImplementedValidResult',
@@ -68,7 +68,7 @@ chromeos.payments.payments.mojom.mojom.IsPaymentImplementedValidResultSpec = {
 };
 
 // Struct: PaymentParameters
-chromeos.payments.payments.mojom.mojom.PaymentParametersSpec = {
+chromeos.payments.mojom.PaymentParametersSpec = {
   $: {
     structSpec: {
       name: 'chromeos.payments.mojom.PaymentParameters',
@@ -89,7 +89,7 @@ chromeos.payments.payments.mojom.mojom.PaymentParametersSpec = {
 };
 
 // Struct: InvokePaymentAppValidResult
-chromeos.payments.payments.mojom.mojom.InvokePaymentAppValidResultSpec = {
+chromeos.payments.mojom.InvokePaymentAppValidResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.payments.mojom.InvokePaymentAppValidResult',

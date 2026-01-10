@@ -12,24 +12,39 @@ var url = url || {};
 
 
 // Interface: InstalledAppProvider
-blink.mojom.mojom.InstalledAppProvider = {};
+blink.mojom.InstalledAppProvider = {};
 
-blink.mojom.mojom.InstalledAppProviderPendingReceiver = class {
+blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InstalledAppProvider_FilterInstalledApps_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'related_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), nullable: false, minVersion: 0 },
+        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'add_saved_related_applications', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.InstalledAppProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.InstalledAppProviderRemote = class {
+blink.mojom.InstalledAppProviderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.InstalledAppProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.InstalledAppProviderPendingReceiver,
+      blink.mojom.InstalledAppProviderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.InstalledAppProviderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.InstalledAppProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +56,7 @@ blink.mojom.mojom.InstalledAppProviderRemote = class {
   }
 };
 
-blink.mojom.mojom.InstalledAppProviderRemoteCallHandler = class {
+blink.mojom.InstalledAppProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,15 +65,15 @@ blink.mojom.mojom.InstalledAppProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec,
-      blink.mojom.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec,
+      blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec,
+      blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec,
       [related_apps, manifest_url, add_saved_related_applications]);
   }
 
 };
 
-blink.mojom.mojom.InstalledAppProvider.getRemote = function() {
-  let remote = new blink.mojom.mojom.InstalledAppProviderRemote();
+blink.mojom.InstalledAppProvider.getRemote = function() {
+  let remote = new blink.mojom.InstalledAppProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -68,7 +83,7 @@ blink.mojom.mojom.InstalledAppProvider.getRemote = function() {
 };
 
 // ParamsSpec for FilterInstalledApps
-blink.mojom.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
+blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InstalledAppProvider.FilterInstalledApps_Params',
@@ -83,7 +98,7 @@ blink.mojom.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
+blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InstalledAppProvider.FilterInstalledApps_ResponseParams',
@@ -97,6 +112,6 @@ blink.mojom.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.InstalledAppProviderPtr = blink.mojom.mojom.InstalledAppProviderRemote;
-blink.mojom.mojom.InstalledAppProviderRequest = blink.mojom.mojom.InstalledAppProviderPendingReceiver;
+blink.mojom.InstalledAppProviderPtr = blink.mojom.InstalledAppProviderRemote;
+blink.mojom.InstalledAppProviderRequest = blink.mojom.InstalledAppProviderPendingReceiver;
 

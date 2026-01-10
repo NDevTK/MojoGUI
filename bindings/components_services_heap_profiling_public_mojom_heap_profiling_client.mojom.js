@@ -10,21 +10,21 @@ heap_profiling.mojom = heap_profiling.mojom || {};
 
 
 // Enum: StackMode
-heap_profiling.mojom.mojom.StackMode = {
+heap_profiling.mojom.StackMode = {
   NATIVE_WITH_THREAD_NAMES: 0,
   NATIVE_WITHOUT_THREAD_NAMES: 1,
 };
-heap_profiling.mojom.mojom.StackModeSpec = { $: mojo.internal.Enum() };
+heap_profiling.mojom.StackModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AllocatorType
-heap_profiling.mojom.mojom.AllocatorType = {
+heap_profiling.mojom.AllocatorType = {
   kMalloc: 0,
   kPartitionAlloc: 1,
 };
-heap_profiling.mojom.mojom.AllocatorTypeSpec = { $: mojo.internal.Enum() };
+heap_profiling.mojom.AllocatorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfilingParams
-heap_profiling.mojom.mojom.ProfilingParamsSpec = {
+heap_profiling.mojom.ProfilingParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingParams',
@@ -39,7 +39,7 @@ heap_profiling.mojom.mojom.ProfilingParamsSpec = {
 };
 
 // Struct: HeapProfileSample
-heap_profiling.mojom.mojom.HeapProfileSampleSpec = {
+heap_profiling.mojom.HeapProfileSampleSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.HeapProfileSample',
@@ -57,7 +57,7 @@ heap_profiling.mojom.mojom.HeapProfileSampleSpec = {
 };
 
 // Struct: HeapProfile
-heap_profiling.mojom.mojom.HeapProfileSpec = {
+heap_profiling.mojom.HeapProfileSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.HeapProfile',
@@ -72,24 +72,49 @@ heap_profiling.mojom.mojom.HeapProfileSpec = {
 };
 
 // Interface: ProfilingClient
-heap_profiling.mojom.mojom.ProfilingClient = {};
+heap_profiling.mojom.ProfilingClient = {};
 
-heap_profiling.mojom.mojom.ProfilingClientPendingReceiver = class {
+heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'heap_profiling.mojom.ProfilingClient_StartProfiling_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+heap_profiling.mojom.ProfilingClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-heap_profiling.mojom.mojom.ProfilingClientRemote = class {
+heap_profiling.mojom.ProfilingClientRemote = class {
   static get $interfaceName() {
     return 'heap_profiling.mojom.ProfilingClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      heap_profiling.mojom.mojom.ProfilingClientPendingReceiver,
+      heap_profiling.mojom.ProfilingClientPendingReceiver,
       handle);
-    this.$ = new heap_profiling.mojom.mojom.ProfilingClientRemoteCallHandler(this.proxy);
+    this.$ = new heap_profiling.mojom.ProfilingClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -101,7 +126,7 @@ heap_profiling.mojom.mojom.ProfilingClientRemote = class {
   }
 };
 
-heap_profiling.mojom.mojom.ProfilingClientRemoteCallHandler = class {
+heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -110,7 +135,7 @@ heap_profiling.mojom.mojom.ProfilingClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      heap_profiling.mojom.mojom.ProfilingClient_StartProfiling_ParamsSpec,
+      heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec,
       null,
       [params]);
   }
@@ -119,15 +144,15 @@ heap_profiling.mojom.mojom.ProfilingClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      heap_profiling.mojom.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
-      heap_profiling.mojom.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
+      heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
+      heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
       []);
   }
 
 };
 
-heap_profiling.mojom.mojom.ProfilingClient.getRemote = function() {
-  let remote = new heap_profiling.mojom.mojom.ProfilingClientRemote();
+heap_profiling.mojom.ProfilingClient.getRemote = function() {
+  let remote = new heap_profiling.mojom.ProfilingClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -137,7 +162,7 @@ heap_profiling.mojom.mojom.ProfilingClient.getRemote = function() {
 };
 
 // ParamsSpec for StartProfiling
-heap_profiling.mojom.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
+heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingClient.StartProfiling_Params',
@@ -151,7 +176,7 @@ heap_profiling.mojom.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
 };
 
 // ParamsSpec for RetrieveHeapProfile
-heap_profiling.mojom.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
+heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingClient.RetrieveHeapProfile_Params',
@@ -163,7 +188,7 @@ heap_profiling.mojom.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
   }
 };
 
-heap_profiling.mojom.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
+heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingClient.RetrieveHeapProfile_ResponseParams',
@@ -177,6 +202,6 @@ heap_profiling.mojom.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpe
 };
 
 // Legacy compatibility
-heap_profiling.mojom.mojom.ProfilingClientPtr = heap_profiling.mojom.mojom.ProfilingClientRemote;
-heap_profiling.mojom.mojom.ProfilingClientRequest = heap_profiling.mojom.mojom.ProfilingClientPendingReceiver;
+heap_profiling.mojom.ProfilingClientPtr = heap_profiling.mojom.ProfilingClientRemote;
+heap_profiling.mojom.ProfilingClientRequest = heap_profiling.mojom.ProfilingClientPendingReceiver;
 

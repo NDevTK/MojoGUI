@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: LatencyComponentType
-ui.mojom.mojom.LatencyComponentType = {
+ui.mojom.LatencyComponentType = {
   INPUT_EVENT_LATENCY_BEGIN_RWH_COMPONENT: 0,
   INPUT_EVENT_LATENCY_SCROLL_UPDATE_ORIGINAL_COMPONENT: 1,
   INPUT_EVENT_LATENCY_FIRST_SCROLL_UPDATE_ORIGINAL_COMPONENT: 2,
@@ -24,10 +24,10 @@ ui.mojom.mojom.LatencyComponentType = {
   INPUT_EVENT_GPU_SWAP_BUFFER_COMPONENT: 10,
   INPUT_EVENT_LATENCY_FRAME_SWAP_COMPONENT: 11,
 };
-ui.mojom.mojom.LatencyComponentTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.LatencyComponentTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LatencyInfo
-ui.mojom.mojom.LatencyInfoSpec = {
+ui.mojom.LatencyInfoSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.LatencyInfo',

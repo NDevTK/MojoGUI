@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: Version
-mojo_base.mojom.mojom.VersionSpec = {
+mojo_base.mojom.VersionSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Version',

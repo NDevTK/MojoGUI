@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: DirectTCPSocketOptions
-blink.mojom.mojom.DirectTCPSocketOptionsSpec = {
+blink.mojom.DirectTCPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectTCPSocketOptions',
@@ -31,7 +31,7 @@ blink.mojom.mojom.DirectTCPSocketOptionsSpec = {
 };
 
 // Struct: DirectConnectedUDPSocketOptions
-blink.mojom.mojom.DirectConnectedUDPSocketOptionsSpec = {
+blink.mojom.DirectConnectedUDPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectConnectedUDPSocketOptions',
@@ -54,7 +54,7 @@ blink.mojom.mojom.DirectConnectedUDPSocketOptionsSpec = {
 };
 
 // Struct: DirectBoundUDPSocketOptions
-blink.mojom.mojom.DirectBoundUDPSocketOptionsSpec = {
+blink.mojom.DirectBoundUDPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectBoundUDPSocketOptions',
@@ -80,7 +80,7 @@ blink.mojom.mojom.DirectBoundUDPSocketOptionsSpec = {
 };
 
 // Struct: DirectTCPServerSocketOptions
-blink.mojom.mojom.DirectTCPServerSocketOptionsSpec = {
+blink.mojom.DirectTCPServerSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectTCPServerSocketOptions',
@@ -98,24 +98,83 @@ blink.mojom.mojom.DirectTCPServerSocketOptionsSpec = {
 };
 
 // Interface: DirectSocketsService
-blink.mojom.mojom.DirectSocketsService = {};
+blink.mojom.DirectSocketsService = {};
 
-blink.mojom.mojom.DirectSocketsServicePendingReceiver = class {
+blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService_OpenTCPSocket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DirectTCPSocketOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPConnectedSocketRemote), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SocketObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DirectConnectedUDPSocketOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.RestrictedUDPSocketRemote), nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.UDPSocketListenerRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService_OpenBoundUDPSocket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DirectBoundUDPSocketOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.RestrictedUDPSocketRemote), nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.UDPSocketListenerRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService_OpenTCPServerSocket_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DirectTCPServerSocketOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.DirectSocketsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DirectSocketsServiceRemote = class {
+blink.mojom.DirectSocketsServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DirectSocketsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DirectSocketsServicePendingReceiver,
+      blink.mojom.DirectSocketsServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DirectSocketsServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DirectSocketsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -127,7 +186,7 @@ blink.mojom.mojom.DirectSocketsServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.DirectSocketsServiceRemoteCallHandler = class {
+blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -136,8 +195,8 @@ blink.mojom.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec,
-      blink.mojom.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec,
+      blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec,
       [options, receiver, observer]);
   }
 
@@ -145,8 +204,8 @@ blink.mojom.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec,
-      blink.mojom.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec,
+      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec,
       [options, receiver, listener]);
   }
 
@@ -154,8 +213,8 @@ blink.mojom.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec,
-      blink.mojom.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec,
+      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec,
       [options, receiver, listener]);
   }
 
@@ -163,15 +222,15 @@ blink.mojom.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec,
-      blink.mojom.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec,
+      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec,
       [options, receiver]);
   }
 
 };
 
-blink.mojom.mojom.DirectSocketsService.getRemote = function() {
-  let remote = new blink.mojom.mojom.DirectSocketsServiceRemote();
+blink.mojom.DirectSocketsService.getRemote = function() {
+  let remote = new blink.mojom.DirectSocketsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -181,7 +240,7 @@ blink.mojom.mojom.DirectSocketsService.getRemote = function() {
 };
 
 // ParamsSpec for OpenTCPSocket
-blink.mojom.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
+blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenTCPSocket_Params',
@@ -196,7 +255,7 @@ blink.mojom.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
+blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenTCPSocket_ResponseParams',
@@ -214,7 +273,7 @@ blink.mojom.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenConnectedUDPSocket
-blink.mojom.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
+blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenConnectedUDPSocket_Params',
@@ -229,7 +288,7 @@ blink.mojom.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = {
+blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenConnectedUDPSocket_ResponseParams',
@@ -245,7 +304,7 @@ blink.mojom.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec
 };
 
 // ParamsSpec for OpenBoundUDPSocket
-blink.mojom.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
+blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenBoundUDPSocket_Params',
@@ -260,7 +319,7 @@ blink.mojom.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
+blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenBoundUDPSocket_ResponseParams',
@@ -275,7 +334,7 @@ blink.mojom.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenTCPServerSocket
-blink.mojom.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
+blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenTCPServerSocket_Params',
@@ -289,7 +348,7 @@ blink.mojom.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = {
+blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectSocketsService.OpenTCPServerSocket_ResponseParams',
@@ -304,6 +363,6 @@ blink.mojom.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DirectSocketsServicePtr = blink.mojom.mojom.DirectSocketsServiceRemote;
-blink.mojom.mojom.DirectSocketsServiceRequest = blink.mojom.mojom.DirectSocketsServicePendingReceiver;
+blink.mojom.DirectSocketsServicePtr = blink.mojom.DirectSocketsServiceRemote;
+blink.mojom.DirectSocketsServiceRequest = blink.mojom.DirectSocketsServicePendingReceiver;
 

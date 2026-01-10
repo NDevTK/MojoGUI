@@ -10,11 +10,11 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: Channel
-extensions.mojom.mojom.Channel = {
+extensions.mojom.Channel = {
   kUnknown: 0,
   kCanary: 1,
   kDev: 2,
   kBeta: 3,
   kStable: 4,
 };
-extensions.mojom.mojom.ChannelSpec = { $: mojo.internal.Enum() };
+extensions.mojom.ChannelSpec = { $: mojo.internal.Enum() };

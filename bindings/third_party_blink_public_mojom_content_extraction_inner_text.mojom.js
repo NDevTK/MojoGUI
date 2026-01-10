@@ -11,13 +11,13 @@ var blink = blink || {};
 
 
 // Enum: NodeLocationType
-blink.mojom.mojom.NodeLocationType = {
+blink.mojom.NodeLocationType = {
   kStart: 0,
 };
-blink.mojom.mojom.NodeLocationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.NodeLocationTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: InnerTextSegment
-blink.mojom.mojom.InnerTextSegmentSpec = { $: mojo.internal.Union(
+blink.mojom.InnerTextSegmentSpec = { $: mojo.internal.Union(
     'blink.mojom.InnerTextSegment', {
       'node_location': {
         'ordinal': 0,
@@ -35,7 +35,7 @@ blink.mojom.mojom.InnerTextSegmentSpec = { $: mojo.internal.Union(
 };
 
 // Struct: InnerTextFrame
-blink.mojom.mojom.InnerTextFrameSpec = {
+blink.mojom.InnerTextFrameSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerTextFrame',
@@ -50,7 +50,7 @@ blink.mojom.mojom.InnerTextFrameSpec = {
 };
 
 // Struct: InnerTextParams
-blink.mojom.mojom.InnerTextParamsSpec = {
+blink.mojom.InnerTextParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerTextParams',
@@ -72,24 +72,37 @@ blink.mojom.mojom.InnerTextParamsSpec = {
 };
 
 // Interface: InnerTextAgent
-blink.mojom.mojom.InnerTextAgent = {};
+blink.mojom.InnerTextAgent = {};
 
-blink.mojom.mojom.InnerTextAgentPendingReceiver = class {
+blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InnerTextAgent_GetInnerText_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InnerTextParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.InnerTextAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.InnerTextAgentRemote = class {
+blink.mojom.InnerTextAgentRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.InnerTextAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.InnerTextAgentPendingReceiver,
+      blink.mojom.InnerTextAgentPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.InnerTextAgentRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.InnerTextAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -101,7 +114,7 @@ blink.mojom.mojom.InnerTextAgentRemote = class {
   }
 };
 
-blink.mojom.mojom.InnerTextAgentRemoteCallHandler = class {
+blink.mojom.InnerTextAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -110,15 +123,15 @@ blink.mojom.mojom.InnerTextAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.InnerTextAgent_GetInnerText_ParamsSpec,
-      blink.mojom.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
+      blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec,
+      blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
       [params]);
   }
 
 };
 
-blink.mojom.mojom.InnerTextAgent.getRemote = function() {
-  let remote = new blink.mojom.mojom.InnerTextAgentRemote();
+blink.mojom.InnerTextAgent.getRemote = function() {
+  let remote = new blink.mojom.InnerTextAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -128,7 +141,7 @@ blink.mojom.mojom.InnerTextAgent.getRemote = function() {
 };
 
 // ParamsSpec for GetInnerText
-blink.mojom.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
+blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerTextAgent.GetInnerText_Params',
@@ -141,7 +154,7 @@ blink.mojom.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
+blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerTextAgent.GetInnerText_ResponseParams',
@@ -155,6 +168,6 @@ blink.mojom.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.InnerTextAgentPtr = blink.mojom.mojom.InnerTextAgentRemote;
-blink.mojom.mojom.InnerTextAgentRequest = blink.mojom.mojom.InnerTextAgentPendingReceiver;
+blink.mojom.InnerTextAgentPtr = blink.mojom.InnerTextAgentRemote;
+blink.mojom.InnerTextAgentRequest = blink.mojom.InnerTextAgentPendingReceiver;
 

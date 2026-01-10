@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Struct: StorageKey
-blink.mojom.mojom.StorageKeySpec = {
+blink.mojom.StorageKeySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageKey',

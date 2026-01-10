@@ -11,15 +11,15 @@ var url = url || {};
 
 
 // Enum: Type
-network.mojom.mojom.Type = {
+network.mojom.Type = {
   kUninitialized: 0,
   kView: 1,
   kClick: 2,
 };
-network.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdAuctionEventRecord
-network.mojom.mojom.AdAuctionEventRecordSpec = {
+network.mojom.AdAuctionEventRecordSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AdAuctionEventRecord',

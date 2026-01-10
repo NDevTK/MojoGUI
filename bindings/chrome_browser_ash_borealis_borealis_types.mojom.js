@@ -10,7 +10,7 @@ borealis.mojom = borealis.mojom || {};
 
 
 // Enum: InstallResult
-borealis.mojom.mojom.InstallResult = {
+borealis.mojom.InstallResult = {
   kSuccess: 0,
   kCancelled: 1,
   kBorealisNotAllowed: 2,
@@ -26,4 +26,4 @@ borealis.mojom.mojom.InstallResult = {
   kStartupFailed: 12,
   kMainAppNotPresent: 13,
 };
-borealis.mojom.mojom.InstallResultSpec = { $: mojo.internal.Enum() };
+borealis.mojom.InstallResultSpec = { $: mojo.internal.Enum() };

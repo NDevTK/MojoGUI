@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Union: EventListenerOwner
-extensions.mojom.mojom.EventListenerOwnerSpec = { $: mojo.internal.Union(
+extensions.mojom.EventListenerOwnerSpec = { $: mojo.internal.Union(
     'extensions.mojom.EventListenerOwner', {
       'extension_id': {
         'ordinal': 0,
@@ -25,7 +25,7 @@ extensions.mojom.mojom.EventListenerOwnerSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ServiceWorkerContext
-extensions.mojom.mojom.ServiceWorkerContextSpec = {
+extensions.mojom.ServiceWorkerContextSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerContext',
@@ -41,7 +41,7 @@ extensions.mojom.mojom.ServiceWorkerContextSpec = {
 };
 
 // Struct: EventListener
-extensions.mojom.mojom.EventListenerSpec = {
+extensions.mojom.EventListenerSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventListener',
@@ -58,24 +58,200 @@ extensions.mojom.mojom.EventListenerSpec = {
 };
 
 // Interface: EventRouter
-extensions.mojom.mojom.EventRouter = {};
+extensions.mojom.EventRouter = {};
 
-extensions.mojom.mojom.EventRouterPendingReceiver = class {
+extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_AddListenerForMainThread_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_AddListenerForServiceWorker_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_AddLazyListenerForMainThread_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_AddFilteredListenerForMainThread_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'listener_owner', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerOwnerSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'add_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ServiceWorkerContextSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'add_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_RemoveListenerForMainThread_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_RemoveListenerForServiceWorker_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'listener_owner', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerOwnerSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'remove_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ServiceWorkerContextSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'remove_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+extensions.mojom.EventRouterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.EventRouterRemote = class {
+extensions.mojom.EventRouterRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.EventRouter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.EventRouterPendingReceiver,
+      extensions.mojom.EventRouterPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.EventRouterRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.EventRouterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -87,7 +263,7 @@ extensions.mojom.mojom.EventRouterRemote = class {
   }
 };
 
-extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
+extensions.mojom.EventRouterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -96,7 +272,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.EventRouter_AddListenerForMainThread_ParamsSpec,
+      extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -105,7 +281,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec,
+      extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -114,7 +290,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec,
+      extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec,
       null,
       [extension_id, event_name]);
   }
@@ -123,7 +299,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec,
+      extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, worker_scope_url, event_name]);
   }
@@ -132,7 +308,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec,
+      extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec,
       null,
       [listener_owner, event_name, filter, add_lazy_listener]);
   }
@@ -141,7 +317,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec,
+      extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, event_name, service_worker_context, filter, add_lazy_listener]);
   }
@@ -150,7 +326,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec,
+      extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -159,7 +335,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec,
+      extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -168,7 +344,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec,
+      extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec,
       null,
       [extension_id, event_name]);
   }
@@ -177,7 +353,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec,
+      extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, worker_scope_url, event_name]);
   }
@@ -186,7 +362,7 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      extensions.mojom.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec,
+      extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec,
       null,
       [listener_owner, event_name, filter, remove_lazy_listener]);
   }
@@ -195,15 +371,15 @@ extensions.mojom.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      extensions.mojom.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec,
+      extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, event_name, service_worker_context, filter, remove_lazy_listener]);
   }
 
 };
 
-extensions.mojom.mojom.EventRouter.getRemote = function() {
-  let remote = new extensions.mojom.mojom.EventRouterRemote();
+extensions.mojom.EventRouter.getRemote = function() {
+  let remote = new extensions.mojom.EventRouterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -213,7 +389,7 @@ extensions.mojom.mojom.EventRouter.getRemote = function() {
 };
 
 // ParamsSpec for AddListenerForMainThread
-extensions.mojom.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
+extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.AddListenerForMainThread_Params',
@@ -227,7 +403,7 @@ extensions.mojom.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
 };
 
 // ParamsSpec for AddListenerForServiceWorker
-extensions.mojom.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
+extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.AddListenerForServiceWorker_Params',
@@ -241,7 +417,7 @@ extensions.mojom.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
 };
 
 // ParamsSpec for AddLazyListenerForMainThread
-extensions.mojom.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = {
+extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.AddLazyListenerForMainThread_Params',
@@ -256,7 +432,7 @@ extensions.mojom.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = {
 };
 
 // ParamsSpec for AddLazyListenerForServiceWorker
-extensions.mojom.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = {
+extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.AddLazyListenerForServiceWorker_Params',
@@ -272,7 +448,7 @@ extensions.mojom.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = 
 };
 
 // ParamsSpec for AddFilteredListenerForMainThread
-extensions.mojom.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = {
+extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.AddFilteredListenerForMainThread_Params',
@@ -289,7 +465,7 @@ extensions.mojom.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec =
 };
 
 // ParamsSpec for AddFilteredListenerForServiceWorker
-extensions.mojom.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = {
+extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.AddFilteredListenerForServiceWorker_Params',
@@ -307,7 +483,7 @@ extensions.mojom.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpe
 };
 
 // ParamsSpec for RemoveListenerForMainThread
-extensions.mojom.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
+extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.RemoveListenerForMainThread_Params',
@@ -321,7 +497,7 @@ extensions.mojom.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveListenerForServiceWorker
-extensions.mojom.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
+extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.RemoveListenerForServiceWorker_Params',
@@ -335,7 +511,7 @@ extensions.mojom.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveLazyListenerForMainThread
-extensions.mojom.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = {
+extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.RemoveLazyListenerForMainThread_Params',
@@ -350,7 +526,7 @@ extensions.mojom.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = 
 };
 
 // ParamsSpec for RemoveLazyListenerForServiceWorker
-extensions.mojom.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = {
+extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.RemoveLazyListenerForServiceWorker_Params',
@@ -366,7 +542,7 @@ extensions.mojom.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec
 };
 
 // ParamsSpec for RemoveFilteredListenerForMainThread
-extensions.mojom.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = {
+extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.RemoveFilteredListenerForMainThread_Params',
@@ -383,7 +559,7 @@ extensions.mojom.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpe
 };
 
 // ParamsSpec for RemoveFilteredListenerForServiceWorker
-extensions.mojom.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec = {
+extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventRouter.RemoveFilteredListenerForServiceWorker_Params',
@@ -401,6 +577,6 @@ extensions.mojom.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_Params
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.EventRouterPtr = extensions.mojom.mojom.EventRouterRemote;
-extensions.mojom.mojom.EventRouterRequest = extensions.mojom.mojom.EventRouterPendingReceiver;
+extensions.mojom.EventRouterPtr = extensions.mojom.EventRouterRemote;
+extensions.mojom.EventRouterRequest = extensions.mojom.EventRouterPendingReceiver;
 

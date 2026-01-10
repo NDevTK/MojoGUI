@@ -7,11 +7,11 @@
 // Module namespace
 var media = media || {};
 media.stable = media.stable || {};
-media.stable.stable.mojom = media.stable.stable.mojom || {};
+media.stable.mojom = media.stable.mojom || {};
 
 
 // Struct: NativePixmapPlane
-media.stable.stable.mojom.mojom.NativePixmapPlaneSpec = {
+media.stable.mojom.NativePixmapPlaneSpec = {
   $: {
     structSpec: {
       name: 'media.stable.mojom.NativePixmapPlane',
@@ -28,7 +28,7 @@ media.stable.stable.mojom.mojom.NativePixmapPlaneSpec = {
 };
 
 // Struct: NativePixmapHandle
-media.stable.stable.mojom.mojom.NativePixmapHandleSpec = {
+media.stable.mojom.NativePixmapHandleSpec = {
   $: {
     structSpec: {
       name: 'media.stable.mojom.NativePixmapHandle',

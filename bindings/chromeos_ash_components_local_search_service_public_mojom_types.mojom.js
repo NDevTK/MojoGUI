@@ -7,20 +7,20 @@
 // Module namespace
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};
-ash.local_search_service.local_search_service.mojom = ash.local_search_service.local_search_service.mojom || {};
+ash.local_search_service.mojom = ash.local_search_service.mojom || {};
 
 
 // Enum: ResponseStatus
-ash.local_search_service.local_search_service.mojom.mojom.ResponseStatus = {
+ash.local_search_service.mojom.ResponseStatus = {
   kUnknownError: 0,
   kSuccess: 1,
   kEmptyQuery: 2,
   kEmptyIndex: 3,
 };
-ash.local_search_service.local_search_service.mojom.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
+ash.local_search_service.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: Content
-ash.local_search_service.local_search_service.mojom.mojom.ContentSpec = {
+ash.local_search_service.mojom.ContentSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Content',
@@ -36,7 +36,7 @@ ash.local_search_service.local_search_service.mojom.mojom.ContentSpec = {
 };
 
 // Struct: Data
-ash.local_search_service.local_search_service.mojom.mojom.DataSpec = {
+ash.local_search_service.mojom.DataSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Data',
@@ -52,7 +52,7 @@ ash.local_search_service.local_search_service.mojom.mojom.DataSpec = {
 };
 
 // Struct: SearchParams
-ash.local_search_service.local_search_service.mojom.mojom.SearchParamsSpec = {
+ash.local_search_service.mojom.SearchParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.SearchParams',
@@ -68,7 +68,7 @@ ash.local_search_service.local_search_service.mojom.mojom.SearchParamsSpec = {
 };
 
 // Struct: Position
-ash.local_search_service.local_search_service.mojom.mojom.PositionSpec = {
+ash.local_search_service.mojom.PositionSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Position',
@@ -84,7 +84,7 @@ ash.local_search_service.local_search_service.mojom.mojom.PositionSpec = {
 };
 
 // Struct: Result
-ash.local_search_service.local_search_service.mojom.mojom.ResultSpec = {
+ash.local_search_service.mojom.ResultSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Result',

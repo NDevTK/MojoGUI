@@ -10,7 +10,7 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Enum: LayoutKeyFunction
-remoting.mojom.mojom.LayoutKeyFunction = {
+remoting.mojom.LayoutKeyFunction = {
   kUnknown: 0,
   kControl: 1,
   kAlt: 2,
@@ -76,10 +76,10 @@ remoting.mojom.mojom.LayoutKeyFunction = {
   kCommand: 62,
   kSearch: 63,
 };
-remoting.mojom.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum() };
+remoting.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum() };
 
 // Union: KeyAction
-remoting.mojom.mojom.KeyActionSpec = { $: mojo.internal.Union(
+remoting.mojom.KeyActionSpec = { $: mojo.internal.Union(
     'remoting.mojom.KeyAction', {
       'function': {
         'ordinal': 0,
@@ -93,7 +93,7 @@ remoting.mojom.mojom.KeyActionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: KeyBehavior
-remoting.mojom.mojom.KeyBehaviorSpec = {
+remoting.mojom.KeyBehaviorSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.KeyBehavior',
@@ -107,7 +107,7 @@ remoting.mojom.mojom.KeyBehaviorSpec = {
 };
 
 // Struct: KeyboardLayout
-remoting.mojom.mojom.KeyboardLayoutSpec = {
+remoting.mojom.KeyboardLayoutSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.KeyboardLayout',

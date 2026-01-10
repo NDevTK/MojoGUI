@@ -10,7 +10,7 @@ legion.mojom = legion.mojom || {};
 
 
 // Struct: HandshakeMessage
-legion.mojom.mojom.HandshakeMessageSpec = {
+legion.mojom.HandshakeMessageSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.HandshakeMessage',
@@ -25,24 +25,75 @@ legion.mojom.mojom.HandshakeMessageSpec = {
 };
 
 // Interface: OakSession
-legion.mojom.mojom.OakSession = {};
+legion.mojom.OakSession = {};
 
-legion.mojom.mojom.OakSessionPendingReceiver = class {
+legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion.mojom.OakSession_InitiateHandshake_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion.mojom.OakSession_CompleteHandshake_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: legion.mojom.HandshakeMessageSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+legion.mojom.OakSession_Encrypt_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion.mojom.OakSession_Encrypt_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+legion.mojom.OakSession_Decrypt_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion.mojom.OakSession_Decrypt_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+legion.mojom.OakSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-legion.mojom.mojom.OakSessionRemote = class {
+legion.mojom.OakSessionRemote = class {
   static get $interfaceName() {
     return 'legion.mojom.OakSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      legion.mojom.mojom.OakSessionPendingReceiver,
+      legion.mojom.OakSessionPendingReceiver,
       handle);
-    this.$ = new legion.mojom.mojom.OakSessionRemoteCallHandler(this.proxy);
+    this.$ = new legion.mojom.OakSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +105,7 @@ legion.mojom.mojom.OakSessionRemote = class {
   }
 };
 
-legion.mojom.mojom.OakSessionRemoteCallHandler = class {
+legion.mojom.OakSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +114,8 @@ legion.mojom.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      legion.mojom.mojom.OakSession_InitiateHandshake_ParamsSpec,
-      legion.mojom.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
+      legion.mojom.OakSession_InitiateHandshake_ParamsSpec,
+      legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
       []);
   }
 
@@ -72,8 +123,8 @@ legion.mojom.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      legion.mojom.mojom.OakSession_CompleteHandshake_ParamsSpec,
-      legion.mojom.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
+      legion.mojom.OakSession_CompleteHandshake_ParamsSpec,
+      legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
       [response]);
   }
 
@@ -81,8 +132,8 @@ legion.mojom.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      legion.mojom.mojom.OakSession_Encrypt_ParamsSpec,
-      legion.mojom.mojom.OakSession_Encrypt_ResponseParamsSpec,
+      legion.mojom.OakSession_Encrypt_ParamsSpec,
+      legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
       [input]);
   }
 
@@ -90,15 +141,15 @@ legion.mojom.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      legion.mojom.mojom.OakSession_Decrypt_ParamsSpec,
-      legion.mojom.mojom.OakSession_Decrypt_ResponseParamsSpec,
+      legion.mojom.OakSession_Decrypt_ParamsSpec,
+      legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
       [input]);
   }
 
 };
 
-legion.mojom.mojom.OakSession.getRemote = function() {
-  let remote = new legion.mojom.mojom.OakSessionRemote();
+legion.mojom.OakSession.getRemote = function() {
+  let remote = new legion.mojom.OakSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -108,7 +159,7 @@ legion.mojom.mojom.OakSession.getRemote = function() {
 };
 
 // ParamsSpec for InitiateHandshake
-legion.mojom.mojom.OakSession_InitiateHandshake_ParamsSpec = {
+legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.InitiateHandshake_Params',
@@ -120,7 +171,7 @@ legion.mojom.mojom.OakSession_InitiateHandshake_ParamsSpec = {
   }
 };
 
-legion.mojom.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
+legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.InitiateHandshake_ResponseParams',
@@ -134,7 +185,7 @@ legion.mojom.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CompleteHandshake
-legion.mojom.mojom.OakSession_CompleteHandshake_ParamsSpec = {
+legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.CompleteHandshake_Params',
@@ -147,7 +198,7 @@ legion.mojom.mojom.OakSession_CompleteHandshake_ParamsSpec = {
   }
 };
 
-legion.mojom.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
+legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.CompleteHandshake_ResponseParams',
@@ -161,7 +212,7 @@ legion.mojom.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Encrypt
-legion.mojom.mojom.OakSession_Encrypt_ParamsSpec = {
+legion.mojom.OakSession_Encrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Encrypt_Params',
@@ -174,7 +225,7 @@ legion.mojom.mojom.OakSession_Encrypt_ParamsSpec = {
   }
 };
 
-legion.mojom.mojom.OakSession_Encrypt_ResponseParamsSpec = {
+legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Encrypt_ResponseParams',
@@ -188,7 +239,7 @@ legion.mojom.mojom.OakSession_Encrypt_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Decrypt
-legion.mojom.mojom.OakSession_Decrypt_ParamsSpec = {
+legion.mojom.OakSession_Decrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Decrypt_Params',
@@ -201,7 +252,7 @@ legion.mojom.mojom.OakSession_Decrypt_ParamsSpec = {
   }
 };
 
-legion.mojom.mojom.OakSession_Decrypt_ResponseParamsSpec = {
+legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Decrypt_ResponseParams',
@@ -215,6 +266,6 @@ legion.mojom.mojom.OakSession_Decrypt_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-legion.mojom.mojom.OakSessionPtr = legion.mojom.mojom.OakSessionRemote;
-legion.mojom.mojom.OakSessionRequest = legion.mojom.mojom.OakSessionPendingReceiver;
+legion.mojom.OakSessionPtr = legion.mojom.OakSessionRemote;
+legion.mojom.OakSessionRequest = legion.mojom.OakSessionPendingReceiver;
 

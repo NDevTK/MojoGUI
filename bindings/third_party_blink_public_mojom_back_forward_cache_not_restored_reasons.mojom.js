@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Struct: SameOriginBfcacheNotRestoredDetails
-blink.mojom.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
+blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SameOriginBfcacheNotRestoredDetails',
@@ -27,7 +27,7 @@ blink.mojom.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
 };
 
 // Struct: BFCacheBlockingDetailedReason
-blink.mojom.mojom.BFCacheBlockingDetailedReasonSpec = {
+blink.mojom.BFCacheBlockingDetailedReasonSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BFCacheBlockingDetailedReason',
@@ -42,7 +42,7 @@ blink.mojom.mojom.BFCacheBlockingDetailedReasonSpec = {
 };
 
 // Struct: BackForwardCacheNotRestoredReasons
-blink.mojom.mojom.BackForwardCacheNotRestoredReasonsSpec = {
+blink.mojom.BackForwardCacheNotRestoredReasonsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackForwardCacheNotRestoredReasons',

@@ -10,24 +10,36 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: AudioSocketBroker
-chromecast.mojom.mojom.AudioSocketBroker = {};
+chromecast.mojom.AudioSocketBroker = {};
 
-chromecast.mojom.mojom.AudioSocketBrokerPendingReceiver = class {
+chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromecast.mojom.AudioSocketBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.mojom.AudioSocketBrokerRemote = class {
+chromecast.mojom.AudioSocketBrokerRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.AudioSocketBroker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.mojom.AudioSocketBrokerPendingReceiver,
+      chromecast.mojom.AudioSocketBrokerPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.mojom.AudioSocketBrokerRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.AudioSocketBrokerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ chromecast.mojom.mojom.AudioSocketBrokerRemote = class {
   }
 };
 
-chromecast.mojom.mojom.AudioSocketBrokerRemoteCallHandler = class {
+chromecast.mojom.AudioSocketBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ chromecast.mojom.mojom.AudioSocketBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec,
-      chromecast.mojom.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec,
+      chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec,
+      chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec,
       []);
   }
 
 };
 
-chromecast.mojom.mojom.AudioSocketBroker.getRemote = function() {
-  let remote = new chromecast.mojom.mojom.AudioSocketBrokerRemote();
+chromecast.mojom.AudioSocketBroker.getRemote = function() {
+  let remote = new chromecast.mojom.AudioSocketBrokerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ chromecast.mojom.mojom.AudioSocketBroker.getRemote = function() {
 };
 
 // ParamsSpec for GetSocketDescriptor
-chromecast.mojom.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
+chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.AudioSocketBroker.GetSocketDescriptor_Params',
@@ -78,7 +90,7 @@ chromecast.mojom.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
   }
 };
 
-chromecast.mojom.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
+chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.AudioSocketBroker.GetSocketDescriptor_ResponseParams',
@@ -92,6 +104,6 @@ chromecast.mojom.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-chromecast.mojom.mojom.AudioSocketBrokerPtr = chromecast.mojom.mojom.AudioSocketBrokerRemote;
-chromecast.mojom.mojom.AudioSocketBrokerRequest = chromecast.mojom.mojom.AudioSocketBrokerPendingReceiver;
+chromecast.mojom.AudioSocketBrokerPtr = chromecast.mojom.AudioSocketBrokerRemote;
+chromecast.mojom.AudioSocketBrokerRequest = chromecast.mojom.AudioSocketBrokerPendingReceiver;
 

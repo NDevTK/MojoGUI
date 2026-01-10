@@ -9,12 +9,12 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-blink.mojom.mojom.kPerStorageAreaQuota = 10485760;
+blink.mojom.kPerStorageAreaQuota = 10485760;
 
-blink.mojom.mojom.kPerStorageAreaOverQuotaAllowance = 102400;
+blink.mojom.kPerStorageAreaOverQuotaAllowance = 102400;
 
 // Struct: KeyValue
-blink.mojom.mojom.KeyValueSpec = {
+blink.mojom.KeyValueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.KeyValue',
@@ -29,24 +29,96 @@ blink.mojom.mojom.KeyValueSpec = {
 };
 
 // Interface: StorageAreaObserver
-blink.mojom.mojom.StorageAreaObserver = {};
+blink.mojom.StorageAreaObserver = {};
 
-blink.mojom.mojom.StorageAreaObserverPendingReceiver = class {
+blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageAreaObserver_KeyChanged_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'new_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageAreaObserver_KeyChangeFailed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageAreaObserver_KeyDeleted_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageAreaObserver_AllDeleted_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'was_nonempty', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.StorageAreaObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.StorageAreaObserverRemote = class {
+blink.mojom.StorageAreaObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.StorageAreaObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.StorageAreaObserverPendingReceiver,
+      blink.mojom.StorageAreaObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.StorageAreaObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.StorageAreaObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +130,7 @@ blink.mojom.mojom.StorageAreaObserverRemote = class {
   }
 };
 
-blink.mojom.mojom.StorageAreaObserverRemoteCallHandler = class {
+blink.mojom.StorageAreaObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,7 +139,7 @@ blink.mojom.mojom.StorageAreaObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.StorageAreaObserver_KeyChanged_ParamsSpec,
+      blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec,
       null,
       [key, new_value, old_value, source]);
   }
@@ -76,7 +148,7 @@ blink.mojom.mojom.StorageAreaObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec,
+      blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec,
       null,
       [key, source]);
   }
@@ -85,7 +157,7 @@ blink.mojom.mojom.StorageAreaObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec,
+      blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec,
       null,
       [key, old_value, source]);
   }
@@ -94,7 +166,7 @@ blink.mojom.mojom.StorageAreaObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.StorageAreaObserver_AllDeleted_ParamsSpec,
+      blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec,
       null,
       [was_nonempty, source]);
   }
@@ -103,15 +175,15 @@ blink.mojom.mojom.StorageAreaObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec,
+      blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec,
       null,
       [value]);
   }
 
 };
 
-blink.mojom.mojom.StorageAreaObserver.getRemote = function() {
-  let remote = new blink.mojom.mojom.StorageAreaObserverRemote();
+blink.mojom.StorageAreaObserver.getRemote = function() {
+  let remote = new blink.mojom.StorageAreaObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -121,7 +193,7 @@ blink.mojom.mojom.StorageAreaObserver.getRemote = function() {
 };
 
 // ParamsSpec for KeyChanged
-blink.mojom.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
+blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageAreaObserver.KeyChanged_Params',
@@ -138,7 +210,7 @@ blink.mojom.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
 };
 
 // ParamsSpec for KeyChangeFailed
-blink.mojom.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
+blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageAreaObserver.KeyChangeFailed_Params',
@@ -153,7 +225,7 @@ blink.mojom.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
 };
 
 // ParamsSpec for KeyDeleted
-blink.mojom.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
+blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageAreaObserver.KeyDeleted_Params',
@@ -169,7 +241,7 @@ blink.mojom.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
 };
 
 // ParamsSpec for AllDeleted
-blink.mojom.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
+blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageAreaObserver.AllDeleted_Params',
@@ -184,7 +256,7 @@ blink.mojom.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
 };
 
 // ParamsSpec for ShouldSendOldValueOnMutations
-blink.mojom.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
+blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageAreaObserver.ShouldSendOldValueOnMutations_Params',
@@ -198,29 +270,113 @@ blink.mojom.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec =
 };
 
 // Legacy compatibility
-blink.mojom.mojom.StorageAreaObserverPtr = blink.mojom.mojom.StorageAreaObserverRemote;
-blink.mojom.mojom.StorageAreaObserverRequest = blink.mojom.mojom.StorageAreaObserverPendingReceiver;
+blink.mojom.StorageAreaObserverPtr = blink.mojom.StorageAreaObserverRemote;
+blink.mojom.StorageAreaObserverRequest = blink.mojom.StorageAreaObserverPendingReceiver;
 
 
 // Interface: StorageArea
-blink.mojom.mojom.StorageArea = {};
+blink.mojom.StorageArea = {};
 
-blink.mojom.mojom.StorageAreaPendingReceiver = class {
+blink.mojom.StorageArea_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageArea_AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.StorageArea_Put_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageArea_Put_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'client_old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.StorageArea_Delete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageArea_Delete_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'client_old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageArea_DeleteAll_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'new_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.StorageArea_Get_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageArea_Get_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.StorageArea_GetAll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StorageArea_GetAll_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.StorageAreaPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.StorageAreaRemote = class {
+blink.mojom.StorageAreaRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.StorageArea';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.StorageAreaPendingReceiver,
+      blink.mojom.StorageAreaPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.StorageAreaRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.StorageAreaRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -232,7 +388,7 @@ blink.mojom.mojom.StorageAreaRemote = class {
   }
 };
 
-blink.mojom.mojom.StorageAreaRemoteCallHandler = class {
+blink.mojom.StorageAreaRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -241,7 +397,7 @@ blink.mojom.mojom.StorageAreaRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.StorageArea_AddObserver_ParamsSpec,
+      blink.mojom.StorageArea_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -250,8 +406,8 @@ blink.mojom.mojom.StorageAreaRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.StorageArea_Put_ParamsSpec,
-      blink.mojom.mojom.StorageArea_Put_ResponseParamsSpec,
+      blink.mojom.StorageArea_Put_ParamsSpec,
+      blink.mojom.StorageArea_Put_ResponseParamsSpec,
       [key, value, client_old_value, source]);
   }
 
@@ -259,8 +415,8 @@ blink.mojom.mojom.StorageAreaRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.StorageArea_Delete_ParamsSpec,
-      blink.mojom.mojom.StorageArea_Delete_ResponseParamsSpec,
+      blink.mojom.StorageArea_Delete_ParamsSpec,
+      blink.mojom.StorageArea_Delete_ResponseParamsSpec,
       [key, client_old_value, source]);
   }
 
@@ -268,8 +424,8 @@ blink.mojom.mojom.StorageAreaRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.StorageArea_DeleteAll_ParamsSpec,
-      blink.mojom.mojom.StorageArea_DeleteAll_ResponseParamsSpec,
+      blink.mojom.StorageArea_DeleteAll_ParamsSpec,
+      blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec,
       [source, new_observer]);
   }
 
@@ -277,8 +433,8 @@ blink.mojom.mojom.StorageAreaRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.StorageArea_Get_ParamsSpec,
-      blink.mojom.mojom.StorageArea_Get_ResponseParamsSpec,
+      blink.mojom.StorageArea_Get_ParamsSpec,
+      blink.mojom.StorageArea_Get_ResponseParamsSpec,
       [key]);
   }
 
@@ -286,15 +442,15 @@ blink.mojom.mojom.StorageAreaRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.StorageArea_GetAll_ParamsSpec,
-      blink.mojom.mojom.StorageArea_GetAll_ResponseParamsSpec,
+      blink.mojom.StorageArea_GetAll_ParamsSpec,
+      blink.mojom.StorageArea_GetAll_ResponseParamsSpec,
       [new_observer]);
   }
 
 };
 
-blink.mojom.mojom.StorageArea.getRemote = function() {
-  let remote = new blink.mojom.mojom.StorageAreaRemote();
+blink.mojom.StorageArea.getRemote = function() {
+  let remote = new blink.mojom.StorageAreaRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -304,7 +460,7 @@ blink.mojom.mojom.StorageArea.getRemote = function() {
 };
 
 // ParamsSpec for AddObserver
-blink.mojom.mojom.StorageArea_AddObserver_ParamsSpec = {
+blink.mojom.StorageArea_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.AddObserver_Params',
@@ -318,7 +474,7 @@ blink.mojom.mojom.StorageArea_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for Put
-blink.mojom.mojom.StorageArea_Put_ParamsSpec = {
+blink.mojom.StorageArea_Put_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.Put_Params',
@@ -334,7 +490,7 @@ blink.mojom.mojom.StorageArea_Put_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.StorageArea_Put_ResponseParamsSpec = {
+blink.mojom.StorageArea_Put_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.Put_ResponseParams',
@@ -348,7 +504,7 @@ blink.mojom.mojom.StorageArea_Put_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Delete
-blink.mojom.mojom.StorageArea_Delete_ParamsSpec = {
+blink.mojom.StorageArea_Delete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.Delete_Params',
@@ -363,7 +519,7 @@ blink.mojom.mojom.StorageArea_Delete_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.StorageArea_Delete_ResponseParamsSpec = {
+blink.mojom.StorageArea_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.Delete_ResponseParams',
@@ -377,7 +533,7 @@ blink.mojom.mojom.StorageArea_Delete_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteAll
-blink.mojom.mojom.StorageArea_DeleteAll_ParamsSpec = {
+blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.DeleteAll_Params',
@@ -391,7 +547,7 @@ blink.mojom.mojom.StorageArea_DeleteAll_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
+blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.DeleteAll_ResponseParams',
@@ -405,7 +561,7 @@ blink.mojom.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Get
-blink.mojom.mojom.StorageArea_Get_ParamsSpec = {
+blink.mojom.StorageArea_Get_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.Get_Params',
@@ -418,7 +574,7 @@ blink.mojom.mojom.StorageArea_Get_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.StorageArea_Get_ResponseParamsSpec = {
+blink.mojom.StorageArea_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.Get_ResponseParams',
@@ -433,7 +589,7 @@ blink.mojom.mojom.StorageArea_Get_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAll
-blink.mojom.mojom.StorageArea_GetAll_ParamsSpec = {
+blink.mojom.StorageArea_GetAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.GetAll_Params',
@@ -446,7 +602,7 @@ blink.mojom.mojom.StorageArea_GetAll_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.StorageArea_GetAll_ResponseParamsSpec = {
+blink.mojom.StorageArea_GetAll_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageArea.GetAll_ResponseParams',
@@ -460,6 +616,6 @@ blink.mojom.mojom.StorageArea_GetAll_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.StorageAreaPtr = blink.mojom.mojom.StorageAreaRemote;
-blink.mojom.mojom.StorageAreaRequest = blink.mojom.mojom.StorageAreaPendingReceiver;
+blink.mojom.StorageAreaPtr = blink.mojom.StorageAreaRemote;
+blink.mojom.StorageAreaRequest = blink.mojom.StorageAreaPendingReceiver;
 

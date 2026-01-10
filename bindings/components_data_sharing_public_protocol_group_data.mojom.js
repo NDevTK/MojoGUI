@@ -11,17 +11,17 @@ var url = url || {};
 
 
 // Enum: MemberRole
-data_sharing.mojom.mojom.MemberRole = {
+data_sharing.mojom.MemberRole = {
   kUnspecified: 0,
   kOwner: 1,
   kMember: 2,
   kInvitee: 3,
   kFormerMember: 4,
 };
-data_sharing.mojom.mojom.MemberRoleSpec = { $: mojo.internal.Enum() };
+data_sharing.mojom.MemberRoleSpec = { $: mojo.internal.Enum() };
 
 // Struct: GroupMember
-data_sharing.mojom.mojom.GroupMemberSpec = {
+data_sharing.mojom.GroupMemberSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.GroupMember',
@@ -42,7 +42,7 @@ data_sharing.mojom.mojom.GroupMemberSpec = {
 };
 
 // Struct: GroupData
-data_sharing.mojom.mojom.GroupDataSpec = {
+data_sharing.mojom.GroupDataSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.GroupData',

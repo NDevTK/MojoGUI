@@ -11,7 +11,7 @@ var ui = ui || {};
 
 
 // Struct: AccessToken
-new_tab_page.mojom.mojom.AccessTokenSpec = {
+new_tab_page.mojom.AccessTokenSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.AccessToken',
@@ -26,24 +26,51 @@ new_tab_page.mojom.mojom.AccessTokenSpec = {
 };
 
 // Interface: MicrosoftAuthUntrustedDocumentInterfacesFactory
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = {};
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = {};
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver = class {
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'child_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote = class {
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote = class {
   static get $interfaceName() {
     return 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver,
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver,
       handle);
-    this.$ = new new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHandler(this.proxy);
+    this.$ = new new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +82,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote =
   }
 };
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHandler = class {
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,7 +91,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec,
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec,
       null,
       [child_document]);
   }
@@ -73,15 +100,15 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCa
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec,
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler, document]);
   }
 
 };
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.getRemote = function() {
-  let remote = new new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote();
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.getRemote = function() {
+  let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -91,7 +118,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.getRemo
 };
 
 // ParamsSpec for ConnectToParentDocument
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec = {
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.ConnectToParentDocument_Params',
@@ -105,7 +132,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_Connect
 };
 
 // ParamsSpec for CreatePageHandler
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec = {
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.CreatePageHandler_Params',
@@ -120,29 +147,80 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreateP
 };
 
 // Legacy compatibility
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPtr = new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote;
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRequest = new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver;
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPtr = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote;
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRequest = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver;
 
 
 // Interface: MicrosoftAuthUntrustedPageHandler
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler = {};
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler = {};
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver = class {
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: new_tab_page.mojom.AccessTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemote = class {
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote = class {
   static get $interfaceName() {
     return 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver,
+      new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver,
       handle);
-    this.$ = new new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -154,7 +232,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemote = class {
   }
 };
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -163,7 +241,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec,
+      new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec,
       null,
       []);
   }
@@ -172,7 +250,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec,
+      new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec,
       null,
       []);
   }
@@ -181,7 +259,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = cl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec,
+      new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec,
       null,
       [access_token]);
   }
@@ -190,15 +268,15 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = cl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec,
+      new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec,
       null,
       [error_code, error_message]);
   }
 
 };
 
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler.getRemote = function() {
-  let remote = new new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemote();
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.getRemote = function() {
+  let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -208,7 +286,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler.getRemote = function(
 };
 
 // ParamsSpec for ClearAuthData
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = {
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.ClearAuthData_Params',
@@ -221,7 +299,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsS
 };
 
 // ParamsSpec for MaybeAcquireTokenSilent
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec = {
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.MaybeAcquireTokenSilent_Params',
@@ -234,7 +312,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSile
 };
 
 // ParamsSpec for SetAccessToken
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec = {
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.SetAccessToken_Params',
@@ -248,7 +326,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_Params
 };
 
 // ParamsSpec for SetAuthStateError
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec = {
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.SetAuthStateError_Params',
@@ -263,6 +341,6 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_Par
 };
 
 // Legacy compatibility
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerPtr = new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRemote;
-new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerRequest = new_tab_page.mojom.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver;
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPtr = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote;
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRequest = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver;
 

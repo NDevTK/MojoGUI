@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: GenericPendingAssociatedReceiver
-mojo_base.mojom.mojom.GenericPendingAssociatedReceiverSpec = {
+mojo_base.mojom.GenericPendingAssociatedReceiverSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.GenericPendingAssociatedReceiver',
@@ -25,24 +25,24 @@ mojo_base.mojom.mojom.GenericPendingAssociatedReceiverSpec = {
 };
 
 // Interface: GenericAssociatedInterface
-mojo_base.mojom.mojom.GenericAssociatedInterface = {};
+mojo_base.mojom.GenericAssociatedInterface = {};
 
-mojo_base.mojom.mojom.GenericAssociatedInterfacePendingReceiver = class {
+mojo_base.mojom.GenericAssociatedInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mojo_base.mojom.mojom.GenericAssociatedInterfaceRemote = class {
+mojo_base.mojom.GenericAssociatedInterfaceRemote = class {
   static get $interfaceName() {
     return 'mojo_base.mojom.GenericAssociatedInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo_base.mojom.mojom.GenericAssociatedInterfacePendingReceiver,
+      mojo_base.mojom.GenericAssociatedInterfacePendingReceiver,
       handle);
-    this.$ = new mojo_base.mojom.mojom.GenericAssociatedInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new mojo_base.mojom.GenericAssociatedInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,15 +54,15 @@ mojo_base.mojom.mojom.GenericAssociatedInterfaceRemote = class {
   }
 };
 
-mojo_base.mojom.mojom.GenericAssociatedInterfaceRemoteCallHandler = class {
+mojo_base.mojom.GenericAssociatedInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-mojo_base.mojom.mojom.GenericAssociatedInterface.getRemote = function() {
-  let remote = new mojo_base.mojom.mojom.GenericAssociatedInterfaceRemote();
+mojo_base.mojom.GenericAssociatedInterface.getRemote = function() {
+  let remote = new mojo_base.mojom.GenericAssociatedInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -72,6 +72,6 @@ mojo_base.mojom.mojom.GenericAssociatedInterface.getRemote = function() {
 };
 
 // Legacy compatibility
-mojo_base.mojom.mojom.GenericAssociatedInterfacePtr = mojo_base.mojom.mojom.GenericAssociatedInterfaceRemote;
-mojo_base.mojom.mojom.GenericAssociatedInterfaceRequest = mojo_base.mojom.mojom.GenericAssociatedInterfacePendingReceiver;
+mojo_base.mojom.GenericAssociatedInterfacePtr = mojo_base.mojom.GenericAssociatedInterfaceRemote;
+mojo_base.mojom.GenericAssociatedInterfaceRequest = mojo_base.mojom.GenericAssociatedInterfacePendingReceiver;
 

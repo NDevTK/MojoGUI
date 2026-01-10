@@ -10,23 +10,23 @@ media.mojom = media.mojom || {};
 
 
 // Enum: DisplayCaptureSurfaceType
-media.mojom.mojom.DisplayCaptureSurfaceType = {
+media.mojom.DisplayCaptureSurfaceType = {
   MONITOR: 0,
   WINDOW: 1,
   BROWSER: 2,
 };
-media.mojom.mojom.DisplayCaptureSurfaceTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.DisplayCaptureSurfaceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CursorCaptureType
-media.mojom.mojom.CursorCaptureType = {
+media.mojom.CursorCaptureType = {
   NEVER: 0,
   ALWAYS: 1,
   MOTION: 2,
 };
-media.mojom.mojom.CursorCaptureTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.CursorCaptureTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayMediaInformation
-media.mojom.mojom.DisplayMediaInformationSpec = {
+media.mojom.DisplayMediaInformationSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DisplayMediaInformation',

@@ -10,7 +10,7 @@ tabs_api.mojom = tabs_api.mojom || {};
 
 
 // Struct: OnTabsCreatedEvent
-tabs_api.mojom.mojom.OnTabsCreatedEventSpec = {
+tabs_api.mojom.OnTabsCreatedEventSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.OnTabsCreatedEvent',
@@ -24,7 +24,7 @@ tabs_api.mojom.mojom.OnTabsCreatedEventSpec = {
 };
 
 // Struct: OnTabsClosedEvent
-tabs_api.mojom.mojom.OnTabsClosedEventSpec = {
+tabs_api.mojom.OnTabsClosedEventSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.OnTabsClosedEvent',
@@ -38,7 +38,7 @@ tabs_api.mojom.mojom.OnTabsClosedEventSpec = {
 };
 
 // Struct: OnDataChangedEvent
-tabs_api.mojom.mojom.OnDataChangedEventSpec = {
+tabs_api.mojom.OnDataChangedEventSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.OnDataChangedEvent',
@@ -52,7 +52,7 @@ tabs_api.mojom.mojom.OnDataChangedEventSpec = {
 };
 
 // Struct: OnCollectionCreatedEvent
-tabs_api.mojom.mojom.OnCollectionCreatedEventSpec = {
+tabs_api.mojom.OnCollectionCreatedEventSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.OnCollectionCreatedEvent',
@@ -67,7 +67,7 @@ tabs_api.mojom.mojom.OnCollectionCreatedEventSpec = {
 };
 
 // Struct: OnNodeMovedEvent
-tabs_api.mojom.mojom.OnNodeMovedEventSpec = {
+tabs_api.mojom.OnNodeMovedEventSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.OnNodeMovedEvent',

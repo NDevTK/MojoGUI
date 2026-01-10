@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: ScriptSourceLocation
-blink.mojom.mojom.ScriptSourceLocationSpec = {
+blink.mojom.ScriptSourceLocationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScriptSourceLocation',

@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: BigString
-mojo_base.mojom.mojom.BigStringSpec = {
+mojo_base.mojom.BigStringSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.BigString',

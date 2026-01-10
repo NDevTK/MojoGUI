@@ -10,10 +10,10 @@ network.mojom = network.mojom || {};
 var url = url || {};
 
 
-network.mojom.mojom.kClientDisconnectReason = 1;
+network.mojom.kClientDisconnectReason = 1;
 
 // Struct: URLLoaderClientEndpoints
-network.mojom.mojom.URLLoaderClientEndpointsSpec = {
+network.mojom.URLLoaderClientEndpointsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClientEndpoints',
@@ -28,24 +28,54 @@ network.mojom.mojom.URLLoaderClientEndpointsSpec = {
 };
 
 // Interface: URLLoader
-network.mojom.mojom.URLLoader = {};
+network.mojom.URLLoader = {};
 
-network.mojom.mojom.URLLoaderPendingReceiver = class {
+network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoader_FollowRedirect_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'removed_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'modified_headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'modified_cors_exempt_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'new_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.URLLoader_SetPriority_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoader_SetPriority_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'intra_priority_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.URLLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.URLLoaderRemote = class {
+network.mojom.URLLoaderRemote = class {
   static get $interfaceName() {
     return 'network.mojom.URLLoader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.URLLoaderPendingReceiver,
+      network.mojom.URLLoaderPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.URLLoaderRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.URLLoaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +87,7 @@ network.mojom.mojom.URLLoaderRemote = class {
   }
 };
 
-network.mojom.mojom.URLLoaderRemoteCallHandler = class {
+network.mojom.URLLoaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,7 +96,7 @@ network.mojom.mojom.URLLoaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.URLLoader_FollowRedirect_ParamsSpec,
+      network.mojom.URLLoader_FollowRedirect_ParamsSpec,
       null,
       [removed_headers, modified_headers, modified_cors_exempt_headers, new_url]);
   }
@@ -75,15 +105,15 @@ network.mojom.mojom.URLLoaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.URLLoader_SetPriority_ParamsSpec,
+      network.mojom.URLLoader_SetPriority_ParamsSpec,
       null,
       [priority, intra_priority_value]);
   }
 
 };
 
-network.mojom.mojom.URLLoader.getRemote = function() {
-  let remote = new network.mojom.mojom.URLLoaderRemote();
+network.mojom.URLLoader.getRemote = function() {
+  let remote = new network.mojom.URLLoaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +123,7 @@ network.mojom.mojom.URLLoader.getRemote = function() {
 };
 
 // ParamsSpec for FollowRedirect
-network.mojom.mojom.URLLoader_FollowRedirect_ParamsSpec = {
+network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoader.FollowRedirect_Params',
@@ -110,7 +140,7 @@ network.mojom.mojom.URLLoader_FollowRedirect_ParamsSpec = {
 };
 
 // ParamsSpec for SetPriority
-network.mojom.mojom.URLLoader_SetPriority_ParamsSpec = {
+network.mojom.URLLoader_SetPriority_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoader.SetPriority_Params',
@@ -125,29 +155,111 @@ network.mojom.mojom.URLLoader_SetPriority_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.URLLoaderPtr = network.mojom.mojom.URLLoaderRemote;
-network.mojom.mojom.URLLoaderRequest = network.mojom.mojom.URLLoaderPendingReceiver;
+network.mojom.URLLoaderPtr = network.mojom.URLLoaderRemote;
+network.mojom.URLLoaderRequest = network.mojom.URLLoaderPendingReceiver;
 
 
 // Interface: URLLoaderClient
-network.mojom.mojom.URLLoaderClient = {};
+network.mojom.URLLoaderClient = {};
 
-network.mojom.mojom.URLLoaderClientPendingReceiver = class {
+network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderClient_OnReceiveEarlyHints_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EarlyHintsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderClient_OnReceiveResponse_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'cached_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderClient_OnReceiveRedirect_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderClient_OnUploadProgress_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'current_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderClient_OnTransferSizeUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'transfer_size_diff', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderClient_OnComplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.URLLoaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.URLLoaderClientRemote = class {
+network.mojom.URLLoaderClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.URLLoaderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.URLLoaderClientPendingReceiver,
+      network.mojom.URLLoaderClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.URLLoaderClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.URLLoaderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -159,7 +271,7 @@ network.mojom.mojom.URLLoaderClientRemote = class {
   }
 };
 
-network.mojom.mojom.URLLoaderClientRemoteCallHandler = class {
+network.mojom.URLLoaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -168,7 +280,7 @@ network.mojom.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec,
+      network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec,
       null,
       [early_hints]);
   }
@@ -177,7 +289,7 @@ network.mojom.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec,
+      network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec,
       null,
       [head, body, cached_metadata]);
   }
@@ -186,7 +298,7 @@ network.mojom.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec,
+      network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec,
       null,
       [redirect_info, head]);
   }
@@ -195,7 +307,7 @@ network.mojom.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec,
+      network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec,
       null,
       [current_position, total_size]);
   }
@@ -204,7 +316,7 @@ network.mojom.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec,
+      network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec,
       null,
       [transfer_size_diff]);
   }
@@ -213,15 +325,15 @@ network.mojom.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.URLLoaderClient_OnComplete_ParamsSpec,
+      network.mojom.URLLoaderClient_OnComplete_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-network.mojom.mojom.URLLoaderClient.getRemote = function() {
-  let remote = new network.mojom.mojom.URLLoaderClientRemote();
+network.mojom.URLLoaderClient.getRemote = function() {
+  let remote = new network.mojom.URLLoaderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -231,7 +343,7 @@ network.mojom.mojom.URLLoaderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnReceiveEarlyHints
-network.mojom.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
+network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClient.OnReceiveEarlyHints_Params',
@@ -245,7 +357,7 @@ network.mojom.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
 };
 
 // ParamsSpec for OnReceiveResponse
-network.mojom.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
+network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClient.OnReceiveResponse_Params',
@@ -261,7 +373,7 @@ network.mojom.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
 };
 
 // ParamsSpec for OnReceiveRedirect
-network.mojom.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
+network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClient.OnReceiveRedirect_Params',
@@ -276,7 +388,7 @@ network.mojom.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
 };
 
 // ParamsSpec for OnUploadProgress
-network.mojom.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
+network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClient.OnUploadProgress_Params',
@@ -291,7 +403,7 @@ network.mojom.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
 };
 
 // ParamsSpec for OnTransferSizeUpdated
-network.mojom.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
+network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClient.OnTransferSizeUpdated_Params',
@@ -305,7 +417,7 @@ network.mojom.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnComplete
-network.mojom.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
+network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClient.OnComplete_Params',
@@ -319,6 +431,6 @@ network.mojom.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.URLLoaderClientPtr = network.mojom.mojom.URLLoaderClientRemote;
-network.mojom.mojom.URLLoaderClientRequest = network.mojom.mojom.URLLoaderClientPendingReceiver;
+network.mojom.URLLoaderClientPtr = network.mojom.URLLoaderClientRemote;
+network.mojom.URLLoaderClientRequest = network.mojom.URLLoaderClientPendingReceiver;
 

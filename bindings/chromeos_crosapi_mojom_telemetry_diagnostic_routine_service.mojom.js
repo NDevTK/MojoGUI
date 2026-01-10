@@ -10,24 +10,24 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: ButtonType
-crosapi.mojom.mojom.ButtonType = {
+crosapi.mojom.ButtonType = {
   kVolumeUp: 0,
   kVolumeDown: 1,
 };
-crosapi.mojom.mojom.ButtonTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ButtonTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryDiagnosticLedName
-crosapi.mojom.mojom.TelemetryDiagnosticLedName = {
+crosapi.mojom.TelemetryDiagnosticLedName = {
   kBattery: 0,
   kPower: 1,
   kAdapter: 2,
   kLeft: 3,
   kRight: 4,
 };
-crosapi.mojom.mojom.TelemetryDiagnosticLedNameSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryDiagnosticLedNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryDiagnosticLedColor
-crosapi.mojom.mojom.TelemetryDiagnosticLedColor = {
+crosapi.mojom.TelemetryDiagnosticLedColor = {
   kRed: 0,
   kGreen: 1,
   kBlue: 2,
@@ -35,38 +35,38 @@ crosapi.mojom.mojom.TelemetryDiagnosticLedColor = {
   kWhite: 4,
   kAmber: 5,
 };
-crosapi.mojom.mojom.TelemetryDiagnosticLedColorSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryDiagnosticLedColorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-crosapi.mojom.mojom.Type = {
+crosapi.mojom.Type = {
   kDownload: 0,
   kUpload: 1,
 };
-crosapi.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kCorrectColor: 0,
   kNotLitUp: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.mojom.State = {
+crosapi.mojom.State = {
   kOk: 0,
   kAnyNotLitUp: 1,
 };
-crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Reason
-crosapi.mojom.mojom.Reason = {
+crosapi.mojom.Reason = {
   kWaitingToBeScheduled: 0,
   kWaitingForInteraction: 1,
 };
-crosapi.mojom.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryDiagnosticMemtesterTestItemEnum
-crosapi.mojom.mojom.TelemetryDiagnosticMemtesterTestItemEnum = {
+crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnum = {
   kUnknown: 0,
   kStuckAddress: 1,
   kCompareAND: 2,
@@ -87,35 +87,35 @@ crosapi.mojom.mojom.TelemetryDiagnosticMemtesterTestItemEnum = {
   kEightBitWrites: 17,
   kSixteenBitWrites: 18,
 };
-crosapi.mojom.mojom.TelemetryDiagnosticMemtesterTestItemEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryDiagnosticHardwarePresenceStatus
-crosapi.mojom.mojom.TelemetryDiagnosticHardwarePresenceStatus = {
+crosapi.mojom.TelemetryDiagnosticHardwarePresenceStatus = {
   kMatched: 0,
   kNotMatched: 1,
   kNotConfigured: 2,
 };
-crosapi.mojom.mojom.TelemetryDiagnosticHardwarePresenceStatusSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryDiagnosticHardwarePresenceStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryDiagnosticCameraSubtestResult
-crosapi.mojom.mojom.TelemetryDiagnosticCameraSubtestResult = {
+crosapi.mojom.TelemetryDiagnosticCameraSubtestResult = {
   kNotRun: 0,
   kPassed: 1,
   kFailed: 2,
 };
-crosapi.mojom.mojom.TelemetryDiagnosticCameraSubtestResultSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryDiagnosticCameraSubtestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: Issue
-crosapi.mojom.mojom.Issue = {
+crosapi.mojom.Issue = {
   kNone: 0,
   kCameraServiceNotAvailable: 1,
   kBlockedByPrivacyShutter: 2,
   kLensAreDirty: 3,
 };
-crosapi.mojom.mojom.IssueSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.IssueSpec = { $: mojo.internal.Enum() };
 
 // Union: TelemetryDiagnosticRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineArgumentSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryDiagnosticRoutineArgument', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -153,7 +153,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineArgumentSpec = { $: mojo.internal.
 };
 
 // Union: TelemetryDiagnosticRoutineRunningInfo
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineRunningInfoSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryDiagnosticRoutineRunningInfoSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryDiagnosticRoutineRunningInfo', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -167,7 +167,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineRunningInfoSpec = { $: mojo.intern
 };
 
 // Union: TelemetryDiagnosticRoutineInquiryReply
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineInquiryReplySpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryDiagnosticRoutineInquiryReplySpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryDiagnosticRoutineInquiryReply', {
       'unrecognizedReply': {
         'ordinal': 0,
@@ -185,7 +185,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineInquiryReplySpec = { $: mojo.inter
 };
 
 // Union: TelemetryDiagnosticRoutineInquiry
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineInquirySpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryDiagnosticRoutineInquirySpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryDiagnosticRoutineInquiry', {
       'unrecognizedInquiry': {
         'ordinal': 0,
@@ -203,7 +203,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineInquirySpec = { $: mojo.internal.U
 };
 
 // Union: TelemetryDiagnosticRoutineInteraction
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineInteractionSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryDiagnosticRoutineInteractionSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryDiagnosticRoutineInteraction', {
       'unrecognizedInteraction': {
         'ordinal': 0,
@@ -217,7 +217,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineInteractionSpec = { $: mojo.intern
 };
 
 // Union: TelemetryDiagnosticRoutineDetail
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineDetailSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryDiagnosticRoutineDetail', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -247,7 +247,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineDetailSpec = { $: mojo.internal.Un
 };
 
 // Union: TelemetryDiagnosticRoutineStateUnion
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateUnionSpec = { $: mojo.internal.Union(
+crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryDiagnosticRoutineStateUnion', {
       'unrecognizedArgument': {
         'ordinal': 0,
@@ -273,7 +273,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateUnionSpec = { $: mojo.interna
 };
 
 // Struct: TelemetryDiagnosticMemoryRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec = {
+crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgument',
@@ -288,7 +288,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec = {
 };
 
 // Struct: TelemetryDiagnosticVolumeButtonRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec = {
+crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgument',
@@ -302,7 +302,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec = {
 };
 
 // Struct: TelemetryDiagnosticFanRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticFanRoutineArgumentSpec = {
+crosapi.mojom.TelemetryDiagnosticFanRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticFanRoutineArgument',
@@ -315,7 +315,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticFanRoutineArgumentSpec = {
 };
 
 // Struct: TelemetryDiagnosticLedLitUpRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticLedLitUpRoutineArgumentSpec = {
+crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgument',
@@ -330,7 +330,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticLedLitUpRoutineArgumentSpec = {
 };
 
 // Struct: TelemetryDiagnosticNetworkBandwidthRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgumentSpec = {
+crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgument',
@@ -343,7 +343,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgumentSpec = {
 };
 
 // Struct: TelemetryDiagnosticCameraFrameAnalysisRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgumentSpec = {
+crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgument',
@@ -356,7 +356,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgumentSpec = 
 };
 
 // Struct: TelemetryDiagnosticKeyboardBacklightRoutineArgument
-crosapi.mojom.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgumentSpec = {
+crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgument',
@@ -369,7 +369,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgumentSpec = {
 };
 
 // Struct: TelemetryDiagnosticRoutineStateInitialized
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateInitializedSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineStateInitializedSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateInitialized',
@@ -382,7 +382,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateInitializedSpec = {
 };
 
 // Struct: TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo
-crosapi.mojom.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec = {
+crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo',
@@ -396,7 +396,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec = 
 };
 
 // Struct: TelemetryDiagnosticRoutineStateRunning
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateRunningSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineStateRunningSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateRunning',
@@ -410,7 +410,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateRunningSpec = {
 };
 
 // Struct: TelemetryDiagnosticCheckLedLitUpStateReply
-crosapi.mojom.mojom.TelemetryDiagnosticCheckLedLitUpStateReplySpec = {
+crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReplySpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReply',
@@ -424,7 +424,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticCheckLedLitUpStateReplySpec = {
 };
 
 // Struct: TelemetryDiagnosticCheckKeyboardBacklightStateReply
-crosapi.mojom.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReplySpec = {
+crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReplySpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReply',
@@ -438,7 +438,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReplySpec = {
 };
 
 // Struct: TelemetryDiagnosticCheckLedLitUpStateInquiry
-crosapi.mojom.mojom.TelemetryDiagnosticCheckLedLitUpStateInquirySpec = {
+crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquirySpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquiry',
@@ -451,7 +451,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticCheckLedLitUpStateInquirySpec = {
 };
 
 // Struct: TelemetryDiagnosticCheckKeyboardBacklightStateInquiry
-crosapi.mojom.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquirySpec = {
+crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquirySpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquiry',
@@ -464,7 +464,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquirySpec = 
 };
 
 // Struct: TelemetryDiagnosticRoutineStateWaiting
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateWaitingSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineStateWaitingSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateWaiting',
@@ -478,7 +478,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateWaitingSpec = {
 };
 
 // Struct: TelemetryDiagnosticMemtesterResult
-crosapi.mojom.mojom.TelemetryDiagnosticMemtesterResultSpec = {
+crosapi.mojom.TelemetryDiagnosticMemtesterResultSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticMemtesterResult',
@@ -493,7 +493,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticMemtesterResultSpec = {
 };
 
 // Struct: TelemetryDiagnosticMemoryRoutineDetail
-crosapi.mojom.mojom.TelemetryDiagnosticMemoryRoutineDetailSpec = {
+crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetail',
@@ -508,7 +508,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticMemoryRoutineDetailSpec = {
 };
 
 // Struct: TelemetryDiagnosticVolumeButtonRoutineDetail
-crosapi.mojom.mojom.TelemetryDiagnosticVolumeButtonRoutineDetailSpec = {
+crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetail',
@@ -521,7 +521,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticVolumeButtonRoutineDetailSpec = {
 };
 
 // Struct: TelemetryDiagnosticFanRoutineDetail
-crosapi.mojom.mojom.TelemetryDiagnosticFanRoutineDetailSpec = {
+crosapi.mojom.TelemetryDiagnosticFanRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticFanRoutineDetail',
@@ -537,7 +537,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticFanRoutineDetailSpec = {
 };
 
 // Struct: TelemetryDiagnosticNetworkBandwidthRoutineDetail
-crosapi.mojom.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetailSpec = {
+crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetail',
@@ -552,7 +552,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetailSpec = {
 };
 
 // Struct: TelemetryDiagnosticCameraFrameAnalysisRoutineDetail
-crosapi.mojom.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetailSpec = {
+crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetail',
@@ -566,7 +566,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetailSpec = {
 };
 
 // Struct: TelemetryDiagnosticRoutineStateFinished
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateFinishedSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateFinished',
@@ -581,7 +581,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateFinishedSpec = {
 };
 
 // Struct: TelemetryDiagnosticRoutineState
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineStateSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineState',
@@ -596,24 +596,61 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineStateSpec = {
 };
 
 // Interface: TelemetryDiagnosticRoutineControl
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl = {};
+crosapi.mojom.TelemetryDiagnosticRoutineControl = {};
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlPendingReceiver = class {
+crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryDiagnosticRoutineInquiryReplySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemote = class {
+crosapi.mojom.TelemetryDiagnosticRoutineControlRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryDiagnosticRoutineControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlPendingReceiver,
+      crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -625,7 +662,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemote = class {
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
+crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -634,8 +671,8 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec,
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec,
       []);
   }
 
@@ -643,7 +680,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec,
       null,
       []);
   }
@@ -652,15 +689,15 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec,
       null,
       [reply]);
   }
 
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemote();
+crosapi.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryDiagnosticRoutineControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -670,7 +707,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
 };
 
 // ParamsSpec for GetState
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl.GetState_Params',
@@ -682,7 +719,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl.GetState_ResponseParams',
@@ -696,7 +733,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpe
 };
 
 // ParamsSpec for Start
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl.Start_Params',
@@ -709,7 +746,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec = {
 };
 
 // ParamsSpec for ReplyToInquiry
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl.ReplyToInquiry_Params',
@@ -723,29 +760,42 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec 
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlPtr = crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRemote;
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlRequest = crosapi.mojom.mojom.TelemetryDiagnosticRoutineControlPendingReceiver;
+crosapi.mojom.TelemetryDiagnosticRoutineControlPtr = crosapi.mojom.TelemetryDiagnosticRoutineControlRemote;
+crosapi.mojom.TelemetryDiagnosticRoutineControlRequest = crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver;
 
 
 // Interface: TelemetryDiagnosticRoutineObserver
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserver = {};
+crosapi.mojom.TelemetryDiagnosticRoutineObserver = {};
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver = class {
+crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryDiagnosticRoutineStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRemote = class {
+crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryDiagnosticRoutineObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver,
+      crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -757,7 +807,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRemote = class {
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class {
+crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -766,15 +816,15 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRemote();
+crosapi.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -784,7 +834,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnRoutineStateChange
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineObserver.OnRoutineStateChange_Params',
@@ -798,29 +848,57 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_Para
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverPtr = crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRemote;
-crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverRequest = crosapi.mojom.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver;
+crosapi.mojom.TelemetryDiagnosticRoutineObserverPtr = crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote;
+crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver;
 
 
 // Interface: TelemetryDiagnosticRoutinesService
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService = {};
+crosapi.mojom.TelemetryDiagnosticRoutinesService = {};
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver = class {
+crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'routine_argument', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec, nullable: false, minVersion: 0 },
+        { name: 'routine_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), nullable: false, minVersion: 0 },
+        { name: 'routine_observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'routine_argument', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemote = class {
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryDiagnosticRoutinesService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver,
+      crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -832,7 +910,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemote = class {
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class {
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -841,7 +919,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec,
       null,
       [routine_argument, routine_receiver, routine_observer]);
   }
@@ -850,15 +928,15 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
-      crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
+      crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
       [routine_argument]);
   }
 
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemote();
+crosapi.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -868,7 +946,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
 };
 
 // ParamsSpec for CreateRoutine
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutinesService.CreateRoutine_Params',
@@ -884,7 +962,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec 
 };
 
 // ParamsSpec for IsRoutineArgumentSupported
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutinesService.IsRoutineArgumentSupported_Params',
@@ -897,7 +975,7 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupporte
   }
 };
 
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = {
+crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutinesService.IsRoutineArgumentSupported_ResponseParams',
@@ -911,6 +989,6 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupporte
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServicePtr = crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRemote;
-crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServiceRequest = crosapi.mojom.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver;
+crosapi.mojom.TelemetryDiagnosticRoutinesServicePtr = crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote;
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceRequest = crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver;
 

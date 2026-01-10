@@ -190,6 +190,64 @@ mojom.OmniboxResponseSpec = {
 // Interface: OmniboxPageHandler
 mojom.OmniboxPageHandler = {};
 
+mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPageHandler_SetClientPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mojom.OmniboxPageRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPageHandler_StartOmniboxQuery_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'input_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'reset_autocomplete_controller', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'cursor_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'zero_suggest', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'prevent_inline_autocomplete', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'prefer_keyword', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'current_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'page_classification', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPageHandler_GetMlModelVersion_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.OmniboxPageHandler_StartMl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPageHandler_StartMl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojom.SignalsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
 mojom.OmniboxPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -365,6 +423,64 @@ mojom.OmniboxPageHandlerRequest = mojom.OmniboxPageHandlerPendingReceiver;
 
 // Interface: OmniboxPage
 mojom.OmniboxPage = {};
+
+mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPage_HandleNewAutocompleteQuery_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'autocomplete_controller_type', packedOffset: 8, packedBitOffset: 0, type: mojom.AutocompleteControllerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'input_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPage_HandleNewAutocompleteResponse_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'autocomplete_controller_type', packedOffset: 8, packedBitOffset: 0, type: mojom.AutocompleteControllerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojom.OmniboxResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPage_HandleNewMlResponse_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'autocomplete_controller_type', packedOffset: 16, packedBitOffset: 0, type: mojom.AutocompleteControllerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'input_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'matches', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojom.AutocompleteMatchSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxPage_HandleAnswerIconImageData_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'autocomplete_controller_type', packedOffset: 16, packedBitOffset: 0, type: mojom.AutocompleteControllerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'image_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'image_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
 
 mojom.OmniboxPagePendingReceiver = class {
   constructor(handle) {

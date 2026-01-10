@@ -10,7 +10,7 @@ printing.mojom = printing.mojom || {};
 
 
 // Struct: FlattenPdfResult
-printing.mojom.mojom.FlattenPdfResultSpec = {
+printing.mojom.FlattenPdfResultSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.FlattenPdfResult',
@@ -25,24 +25,50 @@ printing.mojom.mojom.FlattenPdfResultSpec = {
 };
 
 // Interface: PdfFlattener
-printing.mojom.mojom.PdfFlattener = {};
+printing.mojom.PdfFlattener = {};
 
-printing.mojom.mojom.PdfFlattenerPendingReceiver = class {
+printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfFlattener_FlattenPdf_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'src_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PdfFlattenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.mojom.PdfFlattenerRemote = class {
+printing.mojom.PdfFlattenerRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PdfFlattener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.mojom.PdfFlattenerPendingReceiver,
+      printing.mojom.PdfFlattenerPendingReceiver,
       handle);
-    this.$ = new printing.mojom.mojom.PdfFlattenerRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.PdfFlattenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +80,7 @@ printing.mojom.mojom.PdfFlattenerRemote = class {
   }
 };
 
-printing.mojom.mojom.PdfFlattenerRemoteCallHandler = class {
+printing.mojom.PdfFlattenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +89,8 @@ printing.mojom.mojom.PdfFlattenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.mojom.PdfFlattener_FlattenPdf_ParamsSpec,
-      printing.mojom.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec,
+      printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec,
+      printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec,
       [src_pdf_region]);
   }
 
@@ -72,15 +98,15 @@ printing.mojom.mojom.PdfFlattenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec,
+      printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }
 
 };
 
-printing.mojom.mojom.PdfFlattener.getRemote = function() {
-  let remote = new printing.mojom.mojom.PdfFlattenerRemote();
+printing.mojom.PdfFlattener.getRemote = function() {
+  let remote = new printing.mojom.PdfFlattenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +116,7 @@ printing.mojom.mojom.PdfFlattener.getRemote = function() {
 };
 
 // ParamsSpec for FlattenPdf
-printing.mojom.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
+printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfFlattener.FlattenPdf_Params',
@@ -103,7 +129,7 @@ printing.mojom.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
+printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfFlattener.FlattenPdf_ResponseParams',
@@ -117,7 +143,7 @@ printing.mojom.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetUseSkiaRendererPolicy
-printing.mojom.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
+printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfFlattener.SetUseSkiaRendererPolicy_Params',
@@ -131,6 +157,6 @@ printing.mojom.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.mojom.PdfFlattenerPtr = printing.mojom.mojom.PdfFlattenerRemote;
-printing.mojom.mojom.PdfFlattenerRequest = printing.mojom.mojom.PdfFlattenerPendingReceiver;
+printing.mojom.PdfFlattenerPtr = printing.mojom.PdfFlattenerRemote;
+printing.mojom.PdfFlattenerRequest = printing.mojom.PdfFlattenerPendingReceiver;
 

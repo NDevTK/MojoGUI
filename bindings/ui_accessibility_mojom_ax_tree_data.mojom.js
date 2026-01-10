@@ -12,7 +12,7 @@ var ui = ui || {};
 
 
 // Struct: AXTreeData
-ax.mojom.mojom.AXTreeDataSpec = {
+ax.mojom.AXTreeDataSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXTreeData',

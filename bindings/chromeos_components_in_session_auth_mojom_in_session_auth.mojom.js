@@ -7,18 +7,18 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.auth = chromeos.auth || {};
-chromeos.auth.auth.mojom = chromeos.auth.auth.mojom || {};
+chromeos.auth.mojom = chromeos.auth.mojom || {};
 
 
 // Enum: Reason
-chromeos.auth.auth.mojom.mojom.Reason = {
+chromeos.auth.mojom.Reason = {
   kAccessAuthenticationSettings: 0,
   kAccessMultideviceSettings: 1,
 };
-chromeos.auth.auth.mojom.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: RequestTokenReply
-chromeos.auth.auth.mojom.mojom.RequestTokenReplySpec = {
+chromeos.auth.mojom.RequestTokenReplySpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.RequestTokenReply',
@@ -33,24 +33,79 @@ chromeos.auth.auth.mojom.mojom.RequestTokenReplySpec = {
 };
 
 // Interface: InSessionAuth
-chromeos.auth.auth.mojom.mojom.InSessionAuth = {};
+chromeos.auth.mojom.InSessionAuth = {};
 
-chromeos.auth.auth.mojom.mojom.InSessionAuthPendingReceiver = class {
+chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.auth.mojom.InSessionAuth_RequestToken_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: chromeos.auth.mojom.ReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'prompt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+      ],
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.auth.mojom.InSessionAuth_CheckToken_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: chromeos.auth.mojom.ReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.auth.mojom.InSessionAuth_InvalidateToken_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'rp_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'window_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.auth.mojom.InSessionAuthPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.auth.auth.mojom.mojom.InSessionAuthRemote = class {
+chromeos.auth.mojom.InSessionAuthRemote = class {
   static get $interfaceName() {
     return 'chromeos.auth.mojom.InSessionAuth';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.auth.auth.mojom.mojom.InSessionAuthPendingReceiver,
+      chromeos.auth.mojom.InSessionAuthPendingReceiver,
       handle);
-    this.$ = new chromeos.auth.auth.mojom.mojom.InSessionAuthRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.auth.mojom.InSessionAuthRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +117,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuthRemote = class {
   }
 };
 
-chromeos.auth.auth.mojom.mojom.InSessionAuthRemoteCallHandler = class {
+chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,8 +126,8 @@ chromeos.auth.auth.mojom.mojom.InSessionAuthRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestToken_ParamsSpec,
-      chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestToken_ResponseParamsSpec,
+      chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec,
+      chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec,
       [reason, prompt]);
   }
 
@@ -80,8 +135,8 @@ chromeos.auth.auth.mojom.mojom.InSessionAuthRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.auth.auth.mojom.mojom.InSessionAuth_CheckToken_ParamsSpec,
-      chromeos.auth.auth.mojom.mojom.InSessionAuth_CheckToken_ResponseParamsSpec,
+      chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec,
+      chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec,
       [reason, token]);
   }
 
@@ -89,7 +144,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuthRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.auth.auth.mojom.mojom.InSessionAuth_InvalidateToken_ParamsSpec,
+      chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec,
       null,
       [token]);
   }
@@ -98,15 +153,15 @@ chromeos.auth.auth.mojom.mojom.InSessionAuthRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec,
-      chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec,
+      chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec,
+      chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec,
       [rp_id, window_id]);
   }
 
 };
 
-chromeos.auth.auth.mojom.mojom.InSessionAuth.getRemote = function() {
-  let remote = new chromeos.auth.auth.mojom.mojom.InSessionAuthRemote();
+chromeos.auth.mojom.InSessionAuth.getRemote = function() {
+  let remote = new chromeos.auth.mojom.InSessionAuthRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -116,7 +171,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth.getRemote = function() {
 };
 
 // ParamsSpec for RequestToken
-chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestToken_ParamsSpec = {
+chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.InSessionAuth.RequestToken_Params',
@@ -130,7 +185,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestToken_ParamsSpec = {
   }
 };
 
-chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = {
+chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.InSessionAuth.RequestToken_ResponseParams',
@@ -144,7 +199,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CheckToken
-chromeos.auth.auth.mojom.mojom.InSessionAuth_CheckToken_ParamsSpec = {
+chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.InSessionAuth.CheckToken_Params',
@@ -158,7 +213,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_CheckToken_ParamsSpec = {
   }
 };
 
-chromeos.auth.auth.mojom.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = {
+chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.InSessionAuth.CheckToken_ResponseParams',
@@ -172,7 +227,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InvalidateToken
-chromeos.auth.auth.mojom.mojom.InSessionAuth_InvalidateToken_ParamsSpec = {
+chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.InSessionAuth.InvalidateToken_Params',
@@ -186,7 +241,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_InvalidateToken_ParamsSpec = {
 };
 
 // ParamsSpec for RequestLegacyWebAuthn
-chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = {
+chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.InSessionAuth.RequestLegacyWebAuthn_Params',
@@ -200,7 +255,7 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = 
   }
 };
 
-chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec = {
+chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.auth.mojom.InSessionAuth.RequestLegacyWebAuthn_ResponseParams',
@@ -214,6 +269,6 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParam
 };
 
 // Legacy compatibility
-chromeos.auth.auth.mojom.mojom.InSessionAuthPtr = chromeos.auth.auth.mojom.mojom.InSessionAuthRemote;
-chromeos.auth.auth.mojom.mojom.InSessionAuthRequest = chromeos.auth.auth.mojom.mojom.InSessionAuthPendingReceiver;
+chromeos.auth.mojom.InSessionAuthPtr = chromeos.auth.mojom.InSessionAuthRemote;
+chromeos.auth.mojom.InSessionAuthRequest = chromeos.auth.mojom.InSessionAuthPendingReceiver;
 

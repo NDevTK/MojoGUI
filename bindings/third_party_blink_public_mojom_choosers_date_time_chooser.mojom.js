@@ -11,7 +11,7 @@ var ui = ui || {};
 
 
 // Struct: DateTimeSuggestion
-blink.mojom.mojom.DateTimeSuggestionSpec = {
+blink.mojom.DateTimeSuggestionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DateTimeSuggestion',
@@ -27,7 +27,7 @@ blink.mojom.mojom.DateTimeSuggestionSpec = {
 };
 
 // Struct: DateTimeDialogValue
-blink.mojom.mojom.DateTimeDialogValueSpec = {
+blink.mojom.DateTimeDialogValueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DateTimeDialogValue',
@@ -46,24 +46,49 @@ blink.mojom.mojom.DateTimeDialogValueSpec = {
 };
 
 // Interface: DateTimeChooser
-blink.mojom.mojom.DateTimeChooser = {};
+blink.mojom.DateTimeChooser = {};
 
-blink.mojom.mojom.DateTimeChooserPendingReceiver = class {
+blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DateTimeDialogValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DateTimeChooser_CloseDateTimeDialog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DateTimeChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DateTimeChooserRemote = class {
+blink.mojom.DateTimeChooserRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DateTimeChooser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DateTimeChooserPendingReceiver,
+      blink.mojom.DateTimeChooserPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DateTimeChooserRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DateTimeChooserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -75,7 +100,7 @@ blink.mojom.mojom.DateTimeChooserRemote = class {
   }
 };
 
-blink.mojom.mojom.DateTimeChooserRemoteCallHandler = class {
+blink.mojom.DateTimeChooserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -84,8 +109,8 @@ blink.mojom.mojom.DateTimeChooserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec,
-      blink.mojom.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec,
+      blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec,
+      blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec,
       [value]);
   }
 
@@ -93,15 +118,15 @@ blink.mojom.mojom.DateTimeChooserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec,
+      blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.DateTimeChooser.getRemote = function() {
-  let remote = new blink.mojom.mojom.DateTimeChooserRemote();
+blink.mojom.DateTimeChooser.getRemote = function() {
+  let remote = new blink.mojom.DateTimeChooserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -111,7 +136,7 @@ blink.mojom.mojom.DateTimeChooser.getRemote = function() {
 };
 
 // ParamsSpec for OpenDateTimeDialog
-blink.mojom.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
+blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DateTimeChooser.OpenDateTimeDialog_Params',
@@ -124,7 +149,7 @@ blink.mojom.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
+blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DateTimeChooser.OpenDateTimeDialog_ResponseParams',
@@ -139,7 +164,7 @@ blink.mojom.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CloseDateTimeDialog
-blink.mojom.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
+blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DateTimeChooser.CloseDateTimeDialog_Params',
@@ -152,6 +177,6 @@ blink.mojom.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DateTimeChooserPtr = blink.mojom.mojom.DateTimeChooserRemote;
-blink.mojom.mojom.DateTimeChooserRequest = blink.mojom.mojom.DateTimeChooserPendingReceiver;
+blink.mojom.DateTimeChooserPtr = blink.mojom.DateTimeChooserRemote;
+blink.mojom.DateTimeChooserRequest = blink.mojom.DateTimeChooserPendingReceiver;
 

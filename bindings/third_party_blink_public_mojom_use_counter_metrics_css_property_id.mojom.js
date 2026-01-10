@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: CSSSampleId
-blink.mojom.mojom.CSSSampleId = {
+blink.mojom.CSSSampleId = {
   kInvalid: 0,
   kInternalAlignContentBlock: 1,
   kInternalAlignSelfBlock: 2,
@@ -834,4 +834,4 @@ blink.mojom.mojom.CSSSampleId = {
   kTimelineTriggerEntryRange: 820,
   kTimelineTriggerActiveRange: 821,
 };
-blink.mojom.mojom.CSSSampleIdSpec = { $: mojo.internal.Enum() };
+blink.mojom.CSSSampleIdSpec = { $: mojo.internal.Enum() };

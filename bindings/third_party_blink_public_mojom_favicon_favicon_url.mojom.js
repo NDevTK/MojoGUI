@@ -13,16 +13,16 @@ var gfx = gfx || {};
 
 
 // Enum: FaviconIconType
-blink.mojom.mojom.FaviconIconType = {
+blink.mojom.FaviconIconType = {
   kInvalid: 0,
   kFavicon: 1,
   kTouchIcon: 2,
   kTouchPrecomposedIcon: 3,
 };
-blink.mojom.mojom.FaviconIconTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FaviconIconTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FaviconURL
-blink.mojom.mojom.FaviconURLSpec = {
+blink.mojom.FaviconURLSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FaviconURL',

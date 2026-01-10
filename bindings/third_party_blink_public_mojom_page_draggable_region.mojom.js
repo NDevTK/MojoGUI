@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: DraggableRegion
-blink.mojom.mojom.DraggableRegionSpec = {
+blink.mojom.DraggableRegionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DraggableRegion',

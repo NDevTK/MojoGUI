@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: ViewTransitionElementResourceId
-viz.mojom.mojom.ViewTransitionElementResourceIdSpec = {
+viz.mojom.ViewTransitionElementResourceIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ViewTransitionElementResourceId',

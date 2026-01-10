@@ -7,223 +7,223 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.settings = chromeos.settings || {};
-chromeos.settings.settings.mojom = chromeos.settings.settings.mojom || {};
+chromeos.settings.mojom = chromeos.settings.mojom || {};
 
 
-chromeos.settings.settings.mojom.mojom.kNetworkSectionPath = "internet";
+chromeos.settings.mojom.kNetworkSectionPath = "internet";
 
-chromeos.settings.settings.mojom.mojom.kEthernetDetailsSubpagePath = "networkDetail";
+chromeos.settings.mojom.kEthernetDetailsSubpagePath = "networkDetail";
 
-chromeos.settings.settings.mojom.mojom.kNetworksSubpageBasePath = "networks";
+chromeos.settings.mojom.kNetworksSubpageBasePath = "networks";
 
-chromeos.settings.settings.mojom.mojom.kWifiNetworksSubpagePath = "networks?type=WiFi";
+chromeos.settings.mojom.kWifiNetworksSubpagePath = "networks?type=WiFi";
 
-chromeos.settings.settings.mojom.mojom.kCellularNetworksSubpagePath = "networks?type=Cellular";
+chromeos.settings.mojom.kCellularNetworksSubpagePath = "networks?type=Cellular";
 
-chromeos.settings.settings.mojom.mojom.kMobileDataNetworksSubpagePath = "networks?type=Tether";
+chromeos.settings.mojom.kMobileDataNetworksSubpagePath = "networks?type=Tether";
 
-chromeos.settings.settings.mojom.mojom.kKnownNetworksSubpagePath = "knownNetworks";
+chromeos.settings.mojom.kKnownNetworksSubpagePath = "knownNetworks";
 
-chromeos.settings.settings.mojom.mojom.kWifiDetailsSubpagePath = "networkDetail";
+chromeos.settings.mojom.kWifiDetailsSubpagePath = "networkDetail";
 
-chromeos.settings.settings.mojom.mojom.kCellularDetailsSubpagePath = "networkDetail";
+chromeos.settings.mojom.kCellularDetailsSubpagePath = "networkDetail";
 
-chromeos.settings.settings.mojom.mojom.kTetherDetailsSubpagePath = "networkDetail";
+chromeos.settings.mojom.kTetherDetailsSubpagePath = "networkDetail";
 
-chromeos.settings.settings.mojom.mojom.kVpnDetailsSubpagePath = "networkDetail";
+chromeos.settings.mojom.kVpnDetailsSubpagePath = "networkDetail";
 
-chromeos.settings.settings.mojom.mojom.kApnSubpagePath = "apn";
+chromeos.settings.mojom.kApnSubpagePath = "apn";
 
-chromeos.settings.settings.mojom.mojom.kHotspotSubpagePath = "hotspotDetail";
+chromeos.settings.mojom.kHotspotSubpagePath = "hotspotDetail";
 
-chromeos.settings.settings.mojom.mojom.kPasspointDetailSubpagePath = "passpointDetail";
+chromeos.settings.mojom.kPasspointDetailSubpagePath = "passpointDetail";
 
-chromeos.settings.settings.mojom.mojom.kBluetoothSectionPath = "bluetooth";
+chromeos.settings.mojom.kBluetoothSectionPath = "bluetooth";
 
-chromeos.settings.settings.mojom.mojom.kBluetoothDevicesSubpagePath = "bluetoothDevices";
+chromeos.settings.mojom.kBluetoothDevicesSubpagePath = "bluetoothDevices";
 
-chromeos.settings.settings.mojom.mojom.kBluetoothDeviceDetailSubpagePath = "bluetoothDeviceDetail";
+chromeos.settings.mojom.kBluetoothDeviceDetailSubpagePath = "bluetoothDeviceDetail";
 
-chromeos.settings.settings.mojom.mojom.kBluetoothSavedDevicesSubpagePath = "bluetoothSavedDevices";
+chromeos.settings.mojom.kBluetoothSavedDevicesSubpagePath = "bluetoothSavedDevices";
 
-chromeos.settings.settings.mojom.mojom.kMultiDeviceSectionPath = "multidevice";
+chromeos.settings.mojom.kMultiDeviceSectionPath = "multidevice";
 
-chromeos.settings.settings.mojom.mojom.kMultiDeviceFeaturesSubpagePath = "multidevice/features";
+chromeos.settings.mojom.kMultiDeviceFeaturesSubpagePath = "multidevice/features";
 
-chromeos.settings.settings.mojom.mojom.kNearbyShareSubpagePath = "multidevice/nearbyshare";
+chromeos.settings.mojom.kNearbyShareSubpagePath = "multidevice/nearbyshare";
 
-chromeos.settings.settings.mojom.mojom.kPeopleSectionPath = "osPeople";
+chromeos.settings.mojom.kPeopleSectionPath = "osPeople";
 
-chromeos.settings.settings.mojom.mojom.kSyncSetupSubpagePath = "osSyncSetup";
+chromeos.settings.mojom.kSyncSetupSubpagePath = "osSyncSetup";
 
-chromeos.settings.settings.mojom.mojom.kSyncControlsSubpagePath = "osSync";
+chromeos.settings.mojom.kSyncControlsSubpagePath = "osSync";
 
-chromeos.settings.settings.mojom.mojom.kSyncDeprecatedAdvancedSubpagePath = "osSyncSetup/advanced";
+chromeos.settings.mojom.kSyncDeprecatedAdvancedSubpagePath = "osSyncSetup/advanced";
 
-chromeos.settings.settings.mojom.mojom.kDeviceSectionPath = "device";
+chromeos.settings.mojom.kDeviceSectionPath = "device";
 
-chromeos.settings.settings.mojom.mojom.kPointersSubpagePath = "pointer-overlay";
+chromeos.settings.mojom.kPointersSubpagePath = "pointer-overlay";
 
-chromeos.settings.settings.mojom.mojom.kPerDeviceKeyboardSubpagePath = "per-device-keyboard";
+chromeos.settings.mojom.kPerDeviceKeyboardSubpagePath = "per-device-keyboard";
 
-chromeos.settings.settings.mojom.mojom.kPerDeviceKeyboardRemapKeysSubpagePath = "per-device-keyboard/remap-keys";
+chromeos.settings.mojom.kPerDeviceKeyboardRemapKeysSubpagePath = "per-device-keyboard/remap-keys";
 
-chromeos.settings.settings.mojom.mojom.kPerDeviceMouseSubpagePath = "per-device-mouse";
+chromeos.settings.mojom.kPerDeviceMouseSubpagePath = "per-device-mouse";
 
-chromeos.settings.settings.mojom.mojom.kCustomizeMouseButtonsSubpagePath = "per-device-mouse/customizeButtons";
+chromeos.settings.mojom.kCustomizeMouseButtonsSubpagePath = "per-device-mouse/customizeButtons";
 
-chromeos.settings.settings.mojom.mojom.kPerDevicePointingStickSubpagePath = "per-device-pointing-stick";
+chromeos.settings.mojom.kPerDevicePointingStickSubpagePath = "per-device-pointing-stick";
 
-chromeos.settings.settings.mojom.mojom.kPerDeviceTouchpadSubpagePath = "per-device-touchpad";
+chromeos.settings.mojom.kPerDeviceTouchpadSubpagePath = "per-device-touchpad";
 
-chromeos.settings.settings.mojom.mojom.kKeyboardSubpagePath = "keyboard-overlay";
+chromeos.settings.mojom.kKeyboardSubpagePath = "keyboard-overlay";
 
-chromeos.settings.settings.mojom.mojom.kStylusSubpagePath = "stylus";
+chromeos.settings.mojom.kStylusSubpagePath = "stylus";
 
-chromeos.settings.settings.mojom.mojom.kDisplaySubpagePath = "display";
+chromeos.settings.mojom.kDisplaySubpagePath = "display";
 
-chromeos.settings.settings.mojom.mojom.kAudioSubpagePath = "audio";
+chromeos.settings.mojom.kAudioSubpagePath = "audio";
 
-chromeos.settings.settings.mojom.mojom.kStorageSubpagePath = "storage";
+chromeos.settings.mojom.kStorageSubpagePath = "storage";
 
-chromeos.settings.settings.mojom.mojom.kExternalStorageSubpagePath = "storage/externalStoragePreferences";
+chromeos.settings.mojom.kExternalStorageSubpagePath = "storage/externalStoragePreferences";
 
-chromeos.settings.settings.mojom.mojom.kPowerSubpagePath = "power";
+chromeos.settings.mojom.kPowerSubpagePath = "power";
 
-chromeos.settings.settings.mojom.mojom.kGraphicsTabletSubpagePath = "graphics-tablet";
+chromeos.settings.mojom.kGraphicsTabletSubpagePath = "graphics-tablet";
 
-chromeos.settings.settings.mojom.mojom.kCustomizeTabletButtonsSubpagePath = "graphics-tablet/customizeTabletButtons";
+chromeos.settings.mojom.kCustomizeTabletButtonsSubpagePath = "graphics-tablet/customizeTabletButtons";
 
-chromeos.settings.settings.mojom.mojom.kCustomizePenButtonsSubpagePath = "graphics-tablet/customizePenButtons";
+chromeos.settings.mojom.kCustomizePenButtonsSubpagePath = "graphics-tablet/customizePenButtons";
 
-chromeos.settings.settings.mojom.mojom.kPersonalizationSectionPath = "personalization";
+chromeos.settings.mojom.kPersonalizationSectionPath = "personalization";
 
-chromeos.settings.settings.mojom.mojom.kSearchSubpagePath = "osSearch/search";
+chromeos.settings.mojom.kSearchSubpagePath = "osSearch/search";
 
-chromeos.settings.settings.mojom.mojom.kAppsSectionPath = "apps";
+chromeos.settings.mojom.kAppsSectionPath = "apps";
 
-chromeos.settings.settings.mojom.mojom.kAppManagementSubpagePath = "app-management";
+chromeos.settings.mojom.kAppManagementSubpagePath = "app-management";
 
-chromeos.settings.settings.mojom.mojom.kAppNotificationsSubpagePath = "app-notifications";
+chromeos.settings.mojom.kAppNotificationsSubpagePath = "app-notifications";
 
-chromeos.settings.settings.mojom.mojom.kAppNotificationsManagerSubpagePath = "app-notifications-manager";
+chromeos.settings.mojom.kAppNotificationsManagerSubpagePath = "app-notifications-manager";
 
-chromeos.settings.settings.mojom.mojom.kAppDetailsSubpagePath = "app-management/detail";
+chromeos.settings.mojom.kAppDetailsSubpagePath = "app-management/detail";
 
-chromeos.settings.settings.mojom.mojom.kGooglePlayStoreSubpagePath = "androidAppsDetails";
+chromeos.settings.mojom.kGooglePlayStoreSubpagePath = "androidAppsDetails";
 
-chromeos.settings.settings.mojom.mojom.kPluginVmSharedPathsSubpagePath = "app-management/pluginVm/sharedPaths";
+chromeos.settings.mojom.kPluginVmSharedPathsSubpagePath = "app-management/pluginVm/sharedPaths";
 
-chromeos.settings.settings.mojom.mojom.kPluginVmUsbPreferencesSubpagePath = "app-management/pluginVm/sharedUsbDevices";
+chromeos.settings.mojom.kPluginVmUsbPreferencesSubpagePath = "app-management/pluginVm/sharedUsbDevices";
 
-chromeos.settings.settings.mojom.mojom.kArcVmUsbPreferencesSubpagePath = "androidAppsDetails/sharedUsbDevices";
+chromeos.settings.mojom.kArcVmUsbPreferencesSubpagePath = "androidAppsDetails/sharedUsbDevices";
 
-chromeos.settings.settings.mojom.mojom.kManageIsolatedWebAppsSubpagePath = "manage-isolated-web-apps";
+chromeos.settings.mojom.kManageIsolatedWebAppsSubpagePath = "manage-isolated-web-apps";
 
-chromeos.settings.settings.mojom.mojom.kAppParentalControlsSubpagePath = "app-parental-controls";
+chromeos.settings.mojom.kAppParentalControlsSubpagePath = "app-parental-controls";
 
-chromeos.settings.settings.mojom.mojom.kCrostiniDetailsSubpagePath = "crostini/details";
+chromeos.settings.mojom.kCrostiniDetailsSubpagePath = "crostini/details";
 
-chromeos.settings.settings.mojom.mojom.kCrostiniManageSharedFoldersSubpagePath = "crostini/sharedPaths";
+chromeos.settings.mojom.kCrostiniManageSharedFoldersSubpagePath = "crostini/sharedPaths";
 
-chromeos.settings.settings.mojom.mojom.kCrostiniUsbPreferencesSubpagePath = "crostini/sharedUsbDevices";
+chromeos.settings.mojom.kCrostiniUsbPreferencesSubpagePath = "crostini/sharedUsbDevices";
 
-chromeos.settings.settings.mojom.mojom.kCrostiniBackupAndRestoreSubpagePath = "crostini/exportImport";
+chromeos.settings.mojom.kCrostiniBackupAndRestoreSubpagePath = "crostini/exportImport";
 
-chromeos.settings.settings.mojom.mojom.kCrostiniPortForwardingSubpagePath = "crostini/portForwarding";
+chromeos.settings.mojom.kCrostiniPortForwardingSubpagePath = "crostini/portForwarding";
 
-chromeos.settings.settings.mojom.mojom.kCrostiniExtraContainersSubpagePath = "crostini/extraContainers";
+chromeos.settings.mojom.kCrostiniExtraContainersSubpagePath = "crostini/extraContainers";
 
-chromeos.settings.settings.mojom.mojom.kBruschettaDetailsSubpagePath = "bruschetta/details";
+chromeos.settings.mojom.kBruschettaDetailsSubpagePath = "bruschetta/details";
 
-chromeos.settings.settings.mojom.mojom.kBruschettaUsbPreferencesSubpagePath = "bruschetta/sharedUsbDevices";
+chromeos.settings.mojom.kBruschettaUsbPreferencesSubpagePath = "bruschetta/sharedUsbDevices";
 
-chromeos.settings.settings.mojom.mojom.kBruschettaManageSharedFoldersSubpagePath = "bruschetta/sharedPaths";
+chromeos.settings.mojom.kBruschettaManageSharedFoldersSubpagePath = "bruschetta/sharedPaths";
 
-chromeos.settings.settings.mojom.mojom.kTimeZoneSubpagePath = "dateTime/timeZone";
+chromeos.settings.mojom.kTimeZoneSubpagePath = "dateTime/timeZone";
 
-chromeos.settings.settings.mojom.mojom.kPrivacyAndSecuritySectionPath = "osPrivacy";
+chromeos.settings.mojom.kPrivacyAndSecuritySectionPath = "osPrivacy";
 
-chromeos.settings.settings.mojom.mojom.kManageOtherPeopleSubpagePathV2 = "osPrivacy/accounts";
+chromeos.settings.mojom.kManageOtherPeopleSubpagePathV2 = "osPrivacy/accounts";
 
-chromeos.settings.settings.mojom.mojom.kSecurityAndSignInSubpagePathV2 = "osPrivacy/lockScreen";
+chromeos.settings.mojom.kSecurityAndSignInSubpagePathV2 = "osPrivacy/lockScreen";
 
-chromeos.settings.settings.mojom.mojom.kFingerprintSubpagePathV2 = "osPrivacy/lockScreen/fingerprint";
+chromeos.settings.mojom.kFingerprintSubpagePathV2 = "osPrivacy/lockScreen/fingerprint";
 
-chromeos.settings.settings.mojom.mojom.kSmartPrivacySubpagePath = "osPrivacy/smartPrivacy";
+chromeos.settings.mojom.kSmartPrivacySubpagePath = "osPrivacy/smartPrivacy";
 
-chromeos.settings.settings.mojom.mojom.kPrivacyHubSubpagePath = "osPrivacy/privacyHub";
+chromeos.settings.mojom.kPrivacyHubSubpagePath = "osPrivacy/privacyHub";
 
-chromeos.settings.settings.mojom.mojom.kPrivacyHubMicrophoneSubpagePath = "osPrivacy/privacyHub/microphone";
+chromeos.settings.mojom.kPrivacyHubMicrophoneSubpagePath = "osPrivacy/privacyHub/microphone";
 
-chromeos.settings.settings.mojom.mojom.kPrivacyHubCameraSubpagePath = "osPrivacy/privacyHub/camera";
+chromeos.settings.mojom.kPrivacyHubCameraSubpagePath = "osPrivacy/privacyHub/camera";
 
-chromeos.settings.settings.mojom.mojom.kPrivacyHubGeolocationSubpagePath = "osPrivacy/privacyHub/geolocation";
+chromeos.settings.mojom.kPrivacyHubGeolocationSubpagePath = "osPrivacy/privacyHub/geolocation";
 
-chromeos.settings.settings.mojom.mojom.kPrivacyHubGeolocationAdvancedSubpagePath = "osPrivacy/privacyHub/geolocation/advanced";
+chromeos.settings.mojom.kPrivacyHubGeolocationAdvancedSubpagePath = "osPrivacy/privacyHub/geolocation/advanced";
 
-chromeos.settings.settings.mojom.mojom.kInputMethodOptionsSubpagePath = "osLanguages/inputMethodOptions";
+chromeos.settings.mojom.kInputMethodOptionsSubpagePath = "osLanguages/inputMethodOptions";
 
-chromeos.settings.settings.mojom.mojom.kLanguagesSubpagePath = "osLanguages/languages";
+chromeos.settings.mojom.kLanguagesSubpagePath = "osLanguages/languages";
 
-chromeos.settings.settings.mojom.mojom.kInputSubpagePath = "osLanguages/input";
+chromeos.settings.mojom.kInputSubpagePath = "osLanguages/input";
 
-chromeos.settings.settings.mojom.mojom.kEditDictionarySubpagePath = "osLanguages/editDictionary";
+chromeos.settings.mojom.kEditDictionarySubpagePath = "osLanguages/editDictionary";
 
-chromeos.settings.settings.mojom.mojom.kJapaneseManageUserDictionarySubpagePath = "osLanguages/japaneseManageUserDictionary";
+chromeos.settings.mojom.kJapaneseManageUserDictionarySubpagePath = "osLanguages/japaneseManageUserDictionary";
 
-chromeos.settings.settings.mojom.mojom.kAppLanguagesSubpagePath = "osLanguages/languages/appLanguages";
+chromeos.settings.mojom.kAppLanguagesSubpagePath = "osLanguages/languages/appLanguages";
 
-chromeos.settings.settings.mojom.mojom.kGoogleDriveSubpagePath = "googleDrive";
+chromeos.settings.mojom.kGoogleDriveSubpagePath = "googleDrive";
 
-chromeos.settings.settings.mojom.mojom.kOneDriveSubpagePath = "oneDrive";
+chromeos.settings.mojom.kOneDriveSubpagePath = "oneDrive";
 
-chromeos.settings.settings.mojom.mojom.kOfficeFilesSubpagePath = "officeFiles";
+chromeos.settings.mojom.kOfficeFilesSubpagePath = "officeFiles";
 
-chromeos.settings.settings.mojom.mojom.kNetworkFileSharesSubpagePath = "smbShares";
+chromeos.settings.mojom.kNetworkFileSharesSubpagePath = "smbShares";
 
-chromeos.settings.settings.mojom.mojom.kPrintingDetailsSubpagePath = "cupsPrinters";
+chromeos.settings.mojom.kPrintingDetailsSubpagePath = "cupsPrinters";
 
-chromeos.settings.settings.mojom.mojom.kAccessibilitySectionPath = "osAccessibility";
+chromeos.settings.mojom.kAccessibilitySectionPath = "osAccessibility";
 
-chromeos.settings.settings.mojom.mojom.kManageAccessibilitySubpagePath = "manageAccessibility";
+chromeos.settings.mojom.kManageAccessibilitySubpagePath = "manageAccessibility";
 
-chromeos.settings.settings.mojom.mojom.kTextToSpeechPagePath = "textToSpeech";
+chromeos.settings.mojom.kTextToSpeechPagePath = "textToSpeech";
 
-chromeos.settings.settings.mojom.mojom.kDisplayAndMagnificationSubpagePath = "displayAndMagnification";
+chromeos.settings.mojom.kDisplayAndMagnificationSubpagePath = "displayAndMagnification";
 
-chromeos.settings.settings.mojom.mojom.kKeyboardAndTextInputSubpagePath = "keyboardAndTextInput";
+chromeos.settings.mojom.kKeyboardAndTextInputSubpagePath = "keyboardAndTextInput";
 
-chromeos.settings.settings.mojom.mojom.kCursorAndTouchpadSubpagePath = "cursorAndTouchpad";
+chromeos.settings.mojom.kCursorAndTouchpadSubpagePath = "cursorAndTouchpad";
 
-chromeos.settings.settings.mojom.mojom.kSelectToSpeakSubpagePath = "textToSpeech/selectToSpeak";
+chromeos.settings.mojom.kSelectToSpeakSubpagePath = "textToSpeech/selectToSpeak";
 
-chromeos.settings.settings.mojom.mojom.kChromeVoxSubpagePath = "textToSpeech/chromeVox";
+chromeos.settings.mojom.kChromeVoxSubpagePath = "textToSpeech/chromeVox";
 
-chromeos.settings.settings.mojom.mojom.kAudioAndCaptionsSubpagePath = "audioAndCaptions";
+chromeos.settings.mojom.kAudioAndCaptionsSubpagePath = "audioAndCaptions";
 
-chromeos.settings.settings.mojom.mojom.kTextToSpeechSubpagePath = "manageAccessibility/tts";
+chromeos.settings.mojom.kTextToSpeechSubpagePath = "manageAccessibility/tts";
 
-chromeos.settings.settings.mojom.mojom.kSwitchAccessOptionsSubpagePath = "manageAccessibility/switchAccess";
+chromeos.settings.mojom.kSwitchAccessOptionsSubpagePath = "manageAccessibility/switchAccess";
 
-chromeos.settings.settings.mojom.mojom.kFaceGazeSettingsSubpagePath = "manageAccessibility/faceGaze";
+chromeos.settings.mojom.kFaceGazeSettingsSubpagePath = "manageAccessibility/faceGaze";
 
-chromeos.settings.settings.mojom.mojom.kMouseKeysSettingsSubpagePath = "manageAccessibility/mouseKeys";
+chromeos.settings.mojom.kMouseKeysSettingsSubpagePath = "manageAccessibility/mouseKeys";
 
-chromeos.settings.settings.mojom.mojom.kAboutChromeOsSectionPath = "help";
+chromeos.settings.mojom.kAboutChromeOsSectionPath = "help";
 
-chromeos.settings.settings.mojom.mojom.kDetailedBuildInfoSubpagePath = "help/details";
+chromeos.settings.mojom.kDetailedBuildInfoSubpagePath = "help/details";
 
-chromeos.settings.settings.mojom.mojom.kKerberosSectionPath = "kerberos";
+chromeos.settings.mojom.kKerberosSectionPath = "kerberos";
 
-chromeos.settings.settings.mojom.mojom.kKerberosAccountsV2SubpagePath = "kerberos/kerberosAccounts";
+chromeos.settings.mojom.kKerberosAccountsV2SubpagePath = "kerberos/kerberosAccounts";
 
-chromeos.settings.settings.mojom.mojom.kSystemPreferencesSectionPath = "systemPreferences";
+chromeos.settings.mojom.kSystemPreferencesSectionPath = "systemPreferences";
 
-chromeos.settings.settings.mojom.mojom.kInternalStorybookSubpagePath = "_internal/_storybook";
+chromeos.settings.mojom.kInternalStorybookSubpagePath = "_internal/_storybook";
 
 // Enum: Section
-chromeos.settings.settings.mojom.mojom.Section = {
+chromeos.settings.mojom.Section = {
   kNetwork: 0,
   kBluetooth: 1,
   kMultiDevice: 2,
@@ -237,10 +237,10 @@ chromeos.settings.settings.mojom.mojom.Section = {
   kKerberos: 10,
   kSystemPreferences: 11,
 };
-chromeos.settings.settings.mojom.mojom.SectionSpec = { $: mojo.internal.Enum() };
+chromeos.settings.mojom.SectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Subpage
-chromeos.settings.settings.mojom.mojom.Subpage = {
+chromeos.settings.mojom.Subpage = {
   kEthernetDetails: 0,
   kWifiNetworks: 1,
   kWifiDetails: 2,
@@ -334,4 +334,4 @@ chromeos.settings.settings.mojom.mojom.Subpage = {
   kInternalStorybook: 90,
   kKerberosAccountsV2: 91,
 };
-chromeos.settings.settings.mojom.mojom.SubpageSpec = { $: mojo.internal.Enum() };
+chromeos.settings.mojom.SubpageSpec = { $: mojo.internal.Enum() };

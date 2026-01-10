@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Union: LocalResourceValue
-blink.mojom.mojom.LocalResourceValueSpec = { $: mojo.internal.Union(
+blink.mojom.LocalResourceValueSpec = { $: mojo.internal.Union(
     'blink.mojom.LocalResourceValue', {
       'resource_id': {
         'ordinal': 0,
@@ -25,7 +25,7 @@ blink.mojom.mojom.LocalResourceValueSpec = { $: mojo.internal.Union(
 };
 
 // Struct: LocalResourceSource
-blink.mojom.mojom.LocalResourceSourceSpec = {
+blink.mojom.LocalResourceSourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LocalResourceSource',
@@ -42,7 +42,7 @@ blink.mojom.mojom.LocalResourceSourceSpec = {
 };
 
 // Struct: LocalResourceLoaderConfig
-blink.mojom.mojom.LocalResourceLoaderConfigSpec = {
+blink.mojom.LocalResourceLoaderConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LocalResourceLoaderConfig',

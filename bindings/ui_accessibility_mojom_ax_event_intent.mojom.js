@@ -11,7 +11,7 @@ var ui = ui || {};
 
 
 // Struct: EventIntent
-ax.mojom.mojom.EventIntentSpec = {
+ax.mojom.EventIntentSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.EventIntent',

@@ -27,27 +27,63 @@ var blink = blink || {};
 var url = url || {};
 
 
-blink.mojom.mojom.kNavigation_SharedWorkerSpec = "navigation:shared_worker";
+blink.mojom.kNavigation_SharedWorkerSpec = "navigation:shared_worker";
 
 // Interface: SharedWorkerFactory
-blink.mojom.mojom.SharedWorkerFactory = {};
+blink.mojom.SharedWorkerFactory = {};
 
-blink.mojom.mojom.SharedWorkerFactoryPendingReceiver = class {
+blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedWorkerFactory_CreateSharedWorker_Params',
+      packedSize: 184,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SharedWorkerTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'constructor_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'is_constructor_secure_context', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'user_agent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'ua_metadata', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.UserAgentMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'pause_on_start', packedOffset: 168, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'devtools_worker_token', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'renderer_preferences', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.RendererPreferencesSpec, nullable: false, minVersion: 0 },
+        { name: 'preference_watcher_receiver', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.RendererPreferenceWatcherRemote), nullable: false, minVersion: 0 },
+        { name: 'content_settings', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.WorkerContentSettingsProxyRemote), nullable: false, minVersion: 0 },
+        { name: 'service_worker_container_info', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.ServiceWorkerContainerInfoForClientSpec, nullable: true, minVersion: 0 },
+        { name: 'main_script_load_params', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.WorkerMainScriptLoadParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'subresource_loader_factories', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false, minVersion: 0 },
+        { name: 'controller_info', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'policy_container', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.PolicyContainerSpec, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SharedWorkerHostRemote), nullable: false, minVersion: 0 },
+        { name: 'shared_worker', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SharedWorkerRemote), nullable: false, minVersion: 0 },
+        { name: 'browser_interface_broker', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), nullable: false, minVersion: 0 },
+        { name: 'ukm_source_id', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'require_cross_site_request_for_cookies', packedOffset: 168, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'coep_reporting_observer_receiver', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
+        { name: 'dip_reporting_observer_receiver', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 184}]
+    }
+  }
+};
+
+blink.mojom.SharedWorkerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SharedWorkerFactoryRemote = class {
+blink.mojom.SharedWorkerFactoryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SharedWorkerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SharedWorkerFactoryPendingReceiver,
+      blink.mojom.SharedWorkerFactoryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SharedWorkerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SharedWorkerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -59,7 +95,7 @@ blink.mojom.mojom.SharedWorkerFactoryRemote = class {
   }
 };
 
-blink.mojom.mojom.SharedWorkerFactoryRemoteCallHandler = class {
+blink.mojom.SharedWorkerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -68,15 +104,15 @@ blink.mojom.mojom.SharedWorkerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec,
+      blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec,
       null,
       [info, token, constructor_key, origin, is_constructor_secure_context, user_agent, ua_metadata, pause_on_start, devtools_worker_token, renderer_preferences, preference_watcher_receiver, content_settings, service_worker_container_info, main_script_load_params, subresource_loader_factories, controller_info, policy_container, host, shared_worker, browser_interface_broker, ukm_source_id, require_cross_site_request_for_cookies, coep_reporting_observer_receiver, dip_reporting_observer_receiver]);
   }
 
 };
 
-blink.mojom.mojom.SharedWorkerFactory.getRemote = function() {
-  let remote = new blink.mojom.mojom.SharedWorkerFactoryRemote();
+blink.mojom.SharedWorkerFactory.getRemote = function() {
+  let remote = new blink.mojom.SharedWorkerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -86,7 +122,7 @@ blink.mojom.mojom.SharedWorkerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateSharedWorker
-blink.mojom.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec = {
+blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerFactory.CreateSharedWorker_Params',
@@ -123,6 +159,6 @@ blink.mojom.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SharedWorkerFactoryPtr = blink.mojom.mojom.SharedWorkerFactoryRemote;
-blink.mojom.mojom.SharedWorkerFactoryRequest = blink.mojom.mojom.SharedWorkerFactoryPendingReceiver;
+blink.mojom.SharedWorkerFactoryPtr = blink.mojom.SharedWorkerFactoryRemote;
+blink.mojom.SharedWorkerFactoryRequest = blink.mojom.SharedWorkerFactoryPendingReceiver;
 

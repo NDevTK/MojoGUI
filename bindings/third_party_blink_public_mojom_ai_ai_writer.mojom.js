@@ -12,30 +12,30 @@ var blink = blink || {};
 
 
 // Enum: AIWriterTone
-blink.mojom.mojom.AIWriterTone = {
+blink.mojom.AIWriterTone = {
   kFormal: 0,
   kNeutral: 1,
   kCasual: 2,
 };
-blink.mojom.mojom.AIWriterToneSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIWriterToneSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIWriterFormat
-blink.mojom.mojom.AIWriterFormat = {
+blink.mojom.AIWriterFormat = {
   kPlainText: 0,
   kMarkdown: 1,
 };
-blink.mojom.mojom.AIWriterFormatSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIWriterFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: AIWriterLength
-blink.mojom.mojom.AIWriterLength = {
+blink.mojom.AIWriterLength = {
   kShort: 0,
   kMedium: 1,
   kLong: 2,
 };
-blink.mojom.mojom.AIWriterLengthSpec = { $: mojo.internal.Enum() };
+blink.mojom.AIWriterLengthSpec = { $: mojo.internal.Enum() };
 
 // Struct: AIWriterCreateOptions
-blink.mojom.mojom.AIWriterCreateOptionsSpec = {
+blink.mojom.AIWriterCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIWriterCreateOptions',
@@ -55,24 +55,53 @@ blink.mojom.mojom.AIWriterCreateOptionsSpec = {
 };
 
 // Interface: AIWriter
-blink.mojom.mojom.AIWriter = {};
+blink.mojom.AIWriter = {};
 
-blink.mojom.mojom.AIWriterPendingReceiver = class {
+blink.mojom.AIWriter_Write_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIWriter_Write_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.AIWriter_MeasureUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIWriter_MeasureUsage_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIWriterRemote = class {
+blink.mojom.AIWriterRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIWriterPendingReceiver,
+      blink.mojom.AIWriterPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIWriterRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -84,7 +113,7 @@ blink.mojom.mojom.AIWriterRemote = class {
   }
 };
 
-blink.mojom.mojom.AIWriterRemoteCallHandler = class {
+blink.mojom.AIWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -93,7 +122,7 @@ blink.mojom.mojom.AIWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIWriter_Write_ParamsSpec,
+      blink.mojom.AIWriter_Write_ParamsSpec,
       null,
       [input, context, pending_responder]);
   }
@@ -102,15 +131,15 @@ blink.mojom.mojom.AIWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AIWriter_MeasureUsage_ParamsSpec,
-      blink.mojom.mojom.AIWriter_MeasureUsage_ResponseParamsSpec,
+      blink.mojom.AIWriter_MeasureUsage_ParamsSpec,
+      blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec,
       [input, context]);
   }
 
 };
 
-blink.mojom.mojom.AIWriter.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIWriterRemote();
+blink.mojom.AIWriter.getRemote = function() {
+  let remote = new blink.mojom.AIWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +149,7 @@ blink.mojom.mojom.AIWriter.getRemote = function() {
 };
 
 // ParamsSpec for Write
-blink.mojom.mojom.AIWriter_Write_ParamsSpec = {
+blink.mojom.AIWriter_Write_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIWriter.Write_Params',
@@ -136,7 +165,7 @@ blink.mojom.mojom.AIWriter_Write_ParamsSpec = {
 };
 
 // ParamsSpec for MeasureUsage
-blink.mojom.mojom.AIWriter_MeasureUsage_ParamsSpec = {
+blink.mojom.AIWriter_MeasureUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIWriter.MeasureUsage_Params',
@@ -150,7 +179,7 @@ blink.mojom.mojom.AIWriter_MeasureUsage_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = {
+blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIWriter.MeasureUsage_ResponseParams',
@@ -165,6 +194,6 @@ blink.mojom.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIWriterPtr = blink.mojom.mojom.AIWriterRemote;
-blink.mojom.mojom.AIWriterRequest = blink.mojom.mojom.AIWriterPendingReceiver;
+blink.mojom.AIWriterPtr = blink.mojom.AIWriterRemote;
+blink.mojom.AIWriterRequest = blink.mojom.AIWriterPendingReceiver;
 

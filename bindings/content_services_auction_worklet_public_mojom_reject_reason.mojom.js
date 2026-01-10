@@ -10,7 +10,7 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 
 // Enum: RejectReason
-auction_worklet.mojom.mojom.RejectReason = {
+auction_worklet.mojom.RejectReason = {
   kNotAvailable: 0,
   kInvalidBid: 1,
   kBidBelowAuctionFloor: 2,
@@ -24,4 +24,4 @@ auction_worklet.mojom.mojom.RejectReason = {
   kWrongScoreAdCurrency: 10,
   kMultiBidLimitExceeded: 11,
 };
-auction_worklet.mojom.mojom.RejectReasonSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.RejectReasonSpec = { $: mojo.internal.Enum() };

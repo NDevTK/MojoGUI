@@ -10,24 +10,37 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: CrashMemoryMetricsReporter
-blink.mojom.mojom.CrashMemoryMetricsReporter = {};
+blink.mojom.CrashMemoryMetricsReporter = {};
 
-blink.mojom.mojom.CrashMemoryMetricsReporterPendingReceiver = class {
+blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'shared_metrics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.CrashMemoryMetricsReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.CrashMemoryMetricsReporterRemote = class {
+blink.mojom.CrashMemoryMetricsReporterRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.CrashMemoryMetricsReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.CrashMemoryMetricsReporterPendingReceiver,
+      blink.mojom.CrashMemoryMetricsReporterPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.CrashMemoryMetricsReporterRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ blink.mojom.mojom.CrashMemoryMetricsReporterRemote = class {
   }
 };
 
-blink.mojom.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {
+blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ blink.mojom.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec,
+      blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec,
       null,
       [shared_metrics_buffer]);
   }
 
 };
 
-blink.mojom.mojom.CrashMemoryMetricsReporter.getRemote = function() {
-  let remote = new blink.mojom.mojom.CrashMemoryMetricsReporterRemote();
+blink.mojom.CrashMemoryMetricsReporter.getRemote = function() {
+  let remote = new blink.mojom.CrashMemoryMetricsReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ blink.mojom.mojom.CrashMemoryMetricsReporter.getRemote = function() {
 };
 
 // ParamsSpec for SetSharedMemory
-blink.mojom.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
+blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CrashMemoryMetricsReporter.SetSharedMemory_Params',
@@ -80,6 +93,6 @@ blink.mojom.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.CrashMemoryMetricsReporterPtr = blink.mojom.mojom.CrashMemoryMetricsReporterRemote;
-blink.mojom.mojom.CrashMemoryMetricsReporterRequest = blink.mojom.mojom.CrashMemoryMetricsReporterPendingReceiver;
+blink.mojom.CrashMemoryMetricsReporterPtr = blink.mojom.CrashMemoryMetricsReporterRemote;
+blink.mojom.CrashMemoryMetricsReporterRequest = blink.mojom.CrashMemoryMetricsReporterPendingReceiver;
 

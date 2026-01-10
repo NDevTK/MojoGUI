@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.tts = chromeos.tts || {};
-chromeos.tts.tts.mojom = chromeos.tts.tts.mojom || {};
+chromeos.tts.mojom = chromeos.tts.mojom || {};
 
 
 // Struct: AudioParameters
-chromeos.tts.tts.mojom.mojom.AudioParametersSpec = {
+chromeos.tts.mojom.AudioParametersSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.AudioParameters',
@@ -26,24 +26,53 @@ chromeos.tts.tts.mojom.mojom.AudioParametersSpec = {
 };
 
 // Interface: TtsService
-chromeos.tts.tts.mojom.mojom.TtsService = {};
+chromeos.tts.mojom.TtsService = {};
 
-chromeos.tts.tts.mojom.mojom.TtsServicePendingReceiver = class {
+chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.TtsService_BindGoogleTtsStream_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.GoogleTtsStreamRemote), nullable: false, minVersion: 0 },
+        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.PlaybackTtsStreamRemote), nullable: false, minVersion: 0 },
+        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
+        { name: 'desired_audio_parameters', packedOffset: 16, packedBitOffset: 0, type: chromeos.tts.mojom.AudioParametersSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+chromeos.tts.mojom.TtsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.tts.tts.mojom.mojom.TtsServiceRemote = class {
+chromeos.tts.mojom.TtsServiceRemote = class {
   static get $interfaceName() {
     return 'chromeos.tts.mojom.TtsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.tts.tts.mojom.mojom.TtsServicePendingReceiver,
+      chromeos.tts.mojom.TtsServicePendingReceiver,
       handle);
-    this.$ = new chromeos.tts.tts.mojom.mojom.TtsServiceRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.tts.mojom.TtsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +84,7 @@ chromeos.tts.tts.mojom.mojom.TtsServiceRemote = class {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.TtsServiceRemoteCallHandler = class {
+chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,7 +93,7 @@ chromeos.tts.tts.mojom.mojom.TtsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.tts.mojom.mojom.TtsService_BindGoogleTtsStream_ParamsSpec,
+      chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec,
       null,
       [receiver, stream_factory]);
   }
@@ -73,15 +102,15 @@ chromeos.tts.tts.mojom.mojom.TtsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.tts.mojom.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec,
-      chromeos.tts.tts.mojom.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec,
+      chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec,
+      chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec,
       [receiver, stream_factory, desired_audio_parameters]);
   }
 
 };
 
-chromeos.tts.tts.mojom.mojom.TtsService.getRemote = function() {
-  let remote = new chromeos.tts.tts.mojom.mojom.TtsServiceRemote();
+chromeos.tts.mojom.TtsService.getRemote = function() {
+  let remote = new chromeos.tts.mojom.TtsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -91,7 +120,7 @@ chromeos.tts.tts.mojom.mojom.TtsService.getRemote = function() {
 };
 
 // ParamsSpec for BindGoogleTtsStream
-chromeos.tts.tts.mojom.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
+chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsService.BindGoogleTtsStream_Params',
@@ -106,7 +135,7 @@ chromeos.tts.tts.mojom.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
 };
 
 // ParamsSpec for BindPlaybackTtsStream
-chromeos.tts.tts.mojom.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
+chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_Params',
@@ -121,7 +150,7 @@ chromeos.tts.tts.mojom.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
+chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_ResponseParams',
@@ -135,29 +164,119 @@ chromeos.tts.tts.mojom.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec
 };
 
 // Legacy compatibility
-chromeos.tts.tts.mojom.mojom.TtsServicePtr = chromeos.tts.tts.mojom.mojom.TtsServiceRemote;
-chromeos.tts.tts.mojom.mojom.TtsServiceRequest = chromeos.tts.tts.mojom.mojom.TtsServicePendingReceiver;
+chromeos.tts.mojom.TtsServicePtr = chromeos.tts.mojom.TtsServiceRemote;
+chromeos.tts.mojom.TtsServiceRequest = chromeos.tts.mojom.TtsServicePendingReceiver;
 
 
 // Interface: GoogleTtsStream
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream = {};
+chromeos.tts.mojom.GoogleTtsStream = {};
 
-chromeos.tts.tts.mojom.mojom.GoogleTtsStreamPendingReceiver = class {
+chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.GoogleTtsStream_InstallVoice_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'voice_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.GoogleTtsStream_SelectVoice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.GoogleTtsStream_Speak_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'text_jspb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'speaker_params_jspb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.GoogleTtsStream_Stop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.GoogleTtsStream_SetVolume_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.GoogleTtsStream_Pause_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.GoogleTtsStream_Resume_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemote = class {
+chromeos.tts.mojom.GoogleTtsStreamRemote = class {
   static get $interfaceName() {
     return 'chromeos.tts.mojom.GoogleTtsStream';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStreamPendingReceiver,
+      chromeos.tts.mojom.GoogleTtsStreamPendingReceiver,
       handle);
-    this.$ = new chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -169,7 +288,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemote = class {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
+chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -178,8 +297,8 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_InstallVoice_ParamsSpec,
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec,
       [voice_name, voice_bytes]);
   }
 
@@ -187,8 +306,8 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SelectVoice_ParamsSpec,
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec,
       [voice_name]);
   }
 
@@ -196,8 +315,8 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Speak_ParamsSpec,
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Speak_ResponseParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec,
       [text_jspb, speaker_params_jspb]);
   }
 
@@ -205,7 +324,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Stop_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec,
       null,
       []);
   }
@@ -214,7 +333,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SetVolume_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -223,7 +342,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Pause_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec,
       null,
       []);
   }
@@ -232,15 +351,15 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Resume_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream.getRemote = function() {
-  let remote = new chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemote();
+chromeos.tts.mojom.GoogleTtsStream.getRemote = function() {
+  let remote = new chromeos.tts.mojom.GoogleTtsStreamRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -250,7 +369,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream.getRemote = function() {
 };
 
 // ParamsSpec for InstallVoice
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.InstallVoice_Params',
@@ -264,7 +383,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.InstallVoice_ResponseParams',
@@ -278,7 +397,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SelectVoice
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.SelectVoice_Params',
@@ -291,7 +410,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.SelectVoice_ResponseParams',
@@ -305,7 +424,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Speak
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Speak_ParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.Speak_Params',
@@ -319,7 +438,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Speak_ParamsSpec = {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.Speak_ResponseParams',
@@ -333,7 +452,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Stop
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Stop_ParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.Stop_Params',
@@ -346,7 +465,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for SetVolume
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.SetVolume_Params',
@@ -360,7 +479,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Pause_ParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.Pause_Params',
@@ -373,7 +492,7 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Resume_ParamsSpec = {
+chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.GoogleTtsStream.Resume_Params',
@@ -386,29 +505,105 @@ chromeos.tts.tts.mojom.mojom.GoogleTtsStream_Resume_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.tts.tts.mojom.mojom.GoogleTtsStreamPtr = chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRemote;
-chromeos.tts.tts.mojom.mojom.GoogleTtsStreamRequest = chromeos.tts.tts.mojom.mojom.GoogleTtsStreamPendingReceiver;
+chromeos.tts.mojom.GoogleTtsStreamPtr = chromeos.tts.mojom.GoogleTtsStreamRemote;
+chromeos.tts.mojom.GoogleTtsStreamRequest = chromeos.tts.mojom.GoogleTtsStreamPendingReceiver;
 
 
 // Interface: PlaybackTtsStream
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream = {};
+chromeos.tts.mojom.PlaybackTtsStream = {};
 
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamPendingReceiver = class {
+chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.PlaybackTtsStream_Play_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'frames_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
+        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'last_buffer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.PlaybackTtsStream_Stop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.PlaybackTtsStream_SetVolume_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.PlaybackTtsStream_Pause_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.PlaybackTtsStream_Resume_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemote = class {
+chromeos.tts.mojom.PlaybackTtsStreamRemote = class {
   static get $interfaceName() {
     return 'chromeos.tts.mojom.PlaybackTtsStream';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamPendingReceiver,
+      chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver,
       handle);
-    this.$ = new chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -420,7 +615,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemote = class {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler = class {
+chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -429,8 +624,8 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Play_ParamsSpec,
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Play_ResponseParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec,
       []);
   }
 
@@ -438,7 +633,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec,
       null,
       [frames_buffer, char_index, last_buffer]);
   }
@@ -447,7 +642,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Stop_ParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec,
       null,
       []);
   }
@@ -456,7 +651,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_SetVolume_ParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -465,7 +660,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Pause_ParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec,
       null,
       []);
   }
@@ -474,15 +669,15 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Resume_ParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream.getRemote = function() {
-  let remote = new chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemote();
+chromeos.tts.mojom.PlaybackTtsStream.getRemote = function() {
+  let remote = new chromeos.tts.mojom.PlaybackTtsStreamRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -492,7 +687,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream.getRemote = function() {
 };
 
 // ParamsSpec for Play
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Play_ParamsSpec = {
+chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.Play_Params',
@@ -504,7 +699,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Play_ParamsSpec = {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
+chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.Play_ResponseParams',
@@ -518,7 +713,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SendAudioBuffer
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
+chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.SendAudioBuffer_Params',
@@ -534,7 +729,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for Stop
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
+chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.Stop_Params',
@@ -547,7 +742,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for SetVolume
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
+chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.SetVolume_Params',
@@ -561,7 +756,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
+chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.Pause_Params',
@@ -574,7 +769,7 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
+chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.Resume_Params',
@@ -587,29 +782,78 @@ chromeos.tts.tts.mojom.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamPtr = chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRemote;
-chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamRequest = chromeos.tts.tts.mojom.mojom.PlaybackTtsStreamPendingReceiver;
+chromeos.tts.mojom.PlaybackTtsStreamPtr = chromeos.tts.mojom.PlaybackTtsStreamRemote;
+chromeos.tts.mojom.PlaybackTtsStreamRequest = chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver;
 
 
 // Interface: TtsEventObserver
-chromeos.tts.tts.mojom.mojom.TtsEventObserver = {};
+chromeos.tts.mojom.TtsEventObserver = {};
 
-chromeos.tts.tts.mojom.mojom.TtsEventObserverPendingReceiver = class {
+chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.TtsEventObserver_OnStart_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.TtsEventObserver_OnTimepoint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.TtsEventObserver_OnEnd_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.TtsEventObserver_OnError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.tts.mojom.TtsEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.tts.tts.mojom.mojom.TtsEventObserverRemote = class {
+chromeos.tts.mojom.TtsEventObserverRemote = class {
   static get $interfaceName() {
     return 'chromeos.tts.mojom.TtsEventObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.tts.tts.mojom.mojom.TtsEventObserverPendingReceiver,
+      chromeos.tts.mojom.TtsEventObserverPendingReceiver,
       handle);
-    this.$ = new chromeos.tts.tts.mojom.mojom.TtsEventObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.tts.mojom.TtsEventObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -621,7 +865,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserverRemote = class {
   }
 };
 
-chromeos.tts.tts.mojom.mojom.TtsEventObserverRemoteCallHandler = class {
+chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -630,7 +874,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnStart_ParamsSpec,
+      chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec,
       null,
       []);
   }
@@ -639,7 +883,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnTimepoint_ParamsSpec,
+      chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec,
       null,
       [char_index]);
   }
@@ -648,7 +892,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnEnd_ParamsSpec,
+      chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec,
       null,
       []);
   }
@@ -657,15 +901,15 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnError_ParamsSpec,
+      chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chromeos.tts.tts.mojom.mojom.TtsEventObserver.getRemote = function() {
-  let remote = new chromeos.tts.tts.mojom.mojom.TtsEventObserverRemote();
+chromeos.tts.mojom.TtsEventObserver.getRemote = function() {
+  let remote = new chromeos.tts.mojom.TtsEventObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -675,7 +919,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnStart
-chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnStart_ParamsSpec = {
+chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsEventObserver.OnStart_Params',
@@ -688,7 +932,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnStart_ParamsSpec = {
 };
 
 // ParamsSpec for OnTimepoint
-chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
+chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsEventObserver.OnTimepoint_Params',
@@ -702,7 +946,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
 };
 
 // ParamsSpec for OnEnd
-chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
+chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsEventObserver.OnEnd_Params',
@@ -715,7 +959,7 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnError_ParamsSpec = {
+chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsEventObserver.OnError_Params',
@@ -728,6 +972,6 @@ chromeos.tts.tts.mojom.mojom.TtsEventObserver_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.tts.tts.mojom.mojom.TtsEventObserverPtr = chromeos.tts.tts.mojom.mojom.TtsEventObserverRemote;
-chromeos.tts.tts.mojom.mojom.TtsEventObserverRequest = chromeos.tts.tts.mojom.mojom.TtsEventObserverPendingReceiver;
+chromeos.tts.mojom.TtsEventObserverPtr = chromeos.tts.mojom.TtsEventObserverRemote;
+chromeos.tts.mojom.TtsEventObserverRequest = chromeos.tts.mojom.TtsEventObserverPendingReceiver;
 

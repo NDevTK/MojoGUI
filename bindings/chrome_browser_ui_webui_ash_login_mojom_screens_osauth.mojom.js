@@ -7,28 +7,76 @@
 // Module namespace
 var ash = ash || {};
 ash.screens_osauth = ash.screens_osauth || {};
-ash.screens_osauth.screens_osauth.mojom = ash.screens_osauth.screens_osauth.mojom || {};
+ash.screens_osauth.mojom = ash.screens_osauth.mojom || {};
 
 
 // Interface: LocalDataLossWarningPageHandler
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler = {};
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler = {};
 
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerPendingReceiver = class {
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRemote = class {
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerPendingReceiver,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +88,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRem
   }
 };
 
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = class {
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +97,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRem
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +106,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRem
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +115,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRem
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec,
       null,
       []);
   }
@@ -76,15 +124,15 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRem
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler.getRemote = function() {
-  let remote = new ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRemote();
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.getRemote = function() {
+  let remote = new ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +142,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler.ge
 };
 
 // ParamsSpec for OnPowerwash
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = {
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnPowerwash_Params',
@@ -107,7 +155,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_On
 };
 
 // ParamsSpec for OnRecreateUser
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = {
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnRecreateUser_Params',
@@ -120,7 +168,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_On
 };
 
 // ParamsSpec for OnCancel
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnCancel_Params',
@@ -133,7 +181,7 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_On
 };
 
 // ParamsSpec for OnBack
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnBack_Params',
@@ -146,6 +194,6 @@ ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandler_On
 };
 
 // Legacy compatibility
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerPtr = ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRemote;
-ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerRequest = ash.screens_osauth.screens_osauth.mojom.mojom.LocalDataLossWarningPageHandlerPendingReceiver;
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPtr = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote;
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRequest = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver;
 

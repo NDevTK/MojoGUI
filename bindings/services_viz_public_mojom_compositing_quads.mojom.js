@@ -19,23 +19,23 @@ var gfx = gfx || {};
 
 
 // Enum: ProtectedVideoState
-viz.mojom.mojom.ProtectedVideoState = {
+viz.mojom.ProtectedVideoState = {
   kClear: 0,
   kSoftwareProtected: 1,
   kHardwareProtected: 2,
 };
-viz.mojom.mojom.ProtectedVideoStateSpec = { $: mojo.internal.Enum() };
+viz.mojom.ProtectedVideoStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: OverlayPriority
-viz.mojom.mojom.OverlayPriority = {
+viz.mojom.OverlayPriority = {
   kLow: 0,
   kRegular: 1,
   kRequired: 2,
 };
-viz.mojom.mojom.OverlayPrioritySpec = { $: mojo.internal.Enum() };
+viz.mojom.OverlayPrioritySpec = { $: mojo.internal.Enum() };
 
 // Union: DrawQuadState
-viz.mojom.mojom.DrawQuadStateSpec = { $: mojo.internal.Union(
+viz.mojom.DrawQuadStateSpec = { $: mojo.internal.Union(
     'viz.mojom.DrawQuadState', {
       'debug_border_quad_state': {
         'ordinal': 0,
@@ -73,7 +73,7 @@ viz.mojom.mojom.DrawQuadStateSpec = { $: mojo.internal.Union(
 };
 
 // Struct: RoundedDisplayMasksInfo
-viz.mojom.mojom.RoundedDisplayMasksInfoSpec = {
+viz.mojom.RoundedDisplayMasksInfoSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RoundedDisplayMasksInfo',
@@ -88,7 +88,7 @@ viz.mojom.mojom.RoundedDisplayMasksInfoSpec = {
 };
 
 // Struct: DebugBorderQuadState
-viz.mojom.mojom.DebugBorderQuadStateSpec = {
+viz.mojom.DebugBorderQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DebugBorderQuadState',
@@ -103,7 +103,7 @@ viz.mojom.mojom.DebugBorderQuadStateSpec = {
 };
 
 // Struct: CompositorRenderPassQuadState
-viz.mojom.mojom.CompositorRenderPassQuadStateSpec = {
+viz.mojom.CompositorRenderPassQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorRenderPassQuadState',
@@ -126,7 +126,7 @@ viz.mojom.mojom.CompositorRenderPassQuadStateSpec = {
 };
 
 // Struct: SolidColorQuadState
-viz.mojom.mojom.SolidColorQuadStateSpec = {
+viz.mojom.SolidColorQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SolidColorQuadState',
@@ -141,7 +141,7 @@ viz.mojom.mojom.SolidColorQuadStateSpec = {
 };
 
 // Struct: SurfaceQuadState
-viz.mojom.mojom.SurfaceQuadStateSpec = {
+viz.mojom.SurfaceQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SurfaceQuadState',
@@ -161,7 +161,7 @@ viz.mojom.mojom.SurfaceQuadStateSpec = {
 };
 
 // Struct: TextureQuadState
-viz.mojom.mojom.TextureQuadStateSpec = {
+viz.mojom.TextureQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TextureQuadState',
@@ -187,7 +187,7 @@ viz.mojom.mojom.TextureQuadStateSpec = {
 };
 
 // Struct: TileQuadState
-viz.mojom.mojom.TileQuadStateSpec = {
+viz.mojom.TileQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TileQuadState',
@@ -204,7 +204,7 @@ viz.mojom.mojom.TileQuadStateSpec = {
 };
 
 // Struct: VideoHoleQuadState
-viz.mojom.mojom.VideoHoleQuadStateSpec = {
+viz.mojom.VideoHoleQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VideoHoleQuadState',
@@ -218,7 +218,7 @@ viz.mojom.mojom.VideoHoleQuadStateSpec = {
 };
 
 // Struct: SharedElementQuadState
-viz.mojom.mojom.SharedElementQuadStateSpec = {
+viz.mojom.SharedElementQuadStateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SharedElementQuadState',
@@ -232,7 +232,7 @@ viz.mojom.mojom.SharedElementQuadStateSpec = {
 };
 
 // Struct: DrawQuad
-viz.mojom.mojom.DrawQuadSpec = {
+viz.mojom.DrawQuadSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DrawQuad',

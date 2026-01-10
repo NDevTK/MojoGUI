@@ -10,9 +10,9 @@ ntp_tiles.mojom = ntp_tiles.mojom || {};
 
 
 // Enum: TileType
-ntp_tiles.mojom.mojom.TileType = {
+ntp_tiles.mojom.TileType = {
   kTopSites: 0,
   kCustomLinks: 1,
   kEnterpriseShortcuts: 2,
 };
-ntp_tiles.mojom.mojom.TileTypeSpec = { $: mojo.internal.Enum() };
+ntp_tiles.mojom.TileTypeSpec = { $: mojo.internal.Enum() };

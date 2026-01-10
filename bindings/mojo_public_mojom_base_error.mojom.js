@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: Code
-mojo_base.mojom.mojom.Code = {
+mojo_base.mojom.Code = {
   kCancelled: 0,
   kUnknown: 1,
   kInvalidArgument: 2,
@@ -28,10 +28,10 @@ mojo_base.mojom.mojom.Code = {
   kDataLoss: 14,
   kUnauthenticated: 15,
 };
-mojo_base.mojom.mojom.CodeSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.CodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Error
-mojo_base.mojom.mojom.ErrorSpec = {
+mojo_base.mojom.ErrorSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Error',

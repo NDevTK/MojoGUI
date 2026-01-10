@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: ResolutionRateLimit
-media.mojom.mojom.ResolutionRateLimitSpec = {
+media.mojom.ResolutionRateLimitSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ResolutionRateLimit',
@@ -31,7 +31,7 @@ media.mojom.mojom.ResolutionRateLimitSpec = {
 };
 
 // Struct: VideoEncoderInfo
-media.mojom.mojom.VideoEncoderInfoSpec = {
+media.mojom.VideoEncoderInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoEncoderInfo',

@@ -11,7 +11,7 @@ var skia = skia || {};
 
 
 // Struct: DXGIOutputDesc
-gfx.mojom.mojom.DXGIOutputDescSpec = {
+gfx.mojom.DXGIOutputDescSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DXGIOutputDesc',
@@ -30,7 +30,7 @@ gfx.mojom.mojom.DXGIOutputDescSpec = {
 };
 
 // Struct: DXGIInfo
-gfx.mojom.mojom.DXGIInfoSpec = {
+gfx.mojom.DXGIInfoSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DXGIInfo',

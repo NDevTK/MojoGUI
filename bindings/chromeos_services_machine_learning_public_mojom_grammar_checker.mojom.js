@@ -7,18 +7,18 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
+chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 
 // Enum: Status
-chromeos.machine_learning.machine_learning.mojom.mojom.Status = {
+chromeos.machine_learning.mojom.Status = {
   OK: 0,
   ERROR: 1,
 };
-chromeos.machine_learning.machine_learning.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GrammarCheckerQuery
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerQuerySpec = {
+chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerQuery',
@@ -33,7 +33,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerQuerySpec =
 };
 
 // Struct: GrammarCorrectionFragment
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCorrectionFragmentSpec = {
+chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCorrectionFragment',
@@ -49,7 +49,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCorrectionFragment
 };
 
 // Struct: GrammarCheckerCandidate
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerCandidateSpec = {
+chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerCandidate',
@@ -65,7 +65,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerCandidateSp
 };
 
 // Struct: GrammarCheckerResult
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerResultSpec = {
+chromeos.machine_learning.mojom.GrammarCheckerResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerResult',
@@ -79,24 +79,37 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerResultSpec 
 };
 
 // Interface: GrammarChecker
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker = {};
+chromeos.machine_learning.mojom.GrammarChecker = {};
 
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerPendingReceiver = class {
+chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GrammarChecker_Check_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GrammarCheckerQuerySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRemote = class {
+chromeos.machine_learning.mojom.GrammarCheckerRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.GrammarChecker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerPendingReceiver,
+      chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -108,7 +121,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRemote = cl
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRemoteCallHandler = class {
+chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -117,15 +130,15 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRemoteCallH
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker_Check_ParamsSpec,
-      chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker_Check_ResponseParamsSpec,
+      chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec,
+      chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec,
       [query]);
   }
 
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker.getRemote = function() {
-  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRemote();
+chromeos.machine_learning.mojom.GrammarChecker.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.GrammarCheckerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -135,7 +148,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker.getRemote 
 };
 
 // ParamsSpec for Check
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker_Check_ParamsSpec = {
+chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarChecker.Check_Params',
@@ -148,7 +161,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker_Check_Para
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker_Check_ResponseParamsSpec = {
+chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarChecker.Check_ResponseParams',
@@ -162,6 +175,6 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GrammarChecker_Check_Resp
 };
 
 // Legacy compatibility
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerPtr = chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRemote;
-chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerRequest = chromeos.machine_learning.machine_learning.mojom.mojom.GrammarCheckerPendingReceiver;
+chromeos.machine_learning.mojom.GrammarCheckerPtr = chromeos.machine_learning.mojom.GrammarCheckerRemote;
+chromeos.machine_learning.mojom.GrammarCheckerRequest = chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver;
 

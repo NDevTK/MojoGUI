@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: VulkanYCbCrInfo
-gpu.mojom.mojom.VulkanYCbCrInfoSpec = {
+gpu.mojom.VulkanYCbCrInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VulkanYCbCrInfo',

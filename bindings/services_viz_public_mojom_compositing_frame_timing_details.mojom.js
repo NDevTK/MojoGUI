@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: FrameTimingDetails
-viz.mojom.mojom.FrameTimingDetailsSpec = {
+viz.mojom.FrameTimingDetailsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameTimingDetails',

@@ -13,34 +13,34 @@ var url = url || {};
 
 
 // Enum: NotificationOperation
-mac_notifications.mojom.mojom.NotificationOperation = {
+mac_notifications.mojom.NotificationOperation = {
   kClick: 0,
   kClose: 1,
   kSettings: 2,
 };
-mac_notifications.mojom.mojom.NotificationOperationSpec = { $: mojo.internal.Enum() };
+mac_notifications.mojom.NotificationOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestPermissionResult
-mac_notifications.mojom.mojom.RequestPermissionResult = {
+mac_notifications.mojom.RequestPermissionResult = {
   kRequestFailed: 0,
   kPermissionDenied: 1,
   kPermissionGranted: 2,
   kPermissionPreviouslyDenied: 3,
   kPermissionPreviouslyGranted: 4,
 };
-mac_notifications.mojom.mojom.RequestPermissionResultSpec = { $: mojo.internal.Enum() };
+mac_notifications.mojom.RequestPermissionResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PermissionStatus
-mac_notifications.mojom.mojom.PermissionStatus = {
+mac_notifications.mojom.PermissionStatus = {
   kNotDetermined: 0,
   kPromptPending: 1,
   kDenied: 2,
   kGranted: 3,
 };
-mac_notifications.mojom.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };
+mac_notifications.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfileIdentifier
-mac_notifications.mojom.mojom.ProfileIdentifierSpec = {
+mac_notifications.mojom.ProfileIdentifierSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.ProfileIdentifier',
@@ -55,7 +55,7 @@ mac_notifications.mojom.mojom.ProfileIdentifierSpec = {
 };
 
 // Struct: NotificationIdentifier
-mac_notifications.mojom.mojom.NotificationIdentifierSpec = {
+mac_notifications.mojom.NotificationIdentifierSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationIdentifier',
@@ -70,7 +70,7 @@ mac_notifications.mojom.mojom.NotificationIdentifierSpec = {
 };
 
 // Struct: NotificationMetadata
-mac_notifications.mojom.mojom.NotificationMetadataSpec = {
+mac_notifications.mojom.NotificationMetadataSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationMetadata',
@@ -87,7 +87,7 @@ mac_notifications.mojom.mojom.NotificationMetadataSpec = {
 };
 
 // Struct: NotificationActionInfo
-mac_notifications.mojom.mojom.NotificationActionInfoSpec = {
+mac_notifications.mojom.NotificationActionInfoSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationActionInfo',
@@ -104,7 +104,7 @@ mac_notifications.mojom.mojom.NotificationActionInfoSpec = {
 };
 
 // Struct: NotificationActionButton
-mac_notifications.mojom.mojom.NotificationActionButtonSpec = {
+mac_notifications.mojom.NotificationActionButtonSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationActionButton',
@@ -119,7 +119,7 @@ mac_notifications.mojom.mojom.NotificationActionButtonSpec = {
 };
 
 // Struct: Notification
-mac_notifications.mojom.mojom.NotificationSpec = {
+mac_notifications.mojom.NotificationSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.Notification',
@@ -140,24 +140,101 @@ mac_notifications.mojom.mojom.NotificationSpec = {
 };
 
 // Interface: MacNotificationService
-mac_notifications.mojom.mojom.MacNotificationService = {};
+mac_notifications.mojom.MacNotificationService = {};
 
-mac_notifications.mojom.mojom.MacNotificationServicePendingReceiver = class {
+mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationService_DisplayNotification_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: true, minVersion: 0 },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationService_CloseNotification_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationIdentifierSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationService_CloseAllNotifications_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationService_OkayToTerminateService_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationServiceRemote = class {
+mac_notifications.mojom.MacNotificationServiceRemote = class {
   static get $interfaceName() {
     return 'mac_notifications.mojom.MacNotificationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mac_notifications.mojom.mojom.MacNotificationServicePendingReceiver,
+      mac_notifications.mojom.MacNotificationServicePendingReceiver,
       handle);
-    this.$ = new mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler(this.proxy);
+    this.$ = new mac_notifications.mojom.MacNotificationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -169,7 +246,7 @@ mac_notifications.mojom.mojom.MacNotificationServiceRemote = class {
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler = class {
+mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -178,7 +255,7 @@ mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationService_DisplayNotification_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec,
       null,
       [notification]);
   }
@@ -187,8 +264,8 @@ mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec,
-      mac_notifications.mojom.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
+      mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
       [profile, origin]);
   }
 
@@ -196,7 +273,7 @@ mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationService_CloseNotification_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec,
       null,
       [identifier]);
   }
@@ -205,7 +282,7 @@ mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec,
       null,
       [profile]);
   }
@@ -214,7 +291,7 @@ mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec,
       null,
       []);
   }
@@ -223,15 +300,15 @@ mac_notifications.mojom.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec,
-      mac_notifications.mojom.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
+      mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
       []);
   }
 
 };
 
-mac_notifications.mojom.mojom.MacNotificationService.getRemote = function() {
-  let remote = new mac_notifications.mojom.mojom.MacNotificationServiceRemote();
+mac_notifications.mojom.MacNotificationService.getRemote = function() {
+  let remote = new mac_notifications.mojom.MacNotificationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -241,7 +318,7 @@ mac_notifications.mojom.mojom.MacNotificationService.getRemote = function() {
 };
 
 // ParamsSpec for DisplayNotification
-mac_notifications.mojom.mojom.MacNotificationService_DisplayNotification_ParamsSpec = {
+mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.DisplayNotification_Params',
@@ -255,7 +332,7 @@ mac_notifications.mojom.mojom.MacNotificationService_DisplayNotification_ParamsS
 };
 
 // ParamsSpec for GetDisplayedNotifications
-mac_notifications.mojom.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec = {
+mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_Params',
@@ -269,7 +346,7 @@ mac_notifications.mojom.mojom.MacNotificationService_GetDisplayedNotifications_P
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec = {
+mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_ResponseParams',
@@ -283,7 +360,7 @@ mac_notifications.mojom.mojom.MacNotificationService_GetDisplayedNotifications_R
 };
 
 // ParamsSpec for CloseNotification
-mac_notifications.mojom.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
+mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotification_Params',
@@ -297,7 +374,7 @@ mac_notifications.mojom.mojom.MacNotificationService_CloseNotification_ParamsSpe
 };
 
 // ParamsSpec for CloseNotificationsForProfile
-mac_notifications.mojom.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec = {
+mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotificationsForProfile_Params',
@@ -311,7 +388,7 @@ mac_notifications.mojom.mojom.MacNotificationService_CloseNotificationsForProfil
 };
 
 // ParamsSpec for CloseAllNotifications
-mac_notifications.mojom.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec = {
+mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.CloseAllNotifications_Params',
@@ -324,7 +401,7 @@ mac_notifications.mojom.mojom.MacNotificationService_CloseAllNotifications_Param
 };
 
 // ParamsSpec for OkayToTerminateService
-mac_notifications.mojom.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec = {
+mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.OkayToTerminateService_Params',
@@ -336,7 +413,7 @@ mac_notifications.mojom.mojom.MacNotificationService_OkayToTerminateService_Para
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = {
+mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationService.OkayToTerminateService_ResponseParams',
@@ -350,29 +427,42 @@ mac_notifications.mojom.mojom.MacNotificationService_OkayToTerminateService_Resp
 };
 
 // Legacy compatibility
-mac_notifications.mojom.mojom.MacNotificationServicePtr = mac_notifications.mojom.mojom.MacNotificationServiceRemote;
-mac_notifications.mojom.mojom.MacNotificationServiceRequest = mac_notifications.mojom.mojom.MacNotificationServicePendingReceiver;
+mac_notifications.mojom.MacNotificationServicePtr = mac_notifications.mojom.MacNotificationServiceRemote;
+mac_notifications.mojom.MacNotificationServiceRequest = mac_notifications.mojom.MacNotificationServicePendingReceiver;
 
 
 // Interface: MacNotificationActionHandler
-mac_notifications.mojom.mojom.MacNotificationActionHandler = {};
+mac_notifications.mojom.MacNotificationActionHandler = {};
 
-mac_notifications.mojom.mojom.MacNotificationActionHandlerPendingReceiver = class {
+mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationActionInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationActionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationActionHandlerRemote = class {
+mac_notifications.mojom.MacNotificationActionHandlerRemote = class {
   static get $interfaceName() {
     return 'mac_notifications.mojom.MacNotificationActionHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mac_notifications.mojom.mojom.MacNotificationActionHandlerPendingReceiver,
+      mac_notifications.mojom.MacNotificationActionHandlerPendingReceiver,
       handle);
-    this.$ = new mac_notifications.mojom.mojom.MacNotificationActionHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -384,7 +474,7 @@ mac_notifications.mojom.mojom.MacNotificationActionHandlerRemote = class {
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
+mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -393,15 +483,15 @@ mac_notifications.mojom.mojom.MacNotificationActionHandlerRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec,
+      mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-mac_notifications.mojom.mojom.MacNotificationActionHandler.getRemote = function() {
-  let remote = new mac_notifications.mojom.mojom.MacNotificationActionHandlerRemote();
+mac_notifications.mojom.MacNotificationActionHandler.getRemote = function() {
+  let remote = new mac_notifications.mojom.MacNotificationActionHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -411,7 +501,7 @@ mac_notifications.mojom.mojom.MacNotificationActionHandler.getRemote = function(
 };
 
 // ParamsSpec for OnNotificationAction
-mac_notifications.mojom.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec = {
+mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationActionHandler.OnNotificationAction_Params',
@@ -425,29 +515,43 @@ mac_notifications.mojom.mojom.MacNotificationActionHandler_OnNotificationAction_
 };
 
 // Legacy compatibility
-mac_notifications.mojom.mojom.MacNotificationActionHandlerPtr = mac_notifications.mojom.mojom.MacNotificationActionHandlerRemote;
-mac_notifications.mojom.mojom.MacNotificationActionHandlerRequest = mac_notifications.mojom.mojom.MacNotificationActionHandlerPendingReceiver;
+mac_notifications.mojom.MacNotificationActionHandlerPtr = mac_notifications.mojom.MacNotificationActionHandlerRemote;
+mac_notifications.mojom.MacNotificationActionHandlerRequest = mac_notifications.mojom.MacNotificationActionHandlerPendingReceiver;
 
 
 // Interface: MacNotificationProvider
-mac_notifications.mojom.mojom.MacNotificationProvider = {};
+mac_notifications.mojom.MacNotificationProvider = {};
 
-mac_notifications.mojom.mojom.MacNotificationProviderPendingReceiver = class {
+mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.MacNotificationProvider_BindNotificationService_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mac_notifications.mojom.MacNotificationActionHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+mac_notifications.mojom.MacNotificationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationProviderRemote = class {
+mac_notifications.mojom.MacNotificationProviderRemote = class {
   static get $interfaceName() {
     return 'mac_notifications.mojom.MacNotificationProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mac_notifications.mojom.mojom.MacNotificationProviderPendingReceiver,
+      mac_notifications.mojom.MacNotificationProviderPendingReceiver,
       handle);
-    this.$ = new mac_notifications.mojom.mojom.MacNotificationProviderRemoteCallHandler(this.proxy);
+    this.$ = new mac_notifications.mojom.MacNotificationProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -459,7 +563,7 @@ mac_notifications.mojom.mojom.MacNotificationProviderRemote = class {
   }
 };
 
-mac_notifications.mojom.mojom.MacNotificationProviderRemoteCallHandler = class {
+mac_notifications.mojom.MacNotificationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -468,15 +572,15 @@ mac_notifications.mojom.mojom.MacNotificationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mac_notifications.mojom.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec,
+      mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec,
       null,
       [service, handler]);
   }
 
 };
 
-mac_notifications.mojom.mojom.MacNotificationProvider.getRemote = function() {
-  let remote = new mac_notifications.mojom.mojom.MacNotificationProviderRemote();
+mac_notifications.mojom.MacNotificationProvider.getRemote = function() {
+  let remote = new mac_notifications.mojom.MacNotificationProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -486,7 +590,7 @@ mac_notifications.mojom.mojom.MacNotificationProvider.getRemote = function() {
 };
 
 // ParamsSpec for BindNotificationService
-mac_notifications.mojom.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec = {
+mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationProvider.BindNotificationService_Params',
@@ -501,6 +605,6 @@ mac_notifications.mojom.mojom.MacNotificationProvider_BindNotificationService_Pa
 };
 
 // Legacy compatibility
-mac_notifications.mojom.mojom.MacNotificationProviderPtr = mac_notifications.mojom.mojom.MacNotificationProviderRemote;
-mac_notifications.mojom.mojom.MacNotificationProviderRequest = mac_notifications.mojom.mojom.MacNotificationProviderPendingReceiver;
+mac_notifications.mojom.MacNotificationProviderPtr = mac_notifications.mojom.MacNotificationProviderRemote;
+mac_notifications.mojom.MacNotificationProviderRequest = mac_notifications.mojom.MacNotificationProviderPendingReceiver;
 

@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Enum: FileType
-device.mojom.mojom.FileType = {
+device.mojom.FileType = {
   FILE_TYPE_FOLDER: 0,
   FILE_TYPE_JPEG: 1,
   FILE_TYPE_JFIF: 2,
@@ -25,10 +25,10 @@ device.mojom.mojom.FileType = {
   FILE_TYPE_UNKNOWN: 11,
   FILE_TYPE_OTHER: 12,
 };
-device.mojom.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MtpFileEntry
-device.mojom.mojom.MtpFileEntrySpec = {
+device.mojom.MtpFileEntrySpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpFileEntry',

@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: WindowFeatures
-blink.mojom.mojom.WindowFeaturesSpec = {
+blink.mojom.WindowFeaturesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WindowFeatures',

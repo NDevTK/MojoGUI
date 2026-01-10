@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: VulkanPhysicalDeviceInfo
-gpu.mojom.mojom.VulkanPhysicalDeviceInfoSpec = {
+gpu.mojom.VulkanPhysicalDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VulkanPhysicalDeviceInfo',
@@ -29,7 +29,7 @@ gpu.mojom.mojom.VulkanPhysicalDeviceInfoSpec = {
 };
 
 // Struct: VulkanInfo
-gpu.mojom.mojom.VulkanInfoSpec = {
+gpu.mojom.VulkanInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VulkanInfo',

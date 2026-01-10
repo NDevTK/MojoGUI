@@ -11,16 +11,16 @@ var url = url || {};
 
 
 // Enum: ChipType
-action_chips.mojom.mojom.ChipType = {
+action_chips.mojom.ChipType = {
   kImage: 0,
   kDeepSearch: 1,
   kRecentTab: 2,
   kDeepDive: 3,
 };
-action_chips.mojom.mojom.ChipTypeSpec = { $: mojo.internal.Enum() };
+action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TabInfo
-action_chips.mojom.mojom.TabInfoSpec = {
+action_chips.mojom.TabInfoSpec = {
   $: {
     structSpec: {
       name: 'action_chips.mojom.TabInfo',
@@ -37,7 +37,7 @@ action_chips.mojom.mojom.TabInfoSpec = {
 };
 
 // Struct: ActionChip
-action_chips.mojom.mojom.ActionChipSpec = {
+action_chips.mojom.ActionChipSpec = {
   $: {
     structSpec: {
       name: 'action_chips.mojom.ActionChip',
@@ -54,24 +54,36 @@ action_chips.mojom.mojom.ActionChipSpec = {
 };
 
 // Interface: ActionChipsHandler
-action_chips.mojom.mojom.ActionChipsHandler = {};
+action_chips.mojom.ActionChipsHandler = {};
 
-action_chips.mojom.mojom.ActionChipsHandlerPendingReceiver = class {
+action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+action_chips.mojom.ActionChipsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-action_chips.mojom.mojom.ActionChipsHandlerRemote = class {
+action_chips.mojom.ActionChipsHandlerRemote = class {
   static get $interfaceName() {
     return 'action_chips.mojom.ActionChipsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      action_chips.mojom.mojom.ActionChipsHandlerPendingReceiver,
+      action_chips.mojom.ActionChipsHandlerPendingReceiver,
       handle);
-    this.$ = new action_chips.mojom.mojom.ActionChipsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new action_chips.mojom.ActionChipsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +95,7 @@ action_chips.mojom.mojom.ActionChipsHandlerRemote = class {
   }
 };
 
-action_chips.mojom.mojom.ActionChipsHandlerRemoteCallHandler = class {
+action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,15 +104,15 @@ action_chips.mojom.mojom.ActionChipsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      action_chips.mojom.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec,
+      action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec,
       null,
       []);
   }
 
 };
 
-action_chips.mojom.mojom.ActionChipsHandler.getRemote = function() {
-  let remote = new action_chips.mojom.mojom.ActionChipsHandlerRemote();
+action_chips.mojom.ActionChipsHandler.getRemote = function() {
+  let remote = new action_chips.mojom.ActionChipsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -110,7 +122,7 @@ action_chips.mojom.mojom.ActionChipsHandler.getRemote = function() {
 };
 
 // ParamsSpec for StartActionChipsRetrieval
-action_chips.mojom.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
+action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
   $: {
     structSpec: {
       name: 'action_chips.mojom.ActionChipsHandler.StartActionChipsRetrieval_Params',
@@ -123,29 +135,42 @@ action_chips.mojom.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec
 };
 
 // Legacy compatibility
-action_chips.mojom.mojom.ActionChipsHandlerPtr = action_chips.mojom.mojom.ActionChipsHandlerRemote;
-action_chips.mojom.mojom.ActionChipsHandlerRequest = action_chips.mojom.mojom.ActionChipsHandlerPendingReceiver;
+action_chips.mojom.ActionChipsHandlerPtr = action_chips.mojom.ActionChipsHandlerRemote;
+action_chips.mojom.ActionChipsHandlerRequest = action_chips.mojom.ActionChipsHandlerPendingReceiver;
 
 
 // Interface: Page
-action_chips.mojom.mojom.Page = {};
+action_chips.mojom.Page = {};
 
-action_chips.mojom.mojom.PagePendingReceiver = class {
+action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'action_chips.mojom.Page_OnActionChipsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action_chips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(action_chips.mojom.ActionChipSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+action_chips.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-action_chips.mojom.mojom.PageRemote = class {
+action_chips.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'action_chips.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      action_chips.mojom.mojom.PagePendingReceiver,
+      action_chips.mojom.PagePendingReceiver,
       handle);
-    this.$ = new action_chips.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new action_chips.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -157,7 +182,7 @@ action_chips.mojom.mojom.PageRemote = class {
   }
 };
 
-action_chips.mojom.mojom.PageRemoteCallHandler = class {
+action_chips.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -166,15 +191,15 @@ action_chips.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      action_chips.mojom.mojom.Page_OnActionChipsChanged_ParamsSpec,
+      action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec,
       null,
       [action_chips]);
   }
 
 };
 
-action_chips.mojom.mojom.Page.getRemote = function() {
-  let remote = new action_chips.mojom.mojom.PageRemote();
+action_chips.mojom.Page.getRemote = function() {
+  let remote = new action_chips.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -184,7 +209,7 @@ action_chips.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnActionChipsChanged
-action_chips.mojom.mojom.Page_OnActionChipsChanged_ParamsSpec = {
+action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'action_chips.mojom.Page.OnActionChipsChanged_Params',
@@ -198,29 +223,43 @@ action_chips.mojom.mojom.Page_OnActionChipsChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-action_chips.mojom.mojom.PagePtr = action_chips.mojom.mojom.PageRemote;
-action_chips.mojom.mojom.PageRequest = action_chips.mojom.mojom.PagePendingReceiver;
+action_chips.mojom.PagePtr = action_chips.mojom.PageRemote;
+action_chips.mojom.PageRequest = action_chips.mojom.PagePendingReceiver;
 
 
 // Interface: ActionChipsHandlerFactory
-action_chips.mojom.mojom.ActionChipsHandlerFactory = {};
+action_chips.mojom.ActionChipsHandlerFactory = {};
 
-action_chips.mojom.mojom.ActionChipsHandlerFactoryPendingReceiver = class {
+action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(action_chips.mojom.ActionChipsHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(action_chips.mojom.PageRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-action_chips.mojom.mojom.ActionChipsHandlerFactoryRemote = class {
+action_chips.mojom.ActionChipsHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'action_chips.mojom.ActionChipsHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      action_chips.mojom.mojom.ActionChipsHandlerFactoryPendingReceiver,
+      action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new action_chips.mojom.mojom.ActionChipsHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -232,7 +271,7 @@ action_chips.mojom.mojom.ActionChipsHandlerFactoryRemote = class {
   }
 };
 
-action_chips.mojom.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
+action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -241,15 +280,15 @@ action_chips.mojom.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      action_chips.mojom.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec,
+      action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec,
       null,
       [handler, page]);
   }
 
 };
 
-action_chips.mojom.mojom.ActionChipsHandlerFactory.getRemote = function() {
-  let remote = new action_chips.mojom.mojom.ActionChipsHandlerFactoryRemote();
+action_chips.mojom.ActionChipsHandlerFactory.getRemote = function() {
+  let remote = new action_chips.mojom.ActionChipsHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -259,7 +298,7 @@ action_chips.mojom.mojom.ActionChipsHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateActionChipsHandler
-action_chips.mojom.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = {
+action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'action_chips.mojom.ActionChipsHandlerFactory.CreateActionChipsHandler_Params',
@@ -274,6 +313,6 @@ action_chips.mojom.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Para
 };
 
 // Legacy compatibility
-action_chips.mojom.mojom.ActionChipsHandlerFactoryPtr = action_chips.mojom.mojom.ActionChipsHandlerFactoryRemote;
-action_chips.mojom.mojom.ActionChipsHandlerFactoryRequest = action_chips.mojom.mojom.ActionChipsHandlerFactoryPendingReceiver;
+action_chips.mojom.ActionChipsHandlerFactoryPtr = action_chips.mojom.ActionChipsHandlerFactoryRemote;
+action_chips.mojom.ActionChipsHandlerFactoryRequest = action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver;
 

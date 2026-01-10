@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: APIPermissionID
-extensions.mojom.mojom.APIPermissionID = {
+extensions.mojom.APIPermissionID = {
   kInvalid: 0,
   kUnknown: 1,
   kAccessibilityFeaturesModify: 2,
@@ -276,4 +276,4 @@ extensions.mojom.mojom.APIPermissionID = {
   kExperimentalActor: 262,
   kEnterpriseLogin: 263,
 };
-extensions.mojom.mojom.APIPermissionIDSpec = { $: mojo.internal.Enum() };
+extensions.mojom.APIPermissionIDSpec = { $: mojo.internal.Enum() };

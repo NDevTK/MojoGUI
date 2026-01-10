@@ -15,14 +15,14 @@ var ui = ui || {};
 
 
 // Enum: PolicyStatus
-ash.mojom.mojom.PolicyStatus = {
+ash.mojom.PolicyStatus = {
   kManaged: 0,
   kRecommended: 1,
 };
-ash.mojom.mojom.PolicyStatusSpec = { $: mojo.internal.Enum() };
+ash.mojom.PolicyStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: TopRowActionKey
-ash.mojom.mojom.TopRowActionKey = {
+ash.mojom.TopRowActionKey = {
   kNone: 0,
   kUnknown: 1,
   kBack: 2,
@@ -50,25 +50,25 @@ ash.mojom.mojom.TopRowActionKey = {
   kAccessibility: 24,
   kDoNotDisturb: 25,
 };
-ash.mojom.mojom.TopRowActionKeySpec = { $: mojo.internal.Enum() };
+ash.mojom.TopRowActionKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: ChargeState
-ash.mojom.mojom.ChargeState = {
+ash.mojom.ChargeState = {
   kUnknown: 0,
   kCharging: 1,
   kDischarging: 2,
 };
-ash.mojom.mojom.ChargeStateSpec = { $: mojo.internal.Enum() };
+ash.mojom.ChargeStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CompanionAppState
-ash.mojom.mojom.CompanionAppState = {
+ash.mojom.CompanionAppState = {
   kAvailable: 0,
   kInstalled: 1,
 };
-ash.mojom.mojom.CompanionAppStateSpec = { $: mojo.internal.Enum() };
+ash.mojom.CompanionAppStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CustomizableButton
-ash.mojom.mojom.CustomizableButton = {
+ash.mojom.CustomizableButton = {
   kLeft: 0,
   kRight: 1,
   kMiddle: 2,
@@ -79,10 +79,10 @@ ash.mojom.mojom.CustomizableButton = {
   kScrollLeft: 7,
   kScrollRight: 8,
 };
-ash.mojom.mojom.CustomizableButtonSpec = { $: mojo.internal.Enum() };
+ash.mojom.CustomizableButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: MouseButtonConfig
-ash.mojom.mojom.MouseButtonConfig = {
+ash.mojom.MouseButtonConfig = {
   kNoConfig: 0,
   kFiveKey: 1,
   kLogitechSixKey: 2,
@@ -90,19 +90,19 @@ ash.mojom.mojom.MouseButtonConfig = {
   kThreeKey: 4,
   kFourKeyWithTopButton: 5,
 };
-ash.mojom.mojom.MouseButtonConfigSpec = { $: mojo.internal.Enum() };
+ash.mojom.MouseButtonConfigSpec = { $: mojo.internal.Enum() };
 
 // Enum: GraphicsTabletButtonConfig
-ash.mojom.mojom.GraphicsTabletButtonConfig = {
+ash.mojom.GraphicsTabletButtonConfig = {
   kNoConfig: 0,
   kWacomStandardPenOnly: 1,
   kWacomStandardFourButtons: 2,
   kWacomStandardPenOnlyOneButton: 3,
 };
-ash.mojom.mojom.GraphicsTabletButtonConfigSpec = { $: mojo.internal.Enum() };
+ash.mojom.GraphicsTabletButtonConfigSpec = { $: mojo.internal.Enum() };
 
 // Enum: StaticShortcutAction
-ash.mojom.mojom.StaticShortcutAction = {
+ash.mojom.StaticShortcutAction = {
   kDisable: 0,
   kCopy: 1,
   kPaste: 2,
@@ -116,10 +116,10 @@ ash.mojom.mojom.StaticShortcutAction = {
   kRightClick: 10,
   kMiddleClick: 11,
 };
-ash.mojom.mojom.StaticShortcutActionSpec = { $: mojo.internal.Enum() };
+ash.mojom.StaticShortcutActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CustomizationRestriction
-ash.mojom.mojom.CustomizationRestriction = {
+ash.mojom.CustomizationRestriction = {
   kAllowCustomizations: 0,
   kDisallowCustomizations: 1,
   kDisableKeyEventRewrites: 2,
@@ -129,10 +129,10 @@ ash.mojom.mojom.CustomizationRestriction = {
   kAllowTabEventRewrites: 6,
   kAllowFKeyRewrites: 7,
 };
-ash.mojom.mojom.CustomizationRestrictionSpec = { $: mojo.internal.Enum() };
+ash.mojom.CustomizationRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Union: RemappingAction
-ash.mojom.mojom.RemappingActionSpec = { $: mojo.internal.Union(
+ash.mojom.RemappingActionSpec = { $: mojo.internal.Union(
     'ash.mojom.RemappingAction', {
       'accelerator_action': {
         'ordinal': 0,
@@ -150,7 +150,7 @@ ash.mojom.mojom.RemappingActionSpec = { $: mojo.internal.Union(
 };
 
 // Union: Button
-ash.mojom.mojom.ButtonSpec = { $: mojo.internal.Union(
+ash.mojom.ButtonSpec = { $: mojo.internal.Union(
     'ash.mojom.Button', {
       'vkey': {
         'ordinal': 0,
@@ -164,7 +164,7 @@ ash.mojom.mojom.ButtonSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SixPackKeyInfo
-ash.mojom.mojom.SixPackKeyInfoSpec = {
+ash.mojom.SixPackKeyInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.SixPackKeyInfo',
@@ -183,7 +183,7 @@ ash.mojom.mojom.SixPackKeyInfoSpec = {
 };
 
 // Struct: InputDeviceSettingsPolicy
-ash.mojom.mojom.InputDeviceSettingsPolicySpec = {
+ash.mojom.InputDeviceSettingsPolicySpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.InputDeviceSettingsPolicy',
@@ -198,7 +198,7 @@ ash.mojom.mojom.InputDeviceSettingsPolicySpec = {
 };
 
 // Struct: InputDeviceSettingsFkeyPolicy
-ash.mojom.mojom.InputDeviceSettingsFkeyPolicySpec = {
+ash.mojom.InputDeviceSettingsFkeyPolicySpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.InputDeviceSettingsFkeyPolicy',
@@ -213,7 +213,7 @@ ash.mojom.mojom.InputDeviceSettingsFkeyPolicySpec = {
 };
 
 // Struct: InputDeviceSettingsSixPackKeyPolicy
-ash.mojom.mojom.InputDeviceSettingsSixPackKeyPolicySpec = {
+ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.InputDeviceSettingsSixPackKeyPolicy',
@@ -228,7 +228,7 @@ ash.mojom.mojom.InputDeviceSettingsSixPackKeyPolicySpec = {
 };
 
 // Struct: KeyboardPolicies
-ash.mojom.mojom.KeyboardPoliciesSpec = {
+ash.mojom.KeyboardPoliciesSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.KeyboardPolicies',
@@ -249,7 +249,7 @@ ash.mojom.mojom.KeyboardPoliciesSpec = {
 };
 
 // Struct: MousePolicies
-ash.mojom.mojom.MousePoliciesSpec = {
+ash.mojom.MousePoliciesSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.MousePolicies',
@@ -263,7 +263,7 @@ ash.mojom.mojom.MousePoliciesSpec = {
 };
 
 // Struct: BatteryInfo
-ash.mojom.mojom.BatteryInfoSpec = {
+ash.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.BatteryInfo',
@@ -278,7 +278,7 @@ ash.mojom.mojom.BatteryInfoSpec = {
 };
 
 // Struct: CompanionAppInfo
-ash.mojom.mojom.CompanionAppInfoSpec = {
+ash.mojom.CompanionAppInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.CompanionAppInfo',
@@ -296,7 +296,7 @@ ash.mojom.mojom.CompanionAppInfoSpec = {
 };
 
 // Struct: Keyboard
-ash.mojom.mojom.KeyboardSpec = {
+ash.mojom.KeyboardSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.Keyboard',
@@ -319,7 +319,7 @@ ash.mojom.mojom.KeyboardSpec = {
 };
 
 // Struct: KeyboardSettings
-ash.mojom.mojom.KeyboardSettingsSpec = {
+ash.mojom.KeyboardSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.KeyboardSettings',
@@ -338,7 +338,7 @@ ash.mojom.mojom.KeyboardSettingsSpec = {
 };
 
 // Struct: Mouse
-ash.mojom.mojom.MouseSpec = {
+ash.mojom.MouseSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.Mouse',
@@ -360,7 +360,7 @@ ash.mojom.mojom.MouseSpec = {
 };
 
 // Struct: MouseSettings
-ash.mojom.mojom.MouseSettingsSpec = {
+ash.mojom.MouseSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.MouseSettings',
@@ -380,7 +380,7 @@ ash.mojom.mojom.MouseSettingsSpec = {
 };
 
 // Struct: Touchpad
-ash.mojom.mojom.TouchpadSpec = {
+ash.mojom.TouchpadSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.Touchpad',
@@ -401,7 +401,7 @@ ash.mojom.mojom.TouchpadSpec = {
 };
 
 // Struct: TouchpadSettings
-ash.mojom.mojom.TouchpadSettingsSpec = {
+ash.mojom.TouchpadSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.TouchpadSettings',
@@ -425,7 +425,7 @@ ash.mojom.mojom.TouchpadSettingsSpec = {
 };
 
 // Struct: PointingStick
-ash.mojom.mojom.PointingStickSpec = {
+ash.mojom.PointingStickSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.PointingStick',
@@ -443,7 +443,7 @@ ash.mojom.mojom.PointingStickSpec = {
 };
 
 // Struct: PointingStickSettings
-ash.mojom.mojom.PointingStickSettingsSpec = {
+ash.mojom.PointingStickSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.PointingStickSettings',
@@ -459,7 +459,7 @@ ash.mojom.mojom.PointingStickSettingsSpec = {
 };
 
 // Struct: Stylus
-ash.mojom.mojom.StylusSpec = {
+ash.mojom.StylusSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.Stylus',
@@ -472,7 +472,7 @@ ash.mojom.mojom.StylusSpec = {
 };
 
 // Struct: GraphicsTablet
-ash.mojom.mojom.GraphicsTabletSpec = {
+ash.mojom.GraphicsTabletSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.GraphicsTablet',
@@ -493,7 +493,7 @@ ash.mojom.mojom.GraphicsTabletSpec = {
 };
 
 // Struct: GraphicsTabletSettings
-ash.mojom.mojom.GraphicsTabletSettingsSpec = {
+ash.mojom.GraphicsTabletSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.GraphicsTabletSettings',
@@ -508,7 +508,7 @@ ash.mojom.mojom.GraphicsTabletSettingsSpec = {
 };
 
 // Struct: ButtonRemapping
-ash.mojom.mojom.ButtonRemappingSpec = {
+ash.mojom.ButtonRemappingSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.ButtonRemapping',
@@ -524,7 +524,7 @@ ash.mojom.mojom.ButtonRemappingSpec = {
 };
 
 // Struct: KeyEvent
-ash.mojom.mojom.KeyEventSpec = {
+ash.mojom.KeyEventSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.KeyEvent',

@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: StorageUsageInfo
-storage.mojom.mojom.StorageUsageInfoSpec = {
+storage.mojom.StorageUsageInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageUsageInfo',

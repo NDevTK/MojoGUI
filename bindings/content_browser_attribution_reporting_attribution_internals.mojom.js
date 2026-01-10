@@ -17,16 +17,16 @@ var url = url || {};
 
 
 // Enum: Attributability
-attribution_internals.mojom.mojom.Attributability = {
+attribution_internals.mojom.Attributability = {
   kAttributable: 0,
   kNoisedNever: 1,
   kNoisedFalsely: 2,
   kReachedEventLevelAttributionLimit: 3,
 };
-attribution_internals.mojom.mojom.AttributabilitySpec = { $: mojo.internal.Enum() };
+attribution_internals.mojom.AttributabilitySpec = { $: mojo.internal.Enum() };
 
 // Union: WebUIReportData
-attribution_internals.mojom.mojom.WebUIReportDataSpec = { $: mojo.internal.Union(
+attribution_internals.mojom.WebUIReportDataSpec = { $: mojo.internal.Union(
     'attribution_internals.mojom.WebUIReportData', {
       'event_level_data': {
         'ordinal': 0,
@@ -40,7 +40,7 @@ attribution_internals.mojom.mojom.WebUIReportDataSpec = { $: mojo.internal.Union
 };
 
 // Union: NetworkStatus
-attribution_internals.mojom.mojom.NetworkStatusSpec = { $: mojo.internal.Union(
+attribution_internals.mojom.NetworkStatusSpec = { $: mojo.internal.Union(
     'attribution_internals.mojom.NetworkStatus', {
       'http_response_code': {
         'ordinal': 0,
@@ -54,7 +54,7 @@ attribution_internals.mojom.mojom.NetworkStatusSpec = { $: mojo.internal.Union(
 };
 
 // Union: ReportStatus
-attribution_internals.mojom.mojom.ReportStatusSpec = { $: mojo.internal.Union(
+attribution_internals.mojom.ReportStatusSpec = { $: mojo.internal.Union(
     'attribution_internals.mojom.ReportStatus', {
       'pending': {
         'ordinal': 0,
@@ -84,7 +84,7 @@ attribution_internals.mojom.mojom.ReportStatusSpec = { $: mojo.internal.Union(
 };
 
 // Union: SendAggregatableDebugReportResult
-attribution_internals.mojom.mojom.SendAggregatableDebugReportResultSpec = { $: mojo.internal.Union(
+attribution_internals.mojom.SendAggregatableDebugReportResultSpec = { $: mojo.internal.Union(
     'attribution_internals.mojom.SendAggregatableDebugReportResult', {
       'assembly_failed': {
         'ordinal': 0,
@@ -98,7 +98,7 @@ attribution_internals.mojom.mojom.SendAggregatableDebugReportResultSpec = { $: m
 };
 
 // Struct: ReportID
-attribution_internals.mojom.mojom.ReportIDSpec = {
+attribution_internals.mojom.ReportIDSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.ReportID',
@@ -112,7 +112,7 @@ attribution_internals.mojom.mojom.ReportIDSpec = {
 };
 
 // Struct: WebUIReportEventLevelData
-attribution_internals.mojom.mojom.WebUIReportEventLevelDataSpec = {
+attribution_internals.mojom.WebUIReportEventLevelDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIReportEventLevelData',
@@ -127,7 +127,7 @@ attribution_internals.mojom.mojom.WebUIReportEventLevelDataSpec = {
 };
 
 // Struct: AggregatableHistogramContribution
-attribution_internals.mojom.mojom.AggregatableHistogramContributionSpec = {
+attribution_internals.mojom.AggregatableHistogramContributionSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.AggregatableHistogramContribution',
@@ -143,7 +143,7 @@ attribution_internals.mojom.mojom.AggregatableHistogramContributionSpec = {
 };
 
 // Struct: WebUIReportAggregatableAttributionData
-attribution_internals.mojom.mojom.WebUIReportAggregatableAttributionDataSpec = {
+attribution_internals.mojom.WebUIReportAggregatableAttributionDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIReportAggregatableAttributionData',
@@ -159,7 +159,7 @@ attribution_internals.mojom.mojom.WebUIReportAggregatableAttributionDataSpec = {
 };
 
 // Struct: Empty
-attribution_internals.mojom.mojom.EmptySpec = {
+attribution_internals.mojom.EmptySpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Empty',
@@ -172,7 +172,7 @@ attribution_internals.mojom.mojom.EmptySpec = {
 };
 
 // Struct: WebUIReport
-attribution_internals.mojom.mojom.WebUIReportSpec = {
+attribution_internals.mojom.WebUIReportSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIReport',
@@ -192,7 +192,7 @@ attribution_internals.mojom.mojom.WebUIReportSpec = {
 };
 
 // Struct: WebUIDebugReport
-attribution_internals.mojom.mojom.WebUIDebugReportSpec = {
+attribution_internals.mojom.WebUIDebugReportSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIDebugReport',
@@ -209,7 +209,7 @@ attribution_internals.mojom.mojom.WebUIDebugReportSpec = {
 };
 
 // Struct: WebUIAggregatableDebugReport
-attribution_internals.mojom.mojom.WebUIAggregatableDebugReportSpec = {
+attribution_internals.mojom.WebUIAggregatableDebugReportSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIAggregatableDebugReport',
@@ -227,7 +227,7 @@ attribution_internals.mojom.mojom.WebUIAggregatableDebugReportSpec = {
 };
 
 // Struct: WebUISource
-attribution_internals.mojom.mojom.WebUISourceSpec = {
+attribution_internals.mojom.WebUISourceSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUISource',
@@ -268,7 +268,7 @@ attribution_internals.mojom.mojom.WebUISourceSpec = {
 };
 
 // Struct: WebUIRegistration
-attribution_internals.mojom.mojom.WebUIRegistrationSpec = {
+attribution_internals.mojom.WebUIRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIRegistration',
@@ -287,7 +287,7 @@ attribution_internals.mojom.mojom.WebUIRegistrationSpec = {
 };
 
 // Struct: WebUITrigger
-attribution_internals.mojom.mojom.WebUITriggerSpec = {
+attribution_internals.mojom.WebUITriggerSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUITrigger',
@@ -303,7 +303,7 @@ attribution_internals.mojom.mojom.WebUITriggerSpec = {
 };
 
 // Struct: WebUISourceRegistration
-attribution_internals.mojom.mojom.WebUISourceRegistrationSpec = {
+attribution_internals.mojom.WebUISourceRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUISourceRegistration',
@@ -319,7 +319,7 @@ attribution_internals.mojom.mojom.WebUISourceRegistrationSpec = {
 };
 
 // Struct: WebUIOsRegistration
-attribution_internals.mojom.mojom.WebUIOsRegistrationSpec = {
+attribution_internals.mojom.WebUIOsRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIOsRegistration',
@@ -339,24 +339,141 @@ attribution_internals.mojom.mojom.WebUIOsRegistrationSpec = {
 };
 
 // Interface: Observer
-attribution_internals.mojom.mojom.Observer = {};
+attribution_internals.mojom.Observer = {};
 
-attribution_internals.mojom.mojom.ObserverPendingReceiver = class {
+attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnSourcesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(attribution_internals.mojom.WebUISourceSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnReportsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(attribution_internals.mojom.WebUIReportSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnSourceHandled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: attribution_internals.mojom.WebUISourceRegistrationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnReportHandled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: attribution_internals.mojom.WebUIReportSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnDebugReportSent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: attribution_internals.mojom.WebUIDebugReportSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: attribution_internals.mojom.WebUIAggregatableDebugReportSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnTriggerHandled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'trigger', packedOffset: 0, packedBitOffset: 0, type: attribution_internals.mojom.WebUITriggerSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnOsRegistration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: attribution_internals.mojom.WebUIOsRegistrationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Observer_OnDebugModeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.ObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-attribution_internals.mojom.mojom.ObserverRemote = class {
+attribution_internals.mojom.ObserverRemote = class {
   static get $interfaceName() {
     return 'attribution_internals.mojom.Observer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      attribution_internals.mojom.mojom.ObserverPendingReceiver,
+      attribution_internals.mojom.ObserverPendingReceiver,
       handle);
-    this.$ = new attribution_internals.mojom.mojom.ObserverRemoteCallHandler(this.proxy);
+    this.$ = new attribution_internals.mojom.ObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -368,7 +485,7 @@ attribution_internals.mojom.mojom.ObserverRemote = class {
   }
 };
 
-attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
+attribution_internals.mojom.ObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -377,7 +494,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnSourcesChanged_ParamsSpec,
+      attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec,
       null,
       [sources]);
   }
@@ -386,7 +503,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnReportsChanged_ParamsSpec,
+      attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec,
       null,
       [reports]);
   }
@@ -395,7 +512,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnSourceHandled_ParamsSpec,
+      attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec,
       null,
       [source]);
   }
@@ -404,7 +521,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnReportHandled_ParamsSpec,
+      attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
       [report]);
   }
@@ -413,7 +530,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnDebugReportSent_ParamsSpec,
+      attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec,
       null,
       [report]);
   }
@@ -422,7 +539,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec,
+      attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec,
       null,
       [report]);
   }
@@ -431,7 +548,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnTriggerHandled_ParamsSpec,
+      attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec,
       null,
       [trigger]);
   }
@@ -440,7 +557,7 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnOsRegistration_ParamsSpec,
+      attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec,
       null,
       [registration]);
   }
@@ -449,15 +566,15 @@ attribution_internals.mojom.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      attribution_internals.mojom.mojom.Observer_OnDebugModeChanged_ParamsSpec,
+      attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec,
       null,
       [debug_mode]);
   }
 
 };
 
-attribution_internals.mojom.mojom.Observer.getRemote = function() {
-  let remote = new attribution_internals.mojom.mojom.ObserverRemote();
+attribution_internals.mojom.Observer.getRemote = function() {
+  let remote = new attribution_internals.mojom.ObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -467,7 +584,7 @@ attribution_internals.mojom.mojom.Observer.getRemote = function() {
 };
 
 // ParamsSpec for OnSourcesChanged
-attribution_internals.mojom.mojom.Observer_OnSourcesChanged_ParamsSpec = {
+attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnSourcesChanged_Params',
@@ -481,7 +598,7 @@ attribution_internals.mojom.mojom.Observer_OnSourcesChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnReportsChanged
-attribution_internals.mojom.mojom.Observer_OnReportsChanged_ParamsSpec = {
+attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnReportsChanged_Params',
@@ -495,7 +612,7 @@ attribution_internals.mojom.mojom.Observer_OnReportsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnSourceHandled
-attribution_internals.mojom.mojom.Observer_OnSourceHandled_ParamsSpec = {
+attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnSourceHandled_Params',
@@ -509,7 +626,7 @@ attribution_internals.mojom.mojom.Observer_OnSourceHandled_ParamsSpec = {
 };
 
 // ParamsSpec for OnReportHandled
-attribution_internals.mojom.mojom.Observer_OnReportHandled_ParamsSpec = {
+attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnReportHandled_Params',
@@ -523,7 +640,7 @@ attribution_internals.mojom.mojom.Observer_OnReportHandled_ParamsSpec = {
 };
 
 // ParamsSpec for OnDebugReportSent
-attribution_internals.mojom.mojom.Observer_OnDebugReportSent_ParamsSpec = {
+attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnDebugReportSent_Params',
@@ -537,7 +654,7 @@ attribution_internals.mojom.mojom.Observer_OnDebugReportSent_ParamsSpec = {
 };
 
 // ParamsSpec for OnAggregatableDebugReportSent
-attribution_internals.mojom.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec = {
+attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnAggregatableDebugReportSent_Params',
@@ -551,7 +668,7 @@ attribution_internals.mojom.mojom.Observer_OnAggregatableDebugReportSent_ParamsS
 };
 
 // ParamsSpec for OnTriggerHandled
-attribution_internals.mojom.mojom.Observer_OnTriggerHandled_ParamsSpec = {
+attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnTriggerHandled_Params',
@@ -565,7 +682,7 @@ attribution_internals.mojom.mojom.Observer_OnTriggerHandled_ParamsSpec = {
 };
 
 // ParamsSpec for OnOsRegistration
-attribution_internals.mojom.mojom.Observer_OnOsRegistration_ParamsSpec = {
+attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnOsRegistration_Params',
@@ -579,7 +696,7 @@ attribution_internals.mojom.mojom.Observer_OnOsRegistration_ParamsSpec = {
 };
 
 // ParamsSpec for OnDebugModeChanged
-attribution_internals.mojom.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
+attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Observer.OnDebugModeChanged_Params',
@@ -593,29 +710,66 @@ attribution_internals.mojom.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-attribution_internals.mojom.mojom.ObserverPtr = attribution_internals.mojom.mojom.ObserverRemote;
-attribution_internals.mojom.mojom.ObserverRequest = attribution_internals.mojom.mojom.ObserverPendingReceiver;
+attribution_internals.mojom.ObserverPtr = attribution_internals.mojom.ObserverRemote;
+attribution_internals.mojom.ObserverRequest = attribution_internals.mojom.ObserverPendingReceiver;
 
 
 // Interface: Handler
-attribution_internals.mojom.mojom.Handler = {};
+attribution_internals.mojom.Handler = {};
 
-attribution_internals.mojom.mojom.HandlerPendingReceiver = class {
+attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Handler_IsAttributionReportingEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+attribution_internals.mojom.Handler_SendReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Handler_SendReport_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: attribution_internals.mojom.ReportIDSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+attribution_internals.mojom.Handler_ClearStorage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Handler_ClearStorage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+attribution_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-attribution_internals.mojom.mojom.HandlerRemote = class {
+attribution_internals.mojom.HandlerRemote = class {
   static get $interfaceName() {
     return 'attribution_internals.mojom.Handler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      attribution_internals.mojom.mojom.HandlerPendingReceiver,
+      attribution_internals.mojom.HandlerPendingReceiver,
       handle);
-    this.$ = new attribution_internals.mojom.mojom.HandlerRemoteCallHandler(this.proxy);
+    this.$ = new attribution_internals.mojom.HandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -627,7 +781,7 @@ attribution_internals.mojom.mojom.HandlerRemote = class {
   }
 };
 
-attribution_internals.mojom.mojom.HandlerRemoteCallHandler = class {
+attribution_internals.mojom.HandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -636,8 +790,8 @@ attribution_internals.mojom.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      attribution_internals.mojom.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec,
-      attribution_internals.mojom.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
+      attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec,
+      attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -645,7 +799,7 @@ attribution_internals.mojom.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      attribution_internals.mojom.mojom.Handler_SendReport_ParamsSpec,
+      attribution_internals.mojom.Handler_SendReport_ParamsSpec,
       null,
       [id]);
   }
@@ -654,15 +808,15 @@ attribution_internals.mojom.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      attribution_internals.mojom.mojom.Handler_ClearStorage_ParamsSpec,
+      attribution_internals.mojom.Handler_ClearStorage_ParamsSpec,
       null,
       []);
   }
 
 };
 
-attribution_internals.mojom.mojom.Handler.getRemote = function() {
-  let remote = new attribution_internals.mojom.mojom.HandlerRemote();
+attribution_internals.mojom.Handler.getRemote = function() {
+  let remote = new attribution_internals.mojom.HandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -672,7 +826,7 @@ attribution_internals.mojom.mojom.Handler.getRemote = function() {
 };
 
 // ParamsSpec for IsAttributionReportingEnabled
-attribution_internals.mojom.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = {
+attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Handler.IsAttributionReportingEnabled_Params',
@@ -684,7 +838,7 @@ attribution_internals.mojom.mojom.Handler_IsAttributionReportingEnabled_ParamsSp
   }
 };
 
-attribution_internals.mojom.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec = {
+attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Handler.IsAttributionReportingEnabled_ResponseParams',
@@ -699,7 +853,7 @@ attribution_internals.mojom.mojom.Handler_IsAttributionReportingEnabled_Response
 };
 
 // ParamsSpec for SendReport
-attribution_internals.mojom.mojom.Handler_SendReport_ParamsSpec = {
+attribution_internals.mojom.Handler_SendReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Handler.SendReport_Params',
@@ -713,7 +867,7 @@ attribution_internals.mojom.mojom.Handler_SendReport_ParamsSpec = {
 };
 
 // ParamsSpec for ClearStorage
-attribution_internals.mojom.mojom.Handler_ClearStorage_ParamsSpec = {
+attribution_internals.mojom.Handler_ClearStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Handler.ClearStorage_Params',
@@ -726,29 +880,43 @@ attribution_internals.mojom.mojom.Handler_ClearStorage_ParamsSpec = {
 };
 
 // Legacy compatibility
-attribution_internals.mojom.mojom.HandlerPtr = attribution_internals.mojom.mojom.HandlerRemote;
-attribution_internals.mojom.mojom.HandlerRequest = attribution_internals.mojom.mojom.HandlerPendingReceiver;
+attribution_internals.mojom.HandlerPtr = attribution_internals.mojom.HandlerRemote;
+attribution_internals.mojom.HandlerRequest = attribution_internals.mojom.HandlerPendingReceiver;
 
 
 // Interface: Factory
-attribution_internals.mojom.mojom.Factory = {};
+attribution_internals.mojom.Factory = {};
 
-attribution_internals.mojom.mojom.FactoryPendingReceiver = class {
+attribution_internals.mojom.Factory_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Factory_Create_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(attribution_internals.mojom.ObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(attribution_internals.mojom.HandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+attribution_internals.mojom.FactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-attribution_internals.mojom.mojom.FactoryRemote = class {
+attribution_internals.mojom.FactoryRemote = class {
   static get $interfaceName() {
     return 'attribution_internals.mojom.Factory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      attribution_internals.mojom.mojom.FactoryPendingReceiver,
+      attribution_internals.mojom.FactoryPendingReceiver,
       handle);
-    this.$ = new attribution_internals.mojom.mojom.FactoryRemoteCallHandler(this.proxy);
+    this.$ = new attribution_internals.mojom.FactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -760,7 +928,7 @@ attribution_internals.mojom.mojom.FactoryRemote = class {
   }
 };
 
-attribution_internals.mojom.mojom.FactoryRemoteCallHandler = class {
+attribution_internals.mojom.FactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -769,15 +937,15 @@ attribution_internals.mojom.mojom.FactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      attribution_internals.mojom.mojom.Factory_Create_ParamsSpec,
+      attribution_internals.mojom.Factory_Create_ParamsSpec,
       null,
       [observer, handler]);
   }
 
 };
 
-attribution_internals.mojom.mojom.Factory.getRemote = function() {
-  let remote = new attribution_internals.mojom.mojom.FactoryRemote();
+attribution_internals.mojom.Factory.getRemote = function() {
+  let remote = new attribution_internals.mojom.FactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -787,7 +955,7 @@ attribution_internals.mojom.mojom.Factory.getRemote = function() {
 };
 
 // ParamsSpec for Create
-attribution_internals.mojom.mojom.Factory_Create_ParamsSpec = {
+attribution_internals.mojom.Factory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Factory.Create_Params',
@@ -802,6 +970,6 @@ attribution_internals.mojom.mojom.Factory_Create_ParamsSpec = {
 };
 
 // Legacy compatibility
-attribution_internals.mojom.mojom.FactoryPtr = attribution_internals.mojom.mojom.FactoryRemote;
-attribution_internals.mojom.mojom.FactoryRequest = attribution_internals.mojom.mojom.FactoryPendingReceiver;
+attribution_internals.mojom.FactoryPtr = attribution_internals.mojom.FactoryRemote;
+attribution_internals.mojom.FactoryRequest = attribution_internals.mojom.FactoryPendingReceiver;
 

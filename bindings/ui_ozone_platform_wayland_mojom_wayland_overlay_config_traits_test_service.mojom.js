@@ -11,24 +11,37 @@ var ui = ui || {};
 
 
 // Interface: ConfigTraitsTestService
-wl.mojom.mojom.ConfigTraitsTestService = {};
+wl.mojom.ConfigTraitsTestService = {};
 
-wl.mojom.mojom.ConfigTraitsTestServicePendingReceiver = class {
+wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params',
+      packedSize: 24,
+      fields: [
+        { name: 't', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+wl.mojom.ConfigTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-wl.mojom.mojom.ConfigTraitsTestServiceRemote = class {
+wl.mojom.ConfigTraitsTestServiceRemote = class {
   static get $interfaceName() {
     return 'wl.mojom.ConfigTraitsTestService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      wl.mojom.mojom.ConfigTraitsTestServicePendingReceiver,
+      wl.mojom.ConfigTraitsTestServicePendingReceiver,
       handle);
-    this.$ = new wl.mojom.mojom.ConfigTraitsTestServiceRemoteCallHandler(this.proxy);
+    this.$ = new wl.mojom.ConfigTraitsTestServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ wl.mojom.mojom.ConfigTraitsTestServiceRemote = class {
   }
 };
 
-wl.mojom.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {
+wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ wl.mojom.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      wl.mojom.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec,
-      wl.mojom.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
+      wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec,
+      wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
       [t]);
   }
 
 };
 
-wl.mojom.mojom.ConfigTraitsTestService.getRemote = function() {
-  let remote = new wl.mojom.mojom.ConfigTraitsTestServiceRemote();
+wl.mojom.ConfigTraitsTestService.getRemote = function() {
+  let remote = new wl.mojom.ConfigTraitsTestServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ wl.mojom.mojom.ConfigTraitsTestService.getRemote = function() {
 };
 
 // ParamsSpec for EchoTransform
-wl.mojom.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
+wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
   $: {
     structSpec: {
       name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_Params',
@@ -80,7 +93,7 @@ wl.mojom.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
   }
 };
 
-wl.mojom.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
+wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_ResponseParams',
@@ -94,6 +107,6 @@ wl.mojom.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-wl.mojom.mojom.ConfigTraitsTestServicePtr = wl.mojom.mojom.ConfigTraitsTestServiceRemote;
-wl.mojom.mojom.ConfigTraitsTestServiceRequest = wl.mojom.mojom.ConfigTraitsTestServicePendingReceiver;
+wl.mojom.ConfigTraitsTestServicePtr = wl.mojom.ConfigTraitsTestServiceRemote;
+wl.mojom.ConfigTraitsTestServiceRequest = wl.mojom.ConfigTraitsTestServicePendingReceiver;
 

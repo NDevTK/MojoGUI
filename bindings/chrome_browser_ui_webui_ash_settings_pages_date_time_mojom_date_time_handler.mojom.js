@@ -7,29 +7,43 @@
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
-ash.settings.settings.date_time = ash.settings.settings.date_time || {};
-ash.settings.settings.date_time.date_time.mojom = ash.settings.settings.date_time.date_time.mojom || {};
+ash.settings.date_time = ash.settings.date_time || {};
+ash.settings.date_time.mojom = ash.settings.date_time.mojom || {};
 
 
 // Interface: PageHandlerFactory
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactory = {};
+ash.settings.date_time.mojom.PageHandlerFactory = {};
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.date_time.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.settings.date_time.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRemote = class {
+ash.settings.date_time.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.settings.date_time.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.date_time.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +55,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRemote =
   }
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+ash.settings.date_time.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,15 +64,15 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRemoteCa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRemote();
+ash.settings.date_time.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new ash.settings.date_time.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -68,7 +82,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactory.getRemo
 };
 
 // ParamsSpec for CreatePageHandler
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.date_time.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -83,29 +97,65 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactory_CreateP
 };
 
 // Legacy compatibility
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryPtr = ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRemote;
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryRequest = ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerFactoryPendingReceiver;
+ash.settings.date_time.mojom.PageHandlerFactoryPtr = ash.settings.date_time.mojom.PageHandlerFactoryRemote;
+ash.settings.date_time.mojom.PageHandlerFactoryRequest = ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler = {};
+ash.settings.date_time.mojom.PageHandler = {};
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerPendingReceiver = class {
+ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.date_time.mojom.PageHandler_GetTimezones_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.date_time.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemote = class {
+ash.settings.date_time.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.settings.date_time.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerPendingReceiver,
+      ash.settings.date_time.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.date_time.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -117,7 +167,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemote = class 
   }
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemoteCallHandler = class {
+ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -126,7 +176,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec,
+      ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec,
       null,
       []);
   }
@@ -135,8 +185,8 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_GetTimezones_ParamsSpec,
-      ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
+      ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec,
+      ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
       []);
   }
 
@@ -144,15 +194,15 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemoteCallHandl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec,
+      ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemote();
+ash.settings.date_time.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.settings.date_time.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -162,7 +212,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler.getRemote = fu
 };
 
 // ParamsSpec for ShowParentAccessForTimezone
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = {
+ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.date_time.mojom.PageHandler.ShowParentAccessForTimezone_Params',
@@ -175,7 +225,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_ShowParentAcce
 };
 
 // ParamsSpec for GetTimezones
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_GetTimezones_ParamsSpec = {
+ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.date_time.mojom.PageHandler.GetTimezones_Params',
@@ -187,7 +237,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_GetTimezones_P
   }
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
+ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.date_time.mojom.PageHandler.GetTimezones_ResponseParams',
@@ -201,7 +251,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_GetTimezones_R
 };
 
 // ParamsSpec for ShowSetDateTimeUI
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
+ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.date_time.mojom.PageHandler.ShowSetDateTimeUI_Params',
@@ -214,29 +264,55 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageHandler_ShowSetDateTim
 };
 
 // Legacy compatibility
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerPtr = ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRemote;
-ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerRequest = ash.settings.settings.date_time.date_time.mojom.mojom.PageHandlerPendingReceiver;
+ash.settings.date_time.mojom.PageHandlerPtr = ash.settings.date_time.mojom.PageHandlerRemote;
+ash.settings.date_time.mojom.PageHandlerRequest = ash.settings.date_time.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.settings.settings.date_time.date_time.mojom.mojom.Page = {};
+ash.settings.date_time.mojom.Page = {};
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PagePendingReceiver = class {
+ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.date_time.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageRemote = class {
+ash.settings.date_time.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'ash.settings.date_time.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.date_time.date_time.mojom.mojom.PagePendingReceiver,
+      ash.settings.date_time.mojom.PagePendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.date_time.date_time.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.date_time.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -248,7 +324,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageRemote = class {
   }
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.PageRemoteCallHandler = class {
+ash.settings.date_time.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -257,7 +333,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.date_time.date_time.mojom.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec,
+      ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec,
       null,
       [is_allowed]);
   }
@@ -266,15 +342,15 @@ ash.settings.settings.date_time.date_time.mojom.mojom.PageRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.settings.date_time.date_time.mojom.mojom.Page_OnParentAccessValidationComplete_ParamsSpec,
+      ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec,
       null,
       [success]);
   }
 
 };
 
-ash.settings.settings.date_time.date_time.mojom.mojom.Page.getRemote = function() {
-  let remote = new ash.settings.settings.date_time.date_time.mojom.mojom.PageRemote();
+ash.settings.date_time.mojom.Page.getRemote = function() {
+  let remote = new ash.settings.date_time.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -284,7 +360,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.Page.getRemote = function(
 };
 
 // ParamsSpec for OnSystemClockCanSetTimeChanged
-ash.settings.settings.date_time.date_time.mojom.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
+ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.date_time.mojom.Page.OnSystemClockCanSetTimeChanged_Params',
@@ -298,7 +374,7 @@ ash.settings.settings.date_time.date_time.mojom.mojom.Page_OnSystemClockCanSetTi
 };
 
 // ParamsSpec for OnParentAccessValidationComplete
-ash.settings.settings.date_time.date_time.mojom.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = {
+ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.date_time.mojom.Page.OnParentAccessValidationComplete_Params',
@@ -312,6 +388,6 @@ ash.settings.settings.date_time.date_time.mojom.mojom.Page_OnParentAccessValidat
 };
 
 // Legacy compatibility
-ash.settings.settings.date_time.date_time.mojom.mojom.PagePtr = ash.settings.settings.date_time.date_time.mojom.mojom.PageRemote;
-ash.settings.settings.date_time.date_time.mojom.mojom.PageRequest = ash.settings.settings.date_time.date_time.mojom.mojom.PagePendingReceiver;
+ash.settings.date_time.mojom.PagePtr = ash.settings.date_time.mojom.PageRemote;
+ash.settings.date_time.mojom.PageRequest = ash.settings.date_time.mojom.PagePendingReceiver;
 

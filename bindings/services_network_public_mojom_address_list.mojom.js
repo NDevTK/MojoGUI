@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: AddressList
-network.mojom.mojom.AddressListSpec = {
+network.mojom.AddressListSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AddressList',

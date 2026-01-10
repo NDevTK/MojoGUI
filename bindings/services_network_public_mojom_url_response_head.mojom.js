@@ -11,14 +11,14 @@ var url = url || {};
 
 
 // Enum: NavigationDeliveryType
-network.mojom.mojom.NavigationDeliveryType = {
+network.mojom.NavigationDeliveryType = {
   kDefault: 0,
   kNavigationalPrefetch: 1,
 };
-network.mojom.mojom.NavigationDeliveryTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.NavigationDeliveryTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: URLResponseHead
-network.mojom.mojom.URLResponseHeadSpec = {
+network.mojom.URLResponseHeadSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLResponseHead',

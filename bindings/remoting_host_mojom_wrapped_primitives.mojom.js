@@ -10,7 +10,7 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Struct: Bool
-remoting.mojom.mojom.BoolSpec = {
+remoting.mojom.BoolSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.Bool',
@@ -24,7 +24,7 @@ remoting.mojom.mojom.BoolSpec = {
 };
 
 // Struct: Float
-remoting.mojom.mojom.FloatSpec = {
+remoting.mojom.FloatSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.Float',
@@ -38,7 +38,7 @@ remoting.mojom.mojom.FloatSpec = {
 };
 
 // Struct: Int32
-remoting.mojom.mojom.Int32Spec = {
+remoting.mojom.Int32Spec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.Int32',
@@ -52,7 +52,7 @@ remoting.mojom.mojom.Int32Spec = {
 };
 
 // Struct: UInt32
-remoting.mojom.mojom.UInt32Spec = {
+remoting.mojom.UInt32Spec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.UInt32',

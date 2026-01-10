@@ -10,25 +10,25 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: KeyboardLockRequestResult
-blink.mojom.mojom.KeyboardLockRequestResult = {
+blink.mojom.KeyboardLockRequestResult = {
   kSuccess: 0,
   kFrameDetachedError: 1,
   kNoValidKeyCodesError: 2,
   kChildFrameError: 3,
   kRequestFailedError: 4,
 };
-blink.mojom.mojom.KeyboardLockRequestResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.KeyboardLockRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetKeyboardLayoutMapStatus
-blink.mojom.mojom.GetKeyboardLayoutMapStatus = {
+blink.mojom.GetKeyboardLayoutMapStatus = {
   kSuccess: 0,
   kFail: 1,
   kDenied: 2,
 };
-blink.mojom.mojom.GetKeyboardLayoutMapStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.GetKeyboardLayoutMapStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GetKeyboardLayoutMapResult
-blink.mojom.mojom.GetKeyboardLayoutMapResultSpec = {
+blink.mojom.GetKeyboardLayoutMapResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetKeyboardLayoutMapResult',
@@ -43,24 +43,61 @@ blink.mojom.mojom.GetKeyboardLayoutMapResultSpec = {
 };
 
 // Interface: KeyboardLockService
-blink.mojom.mojom.KeyboardLockService = {};
+blink.mojom.KeyboardLockService = {};
 
-blink.mojom.mojom.KeyboardLockServicePendingReceiver = class {
+blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.KeyboardLockService_RequestKeyboardLock_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.KeyboardLockService_CancelKeyboardLock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.KeyboardLockServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.KeyboardLockServiceRemote = class {
+blink.mojom.KeyboardLockServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.KeyboardLockService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.KeyboardLockServicePendingReceiver,
+      blink.mojom.KeyboardLockServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.KeyboardLockServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.KeyboardLockServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -72,7 +109,7 @@ blink.mojom.mojom.KeyboardLockServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.KeyboardLockServiceRemoteCallHandler = class {
+blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -81,8 +118,8 @@ blink.mojom.mojom.KeyboardLockServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec,
-      blink.mojom.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec,
+      blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec,
+      blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec,
       [key_codes]);
   }
 
@@ -90,7 +127,7 @@ blink.mojom.mojom.KeyboardLockServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec,
+      blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec,
       null,
       []);
   }
@@ -99,15 +136,15 @@ blink.mojom.mojom.KeyboardLockServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec,
-      blink.mojom.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec,
+      blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec,
+      blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.KeyboardLockService.getRemote = function() {
-  let remote = new blink.mojom.mojom.KeyboardLockServiceRemote();
+blink.mojom.KeyboardLockService.getRemote = function() {
+  let remote = new blink.mojom.KeyboardLockServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -117,7 +154,7 @@ blink.mojom.mojom.KeyboardLockService.getRemote = function() {
 };
 
 // ParamsSpec for RequestKeyboardLock
-blink.mojom.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
+blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_Params',
@@ -130,7 +167,7 @@ blink.mojom.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
+blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_ResponseParams',
@@ -144,7 +181,7 @@ blink.mojom.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelKeyboardLock
-blink.mojom.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
+blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.KeyboardLockService.CancelKeyboardLock_Params',
@@ -157,7 +194,7 @@ blink.mojom.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
 };
 
 // ParamsSpec for GetKeyboardLayoutMap
-blink.mojom.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
+blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.KeyboardLockService.GetKeyboardLayoutMap_Params',
@@ -169,7 +206,7 @@ blink.mojom.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
+blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.KeyboardLockService.GetKeyboardLayoutMap_ResponseParams',
@@ -183,6 +220,6 @@ blink.mojom.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.KeyboardLockServicePtr = blink.mojom.mojom.KeyboardLockServiceRemote;
-blink.mojom.mojom.KeyboardLockServiceRequest = blink.mojom.mojom.KeyboardLockServicePendingReceiver;
+blink.mojom.KeyboardLockServicePtr = blink.mojom.KeyboardLockServiceRemote;
+blink.mojom.KeyboardLockServiceRequest = blink.mojom.KeyboardLockServicePendingReceiver;
 

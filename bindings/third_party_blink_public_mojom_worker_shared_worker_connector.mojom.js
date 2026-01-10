@@ -16,24 +16,41 @@ var blink = blink || {};
 
 
 // Interface: SharedWorkerConnector
-blink.mojom.mojom.SharedWorkerConnector = {};
+blink.mojom.SharedWorkerConnector = {};
 
-blink.mojom.mojom.SharedWorkerConnectorPendingReceiver = class {
+blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedWorkerConnector_Connect_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SharedWorkerClientRemote), nullable: false, minVersion: 0 },
+        { name: 'creation_context_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedWorkerCreationContextTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'message_port', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
+        { name: 'blob_url_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+blink.mojom.SharedWorkerConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SharedWorkerConnectorRemote = class {
+blink.mojom.SharedWorkerConnectorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SharedWorkerConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SharedWorkerConnectorPendingReceiver,
+      blink.mojom.SharedWorkerConnectorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SharedWorkerConnectorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SharedWorkerConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -45,7 +62,7 @@ blink.mojom.mojom.SharedWorkerConnectorRemote = class {
   }
 };
 
-blink.mojom.mojom.SharedWorkerConnectorRemoteCallHandler = class {
+blink.mojom.SharedWorkerConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -54,15 +71,15 @@ blink.mojom.mojom.SharedWorkerConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SharedWorkerConnector_Connect_ParamsSpec,
+      blink.mojom.SharedWorkerConnector_Connect_ParamsSpec,
       null,
       [info, client, creation_context_type, message_port, blob_url_token]);
   }
 
 };
 
-blink.mojom.mojom.SharedWorkerConnector.getRemote = function() {
-  let remote = new blink.mojom.mojom.SharedWorkerConnectorRemote();
+blink.mojom.SharedWorkerConnector.getRemote = function() {
+  let remote = new blink.mojom.SharedWorkerConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -72,7 +89,7 @@ blink.mojom.mojom.SharedWorkerConnector.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-blink.mojom.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
+blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerConnector.Connect_Params',
@@ -90,6 +107,6 @@ blink.mojom.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SharedWorkerConnectorPtr = blink.mojom.mojom.SharedWorkerConnectorRemote;
-blink.mojom.mojom.SharedWorkerConnectorRequest = blink.mojom.mojom.SharedWorkerConnectorPendingReceiver;
+blink.mojom.SharedWorkerConnectorPtr = blink.mojom.SharedWorkerConnectorRemote;
+blink.mojom.SharedWorkerConnectorRequest = blink.mojom.SharedWorkerConnectorPendingReceiver;
 

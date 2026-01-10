@@ -10,24 +10,37 @@ network.mojom = network.mojom || {};
 
 
 // Interface: NetworkAnnotationMonitor
-network.mojom.mojom.NetworkAnnotationMonitor = {};
+network.mojom.NetworkAnnotationMonitor = {};
 
-network.mojom.mojom.NetworkAnnotationMonitorPendingReceiver = class {
+network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkAnnotationMonitor_Report_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.NetworkAnnotationMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.NetworkAnnotationMonitorRemote = class {
+network.mojom.NetworkAnnotationMonitorRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkAnnotationMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.NetworkAnnotationMonitorPendingReceiver,
+      network.mojom.NetworkAnnotationMonitorPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.NetworkAnnotationMonitorRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.NetworkAnnotationMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ network.mojom.mojom.NetworkAnnotationMonitorRemote = class {
   }
 };
 
-network.mojom.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {
+network.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ network.mojom.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.NetworkAnnotationMonitor_Report_ParamsSpec,
+      network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec,
       null,
       [hash_code]);
   }
 
 };
 
-network.mojom.mojom.NetworkAnnotationMonitor.getRemote = function() {
-  let remote = new network.mojom.mojom.NetworkAnnotationMonitorRemote();
+network.mojom.NetworkAnnotationMonitor.getRemote = function() {
+  let remote = new network.mojom.NetworkAnnotationMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ network.mojom.mojom.NetworkAnnotationMonitor.getRemote = function() {
 };
 
 // ParamsSpec for Report
-network.mojom.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
+network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkAnnotationMonitor.Report_Params',
@@ -80,6 +93,6 @@ network.mojom.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.NetworkAnnotationMonitorPtr = network.mojom.mojom.NetworkAnnotationMonitorRemote;
-network.mojom.mojom.NetworkAnnotationMonitorRequest = network.mojom.mojom.NetworkAnnotationMonitorPendingReceiver;
+network.mojom.NetworkAnnotationMonitorPtr = network.mojom.NetworkAnnotationMonitorRemote;
+network.mojom.NetworkAnnotationMonitorRequest = network.mojom.NetworkAnnotationMonitorPendingReceiver;
 

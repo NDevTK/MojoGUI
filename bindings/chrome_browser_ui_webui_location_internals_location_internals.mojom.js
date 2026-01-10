@@ -11,6 +11,19 @@ var mojom = mojom || {};
 // Interface: LocationInternalsHandler
 mojom.LocationInternalsHandler = {};
 
+mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.LocationInternalsHandler_BindInternalsInterface_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
 mojom.LocationInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,7 +10,7 @@ skia.mojom = skia.mojom || {};
 
 
 // Enum: ColorType
-skia.mojom.mojom.ColorType = {
+skia.mojom.ColorType = {
   ALPHA_8: 0,
   RGB_565: 1,
   ARGB_4444: 2,
@@ -19,18 +19,18 @@ skia.mojom.mojom.ColorType = {
   DEPRECATED_INDEX_8: 5,
   GRAY_8: 6,
 };
-skia.mojom.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
+skia.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AlphaType
-skia.mojom.mojom.AlphaType = {
+skia.mojom.AlphaType = {
   ALPHA_TYPE_OPAQUE: 0,
   PREMUL: 1,
   UNPREMUL: 2,
 };
-skia.mojom.mojom.AlphaTypeSpec = { $: mojo.internal.Enum() };
+skia.mojom.AlphaTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImageInfo
-skia.mojom.mojom.ImageInfoSpec = {
+skia.mojom.ImageInfoSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.ImageInfo',
@@ -49,7 +49,7 @@ skia.mojom.mojom.ImageInfoSpec = {
 };
 
 // Struct: BitmapN32ImageInfo
-skia.mojom.mojom.BitmapN32ImageInfoSpec = {
+skia.mojom.BitmapN32ImageInfoSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.BitmapN32ImageInfo',

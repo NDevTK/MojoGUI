@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: String16
-mojo_base.mojom.mojom.String16Spec = {
+mojo_base.mojom.String16Spec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.String16',
@@ -24,7 +24,7 @@ mojo_base.mojom.mojom.String16Spec = {
 };
 
 // Struct: BigString16
-mojo_base.mojom.mojom.BigString16Spec = {
+mojo_base.mojom.BigString16Spec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.BigString16',

@@ -10,8 +10,8 @@ os_crypt_async.mojom = os_crypt_async.mojom || {};
 
 
 // Enum: Algorithm
-os_crypt_async.mojom.mojom.Algorithm = {
+os_crypt_async.mojom.Algorithm = {
   kAES256GCM: 0,
   kAES128CBC: 1,
 };
-os_crypt_async.mojom.mojom.AlgorithmSpec = { $: mojo.internal.Enum() };
+os_crypt_async.mojom.AlgorithmSpec = { $: mojo.internal.Enum() };

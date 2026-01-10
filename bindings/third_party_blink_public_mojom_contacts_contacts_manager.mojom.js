@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: ContactIconBlob
-blink.mojom.mojom.ContactIconBlobSpec = {
+blink.mojom.ContactIconBlobSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactIconBlob',
@@ -25,7 +25,7 @@ blink.mojom.mojom.ContactIconBlobSpec = {
 };
 
 // Struct: ContactInfo
-blink.mojom.mojom.ContactInfoSpec = {
+blink.mojom.ContactInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactInfo',
@@ -43,24 +43,42 @@ blink.mojom.mojom.ContactInfoSpec = {
 };
 
 // Interface: ContactsManager
-blink.mojom.mojom.ContactsManager = {};
+blink.mojom.ContactsManager = {};
 
-blink.mojom.mojom.ContactsManagerPendingReceiver = class {
+blink.mojom.ContactsManager_Select_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContactsManager_Select_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'multiple', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_names', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_emails', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_tel', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_addresses', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_icons', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ContactsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ContactsManagerRemote = class {
+blink.mojom.ContactsManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ContactsManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ContactsManagerPendingReceiver,
+      blink.mojom.ContactsManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ContactsManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ContactsManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -72,7 +90,7 @@ blink.mojom.mojom.ContactsManagerRemote = class {
   }
 };
 
-blink.mojom.mojom.ContactsManagerRemoteCallHandler = class {
+blink.mojom.ContactsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -81,15 +99,15 @@ blink.mojom.mojom.ContactsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ContactsManager_Select_ParamsSpec,
-      blink.mojom.mojom.ContactsManager_Select_ResponseParamsSpec,
+      blink.mojom.ContactsManager_Select_ParamsSpec,
+      blink.mojom.ContactsManager_Select_ResponseParamsSpec,
       [multiple, include_names, include_emails, include_tel, include_addresses, include_icons]);
   }
 
 };
 
-blink.mojom.mojom.ContactsManager.getRemote = function() {
-  let remote = new blink.mojom.mojom.ContactsManagerRemote();
+blink.mojom.ContactsManager.getRemote = function() {
+  let remote = new blink.mojom.ContactsManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +117,7 @@ blink.mojom.mojom.ContactsManager.getRemote = function() {
 };
 
 // ParamsSpec for Select
-blink.mojom.mojom.ContactsManager_Select_ParamsSpec = {
+blink.mojom.ContactsManager_Select_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactsManager.Select_Params',
@@ -117,7 +135,7 @@ blink.mojom.mojom.ContactsManager_Select_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ContactsManager_Select_ResponseParamsSpec = {
+blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactsManager.Select_ResponseParams',
@@ -131,6 +149,6 @@ blink.mojom.mojom.ContactsManager_Select_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ContactsManagerPtr = blink.mojom.mojom.ContactsManagerRemote;
-blink.mojom.mojom.ContactsManagerRequest = blink.mojom.mojom.ContactsManagerPendingReceiver;
+blink.mojom.ContactsManagerPtr = blink.mojom.ContactsManagerRemote;
+blink.mojom.ContactsManagerRequest = blink.mojom.ContactsManagerPendingReceiver;
 

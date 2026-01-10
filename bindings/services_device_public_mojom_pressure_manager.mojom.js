@@ -10,14 +10,14 @@ device.mojom = device.mojom || {};
 
 
 // Enum: PressureManagerAddClientResult
-device.mojom.mojom.PressureManagerAddClientResult = {
+device.mojom.PressureManagerAddClientResult = {
   kNotSupported: 0,
   kOk: 1,
 };
-device.mojom.mojom.PressureManagerAddClientResultSpec = { $: mojo.internal.Enum() };
+device.mojom.PressureManagerAddClientResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: VirtualPressureSourceMetadata
-device.mojom.mojom.VirtualPressureSourceMetadataSpec = {
+device.mojom.VirtualPressureSourceMetadataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VirtualPressureSourceMetadata',
@@ -31,24 +31,84 @@ device.mojom.mojom.VirtualPressureSourceMetadataSpec = {
 };
 
 // Interface: PressureManager
-device.mojom.mojom.PressureManager = {};
+device.mojom.PressureManager = {};
 
-device.mojom.mojom.PressureManagerPendingReceiver = class {
+device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PressureManager_AddVirtualPressureSource_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: device.mojom.VirtualPressureSourceMetadataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PressureManager_RemoveVirtualPressureSource_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PressureManager_UpdateVirtualPressureSourceData_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 20, packedBitOffset: 0, type: device.mojom.PressureStateSpec, nullable: false, minVersion: 0 },
+        { name: 'own_contribution_estimate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.PressureManager_AddClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PressureManager_AddClient_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.PressureClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.PressureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.PressureManagerRemote = class {
+device.mojom.PressureManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.PressureManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.PressureManagerPendingReceiver,
+      device.mojom.PressureManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.PressureManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.PressureManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +120,7 @@ device.mojom.mojom.PressureManagerRemote = class {
   }
 };
 
-device.mojom.mojom.PressureManagerRemoteCallHandler = class {
+device.mojom.PressureManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,7 +129,7 @@ device.mojom.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec,
+      device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec,
       null,
       [token, source, metadata]);
   }
@@ -78,7 +138,7 @@ device.mojom.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec,
+      device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec,
       null,
       [token, source]);
   }
@@ -87,7 +147,7 @@ device.mojom.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
+      device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
       null,
       [token, source, state, own_contribution_estimate]);
   }
@@ -96,15 +156,15 @@ device.mojom.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.PressureManager_AddClient_ParamsSpec,
-      device.mojom.mojom.PressureManager_AddClient_ResponseParamsSpec,
+      device.mojom.PressureManager_AddClient_ParamsSpec,
+      device.mojom.PressureManager_AddClient_ResponseParamsSpec,
       [source, token, client]);
   }
 
 };
 
-device.mojom.mojom.PressureManager.getRemote = function() {
-  let remote = new device.mojom.mojom.PressureManagerRemote();
+device.mojom.PressureManager.getRemote = function() {
+  let remote = new device.mojom.PressureManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -114,7 +174,7 @@ device.mojom.mojom.PressureManager.getRemote = function() {
 };
 
 // ParamsSpec for AddVirtualPressureSource
-device.mojom.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
+device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureManager.AddVirtualPressureSource_Params',
@@ -130,7 +190,7 @@ device.mojom.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveVirtualPressureSource
-device.mojom.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
+device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureManager.RemoveVirtualPressureSource_Params',
@@ -145,7 +205,7 @@ device.mojom.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateVirtualPressureSourceData
-device.mojom.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = {
+device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureManager.UpdateVirtualPressureSourceData_Params',
@@ -162,7 +222,7 @@ device.mojom.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = 
 };
 
 // ParamsSpec for AddClient
-device.mojom.mojom.PressureManager_AddClient_ParamsSpec = {
+device.mojom.PressureManager_AddClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureManager.AddClient_Params',
@@ -177,7 +237,7 @@ device.mojom.mojom.PressureManager_AddClient_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.PressureManager_AddClient_ResponseParamsSpec = {
+device.mojom.PressureManager_AddClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureManager.AddClient_ResponseParams',
@@ -191,29 +251,42 @@ device.mojom.mojom.PressureManager_AddClient_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.PressureManagerPtr = device.mojom.mojom.PressureManagerRemote;
-device.mojom.mojom.PressureManagerRequest = device.mojom.mojom.PressureManagerPendingReceiver;
+device.mojom.PressureManagerPtr = device.mojom.PressureManagerRemote;
+device.mojom.PressureManagerRequest = device.mojom.PressureManagerPendingReceiver;
 
 
 // Interface: PressureClient
-device.mojom.mojom.PressureClient = {};
+device.mojom.PressureClient = {};
 
-device.mojom.mojom.PressureClientPendingReceiver = class {
+device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PressureClient_OnPressureUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureUpdateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.PressureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.PressureClientRemote = class {
+device.mojom.PressureClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.PressureClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.PressureClientPendingReceiver,
+      device.mojom.PressureClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.PressureClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.PressureClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -225,7 +298,7 @@ device.mojom.mojom.PressureClientRemote = class {
   }
 };
 
-device.mojom.mojom.PressureClientRemoteCallHandler = class {
+device.mojom.PressureClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -234,15 +307,15 @@ device.mojom.mojom.PressureClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.PressureClient_OnPressureUpdated_ParamsSpec,
+      device.mojom.PressureClient_OnPressureUpdated_ParamsSpec,
       null,
       [update]);
   }
 
 };
 
-device.mojom.mojom.PressureClient.getRemote = function() {
-  let remote = new device.mojom.mojom.PressureClientRemote();
+device.mojom.PressureClient.getRemote = function() {
+  let remote = new device.mojom.PressureClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -252,7 +325,7 @@ device.mojom.mojom.PressureClient.getRemote = function() {
 };
 
 // ParamsSpec for OnPressureUpdated
-device.mojom.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
+device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureClient.OnPressureUpdated_Params',
@@ -266,6 +339,6 @@ device.mojom.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.PressureClientPtr = device.mojom.mojom.PressureClientRemote;
-device.mojom.mojom.PressureClientRequest = device.mojom.mojom.PressureClientPendingReceiver;
+device.mojom.PressureClientPtr = device.mojom.PressureClientRemote;
+device.mojom.PressureClientRequest = device.mojom.PressureClientPendingReceiver;
 

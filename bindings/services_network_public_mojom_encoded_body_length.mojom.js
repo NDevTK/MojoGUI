@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: EncodedBodyLength
-network.mojom.mojom.EncodedBodyLengthSpec = {
+network.mojom.EncodedBodyLengthSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EncodedBodyLength',

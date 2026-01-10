@@ -12,24 +12,124 @@ var blink = blink || {};
 
 
 // Interface: LocalStorageControl
-storage.mojom.mojom.LocalStorageControl = {};
+storage.mojom.LocalStorageControl = {};
 
-storage.mojom.mojom.LocalStorageControlPendingReceiver = class {
+storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_BindStorageArea_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.StorageAreaRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_GetUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_DeleteStorage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_CleanUpStorage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControl_Flush_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_Flush_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_PurgeMemory_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_ApplyPolicyUpdates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.LocalStorageControl_ForceKeepSessionState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.LocalStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.LocalStorageControlRemote = class {
+storage.mojom.LocalStorageControlRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.LocalStorageControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.LocalStorageControlPendingReceiver,
+      storage.mojom.LocalStorageControlPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.LocalStorageControlRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.LocalStorageControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +141,7 @@ storage.mojom.mojom.LocalStorageControlRemote = class {
   }
 };
 
-storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
+storage.mojom.LocalStorageControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +150,7 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_BindStorageArea_ParamsSpec,
+      storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec,
       null,
       [storage_key, receiver]);
   }
@@ -59,8 +159,8 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_GetUsage_ParamsSpec,
-      storage.mojom.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
+      storage.mojom.LocalStorageControl_GetUsage_ParamsSpec,
+      storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
       []);
   }
 
@@ -68,7 +168,7 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_DeleteStorage_ParamsSpec,
+      storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec,
       null,
       [storage_key]);
   }
@@ -77,7 +177,7 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec,
+      storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec,
       null,
       []);
   }
@@ -86,7 +186,7 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_Flush_ParamsSpec,
+      storage.mojom.LocalStorageControl_Flush_ParamsSpec,
       null,
       []);
   }
@@ -95,7 +195,7 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_PurgeMemory_ParamsSpec,
+      storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec,
       null,
       []);
   }
@@ -104,7 +204,7 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec,
+      storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
       [policy_updates]);
   }
@@ -113,15 +213,15 @@ storage.mojom.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec,
+      storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec,
       null,
       []);
   }
 
 };
 
-storage.mojom.mojom.LocalStorageControl.getRemote = function() {
-  let remote = new storage.mojom.mojom.LocalStorageControlRemote();
+storage.mojom.LocalStorageControl.getRemote = function() {
+  let remote = new storage.mojom.LocalStorageControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -131,7 +231,7 @@ storage.mojom.mojom.LocalStorageControl.getRemote = function() {
 };
 
 // ParamsSpec for BindStorageArea
-storage.mojom.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
+storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.BindStorageArea_Params',
@@ -146,7 +246,7 @@ storage.mojom.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
 };
 
 // ParamsSpec for GetUsage
-storage.mojom.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
+storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.GetUsage_Params',
@@ -158,7 +258,7 @@ storage.mojom.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
+storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.GetUsage_ResponseParams',
@@ -172,7 +272,7 @@ storage.mojom.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteStorage
-storage.mojom.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
+storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.DeleteStorage_Params',
@@ -186,7 +286,7 @@ storage.mojom.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
 };
 
 // ParamsSpec for CleanUpStorage
-storage.mojom.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
+storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.CleanUpStorage_Params',
@@ -199,7 +299,7 @@ storage.mojom.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
 };
 
 // ParamsSpec for Flush
-storage.mojom.mojom.LocalStorageControl_Flush_ParamsSpec = {
+storage.mojom.LocalStorageControl_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.Flush_Params',
@@ -212,7 +312,7 @@ storage.mojom.mojom.LocalStorageControl_Flush_ParamsSpec = {
 };
 
 // ParamsSpec for PurgeMemory
-storage.mojom.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
+storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.PurgeMemory_Params',
@@ -225,7 +325,7 @@ storage.mojom.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
 };
 
 // ParamsSpec for ApplyPolicyUpdates
-storage.mojom.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
+storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.ApplyPolicyUpdates_Params',
@@ -239,7 +339,7 @@ storage.mojom.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
 };
 
 // ParamsSpec for ForceKeepSessionState
-storage.mojom.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
+storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.LocalStorageControl.ForceKeepSessionState_Params',
@@ -252,6 +352,6 @@ storage.mojom.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.LocalStorageControlPtr = storage.mojom.mojom.LocalStorageControlRemote;
-storage.mojom.mojom.LocalStorageControlRequest = storage.mojom.mojom.LocalStorageControlPendingReceiver;
+storage.mojom.LocalStorageControlPtr = storage.mojom.LocalStorageControlRemote;
+storage.mojom.LocalStorageControlRequest = storage.mojom.LocalStorageControlPendingReceiver;
 

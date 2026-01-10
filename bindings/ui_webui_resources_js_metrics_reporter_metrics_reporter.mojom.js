@@ -10,24 +10,77 @@ metrics_reporter.mojom = metrics_reporter.mojom || {};
 
 
 // Interface: PageMetricsHost
-metrics_reporter.mojom.mojom.PageMetricsHost = {};
+metrics_reporter.mojom.PageMetricsHost = {};
 
-metrics_reporter.mojom.mojom.PageMetricsHostPendingReceiver = class {
+metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics_reporter.mojom.PageMetricsRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics_reporter.mojom.PageMetricsHost_OnClearMark_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+metrics_reporter.mojom.PageMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics_reporter.mojom.mojom.PageMetricsHostRemote = class {
+metrics_reporter.mojom.PageMetricsHostRemote = class {
   static get $interfaceName() {
     return 'metrics_reporter.mojom.PageMetricsHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics_reporter.mojom.mojom.PageMetricsHostPendingReceiver,
+      metrics_reporter.mojom.PageMetricsHostPendingReceiver,
       handle);
-    this.$ = new metrics_reporter.mojom.mojom.PageMetricsHostRemoteCallHandler(this.proxy);
+    this.$ = new metrics_reporter.mojom.PageMetricsHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +92,7 @@ metrics_reporter.mojom.mojom.PageMetricsHostRemote = class {
   }
 };
 
-metrics_reporter.mojom.mojom.PageMetricsHostRemoteCallHandler = class {
+metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +101,7 @@ metrics_reporter.mojom.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics_reporter.mojom.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec,
+      metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec,
       null,
       [page]);
   }
@@ -57,8 +110,8 @@ metrics_reporter.mojom.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      metrics_reporter.mojom.mojom.PageMetricsHost_OnGetMark_ParamsSpec,
-      metrics_reporter.mojom.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
+      metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec,
+      metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
       [name]);
   }
 
@@ -66,7 +119,7 @@ metrics_reporter.mojom.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      metrics_reporter.mojom.mojom.PageMetricsHost_OnClearMark_ParamsSpec,
+      metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec,
       null,
       [name]);
   }
@@ -75,15 +128,15 @@ metrics_reporter.mojom.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      metrics_reporter.mojom.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec,
+      metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec,
       null,
       [name, time]);
   }
 
 };
 
-metrics_reporter.mojom.mojom.PageMetricsHost.getRemote = function() {
-  let remote = new metrics_reporter.mojom.mojom.PageMetricsHostRemote();
+metrics_reporter.mojom.PageMetricsHost.getRemote = function() {
+  let remote = new metrics_reporter.mojom.PageMetricsHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +146,7 @@ metrics_reporter.mojom.mojom.PageMetricsHost.getRemote = function() {
 };
 
 // ParamsSpec for OnPageRemoteCreated
-metrics_reporter.mojom.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
+metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnPageRemoteCreated_Params',
@@ -107,7 +160,7 @@ metrics_reporter.mojom.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
 };
 
 // ParamsSpec for OnGetMark
-metrics_reporter.mojom.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
+metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_Params',
@@ -120,7 +173,7 @@ metrics_reporter.mojom.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
   }
 };
 
-metrics_reporter.mojom.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
+metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_ResponseParams',
@@ -134,7 +187,7 @@ metrics_reporter.mojom.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnClearMark
-metrics_reporter.mojom.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
+metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnClearMark_Params',
@@ -148,7 +201,7 @@ metrics_reporter.mojom.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
 };
 
 // ParamsSpec for OnUmaReportTime
-metrics_reporter.mojom.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
+metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnUmaReportTime_Params',
@@ -163,29 +216,55 @@ metrics_reporter.mojom.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
 };
 
 // Legacy compatibility
-metrics_reporter.mojom.mojom.PageMetricsHostPtr = metrics_reporter.mojom.mojom.PageMetricsHostRemote;
-metrics_reporter.mojom.mojom.PageMetricsHostRequest = metrics_reporter.mojom.mojom.PageMetricsHostPendingReceiver;
+metrics_reporter.mojom.PageMetricsHostPtr = metrics_reporter.mojom.PageMetricsHostRemote;
+metrics_reporter.mojom.PageMetricsHostRequest = metrics_reporter.mojom.PageMetricsHostPendingReceiver;
 
 
 // Interface: PageMetrics
-metrics_reporter.mojom.mojom.PageMetrics = {};
+metrics_reporter.mojom.PageMetrics = {};
 
-metrics_reporter.mojom.mojom.PageMetricsPendingReceiver = class {
+metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics_reporter.mojom.PageMetrics_OnGetMark_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics_reporter.mojom.PageMetrics_OnClearMark_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+metrics_reporter.mojom.PageMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics_reporter.mojom.mojom.PageMetricsRemote = class {
+metrics_reporter.mojom.PageMetricsRemote = class {
   static get $interfaceName() {
     return 'metrics_reporter.mojom.PageMetrics';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics_reporter.mojom.mojom.PageMetricsPendingReceiver,
+      metrics_reporter.mojom.PageMetricsPendingReceiver,
       handle);
-    this.$ = new metrics_reporter.mojom.mojom.PageMetricsRemoteCallHandler(this.proxy);
+    this.$ = new metrics_reporter.mojom.PageMetricsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -197,7 +276,7 @@ metrics_reporter.mojom.mojom.PageMetricsRemote = class {
   }
 };
 
-metrics_reporter.mojom.mojom.PageMetricsRemoteCallHandler = class {
+metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -206,8 +285,8 @@ metrics_reporter.mojom.mojom.PageMetricsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics_reporter.mojom.mojom.PageMetrics_OnGetMark_ParamsSpec,
-      metrics_reporter.mojom.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
+      metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec,
+      metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
       [name]);
   }
 
@@ -215,15 +294,15 @@ metrics_reporter.mojom.mojom.PageMetricsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      metrics_reporter.mojom.mojom.PageMetrics_OnClearMark_ParamsSpec,
+      metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec,
       null,
       [name]);
   }
 
 };
 
-metrics_reporter.mojom.mojom.PageMetrics.getRemote = function() {
-  let remote = new metrics_reporter.mojom.mojom.PageMetricsRemote();
+metrics_reporter.mojom.PageMetrics.getRemote = function() {
+  let remote = new metrics_reporter.mojom.PageMetricsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -233,7 +312,7 @@ metrics_reporter.mojom.mojom.PageMetrics.getRemote = function() {
 };
 
 // ParamsSpec for OnGetMark
-metrics_reporter.mojom.mojom.PageMetrics_OnGetMark_ParamsSpec = {
+metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_Params',
@@ -246,7 +325,7 @@ metrics_reporter.mojom.mojom.PageMetrics_OnGetMark_ParamsSpec = {
   }
 };
 
-metrics_reporter.mojom.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
+metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_ResponseParams',
@@ -260,7 +339,7 @@ metrics_reporter.mojom.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnClearMark
-metrics_reporter.mojom.mojom.PageMetrics_OnClearMark_ParamsSpec = {
+metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics_reporter.mojom.PageMetrics.OnClearMark_Params',
@@ -274,6 +353,6 @@ metrics_reporter.mojom.mojom.PageMetrics_OnClearMark_ParamsSpec = {
 };
 
 // Legacy compatibility
-metrics_reporter.mojom.mojom.PageMetricsPtr = metrics_reporter.mojom.mojom.PageMetricsRemote;
-metrics_reporter.mojom.mojom.PageMetricsRequest = metrics_reporter.mojom.mojom.PageMetricsPendingReceiver;
+metrics_reporter.mojom.PageMetricsPtr = metrics_reporter.mojom.PageMetricsRemote;
+metrics_reporter.mojom.PageMetricsRequest = metrics_reporter.mojom.PageMetricsPendingReceiver;
 

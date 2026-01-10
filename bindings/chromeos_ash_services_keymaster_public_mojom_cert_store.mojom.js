@@ -7,11 +7,11 @@
 // Module namespace
 var arc = arc || {};
 arc.keymaster = arc.keymaster || {};
-arc.keymaster.keymaster.mojom = arc.keymaster.keymaster.mojom || {};
+arc.keymaster.mojom = arc.keymaster.mojom || {};
 
 
 // Union: KeyData
-arc.keymaster.keymaster.mojom.mojom.KeyDataSpec = { $: mojo.internal.Union(
+arc.keymaster.mojom.KeyDataSpec = { $: mojo.internal.Union(
     'arc.keymaster.mojom.KeyData', {
       'chaps_key_data': {
         'ordinal': 0,
@@ -21,7 +21,7 @@ arc.keymaster.keymaster.mojom.mojom.KeyDataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ChapsKeyData
-arc.keymaster.keymaster.mojom.mojom.ChapsKeyDataSpec = {
+arc.keymaster.mojom.ChapsKeyDataSpec = {
   $: {
     structSpec: {
       name: 'arc.keymaster.mojom.ChapsKeyData',
@@ -37,7 +37,7 @@ arc.keymaster.keymaster.mojom.mojom.ChapsKeyDataSpec = {
 };
 
 // Struct: ChromeOsKey
-arc.keymaster.keymaster.mojom.mojom.ChromeOsKeySpec = {
+arc.keymaster.mojom.ChromeOsKeySpec = {
   $: {
     structSpec: {
       name: 'arc.keymaster.mojom.ChromeOsKey',
@@ -52,24 +52,37 @@ arc.keymaster.keymaster.mojom.mojom.ChromeOsKeySpec = {
 };
 
 // Interface: CertStoreInstance
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstance = {};
+arc.keymaster.mojom.CertStoreInstance = {};
 
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstancePendingReceiver = class {
+arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.keymaster.mojom.ChromeOsKeySpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.keymaster.mojom.CertStoreInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRemote = class {
+arc.keymaster.mojom.CertStoreInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.keymaster.mojom.CertStoreInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.keymaster.keymaster.mojom.mojom.CertStoreInstancePendingReceiver,
+      arc.keymaster.mojom.CertStoreInstancePendingReceiver,
       handle);
-    this.$ = new arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -81,7 +94,7 @@ arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRemote = class {
   }
 };
 
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRemoteCallHandler = class {
+arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -90,15 +103,15 @@ arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.keymaster.keymaster.mojom.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
-      arc.keymaster.keymaster.mojom.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
+      arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
+      arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
       [keys]);
   }
 
 };
 
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstance.getRemote = function() {
-  let remote = new arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRemote();
+arc.keymaster.mojom.CertStoreInstance.getRemote = function() {
+  let remote = new arc.keymaster.mojom.CertStoreInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -108,7 +121,7 @@ arc.keymaster.keymaster.mojom.mojom.CertStoreInstance.getRemote = function() {
 };
 
 // ParamsSpec for UpdatePlaceholderKeys
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = {
+arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.keymaster.mojom.CertStoreInstance.UpdatePlaceholderKeys_Params',
@@ -121,7 +134,7 @@ arc.keymaster.keymaster.mojom.mojom.CertStoreInstance_UpdatePlaceholderKeys_Para
   }
 };
 
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = {
+arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.keymaster.mojom.CertStoreInstance.UpdatePlaceholderKeys_ResponseParams',
@@ -135,6 +148,6 @@ arc.keymaster.keymaster.mojom.mojom.CertStoreInstance_UpdatePlaceholderKeys_Resp
 };
 
 // Legacy compatibility
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstancePtr = arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRemote;
-arc.keymaster.keymaster.mojom.mojom.CertStoreInstanceRequest = arc.keymaster.keymaster.mojom.mojom.CertStoreInstancePendingReceiver;
+arc.keymaster.mojom.CertStoreInstancePtr = arc.keymaster.mojom.CertStoreInstanceRemote;
+arc.keymaster.mojom.CertStoreInstanceRequest = arc.keymaster.mojom.CertStoreInstancePendingReceiver;
 

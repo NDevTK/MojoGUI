@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: EpochTopic
-blink.mojom.mojom.EpochTopicSpec = {
+blink.mojom.EpochTopicSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EpochTopic',
@@ -28,24 +28,37 @@ blink.mojom.mojom.EpochTopicSpec = {
 };
 
 // Interface: BrowsingTopicsDocumentService
-blink.mojom.mojom.BrowsingTopicsDocumentService = {};
+blink.mojom.BrowsingTopicsDocumentService = {};
 
-blink.mojom.mojom.BrowsingTopicsDocumentServicePendingReceiver = class {
+blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.BrowsingTopicsDocumentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.BrowsingTopicsDocumentServiceRemote = class {
+blink.mojom.BrowsingTopicsDocumentServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BrowsingTopicsDocumentService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.BrowsingTopicsDocumentServicePendingReceiver,
+      blink.mojom.BrowsingTopicsDocumentServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +70,7 @@ blink.mojom.mojom.BrowsingTopicsDocumentServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {
+blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,15 +79,15 @@ blink.mojom.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec,
+      blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec,
       null,
       [observe]);
   }
 
 };
 
-blink.mojom.mojom.BrowsingTopicsDocumentService.getRemote = function() {
-  let remote = new blink.mojom.mojom.BrowsingTopicsDocumentServiceRemote();
+blink.mojom.BrowsingTopicsDocumentService.getRemote = function() {
+  let remote = new blink.mojom.BrowsingTopicsDocumentServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +97,7 @@ blink.mojom.mojom.BrowsingTopicsDocumentService.getRemote = function() {
 };
 
 // ParamsSpec for GetBrowsingTopics
-blink.mojom.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
+blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BrowsingTopicsDocumentService.GetBrowsingTopics_Params',
@@ -98,6 +111,6 @@ blink.mojom.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.BrowsingTopicsDocumentServicePtr = blink.mojom.mojom.BrowsingTopicsDocumentServiceRemote;
-blink.mojom.mojom.BrowsingTopicsDocumentServiceRequest = blink.mojom.mojom.BrowsingTopicsDocumentServicePendingReceiver;
+blink.mojom.BrowsingTopicsDocumentServicePtr = blink.mojom.BrowsingTopicsDocumentServiceRemote;
+blink.mojom.BrowsingTopicsDocumentServiceRequest = blink.mojom.BrowsingTopicsDocumentServicePendingReceiver;
 

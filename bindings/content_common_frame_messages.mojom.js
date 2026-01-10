@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: DidCommitProvisionalLoadInterfaceParams
-content.mojom.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = {
+content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.DidCommitProvisionalLoadInterfaceParams',

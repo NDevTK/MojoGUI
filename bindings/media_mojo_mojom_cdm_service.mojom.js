@@ -10,24 +10,38 @@ media.mojom = media.mojom || {};
 
 
 // Interface: CdmService
-media.mojom.mojom.CdmService = {};
+media.mojom.CdmService = {};
 
-media.mojom.mojom.CdmServicePendingReceiver = class {
+media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmService_CreateCdmFactory_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmFactoryRemote), nullable: false, minVersion: 0 },
+        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.CdmServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.CdmServiceRemote = class {
+media.mojom.CdmServiceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.CdmServicePendingReceiver,
+      media.mojom.CdmServicePendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.CdmServiceRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.CdmServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +53,7 @@ media.mojom.mojom.CdmServiceRemote = class {
   }
 };
 
-media.mojom.mojom.CdmServiceRemoteCallHandler = class {
+media.mojom.CdmServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +62,15 @@ media.mojom.mojom.CdmServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.CdmService_CreateCdmFactory_ParamsSpec,
+      media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
       null,
       [factory, frame_interfaces]);
   }
 
 };
 
-media.mojom.mojom.CdmService.getRemote = function() {
-  let remote = new media.mojom.mojom.CdmServiceRemote();
+media.mojom.CdmService.getRemote = function() {
+  let remote = new media.mojom.CdmServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +80,7 @@ media.mojom.mojom.CdmService.getRemote = function() {
 };
 
 // ParamsSpec for CreateCdmFactory
-media.mojom.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
+media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmService.CreateCdmFactory_Params',
@@ -81,29 +95,41 @@ media.mojom.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.CdmServicePtr = media.mojom.mojom.CdmServiceRemote;
-media.mojom.mojom.CdmServiceRequest = media.mojom.mojom.CdmServicePendingReceiver;
+media.mojom.CdmServicePtr = media.mojom.CdmServiceRemote;
+media.mojom.CdmServiceRequest = media.mojom.CdmServicePendingReceiver;
 
 
 // Interface: SeatbeltExtensionTokenProvider
-media.mojom.mojom.SeatbeltExtensionTokenProvider = {};
+media.mojom.SeatbeltExtensionTokenProvider = {};
 
-media.mojom.mojom.SeatbeltExtensionTokenProviderPendingReceiver = class {
+media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.SeatbeltExtensionTokenProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.SeatbeltExtensionTokenProviderRemote = class {
+media.mojom.SeatbeltExtensionTokenProviderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SeatbeltExtensionTokenProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.SeatbeltExtensionTokenProviderPendingReceiver,
+      media.mojom.SeatbeltExtensionTokenProviderPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +141,7 @@ media.mojom.mojom.SeatbeltExtensionTokenProviderRemote = class {
   }
 };
 
-media.mojom.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
+media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +150,15 @@ media.mojom.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
-      media.mojom.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
+      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
+      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
       []);
   }
 
 };
 
-media.mojom.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
-  let remote = new media.mojom.mojom.SeatbeltExtensionTokenProviderRemote();
+media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
+  let remote = new media.mojom.SeatbeltExtensionTokenProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +168,7 @@ media.mojom.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetTokens
-media.mojom.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
+media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SeatbeltExtensionTokenProvider.GetTokens_Params',
@@ -154,7 +180,7 @@ media.mojom.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
+media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SeatbeltExtensionTokenProvider.GetTokens_ResponseParams',
@@ -168,29 +194,44 @@ media.mojom.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-media.mojom.mojom.SeatbeltExtensionTokenProviderPtr = media.mojom.mojom.SeatbeltExtensionTokenProviderRemote;
-media.mojom.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.mojom.SeatbeltExtensionTokenProviderPendingReceiver;
+media.mojom.SeatbeltExtensionTokenProviderPtr = media.mojom.SeatbeltExtensionTokenProviderRemote;
+media.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.SeatbeltExtensionTokenProviderPendingReceiver;
 
 
 // Interface: CdmServiceBroker
-media.mojom.mojom.CdmServiceBroker = {};
+media.mojom.CdmServiceBroker = {};
 
-media.mojom.mojom.CdmServiceBrokerPendingReceiver = class {
+media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmServiceBroker_GetService_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderRemote), nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmServiceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+media.mojom.CdmServiceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.CdmServiceBrokerRemote = class {
+media.mojom.CdmServiceBrokerRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmServiceBroker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.CdmServiceBrokerPendingReceiver,
+      media.mojom.CdmServiceBrokerPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.CdmServiceBrokerRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.CdmServiceBrokerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -202,7 +243,7 @@ media.mojom.mojom.CdmServiceBrokerRemote = class {
   }
 };
 
-media.mojom.mojom.CdmServiceBrokerRemoteCallHandler = class {
+media.mojom.CdmServiceBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -211,15 +252,15 @@ media.mojom.mojom.CdmServiceBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.CdmServiceBroker_GetService_ParamsSpec,
+      media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
       [cdm_path, token_provider, receiver]);
   }
 
 };
 
-media.mojom.mojom.CdmServiceBroker.getRemote = function() {
-  let remote = new media.mojom.mojom.CdmServiceBrokerRemote();
+media.mojom.CdmServiceBroker.getRemote = function() {
+  let remote = new media.mojom.CdmServiceBrokerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +270,7 @@ media.mojom.mojom.CdmServiceBroker.getRemote = function() {
 };
 
 // ParamsSpec for GetService
-media.mojom.mojom.CdmServiceBroker_GetService_ParamsSpec = {
+media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmServiceBroker.GetService_Params',
@@ -245,6 +286,6 @@ media.mojom.mojom.CdmServiceBroker_GetService_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.CdmServiceBrokerPtr = media.mojom.mojom.CdmServiceBrokerRemote;
-media.mojom.mojom.CdmServiceBrokerRequest = media.mojom.mojom.CdmServiceBrokerPendingReceiver;
+media.mojom.CdmServiceBrokerPtr = media.mojom.CdmServiceBrokerRemote;
+media.mojom.CdmServiceBrokerRequest = media.mojom.CdmServiceBrokerPendingReceiver;
 

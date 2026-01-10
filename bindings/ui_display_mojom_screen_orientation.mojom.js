@@ -10,11 +10,11 @@ display.mojom = display.mojom || {};
 
 
 // Enum: ScreenOrientation
-display.mojom.mojom.ScreenOrientation = {
+display.mojom.ScreenOrientation = {
   kUndefined: 0,
   kPortraitPrimary: 1,
   kPortraitSecondary: 2,
   kLandscapePrimary: 3,
   kLandscapeSecondary: 4,
 };
-display.mojom.mojom.ScreenOrientationSpec = { $: mojo.internal.Enum() };
+display.mojom.ScreenOrientationSpec = { $: mojo.internal.Enum() };

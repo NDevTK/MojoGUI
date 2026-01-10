@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Struct: Rect
-arc.mojom.mojom.RectSpec = {
+arc.mojom.RectSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Rect',
@@ -27,7 +27,7 @@ arc.mojom.mojom.RectSpec = {
 };
 
 // Struct: Range
-arc.mojom.mojom.RangeSpec = {
+arc.mojom.RangeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Range',
@@ -42,7 +42,7 @@ arc.mojom.mojom.RangeSpec = {
 };
 
 // Struct: Size
-arc.mojom.mojom.SizeSpec = {
+arc.mojom.SizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Size',

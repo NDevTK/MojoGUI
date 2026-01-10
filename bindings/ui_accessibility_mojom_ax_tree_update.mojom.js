@@ -15,7 +15,7 @@ var ui = ui || {};
 
 
 // Struct: AXTreeUpdate
-ax.mojom.mojom.AXTreeUpdateSpec = {
+ax.mojom.AXTreeUpdateSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXTreeUpdate',

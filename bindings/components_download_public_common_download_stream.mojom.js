@@ -10,7 +10,7 @@ download.mojom = download.mojom || {};
 
 
 // Enum: NetworkRequestStatus
-download.mojom.mojom.NetworkRequestStatus = {
+download.mojom.NetworkRequestStatus = {
   OK: 0,
   NETWORK_TIMEOUT: 1,
   NETWORK_DISCONNECTED: 2,
@@ -22,10 +22,10 @@ download.mojom.mojom.NetworkRequestStatus = {
   USER_CANCELED: 8,
   NETWORK_FAILED: 9,
 };
-download.mojom.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
+download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DownloadStreamHandle
-download.mojom.mojom.DownloadStreamHandleSpec = {
+download.mojom.DownloadStreamHandleSpec = {
   $: {
     structSpec: {
       name: 'download.mojom.DownloadStreamHandle',
@@ -40,24 +40,37 @@ download.mojom.mojom.DownloadStreamHandleSpec = {
 };
 
 // Interface: DownloadStreamClient
-download.mojom.mojom.DownloadStreamClient = {};
+download.mojom.DownloadStreamClient = {};
 
-download.mojom.mojom.DownloadStreamClientPendingReceiver = class {
+download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: download.mojom.NetworkRequestStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+download.mojom.DownloadStreamClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-download.mojom.mojom.DownloadStreamClientRemote = class {
+download.mojom.DownloadStreamClientRemote = class {
   static get $interfaceName() {
     return 'download.mojom.DownloadStreamClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      download.mojom.mojom.DownloadStreamClientPendingReceiver,
+      download.mojom.DownloadStreamClientPendingReceiver,
       handle);
-    this.$ = new download.mojom.mojom.DownloadStreamClientRemoteCallHandler(this.proxy);
+    this.$ = new download.mojom.DownloadStreamClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +82,7 @@ download.mojom.mojom.DownloadStreamClientRemote = class {
   }
 };
 
-download.mojom.mojom.DownloadStreamClientRemoteCallHandler = class {
+download.mojom.DownloadStreamClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,15 +91,15 @@ download.mojom.mojom.DownloadStreamClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      download.mojom.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
+      download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-download.mojom.mojom.DownloadStreamClient.getRemote = function() {
-  let remote = new download.mojom.mojom.DownloadStreamClientRemote();
+download.mojom.DownloadStreamClient.getRemote = function() {
+  let remote = new download.mojom.DownloadStreamClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -96,7 +109,7 @@ download.mojom.mojom.DownloadStreamClient.getRemote = function() {
 };
 
 // ParamsSpec for OnStreamCompleted
-download.mojom.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
+download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'download.mojom.DownloadStreamClient.OnStreamCompleted_Params',
@@ -110,6 +123,6 @@ download.mojom.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-download.mojom.mojom.DownloadStreamClientPtr = download.mojom.mojom.DownloadStreamClientRemote;
-download.mojom.mojom.DownloadStreamClientRequest = download.mojom.mojom.DownloadStreamClientPendingReceiver;
+download.mojom.DownloadStreamClientPtr = download.mojom.DownloadStreamClientRemote;
+download.mojom.DownloadStreamClientRequest = download.mojom.DownloadStreamClientPendingReceiver;
 

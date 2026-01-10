@@ -10,7 +10,7 @@ url.mojom = url.mojom || {};
 
 
 // Struct: SchemeHostPort
-url.mojom.mojom.SchemeHostPortSpec = {
+url.mojom.SchemeHostPortSpec = {
   $: {
     structSpec: {
       name: 'url.mojom.SchemeHostPort',

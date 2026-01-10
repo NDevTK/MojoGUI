@@ -10,18 +10,18 @@ dom_distiller.mojom = dom_distiller.mojom || {};
 
 
 // Enum: Theme
-dom_distiller.mojom.mojom.Theme = {
+dom_distiller.mojom.Theme = {
   kLight: 0,
   kDark: 1,
   kSepia: 2,
 };
-dom_distiller.mojom.mojom.ThemeSpec = { $: mojo.internal.Enum() };
+dom_distiller.mojom.ThemeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FontFamily
-dom_distiller.mojom.mojom.FontFamily = {
+dom_distiller.mojom.FontFamily = {
   kSansSerif: 0,
   kSerif: 1,
   kMonospace: 2,
   kLexend: 3,
 };
-dom_distiller.mojom.mojom.FontFamilySpec = { $: mojo.internal.Enum() };
+dom_distiller.mojom.FontFamilySpec = { $: mojo.internal.Enum() };

@@ -10,11 +10,11 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Enum: GpuPeakMemoryAllocationSource
-gpu.mojom.mojom.GpuPeakMemoryAllocationSource = {
+gpu.mojom.GpuPeakMemoryAllocationSource = {
   UNKNOWN: 0,
   COMMAND_BUFFER: 1,
   SHARED_CONTEXT_STATE: 2,
   SHARED_IMAGE_STUB: 3,
   SKIA: 4,
 };
-gpu.mojom.mojom.GpuPeakMemoryAllocationSourceSpec = { $: mojo.internal.Enum() };
+gpu.mojom.GpuPeakMemoryAllocationSourceSpec = { $: mojo.internal.Enum() };

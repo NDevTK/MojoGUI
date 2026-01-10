@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: TextAutosizerPageInfo
-blink.mojom.mojom.TextAutosizerPageInfoSpec = {
+blink.mojom.TextAutosizerPageInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextAutosizerPageInfo',

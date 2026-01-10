@@ -12,7 +12,7 @@ var ui = ui || {};
 
 
 // Struct: AXLocationChange
-ax.mojom.mojom.AXLocationChangeSpec = {
+ax.mojom.AXLocationChangeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXLocationChange',
@@ -27,7 +27,7 @@ ax.mojom.mojom.AXLocationChangeSpec = {
 };
 
 // Struct: AXScrollChange
-ax.mojom.mojom.AXScrollChangeSpec = {
+ax.mojom.AXScrollChangeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXScrollChange',
@@ -43,7 +43,7 @@ ax.mojom.mojom.AXScrollChangeSpec = {
 };
 
 // Struct: AXLocationAndScrollUpdates
-ax.mojom.mojom.AXLocationAndScrollUpdatesSpec = {
+ax.mojom.AXLocationAndScrollUpdatesSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXLocationAndScrollUpdates',

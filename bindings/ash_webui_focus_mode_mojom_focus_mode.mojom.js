@@ -7,22 +7,22 @@
 // Module namespace
 var ash = ash || {};
 ash.focus_mode = ash.focus_mode || {};
-ash.focus_mode.focus_mode.mojom = ash.focus_mode.focus_mode.mojom || {};
+ash.focus_mode.mojom = ash.focus_mode.mojom || {};
 var url = url || {};
 
 
 // Enum: PlaybackState
-ash.focus_mode.focus_mode.mojom.mojom.PlaybackState = {
+ash.focus_mode.mojom.PlaybackState = {
   kPlaying: 0,
   kPaused: 1,
   kSwitchedToNext: 2,
   kEnded: 3,
   kNone: 4,
 };
-ash.focus_mode.focus_mode.mojom.mojom.PlaybackStateSpec = { $: mojo.internal.Enum() };
+ash.focus_mode.mojom.PlaybackStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: TrackDefinition
-ash.focus_mode.focus_mode.mojom.mojom.TrackDefinitionSpec = {
+ash.focus_mode.mojom.TrackDefinitionSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.TrackDefinition',
@@ -40,7 +40,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackDefinitionSpec = {
 };
 
 // Struct: PlaybackData
-ash.focus_mode.focus_mode.mojom.mojom.PlaybackDataSpec = {
+ash.focus_mode.mojom.PlaybackDataSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.PlaybackData',
@@ -63,24 +63,37 @@ ash.focus_mode.focus_mode.mojom.mojom.PlaybackDataSpec = {
 };
 
 // Interface: MediaClient
-ash.focus_mode.focus_mode.mojom.mojom.MediaClient = {};
+ash.focus_mode.mojom.MediaClient = {};
 
-ash.focus_mode.focus_mode.mojom.mojom.MediaClientPendingReceiver = class {
+ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.focus_mode.mojom.MediaClient_StartPlay_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.focus_mode.mojom.MediaClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.focus_mode.focus_mode.mojom.mojom.MediaClientRemote = class {
+ash.focus_mode.mojom.MediaClientRemote = class {
   static get $interfaceName() {
     return 'ash.focus_mode.mojom.MediaClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.focus_mode.focus_mode.mojom.mojom.MediaClientPendingReceiver,
+      ash.focus_mode.mojom.MediaClientPendingReceiver,
       handle);
-    this.$ = new ash.focus_mode.focus_mode.mojom.mojom.MediaClientRemoteCallHandler(this.proxy);
+    this.$ = new ash.focus_mode.mojom.MediaClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -92,7 +105,7 @@ ash.focus_mode.focus_mode.mojom.mojom.MediaClientRemote = class {
   }
 };
 
-ash.focus_mode.focus_mode.mojom.mojom.MediaClientRemoteCallHandler = class {
+ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -101,15 +114,15 @@ ash.focus_mode.focus_mode.mojom.mojom.MediaClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.focus_mode.focus_mode.mojom.mojom.MediaClient_StartPlay_ParamsSpec,
+      ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec,
       null,
       [track]);
   }
 
 };
 
-ash.focus_mode.focus_mode.mojom.mojom.MediaClient.getRemote = function() {
-  let remote = new ash.focus_mode.focus_mode.mojom.mojom.MediaClientRemote();
+ash.focus_mode.mojom.MediaClient.getRemote = function() {
+  let remote = new ash.focus_mode.mojom.MediaClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +132,7 @@ ash.focus_mode.focus_mode.mojom.mojom.MediaClient.getRemote = function() {
 };
 
 // ParamsSpec for StartPlay
-ash.focus_mode.focus_mode.mojom.mojom.MediaClient_StartPlay_ParamsSpec = {
+ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.MediaClient.StartPlay_Params',
@@ -133,29 +146,79 @@ ash.focus_mode.focus_mode.mojom.mojom.MediaClient_StartPlay_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.focus_mode.focus_mode.mojom.mojom.MediaClientPtr = ash.focus_mode.focus_mode.mojom.mojom.MediaClientRemote;
-ash.focus_mode.focus_mode.mojom.mojom.MediaClientRequest = ash.focus_mode.focus_mode.mojom.mojom.MediaClientPendingReceiver;
+ash.focus_mode.mojom.MediaClientPtr = ash.focus_mode.mojom.MediaClientRemote;
+ash.focus_mode.mojom.MediaClientRequest = ash.focus_mode.mojom.MediaClientPendingReceiver;
 
 
 // Interface: TrackProvider
-ash.focus_mode.focus_mode.mojom.mojom.TrackProvider = {};
+ash.focus_mode.mojom.TrackProvider = {};
 
-ash.focus_mode.focus_mode.mojom.mojom.TrackProviderPendingReceiver = class {
+ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.focus_mode.mojom.TrackProvider_GetTrack_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.focus_mode.mojom.TrackProvider_SetMediaClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.focus_mode.mojom.MediaClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.focus_mode.mojom.TrackProvider_ReportPlayback_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.PlaybackDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.focus_mode.mojom.TrackProvider_ReportPlayerError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.focus_mode.mojom.TrackProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemote = class {
+ash.focus_mode.mojom.TrackProviderRemote = class {
   static get $interfaceName() {
     return 'ash.focus_mode.mojom.TrackProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.focus_mode.focus_mode.mojom.mojom.TrackProviderPendingReceiver,
+      ash.focus_mode.mojom.TrackProviderPendingReceiver,
       handle);
-    this.$ = new ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.focus_mode.mojom.TrackProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -167,7 +230,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemote = class {
   }
 };
 
-ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemoteCallHandler = class {
+ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -176,8 +239,8 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_GetTrack_ParamsSpec,
-      ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
+      ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec,
+      ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
       []);
   }
 
@@ -185,7 +248,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_SetMediaClient_ParamsSpec,
+      ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec,
       null,
       [client]);
   }
@@ -194,7 +257,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_ReportPlayback_ParamsSpec,
+      ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec,
       null,
       [data]);
   }
@@ -203,15 +266,15 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_ReportPlayerError_ParamsSpec,
+      ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.focus_mode.focus_mode.mojom.mojom.TrackProvider.getRemote = function() {
-  let remote = new ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemote();
+ash.focus_mode.mojom.TrackProvider.getRemote = function() {
+  let remote = new ash.focus_mode.mojom.TrackProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -221,7 +284,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetTrack
-ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_GetTrack_ParamsSpec = {
+ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.TrackProvider.GetTrack_Params',
@@ -233,7 +296,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_GetTrack_ParamsSpec = {
   }
 };
 
-ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
+ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.TrackProvider.GetTrack_ResponseParams',
@@ -247,7 +310,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_GetTrack_ResponseParamsSpec 
 };
 
 // ParamsSpec for SetMediaClient
-ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
+ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.TrackProvider.SetMediaClient_Params',
@@ -261,7 +324,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_SetMediaClient_ParamsSpec = 
 };
 
 // ParamsSpec for ReportPlayback
-ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
+ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.TrackProvider.ReportPlayback_Params',
@@ -275,7 +338,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_ReportPlayback_ParamsSpec = 
 };
 
 // ParamsSpec for ReportPlayerError
-ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_ReportPlayerError_ParamsSpec = {
+ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.TrackProvider.ReportPlayerError_Params',
@@ -288,6 +351,6 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_ReportPlayerError_ParamsSpec
 };
 
 // Legacy compatibility
-ash.focus_mode.focus_mode.mojom.mojom.TrackProviderPtr = ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRemote;
-ash.focus_mode.focus_mode.mojom.mojom.TrackProviderRequest = ash.focus_mode.focus_mode.mojom.mojom.TrackProviderPendingReceiver;
+ash.focus_mode.mojom.TrackProviderPtr = ash.focus_mode.mojom.TrackProviderRemote;
+ash.focus_mode.mojom.TrackProviderRequest = ash.focus_mode.mojom.TrackProviderPendingReceiver;
 

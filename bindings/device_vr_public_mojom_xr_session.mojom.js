@@ -13,7 +13,7 @@ var gfx = gfx || {};
 
 
 // Enum: RequestSessionError
-device.mojom.mojom.RequestSessionError = {
+device.mojom.RequestSessionError = {
   EXISTING_IMMERSIVE_SESSION: 0,
   INVALID_CLIENT: 1,
   USER_DENIED_CONSENT: 2,
@@ -24,10 +24,10 @@ device.mojom.mojom.RequestSessionError = {
   FULLSCREEN_ERROR: 7,
   UNKNOWN_FAILURE: 8,
 };
-device.mojom.mojom.RequestSessionErrorSpec = { $: mojo.internal.Enum() };
+device.mojom.RequestSessionErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRSessionFeature
-device.mojom.mojom.XRSessionFeature = {
+device.mojom.XRSessionFeature = {
   REF_SPACE_VIEWER: 0,
   REF_SPACE_LOCAL: 1,
   REF_SPACE_LOCAL_FLOOR: 2,
@@ -47,40 +47,40 @@ device.mojom.mojom.XRSessionFeature = {
   FRONT_FACING: 16,
   WEBGPU: 17,
 };
-device.mojom.mojom.XRSessionFeatureSpec = { $: mojo.internal.Enum() };
+device.mojom.XRSessionFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRSessionMode
-device.mojom.mojom.XRSessionMode = {
+device.mojom.XRSessionMode = {
   kInline: 0,
   kImmersiveVr: 1,
   kImmersiveAr: 2,
 };
-device.mojom.mojom.XRSessionModeSpec = { $: mojo.internal.Enum() };
+device.mojom.XRSessionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRDepthUsage
-device.mojom.mojom.XRDepthUsage = {
+device.mojom.XRDepthUsage = {
   kCPUOptimized: 0,
   kGPUOptimized: 1,
 };
-device.mojom.mojom.XRDepthUsageSpec = { $: mojo.internal.Enum() };
+device.mojom.XRDepthUsageSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRDepthDataFormat
-device.mojom.mojom.XRDepthDataFormat = {
+device.mojom.XRDepthDataFormat = {
   kLuminanceAlpha: 0,
   kFloat32: 1,
   kUnsignedShort: 2,
 };
-device.mojom.mojom.XRDepthDataFormatSpec = { $: mojo.internal.Enum() };
+device.mojom.XRDepthDataFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRDepthType
-device.mojom.mojom.XRDepthType = {
+device.mojom.XRDepthType = {
   kRaw: 0,
   kSmooth: 1,
 };
-device.mojom.mojom.XRDepthTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.XRDepthTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: XRTrackedImage
-device.mojom.mojom.XRTrackedImageSpec = {
+device.mojom.XRTrackedImageSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRTrackedImage',
@@ -96,7 +96,7 @@ device.mojom.mojom.XRTrackedImageSpec = {
 };
 
 // Struct: XRDepthOptions
-device.mojom.mojom.XRDepthOptionsSpec = {
+device.mojom.XRDepthOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDepthOptions',
@@ -113,7 +113,7 @@ device.mojom.mojom.XRDepthOptionsSpec = {
 };
 
 // Struct: XRSessionOptions
-device.mojom.mojom.XRSessionOptionsSpec = {
+device.mojom.XRSessionOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSessionOptions',
@@ -132,7 +132,7 @@ device.mojom.mojom.XRSessionOptionsSpec = {
 };
 
 // Struct: XrFrameStatistics
-device.mojom.mojom.XrFrameStatisticsSpec = {
+device.mojom.XrFrameStatisticsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XrFrameStatistics',
@@ -152,7 +152,7 @@ device.mojom.mojom.XrFrameStatisticsSpec = {
 };
 
 // Struct: XrLogMessage
-device.mojom.mojom.XrLogMessageSpec = {
+device.mojom.XrLogMessageSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XrLogMessage',

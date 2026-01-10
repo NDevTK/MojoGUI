@@ -12,7 +12,7 @@ var ui = ui || {};
 
 
 // Struct: GammaCurve
-display.mojom.mojom.GammaCurveSpec = {
+display.mojom.GammaCurveSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.GammaCurve',
@@ -26,7 +26,7 @@ display.mojom.mojom.GammaCurveSpec = {
 };
 
 // Struct: ColorCalibration
-display.mojom.mojom.ColorCalibrationSpec = {
+display.mojom.ColorCalibrationSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.ColorCalibration',
@@ -42,7 +42,7 @@ display.mojom.mojom.ColorCalibrationSpec = {
 };
 
 // Struct: ColorTemperatureAdjustment
-display.mojom.mojom.ColorTemperatureAdjustmentSpec = {
+display.mojom.ColorTemperatureAdjustmentSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.ColorTemperatureAdjustment',
@@ -56,7 +56,7 @@ display.mojom.mojom.ColorTemperatureAdjustmentSpec = {
 };
 
 // Struct: GammaAdjustment
-display.mojom.mojom.GammaAdjustmentSpec = {
+display.mojom.GammaAdjustmentSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.GammaAdjustment',

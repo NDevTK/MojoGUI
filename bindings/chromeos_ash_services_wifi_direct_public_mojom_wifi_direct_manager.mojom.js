@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.wifi_direct = ash.wifi_direct || {};
-ash.wifi_direct.wifi_direct.mojom = ash.wifi_direct.wifi_direct.mojom || {};
+ash.wifi_direct.mojom = ash.wifi_direct.mojom || {};
 
 
 // Enum: WifiDirectOperationResult
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectOperationResult = {
+ash.wifi_direct.mojom.WifiDirectOperationResult = {
   kSuccess: 0,
   kNotAllowed: 1,
   kNotSupported: 2,
@@ -28,10 +28,10 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectOperationResult = {
   kInvalidGroupProperties: 13,
   kUnknownFailure: 14,
 };
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum() };
+ash.wifi_direct.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: WifiP2PCapabilities
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiP2PCapabilitiesSpec = {
+ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiP2PCapabilities',
@@ -47,7 +47,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiP2PCapabilitiesSpec = {
 };
 
 // Struct: WifiCredentials
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiCredentialsSpec = {
+ash.wifi_direct.mojom.WifiCredentialsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiCredentials',
@@ -62,7 +62,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiCredentialsSpec = {
 };
 
 // Struct: WifiDirectConnectionProperties
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionPropertiesSpec = {
+ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectConnectionProperties',
@@ -78,24 +78,64 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionPropertiesSpec = {
 };
 
 // Interface: WifiDirectManager
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager = {};
+ash.wifi_direct.mojom.WifiDirectManager = {};
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerPendingReceiver = class {
+ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false, minVersion: 0 },
+        { name: 'frequency_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' } },
+        { name: 'frequency_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' } },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.wifi_direct.mojom.WifiDirectManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemote = class {
+ash.wifi_direct.mojom.WifiDirectManagerRemote = class {
   static get $interfaceName() {
     return 'ash.wifi_direct.mojom.WifiDirectManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerPendingReceiver,
+      ash.wifi_direct.mojom.WifiDirectManagerPendingReceiver,
       handle);
-    this.$ = new ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemoteCallHandler(this.proxy);
+    this.$ = new ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -107,7 +147,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemote = class {
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemoteCallHandler = class {
+ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -116,8 +156,8 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec,
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
       [credentials]);
   }
 
@@ -125,8 +165,8 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemoteCallHandler = cla
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec,
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
       [credentials, frequency]);
   }
 
@@ -134,15 +174,15 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemoteCallHandler = cla
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec,
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager.getRemote = function() {
-  let remote = new ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemote();
+ash.wifi_direct.mojom.WifiDirectManager.getRemote = function() {
+  let remote = new ash.wifi_direct.mojom.WifiDirectManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -152,7 +192,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager.getRemote = function()
 };
 
 // ParamsSpec for CreateWifiDirectGroup
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_Params',
@@ -165,7 +205,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_CreateWifiDirectGroup_
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_ResponseParams',
@@ -180,7 +220,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_CreateWifiDirectGroup_
 };
 
 // ParamsSpec for ConnectToWifiDirectGroup
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_Params',
@@ -195,7 +235,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_ConnectToWifiDirectGro
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_ResponseParams',
@@ -210,7 +250,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_ConnectToWifiDirectGro
 };
 
 // ParamsSpec for GetWifiP2PCapabilities
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.GetWifiP2PCapabilities_Params',
@@ -222,7 +262,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_GetWifiP2PCapabilities
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.GetWifiP2PCapabilities_ResponseParams',
@@ -236,29 +276,54 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_GetWifiP2PCapabilities
 };
 
 // Legacy compatibility
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerPtr = ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRemote;
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerRequest = ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManagerPendingReceiver;
+ash.wifi_direct.mojom.WifiDirectManagerPtr = ash.wifi_direct.mojom.WifiDirectManagerRemote;
+ash.wifi_direct.mojom.WifiDirectManagerRequest = ash.wifi_direct.mojom.WifiDirectManagerPendingReceiver;
 
 
 // Interface: WifiDirectConnection
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection = {};
+ash.wifi_direct.mojom.WifiDirectConnection = {};
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionPendingReceiver = class {
+ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.wifi_direct.mojom.WifiDirectConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemote = class {
+ash.wifi_direct.mojom.WifiDirectConnectionRemote = class {
   static get $interfaceName() {
     return 'ash.wifi_direct.mojom.WifiDirectConnection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionPendingReceiver,
+      ash.wifi_direct.mojom.WifiDirectConnectionPendingReceiver,
       handle);
-    this.$ = new ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemoteCallHandler(this.proxy);
+    this.$ = new ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -270,7 +335,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemote = class {
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemoteCallHandler = class {
+ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -279,8 +344,8 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemoteCallHandler = 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_GetProperties_ParamsSpec,
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
       []);
   }
 
@@ -288,15 +353,15 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemoteCallHandler = 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec,
-      ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
       [socket]);
   }
 
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection.getRemote = function() {
-  let remote = new ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemote();
+ash.wifi_direct.mojom.WifiDirectConnection.getRemote = function() {
+  let remote = new ash.wifi_direct.mojom.WifiDirectConnectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -306,7 +371,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection.getRemote = functio
 };
 
 // ParamsSpec for GetProperties
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.GetProperties_Params',
@@ -318,7 +383,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_GetProperties_Param
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.GetProperties_ResponseParams',
@@ -332,7 +397,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_GetProperties_Respo
 };
 
 // ParamsSpec for AssociateSocket
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_Params',
@@ -345,7 +410,7 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_AssociateSocket_Par
   }
 };
 
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = {
+ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_ResponseParams',
@@ -359,6 +424,6 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnection_AssociateSocket_Res
 };
 
 // Legacy compatibility
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionPtr = ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRemote;
-ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionRequest = ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectConnectionPendingReceiver;
+ash.wifi_direct.mojom.WifiDirectConnectionPtr = ash.wifi_direct.mojom.WifiDirectConnectionRemote;
+ash.wifi_direct.mojom.WifiDirectConnectionRequest = ash.wifi_direct.mojom.WifiDirectConnectionPendingReceiver;
 

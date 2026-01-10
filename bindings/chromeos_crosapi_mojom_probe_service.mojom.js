@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: ProbeCategoryEnum
-crosapi.mojom.mojom.ProbeCategoryEnum = {
+crosapi.mojom.ProbeCategoryEnum = {
   kBattery: 0,
   kNonRemovableBlockDevices: 1,
   kCachedVpdData: 2,
@@ -27,19 +27,19 @@ crosapi.mojom.mojom.ProbeCategoryEnum = {
   kAudio: 13,
   kBus: 14,
 };
-crosapi.mojom.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeErrorType
-crosapi.mojom.mojom.ProbeErrorType = {
+crosapi.mojom.ProbeErrorType = {
   kFileReadError: 0,
   kParseError: 1,
   kSystemUtilityError: 2,
   kServiceUnavailable: 3,
 };
-crosapi.mojom.mojom.ProbeErrorTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeFwupdVersionFormat
-crosapi.mojom.mojom.ProbeFwupdVersionFormat = {
+crosapi.mojom.ProbeFwupdVersionFormat = {
   kPlain: 0,
   kNumber: 1,
   kPair: 2,
@@ -53,18 +53,18 @@ crosapi.mojom.mojom.ProbeFwupdVersionFormat = {
   kDellBios: 10,
   kHex: 11,
 };
-crosapi.mojom.mojom.ProbeFwupdVersionFormatSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeFwupdVersionFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeUsbVersion
-crosapi.mojom.mojom.ProbeUsbVersion = {
+crosapi.mojom.ProbeUsbVersion = {
   kUsb1: 0,
   kUsb2: 1,
   kUsb3: 2,
 };
-crosapi.mojom.mojom.ProbeUsbVersionSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeUsbVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeUsbSpecSpeed
-crosapi.mojom.mojom.ProbeUsbSpecSpeed = {
+crosapi.mojom.ProbeUsbSpecSpeed = {
   k1_5Mbps: 0,
   k12Mbps: 1,
   k480Mbps: 2,
@@ -72,39 +72,39 @@ crosapi.mojom.mojom.ProbeUsbSpecSpeed = {
   k10Gbps: 4,
   k20Gbps: 5,
 };
-crosapi.mojom.mojom.ProbeUsbSpecSpeedSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeUsbSpecSpeedSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeCpuArchitectureEnum
-crosapi.mojom.mojom.ProbeCpuArchitectureEnum = {
+crosapi.mojom.ProbeCpuArchitectureEnum = {
   kX86_64: 0,
   kAArch64: 1,
   kArmv7l: 2,
 };
-crosapi.mojom.mojom.ProbeCpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeCpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeTpmGSCVersion
-crosapi.mojom.mojom.ProbeTpmGSCVersion = {
+crosapi.mojom.ProbeTpmGSCVersion = {
   kCr50: 0,
   kTi50: 1,
 };
-crosapi.mojom.mojom.ProbeTpmGSCVersionSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeTpmGSCVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeDisplayInputType
-crosapi.mojom.mojom.ProbeDisplayInputType = {
+crosapi.mojom.ProbeDisplayInputType = {
   kDigital: 0,
   kAnalog: 1,
 };
-crosapi.mojom.mojom.ProbeDisplayInputTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeDisplayInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeThermalSensorSource
-crosapi.mojom.mojom.ProbeThermalSensorSource = {
+crosapi.mojom.ProbeThermalSensorSource = {
   kEc: 0,
   kSysFs: 1,
 };
-crosapi.mojom.mojom.ProbeThermalSensorSourceSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ProbeThermalSensorSourceSpec = { $: mojo.internal.Enum() };
 
 // Union: ProbeBatteryResult
-crosapi.mojom.mojom.ProbeBatteryResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeBatteryResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBatteryResult', {
       'battery_info': {
         'ordinal': 0,
@@ -119,7 +119,7 @@ crosapi.mojom.mojom.ProbeBatteryResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBusInfo
-crosapi.mojom.mojom.ProbeBusInfoSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeBusInfoSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBusInfo', {
       'unmapped_field': {
         'ordinal': 0,
@@ -133,7 +133,7 @@ crosapi.mojom.mojom.ProbeBusInfoSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBusResult
-crosapi.mojom.mojom.ProbeBusResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeBusResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBusResult', {
       'bus_devices_info': {
         'ordinal': 0,
@@ -147,7 +147,7 @@ crosapi.mojom.mojom.ProbeBusResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeNonRemovableBlockDeviceResult
-crosapi.mojom.mojom.ProbeNonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeNonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeNonRemovableBlockDeviceResult', {
       'block_device_info': {
         'ordinal': 0,
@@ -161,7 +161,7 @@ crosapi.mojom.mojom.ProbeNonRemovableBlockDeviceResultSpec = { $: mojo.internal.
 };
 
 // Union: ProbeCachedVpdResult
-crosapi.mojom.mojom.ProbeCachedVpdResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeCachedVpdResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeCachedVpdResult', {
       'vpd_info': {
         'ordinal': 0,
@@ -175,7 +175,7 @@ crosapi.mojom.mojom.ProbeCachedVpdResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeCpuResult
-crosapi.mojom.mojom.ProbeCpuResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeCpuResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeCpuResult', {
       'cpu_info': {
         'ordinal': 0,
@@ -189,7 +189,7 @@ crosapi.mojom.mojom.ProbeCpuResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeTimezoneResult
-crosapi.mojom.mojom.ProbeTimezoneResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeTimezoneResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeTimezoneResult', {
       'timezone_info': {
         'ordinal': 0,
@@ -203,7 +203,7 @@ crosapi.mojom.mojom.ProbeTimezoneResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeMemoryResult
-crosapi.mojom.mojom.ProbeMemoryResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeMemoryResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeMemoryResult', {
       'memory_info': {
         'ordinal': 0,
@@ -217,7 +217,7 @@ crosapi.mojom.mojom.ProbeMemoryResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBacklightResult
-crosapi.mojom.mojom.ProbeBacklightResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeBacklightResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBacklightResult', {
       'backlight_info': {
         'ordinal': 0,
@@ -231,7 +231,7 @@ crosapi.mojom.mojom.ProbeBacklightResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeFanResult
-crosapi.mojom.mojom.ProbeFanResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeFanResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeFanResult', {
       'fan_info': {
         'ordinal': 0,
@@ -245,7 +245,7 @@ crosapi.mojom.mojom.ProbeFanResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeStatefulPartitionResult
-crosapi.mojom.mojom.ProbeStatefulPartitionResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeStatefulPartitionResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeStatefulPartitionResult', {
       'partition_info': {
         'ordinal': 0,
@@ -259,7 +259,7 @@ crosapi.mojom.mojom.ProbeStatefulPartitionResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeTpmResult
-crosapi.mojom.mojom.ProbeTpmResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeTpmResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeTpmResult', {
       'tpm_info': {
         'ordinal': 0,
@@ -273,7 +273,7 @@ crosapi.mojom.mojom.ProbeTpmResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBluetoothResult
-crosapi.mojom.mojom.ProbeBluetoothResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeBluetoothResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBluetoothResult', {
       'bluetooth_adapter_info': {
         'ordinal': 0,
@@ -287,7 +287,7 @@ crosapi.mojom.mojom.ProbeBluetoothResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeSystemResult
-crosapi.mojom.mojom.ProbeSystemResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeSystemResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeSystemResult', {
       'system_info': {
         'ordinal': 0,
@@ -301,7 +301,7 @@ crosapi.mojom.mojom.ProbeSystemResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeNetworkResult
-crosapi.mojom.mojom.ProbeNetworkResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeNetworkResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeNetworkResult', {
       'network_health': {
         'ordinal': 0,
@@ -315,7 +315,7 @@ crosapi.mojom.mojom.ProbeNetworkResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeAudioResult
-crosapi.mojom.mojom.ProbeAudioResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeAudioResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeAudioResult', {
       'audio_info': {
         'ordinal': 0,
@@ -329,7 +329,7 @@ crosapi.mojom.mojom.ProbeAudioResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeDisplayResult
-crosapi.mojom.mojom.ProbeDisplayResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeDisplayResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeDisplayResult', {
       'display_info': {
         'ordinal': 0,
@@ -343,7 +343,7 @@ crosapi.mojom.mojom.ProbeDisplayResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeThermalResult
-crosapi.mojom.mojom.ProbeThermalResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.ProbeThermalResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeThermalResult', {
       'thermal_info': {
         'ordinal': 0,
@@ -357,7 +357,7 @@ crosapi.mojom.mojom.ProbeThermalResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ProbeError
-crosapi.mojom.mojom.ProbeErrorSpec = {
+crosapi.mojom.ProbeErrorSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeError',
@@ -372,7 +372,7 @@ crosapi.mojom.mojom.ProbeErrorSpec = {
 };
 
 // Struct: ProbeBatteryInfo
-crosapi.mojom.mojom.ProbeBatteryInfoSpec = {
+crosapi.mojom.ProbeBatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeBatteryInfo',
@@ -399,7 +399,7 @@ crosapi.mojom.mojom.ProbeBatteryInfoSpec = {
 };
 
 // Struct: ProbeUsbBusInterfaceInfo
-crosapi.mojom.mojom.ProbeUsbBusInterfaceInfoSpec = {
+crosapi.mojom.ProbeUsbBusInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeUsbBusInterfaceInfo',
@@ -417,7 +417,7 @@ crosapi.mojom.mojom.ProbeUsbBusInterfaceInfoSpec = {
 };
 
 // Struct: ProbeFwupdFirmwareVersionInfo
-crosapi.mojom.mojom.ProbeFwupdFirmwareVersionInfoSpec = {
+crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeFwupdFirmwareVersionInfo',
@@ -432,7 +432,7 @@ crosapi.mojom.mojom.ProbeFwupdFirmwareVersionInfoSpec = {
 };
 
 // Struct: ProbeUsbBusInfo
-crosapi.mojom.mojom.ProbeUsbBusInfoSpec = {
+crosapi.mojom.ProbeUsbBusInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeUsbBusInfo',
@@ -454,7 +454,7 @@ crosapi.mojom.mojom.ProbeUsbBusInfoSpec = {
 };
 
 // Struct: ProbeNonRemovableBlockDeviceInfo
-crosapi.mojom.mojom.ProbeNonRemovableBlockDeviceInfoSpec = {
+crosapi.mojom.ProbeNonRemovableBlockDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeNonRemovableBlockDeviceInfo',
@@ -479,7 +479,7 @@ crosapi.mojom.mojom.ProbeNonRemovableBlockDeviceInfoSpec = {
 };
 
 // Struct: ProbeCachedVpdInfo
-crosapi.mojom.mojom.ProbeCachedVpdInfoSpec = {
+crosapi.mojom.ProbeCachedVpdInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeCachedVpdInfo',
@@ -496,7 +496,7 @@ crosapi.mojom.mojom.ProbeCachedVpdInfoSpec = {
 };
 
 // Struct: ProbeCpuCStateInfo
-crosapi.mojom.mojom.ProbeCpuCStateInfoSpec = {
+crosapi.mojom.ProbeCpuCStateInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeCpuCStateInfo',
@@ -511,7 +511,7 @@ crosapi.mojom.mojom.ProbeCpuCStateInfoSpec = {
 };
 
 // Struct: ProbeLogicalCpuInfo
-crosapi.mojom.mojom.ProbeLogicalCpuInfoSpec = {
+crosapi.mojom.ProbeLogicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeLogicalCpuInfo',
@@ -530,7 +530,7 @@ crosapi.mojom.mojom.ProbeLogicalCpuInfoSpec = {
 };
 
 // Struct: ProbePhysicalCpuInfo
-crosapi.mojom.mojom.ProbePhysicalCpuInfoSpec = {
+crosapi.mojom.ProbePhysicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbePhysicalCpuInfo',
@@ -545,7 +545,7 @@ crosapi.mojom.mojom.ProbePhysicalCpuInfoSpec = {
 };
 
 // Struct: ProbeCpuInfo
-crosapi.mojom.mojom.ProbeCpuInfoSpec = {
+crosapi.mojom.ProbeCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeCpuInfo',
@@ -561,7 +561,7 @@ crosapi.mojom.mojom.ProbeCpuInfoSpec = {
 };
 
 // Struct: ProbeTimezoneInfo
-crosapi.mojom.mojom.ProbeTimezoneInfoSpec = {
+crosapi.mojom.ProbeTimezoneInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTimezoneInfo',
@@ -576,7 +576,7 @@ crosapi.mojom.mojom.ProbeTimezoneInfoSpec = {
 };
 
 // Struct: ProbeMemoryInfo
-crosapi.mojom.mojom.ProbeMemoryInfoSpec = {
+crosapi.mojom.ProbeMemoryInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeMemoryInfo',
@@ -593,7 +593,7 @@ crosapi.mojom.mojom.ProbeMemoryInfoSpec = {
 };
 
 // Struct: ProbeBacklightInfo
-crosapi.mojom.mojom.ProbeBacklightInfoSpec = {
+crosapi.mojom.ProbeBacklightInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeBacklightInfo',
@@ -609,7 +609,7 @@ crosapi.mojom.mojom.ProbeBacklightInfoSpec = {
 };
 
 // Struct: ProbeFanInfo
-crosapi.mojom.mojom.ProbeFanInfoSpec = {
+crosapi.mojom.ProbeFanInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeFanInfo',
@@ -623,7 +623,7 @@ crosapi.mojom.mojom.ProbeFanInfoSpec = {
 };
 
 // Struct: ProbeStatefulPartitionInfo
-crosapi.mojom.mojom.ProbeStatefulPartitionInfoSpec = {
+crosapi.mojom.ProbeStatefulPartitionInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeStatefulPartitionInfo',
@@ -638,7 +638,7 @@ crosapi.mojom.mojom.ProbeStatefulPartitionInfoSpec = {
 };
 
 // Struct: ProbeTpmVersion
-crosapi.mojom.mojom.ProbeTpmVersionSpec = {
+crosapi.mojom.ProbeTpmVersionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmVersion',
@@ -658,7 +658,7 @@ crosapi.mojom.mojom.ProbeTpmVersionSpec = {
 };
 
 // Struct: ProbeTpmStatus
-crosapi.mojom.mojom.ProbeTpmStatusSpec = {
+crosapi.mojom.ProbeTpmStatusSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmStatus',
@@ -674,7 +674,7 @@ crosapi.mojom.mojom.ProbeTpmStatusSpec = {
 };
 
 // Struct: ProbeTpmDictionaryAttack
-crosapi.mojom.mojom.ProbeTpmDictionaryAttackSpec = {
+crosapi.mojom.ProbeTpmDictionaryAttackSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmDictionaryAttack',
@@ -691,7 +691,7 @@ crosapi.mojom.mojom.ProbeTpmDictionaryAttackSpec = {
 };
 
 // Struct: ProbeTpmInfo
-crosapi.mojom.mojom.ProbeTpmInfoSpec = {
+crosapi.mojom.ProbeTpmInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmInfo',
@@ -707,7 +707,7 @@ crosapi.mojom.mojom.ProbeTpmInfoSpec = {
 };
 
 // Struct: ProbeBluetoothAdapterInfo
-crosapi.mojom.mojom.ProbeBluetoothAdapterInfoSpec = {
+crosapi.mojom.ProbeBluetoothAdapterInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeBluetoothAdapterInfo',
@@ -724,7 +724,7 @@ crosapi.mojom.mojom.ProbeBluetoothAdapterInfoSpec = {
 };
 
 // Struct: ProbeOsVersion
-crosapi.mojom.mojom.ProbeOsVersionSpec = {
+crosapi.mojom.ProbeOsVersionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeOsVersion',
@@ -741,7 +741,7 @@ crosapi.mojom.mojom.ProbeOsVersionSpec = {
 };
 
 // Struct: ProbeOsInfo
-crosapi.mojom.mojom.ProbeOsInfoSpec = {
+crosapi.mojom.ProbeOsInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeOsInfo',
@@ -757,7 +757,7 @@ crosapi.mojom.mojom.ProbeOsInfoSpec = {
 };
 
 // Struct: ProbeSystemInfo
-crosapi.mojom.mojom.ProbeSystemInfoSpec = {
+crosapi.mojom.ProbeSystemInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeSystemInfo',
@@ -771,7 +771,7 @@ crosapi.mojom.mojom.ProbeSystemInfoSpec = {
 };
 
 // Struct: ProbeAudioInputNodeInfo
-crosapi.mojom.mojom.ProbeAudioInputNodeInfoSpec = {
+crosapi.mojom.ProbeAudioInputNodeInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeAudioInputNodeInfo',
@@ -789,7 +789,7 @@ crosapi.mojom.mojom.ProbeAudioInputNodeInfoSpec = {
 };
 
 // Struct: ProbeAudioOutputNodeInfo
-crosapi.mojom.mojom.ProbeAudioOutputNodeInfoSpec = {
+crosapi.mojom.ProbeAudioOutputNodeInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeAudioOutputNodeInfo',
@@ -807,7 +807,7 @@ crosapi.mojom.mojom.ProbeAudioOutputNodeInfoSpec = {
 };
 
 // Struct: ProbeAudioInfo
-crosapi.mojom.mojom.ProbeAudioInfoSpec = {
+crosapi.mojom.ProbeAudioInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeAudioInfo',
@@ -826,7 +826,7 @@ crosapi.mojom.mojom.ProbeAudioInfoSpec = {
 };
 
 // Struct: ProbeEmbeddedDisplayInfo
-crosapi.mojom.mojom.ProbeEmbeddedDisplayInfoSpec = {
+crosapi.mojom.ProbeEmbeddedDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeEmbeddedDisplayInfo',
@@ -865,7 +865,7 @@ crosapi.mojom.mojom.ProbeEmbeddedDisplayInfoSpec = {
 };
 
 // Struct: ProbeExternalDisplayInfo
-crosapi.mojom.mojom.ProbeExternalDisplayInfoSpec = {
+crosapi.mojom.ProbeExternalDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeExternalDisplayInfo',
@@ -900,7 +900,7 @@ crosapi.mojom.mojom.ProbeExternalDisplayInfoSpec = {
 };
 
 // Struct: ProbeDisplayInfo
-crosapi.mojom.mojom.ProbeDisplayInfoSpec = {
+crosapi.mojom.ProbeDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeDisplayInfo',
@@ -915,7 +915,7 @@ crosapi.mojom.mojom.ProbeDisplayInfoSpec = {
 };
 
 // Struct: ProbeThermalSensorInfo
-crosapi.mojom.mojom.ProbeThermalSensorInfoSpec = {
+crosapi.mojom.ProbeThermalSensorInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeThermalSensorInfo',
@@ -931,7 +931,7 @@ crosapi.mojom.mojom.ProbeThermalSensorInfoSpec = {
 };
 
 // Struct: ProbeThermalInfo
-crosapi.mojom.mojom.ProbeThermalInfoSpec = {
+crosapi.mojom.ProbeThermalInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeThermalInfo',
@@ -945,7 +945,7 @@ crosapi.mojom.mojom.ProbeThermalInfoSpec = {
 };
 
 // Struct: ProbeTelemetryInfo
-crosapi.mojom.mojom.ProbeTelemetryInfoSpec = {
+crosapi.mojom.ProbeTelemetryInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTelemetryInfo',
@@ -975,7 +975,7 @@ crosapi.mojom.mojom.ProbeTelemetryInfoSpec = {
 };
 
 // Struct: ProbeOemData
-crosapi.mojom.mojom.ProbeOemDataSpec = {
+crosapi.mojom.ProbeOemDataSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeOemData',
@@ -989,24 +989,49 @@ crosapi.mojom.mojom.ProbeOemDataSpec = {
 };
 
 // Interface: TelemetryProbeService
-crosapi.mojom.mojom.TelemetryProbeService = {};
+crosapi.mojom.TelemetryProbeService = {};
 
-crosapi.mojom.mojom.TelemetryProbeServicePendingReceiver = class {
+crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.ProbeCategoryEnumSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryProbeService_GetOemData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.TelemetryProbeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.TelemetryProbeServiceRemote = class {
+crosapi.mojom.TelemetryProbeServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryProbeService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.TelemetryProbeServicePendingReceiver,
+      crosapi.mojom.TelemetryProbeServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.TelemetryProbeServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.TelemetryProbeServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1018,7 +1043,7 @@ crosapi.mojom.mojom.TelemetryProbeServiceRemote = class {
   }
 };
 
-crosapi.mojom.mojom.TelemetryProbeServiceRemoteCallHandler = class {
+crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1027,8 +1052,8 @@ crosapi.mojom.mojom.TelemetryProbeServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec,
-      crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
+      crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec,
+      crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
       [categories]);
   }
 
@@ -1036,15 +1061,15 @@ crosapi.mojom.mojom.TelemetryProbeServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ParamsSpec,
-      crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec,
+      crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec,
+      crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec,
       []);
   }
 
 };
 
-crosapi.mojom.mojom.TelemetryProbeService.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.TelemetryProbeServiceRemote();
+crosapi.mojom.TelemetryProbeService.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryProbeServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1054,7 +1079,7 @@ crosapi.mojom.mojom.TelemetryProbeService.getRemote = function() {
 };
 
 // ParamsSpec for ProbeTelemetryInfo
-crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
+crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.ProbeTelemetryInfo_Params',
@@ -1067,7 +1092,7 @@ crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
+crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.ProbeTelemetryInfo_ResponseParams',
@@ -1081,7 +1106,7 @@ crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec 
 };
 
 // ParamsSpec for GetOemData
-crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
+crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.GetOemData_Params',
@@ -1093,7 +1118,7 @@ crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = {
+crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.GetOemData_ResponseParams',
@@ -1107,6 +1132,6 @@ crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.TelemetryProbeServicePtr = crosapi.mojom.mojom.TelemetryProbeServiceRemote;
-crosapi.mojom.mojom.TelemetryProbeServiceRequest = crosapi.mojom.mojom.TelemetryProbeServicePendingReceiver;
+crosapi.mojom.TelemetryProbeServicePtr = crosapi.mojom.TelemetryProbeServiceRemote;
+crosapi.mojom.TelemetryProbeServiceRequest = crosapi.mojom.TelemetryProbeServicePendingReceiver;
 

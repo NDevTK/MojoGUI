@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Enum: SelectionBoundType
-gfx.mojom.mojom.SelectionBoundType = {
+gfx.mojom.SelectionBoundType = {
   LEFT: 0,
   RIGHT: 1,
   CENTER: 2,
@@ -20,10 +20,10 @@ gfx.mojom.mojom.SelectionBoundType = {
   EMPTY: 4,
   LAST: 5,
 };
-gfx.mojom.mojom.SelectionBoundTypeSpec = { $: mojo.internal.Enum() };
+gfx.mojom.SelectionBoundTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SelectionBound
-gfx.mojom.mojom.SelectionBoundSpec = {
+gfx.mojom.SelectionBoundSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.SelectionBound',

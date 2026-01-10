@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: FetchRetryOptions
-network.mojom.mojom.FetchRetryOptionsSpec = {
+network.mojom.FetchRetryOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FetchRetryOptions',

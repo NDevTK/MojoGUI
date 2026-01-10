@@ -10,7 +10,7 @@ privacy_sandbox_internals.mojom = privacy_sandbox_internals.mojom || {};
 
 
 // Struct: PrivacySandboxInternalsPref
-privacy_sandbox_internals.mojom.mojom.PrivacySandboxInternalsPrefSpec = {
+privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PrivacySandboxInternalsPref',
@@ -25,24 +25,88 @@ privacy_sandbox_internals.mojom.mojom.PrivacySandboxInternalsPrefSpec = {
 };
 
 // Interface: PageHandler
-privacy_sandbox_internals.mojom.mojom.PageHandler = {};
+privacy_sandbox_internals.mojom.PageHandler = {};
 
-privacy_sandbox_internals.mojom.mojom.PageHandlerPendingReceiver = class {
+privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pref_prefixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Params',
+      packedSize: 16,
+      fields: [
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+privacy_sandbox_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandlerRemote = class {
+privacy_sandbox_internals.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'privacy_sandbox_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      privacy_sandbox_internals.mojom.mojom.PageHandlerPendingReceiver,
+      privacy_sandbox_internals.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new privacy_sandbox_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +118,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
+privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +127,8 @@ privacy_sandbox_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      privacy_sandbox_internals.mojom.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec,
-      privacy_sandbox_internals.mojom.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec,
       [pref_prefixes]);
   }
 
@@ -72,8 +136,8 @@ privacy_sandbox_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      privacy_sandbox_internals.mojom.mojom.PageHandler_ReadContentSettings_ParamsSpec,
-      privacy_sandbox_internals.mojom.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec,
       [type]);
   }
 
@@ -81,8 +145,8 @@ privacy_sandbox_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      privacy_sandbox_internals.mojom.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec,
-      privacy_sandbox_internals.mojom.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec,
       []);
   }
 
@@ -90,8 +154,8 @@ privacy_sandbox_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      privacy_sandbox_internals.mojom.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec,
-      privacy_sandbox_internals.mojom.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec,
       [pattern]);
   }
 
@@ -99,15 +163,15 @@ privacy_sandbox_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      privacy_sandbox_internals.mojom.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec,
-      privacy_sandbox_internals.mojom.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec,
       [s]);
   }
 
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new privacy_sandbox_internals.mojom.mojom.PageHandlerRemote();
+privacy_sandbox_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new privacy_sandbox_internals.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -117,7 +181,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ReadPrefsWithPrefixes
-privacy_sandbox_internals.mojom.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadPrefsWithPrefixes_Params',
@@ -130,7 +194,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSp
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadPrefsWithPrefixes_ResponseParams',
@@ -144,7 +208,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_ReadPrefsWithPrefixes_Response
 };
 
 // ParamsSpec for ReadContentSettings
-privacy_sandbox_internals.mojom.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadContentSettings_Params',
@@ -157,7 +221,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_ReadContentSettings_ParamsSpec
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadContentSettings_ResponseParams',
@@ -171,7 +235,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_ReadContentSettings_ResponsePa
 };
 
 // ParamsSpec for GetTpcdMetadataGrants
-privacy_sandbox_internals.mojom.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.GetTpcdMetadataGrants_Params',
@@ -183,7 +247,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSp
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.GetTpcdMetadataGrants_ResponseParams',
@@ -197,7 +261,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_GetTpcdMetadataGrants_Response
 };
 
 // ParamsSpec for ContentSettingsPatternToString
-privacy_sandbox_internals.mojom.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ContentSettingsPatternToString_Params',
@@ -210,7 +274,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_ContentSettingsPatternToString
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ContentSettingsPatternToString_ResponseParams',
@@ -224,7 +288,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_ContentSettingsPatternToString
 };
 
 // ParamsSpec for StringToContentSettingsPattern
-privacy_sandbox_internals.mojom.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.StringToContentSettingsPattern_Params',
@@ -237,7 +301,7 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_StringToContentSettingsPattern
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec = {
+privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PageHandler.StringToContentSettingsPattern_ResponseParams',
@@ -251,29 +315,29 @@ privacy_sandbox_internals.mojom.mojom.PageHandler_StringToContentSettingsPattern
 };
 
 // Legacy compatibility
-privacy_sandbox_internals.mojom.mojom.PageHandlerPtr = privacy_sandbox_internals.mojom.mojom.PageHandlerRemote;
-privacy_sandbox_internals.mojom.mojom.PageHandlerRequest = privacy_sandbox_internals.mojom.mojom.PageHandlerPendingReceiver;
+privacy_sandbox_internals.mojom.PageHandlerPtr = privacy_sandbox_internals.mojom.PageHandlerRemote;
+privacy_sandbox_internals.mojom.PageHandlerRequest = privacy_sandbox_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-privacy_sandbox_internals.mojom.mojom.Page = {};
+privacy_sandbox_internals.mojom.Page = {};
 
-privacy_sandbox_internals.mojom.mojom.PagePendingReceiver = class {
+privacy_sandbox_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageRemote = class {
+privacy_sandbox_internals.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'privacy_sandbox_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      privacy_sandbox_internals.mojom.mojom.PagePendingReceiver,
+      privacy_sandbox_internals.mojom.PagePendingReceiver,
       handle);
-    this.$ = new privacy_sandbox_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new privacy_sandbox_internals.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -285,15 +349,15 @@ privacy_sandbox_internals.mojom.mojom.PageRemote = class {
   }
 };
 
-privacy_sandbox_internals.mojom.mojom.PageRemoteCallHandler = class {
+privacy_sandbox_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-privacy_sandbox_internals.mojom.mojom.Page.getRemote = function() {
-  let remote = new privacy_sandbox_internals.mojom.mojom.PageRemote();
+privacy_sandbox_internals.mojom.Page.getRemote = function() {
+  let remote = new privacy_sandbox_internals.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -303,6 +367,6 @@ privacy_sandbox_internals.mojom.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-privacy_sandbox_internals.mojom.mojom.PagePtr = privacy_sandbox_internals.mojom.mojom.PageRemote;
-privacy_sandbox_internals.mojom.mojom.PageRequest = privacy_sandbox_internals.mojom.mojom.PagePendingReceiver;
+privacy_sandbox_internals.mojom.PagePtr = privacy_sandbox_internals.mojom.PageRemote;
+privacy_sandbox_internals.mojom.PageRequest = privacy_sandbox_internals.mojom.PagePendingReceiver;
 

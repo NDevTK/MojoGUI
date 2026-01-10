@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: ProtoWrapper
-mojo_base.mojom.mojom.ProtoWrapperSpec = {
+mojo_base.mojom.ProtoWrapperSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ProtoWrapper',

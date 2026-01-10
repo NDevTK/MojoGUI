@@ -10,14 +10,14 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: RoundedWindowCompatStrategy
-arc.mojom.mojom.RoundedWindowCompatStrategy = {
+arc.mojom.RoundedWindowCompatStrategy = {
   kBottomOnlyGesture: 0,
   kLeftRightBottomGesture: 1,
 };
-arc.mojom.mojom.RoundedWindowCompatStrategySpec = { $: mojo.internal.Enum() };
+arc.mojom.RoundedWindowCompatStrategySpec = { $: mojo.internal.Enum() };
 
 // Struct: FeatureFlags
-arc.mojom.mojom.FeatureFlagsSpec = {
+arc.mojom.FeatureFlagsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.FeatureFlags',
@@ -47,24 +47,37 @@ arc.mojom.mojom.FeatureFlagsSpec = {
 };
 
 // Interface: ChromeFeatureFlagsInstance
-arc.mojom.mojom.ChromeFeatureFlagsInstance = {};
+arc.mojom.ChromeFeatureFlagsInstance = {};
 
-arc.mojom.mojom.ChromeFeatureFlagsInstancePendingReceiver = class {
+arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FeatureFlagsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ChromeFeatureFlagsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.ChromeFeatureFlagsInstanceRemote = class {
+arc.mojom.ChromeFeatureFlagsInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ChromeFeatureFlagsInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.ChromeFeatureFlagsInstancePendingReceiver,
+      arc.mojom.ChromeFeatureFlagsInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -76,7 +89,7 @@ arc.mojom.mojom.ChromeFeatureFlagsInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
+arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -85,15 +98,15 @@ arc.mojom.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec,
+      arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec,
       null,
       [flags]);
   }
 
 };
 
-arc.mojom.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.ChromeFeatureFlagsInstanceRemote();
+arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
+  let remote = new arc.mojom.ChromeFeatureFlagsInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +116,7 @@ arc.mojom.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
 };
 
 // ParamsSpec for NotifyFeatureFlags
-arc.mojom.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec = {
+arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ChromeFeatureFlagsInstance.NotifyFeatureFlags_Params',
@@ -117,6 +130,6 @@ arc.mojom.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.ChromeFeatureFlagsInstancePtr = arc.mojom.mojom.ChromeFeatureFlagsInstanceRemote;
-arc.mojom.mojom.ChromeFeatureFlagsInstanceRequest = arc.mojom.mojom.ChromeFeatureFlagsInstancePendingReceiver;
+arc.mojom.ChromeFeatureFlagsInstancePtr = arc.mojom.ChromeFeatureFlagsInstanceRemote;
+arc.mojom.ChromeFeatureFlagsInstanceRequest = arc.mojom.ChromeFeatureFlagsInstancePendingReceiver;
 

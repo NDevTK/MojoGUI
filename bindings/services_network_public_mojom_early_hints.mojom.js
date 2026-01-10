@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: EarlyHints
-network.mojom.mojom.EarlyHintsSpec = {
+network.mojom.EarlyHintsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EarlyHints',

@@ -11,30 +11,30 @@ var url = url || {};
 
 
 // Enum: ProxyRulesType
-network.mojom.mojom.ProxyRulesType = {
+network.mojom.ProxyRulesType = {
   EMPTY: 0,
   PROXY_LIST: 1,
   PROXY_LIST_PER_SCHEME: 2,
 };
-network.mojom.mojom.ProxyRulesTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.ProxyRulesTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProxyOverrideRuleResult
-network.mojom.mojom.ProxyOverrideRuleResult = {
+network.mojom.ProxyOverrideRuleResult = {
   kNotFound: 0,
   kResolved: 1,
 };
-network.mojom.mojom.ProxyOverrideRuleResultSpec = { $: mojo.internal.Enum() };
+network.mojom.ProxyOverrideRuleResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: IpProtectionProxyBypassPolicy
-network.mojom.mojom.IpProtectionProxyBypassPolicy = {
+network.mojom.IpProtectionProxyBypassPolicy = {
   kNone: 0,
   kFirstPartyToTopLevelFrame: 1,
   kExclusionList: 2,
 };
-network.mojom.mojom.IpProtectionProxyBypassPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.IpProtectionProxyBypassPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: ProxyHostMatchingRules
-network.mojom.mojom.ProxyHostMatchingRulesSpec = {
+network.mojom.ProxyHostMatchingRulesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyHostMatchingRules',
@@ -48,7 +48,7 @@ network.mojom.mojom.ProxyHostMatchingRulesSpec = {
 };
 
 // Struct: ProxyList
-network.mojom.mojom.ProxyListSpec = {
+network.mojom.ProxyListSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyList',
@@ -62,7 +62,7 @@ network.mojom.mojom.ProxyListSpec = {
 };
 
 // Struct: ProxyRules
-network.mojom.mojom.ProxyRulesSpec = {
+network.mojom.ProxyRulesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyRules',
@@ -83,7 +83,7 @@ network.mojom.mojom.ProxyRulesSpec = {
 };
 
 // Struct: DnsProbeCondition
-network.mojom.mojom.DnsProbeConditionSpec = {
+network.mojom.DnsProbeConditionSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DnsProbeCondition',
@@ -98,7 +98,7 @@ network.mojom.mojom.DnsProbeConditionSpec = {
 };
 
 // Struct: ProxyOverrideRule
-network.mojom.mojom.ProxyOverrideRuleSpec = {
+network.mojom.ProxyOverrideRuleSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyOverrideRule',
@@ -115,7 +115,7 @@ network.mojom.mojom.ProxyOverrideRuleSpec = {
 };
 
 // Struct: ProxyConfig
-network.mojom.mojom.ProxyConfigSpec = {
+network.mojom.ProxyConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyConfig',

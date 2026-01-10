@@ -9,10 +9,10 @@ var mojo = mojo || {};
 mojo.pipe_control = mojo.pipe_control || {};
 
 
-mojo.pipe_control.pipe_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
+mojo.pipe_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
 
 // Union: RunOrClosePipeInput
-mojo.pipe_control.pipe_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
+mojo.pipe_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
     'mojo.pipe_control.RunOrClosePipeInput', {
       'peer_associated_endpoint_closed_event': {
         'ordinal': 0,
@@ -30,7 +30,7 @@ mojo.pipe_control.pipe_control.RunOrClosePipeInputSpec = { $: mojo.internal.Unio
 };
 
 // Struct: RunOrClosePipeMessageParams
-mojo.pipe_control.pipe_control.RunOrClosePipeMessageParamsSpec = {
+mojo.pipe_control.RunOrClosePipeMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.RunOrClosePipeMessageParams',
@@ -44,7 +44,7 @@ mojo.pipe_control.pipe_control.RunOrClosePipeMessageParamsSpec = {
 };
 
 // Struct: DisconnectReason
-mojo.pipe_control.pipe_control.DisconnectReasonSpec = {
+mojo.pipe_control.DisconnectReasonSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.DisconnectReason',
@@ -59,7 +59,7 @@ mojo.pipe_control.pipe_control.DisconnectReasonSpec = {
 };
 
 // Struct: PeerAssociatedEndpointClosedEvent
-mojo.pipe_control.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
+mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.PeerAssociatedEndpointClosedEvent',
@@ -74,7 +74,7 @@ mojo.pipe_control.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
 };
 
 // Struct: PauseUntilFlushCompletes
-mojo.pipe_control.pipe_control.PauseUntilFlushCompletesSpec = {
+mojo.pipe_control.PauseUntilFlushCompletesSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.PauseUntilFlushCompletes',
@@ -88,7 +88,7 @@ mojo.pipe_control.pipe_control.PauseUntilFlushCompletesSpec = {
 };
 
 // Struct: FlushAsync
-mojo.pipe_control.pipe_control.FlushAsyncSpec = {
+mojo.pipe_control.FlushAsyncSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.FlushAsync',

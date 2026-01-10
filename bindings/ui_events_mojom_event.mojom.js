@@ -15,7 +15,7 @@ var ui = ui || {};
 
 
 // Union: GestureDataDetails
-ui.mojom.mojom.GestureDataDetailsSpec = { $: mojo.internal.Union(
+ui.mojom.GestureDataDetailsSpec = { $: mojo.internal.Union(
     'ui.mojom.GestureDataDetails', {
       'pinch': {
         'ordinal': 0,
@@ -29,7 +29,7 @@ ui.mojom.mojom.GestureDataDetailsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: KeyData
-ui.mojom.mojom.KeyDataSpec = {
+ui.mojom.KeyDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.KeyData',
@@ -46,7 +46,7 @@ ui.mojom.mojom.KeyDataSpec = {
 };
 
 // Struct: LocationData
-ui.mojom.mojom.LocationDataSpec = {
+ui.mojom.LocationDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.LocationData',
@@ -61,7 +61,7 @@ ui.mojom.mojom.LocationDataSpec = {
 };
 
 // Struct: GesturePinchData
-ui.mojom.mojom.GesturePinchDataSpec = {
+ui.mojom.GesturePinchDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.GesturePinchData',
@@ -75,7 +75,7 @@ ui.mojom.mojom.GesturePinchDataSpec = {
 };
 
 // Struct: GestureSwipeData
-ui.mojom.mojom.GestureSwipeDataSpec = {
+ui.mojom.GestureSwipeDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.GestureSwipeData',
@@ -92,7 +92,7 @@ ui.mojom.mojom.GestureSwipeDataSpec = {
 };
 
 // Struct: GestureData
-ui.mojom.mojom.GestureDataSpec = {
+ui.mojom.GestureDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.GestureData',
@@ -108,7 +108,7 @@ ui.mojom.mojom.GestureDataSpec = {
 };
 
 // Struct: ScrollData
-ui.mojom.mojom.ScrollDataSpec = {
+ui.mojom.ScrollDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ScrollData',
@@ -129,7 +129,7 @@ ui.mojom.mojom.ScrollDataSpec = {
 };
 
 // Struct: PointerDetails
-ui.mojom.mojom.PointerDetailsSpec = {
+ui.mojom.PointerDetailsSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.PointerDetails',
@@ -153,7 +153,7 @@ ui.mojom.mojom.PointerDetailsSpec = {
 };
 
 // Struct: MouseData
-ui.mojom.mojom.MouseDataSpec = {
+ui.mojom.MouseDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.MouseData',
@@ -171,7 +171,7 @@ ui.mojom.mojom.MouseDataSpec = {
 };
 
 // Struct: TouchData
-ui.mojom.mojom.TouchDataSpec = {
+ui.mojom.TouchDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.TouchData',
@@ -188,7 +188,7 @@ ui.mojom.mojom.TouchDataSpec = {
 };
 
 // Struct: Event
-ui.mojom.mojom.EventSpec = {
+ui.mojom.EventSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.Event',

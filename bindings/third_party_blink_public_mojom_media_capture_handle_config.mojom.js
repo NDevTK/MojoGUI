@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: CaptureHandleConfig
-blink.mojom.mojom.CaptureHandleConfigSpec = {
+blink.mojom.CaptureHandleConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CaptureHandleConfig',

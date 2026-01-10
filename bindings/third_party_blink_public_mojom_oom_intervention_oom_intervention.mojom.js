@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: DetectionArgs
-blink.mojom.mojom.DetectionArgsSpec = {
+blink.mojom.DetectionArgsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DetectionArgs',
@@ -24,24 +24,36 @@ blink.mojom.mojom.DetectionArgsSpec = {
 };
 
 // Interface: OomInterventionHost
-blink.mojom.mojom.OomInterventionHost = {};
+blink.mojom.OomInterventionHost = {};
 
-blink.mojom.mojom.OomInterventionHostPendingReceiver = class {
+blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OomInterventionHost_OnHighMemoryUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.OomInterventionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.OomInterventionHostRemote = class {
+blink.mojom.OomInterventionHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.OomInterventionHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.OomInterventionHostPendingReceiver,
+      blink.mojom.OomInterventionHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.OomInterventionHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.OomInterventionHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +65,7 @@ blink.mojom.mojom.OomInterventionHostRemote = class {
   }
 };
 
-blink.mojom.mojom.OomInterventionHostRemoteCallHandler = class {
+blink.mojom.OomInterventionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +74,15 @@ blink.mojom.mojom.OomInterventionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec,
+      blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.OomInterventionHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.OomInterventionHostRemote();
+blink.mojom.OomInterventionHost.getRemote = function() {
+  let remote = new blink.mojom.OomInterventionHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +92,7 @@ blink.mojom.mojom.OomInterventionHost.getRemote = function() {
 };
 
 // ParamsSpec for OnHighMemoryUsage
-blink.mojom.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
+blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OomInterventionHost.OnHighMemoryUsage_Params',
@@ -93,29 +105,46 @@ blink.mojom.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.OomInterventionHostPtr = blink.mojom.mojom.OomInterventionHostRemote;
-blink.mojom.mojom.OomInterventionHostRequest = blink.mojom.mojom.OomInterventionHostPendingReceiver;
+blink.mojom.OomInterventionHostPtr = blink.mojom.OomInterventionHostRemote;
+blink.mojom.OomInterventionHostRequest = blink.mojom.OomInterventionHostPendingReceiver;
 
 
 // Interface: OomIntervention
-blink.mojom.mojom.OomIntervention = {};
+blink.mojom.OomIntervention = {};
 
-blink.mojom.mojom.OomInterventionPendingReceiver = class {
+blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OomIntervention_StartDetection_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostRemote), nullable: false, minVersion: 0 },
+        { name: 'detection_args', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'renderer_pause_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'navigate_ads_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'purge_v8_memory_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.OomInterventionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.OomInterventionRemote = class {
+blink.mojom.OomInterventionRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.OomIntervention';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.OomInterventionPendingReceiver,
+      blink.mojom.OomInterventionPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.OomInterventionRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.OomInterventionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -127,7 +156,7 @@ blink.mojom.mojom.OomInterventionRemote = class {
   }
 };
 
-blink.mojom.mojom.OomInterventionRemoteCallHandler = class {
+blink.mojom.OomInterventionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -136,15 +165,15 @@ blink.mojom.mojom.OomInterventionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.OomIntervention_StartDetection_ParamsSpec,
+      blink.mojom.OomIntervention_StartDetection_ParamsSpec,
       null,
       [host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled]);
   }
 
 };
 
-blink.mojom.mojom.OomIntervention.getRemote = function() {
-  let remote = new blink.mojom.mojom.OomInterventionRemote();
+blink.mojom.OomIntervention.getRemote = function() {
+  let remote = new blink.mojom.OomInterventionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -154,7 +183,7 @@ blink.mojom.mojom.OomIntervention.getRemote = function() {
 };
 
 // ParamsSpec for StartDetection
-blink.mojom.mojom.OomIntervention_StartDetection_ParamsSpec = {
+blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OomIntervention.StartDetection_Params',
@@ -172,6 +201,6 @@ blink.mojom.mojom.OomIntervention_StartDetection_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.OomInterventionPtr = blink.mojom.mojom.OomInterventionRemote;
-blink.mojom.mojom.OomInterventionRequest = blink.mojom.mojom.OomInterventionPendingReceiver;
+blink.mojom.OomInterventionPtr = blink.mojom.OomInterventionRemote;
+blink.mojom.OomInterventionRequest = blink.mojom.OomInterventionPendingReceiver;
 

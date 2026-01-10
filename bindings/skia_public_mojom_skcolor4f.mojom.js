@@ -10,7 +10,7 @@ skia.mojom = skia.mojom || {};
 
 
 // Struct: SkColor4f
-skia.mojom.mojom.SkColor4fSpec = {
+skia.mojom.SkColor4fSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkColor4f',

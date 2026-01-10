@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Union: BigBuffer
-mojo_base.mojom.mojom.BigBufferSpec = { $: mojo.internal.Union(
+mojo_base.mojom.BigBufferSpec = { $: mojo.internal.Union(
     'mojo_base.mojom.BigBuffer', {
       'bytes': {
         'ordinal': 0,
@@ -28,7 +28,7 @@ mojo_base.mojom.mojom.BigBufferSpec = { $: mojo.internal.Union(
 };
 
 // Struct: BigBufferSharedMemoryRegion
-mojo_base.mojom.mojom.BigBufferSharedMemoryRegionSpec = {
+mojo_base.mojom.BigBufferSharedMemoryRegionSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.BigBufferSharedMemoryRegion',

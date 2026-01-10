@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: LoadTimingInfoConnectTiming
-network.mojom.mojom.LoadTimingInfoConnectTimingSpec = {
+network.mojom.LoadTimingInfoConnectTimingSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.LoadTimingInfoConnectTiming',
@@ -29,7 +29,7 @@ network.mojom.mojom.LoadTimingInfoConnectTimingSpec = {
 };
 
 // Struct: LoadTimingInfo
-network.mojom.mojom.LoadTimingInfoSpec = {
+network.mojom.LoadTimingInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.LoadTimingInfo',

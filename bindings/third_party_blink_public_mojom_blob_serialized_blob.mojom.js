@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: SerializedBlob
-blink.mojom.mojom.SerializedBlobSpec = {
+blink.mojom.SerializedBlobSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerializedBlob',

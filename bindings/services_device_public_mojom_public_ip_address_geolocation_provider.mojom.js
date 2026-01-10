@@ -10,24 +10,39 @@ device.mojom = device.mojom || {};
 
 
 // Interface: PublicIpAddressGeolocationProvider
-device.mojom.mojom.PublicIpAddressGeolocationProvider = {};
+device.mojom.PublicIpAddressGeolocationProvider = {};
 
-device.mojom.mojom.PublicIpAddressGeolocationProviderPendingReceiver = class {
+device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
+        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.PublicIpAddressGeolocationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.PublicIpAddressGeolocationProviderRemote = class {
+device.mojom.PublicIpAddressGeolocationProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.PublicIpAddressGeolocationProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.PublicIpAddressGeolocationProviderPendingReceiver,
+      device.mojom.PublicIpAddressGeolocationProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +54,7 @@ device.mojom.mojom.PublicIpAddressGeolocationProviderRemote = class {
   }
 };
 
-device.mojom.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
+device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +63,15 @@ device.mojom.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec,
+      device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec,
       null,
       [tag, receiver, client_id]);
   }
 
 };
 
-device.mojom.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
-  let remote = new device.mojom.mojom.PublicIpAddressGeolocationProviderRemote();
+device.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
+  let remote = new device.mojom.PublicIpAddressGeolocationProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +81,7 @@ device.mojom.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
 };
 
 // ParamsSpec for CreateGeolocation
-device.mojom.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
+device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PublicIpAddressGeolocationProvider.CreateGeolocation_Params',
@@ -82,6 +97,6 @@ device.mojom.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSp
 };
 
 // Legacy compatibility
-device.mojom.mojom.PublicIpAddressGeolocationProviderPtr = device.mojom.mojom.PublicIpAddressGeolocationProviderRemote;
-device.mojom.mojom.PublicIpAddressGeolocationProviderRequest = device.mojom.mojom.PublicIpAddressGeolocationProviderPendingReceiver;
+device.mojom.PublicIpAddressGeolocationProviderPtr = device.mojom.PublicIpAddressGeolocationProviderRemote;
+device.mojom.PublicIpAddressGeolocationProviderRequest = device.mojom.PublicIpAddressGeolocationProviderPendingReceiver;
 

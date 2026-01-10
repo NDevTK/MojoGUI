@@ -114,6 +114,90 @@ mojom.IsolatedOriginInfoSpec = {
 // Interface: ProcessInternalsHandler
 mojom.ProcessInternalsHandler = {};
 
+mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessInternalsHandler_GetProcessCountInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessInternalsHandler_GetIsolationMode_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessInternalsHandler_GetProcessPerSiteMode_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
 mojom.ProcessInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

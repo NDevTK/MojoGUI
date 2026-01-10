@@ -14,20 +14,20 @@ var gfx = gfx || {};
 
 
 // Enum: CopyOutputResultFormat
-viz.mojom.mojom.CopyOutputResultFormat = {
+viz.mojom.CopyOutputResultFormat = {
   RGBA: 0,
 };
-viz.mojom.mojom.CopyOutputResultFormatSpec = { $: mojo.internal.Enum() };
+viz.mojom.CopyOutputResultFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: CopyOutputResultDestination
-viz.mojom.mojom.CopyOutputResultDestination = {
+viz.mojom.CopyOutputResultDestination = {
   kSystemMemory: 0,
   kSharedImage: 1,
 };
-viz.mojom.mojom.CopyOutputResultDestinationSpec = { $: mojo.internal.Enum() };
+viz.mojom.CopyOutputResultDestinationSpec = { $: mojo.internal.Enum() };
 
 // Struct: CopyOutputResult
-viz.mojom.mojom.CopyOutputResultSpec = {
+viz.mojom.CopyOutputResultSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CopyOutputResult',

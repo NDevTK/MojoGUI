@@ -10,7 +10,7 @@ url.mojom = url.mojom || {};
 
 
 // Struct: Origin
-url.mojom.mojom.OriginSpec = {
+url.mojom.OriginSpec = {
   $: {
     structSpec: {
       name: 'url.mojom.Origin',

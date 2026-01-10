@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: ByteString
-mojo_base.mojom.mojom.ByteStringSpec = {
+mojo_base.mojom.ByteStringSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ByteString',

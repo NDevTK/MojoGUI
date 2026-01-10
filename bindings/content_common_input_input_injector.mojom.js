@@ -13,7 +13,7 @@ var ui = ui || {};
 
 
 // Enum: GestureSourceType
-content.mojom.mojom.GestureSourceType = {
+content.mojom.GestureSourceType = {
   kDefaultInput: 0,
   kTouchInput: 1,
   kMouseInput: 2,
@@ -21,10 +21,10 @@ content.mojom.mojom.GestureSourceType = {
   kPenInput: 4,
   kGestureSourceTypeMax: 5,
 };
-content.mojom.mojom.GestureSourceTypeSpec = { $: mojo.internal.Enum() };
+content.mojom.GestureSourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PointerActionType
-content.mojom.mojom.PointerActionType = {
+content.mojom.PointerActionType = {
   kNotInitialized: 0,
   kPress: 1,
   kMove: 2,
@@ -33,10 +33,10 @@ content.mojom.mojom.PointerActionType = {
   kLeave: 5,
   kIdle: 6,
 };
-content.mojom.mojom.PointerActionTypeSpec = { $: mojo.internal.Enum() };
+content.mojom.PointerActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SyntheticButton
-content.mojom.mojom.SyntheticButton = {
+content.mojom.SyntheticButton = {
   kNoButton: 0,
   kLeft: 1,
   kMiddle: 2,
@@ -44,19 +44,19 @@ content.mojom.mojom.SyntheticButton = {
   kBack: 4,
   kForward: 5,
 };
-content.mojom.mojom.SyntheticButtonSpec = { $: mojo.internal.Enum() };
+content.mojom.SyntheticButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventPattern
-content.mojom.mojom.InputEventPattern = {
+content.mojom.InputEventPattern = {
   kDefaultPattern: 0,
   kOnePerVsync: 1,
   kTwoPerVsync: 2,
   kEveryOtherVsync: 3,
 };
-content.mojom.mojom.InputEventPatternSpec = { $: mojo.internal.Enum() };
+content.mojom.InputEventPatternSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyntheticSmoothDrag
-content.mojom.mojom.SyntheticSmoothDragSpec = {
+content.mojom.SyntheticSmoothDragSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticSmoothDrag',
@@ -75,7 +75,7 @@ content.mojom.mojom.SyntheticSmoothDragSpec = {
 };
 
 // Struct: SyntheticSmoothScroll
-content.mojom.mojom.SyntheticSmoothScrollSpec = {
+content.mojom.SyntheticSmoothScrollSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticSmoothScroll',
@@ -99,7 +99,7 @@ content.mojom.mojom.SyntheticSmoothScrollSpec = {
 };
 
 // Struct: SyntheticPinch
-content.mojom.mojom.SyntheticPinchSpec = {
+content.mojom.SyntheticPinchSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticPinch',
@@ -117,7 +117,7 @@ content.mojom.mojom.SyntheticPinchSpec = {
 };
 
 // Struct: SyntheticTap
-content.mojom.mojom.SyntheticTapSpec = {
+content.mojom.SyntheticTapSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticTap',
@@ -133,7 +133,7 @@ content.mojom.mojom.SyntheticTapSpec = {
 };
 
 // Struct: SyntheticPointerActionParams
-content.mojom.mojom.SyntheticPointerActionParamsSpec = {
+content.mojom.SyntheticPointerActionParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticPointerActionParams',
@@ -160,7 +160,7 @@ content.mojom.mojom.SyntheticPointerActionParamsSpec = {
 };
 
 // Struct: SyntheticPointerAction
-content.mojom.mojom.SyntheticPointerActionSpec = {
+content.mojom.SyntheticPointerActionSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticPointerAction',
@@ -175,24 +175,89 @@ content.mojom.mojom.SyntheticPointerActionSpec = {
 };
 
 // Interface: InputInjector
-content.mojom.mojom.InputInjector = {};
+content.mojom.InputInjector = {};
 
-content.mojom.mojom.InputInjectorPendingReceiver = class {
+content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'drag', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothDragSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'scroll', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothScrollSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.InputInjector_QueueSyntheticPinch_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pinch', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPinchSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.InputInjector_QueueSyntheticTap_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tap', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticTapSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.InputInjector_QueueSyntheticPointerAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pointer_action', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPointerActionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.InputInjectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.InputInjectorRemote = class {
+content.mojom.InputInjectorRemote = class {
   static get $interfaceName() {
     return 'content.mojom.InputInjector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.InputInjectorPendingReceiver,
+      content.mojom.InputInjectorPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.InputInjectorRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.InputInjectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -204,7 +269,7 @@ content.mojom.mojom.InputInjectorRemote = class {
   }
 };
 
-content.mojom.mojom.InputInjectorRemoteCallHandler = class {
+content.mojom.InputInjectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -213,7 +278,7 @@ content.mojom.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
+      content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
       null,
       [drag]);
   }
@@ -222,7 +287,7 @@ content.mojom.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
+      content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
       null,
       [scroll]);
   }
@@ -231,7 +296,7 @@ content.mojom.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
+      content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
       null,
       [pinch]);
   }
@@ -240,7 +305,7 @@ content.mojom.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
+      content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
       null,
       [tap]);
   }
@@ -249,15 +314,15 @@ content.mojom.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
+      content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
       null,
       [pointer_action]);
   }
 
 };
 
-content.mojom.mojom.InputInjector.getRemote = function() {
-  let remote = new content.mojom.mojom.InputInjectorRemote();
+content.mojom.InputInjector.getRemote = function() {
+  let remote = new content.mojom.InputInjectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -267,7 +332,7 @@ content.mojom.mojom.InputInjector.getRemote = function() {
 };
 
 // ParamsSpec for QueueSyntheticSmoothDrag
-content.mojom.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
+content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.InputInjector.QueueSyntheticSmoothDrag_Params',
@@ -281,7 +346,7 @@ content.mojom.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
 };
 
 // ParamsSpec for QueueSyntheticSmoothScroll
-content.mojom.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
+content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.InputInjector.QueueSyntheticSmoothScroll_Params',
@@ -295,7 +360,7 @@ content.mojom.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
 };
 
 // ParamsSpec for QueueSyntheticPinch
-content.mojom.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
+content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.InputInjector.QueueSyntheticPinch_Params',
@@ -309,7 +374,7 @@ content.mojom.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
 };
 
 // ParamsSpec for QueueSyntheticTap
-content.mojom.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
+content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.InputInjector.QueueSyntheticTap_Params',
@@ -323,7 +388,7 @@ content.mojom.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
 };
 
 // ParamsSpec for QueueSyntheticPointerAction
-content.mojom.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
+content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.InputInjector.QueueSyntheticPointerAction_Params',
@@ -337,6 +402,6 @@ content.mojom.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.InputInjectorPtr = content.mojom.mojom.InputInjectorRemote;
-content.mojom.mojom.InputInjectorRequest = content.mojom.mojom.InputInjectorPendingReceiver;
+content.mojom.InputInjectorPtr = content.mojom.InputInjectorRemote;
+content.mojom.InputInjectorRequest = content.mojom.InputInjectorPendingReceiver;
 

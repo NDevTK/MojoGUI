@@ -13,15 +13,15 @@ var url = url || {};
 
 
 // Enum: ScalingType
-crosapi.mojom.mojom.ScalingType = {
+crosapi.mojom.ScalingType = {
   kFitToPage: 0,
   kFitToPaper: 1,
   kCustom: 2,
 };
-crosapi.mojom.mojom.ScalingTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ScalingTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MarginsCustom
-crosapi.mojom.mojom.MarginsCustomSpec = {
+crosapi.mojom.MarginsCustomSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MarginsCustom',
@@ -38,7 +38,7 @@ crosapi.mojom.mojom.MarginsCustomSpec = {
 };
 
 // Struct: MediaSize
-crosapi.mojom.mojom.MediaSizeSpec = {
+crosapi.mojom.MediaSizeSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MediaSize',
@@ -62,7 +62,7 @@ crosapi.mojom.mojom.MediaSizeSpec = {
 };
 
 // Struct: PrintSettings
-crosapi.mojom.mojom.PrintSettingsSpec = {
+crosapi.mojom.PrintSettingsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintSettings',
@@ -126,24 +126,51 @@ crosapi.mojom.mojom.PrintSettingsSpec = {
 };
 
 // Interface: PrintPreviewCrosDelegate
-crosapi.mojom.mojom.PrintPreviewCrosDelegate = {};
+crosapi.mojom.PrintPreviewCrosDelegate = {};
 
-crosapi.mojom.mojom.PrintPreviewCrosDelegatePendingReceiver = class {
+crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.RequestPrintPreviewParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.PrintPreviewCrosDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosDelegateRemote = class {
+crosapi.mojom.PrintPreviewCrosDelegateRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.PrintPreviewCrosDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.PrintPreviewCrosDelegatePendingReceiver,
+      crosapi.mojom.PrintPreviewCrosDelegatePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.PrintPreviewCrosDelegateRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -155,7 +182,7 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegateRemote = class {
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
+crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -164,8 +191,8 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec,
-      crosapi.mojom.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec,
+      crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec,
+      crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec,
       [token, params]);
   }
 
@@ -173,15 +200,15 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      crosapi.mojom.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec,
-      crosapi.mojom.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec,
+      crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec,
+      crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec,
       [token]);
   }
 
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosDelegate.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.PrintPreviewCrosDelegateRemote();
+crosapi.mojom.PrintPreviewCrosDelegate.getRemote = function() {
+  let remote = new crosapi.mojom.PrintPreviewCrosDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -191,7 +218,7 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegate.getRemote = function() {
 };
 
 // ParamsSpec for RequestPrintPreview
-crosapi.mojom.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec = {
+crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosDelegate.RequestPrintPreview_Params',
@@ -205,7 +232,7 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec = {
+crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosDelegate.RequestPrintPreview_ResponseParams',
@@ -219,7 +246,7 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsS
 };
 
 // ParamsSpec for PrintPreviewDone
-crosapi.mojom.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec = {
+crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosDelegate.PrintPreviewDone_Params',
@@ -232,7 +259,7 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec = {
+crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosDelegate.PrintPreviewDone_ResponseParams',
@@ -246,29 +273,56 @@ crosapi.mojom.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.PrintPreviewCrosDelegatePtr = crosapi.mojom.mojom.PrintPreviewCrosDelegateRemote;
-crosapi.mojom.mojom.PrintPreviewCrosDelegateRequest = crosapi.mojom.mojom.PrintPreviewCrosDelegatePendingReceiver;
+crosapi.mojom.PrintPreviewCrosDelegatePtr = crosapi.mojom.PrintPreviewCrosDelegateRemote;
+crosapi.mojom.PrintPreviewCrosDelegateRequest = crosapi.mojom.PrintPreviewCrosDelegatePendingReceiver;
 
 
 // Interface: PrintPreviewCrosClient
-crosapi.mojom.mojom.PrintPreviewCrosClient = {};
+crosapi.mojom.PrintPreviewCrosClient = {};
 
-crosapi.mojom.mojom.PrintPreviewCrosClientPendingReceiver = class {
+crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.PrintSettingsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.PrintPreviewCrosClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosClientRemote = class {
+crosapi.mojom.PrintPreviewCrosClientRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.PrintPreviewCrosClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.mojom.PrintPreviewCrosClientPendingReceiver,
+      crosapi.mojom.PrintPreviewCrosClientPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.mojom.PrintPreviewCrosClientRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -280,7 +334,7 @@ crosapi.mojom.mojom.PrintPreviewCrosClientRemote = class {
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
+crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -289,8 +343,8 @@ crosapi.mojom.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec,
-      crosapi.mojom.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec,
+      crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec,
+      crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec,
       [token, settings]);
   }
 
@@ -298,15 +352,15 @@ crosapi.mojom.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec,
-      crosapi.mojom.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec,
+      crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec,
+      crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec,
       [token]);
   }
 
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosClient.getRemote = function() {
-  let remote = new crosapi.mojom.mojom.PrintPreviewCrosClientRemote();
+crosapi.mojom.PrintPreviewCrosClient.getRemote = function() {
+  let remote = new crosapi.mojom.PrintPreviewCrosClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -316,7 +370,7 @@ crosapi.mojom.mojom.PrintPreviewCrosClient.getRemote = function() {
 };
 
 // ParamsSpec for GeneratePrintPreview
-crosapi.mojom.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec = {
+crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosClient.GeneratePrintPreview_Params',
@@ -330,7 +384,7 @@ crosapi.mojom.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec = {
+crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosClient.GeneratePrintPreview_ResponseParams',
@@ -344,7 +398,7 @@ crosapi.mojom.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSp
 };
 
 // ParamsSpec for HandleDialogClosed
-crosapi.mojom.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = {
+crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosClient.HandleDialogClosed_Params',
@@ -357,7 +411,7 @@ crosapi.mojom.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = {
   }
 };
 
-crosapi.mojom.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec = {
+crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintPreviewCrosClient.HandleDialogClosed_ResponseParams',
@@ -371,6 +425,6 @@ crosapi.mojom.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec
 };
 
 // Legacy compatibility
-crosapi.mojom.mojom.PrintPreviewCrosClientPtr = crosapi.mojom.mojom.PrintPreviewCrosClientRemote;
-crosapi.mojom.mojom.PrintPreviewCrosClientRequest = crosapi.mojom.mojom.PrintPreviewCrosClientPendingReceiver;
+crosapi.mojom.PrintPreviewCrosClientPtr = crosapi.mojom.PrintPreviewCrosClientRemote;
+crosapi.mojom.PrintPreviewCrosClientRequest = crosapi.mojom.PrintPreviewCrosClientPendingReceiver;
 

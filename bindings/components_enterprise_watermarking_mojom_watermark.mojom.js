@@ -10,7 +10,7 @@ watermark.mojom = watermark.mojom || {};
 
 
 // Struct: WatermarkBlock
-watermark.mojom.mojom.WatermarkBlockSpec = {
+watermark.mojom.WatermarkBlockSpec = {
   $: {
     structSpec: {
       name: 'watermark.mojom.WatermarkBlock',

@@ -13,13 +13,13 @@ var gfx = gfx || {};
 
 
 // Enum: ScrollRestorationType
-blink.mojom.mojom.ScrollRestorationType = {
+blink.mojom.ScrollRestorationType = {
   kManual: 0,
 };
-blink.mojom.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: Element
-blink.mojom.mojom.ElementSpec = { $: mojo.internal.Union(
+blink.mojom.ElementSpec = { $: mojo.internal.Union(
     'blink.mojom.Element', {
       'blob_uuid': {
         'ordinal': 0,
@@ -41,7 +41,7 @@ blink.mojom.mojom.ElementSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DEPRECATED_FileSystemFile
-blink.mojom.mojom.DEPRECATED_FileSystemFileSpec = {
+blink.mojom.DEPRECATED_FileSystemFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DEPRECATED_FileSystemFile',
@@ -58,7 +58,7 @@ blink.mojom.mojom.DEPRECATED_FileSystemFileSpec = {
 };
 
 // Struct: File
-blink.mojom.mojom.FileSpec = {
+blink.mojom.FileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.File',
@@ -75,7 +75,7 @@ blink.mojom.mojom.FileSpec = {
 };
 
 // Struct: RequestBody
-blink.mojom.mojom.RequestBodySpec = {
+blink.mojom.RequestBodySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RequestBody',
@@ -91,7 +91,7 @@ blink.mojom.mojom.RequestBodySpec = {
 };
 
 // Struct: HttpBody
-blink.mojom.mojom.HttpBodySpec = {
+blink.mojom.HttpBodySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HttpBody',
@@ -107,7 +107,7 @@ blink.mojom.mojom.HttpBodySpec = {
 };
 
 // Struct: ViewState
-blink.mojom.mojom.ViewStateSpec = {
+blink.mojom.ViewStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewState',
@@ -126,7 +126,7 @@ blink.mojom.mojom.ViewStateSpec = {
 };
 
 // Struct: FrameState
-blink.mojom.mojom.FrameStateSpec = {
+blink.mojom.FrameStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameState',
@@ -157,7 +157,7 @@ blink.mojom.mojom.FrameStateSpec = {
 };
 
 // Struct: PageState
-blink.mojom.mojom.PageStateSpec = {
+blink.mojom.PageStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PageState',

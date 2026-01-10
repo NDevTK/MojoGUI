@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Enum: SpeechRecognitionErrorCode
-media.mojom.mojom.SpeechRecognitionErrorCode = {
+media.mojom.SpeechRecognitionErrorCode = {
   kNone: 0,
   kNoSpeech: 1,
   kAborted: 2,
@@ -22,4 +22,4 @@ media.mojom.mojom.SpeechRecognitionErrorCode = {
   kLanguageNotSupported: 8,
   kNoMatch: 9,
 };
-media.mojom.mojom.SpeechRecognitionErrorCodeSpec = { $: mojo.internal.Enum() };
+media.mojom.SpeechRecognitionErrorCodeSpec = { $: mojo.internal.Enum() };

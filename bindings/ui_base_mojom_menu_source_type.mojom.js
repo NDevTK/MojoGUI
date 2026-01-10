@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: MenuSourceType
-ui.mojom.mojom.MenuSourceType = {
+ui.mojom.MenuSourceType = {
   kMouse: 0,
   kKeyboard: 1,
   kTouch: 2,
@@ -22,4 +22,4 @@ ui.mojom.mojom.MenuSourceType = {
   kAdjustSelection: 8,
   kAdjustSelectionReset: 9,
 };
-ui.mojom.mojom.MenuSourceTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.MenuSourceTypeSpec = { $: mojo.internal.Enum() };

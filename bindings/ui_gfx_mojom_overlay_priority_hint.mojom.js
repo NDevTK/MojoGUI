@@ -10,11 +10,11 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Enum: OverlayPriorityHint
-gfx.mojom.mojom.OverlayPriorityHint = {
+gfx.mojom.OverlayPriorityHint = {
   kNone: 0,
   kRegular: 1,
   kLowLatencyCanvas: 2,
   kHardwareProtection: 3,
   kVideo: 4,
 };
-gfx.mojom.mojom.OverlayPriorityHintSpec = { $: mojo.internal.Enum() };
+gfx.mojom.OverlayPriorityHintSpec = { $: mojo.internal.Enum() };

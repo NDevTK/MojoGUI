@@ -9,25 +9,25 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-blink.mojom.mojom.kSpeechSynthesisDefaultRate = 1.0;
+blink.mojom.kSpeechSynthesisDefaultRate = 1.0;
 
-blink.mojom.mojom.kSpeechSynthesisDefaultPitch = 1.0;
+blink.mojom.kSpeechSynthesisDefaultPitch = 1.0;
 
-blink.mojom.mojom.kSpeechSynthesisDefaultVolume = 1.0;
+blink.mojom.kSpeechSynthesisDefaultVolume = 1.0;
 
-blink.mojom.mojom.kSpeechSynthesisDoublePrefNotSet = -1.0;
+blink.mojom.kSpeechSynthesisDoublePrefNotSet = -1.0;
 
 // Enum: SpeechSynthesisErrorCode
-blink.mojom.mojom.SpeechSynthesisErrorCode = {
+blink.mojom.SpeechSynthesisErrorCode = {
   kCancelled: 0,
   kInterrupted: 1,
   kErrorOccurred: 2,
   kNoError: 3,
 };
-blink.mojom.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeechSynthesisUtterance
-blink.mojom.mojom.SpeechSynthesisUtteranceSpec = {
+blink.mojom.SpeechSynthesisUtteranceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisUtterance',
@@ -46,7 +46,7 @@ blink.mojom.mojom.SpeechSynthesisUtteranceSpec = {
 };
 
 // Struct: SpeechSynthesisVoice
-blink.mojom.mojom.SpeechSynthesisVoiceSpec = {
+blink.mojom.SpeechSynthesisVoiceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisVoice',
@@ -64,24 +64,37 @@ blink.mojom.mojom.SpeechSynthesisVoiceSpec = {
 };
 
 // Interface: SpeechSynthesisVoiceListObserver
-blink.mojom.mojom.SpeechSynthesisVoiceListObserver = {};
+blink.mojom.SpeechSynthesisVoiceListObserver = {};
 
-blink.mojom.mojom.SpeechSynthesisVoiceListObserverPendingReceiver = class {
+blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'voice_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SpeechSynthesisVoiceSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisVoiceListObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SpeechSynthesisVoiceListObserverRemote = class {
+blink.mojom.SpeechSynthesisVoiceListObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SpeechSynthesisVoiceListObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SpeechSynthesisVoiceListObserverPendingReceiver,
+      blink.mojom.SpeechSynthesisVoiceListObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -93,7 +106,7 @@ blink.mojom.mojom.SpeechSynthesisVoiceListObserverRemote = class {
   }
 };
 
-blink.mojom.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
+blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -102,15 +115,15 @@ blink.mojom.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec,
+      blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec,
       null,
       [voice_list]);
   }
 
 };
 
-blink.mojom.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
-  let remote = new blink.mojom.mojom.SpeechSynthesisVoiceListObserverRemote();
+blink.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
+  let remote = new blink.mojom.SpeechSynthesisVoiceListObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +133,7 @@ blink.mojom.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnSetVoiceList
-blink.mojom.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
+blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisVoiceListObserver.OnSetVoiceList_Params',
@@ -134,29 +147,118 @@ blink.mojom.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SpeechSynthesisVoiceListObserverPtr = blink.mojom.mojom.SpeechSynthesisVoiceListObserverRemote;
-blink.mojom.mojom.SpeechSynthesisVoiceListObserverRequest = blink.mojom.mojom.SpeechSynthesisVoiceListObserverPendingReceiver;
+blink.mojom.SpeechSynthesisVoiceListObserverPtr = blink.mojom.SpeechSynthesisVoiceListObserverRemote;
+blink.mojom.SpeechSynthesisVoiceListObserverRequest = blink.mojom.SpeechSynthesisVoiceListObserverPendingReceiver;
 
 
 // Interface: SpeechSynthesisClient
-blink.mojom.mojom.SpeechSynthesisClient = {};
+blink.mojom.SpeechSynthesisClient = {};
 
-blink.mojom.mojom.SpeechSynthesisClientPendingReceiver = class {
+blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisErrorCodeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SpeechSynthesisClientRemote = class {
+blink.mojom.SpeechSynthesisClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SpeechSynthesisClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SpeechSynthesisClientPendingReceiver,
+      blink.mojom.SpeechSynthesisClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SpeechSynthesisClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -168,7 +270,7 @@ blink.mojom.mojom.SpeechSynthesisClientRemote = class {
   }
 };
 
-blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
+blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -177,7 +279,7 @@ blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec,
+      blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -186,7 +288,7 @@ blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec,
+      blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec,
       null,
       [error_code]);
   }
@@ -195,7 +297,7 @@ blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec,
+      blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -204,7 +306,7 @@ blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec,
+      blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -213,7 +315,7 @@ blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec,
+      blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec,
       null,
       [char_index, char_length]);
   }
@@ -222,7 +324,7 @@ blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec,
+      blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec,
       null,
       [char_index, char_length]);
   }
@@ -231,15 +333,15 @@ blink.mojom.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec,
+      blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.SpeechSynthesisClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.SpeechSynthesisClientRemote();
+blink.mojom.SpeechSynthesisClient.getRemote = function() {
+  let remote = new blink.mojom.SpeechSynthesisClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -249,7 +351,7 @@ blink.mojom.mojom.SpeechSynthesisClient.getRemote = function() {
 };
 
 // ParamsSpec for OnStartedSpeaking
-blink.mojom.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
+blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnStartedSpeaking_Params',
@@ -262,7 +364,7 @@ blink.mojom.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
 };
 
 // ParamsSpec for OnFinishedSpeaking
-blink.mojom.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
+blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnFinishedSpeaking_Params',
@@ -276,7 +378,7 @@ blink.mojom.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
 };
 
 // ParamsSpec for OnPausedSpeaking
-blink.mojom.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
+blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnPausedSpeaking_Params',
@@ -289,7 +391,7 @@ blink.mojom.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
 };
 
 // ParamsSpec for OnResumedSpeaking
-blink.mojom.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
+blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnResumedSpeaking_Params',
@@ -302,7 +404,7 @@ blink.mojom.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
 };
 
 // ParamsSpec for OnEncounteredWordBoundary
-blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
+blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredWordBoundary_Params',
@@ -317,7 +419,7 @@ blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
 };
 
 // ParamsSpec for OnEncounteredSentenceBoundary
-blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
+blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredSentenceBoundary_Params',
@@ -332,7 +434,7 @@ blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec
 };
 
 // ParamsSpec for OnEncounteredSpeakingError
-blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
+blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredSpeakingError_Params',
@@ -345,29 +447,92 @@ blink.mojom.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SpeechSynthesisClientPtr = blink.mojom.mojom.SpeechSynthesisClientRemote;
-blink.mojom.mojom.SpeechSynthesisClientRequest = blink.mojom.mojom.SpeechSynthesisClientPendingReceiver;
+blink.mojom.SpeechSynthesisClientPtr = blink.mojom.SpeechSynthesisClientRemote;
+blink.mojom.SpeechSynthesisClientRequest = blink.mojom.SpeechSynthesisClientPendingReceiver;
 
 
 // Interface: SpeechSynthesis
-blink.mojom.mojom.SpeechSynthesis = {};
+blink.mojom.SpeechSynthesis = {};
 
-blink.mojom.mojom.SpeechSynthesisPendingReceiver = class {
+blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesis_AddVoiceListObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisVoiceListObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesis_Speak_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisUtteranceSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesis_Pause_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesis_Resume_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesis_Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SpeechSynthesisPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SpeechSynthesisRemote = class {
+blink.mojom.SpeechSynthesisRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SpeechSynthesis';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SpeechSynthesisPendingReceiver,
+      blink.mojom.SpeechSynthesisPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SpeechSynthesisRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SpeechSynthesisRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -379,7 +544,7 @@ blink.mojom.mojom.SpeechSynthesisRemote = class {
   }
 };
 
-blink.mojom.mojom.SpeechSynthesisRemoteCallHandler = class {
+blink.mojom.SpeechSynthesisRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -388,7 +553,7 @@ blink.mojom.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec,
+      blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -397,7 +562,7 @@ blink.mojom.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.SpeechSynthesis_Speak_ParamsSpec,
+      blink.mojom.SpeechSynthesis_Speak_ParamsSpec,
       null,
       [utterance, client]);
   }
@@ -406,7 +571,7 @@ blink.mojom.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.SpeechSynthesis_Pause_ParamsSpec,
+      blink.mojom.SpeechSynthesis_Pause_ParamsSpec,
       null,
       []);
   }
@@ -415,7 +580,7 @@ blink.mojom.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.SpeechSynthesis_Resume_ParamsSpec,
+      blink.mojom.SpeechSynthesis_Resume_ParamsSpec,
       null,
       []);
   }
@@ -424,15 +589,15 @@ blink.mojom.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.SpeechSynthesis_Cancel_ParamsSpec,
+      blink.mojom.SpeechSynthesis_Cancel_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.SpeechSynthesis.getRemote = function() {
-  let remote = new blink.mojom.mojom.SpeechSynthesisRemote();
+blink.mojom.SpeechSynthesis.getRemote = function() {
+  let remote = new blink.mojom.SpeechSynthesisRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -442,7 +607,7 @@ blink.mojom.mojom.SpeechSynthesis.getRemote = function() {
 };
 
 // ParamsSpec for AddVoiceListObserver
-blink.mojom.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
+blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesis.AddVoiceListObserver_Params',
@@ -456,7 +621,7 @@ blink.mojom.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
 };
 
 // ParamsSpec for Speak
-blink.mojom.mojom.SpeechSynthesis_Speak_ParamsSpec = {
+blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesis.Speak_Params',
@@ -471,7 +636,7 @@ blink.mojom.mojom.SpeechSynthesis_Speak_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-blink.mojom.mojom.SpeechSynthesis_Pause_ParamsSpec = {
+blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesis.Pause_Params',
@@ -484,7 +649,7 @@ blink.mojom.mojom.SpeechSynthesis_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-blink.mojom.mojom.SpeechSynthesis_Resume_ParamsSpec = {
+blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesis.Resume_Params',
@@ -497,7 +662,7 @@ blink.mojom.mojom.SpeechSynthesis_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-blink.mojom.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
+blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesis.Cancel_Params',
@@ -510,6 +675,6 @@ blink.mojom.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SpeechSynthesisPtr = blink.mojom.mojom.SpeechSynthesisRemote;
-blink.mojom.mojom.SpeechSynthesisRequest = blink.mojom.mojom.SpeechSynthesisPendingReceiver;
+blink.mojom.SpeechSynthesisPtr = blink.mojom.SpeechSynthesisRemote;
+blink.mojom.SpeechSynthesisRequest = blink.mojom.SpeechSynthesisPendingReceiver;
 

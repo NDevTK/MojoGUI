@@ -7,28 +7,199 @@
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
-ash.mojom.mojom.files_internals = ash.mojom.mojom.files_internals || {};
+ash.mojom.files_internals = ash.mojom.files_internals || {};
 
 
 // Interface: PageHandler
-ash.mojom.mojom.files_internals.files_internals.PageHandler = {};
+ash.mojom.files_internals.PageHandler = {};
 
-ash.mojom.mojom.files_internals.files_internals.PageHandlerPendingReceiver = class {
+ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.mojom.files_internals.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandlerRemote = class {
+ash.mojom.files_internals.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.files_internals.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.mojom.files_internals.files_internals.PageHandlerPendingReceiver,
+      ash.mojom.files_internals.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.files_internals.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +211,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemote = class {
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = class {
+ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +220,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +229,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec,
       null,
       [enabled]);
   }
@@ -67,8 +238,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec,
       []);
   }
 
@@ -76,7 +247,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec,
       null,
       []);
   }
@@ -85,8 +256,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec,
       []);
   }
 
@@ -94,8 +265,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -103,8 +274,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec,
       []);
   }
 
@@ -112,8 +283,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -121,8 +292,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec,
       []);
   }
 
@@ -130,8 +301,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -139,8 +310,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
       []);
   }
 
@@ -148,7 +319,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       null,
       [always_move]);
   }
@@ -157,8 +328,8 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -166,15 +337,15 @@ ash.mojom.mojom.files_internals.files_internals.PageHandlerRemoteCallHandler = c
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.mojom.mojom.files_internals.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
+      ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       null,
       [always_move]);
   }
 
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler.getRemote = function() {
-  let remote = new ash.mojom.mojom.files_internals.files_internals.PageHandlerRemote();
+ash.mojom.files_internals.PageHandler.getRemote = function() {
+  let remote = new ash.mojom.files_internals.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -184,7 +355,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler.getRemote = function
 };
 
 // ParamsSpec for GetSmbfsEnableVerboseLogging
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetSmbfsEnableVerboseLogging_Params',
@@ -196,7 +367,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetSmbfsEnableVerbos
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetSmbfsEnableVerboseLogging_ResponseParams',
@@ -210,7 +381,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetSmbfsEnableVerbos
 };
 
 // ParamsSpec for SetSmbfsEnableVerboseLogging
-ash.mojom.mojom.files_internals.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.SetSmbfsEnableVerboseLogging_Params',
@@ -224,7 +395,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_SetSmbfsEnableVerbos
 };
 
 // ParamsSpec for GetOfficeFileHandlers
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetOfficeFileHandlers_Params',
@@ -236,7 +407,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetOfficeFileHandler
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetOfficeFileHandlers_ResponseParams',
@@ -250,7 +421,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetOfficeFileHandler
 };
 
 // ParamsSpec for ClearOfficeFileHandlers
-ash.mojom.mojom.files_internals.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.ClearOfficeFileHandlers_Params',
@@ -263,7 +434,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_ClearOfficeFileHandl
 };
 
 // ParamsSpec for GetMoveConfirmationShownForDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForDrive_Params',
@@ -275,7 +446,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForDrive_ResponseParams',
@@ -289,7 +460,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
 };
 
 // ParamsSpec for GetMoveConfirmationShownForOneDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForOneDrive_Params',
@@ -301,7 +472,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForOneDrive_ResponseParams',
@@ -315,7 +486,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
 };
 
 // ParamsSpec for GetMoveConfirmationShownForLocalToDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForLocalToDrive_Params',
@@ -327,7 +498,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForLocalToDrive_ResponseParams',
@@ -341,7 +512,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
 };
 
 // ParamsSpec for GetMoveConfirmationShownForLocalToOneDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForLocalToOneDrive_Params',
@@ -353,7 +524,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForLocalToOneDrive_ResponseParams',
@@ -367,7 +538,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
 };
 
 // ParamsSpec for GetMoveConfirmationShownForCloudToDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForCloudToDrive_Params',
@@ -379,7 +550,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForCloudToDrive_ResponseParams',
@@ -393,7 +564,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
 };
 
 // ParamsSpec for GetMoveConfirmationShownForCloudToOneDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForCloudToOneDrive_Params',
@@ -405,7 +576,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForCloudToOneDrive_ResponseParams',
@@ -419,7 +590,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetMoveConfirmationS
 };
 
 // ParamsSpec for GetAlwaysMoveOfficeFilesToDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetAlwaysMoveOfficeFilesToDrive_Params',
@@ -431,7 +602,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeF
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetAlwaysMoveOfficeFilesToDrive_ResponseParams',
@@ -445,7 +616,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeF
 };
 
 // ParamsSpec for SetAlwaysMoveOfficeFilesToDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.SetAlwaysMoveOfficeFilesToDrive_Params',
@@ -459,7 +630,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_SetAlwaysMoveOfficeF
 };
 
 // ParamsSpec for GetAlwaysMoveOfficeFilesToOneDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetAlwaysMoveOfficeFilesToOneDrive_Params',
@@ -471,7 +642,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeF
   }
 };
 
-ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec = {
+ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams',
@@ -485,7 +656,7 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_GetAlwaysMoveOfficeF
 };
 
 // ParamsSpec for SetAlwaysMoveOfficeFilesToOneDrive
-ash.mojom.mojom.files_internals.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
+ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.files_internals.PageHandler.SetAlwaysMoveOfficeFilesToOneDrive_Params',
@@ -499,6 +670,6 @@ ash.mojom.mojom.files_internals.files_internals.PageHandler_SetAlwaysMoveOfficeF
 };
 
 // Legacy compatibility
-ash.mojom.mojom.files_internals.files_internals.PageHandlerPtr = ash.mojom.mojom.files_internals.files_internals.PageHandlerRemote;
-ash.mojom.mojom.files_internals.files_internals.PageHandlerRequest = ash.mojom.mojom.files_internals.files_internals.PageHandlerPendingReceiver;
+ash.mojom.files_internals.PageHandlerPtr = ash.mojom.files_internals.PageHandlerRemote;
+ash.mojom.files_internals.PageHandlerRequest = ash.mojom.files_internals.PageHandlerPendingReceiver;
 

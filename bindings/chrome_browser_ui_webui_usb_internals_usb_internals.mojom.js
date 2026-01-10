@@ -11,6 +11,32 @@ var mojom = mojom || {};
 // Interface: UsbInternalsPageHandler
 mojom.UsbInternalsPageHandler = {};
 
+mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.UsbInternalsPageHandler_BindTestInterface_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
 mojom.UsbInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

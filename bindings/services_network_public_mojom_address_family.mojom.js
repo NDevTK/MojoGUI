@@ -10,9 +10,9 @@ network.mojom = network.mojom || {};
 
 
 // Enum: AddressFamily
-network.mojom.mojom.AddressFamily = {
+network.mojom.AddressFamily = {
   UNSPECIFIED: 0,
   IPV4: 1,
   IPV6: 2,
 };
-network.mojom.mojom.AddressFamilySpec = { $: mojo.internal.Enum() };
+network.mojom.AddressFamilySpec = { $: mojo.internal.Enum() };

@@ -10,24 +10,135 @@ device.mojom = device.mojom || {};
 
 
 // Interface: UsbDeviceManager
-device.mojom.mojom.UsbDeviceManager = {};
+device.mojom.UsbDeviceManager = {};
 
-device.mojom.mojom.UsbDeviceManagerPendingReceiver = class {
+device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_GetDevices_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbEnumerationOptionsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_GetDevice_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'blocked_interface_classes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
+        { name: 'device_client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_GetSecurityKeyDevice_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
+        { name: 'device_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_RefreshDeviceInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_CheckAccess_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_OpenFileDescriptor_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'allowed_interfaces_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'lifeline_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceManager_SetClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+device.mojom.UsbDeviceManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.mojom.UsbDeviceManagerRemote = class {
+device.mojom.UsbDeviceManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.UsbDeviceManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.mojom.UsbDeviceManagerPendingReceiver,
+      device.mojom.UsbDeviceManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.mojom.UsbDeviceManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.UsbDeviceManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +150,7 @@ device.mojom.mojom.UsbDeviceManagerRemote = class {
   }
 };
 
-device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
+device.mojom.UsbDeviceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +159,8 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec,
-      device.mojom.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec,
+      device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec,
+      device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec,
       [client]);
   }
 
@@ -57,8 +168,8 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_GetDevices_ParamsSpec,
-      device.mojom.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec,
+      device.mojom.UsbDeviceManager_GetDevices_ParamsSpec,
+      device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec,
       [options]);
   }
 
@@ -66,7 +177,7 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_GetDevice_ParamsSpec,
+      device.mojom.UsbDeviceManager_GetDevice_ParamsSpec,
       null,
       [guid, blocked_interface_classes, device_receiver, device_client]);
   }
@@ -75,7 +186,7 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec,
+      device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec,
       null,
       [guid, device_receiver, device_client]);
   }
@@ -84,8 +195,8 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec,
-      device.mojom.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec,
+      device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec,
+      device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec,
       [guid]);
   }
 
@@ -93,8 +204,8 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_CheckAccess_ParamsSpec,
-      device.mojom.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec,
+      device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec,
+      device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec,
       [guid]);
   }
 
@@ -102,8 +213,8 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec,
-      device.mojom.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec,
+      device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec,
+      device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec,
       [guid, allowed_interfaces_mask, lifeline_fd]);
   }
 
@@ -111,15 +222,15 @@ device.mojom.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.mojom.UsbDeviceManager_SetClient_ParamsSpec,
+      device.mojom.UsbDeviceManager_SetClient_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-device.mojom.mojom.UsbDeviceManager.getRemote = function() {
-  let remote = new device.mojom.mojom.UsbDeviceManagerRemote();
+device.mojom.UsbDeviceManager.getRemote = function() {
+  let remote = new device.mojom.UsbDeviceManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -129,7 +240,7 @@ device.mojom.mojom.UsbDeviceManager.getRemote = function() {
 };
 
 // ParamsSpec for EnumerateDevicesAndSetClient
-device.mojom.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
+device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.EnumerateDevicesAndSetClient_Params',
@@ -142,7 +253,7 @@ device.mojom.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = {
+device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.EnumerateDevicesAndSetClient_ResponseParams',
@@ -156,7 +267,7 @@ device.mojom.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsS
 };
 
 // ParamsSpec for GetDevices
-device.mojom.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
+device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.GetDevices_Params',
@@ -169,7 +280,7 @@ device.mojom.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = {
+device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.GetDevices_ResponseParams',
@@ -183,7 +294,7 @@ device.mojom.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDevice
-device.mojom.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
+device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.GetDevice_Params',
@@ -200,7 +311,7 @@ device.mojom.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
 };
 
 // ParamsSpec for GetSecurityKeyDevice
-device.mojom.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
+device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.GetSecurityKeyDevice_Params',
@@ -216,7 +327,7 @@ device.mojom.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
 };
 
 // ParamsSpec for RefreshDeviceInfo
-device.mojom.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
+device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.RefreshDeviceInfo_Params',
@@ -229,7 +340,7 @@ device.mojom.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
+device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.RefreshDeviceInfo_ResponseParams',
@@ -243,7 +354,7 @@ device.mojom.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CheckAccess
-device.mojom.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
+device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.CheckAccess_Params',
@@ -256,7 +367,7 @@ device.mojom.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = {
+device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.CheckAccess_ResponseParams',
@@ -270,7 +381,7 @@ device.mojom.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenFileDescriptor
-device.mojom.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
+device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.OpenFileDescriptor_Params',
@@ -285,7 +396,7 @@ device.mojom.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
   }
 };
 
-device.mojom.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
+device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.OpenFileDescriptor_ResponseParams',
@@ -299,7 +410,7 @@ device.mojom.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetClient
-device.mojom.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
+device.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManager.SetClient_Params',
@@ -313,6 +424,6 @@ device.mojom.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.mojom.UsbDeviceManagerPtr = device.mojom.mojom.UsbDeviceManagerRemote;
-device.mojom.mojom.UsbDeviceManagerRequest = device.mojom.mojom.UsbDeviceManagerPendingReceiver;
+device.mojom.UsbDeviceManagerPtr = device.mojom.UsbDeviceManagerRemote;
+device.mojom.UsbDeviceManagerRequest = device.mojom.UsbDeviceManagerPendingReceiver;
 

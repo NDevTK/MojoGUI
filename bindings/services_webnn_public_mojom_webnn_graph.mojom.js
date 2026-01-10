@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Enum: DataType
-webnn.mojom.mojom.DataType = {
+webnn.mojom.DataType = {
   kFloat32: 0,
   kFloat16: 1,
   kInt32: 2,
@@ -23,32 +23,32 @@ webnn.mojom.mojom.DataType = {
   kInt4: 8,
   kUint4: 9,
 };
-webnn.mojom.mojom.DataTypeSpec = { $: mojo.internal.Enum() };
+webnn.mojom.DataTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Kind
-webnn.mojom.mojom.Kind = {
+webnn.mojom.Kind = {
   kInput: 0,
   kConstant: 1,
   kOutput: 2,
 };
-webnn.mojom.mojom.KindSpec = { $: mojo.internal.Enum() };
+webnn.mojom.KindSpec = { $: mojo.internal.Enum() };
 
 // Enum: Kind
-webnn.mojom.mojom.Kind = {
+webnn.mojom.Kind = {
   kMin: 0,
   kMax: 1,
 };
-webnn.mojom.mojom.KindSpec = { $: mojo.internal.Enum() };
+webnn.mojom.KindSpec = { $: mojo.internal.Enum() };
 
 // Enum: Kind
-webnn.mojom.mojom.Kind = {
+webnn.mojom.Kind = {
   kDirect: 0,
   kTransposed: 1,
 };
-webnn.mojom.mojom.KindSpec = { $: mojo.internal.Enum() };
+webnn.mojom.KindSpec = { $: mojo.internal.Enum() };
 
 // Enum: Kind
-webnn.mojom.mojom.Kind = {
+webnn.mojom.Kind = {
   kAdd: 0,
   kSub: 1,
   kMul: 2,
@@ -66,10 +66,10 @@ webnn.mojom.mojom.Kind = {
   kLogicalOr: 14,
   kLogicalXor: 15,
 };
-webnn.mojom.mojom.KindSpec = { $: mojo.internal.Enum() };
+webnn.mojom.KindSpec = { $: mojo.internal.Enum() };
 
 // Enum: Kind
-webnn.mojom.mojom.Kind = {
+webnn.mojom.Kind = {
   kAbs: 0,
   kCeil: 1,
   kCos: 2,
@@ -90,10 +90,10 @@ webnn.mojom.mojom.Kind = {
   kReciprocal: 17,
   kCast: 18,
 };
-webnn.mojom.mojom.KindSpec = { $: mojo.internal.Enum() };
+webnn.mojom.KindSpec = { $: mojo.internal.Enum() };
 
 // Enum: Kind
-webnn.mojom.mojom.Kind = {
+webnn.mojom.Kind = {
   kL1: 0,
   kL2: 1,
   kLogSum: 2,
@@ -105,55 +105,55 @@ webnn.mojom.mojom.Kind = {
   kSum: 8,
   kSumSquare: 9,
 };
-webnn.mojom.mojom.KindSpec = { $: mojo.internal.Enum() };
+webnn.mojom.KindSpec = { $: mojo.internal.Enum() };
 
 // Enum: Kind
-webnn.mojom.mojom.Kind = {
+webnn.mojom.Kind = {
   kAveragePool2d: 0,
   kL2Pool2d: 1,
   kMaxPool2d: 2,
 };
-webnn.mojom.mojom.KindSpec = { $: mojo.internal.Enum() };
+webnn.mojom.KindSpec = { $: mojo.internal.Enum() };
 
 // Enum: RecurrentNetworkActivation
-webnn.mojom.mojom.RecurrentNetworkActivation = {
+webnn.mojom.RecurrentNetworkActivation = {
   kRelu: 0,
   kSigmoid: 1,
   kTanh: 2,
 };
-webnn.mojom.mojom.RecurrentNetworkActivationSpec = { $: mojo.internal.Enum() };
+webnn.mojom.RecurrentNetworkActivationSpec = { $: mojo.internal.Enum() };
 
 // Enum: RecurrentNetworkDirection
-webnn.mojom.mojom.RecurrentNetworkDirection = {
+webnn.mojom.RecurrentNetworkDirection = {
   kForward: 0,
   kBackward: 1,
   kBoth: 2,
 };
-webnn.mojom.mojom.RecurrentNetworkDirectionSpec = { $: mojo.internal.Enum() };
+webnn.mojom.RecurrentNetworkDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: GruWeightLayout
-webnn.mojom.mojom.GruWeightLayout = {
+webnn.mojom.GruWeightLayout = {
   kZrn: 0,
   kRzn: 1,
 };
-webnn.mojom.mojom.GruWeightLayoutSpec = { $: mojo.internal.Enum() };
+webnn.mojom.GruWeightLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: LstmWeightLayout
-webnn.mojom.mojom.LstmWeightLayout = {
+webnn.mojom.LstmWeightLayout = {
   kIofg: 0,
   kIfgo: 1,
 };
-webnn.mojom.mojom.LstmWeightLayoutSpec = { $: mojo.internal.Enum() };
+webnn.mojom.LstmWeightLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: InterpolationMode
-webnn.mojom.mojom.InterpolationMode = {
+webnn.mojom.InterpolationMode = {
   kNearestNeighbor: 0,
   kLinear: 1,
 };
-webnn.mojom.mojom.InterpolationModeSpec = { $: mojo.internal.Enum() };
+webnn.mojom.InterpolationModeSpec = { $: mojo.internal.Enum() };
 
 // Union: Number
-webnn.mojom.mojom.NumberSpec = { $: mojo.internal.Union(
+webnn.mojom.NumberSpec = { $: mojo.internal.Union(
     'webnn.mojom.Number', {
       'floating_point': {
         'ordinal': 0,
@@ -171,7 +171,7 @@ webnn.mojom.mojom.NumberSpec = { $: mojo.internal.Union(
 };
 
 // Union: PaddingMode
-webnn.mojom.mojom.PaddingModeSpec = { $: mojo.internal.Union(
+webnn.mojom.PaddingModeSpec = { $: mojo.internal.Union(
     'webnn.mojom.PaddingMode', {
       'constant': {
         'ordinal': 0,
@@ -189,7 +189,7 @@ webnn.mojom.mojom.PaddingModeSpec = { $: mojo.internal.Union(
 };
 
 // Union: Operation
-webnn.mojom.mojom.OperationSpec = { $: mojo.internal.Union(
+webnn.mojom.OperationSpec = { $: mojo.internal.Union(
     'webnn.mojom.Operation', {
       'arg_min_max': {
         'ordinal': 0,
@@ -391,7 +391,7 @@ webnn.mojom.mojom.OperationSpec = { $: mojo.internal.Union(
 };
 
 // Struct: OperandDescriptor
-webnn.mojom.mojom.OperandDescriptorSpec = {
+webnn.mojom.OperandDescriptorSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.OperandDescriptor',
@@ -407,7 +407,7 @@ webnn.mojom.mojom.OperandDescriptorSpec = {
 };
 
 // Struct: OperandId
-webnn.mojom.mojom.OperandIdSpec = {
+webnn.mojom.OperandIdSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.OperandId',
@@ -421,7 +421,7 @@ webnn.mojom.mojom.OperandIdSpec = {
 };
 
 // Struct: Operand
-webnn.mojom.mojom.OperandSpec = {
+webnn.mojom.OperandSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Operand',
@@ -435,7 +435,7 @@ webnn.mojom.mojom.OperandSpec = {
 };
 
 // Struct: ArgMinMax
-webnn.mojom.mojom.ArgMinMaxSpec = {
+webnn.mojom.ArgMinMaxSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ArgMinMax',
@@ -449,7 +449,7 @@ webnn.mojom.mojom.ArgMinMaxSpec = {
 };
 
 // Struct: BatchNormalization
-webnn.mojom.mojom.BatchNormalizationSpec = {
+webnn.mojom.BatchNormalizationSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.BatchNormalization',
@@ -471,7 +471,7 @@ webnn.mojom.mojom.BatchNormalizationSpec = {
 };
 
 // Struct: Clamp
-webnn.mojom.mojom.ClampSpec = {
+webnn.mojom.ClampSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Clamp',
@@ -489,7 +489,7 @@ webnn.mojom.mojom.ClampSpec = {
 };
 
 // Struct: Concat
-webnn.mojom.mojom.ConcatSpec = {
+webnn.mojom.ConcatSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Concat',
@@ -506,7 +506,7 @@ webnn.mojom.mojom.ConcatSpec = {
 };
 
 // Struct: Size2d
-webnn.mojom.mojom.Size2dSpec = {
+webnn.mojom.Size2dSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Size2d',
@@ -521,7 +521,7 @@ webnn.mojom.mojom.Size2dSpec = {
 };
 
 // Struct: Padding2d
-webnn.mojom.mojom.Padding2dSpec = {
+webnn.mojom.Padding2dSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Padding2d',
@@ -536,7 +536,7 @@ webnn.mojom.mojom.Padding2dSpec = {
 };
 
 // Struct: Conv2d
-webnn.mojom.mojom.Conv2dSpec = {
+webnn.mojom.Conv2dSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Conv2d',
@@ -550,7 +550,7 @@ webnn.mojom.mojom.Conv2dSpec = {
 };
 
 // Struct: CumulativeSum
-webnn.mojom.mojom.CumulativeSumSpec = {
+webnn.mojom.CumulativeSumSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CumulativeSum',
@@ -569,7 +569,7 @@ webnn.mojom.mojom.CumulativeSumSpec = {
 };
 
 // Struct: DequantizeLinear
-webnn.mojom.mojom.DequantizeLinearSpec = {
+webnn.mojom.DequantizeLinearSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.DequantizeLinear',
@@ -587,7 +587,7 @@ webnn.mojom.mojom.DequantizeLinearSpec = {
 };
 
 // Struct: ElementWiseBinary
-webnn.mojom.mojom.ElementWiseBinarySpec = {
+webnn.mojom.ElementWiseBinarySpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ElementWiseBinary',
@@ -601,7 +601,7 @@ webnn.mojom.mojom.ElementWiseBinarySpec = {
 };
 
 // Struct: ElementWiseUnary
-webnn.mojom.mojom.ElementWiseUnarySpec = {
+webnn.mojom.ElementWiseUnarySpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ElementWiseUnary',
@@ -615,7 +615,7 @@ webnn.mojom.mojom.ElementWiseUnarySpec = {
 };
 
 // Struct: Expand
-webnn.mojom.mojom.ExpandSpec = {
+webnn.mojom.ExpandSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Expand',
@@ -631,7 +631,7 @@ webnn.mojom.mojom.ExpandSpec = {
 };
 
 // Struct: ConstantPadding
-webnn.mojom.mojom.ConstantPaddingSpec = {
+webnn.mojom.ConstantPaddingSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ConstantPadding',
@@ -645,7 +645,7 @@ webnn.mojom.mojom.ConstantPaddingSpec = {
 };
 
 // Struct: EdgePadding
-webnn.mojom.mojom.EdgePaddingSpec = {
+webnn.mojom.EdgePaddingSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.EdgePadding',
@@ -658,7 +658,7 @@ webnn.mojom.mojom.EdgePaddingSpec = {
 };
 
 // Struct: ReflectionPadding
-webnn.mojom.mojom.ReflectionPaddingSpec = {
+webnn.mojom.ReflectionPaddingSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ReflectionPadding',
@@ -671,7 +671,7 @@ webnn.mojom.mojom.ReflectionPaddingSpec = {
 };
 
 // Struct: InstanceNormalization
-webnn.mojom.mojom.InstanceNormalizationSpec = {
+webnn.mojom.InstanceNormalizationSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.InstanceNormalization',
@@ -690,7 +690,7 @@ webnn.mojom.mojom.InstanceNormalizationSpec = {
 };
 
 // Struct: Matmul
-webnn.mojom.mojom.MatmulSpec = {
+webnn.mojom.MatmulSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Matmul',
@@ -707,7 +707,7 @@ webnn.mojom.mojom.MatmulSpec = {
 };
 
 // Struct: Pad
-webnn.mojom.mojom.PadSpec = {
+webnn.mojom.PadSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Pad',
@@ -726,7 +726,7 @@ webnn.mojom.mojom.PadSpec = {
 };
 
 // Struct: Reduce
-webnn.mojom.mojom.ReduceSpec = {
+webnn.mojom.ReduceSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Reduce',
@@ -740,7 +740,7 @@ webnn.mojom.mojom.ReduceSpec = {
 };
 
 // Struct: Pool2d
-webnn.mojom.mojom.Pool2dSpec = {
+webnn.mojom.Pool2dSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Pool2d',
@@ -754,7 +754,7 @@ webnn.mojom.mojom.Pool2dSpec = {
 };
 
 // Struct: Range
-webnn.mojom.mojom.RangeSpec = {
+webnn.mojom.RangeSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Range',
@@ -770,7 +770,7 @@ webnn.mojom.mojom.RangeSpec = {
 };
 
 // Struct: Slice
-webnn.mojom.mojom.SliceSpec = {
+webnn.mojom.SliceSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Slice',
@@ -787,7 +787,7 @@ webnn.mojom.mojom.SliceSpec = {
 };
 
 // Struct: Elu
-webnn.mojom.mojom.EluSpec = {
+webnn.mojom.EluSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Elu',
@@ -804,7 +804,7 @@ webnn.mojom.mojom.EluSpec = {
 };
 
 // Struct: Gather
-webnn.mojom.mojom.GatherSpec = {
+webnn.mojom.GatherSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Gather',
@@ -822,7 +822,7 @@ webnn.mojom.mojom.GatherSpec = {
 };
 
 // Struct: GatherElements
-webnn.mojom.mojom.GatherElementsSpec = {
+webnn.mojom.GatherElementsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.GatherElements',
@@ -840,7 +840,7 @@ webnn.mojom.mojom.GatherElementsSpec = {
 };
 
 // Struct: GatherND
-webnn.mojom.mojom.GatherNDSpec = {
+webnn.mojom.GatherNDSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.GatherND',
@@ -857,7 +857,7 @@ webnn.mojom.mojom.GatherNDSpec = {
 };
 
 // Struct: Gelu
-webnn.mojom.mojom.GeluSpec = {
+webnn.mojom.GeluSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Gelu',
@@ -873,7 +873,7 @@ webnn.mojom.mojom.GeluSpec = {
 };
 
 // Struct: Gru
-webnn.mojom.mojom.GruSpec = {
+webnn.mojom.GruSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Gru',
@@ -901,7 +901,7 @@ webnn.mojom.mojom.GruSpec = {
 };
 
 // Struct: GruCell
-webnn.mojom.mojom.GruCellSpec = {
+webnn.mojom.GruCellSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.GruCell',
@@ -926,7 +926,7 @@ webnn.mojom.mojom.GruCellSpec = {
 };
 
 // Struct: Gemm
-webnn.mojom.mojom.GemmSpec = {
+webnn.mojom.GemmSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Gemm',
@@ -948,7 +948,7 @@ webnn.mojom.mojom.GemmSpec = {
 };
 
 // Struct: HardSigmoid
-webnn.mojom.mojom.HardSigmoidSpec = {
+webnn.mojom.HardSigmoidSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.HardSigmoid',
@@ -966,7 +966,7 @@ webnn.mojom.mojom.HardSigmoidSpec = {
 };
 
 // Struct: HardSwish
-webnn.mojom.mojom.HardSwishSpec = {
+webnn.mojom.HardSwishSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.HardSwish',
@@ -982,7 +982,7 @@ webnn.mojom.mojom.HardSwishSpec = {
 };
 
 // Struct: LayerNormalization
-webnn.mojom.mojom.LayerNormalizationSpec = {
+webnn.mojom.LayerNormalizationSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.LayerNormalization',
@@ -1002,7 +1002,7 @@ webnn.mojom.mojom.LayerNormalizationSpec = {
 };
 
 // Struct: LeakyRelu
-webnn.mojom.mojom.LeakyReluSpec = {
+webnn.mojom.LeakyReluSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.LeakyRelu',
@@ -1019,7 +1019,7 @@ webnn.mojom.mojom.LeakyReluSpec = {
 };
 
 // Struct: Linear
-webnn.mojom.mojom.LinearSpec = {
+webnn.mojom.LinearSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Linear',
@@ -1037,7 +1037,7 @@ webnn.mojom.mojom.LinearSpec = {
 };
 
 // Struct: Lstm
-webnn.mojom.mojom.LstmSpec = {
+webnn.mojom.LstmSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Lstm',
@@ -1066,7 +1066,7 @@ webnn.mojom.mojom.LstmSpec = {
 };
 
 // Struct: LstmCell
-webnn.mojom.mojom.LstmCellSpec = {
+webnn.mojom.LstmCellSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.LstmCell',
@@ -1092,7 +1092,7 @@ webnn.mojom.mojom.LstmCellSpec = {
 };
 
 // Struct: Prelu
-webnn.mojom.mojom.PreluSpec = {
+webnn.mojom.PreluSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Prelu',
@@ -1109,7 +1109,7 @@ webnn.mojom.mojom.PreluSpec = {
 };
 
 // Struct: QuantizeLinear
-webnn.mojom.mojom.QuantizeLinearSpec = {
+webnn.mojom.QuantizeLinearSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.QuantizeLinear',
@@ -1127,7 +1127,7 @@ webnn.mojom.mojom.QuantizeLinearSpec = {
 };
 
 // Struct: Relu
-webnn.mojom.mojom.ReluSpec = {
+webnn.mojom.ReluSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Relu',
@@ -1143,7 +1143,7 @@ webnn.mojom.mojom.ReluSpec = {
 };
 
 // Struct: Reshape
-webnn.mojom.mojom.ReshapeSpec = {
+webnn.mojom.ReshapeSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Reshape',
@@ -1159,7 +1159,7 @@ webnn.mojom.mojom.ReshapeSpec = {
 };
 
 // Struct: Reverse
-webnn.mojom.mojom.ReverseSpec = {
+webnn.mojom.ReverseSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Reverse',
@@ -1176,7 +1176,7 @@ webnn.mojom.mojom.ReverseSpec = {
 };
 
 // Struct: ScatterElements
-webnn.mojom.mojom.ScatterElementsSpec = {
+webnn.mojom.ScatterElementsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ScatterElements',
@@ -1195,7 +1195,7 @@ webnn.mojom.mojom.ScatterElementsSpec = {
 };
 
 // Struct: ScatterND
-webnn.mojom.mojom.ScatterNDSpec = {
+webnn.mojom.ScatterNDSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ScatterND',
@@ -1213,7 +1213,7 @@ webnn.mojom.mojom.ScatterNDSpec = {
 };
 
 // Struct: Sigmoid
-webnn.mojom.mojom.SigmoidSpec = {
+webnn.mojom.SigmoidSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Sigmoid',
@@ -1229,7 +1229,7 @@ webnn.mojom.mojom.SigmoidSpec = {
 };
 
 // Struct: Softmax
-webnn.mojom.mojom.SoftmaxSpec = {
+webnn.mojom.SoftmaxSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Softmax',
@@ -1246,7 +1246,7 @@ webnn.mojom.mojom.SoftmaxSpec = {
 };
 
 // Struct: Softplus
-webnn.mojom.mojom.SoftplusSpec = {
+webnn.mojom.SoftplusSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Softplus',
@@ -1262,7 +1262,7 @@ webnn.mojom.mojom.SoftplusSpec = {
 };
 
 // Struct: Softsign
-webnn.mojom.mojom.SoftsignSpec = {
+webnn.mojom.SoftsignSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Softsign',
@@ -1278,7 +1278,7 @@ webnn.mojom.mojom.SoftsignSpec = {
 };
 
 // Struct: Split
-webnn.mojom.mojom.SplitSpec = {
+webnn.mojom.SplitSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Split',
@@ -1295,7 +1295,7 @@ webnn.mojom.mojom.SplitSpec = {
 };
 
 // Struct: Tanh
-webnn.mojom.mojom.TanhSpec = {
+webnn.mojom.TanhSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Tanh',
@@ -1311,7 +1311,7 @@ webnn.mojom.mojom.TanhSpec = {
 };
 
 // Struct: Tile
-webnn.mojom.mojom.TileSpec = {
+webnn.mojom.TileSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Tile',
@@ -1328,7 +1328,7 @@ webnn.mojom.mojom.TileSpec = {
 };
 
 // Struct: Transpose
-webnn.mojom.mojom.TransposeSpec = {
+webnn.mojom.TransposeSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Transpose',
@@ -1345,7 +1345,7 @@ webnn.mojom.mojom.TransposeSpec = {
 };
 
 // Struct: Triangular
-webnn.mojom.mojom.TriangularSpec = {
+webnn.mojom.TriangularSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Triangular',
@@ -1363,7 +1363,7 @@ webnn.mojom.mojom.TriangularSpec = {
 };
 
 // Struct: Resample2d
-webnn.mojom.mojom.Resample2dSpec = {
+webnn.mojom.Resample2dSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Resample2d',
@@ -1379,7 +1379,7 @@ webnn.mojom.mojom.Resample2dSpec = {
 };
 
 // Struct: Where
-webnn.mojom.mojom.WhereSpec = {
+webnn.mojom.WhereSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.Where',
@@ -1397,7 +1397,7 @@ webnn.mojom.mojom.WhereSpec = {
 };
 
 // Struct: GraphInfo
-webnn.mojom.mojom.GraphInfoSpec = {
+webnn.mojom.GraphInfoSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.GraphInfo',
@@ -1416,24 +1416,38 @@ webnn.mojom.mojom.GraphInfoSpec = {
 };
 
 // Interface: WebNNGraph
-webnn.mojom.mojom.WebNNGraph = {};
+webnn.mojom.WebNNGraph = {};
 
-webnn.mojom.mojom.WebNNGraphPendingReceiver = class {
+webnn.mojom.WebNNGraph_Dispatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNGraph_Dispatch_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'named_inputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, blink.mojom.WebNNTensorTokenSpec, false), nullable: false, minVersion: 0 },
+        { name: 'named_outputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, blink.mojom.WebNNTensorTokenSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+webnn.mojom.WebNNGraphPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webnn.mojom.mojom.WebNNGraphRemote = class {
+webnn.mojom.WebNNGraphRemote = class {
   static get $interfaceName() {
     return 'webnn.mojom.WebNNGraph';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webnn.mojom.mojom.WebNNGraphPendingReceiver,
+      webnn.mojom.WebNNGraphPendingReceiver,
       handle);
-    this.$ = new webnn.mojom.mojom.WebNNGraphRemoteCallHandler(this.proxy);
+    this.$ = new webnn.mojom.WebNNGraphRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1445,7 +1459,7 @@ webnn.mojom.mojom.WebNNGraphRemote = class {
   }
 };
 
-webnn.mojom.mojom.WebNNGraphRemoteCallHandler = class {
+webnn.mojom.WebNNGraphRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1454,15 +1468,15 @@ webnn.mojom.mojom.WebNNGraphRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.mojom.WebNNGraph_Dispatch_ParamsSpec,
+      webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
       null,
       [named_inputs, named_outputs]);
   }
 
 };
 
-webnn.mojom.mojom.WebNNGraph.getRemote = function() {
-  let remote = new webnn.mojom.mojom.WebNNGraphRemote();
+webnn.mojom.WebNNGraph.getRemote = function() {
+  let remote = new webnn.mojom.WebNNGraphRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1472,7 +1486,7 @@ webnn.mojom.mojom.WebNNGraph.getRemote = function() {
 };
 
 // ParamsSpec for Dispatch
-webnn.mojom.mojom.WebNNGraph_Dispatch_ParamsSpec = {
+webnn.mojom.WebNNGraph_Dispatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNGraph.Dispatch_Params',
@@ -1487,6 +1501,6 @@ webnn.mojom.mojom.WebNNGraph_Dispatch_ParamsSpec = {
 };
 
 // Legacy compatibility
-webnn.mojom.mojom.WebNNGraphPtr = webnn.mojom.mojom.WebNNGraphRemote;
-webnn.mojom.mojom.WebNNGraphRequest = webnn.mojom.mojom.WebNNGraphPendingReceiver;
+webnn.mojom.WebNNGraphPtr = webnn.mojom.WebNNGraphRemote;
+webnn.mojom.WebNNGraphRequest = webnn.mojom.WebNNGraphPendingReceiver;
 

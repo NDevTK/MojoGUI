@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: SurfaceInfo
-viz.mojom.mojom.SurfaceInfoSpec = {
+viz.mojom.SurfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SurfaceInfo',

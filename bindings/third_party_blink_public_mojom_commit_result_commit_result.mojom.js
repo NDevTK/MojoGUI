@@ -10,9 +10,9 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: CommitResult
-blink.mojom.mojom.CommitResult = {
+blink.mojom.CommitResult = {
   Ok: 0,
   Aborted: 1,
   RestartCrossDocument: 2,
 };
-blink.mojom.mojom.CommitResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.CommitResultSpec = { $: mojo.internal.Enum() };

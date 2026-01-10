@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Struct: MtpStorageInfo
-device.mojom.mojom.MtpStorageInfoSpec = {
+device.mojom.MtpStorageInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpStorageInfo',

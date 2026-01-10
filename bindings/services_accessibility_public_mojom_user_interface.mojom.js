@@ -13,22 +13,22 @@ var skia = skia || {};
 
 
 // Enum: FocusType
-ax.mojom.mojom.FocusType = {
+ax.mojom.FocusType = {
   kGlow: 0,
   kSolid: 1,
   kDashed: 2,
 };
-ax.mojom.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FocusRingStackingOrder
-ax.mojom.mojom.FocusRingStackingOrder = {
+ax.mojom.FocusRingStackingOrder = {
   kAboveAccessibilityBubbles: 0,
   kBelowAccessibilityBubbles: 1,
 };
-ax.mojom.mojom.FocusRingStackingOrderSpec = { $: mojo.internal.Enum() };
+ax.mojom.FocusRingStackingOrderSpec = { $: mojo.internal.Enum() };
 
 // Struct: FocusRingInfo
-ax.mojom.mojom.FocusRingInfoSpec = {
+ax.mojom.FocusRingInfoSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.FocusRingInfo',
@@ -48,24 +48,106 @@ ax.mojom.mojom.FocusRingInfoSpec = {
 };
 
 // Interface: UserInterface
-ax.mojom.mojom.UserInterface = {};
+ax.mojom.UserInterface = {};
 
-ax.mojom.mojom.UserInterfacePendingReceiver = class {
+ax.mojom.UserInterface_DarkenScreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface_DarkenScreen_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'darken', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface_OpenSettingsSubpage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'subpage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface_ShowConfirmationDialog_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cancelName', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface_SetFocusRings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'focus_rings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.FocusRingInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'at_type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ax.mojom.UserInterface_SetHighlights_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface_SetHighlights_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'rects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface_SetVirtualKeyboardVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ax.mojom.UserInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.mojom.UserInterfaceRemote = class {
+ax.mojom.UserInterfaceRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.UserInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.mojom.UserInterfacePendingReceiver,
+      ax.mojom.UserInterfacePendingReceiver,
       handle);
-    this.$ = new ax.mojom.mojom.UserInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.UserInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -77,7 +159,7 @@ ax.mojom.mojom.UserInterfaceRemote = class {
   }
 };
 
-ax.mojom.mojom.UserInterfaceRemoteCallHandler = class {
+ax.mojom.UserInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -86,7 +168,7 @@ ax.mojom.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.mojom.UserInterface_DarkenScreen_ParamsSpec,
+      ax.mojom.UserInterface_DarkenScreen_ParamsSpec,
       null,
       [darken]);
   }
@@ -95,7 +177,7 @@ ax.mojom.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec,
+      ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec,
       null,
       [subpage]);
   }
@@ -104,8 +186,8 @@ ax.mojom.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec,
-      ax.mojom.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
+      ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec,
+      ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
       [title, description, cancelName]);
   }
 
@@ -113,7 +195,7 @@ ax.mojom.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.mojom.UserInterface_SetFocusRings_ParamsSpec,
+      ax.mojom.UserInterface_SetFocusRings_ParamsSpec,
       null,
       [focus_rings, at_type]);
   }
@@ -122,7 +204,7 @@ ax.mojom.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.mojom.UserInterface_SetHighlights_ParamsSpec,
+      ax.mojom.UserInterface_SetHighlights_ParamsSpec,
       null,
       [rects, color]);
   }
@@ -131,15 +213,15 @@ ax.mojom.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec,
+      ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec,
       null,
       [is_visible]);
   }
 
 };
 
-ax.mojom.mojom.UserInterface.getRemote = function() {
-  let remote = new ax.mojom.mojom.UserInterfaceRemote();
+ax.mojom.UserInterface.getRemote = function() {
+  let remote = new ax.mojom.UserInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -149,7 +231,7 @@ ax.mojom.mojom.UserInterface.getRemote = function() {
 };
 
 // ParamsSpec for DarkenScreen
-ax.mojom.mojom.UserInterface_DarkenScreen_ParamsSpec = {
+ax.mojom.UserInterface_DarkenScreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInterface.DarkenScreen_Params',
@@ -163,7 +245,7 @@ ax.mojom.mojom.UserInterface_DarkenScreen_ParamsSpec = {
 };
 
 // ParamsSpec for OpenSettingsSubpage
-ax.mojom.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
+ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInterface.OpenSettingsSubpage_Params',
@@ -177,7 +259,7 @@ ax.mojom.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
 };
 
 // ParamsSpec for ShowConfirmationDialog
-ax.mojom.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
+ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInterface.ShowConfirmationDialog_Params',
@@ -192,7 +274,7 @@ ax.mojom.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
   }
 };
 
-ax.mojom.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
+ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInterface.ShowConfirmationDialog_ResponseParams',
@@ -206,7 +288,7 @@ ax.mojom.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetFocusRings
-ax.mojom.mojom.UserInterface_SetFocusRings_ParamsSpec = {
+ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInterface.SetFocusRings_Params',
@@ -221,7 +303,7 @@ ax.mojom.mojom.UserInterface_SetFocusRings_ParamsSpec = {
 };
 
 // ParamsSpec for SetHighlights
-ax.mojom.mojom.UserInterface_SetHighlights_ParamsSpec = {
+ax.mojom.UserInterface_SetHighlights_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInterface.SetHighlights_Params',
@@ -236,7 +318,7 @@ ax.mojom.mojom.UserInterface_SetHighlights_ParamsSpec = {
 };
 
 // ParamsSpec for SetVirtualKeyboardVisible
-ax.mojom.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
+ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInterface.SetVirtualKeyboardVisible_Params',
@@ -250,6 +332,6 @@ ax.mojom.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.mojom.UserInterfacePtr = ax.mojom.mojom.UserInterfaceRemote;
-ax.mojom.mojom.UserInterfaceRequest = ax.mojom.mojom.UserInterfacePendingReceiver;
+ax.mojom.UserInterfacePtr = ax.mojom.UserInterfaceRemote;
+ax.mojom.UserInterfaceRequest = ax.mojom.UserInterfacePendingReceiver;
 

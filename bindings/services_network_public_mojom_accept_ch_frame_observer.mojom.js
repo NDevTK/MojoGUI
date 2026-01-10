@@ -11,24 +11,51 @@ var url = url || {};
 
 
 // Interface: AcceptCHFrameObserver
-network.mojom.mojom.AcceptCHFrameObserver = {};
+network.mojom.AcceptCHFrameObserver = {};
 
-network.mojom.mojom.AcceptCHFrameObserverPendingReceiver = class {
+network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.AcceptCHFrameObserver_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.AcceptCHFrameObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.AcceptCHFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.AcceptCHFrameObserverRemote = class {
+network.mojom.AcceptCHFrameObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.AcceptCHFrameObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.AcceptCHFrameObserverPendingReceiver,
+      network.mojom.AcceptCHFrameObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.AcceptCHFrameObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.AcceptCHFrameObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +67,7 @@ network.mojom.mojom.AcceptCHFrameObserverRemote = class {
   }
 };
 
-network.mojom.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
+network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +76,8 @@ network.mojom.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
-      network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
+      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
+      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
       [origin, accept_ch_frame]);
   }
 
@@ -58,15 +85,15 @@ network.mojom.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
+      network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-network.mojom.mojom.AcceptCHFrameObserver.getRemote = function() {
-  let remote = new network.mojom.mojom.AcceptCHFrameObserverRemote();
+network.mojom.AcceptCHFrameObserver.getRemote = function() {
+  let remote = new network.mojom.AcceptCHFrameObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +103,7 @@ network.mojom.mojom.AcceptCHFrameObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnAcceptCHFrameReceived
-network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
+network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_Params',
@@ -90,7 +117,7 @@ network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = {
+network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_ResponseParams',
@@ -104,7 +131,7 @@ network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParams
 };
 
 // ParamsSpec for Clone
-network.mojom.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
+network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AcceptCHFrameObserver.Clone_Params',
@@ -118,6 +145,6 @@ network.mojom.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.AcceptCHFrameObserverPtr = network.mojom.mojom.AcceptCHFrameObserverRemote;
-network.mojom.mojom.AcceptCHFrameObserverRequest = network.mojom.mojom.AcceptCHFrameObserverPendingReceiver;
+network.mojom.AcceptCHFrameObserverPtr = network.mojom.AcceptCHFrameObserverRemote;
+network.mojom.AcceptCHFrameObserverRequest = network.mojom.AcceptCHFrameObserverPendingReceiver;
 

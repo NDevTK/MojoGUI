@@ -11,17 +11,17 @@ var url = url || {};
 
 
 // Enum: ScrollDepth
-whats_new.mojom.mojom.ScrollDepth = {
+whats_new.mojom.ScrollDepth = {
   k0: 0,
   k25: 1,
   k50: 2,
   k75: 3,
   k100: 4,
 };
-whats_new.mojom.mojom.ScrollDepthSpec = { $: mojo.internal.Enum() };
+whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum() };
 
 // Enum: ModulePosition
-whats_new.mojom.mojom.ModulePosition = {
+whats_new.mojom.ModulePosition = {
   kSpotlight1: 0,
   kSpotlight2: 1,
   kSpotlight3: 2,
@@ -34,27 +34,41 @@ whats_new.mojom.mojom.ModulePosition = {
   kExploreMore6: 9,
   kUndefined: 10,
 };
-whats_new.mojom.mojom.ModulePositionSpec = { $: mojo.internal.Enum() };
+whats_new.mojom.ModulePositionSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-whats_new.mojom.mojom.PageHandlerFactory = {};
+whats_new.mojom.PageHandlerFactory = {};
 
-whats_new.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(whats_new.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(whats_new.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-whats_new.mojom.mojom.PageHandlerFactoryRemote = class {
+whats_new.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'whats_new.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      whats_new.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      whats_new.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new whats_new.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new whats_new.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -66,7 +80,7 @@ whats_new.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-whats_new.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+whats_new.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -75,15 +89,15 @@ whats_new.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      whats_new.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-whats_new.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new whats_new.mojom.mojom.PageHandlerFactoryRemote();
+whats_new.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new whats_new.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +107,7 @@ whats_new.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-whats_new.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -108,29 +122,318 @@ whats_new.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-whats_new.mojom.mojom.PageHandlerFactoryPtr = whats_new.mojom.mojom.PageHandlerFactoryRemote;
-whats_new.mojom.mojom.PageHandlerFactoryRequest = whats_new.mojom.mojom.PageHandlerFactoryPendingReceiver;
+whats_new.mojom.PageHandlerFactoryPtr = whats_new.mojom.PageHandlerFactoryRemote;
+whats_new.mojom.PageHandlerFactoryRequest = whats_new.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-whats_new.mojom.mojom.PageHandler = {};
+whats_new.mojom.PageHandler = {};
 
-whats_new.mojom.mojom.PageHandlerPendingReceiver = class {
+whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_GetServerUrl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_staging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordTimeToLoadContent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordVersionPageLoaded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_auto_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordEditionPageLoaded_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_auto_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordModuleImpression_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordExploreMoreToggled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordScrollDepth_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'depth', packedOffset: 0, packedBitOffset: 0, type: whats_new.mojom.ScrollDepthSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordTimeOnPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordModuleLinkClicked_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordModuleVideoStarted_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordModuleVideoEnded_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordModulePlayClicked_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordModulePauseClicked_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordModuleRestartClicked_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordQrCodeToggled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordNavClick_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordFeatureTileNavigation_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordExpandMediaToggled_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'expanded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordCtaClick_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'whats_new.mojom.PageHandler_RecordNextButtonClick_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+whats_new.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-whats_new.mojom.mojom.PageHandlerRemote = class {
+whats_new.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'whats_new.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      whats_new.mojom.mojom.PageHandlerPendingReceiver,
+      whats_new.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new whats_new.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new whats_new.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -142,7 +445,7 @@ whats_new.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
+whats_new.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -151,8 +454,8 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      whats_new.mojom.mojom.PageHandler_GetServerUrl_ParamsSpec,
-      whats_new.mojom.mojom.PageHandler_GetServerUrl_ResponseParamsSpec,
+      whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec,
+      whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec,
       [is_staging]);
   }
 
@@ -160,7 +463,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec,
       null,
       [time]);
   }
@@ -169,7 +472,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec,
       null,
       [is_auto_open]);
   }
@@ -178,7 +481,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec,
       null,
       [page_uid, is_auto_open]);
   }
@@ -187,7 +490,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordModuleImpression_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec,
       null,
       [module_name, position]);
   }
@@ -196,7 +499,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec,
       null,
       [expanded]);
   }
@@ -205,7 +508,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordScrollDepth_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec,
       null,
       [depth]);
   }
@@ -214,7 +517,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordTimeOnPage_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec,
       null,
       [time]);
   }
@@ -223,7 +526,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec,
       null,
       [module_name, position]);
   }
@@ -232,7 +535,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec,
       null,
       [module_name, position]);
   }
@@ -241,7 +544,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec,
       null,
       [module_name, position]);
   }
@@ -250,7 +553,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec,
       null,
       [module_name, position]);
   }
@@ -259,7 +562,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec,
       null,
       [module_name, position]);
   }
@@ -268,7 +571,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec,
       null,
       [module_name, position]);
   }
@@ -277,7 +580,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec,
       null,
       []);
   }
@@ -286,7 +589,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec,
       null,
       [expanded]);
   }
@@ -295,7 +598,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordNavClick_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec,
       null,
       []);
   }
@@ -304,7 +607,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec,
       null,
       []);
   }
@@ -313,7 +616,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec,
       null,
       []);
   }
@@ -322,7 +625,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec,
       null,
       [module_name, expanded]);
   }
@@ -331,7 +634,7 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordCtaClick_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec,
       null,
       []);
   }
@@ -340,15 +643,15 @@ whats_new.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      whats_new.mojom.mojom.PageHandler_RecordNextButtonClick_ParamsSpec,
+      whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec,
       null,
       []);
   }
 
 };
 
-whats_new.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new whats_new.mojom.mojom.PageHandlerRemote();
+whats_new.mojom.PageHandler.getRemote = function() {
+  let remote = new whats_new.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -358,7 +661,7 @@ whats_new.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetServerUrl
-whats_new.mojom.mojom.PageHandler_GetServerUrl_ParamsSpec = {
+whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.GetServerUrl_Params',
@@ -371,7 +674,7 @@ whats_new.mojom.mojom.PageHandler_GetServerUrl_ParamsSpec = {
   }
 };
 
-whats_new.mojom.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
+whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.GetServerUrl_ResponseParams',
@@ -385,7 +688,7 @@ whats_new.mojom.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RecordTimeToLoadContent
-whats_new.mojom.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordTimeToLoadContent_Params',
@@ -399,7 +702,7 @@ whats_new.mojom.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
 };
 
 // ParamsSpec for RecordVersionPageLoaded
-whats_new.mojom.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordVersionPageLoaded_Params',
@@ -413,7 +716,7 @@ whats_new.mojom.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
 };
 
 // ParamsSpec for RecordEditionPageLoaded
-whats_new.mojom.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordEditionPageLoaded_Params',
@@ -428,7 +731,7 @@ whats_new.mojom.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
 };
 
 // ParamsSpec for RecordModuleImpression
-whats_new.mojom.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordModuleImpression_Params',
@@ -443,7 +746,7 @@ whats_new.mojom.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
 };
 
 // ParamsSpec for RecordExploreMoreToggled
-whats_new.mojom.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordExploreMoreToggled_Params',
@@ -457,7 +760,7 @@ whats_new.mojom.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
 };
 
 // ParamsSpec for RecordScrollDepth
-whats_new.mojom.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordScrollDepth_Params',
@@ -471,7 +774,7 @@ whats_new.mojom.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
 };
 
 // ParamsSpec for RecordTimeOnPage
-whats_new.mojom.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordTimeOnPage_Params',
@@ -485,7 +788,7 @@ whats_new.mojom.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
 };
 
 // ParamsSpec for RecordModuleLinkClicked
-whats_new.mojom.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordModuleLinkClicked_Params',
@@ -500,7 +803,7 @@ whats_new.mojom.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
 };
 
 // ParamsSpec for RecordModuleVideoStarted
-whats_new.mojom.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordModuleVideoStarted_Params',
@@ -515,7 +818,7 @@ whats_new.mojom.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
 };
 
 // ParamsSpec for RecordModuleVideoEnded
-whats_new.mojom.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordModuleVideoEnded_Params',
@@ -530,7 +833,7 @@ whats_new.mojom.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
 };
 
 // ParamsSpec for RecordModulePlayClicked
-whats_new.mojom.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordModulePlayClicked_Params',
@@ -545,7 +848,7 @@ whats_new.mojom.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
 };
 
 // ParamsSpec for RecordModulePauseClicked
-whats_new.mojom.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordModulePauseClicked_Params',
@@ -560,7 +863,7 @@ whats_new.mojom.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
 };
 
 // ParamsSpec for RecordModuleRestartClicked
-whats_new.mojom.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordModuleRestartClicked_Params',
@@ -575,7 +878,7 @@ whats_new.mojom.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
 };
 
 // ParamsSpec for RecordBrowserCommandExecuted
-whats_new.mojom.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordBrowserCommandExecuted_Params',
@@ -588,7 +891,7 @@ whats_new.mojom.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
 };
 
 // ParamsSpec for RecordQrCodeToggled
-whats_new.mojom.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordQrCodeToggled_Params',
@@ -602,7 +905,7 @@ whats_new.mojom.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
 };
 
 // ParamsSpec for RecordNavClick
-whats_new.mojom.mojom.PageHandler_RecordNavClick_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordNavClick_Params',
@@ -615,7 +918,7 @@ whats_new.mojom.mojom.PageHandler_RecordNavClick_ParamsSpec = {
 };
 
 // ParamsSpec for RecordFeatureTileNavigation
-whats_new.mojom.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordFeatureTileNavigation_Params',
@@ -628,7 +931,7 @@ whats_new.mojom.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
 };
 
 // ParamsSpec for RecordCarouselScrollButtonClick
-whats_new.mojom.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordCarouselScrollButtonClick_Params',
@@ -641,7 +944,7 @@ whats_new.mojom.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
 };
 
 // ParamsSpec for RecordExpandMediaToggled
-whats_new.mojom.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordExpandMediaToggled_Params',
@@ -656,7 +959,7 @@ whats_new.mojom.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
 };
 
 // ParamsSpec for RecordCtaClick
-whats_new.mojom.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordCtaClick_Params',
@@ -669,7 +972,7 @@ whats_new.mojom.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
 };
 
 // ParamsSpec for RecordNextButtonClick
-whats_new.mojom.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
+whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'whats_new.mojom.PageHandler.RecordNextButtonClick_Params',
@@ -682,29 +985,29 @@ whats_new.mojom.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
 };
 
 // Legacy compatibility
-whats_new.mojom.mojom.PageHandlerPtr = whats_new.mojom.mojom.PageHandlerRemote;
-whats_new.mojom.mojom.PageHandlerRequest = whats_new.mojom.mojom.PageHandlerPendingReceiver;
+whats_new.mojom.PageHandlerPtr = whats_new.mojom.PageHandlerRemote;
+whats_new.mojom.PageHandlerRequest = whats_new.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-whats_new.mojom.mojom.Page = {};
+whats_new.mojom.Page = {};
 
-whats_new.mojom.mojom.PagePendingReceiver = class {
+whats_new.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-whats_new.mojom.mojom.PageRemote = class {
+whats_new.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'whats_new.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      whats_new.mojom.mojom.PagePendingReceiver,
+      whats_new.mojom.PagePendingReceiver,
       handle);
-    this.$ = new whats_new.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new whats_new.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -716,15 +1019,15 @@ whats_new.mojom.mojom.PageRemote = class {
   }
 };
 
-whats_new.mojom.mojom.PageRemoteCallHandler = class {
+whats_new.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-whats_new.mojom.mojom.Page.getRemote = function() {
-  let remote = new whats_new.mojom.mojom.PageRemote();
+whats_new.mojom.Page.getRemote = function() {
+  let remote = new whats_new.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -734,6 +1037,6 @@ whats_new.mojom.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-whats_new.mojom.mojom.PagePtr = whats_new.mojom.mojom.PageRemote;
-whats_new.mojom.mojom.PageRequest = whats_new.mojom.mojom.PagePendingReceiver;
+whats_new.mojom.PagePtr = whats_new.mojom.PageRemote;
+whats_new.mojom.PageRequest = whats_new.mojom.PagePendingReceiver;
 

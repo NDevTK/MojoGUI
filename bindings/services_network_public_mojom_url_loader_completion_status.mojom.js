@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: BlockedByResponseReasonWrapper
-network.mojom.mojom.BlockedByResponseReasonWrapperSpec = {
+network.mojom.BlockedByResponseReasonWrapperSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.BlockedByResponseReasonWrapper',
@@ -24,7 +24,7 @@ network.mojom.mojom.BlockedByResponseReasonWrapperSpec = {
 };
 
 // Struct: URLLoaderCompletionStatus
-network.mojom.mojom.URLLoaderCompletionStatusSpec = {
+network.mojom.URLLoaderCompletionStatusSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderCompletionStatus',

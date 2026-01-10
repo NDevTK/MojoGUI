@@ -10,10 +10,10 @@ network.mojom = network.mojom || {};
 
 
 // Enum: IPAddressSpace
-network.mojom.mojom.IPAddressSpace = {
+network.mojom.IPAddressSpace = {
   kLoopback: 0,
   kLocal: 1,
   kPublic: 2,
   kUnknown: 3,
 };
-network.mojom.mojom.IPAddressSpaceSpec = { $: mojo.internal.Enum() };
+network.mojom.IPAddressSpaceSpec = { $: mojo.internal.Enum() };

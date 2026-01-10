@@ -10,24 +10,37 @@ ai.mojom = ai.mojom || {};
 
 
 // Interface: TabOrganizationService
-ai.mojom.mojom.TabOrganizationService = {};
+ai.mojom.TabOrganizationService = {};
 
-ai.mojom.mojom.TabOrganizationServicePendingReceiver = class {
+ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ai.mojom.TabOrganizationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ai.mojom.mojom.TabOrganizationServiceRemote = class {
+ai.mojom.TabOrganizationServiceRemote = class {
   static get $interfaceName() {
     return 'ai.mojom.TabOrganizationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ai.mojom.mojom.TabOrganizationServicePendingReceiver,
+      ai.mojom.TabOrganizationServicePendingReceiver,
       handle);
-    this.$ = new ai.mojom.mojom.TabOrganizationServiceRemoteCallHandler(this.proxy);
+    this.$ = new ai.mojom.TabOrganizationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ ai.mojom.mojom.TabOrganizationServiceRemote = class {
   }
 };
 
-ai.mojom.mojom.TabOrganizationServiceRemoteCallHandler = class {
+ai.mojom.TabOrganizationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ ai.mojom.mojom.TabOrganizationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec,
-      ai.mojom.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
+      ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec,
+      ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-ai.mojom.mojom.TabOrganizationService.getRemote = function() {
-  let remote = new ai.mojom.mojom.TabOrganizationServiceRemote();
+ai.mojom.TabOrganizationService.getRemote = function() {
+  let remote = new ai.mojom.TabOrganizationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ ai.mojom.mojom.TabOrganizationService.getRemote = function() {
 };
 
 // ParamsSpec for ExecuteGroupTabs
-ai.mojom.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
+ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_Params',
@@ -79,7 +92,7 @@ ai.mojom.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
   }
 };
 
-ai.mojom.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
+ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_ResponseParams',
@@ -93,6 +106,6 @@ ai.mojom.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ai.mojom.mojom.TabOrganizationServicePtr = ai.mojom.mojom.TabOrganizationServiceRemote;
-ai.mojom.mojom.TabOrganizationServiceRequest = ai.mojom.mojom.TabOrganizationServicePendingReceiver;
+ai.mojom.TabOrganizationServicePtr = ai.mojom.TabOrganizationServiceRemote;
+ai.mojom.TabOrganizationServiceRequest = ai.mojom.TabOrganizationServicePendingReceiver;
 

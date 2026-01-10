@@ -11,24 +11,37 @@ var url = url || {};
 
 
 // Interface: PageHandlerFactory
-webui_examples.mojom.mojom.PageHandlerFactory = {};
+webui_examples.mojom.PageHandlerFactory = {};
 
-webui_examples.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_examples.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(webui_examples.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_examples.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webui_examples.mojom.mojom.PageHandlerFactoryRemote = class {
+webui_examples.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'webui_examples.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webui_examples.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      webui_examples.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new webui_examples.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new webui_examples.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ webui_examples.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-webui_examples.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+webui_examples.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ webui_examples.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_examples.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-webui_examples.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new webui_examples.mojom.mojom.PageHandlerFactoryRemote();
+webui_examples.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new webui_examples.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ webui_examples.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-webui_examples.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_examples.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -81,29 +94,69 @@ webui_examples.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-webui_examples.mojom.mojom.PageHandlerFactoryPtr = webui_examples.mojom.mojom.PageHandlerFactoryRemote;
-webui_examples.mojom.mojom.PageHandlerFactoryRequest = webui_examples.mojom.mojom.PageHandlerFactoryPendingReceiver;
+webui_examples.mojom.PageHandlerFactoryPtr = webui_examples.mojom.PageHandlerFactoryRemote;
+webui_examples.mojom.PageHandlerFactoryRequest = webui_examples.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-webui_examples.mojom.mojom.PageHandler = {};
+webui_examples.mojom.PageHandler = {};
 
-webui_examples.mojom.mojom.PageHandlerPendingReceiver = class {
+webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_examples.mojom.PageHandler_Navigate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_examples.mojom.PageHandler_GoBack_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_examples.mojom.PageHandler_GoForward_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_examples.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webui_examples.mojom.mojom.PageHandlerRemote = class {
+webui_examples.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'webui_examples.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webui_examples.mojom.mojom.PageHandlerPendingReceiver,
+      webui_examples.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new webui_examples.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new webui_examples.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +168,7 @@ webui_examples.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-webui_examples.mojom.mojom.PageHandlerRemoteCallHandler = class {
+webui_examples.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,7 +177,7 @@ webui_examples.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_examples.mojom.mojom.PageHandler_Navigate_ParamsSpec,
+      webui_examples.mojom.PageHandler_Navigate_ParamsSpec,
       null,
       [guest_contents_id, src]);
   }
@@ -133,7 +186,7 @@ webui_examples.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_examples.mojom.mojom.PageHandler_GoBack_ParamsSpec,
+      webui_examples.mojom.PageHandler_GoBack_ParamsSpec,
       null,
       [guest_contents_id]);
   }
@@ -142,15 +195,15 @@ webui_examples.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_examples.mojom.mojom.PageHandler_GoForward_ParamsSpec,
+      webui_examples.mojom.PageHandler_GoForward_ParamsSpec,
       null,
       [guest_contents_id]);
   }
 
 };
 
-webui_examples.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new webui_examples.mojom.mojom.PageHandlerRemote();
+webui_examples.mojom.PageHandler.getRemote = function() {
+  let remote = new webui_examples.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -160,7 +213,7 @@ webui_examples.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for Navigate
-webui_examples.mojom.mojom.PageHandler_Navigate_ParamsSpec = {
+webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_examples.mojom.PageHandler.Navigate_Params',
@@ -175,7 +228,7 @@ webui_examples.mojom.mojom.PageHandler_Navigate_ParamsSpec = {
 };
 
 // ParamsSpec for GoBack
-webui_examples.mojom.mojom.PageHandler_GoBack_ParamsSpec = {
+webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_examples.mojom.PageHandler.GoBack_Params',
@@ -189,7 +242,7 @@ webui_examples.mojom.mojom.PageHandler_GoBack_ParamsSpec = {
 };
 
 // ParamsSpec for GoForward
-webui_examples.mojom.mojom.PageHandler_GoForward_ParamsSpec = {
+webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_examples.mojom.PageHandler.GoForward_Params',
@@ -203,6 +256,6 @@ webui_examples.mojom.mojom.PageHandler_GoForward_ParamsSpec = {
 };
 
 // Legacy compatibility
-webui_examples.mojom.mojom.PageHandlerPtr = webui_examples.mojom.mojom.PageHandlerRemote;
-webui_examples.mojom.mojom.PageHandlerRequest = webui_examples.mojom.mojom.PageHandlerPendingReceiver;
+webui_examples.mojom.PageHandlerPtr = webui_examples.mojom.PageHandlerRemote;
+webui_examples.mojom.PageHandlerRequest = webui_examples.mojom.PageHandlerPendingReceiver;
 

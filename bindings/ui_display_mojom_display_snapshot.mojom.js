@@ -19,7 +19,7 @@ var gfx = gfx || {};
 
 
 // Struct: DisplaySnapshotColorInfo
-display.mojom.mojom.DisplaySnapshotColorInfoSpec = {
+display.mojom.DisplaySnapshotColorInfoSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplaySnapshotColorInfo',
@@ -38,7 +38,7 @@ display.mojom.mojom.DisplaySnapshotColorInfoSpec = {
 };
 
 // Struct: DisplaySnapshot
-display.mojom.mojom.DisplaySnapshotSpec = {
+display.mojom.DisplaySnapshotSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplaySnapshot',

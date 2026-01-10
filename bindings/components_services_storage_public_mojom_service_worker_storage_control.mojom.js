@@ -13,14 +13,14 @@ var url = url || {};
 
 
 // Enum: ServiceWorkerStorageStorageKeyState
-storage.mojom.mojom.ServiceWorkerStorageStorageKeyState = {
+storage.mojom.ServiceWorkerStorageStorageKeyState = {
   kKeep: 0,
   kDelete: 1,
 };
-storage.mojom.mojom.ServiceWorkerStorageStorageKeyStateSpec = { $: mojo.internal.Enum() };
+storage.mojom.ServiceWorkerStorageStorageKeyStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerLiveVersionInfo
-storage.mojom.mojom.ServiceWorkerLiveVersionInfoSpec = {
+storage.mojom.ServiceWorkerLiveVersionInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerLiveVersionInfo',
@@ -36,7 +36,7 @@ storage.mojom.mojom.ServiceWorkerLiveVersionInfoSpec = {
 };
 
 // Struct: ServiceWorkerFindRegistrationResult
-storage.mojom.mojom.ServiceWorkerFindRegistrationResultSpec = {
+storage.mojom.ServiceWorkerFindRegistrationResultSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerFindRegistrationResult',
@@ -52,7 +52,7 @@ storage.mojom.mojom.ServiceWorkerFindRegistrationResultSpec = {
 };
 
 // Struct: ServiceWorkerUserData
-storage.mojom.mojom.ServiceWorkerUserDataSpec = {
+storage.mojom.ServiceWorkerUserDataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerUserData',
@@ -68,24 +68,24 @@ storage.mojom.mojom.ServiceWorkerUserDataSpec = {
 };
 
 // Interface: ServiceWorkerLiveVersionRef
-storage.mojom.mojom.ServiceWorkerLiveVersionRef = {};
+storage.mojom.ServiceWorkerLiveVersionRef = {};
 
-storage.mojom.mojom.ServiceWorkerLiveVersionRefPendingReceiver = class {
+storage.mojom.ServiceWorkerLiveVersionRefPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.ServiceWorkerLiveVersionRefRemote = class {
+storage.mojom.ServiceWorkerLiveVersionRefRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.ServiceWorkerLiveVersionRef';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.ServiceWorkerLiveVersionRefPendingReceiver,
+      storage.mojom.ServiceWorkerLiveVersionRefPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.ServiceWorkerLiveVersionRefRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.ServiceWorkerLiveVersionRefRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -97,15 +97,15 @@ storage.mojom.mojom.ServiceWorkerLiveVersionRefRemote = class {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerLiveVersionRefRemoteCallHandler = class {
+storage.mojom.ServiceWorkerLiveVersionRefRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-storage.mojom.mojom.ServiceWorkerLiveVersionRef.getRemote = function() {
-  let remote = new storage.mojom.mojom.ServiceWorkerLiveVersionRefRemote();
+storage.mojom.ServiceWorkerLiveVersionRef.getRemote = function() {
+  let remote = new storage.mojom.ServiceWorkerLiveVersionRefRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -115,29 +115,66 @@ storage.mojom.mojom.ServiceWorkerLiveVersionRef.getRemote = function() {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.ServiceWorkerLiveVersionRefPtr = storage.mojom.mojom.ServiceWorkerLiveVersionRefRemote;
-storage.mojom.mojom.ServiceWorkerLiveVersionRefRequest = storage.mojom.mojom.ServiceWorkerLiveVersionRefPendingReceiver;
+storage.mojom.ServiceWorkerLiveVersionRefPtr = storage.mojom.ServiceWorkerLiveVersionRefRemote;
+storage.mojom.ServiceWorkerLiveVersionRefRequest = storage.mojom.ServiceWorkerLiveVersionRefPendingReceiver;
 
 
 // Interface: ServiceWorkerResourceReader
-storage.mojom.mojom.ServiceWorkerResourceReader = {};
+storage.mojom.ServiceWorkerResourceReader = {};
 
-storage.mojom.mojom.ServiceWorkerResourceReaderPendingReceiver = class {
+storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerResourceReader_PrepareReadData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerResourceReader_ReadData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerResourceReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceReaderRemote = class {
+storage.mojom.ServiceWorkerResourceReaderRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.ServiceWorkerResourceReader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.ServiceWorkerResourceReaderPendingReceiver,
+      storage.mojom.ServiceWorkerResourceReaderPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.ServiceWorkerResourceReaderRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -149,7 +186,7 @@ storage.mojom.mojom.ServiceWorkerResourceReaderRemote = class {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
+storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -158,8 +195,8 @@ storage.mojom.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
       []);
   }
 
@@ -167,8 +204,8 @@ storage.mojom.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
       [size]);
   }
 
@@ -176,15 +213,15 @@ storage.mojom.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
       []);
   }
 
 };
 
-storage.mojom.mojom.ServiceWorkerResourceReader.getRemote = function() {
-  let remote = new storage.mojom.mojom.ServiceWorkerResourceReaderRemote();
+storage.mojom.ServiceWorkerResourceReader.getRemote = function() {
+  let remote = new storage.mojom.ServiceWorkerResourceReaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -194,7 +231,7 @@ storage.mojom.mojom.ServiceWorkerResourceReader.getRemote = function() {
 };
 
 // ParamsSpec for ReadResponseHead
-storage.mojom.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
+storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceReader.ReadResponseHead_Params',
@@ -206,7 +243,7 @@ storage.mojom.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceReader.ReadResponseHead_ResponseParams',
@@ -222,7 +259,7 @@ storage.mojom.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsS
 };
 
 // ParamsSpec for PrepareReadData
-storage.mojom.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
+storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceReader.PrepareReadData_Params',
@@ -235,7 +272,7 @@ storage.mojom.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceReader.PrepareReadData_ResponseParams',
@@ -249,7 +286,7 @@ storage.mojom.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSp
 };
 
 // ParamsSpec for ReadData
-storage.mojom.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
+storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceReader.ReadData_Params',
@@ -261,7 +298,7 @@ storage.mojom.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceReader.ReadData_ResponseParams',
@@ -275,29 +312,55 @@ storage.mojom.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.ServiceWorkerResourceReaderPtr = storage.mojom.mojom.ServiceWorkerResourceReaderRemote;
-storage.mojom.mojom.ServiceWorkerResourceReaderRequest = storage.mojom.mojom.ServiceWorkerResourceReaderPendingReceiver;
+storage.mojom.ServiceWorkerResourceReaderPtr = storage.mojom.ServiceWorkerResourceReaderRemote;
+storage.mojom.ServiceWorkerResourceReaderRequest = storage.mojom.ServiceWorkerResourceReaderPendingReceiver;
 
 
 // Interface: ServiceWorkerResourceWriter
-storage.mojom.mojom.ServiceWorkerResourceWriter = {};
+storage.mojom.ServiceWorkerResourceWriter = {};
 
-storage.mojom.mojom.ServiceWorkerResourceWriterPendingReceiver = class {
+storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerResourceWriter_WriteData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerResourceWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceWriterRemote = class {
+storage.mojom.ServiceWorkerResourceWriterRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.ServiceWorkerResourceWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.ServiceWorkerResourceWriterPendingReceiver,
+      storage.mojom.ServiceWorkerResourceWriterPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.ServiceWorkerResourceWriterRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -309,7 +372,7 @@ storage.mojom.mojom.ServiceWorkerResourceWriterRemote = class {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
+storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -318,8 +381,8 @@ storage.mojom.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
       [response_head]);
   }
 
@@ -327,15 +390,15 @@ storage.mojom.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
       [data]);
   }
 
 };
 
-storage.mojom.mojom.ServiceWorkerResourceWriter.getRemote = function() {
-  let remote = new storage.mojom.mojom.ServiceWorkerResourceWriterRemote();
+storage.mojom.ServiceWorkerResourceWriter.getRemote = function() {
+  let remote = new storage.mojom.ServiceWorkerResourceWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -345,7 +408,7 @@ storage.mojom.mojom.ServiceWorkerResourceWriter.getRemote = function() {
 };
 
 // ParamsSpec for WriteResponseHead
-storage.mojom.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
+storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteResponseHead_Params',
@@ -358,7 +421,7 @@ storage.mojom.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteResponseHead_ResponseParams',
@@ -372,7 +435,7 @@ storage.mojom.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParams
 };
 
 // ParamsSpec for WriteData
-storage.mojom.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
+storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteData_Params',
@@ -385,7 +448,7 @@ storage.mojom.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteData_ResponseParams',
@@ -399,29 +462,42 @@ storage.mojom.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.ServiceWorkerResourceWriterPtr = storage.mojom.mojom.ServiceWorkerResourceWriterRemote;
-storage.mojom.mojom.ServiceWorkerResourceWriterRequest = storage.mojom.mojom.ServiceWorkerResourceWriterPendingReceiver;
+storage.mojom.ServiceWorkerResourceWriterPtr = storage.mojom.ServiceWorkerResourceWriterRemote;
+storage.mojom.ServiceWorkerResourceWriterRequest = storage.mojom.ServiceWorkerResourceWriterPendingReceiver;
 
 
 // Interface: ServiceWorkerResourceMetadataWriter
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriter = {};
+storage.mojom.ServiceWorkerResourceMetadataWriter = {};
 
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver = class {
+storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRemote = class {
+storage.mojom.ServiceWorkerResourceMetadataWriterRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.ServiceWorkerResourceMetadataWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver,
+      storage.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -433,7 +509,7 @@ storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRemote = class {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler = class {
+storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -442,15 +518,15 @@ storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
       [data]);
   }
 
 };
 
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriter.getRemote = function() {
-  let remote = new storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRemote();
+storage.mojom.ServiceWorkerResourceMetadataWriter.getRemote = function() {
+  let remote = new storage.mojom.ServiceWorkerResourceMetadataWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -460,7 +536,7 @@ storage.mojom.mojom.ServiceWorkerResourceMetadataWriter.getRemote = function() {
 };
 
 // ParamsSpec for WriteMetadata
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
+storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceMetadataWriter.WriteMetadata_Params',
@@ -473,7 +549,7 @@ storage.mojom.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec
   }
 };
 
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceMetadataWriter.WriteMetadata_ResponseParams',
@@ -487,29 +563,603 @@ storage.mojom.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponsePa
 };
 
 // Legacy compatibility
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriterPtr = storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRemote;
-storage.mojom.mojom.ServiceWorkerResourceMetadataWriterRequest = storage.mojom.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver;
+storage.mojom.ServiceWorkerResourceMetadataWriterPtr = storage.mojom.ServiceWorkerResourceMetadataWriterRemote;
+storage.mojom.ServiceWorkerResourceMetadataWriterRequest = storage.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver;
 
 
 // Interface: ServiceWorkerStorageControl
-storage.mojom.mojom.ServiceWorkerStorageControl = {};
+storage.mojom.ServiceWorkerStorageControl = {};
 
-storage.mojom.mojom.ServiceWorkerStorageControlPendingReceiver = class {
+storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_Disable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_Delete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_Recover_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerLiveVersionInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_StoreRegistration_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerResourceRecordSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'last_update_check_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'enable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'registratation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'updated_sha256_checksums', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'reader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.ServiceWorkerResourceReaderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.ServiceWorkerResourceWriterRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.ServiceWorkerResourceMetadataWriterRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'resource_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetUserData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_StoreUserData_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'user_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerUserDataSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_ClearUserData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'registratation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key_prefixes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.ServiceWorkerStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControlRemote = class {
+storage.mojom.ServiceWorkerStorageControlRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.ServiceWorkerStorageControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.ServiceWorkerStorageControlPendingReceiver,
+      storage.mojom.ServiceWorkerStorageControlPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.ServiceWorkerStorageControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -521,7 +1171,7 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemote = class {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
+storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -530,7 +1180,7 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec,
       null,
       []);
   }
@@ -539,8 +1189,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
       []);
   }
 
@@ -548,7 +1198,7 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec,
       null,
       [versions]);
   }
@@ -557,8 +1207,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
       []);
   }
 
@@ -566,8 +1216,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
       [client_url, key]);
   }
 
@@ -575,8 +1225,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
       [scope, key]);
   }
 
@@ -584,8 +1234,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
       [registration_id, key]);
   }
 
@@ -593,8 +1243,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
       [key]);
   }
 
@@ -602,8 +1252,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
       [key]);
   }
 
@@ -611,8 +1261,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
       []);
   }
 
@@ -620,8 +1270,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec,
       [client_url, key]);
   }
 
@@ -629,8 +1279,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
       [registration, resources]);
   }
 
@@ -638,8 +1288,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
       [registration_id, key]);
   }
 
@@ -647,8 +1297,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
       [registration_id, key]);
   }
 
@@ -656,8 +1306,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
       [registration_id, key, last_update_check_time]);
   }
 
@@ -665,8 +1315,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
       [registration_id, key, enable]);
   }
 
@@ -674,8 +1324,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
       [registration_id, key, value]);
   }
 
@@ -683,8 +1333,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
       [registration_id, key, type]);
   }
 
@@ -692,8 +1342,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
       [registratation_id, key, updated_sha256_checksums]);
   }
 
@@ -701,8 +1351,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
       []);
   }
 
@@ -710,8 +1360,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
       []);
   }
 
@@ -719,8 +1369,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
       []);
   }
 
@@ -728,7 +1378,7 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
       null,
       [resource_id, reader]);
   }
@@ -737,7 +1387,7 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
       null,
       [resource_id, writer]);
   }
@@ -746,7 +1396,7 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
       null,
       [resource_id, writer]);
   }
@@ -755,8 +1405,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
       [resource_id]);
   }
 
@@ -764,8 +1414,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
       [resource_ids]);
   }
 
@@ -773,8 +1423,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
       [registration_id, keys]);
   }
 
@@ -782,8 +1432,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
       [registration_id, key, user_data]);
   }
 
@@ -791,8 +1441,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
       [registration_id, keys]);
   }
 
@@ -800,8 +1450,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
       [registration_id, key_prefix]);
   }
 
@@ -809,8 +1459,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
       [registration_id, key_prefix]);
   }
 
@@ -818,8 +1468,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
       [registratation_id, key_prefixes]);
   }
 
@@ -827,8 +1477,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
       [key]);
   }
 
@@ -836,8 +1486,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
       [key_prefix]);
   }
 
@@ -845,8 +1495,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
       [key_prefix]);
   }
 
@@ -854,7 +1504,7 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
       null,
       []);
   }
@@ -863,8 +1513,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
       [policy_updates]);
   }
 
@@ -872,8 +1522,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
       []);
   }
 
@@ -881,8 +1531,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
       [version_id]);
   }
 
@@ -890,8 +1540,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
       []);
   }
 
@@ -899,8 +1549,8 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
-      storage.mojom.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
       []);
   }
 
@@ -908,15 +1558,15 @@ storage.mojom.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      storage.mojom.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
       null,
       []);
   }
 
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl.getRemote = function() {
-  let remote = new storage.mojom.mojom.ServiceWorkerStorageControlRemote();
+storage.mojom.ServiceWorkerStorageControl.getRemote = function() {
+  let remote = new storage.mojom.ServiceWorkerStorageControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -926,7 +1576,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl.getRemote = function() {
 };
 
 // ParamsSpec for Disable
-storage.mojom.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.Disable_Params',
@@ -939,7 +1589,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
 };
 
 // ParamsSpec for Delete
-storage.mojom.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.Delete_Params',
@@ -951,7 +1601,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.Delete_ResponseParams',
@@ -965,7 +1615,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Recover
-storage.mojom.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.Recover_Params',
@@ -979,7 +1629,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
 };
 
 // ParamsSpec for GetRegisteredStorageKeys
-storage.mojom.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetRegisteredStorageKeys_Params',
@@ -991,7 +1641,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsS
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetRegisteredStorageKeys_ResponseParams',
@@ -1005,7 +1655,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_Respons
 };
 
 // ParamsSpec for FindRegistrationForClientUrl
-storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForClientUrl_Params',
@@ -1019,7 +1669,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_Par
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForClientUrl_ResponseParams',
@@ -1035,7 +1685,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_Res
 };
 
 // ParamsSpec for FindRegistrationForScope
-storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForScope_Params',
@@ -1049,7 +1699,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsS
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForScope_ResponseParams',
@@ -1064,7 +1714,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_Respons
 };
 
 // ParamsSpec for FindRegistrationForId
-storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForId_Params',
@@ -1078,7 +1728,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForId_ResponseParams',
@@ -1093,7 +1743,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponsePa
 };
 
 // ParamsSpec for GetRegistrationsForStorageKey
-storage.mojom.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetRegistrationsForStorageKey_Params',
@@ -1106,7 +1756,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_Pa
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetRegistrationsForStorageKey_ResponseParams',
@@ -1121,7 +1771,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_Re
 };
 
 // ParamsSpec for GetUsageForStorageKey
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUsageForStorageKey_Params',
@@ -1134,7 +1784,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUsageForStorageKey_ResponseParams',
@@ -1149,7 +1799,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponsePa
 };
 
 // ParamsSpec for GetAllRegistrationsDeprecated
-storage.mojom.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetAllRegistrationsDeprecated_Params',
@@ -1161,7 +1811,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_Pa
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetAllRegistrationsDeprecated_ResponseParams',
@@ -1176,7 +1826,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_Re
 };
 
 // ParamsSpec for GetFakeRegistrationForClientUrl
-storage.mojom.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetFakeRegistrationForClientUrl_Params',
@@ -1190,7 +1840,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetFakeRegistrationForClientUrl_ResponseParams',
@@ -1206,7 +1856,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_
 };
 
 // ParamsSpec for StoreRegistration
-storage.mojom.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreRegistration_Params',
@@ -1220,7 +1870,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreRegistration_ResponseParams',
@@ -1235,7 +1885,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParams
 };
 
 // ParamsSpec for DeleteRegistration
-storage.mojom.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.DeleteRegistration_Params',
@@ -1249,7 +1899,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = 
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.DeleteRegistration_ResponseParams',
@@ -1265,7 +1915,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParam
 };
 
 // ParamsSpec for UpdateToActiveState
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateToActiveState_Params',
@@ -1279,7 +1929,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec =
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateToActiveState_ResponseParams',
@@ -1293,7 +1943,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponsePara
 };
 
 // ParamsSpec for UpdateLastUpdateCheckTime
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateLastUpdateCheckTime_Params',
@@ -1308,7 +1958,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_Params
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateLastUpdateCheckTime_ResponseParams',
@@ -1322,7 +1972,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_Respon
 };
 
 // ParamsSpec for UpdateNavigationPreloadEnabled
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadEnabled_Params',
@@ -1337,7 +1987,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_P
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadEnabled_ResponseParams',
@@ -1351,7 +2001,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_R
 };
 
 // ParamsSpec for UpdateNavigationPreloadHeader
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadHeader_Params',
@@ -1366,7 +2016,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_Pa
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadHeader_ResponseParams',
@@ -1380,7 +2030,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_Re
 };
 
 // ParamsSpec for UpdateFetchHandlerType
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateFetchHandlerType_Params',
@@ -1395,7 +2045,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpe
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateFetchHandlerType_ResponseParams',
@@ -1409,7 +2059,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseP
 };
 
 // ParamsSpec for UpdateResourceSha256Checksums
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateResourceSha256Checksums_Params',
@@ -1424,7 +2074,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_Pa
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateResourceSha256Checksums_ResponseParams',
@@ -1438,7 +2088,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_Re
 };
 
 // ParamsSpec for GetNewRegistrationId
-storage.mojom.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetNewRegistrationId_Params',
@@ -1450,7 +2100,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec 
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetNewRegistrationId_ResponseParams',
@@ -1464,7 +2114,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponsePar
 };
 
 // ParamsSpec for GetNewVersionId
-storage.mojom.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetNewVersionId_Params',
@@ -1476,7 +2126,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetNewVersionId_ResponseParams',
@@ -1491,7 +2141,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSp
 };
 
 // ParamsSpec for GetNewResourceId
-storage.mojom.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetNewResourceId_Params',
@@ -1503,7 +2153,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetNewResourceId_ResponseParams',
@@ -1517,7 +2167,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsS
 };
 
 // ParamsSpec for CreateResourceReader
-storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.CreateResourceReader_Params',
@@ -1532,7 +2182,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec 
 };
 
 // ParamsSpec for CreateResourceWriter
-storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.CreateResourceWriter_Params',
@@ -1547,7 +2197,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec 
 };
 
 // ParamsSpec for CreateResourceMetadataWriter
-storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.CreateResourceMetadataWriter_Params',
@@ -1562,7 +2212,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_Par
 };
 
 // ParamsSpec for StoreUncommittedResourceId
-storage.mojom.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUncommittedResourceId_Params',
@@ -1575,7 +2225,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_Param
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUncommittedResourceId_ResponseParams',
@@ -1589,7 +2239,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_Respo
 };
 
 // ParamsSpec for DoomUncommittedResources
-storage.mojom.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.DoomUncommittedResources_Params',
@@ -1602,7 +2252,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsS
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.DoomUncommittedResources_ResponseParams',
@@ -1616,7 +2266,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_Respons
 };
 
 // ParamsSpec for GetUserData
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserData_Params',
@@ -1630,7 +2280,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserData_ResponseParams',
@@ -1645,7 +2295,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec =
 };
 
 // ParamsSpec for StoreUserData
-storage.mojom.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUserData_Params',
@@ -1660,7 +2310,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUserData_ResponseParams',
@@ -1674,7 +2324,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec
 };
 
 // ParamsSpec for ClearUserData
-storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserData_Params',
@@ -1688,7 +2338,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserData_ResponseParams',
@@ -1702,7 +2352,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec
 };
 
 // ParamsSpec for GetUserDataByKeyPrefix
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataByKeyPrefix_Params',
@@ -1716,7 +2366,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpe
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataByKeyPrefix_ResponseParams',
@@ -1731,7 +2381,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseP
 };
 
 // ParamsSpec for GetUserKeysAndDataByKeyPrefix
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserKeysAndDataByKeyPrefix_Params',
@@ -1745,7 +2395,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_Pa
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserKeysAndDataByKeyPrefix_ResponseParams',
@@ -1760,7 +2410,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_Re
 };
 
 // ParamsSpec for ClearUserDataByKeyPrefixes
-storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataByKeyPrefixes_Params',
@@ -1774,7 +2424,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_Param
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataByKeyPrefixes_ResponseParams',
@@ -1788,7 +2438,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_Respo
 };
 
 // ParamsSpec for GetUserDataForAllRegistrations
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrations_Params',
@@ -1801,7 +2451,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_P
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrations_ResponseParams',
@@ -1816,7 +2466,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_R
 };
 
 // ParamsSpec for GetUserDataForAllRegistrationsByKeyPrefix
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrationsByKeyPrefix_Params',
@@ -1829,7 +2479,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsBy
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrationsByKeyPrefix_ResponseParams',
@@ -1844,7 +2494,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsBy
 };
 
 // ParamsSpec for ClearUserDataForAllRegistrationsByKeyPrefix
-storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataForAllRegistrationsByKeyPrefix_Params',
@@ -1857,7 +2507,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrations
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParams',
@@ -1871,7 +2521,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrations
 };
 
 // ParamsSpec for PerformStorageCleanup
-storage.mojom.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.PerformStorageCleanup_Params',
@@ -1884,7 +2534,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec
 };
 
 // ParamsSpec for ApplyPolicyUpdates
-storage.mojom.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ApplyPolicyUpdates_Params',
@@ -1897,7 +2547,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = 
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.ApplyPolicyUpdates_ResponseParams',
@@ -1911,7 +2561,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParam
 };
 
 // ParamsSpec for GetPurgingResourceIdsForTest
-storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForTest_Params',
@@ -1923,7 +2573,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_Par
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForTest_ResponseParams',
@@ -1938,7 +2588,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_Res
 };
 
 // ParamsSpec for GetPurgingResourceIdsForLiveVersionForTest
-storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForLiveVersionForTest_Params',
@@ -1951,7 +2601,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVers
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForLiveVersionForTest_ResponseParams',
@@ -1966,7 +2616,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVers
 };
 
 // ParamsSpec for GetPurgeableResourceIdsForTest
-storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgeableResourceIdsForTest_Params',
@@ -1978,7 +2628,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_P
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgeableResourceIdsForTest_ResponseParams',
@@ -1993,7 +2643,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_R
 };
 
 // ParamsSpec for GetUncommittedResourceIdsForTest
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUncommittedResourceIdsForTest_Params',
@@ -2005,7 +2655,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest
   }
 };
 
-storage.mojom.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUncommittedResourceIdsForTest_ResponseParams',
@@ -2020,7 +2670,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest
 };
 
 // ParamsSpec for SetPurgingCompleteCallbackForTest
-storage.mojom.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec = {
+storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerStorageControl.SetPurgingCompleteCallbackForTest_Params',
@@ -2033,6 +2683,6 @@ storage.mojom.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTes
 };
 
 // Legacy compatibility
-storage.mojom.mojom.ServiceWorkerStorageControlPtr = storage.mojom.mojom.ServiceWorkerStorageControlRemote;
-storage.mojom.mojom.ServiceWorkerStorageControlRequest = storage.mojom.mojom.ServiceWorkerStorageControlPendingReceiver;
+storage.mojom.ServiceWorkerStorageControlPtr = storage.mojom.ServiceWorkerStorageControlRemote;
+storage.mojom.ServiceWorkerStorageControlRequest = storage.mojom.ServiceWorkerStorageControlPendingReceiver;
 

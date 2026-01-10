@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: ReferrerPolicy
-network.mojom.mojom.ReferrerPolicy = {
+network.mojom.ReferrerPolicy = {
   kAlways: 0,
   kNoReferrerWhenDowngrade: 1,
   kNever: 2,
@@ -20,10 +20,10 @@ network.mojom.mojom.ReferrerPolicy = {
   kSameOrigin: 6,
   kStrictOrigin: 7,
 };
-network.mojom.mojom.ReferrerPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.ReferrerPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: URLRequestReferrerPolicy
-network.mojom.mojom.URLRequestReferrerPolicy = {
+network.mojom.URLRequestReferrerPolicy = {
   kClearReferrerOnTransitionFromSecureToInsecure: 0,
   kReduceReferrerGranularityOnTransitionCrossOrigin: 1,
   kOriginOnlyOnTransitionCrossOrigin: 2,
@@ -33,4 +33,4 @@ network.mojom.mojom.URLRequestReferrerPolicy = {
   kOriginClearOnTransitionFromSecureToInsecure: 6,
   kNoReferrer: 7,
 };
-network.mojom.mojom.URLRequestReferrerPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.URLRequestReferrerPolicySpec = { $: mojo.internal.Enum() };

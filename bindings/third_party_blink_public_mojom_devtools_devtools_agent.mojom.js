@@ -13,14 +13,14 @@ var url = url || {};
 
 
 // Enum: DevToolsExecutionContextType
-blink.mojom.mojom.DevToolsExecutionContextType = {
+blink.mojom.DevToolsExecutionContextType = {
   kDedicatedWorker: 0,
   kWorklet: 1,
 };
-blink.mojom.mojom.DevToolsExecutionContextTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.DevToolsExecutionContextTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DevToolsMessage
-blink.mojom.mojom.DevToolsMessageSpec = {
+blink.mojom.DevToolsMessageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsMessage',
@@ -34,7 +34,7 @@ blink.mojom.mojom.DevToolsMessageSpec = {
 };
 
 // Struct: DevToolsSessionState
-blink.mojom.mojom.DevToolsSessionStateSpec = {
+blink.mojom.DevToolsSessionStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsSessionState',
@@ -48,24 +48,72 @@ blink.mojom.mojom.DevToolsSessionStateSpec = {
 };
 
 // Interface: DevToolsAgent
-blink.mojom.mojom.DevToolsAgent = {};
+blink.mojom.DevToolsAgent = {};
 
-blink.mojom.mojom.DevToolsAgentPendingReceiver = class {
+blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsAgent_AttachDevToolsSession_Params',
+      packedSize: 64,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.DevToolsSessionHostRemote), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'io_session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'reattach_session_state', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true, minVersion: 0 },
+        { name: 'script_to_evaluate_on_load', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'client_expects_binary_responses', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'client_is_trusted', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'session_waits_for_debugger', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 64}]
+    }
+  }
+};
+
+blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsAgent_InspectElement_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsAgent_ReportChildTargets_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'wait_for_debugger', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.DevToolsAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DevToolsAgentRemote = class {
+blink.mojom.DevToolsAgentRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DevToolsAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DevToolsAgentPendingReceiver,
+      blink.mojom.DevToolsAgentPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DevToolsAgentRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DevToolsAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -77,7 +125,7 @@ blink.mojom.mojom.DevToolsAgentRemote = class {
   }
 };
 
-blink.mojom.mojom.DevToolsAgentRemoteCallHandler = class {
+blink.mojom.DevToolsAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -86,7 +134,7 @@ blink.mojom.mojom.DevToolsAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec,
+      blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec,
       null,
       [host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger]);
   }
@@ -95,7 +143,7 @@ blink.mojom.mojom.DevToolsAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.DevToolsAgent_InspectElement_ParamsSpec,
+      blink.mojom.DevToolsAgent_InspectElement_ParamsSpec,
       null,
       [point]);
   }
@@ -104,15 +152,15 @@ blink.mojom.mojom.DevToolsAgentRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec,
+      blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec,
       null,
       [report, wait_for_debugger]);
   }
 
 };
 
-blink.mojom.mojom.DevToolsAgent.getRemote = function() {
-  let remote = new blink.mojom.mojom.DevToolsAgentRemote();
+blink.mojom.DevToolsAgent.getRemote = function() {
+  let remote = new blink.mojom.DevToolsAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -122,7 +170,7 @@ blink.mojom.mojom.DevToolsAgent.getRemote = function() {
 };
 
 // ParamsSpec for AttachDevToolsSession
-blink.mojom.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
+blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgent.AttachDevToolsSession_Params',
@@ -144,7 +192,7 @@ blink.mojom.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
 };
 
 // ParamsSpec for InspectElement
-blink.mojom.mojom.DevToolsAgent_InspectElement_ParamsSpec = {
+blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgent.InspectElement_Params',
@@ -158,7 +206,7 @@ blink.mojom.mojom.DevToolsAgent_InspectElement_ParamsSpec = {
 };
 
 // ParamsSpec for ReportChildTargets
-blink.mojom.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
+blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgent.ReportChildTargets_Params',
@@ -173,29 +221,84 @@ blink.mojom.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DevToolsAgentPtr = blink.mojom.mojom.DevToolsAgentRemote;
-blink.mojom.mojom.DevToolsAgentRequest = blink.mojom.mojom.DevToolsAgentPendingReceiver;
+blink.mojom.DevToolsAgentPtr = blink.mojom.DevToolsAgentRemote;
+blink.mojom.DevToolsAgentRequest = blink.mojom.DevToolsAgentPendingReceiver;
 
 
 // Interface: DevToolsAgentHost
-blink.mojom.mojom.DevToolsAgentHost = {};
+blink.mojom.DevToolsAgentHost = {};
 
-blink.mojom.mojom.DevToolsAgentHostPendingReceiver = class {
+blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsAgentHost_ChildTargetCreated_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'worker_devtools_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
+        { name: 'worker_devtools_agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'devtools_worker_token', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'waiting_for_debugger', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'context_type', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.DevToolsExecutionContextTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsAgentHost_BringToForeground_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DevToolsAgentHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DevToolsAgentHostRemote = class {
+blink.mojom.DevToolsAgentHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DevToolsAgentHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DevToolsAgentHostPendingReceiver,
+      blink.mojom.DevToolsAgentHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DevToolsAgentHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DevToolsAgentHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -207,7 +310,7 @@ blink.mojom.mojom.DevToolsAgentHostRemote = class {
   }
 };
 
-blink.mojom.mojom.DevToolsAgentHostRemoteCallHandler = class {
+blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -216,7 +319,7 @@ blink.mojom.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec,
+      blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec,
       null,
       [worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type]);
   }
@@ -225,7 +328,7 @@ blink.mojom.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec,
+      blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec,
       null,
       []);
   }
@@ -234,7 +337,7 @@ blink.mojom.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec,
+      blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec,
       null,
       []);
   }
@@ -243,15 +346,15 @@ blink.mojom.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec,
+      blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.DevToolsAgentHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.DevToolsAgentHostRemote();
+blink.mojom.DevToolsAgentHost.getRemote = function() {
+  let remote = new blink.mojom.DevToolsAgentHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -261,7 +364,7 @@ blink.mojom.mojom.DevToolsAgentHost.getRemote = function() {
 };
 
 // ParamsSpec for ChildTargetCreated
-blink.mojom.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = {
+blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgentHost.ChildTargetCreated_Params',
@@ -281,7 +384,7 @@ blink.mojom.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = {
 };
 
 // ParamsSpec for MainThreadDebuggerPaused
-blink.mojom.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = {
+blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgentHost.MainThreadDebuggerPaused_Params',
@@ -294,7 +397,7 @@ blink.mojom.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = {
 };
 
 // ParamsSpec for MainThreadDebuggerResumed
-blink.mojom.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = {
+blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgentHost.MainThreadDebuggerResumed_Params',
@@ -307,7 +410,7 @@ blink.mojom.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = {
 };
 
 // ParamsSpec for BringToForeground
-blink.mojom.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = {
+blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgentHost.BringToForeground_Params',
@@ -320,29 +423,56 @@ blink.mojom.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DevToolsAgentHostPtr = blink.mojom.mojom.DevToolsAgentHostRemote;
-blink.mojom.mojom.DevToolsAgentHostRequest = blink.mojom.mojom.DevToolsAgentHostPendingReceiver;
+blink.mojom.DevToolsAgentHostPtr = blink.mojom.DevToolsAgentHostRemote;
+blink.mojom.DevToolsAgentHostRequest = blink.mojom.DevToolsAgentHostPendingReceiver;
 
 
 // Interface: DevToolsSession
-blink.mojom.mojom.DevToolsSession = {};
+blink.mojom.DevToolsSession = {};
 
-blink.mojom.mojom.DevToolsSessionPendingReceiver = class {
+blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsSession_DispatchProtocolCommand_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'call_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsSession_UnpauseAndTerminate_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DevToolsSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DevToolsSessionRemote = class {
+blink.mojom.DevToolsSessionRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DevToolsSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DevToolsSessionPendingReceiver,
+      blink.mojom.DevToolsSessionPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DevToolsSessionRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DevToolsSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -354,7 +484,7 @@ blink.mojom.mojom.DevToolsSessionRemote = class {
   }
 };
 
-blink.mojom.mojom.DevToolsSessionRemoteCallHandler = class {
+blink.mojom.DevToolsSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -363,7 +493,7 @@ blink.mojom.mojom.DevToolsSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec,
+      blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec,
       null,
       [call_id, method, message]);
   }
@@ -372,15 +502,15 @@ blink.mojom.mojom.DevToolsSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec,
+      blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.DevToolsSession.getRemote = function() {
-  let remote = new blink.mojom.mojom.DevToolsSessionRemote();
+blink.mojom.DevToolsSession.getRemote = function() {
+  let remote = new blink.mojom.DevToolsSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -390,7 +520,7 @@ blink.mojom.mojom.DevToolsSession.getRemote = function() {
 };
 
 // ParamsSpec for DispatchProtocolCommand
-blink.mojom.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = {
+blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsSession.DispatchProtocolCommand_Params',
@@ -406,7 +536,7 @@ blink.mojom.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = {
 };
 
 // ParamsSpec for UnpauseAndTerminate
-blink.mojom.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = {
+blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsSession.UnpauseAndTerminate_Params',
@@ -419,29 +549,58 @@ blink.mojom.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DevToolsSessionPtr = blink.mojom.mojom.DevToolsSessionRemote;
-blink.mojom.mojom.DevToolsSessionRequest = blink.mojom.mojom.DevToolsSessionPendingReceiver;
+blink.mojom.DevToolsSessionPtr = blink.mojom.DevToolsSessionRemote;
+blink.mojom.DevToolsSessionRequest = blink.mojom.DevToolsSessionPendingReceiver;
 
 
 // Interface: DevToolsSessionHost
-blink.mojom.mojom.DevToolsSessionHost = {};
+blink.mojom.DevToolsSessionHost = {};
 
-blink.mojom.mojom.DevToolsSessionHostPendingReceiver = class {
+blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevToolsMessageSpec, nullable: false, minVersion: 0 },
+        { name: 'call_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'updates', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevToolsMessageSpec, nullable: false, minVersion: 0 },
+        { name: 'updates', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.DevToolsSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DevToolsSessionHostRemote = class {
+blink.mojom.DevToolsSessionHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DevToolsSessionHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DevToolsSessionHostPendingReceiver,
+      blink.mojom.DevToolsSessionHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DevToolsSessionHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DevToolsSessionHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -453,7 +612,7 @@ blink.mojom.mojom.DevToolsSessionHostRemote = class {
   }
 };
 
-blink.mojom.mojom.DevToolsSessionHostRemoteCallHandler = class {
+blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -462,7 +621,7 @@ blink.mojom.mojom.DevToolsSessionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec,
+      blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec,
       null,
       [message, call_id, updates]);
   }
@@ -471,15 +630,15 @@ blink.mojom.mojom.DevToolsSessionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec,
+      blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec,
       null,
       [message, updates]);
   }
 
 };
 
-blink.mojom.mojom.DevToolsSessionHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.DevToolsSessionHostRemote();
+blink.mojom.DevToolsSessionHost.getRemote = function() {
+  let remote = new blink.mojom.DevToolsSessionHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -489,7 +648,7 @@ blink.mojom.mojom.DevToolsSessionHost.getRemote = function() {
 };
 
 // ParamsSpec for DispatchProtocolResponse
-blink.mojom.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = {
+blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsSessionHost.DispatchProtocolResponse_Params',
@@ -505,7 +664,7 @@ blink.mojom.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = {
 };
 
 // ParamsSpec for DispatchProtocolNotification
-blink.mojom.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = {
+blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsSessionHost.DispatchProtocolNotification_Params',
@@ -520,6 +679,6 @@ blink.mojom.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DevToolsSessionHostPtr = blink.mojom.mojom.DevToolsSessionHostRemote;
-blink.mojom.mojom.DevToolsSessionHostRequest = blink.mojom.mojom.DevToolsSessionHostPendingReceiver;
+blink.mojom.DevToolsSessionHostPtr = blink.mojom.DevToolsSessionHostRemote;
+blink.mojom.DevToolsSessionHostRequest = blink.mojom.DevToolsSessionHostPendingReceiver;
 

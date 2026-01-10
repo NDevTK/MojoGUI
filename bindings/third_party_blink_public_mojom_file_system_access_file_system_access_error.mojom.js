@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: FileSystemAccessStatus
-blink.mojom.mojom.FileSystemAccessStatus = {
+blink.mojom.FileSystemAccessStatus = {
   kOk: 0,
   kPermissionDenied: 1,
   kSecurityError: 2,
@@ -23,10 +23,10 @@ blink.mojom.mojom.FileSystemAccessStatus = {
   kOperationAborted: 9,
   kFileError: 10,
 };
-blink.mojom.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: FileSystemAccessError
-blink.mojom.mojom.FileSystemAccessErrorSpec = {
+blink.mojom.FileSystemAccessErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessError',

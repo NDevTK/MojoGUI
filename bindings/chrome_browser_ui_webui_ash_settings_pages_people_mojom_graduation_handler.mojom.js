@@ -7,29 +7,54 @@
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
-ash.settings.settings.graduation = ash.settings.settings.graduation || {};
-ash.settings.settings.graduation.graduation.mojom = ash.settings.settings.graduation.graduation.mojom || {};
+ash.settings.graduation = ash.settings.graduation || {};
+ash.settings.graduation.mojom = ash.settings.graduation.mojom || {};
 
 
 // Interface: GraduationHandler
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler = {};
+ash.settings.graduation.mojom.GraduationHandler = {};
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerPendingReceiver = class {
+ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.graduation.mojom.GraduationObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.graduation.mojom.GraduationHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemote = class {
+ash.settings.graduation.mojom.GraduationHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.settings.graduation.mojom.GraduationHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerPendingReceiver,
+      ash.settings.graduation.mojom.GraduationHandlerPendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +66,7 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemote 
   }
 };
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemoteCallHandler = class {
+ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +75,7 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemoteC
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec,
+      ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec,
       null,
       []);
   }
@@ -59,15 +84,15 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemoteC
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler_AddObserver_ParamsSpec,
+      ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler.getRemote = function() {
-  let remote = new ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemote();
+ash.settings.graduation.mojom.GraduationHandler.getRemote = function() {
+  let remote = new ash.settings.graduation.mojom.GraduationHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -77,7 +102,7 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler.getRem
 };
 
 // ParamsSpec for LaunchGraduationApp
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = {
+ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.graduation.mojom.GraduationHandler.LaunchGraduationApp_Params',
@@ -90,7 +115,7 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler_Launch
 };
 
 // ParamsSpec for AddObserver
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler_AddObserver_ParamsSpec = {
+ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.graduation.mojom.GraduationHandler.AddObserver_Params',
@@ -104,29 +129,42 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandler_AddObs
 };
 
 // Legacy compatibility
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerPtr = ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRemote;
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerRequest = ash.settings.settings.graduation.graduation.mojom.mojom.GraduationHandlerPendingReceiver;
+ash.settings.graduation.mojom.GraduationHandlerPtr = ash.settings.graduation.mojom.GraduationHandlerRemote;
+ash.settings.graduation.mojom.GraduationHandlerRequest = ash.settings.graduation.mojom.GraduationHandlerPendingReceiver;
 
 
 // Interface: GraduationObserver
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserver = {};
+ash.settings.graduation.mojom.GraduationObserver = {};
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverPendingReceiver = class {
+ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_app_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.settings.graduation.mojom.GraduationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRemote = class {
+ash.settings.graduation.mojom.GraduationObserverRemote = class {
   static get $interfaceName() {
     return 'ash.settings.graduation.mojom.GraduationObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverPendingReceiver,
+      ash.settings.graduation.mojom.GraduationObserverPendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.graduation.mojom.GraduationObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -138,7 +176,7 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRemote
   }
 };
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRemoteCallHandler = class {
+ash.settings.graduation.mojom.GraduationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -147,15 +185,15 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRemote
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec,
+      ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec,
       null,
       [is_app_enabled]);
   }
 
 };
 
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserver.getRemote = function() {
-  let remote = new ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRemote();
+ash.settings.graduation.mojom.GraduationObserver.getRemote = function() {
+  let remote = new ash.settings.graduation.mojom.GraduationObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -165,7 +203,7 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserver.getRe
 };
 
 // ParamsSpec for OnGraduationAppUpdated
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = {
+ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.graduation.mojom.GraduationObserver.OnGraduationAppUpdated_Params',
@@ -179,6 +217,6 @@ ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserver_OnGra
 };
 
 // Legacy compatibility
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverPtr = ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRemote;
-ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverRequest = ash.settings.settings.graduation.graduation.mojom.mojom.GraduationObserverPendingReceiver;
+ash.settings.graduation.mojom.GraduationObserverPtr = ash.settings.graduation.mojom.GraduationObserverRemote;
+ash.settings.graduation.mojom.GraduationObserverRequest = ash.settings.graduation.mojom.GraduationObserverPendingReceiver;
 

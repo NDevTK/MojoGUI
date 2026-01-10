@@ -10,24 +10,37 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Interface: ChromotingHostServices
-remoting.mojom.mojom.ChromotingHostServices = {};
+remoting.mojom.ChromotingHostServices = {};
 
-remoting.mojom.mojom.ChromotingHostServicesPendingReceiver = class {
+remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.ChromotingSessionServicesRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remoting.mojom.ChromotingHostServicesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.mojom.ChromotingHostServicesRemote = class {
+remoting.mojom.ChromotingHostServicesRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.ChromotingHostServices';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.mojom.ChromotingHostServicesPendingReceiver,
+      remoting.mojom.ChromotingHostServicesPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.mojom.ChromotingHostServicesRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.ChromotingHostServicesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ remoting.mojom.mojom.ChromotingHostServicesRemote = class {
   }
 };
 
-remoting.mojom.mojom.ChromotingHostServicesRemoteCallHandler = class {
+remoting.mojom.ChromotingHostServicesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ remoting.mojom.mojom.ChromotingHostServicesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec,
+      remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-remoting.mojom.mojom.ChromotingHostServices.getRemote = function() {
-  let remote = new remoting.mojom.mojom.ChromotingHostServicesRemote();
+remoting.mojom.ChromotingHostServices.getRemote = function() {
+  let remote = new remoting.mojom.ChromotingHostServicesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ remoting.mojom.mojom.ChromotingHostServices.getRemote = function() {
 };
 
 // ParamsSpec for BindSessionServices
-remoting.mojom.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
+remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ChromotingHostServices.BindSessionServices_Params',
@@ -80,29 +93,68 @@ remoting.mojom.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.mojom.ChromotingHostServicesPtr = remoting.mojom.mojom.ChromotingHostServicesRemote;
-remoting.mojom.mojom.ChromotingHostServicesRequest = remoting.mojom.mojom.ChromotingHostServicesPendingReceiver;
+remoting.mojom.ChromotingHostServicesPtr = remoting.mojom.ChromotingHostServicesRemote;
+remoting.mojom.ChromotingHostServicesRequest = remoting.mojom.ChromotingHostServicesPendingReceiver;
 
 
 // Interface: ChromotingSessionServices
-remoting.mojom.mojom.ChromotingSessionServices = {};
+remoting.mojom.ChromotingSessionServices = {};
 
-remoting.mojom.mojom.ChromotingSessionServicesPendingReceiver = class {
+remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnProxyRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.RemoteUrlOpenerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.SecurityKeyForwarderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remoting.mojom.ChromotingSessionServicesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.mojom.ChromotingSessionServicesRemote = class {
+remoting.mojom.ChromotingSessionServicesRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.ChromotingSessionServices';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.mojom.ChromotingSessionServicesPendingReceiver,
+      remoting.mojom.ChromotingSessionServicesPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.mojom.ChromotingSessionServicesRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.ChromotingSessionServicesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +166,7 @@ remoting.mojom.mojom.ChromotingSessionServicesRemote = class {
   }
 };
 
-remoting.mojom.mojom.ChromotingSessionServicesRemoteCallHandler = class {
+remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,7 +175,7 @@ remoting.mojom.mojom.ChromotingSessionServicesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec,
+      remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec,
       null,
       [receiver]);
   }
@@ -132,7 +184,7 @@ remoting.mojom.mojom.ChromotingSessionServicesRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec,
+      remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec,
       null,
       [receiver]);
   }
@@ -141,15 +193,15 @@ remoting.mojom.mojom.ChromotingSessionServicesRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec,
+      remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-remoting.mojom.mojom.ChromotingSessionServices.getRemote = function() {
-  let remote = new remoting.mojom.mojom.ChromotingSessionServicesRemote();
+remoting.mojom.ChromotingSessionServices.getRemote = function() {
+  let remote = new remoting.mojom.ChromotingSessionServicesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +211,7 @@ remoting.mojom.mojom.ChromotingSessionServices.getRemote = function() {
 };
 
 // ParamsSpec for BindWebAuthnProxy
-remoting.mojom.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
+remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ChromotingSessionServices.BindWebAuthnProxy_Params',
@@ -173,7 +225,7 @@ remoting.mojom.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
 };
 
 // ParamsSpec for BindRemoteUrlOpener
-remoting.mojom.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
+remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ChromotingSessionServices.BindRemoteUrlOpener_Params',
@@ -187,7 +239,7 @@ remoting.mojom.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = 
 };
 
 // ParamsSpec for BindSecurityKeyForwarder
-remoting.mojom.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
+remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ChromotingSessionServices.BindSecurityKeyForwarder_Params',
@@ -201,6 +253,6 @@ remoting.mojom.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSp
 };
 
 // Legacy compatibility
-remoting.mojom.mojom.ChromotingSessionServicesPtr = remoting.mojom.mojom.ChromotingSessionServicesRemote;
-remoting.mojom.mojom.ChromotingSessionServicesRequest = remoting.mojom.mojom.ChromotingSessionServicesPendingReceiver;
+remoting.mojom.ChromotingSessionServicesPtr = remoting.mojom.ChromotingSessionServicesRemote;
+remoting.mojom.ChromotingSessionServicesRequest = remoting.mojom.ChromotingSessionServicesPendingReceiver;
 

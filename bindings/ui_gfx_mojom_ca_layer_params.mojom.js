@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Union: CALayerContent
-gfx.mojom.mojom.CALayerContentSpec = { $: mojo.internal.Union(
+gfx.mojom.CALayerContentSpec = { $: mojo.internal.Union(
     'gfx.mojom.CALayerContent', {
       'ca_context_id': {
         'ordinal': 0,
@@ -26,7 +26,7 @@ gfx.mojom.mojom.CALayerContentSpec = { $: mojo.internal.Union(
 };
 
 // Struct: CALayerParams
-gfx.mojom.mojom.CALayerParamsSpec = {
+gfx.mojom.CALayerParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.CALayerParams',

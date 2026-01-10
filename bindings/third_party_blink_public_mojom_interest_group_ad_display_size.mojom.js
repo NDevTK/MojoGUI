@@ -11,15 +11,15 @@ var url = url || {};
 
 
 // Enum: LengthUnit
-blink.mojom.mojom.LengthUnit = {
+blink.mojom.LengthUnit = {
   kPixels: 0,
   kScreenWidth: 1,
   kScreenHeight: 2,
 };
-blink.mojom.mojom.LengthUnitSpec = { $: mojo.internal.Enum() };
+blink.mojom.LengthUnitSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdSize
-blink.mojom.mojom.AdSizeSpec = {
+blink.mojom.AdSizeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdSize',
@@ -33,7 +33,7 @@ blink.mojom.mojom.AdSizeSpec = {
 };
 
 // Struct: AdDescriptor
-blink.mojom.mojom.AdDescriptorSpec = {
+blink.mojom.AdDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdDescriptor',

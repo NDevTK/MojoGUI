@@ -7,18 +7,18 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
+chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 
 // Enum: Status
-chromeos.machine_learning.machine_learning.mojom.mojom.Status = {
+chromeos.machine_learning.mojom.Status = {
   OK: 0,
   ERROR: 1,
 };
-chromeos.machine_learning.machine_learning.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: LoadHandwritingModelResult
-chromeos.machine_learning.machine_learning.mojom.mojom.LoadHandwritingModelResult = {
+chromeos.machine_learning.mojom.LoadHandwritingModelResult = {
   OK: 0,
   DEPRECATED_MODEL_SPEC_ERROR: 1,
   LOAD_MODEL_ERROR: 2,
@@ -32,10 +32,10 @@ chromeos.machine_learning.machine_learning.mojom.mojom.LoadHandwritingModelResul
   LOAD_FUNC_PTR_ERROR: 10,
   LOAD_MODEL_FILES_ERROR: 11,
 };
-chromeos.machine_learning.machine_learning.mojom.mojom.LoadHandwritingModelResultSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: InkPoint
-chromeos.machine_learning.machine_learning.mojom.mojom.InkPointSpec = {
+chromeos.machine_learning.mojom.InkPointSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.InkPoint',
@@ -51,7 +51,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.InkPointSpec = {
 };
 
 // Struct: InkStroke
-chromeos.machine_learning.machine_learning.mojom.mojom.InkStrokeSpec = {
+chromeos.machine_learning.mojom.InkStrokeSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.InkStroke',
@@ -65,7 +65,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.InkStrokeSpec = {
 };
 
 // Struct: WritingGuide
-chromeos.machine_learning.machine_learning.mojom.mojom.WritingGuideSpec = {
+chromeos.machine_learning.mojom.WritingGuideSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.WritingGuide',
@@ -80,7 +80,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.WritingGuideSpec = {
 };
 
 // Struct: RecognitionContext
-chromeos.machine_learning.machine_learning.mojom.mojom.RecognitionContextSpec = {
+chromeos.machine_learning.mojom.RecognitionContextSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.RecognitionContext',
@@ -95,7 +95,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.RecognitionContextSpec = 
 };
 
 // Struct: HandwritingRecognitionQuery
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognitionQuerySpec = {
+chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognitionQuery',
@@ -112,7 +112,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognitionQue
 };
 
 // Struct: HandwritingRecognizerInkRange
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerInkRangeSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerInkRange',
@@ -129,7 +129,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerInkR
 };
 
 // Struct: HandwritingRecognizerSegment
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerSegmentSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSegment',
@@ -144,7 +144,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerSegm
 };
 
 // Struct: HandwritingRecognizerSegmentation
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerSegmentationSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSegmentation',
@@ -158,7 +158,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerSegm
 };
 
 // Struct: HandwritingRecognizerCandidate
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerCandidateSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerCandidate',
@@ -174,7 +174,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerCand
 };
 
 // Struct: HandwritingRecognizerResult
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerResultSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerResult',
@@ -188,7 +188,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerResu
 };
 
 // Struct: HandwritingRecognizerSpec
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerSpecSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSpec',
@@ -204,24 +204,37 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerSpec
 };
 
 // Interface: HandwritingRecognizer
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer = {};
+chromeos.machine_learning.mojom.HandwritingRecognizer = {};
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerPendingReceiver = class {
+chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.HandwritingRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRemote = class {
+chromeos.machine_learning.mojom.HandwritingRecognizerRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.HandwritingRecognizer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerPendingReceiver,
+      chromeos.machine_learning.mojom.HandwritingRecognizerPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.mojom.HandwritingRecognizerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -233,7 +246,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRemo
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRemoteCallHandler = class {
+chromeos.machine_learning.mojom.HandwritingRecognizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -242,15 +255,15 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRemo
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer_Recognize_ParamsSpec,
-      chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec,
+      chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec,
+      chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec,
       [query]);
   }
 
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer.getRemote = function() {
-  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRemote();
+chromeos.machine_learning.mojom.HandwritingRecognizer.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.HandwritingRecognizerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -260,7 +273,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer.get
 };
 
 // ParamsSpec for Recognize
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer_Recognize_ParamsSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizer.Recognize_Params',
@@ -273,7 +286,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer_Rec
   }
 };
 
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec = {
+chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizer.Recognize_ResponseParams',
@@ -287,6 +300,6 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizer_Rec
 };
 
 // Legacy compatibility
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerPtr = chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRemote;
-chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerRequest = chromeos.machine_learning.machine_learning.mojom.mojom.HandwritingRecognizerPendingReceiver;
+chromeos.machine_learning.mojom.HandwritingRecognizerPtr = chromeos.machine_learning.mojom.HandwritingRecognizerRemote;
+chromeos.machine_learning.mojom.HandwritingRecognizerRequest = chromeos.machine_learning.mojom.HandwritingRecognizerPendingReceiver;
 

@@ -10,24 +10,37 @@ content.mojom = content.mojom || {};
 
 
 // Interface: DomAutomationControllerHost
-content.mojom.mojom.DomAutomationControllerHost = {};
+content.mojom.DomAutomationControllerHost = {};
 
-content.mojom.mojom.DomAutomationControllerHostPendingReceiver = class {
+content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.DomAutomationControllerHost_DomOperationResponse_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'json_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.DomAutomationControllerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.DomAutomationControllerHostRemote = class {
+content.mojom.DomAutomationControllerHostRemote = class {
   static get $interfaceName() {
     return 'content.mojom.DomAutomationControllerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.DomAutomationControllerHostPendingReceiver,
+      content.mojom.DomAutomationControllerHostPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.DomAutomationControllerHostRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.DomAutomationControllerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ content.mojom.mojom.DomAutomationControllerHostRemote = class {
   }
 };
 
-content.mojom.mojom.DomAutomationControllerHostRemoteCallHandler = class {
+content.mojom.DomAutomationControllerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ content.mojom.mojom.DomAutomationControllerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec,
+      content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec,
       null,
       [json_string]);
   }
 
 };
 
-content.mojom.mojom.DomAutomationControllerHost.getRemote = function() {
-  let remote = new content.mojom.mojom.DomAutomationControllerHostRemote();
+content.mojom.DomAutomationControllerHost.getRemote = function() {
+  let remote = new content.mojom.DomAutomationControllerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ content.mojom.mojom.DomAutomationControllerHost.getRemote = function() {
 };
 
 // ParamsSpec for DomOperationResponse
-content.mojom.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
+content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.DomAutomationControllerHost.DomOperationResponse_Params',
@@ -80,6 +93,6 @@ content.mojom.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec 
 };
 
 // Legacy compatibility
-content.mojom.mojom.DomAutomationControllerHostPtr = content.mojom.mojom.DomAutomationControllerHostRemote;
-content.mojom.mojom.DomAutomationControllerHostRequest = content.mojom.mojom.DomAutomationControllerHostPendingReceiver;
+content.mojom.DomAutomationControllerHostPtr = content.mojom.DomAutomationControllerHostRemote;
+content.mojom.DomAutomationControllerHostRequest = content.mojom.DomAutomationControllerHostPendingReceiver;
 

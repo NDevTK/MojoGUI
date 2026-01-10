@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: SourceLocation
-network.mojom.mojom.SourceLocationSpec = {
+network.mojom.SourceLocationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SourceLocation',

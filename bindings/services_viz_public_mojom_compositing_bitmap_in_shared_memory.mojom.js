@@ -11,7 +11,7 @@ var skia = skia || {};
 
 
 // Struct: BitmapInSharedMemory
-viz.mojom.mojom.BitmapInSharedMemorySpec = {
+viz.mojom.BitmapInSharedMemorySpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BitmapInSharedMemory',

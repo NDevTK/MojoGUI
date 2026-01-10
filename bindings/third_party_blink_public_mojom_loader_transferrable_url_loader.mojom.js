@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: TransferrableURLLoader
-blink.mojom.mojom.TransferrableURLLoaderSpec = {
+blink.mojom.TransferrableURLLoaderSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TransferrableURLLoader',

@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Enum: RRectFType
-gfx.mojom.mojom.RRectFType = {
+gfx.mojom.RRectFType = {
   kEmpty: 0,
   kRect: 1,
   kSingle: 2,
@@ -20,10 +20,10 @@ gfx.mojom.mojom.RRectFType = {
   kOval: 4,
   kComplex: 5,
 };
-gfx.mojom.mojom.RRectFTypeSpec = { $: mojo.internal.Enum() };
+gfx.mojom.RRectFTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: RRectF
-gfx.mojom.mojom.RRectFSpec = {
+gfx.mojom.RRectFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.RRectF',

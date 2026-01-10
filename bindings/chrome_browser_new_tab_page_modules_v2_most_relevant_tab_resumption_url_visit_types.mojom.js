@@ -7,12 +7,12 @@
 // Module namespace
 var ntp = ntp || {};
 ntp.most_relevant_tab_resumption = ntp.most_relevant_tab_resumption || {};
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom = ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom || {};
+ntp.most_relevant_tab_resumption.mojom = ntp.most_relevant_tab_resumption.mojom || {};
 var url = url || {};
 
 
 // Enum: FormFactor
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.FormFactor = {
+ntp.most_relevant_tab_resumption.mojom.FormFactor = {
   kUnknown: 0,
   kDesktop: 1,
   kPhone: 2,
@@ -21,26 +21,26 @@ ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.FormFa
   kWearable: 5,
   kTv: 6,
 };
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.FormFactorSpec = { $: mojo.internal.Enum() };
+ntp.most_relevant_tab_resumption.mojom.FormFactorSpec = { $: mojo.internal.Enum() };
 
 // Enum: DecorationType
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.DecorationType = {
+ntp.most_relevant_tab_resumption.mojom.DecorationType = {
   kVisitedXAgo: 0,
   kMostRecent: 1,
   kFrequentlyVisited: 2,
   kFrequentlyVisitedAtTime: 3,
 };
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.DecorationTypeSpec = { $: mojo.internal.Enum() };
+ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: VisitSource
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.VisitSource = {
+ntp.most_relevant_tab_resumption.mojom.VisitSource = {
   kTab: 0,
   kHistory: 1,
 };
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.VisitSourceSpec = { $: mojo.internal.Enum() };
+ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: Decoration
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.DecorationSpec = {
+ntp.most_relevant_tab_resumption.mojom.DecorationSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.Decoration',
@@ -55,7 +55,7 @@ ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.Decora
 };
 
 // Struct: URLVisit
-ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.URLVisitSpec = {
+ntp.most_relevant_tab_resumption.mojom.URLVisitSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.URLVisit',

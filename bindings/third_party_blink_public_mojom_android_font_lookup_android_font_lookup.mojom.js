@@ -10,24 +10,61 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AndroidFontLookup
-blink.mojom.mojom.AndroidFontLookup = {};
+blink.mojom.AndroidFontLookup = {};
 
-blink.mojom.mojom.AndroidFontLookupPendingReceiver = class {
+blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'font_unique_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.AndroidFontLookupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AndroidFontLookupRemote = class {
+blink.mojom.AndroidFontLookupRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AndroidFontLookup';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AndroidFontLookupPendingReceiver,
+      blink.mojom.AndroidFontLookupPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AndroidFontLookupRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AndroidFontLookupRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +76,7 @@ blink.mojom.mojom.AndroidFontLookupRemote = class {
   }
 };
 
-blink.mojom.mojom.AndroidFontLookupRemoteCallHandler = class {
+blink.mojom.AndroidFontLookupRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +85,8 @@ blink.mojom.mojom.AndroidFontLookupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec,
-      blink.mojom.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
+      blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec,
+      blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +94,8 @@ blink.mojom.mojom.AndroidFontLookupRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec,
-      blink.mojom.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
+      blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec,
+      blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
       [font_unique_name]);
   }
 
@@ -66,15 +103,15 @@ blink.mojom.mojom.AndroidFontLookupRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec,
-      blink.mojom.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
+      blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec,
+      blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.AndroidFontLookup.getRemote = function() {
-  let remote = new blink.mojom.mojom.AndroidFontLookupRemote();
+blink.mojom.AndroidFontLookup.getRemote = function() {
+  let remote = new blink.mojom.AndroidFontLookupRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +121,7 @@ blink.mojom.mojom.AndroidFontLookup.getRemote = function() {
 };
 
 // ParamsSpec for GetUniqueNameLookupTable
-blink.mojom.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
+blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AndroidFontLookup.GetUniqueNameLookupTable_Params',
@@ -96,7 +133,7 @@ blink.mojom.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
+blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AndroidFontLookup.GetUniqueNameLookupTable_ResponseParams',
@@ -110,7 +147,7 @@ blink.mojom.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec 
 };
 
 // ParamsSpec for MatchLocalFontByUniqueName
-blink.mojom.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
+blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AndroidFontLookup.MatchLocalFontByUniqueName_Params',
@@ -123,7 +160,7 @@ blink.mojom.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec = {
+blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AndroidFontLookup.MatchLocalFontByUniqueName_ResponseParams',
@@ -137,7 +174,7 @@ blink.mojom.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpe
 };
 
 // ParamsSpec for FetchAllFontFiles
-blink.mojom.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
+blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AndroidFontLookup.FetchAllFontFiles_Params',
@@ -149,7 +186,7 @@ blink.mojom.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = {
+blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AndroidFontLookup.FetchAllFontFiles_ResponseParams',
@@ -163,6 +200,6 @@ blink.mojom.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AndroidFontLookupPtr = blink.mojom.mojom.AndroidFontLookupRemote;
-blink.mojom.mojom.AndroidFontLookupRequest = blink.mojom.mojom.AndroidFontLookupPendingReceiver;
+blink.mojom.AndroidFontLookupPtr = blink.mojom.AndroidFontLookupRemote;
+blink.mojom.AndroidFontLookupRequest = blink.mojom.AndroidFontLookupPendingReceiver;
 

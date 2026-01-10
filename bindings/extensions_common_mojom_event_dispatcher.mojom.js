@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: EventFilteringInfo
-extensions.mojom.mojom.EventFilteringInfoSpec = {
+extensions.mojom.EventFilteringInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventFilteringInfo',
@@ -31,7 +31,7 @@ extensions.mojom.mojom.EventFilteringInfoSpec = {
 };
 
 // Struct: DispatchEventParams
-extensions.mojom.mojom.DispatchEventParamsSpec = {
+extensions.mojom.DispatchEventParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.DispatchEventParams',
@@ -50,24 +50,38 @@ extensions.mojom.mojom.DispatchEventParamsSpec = {
 };
 
 // Interface: EventDispatcher
-extensions.mojom.mojom.EventDispatcher = {};
+extensions.mojom.EventDispatcher = {};
 
-extensions.mojom.mojom.EventDispatcherPendingReceiver = class {
+extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventDispatcher_DispatchEvent_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.DispatchEventParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+extensions.mojom.EventDispatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.EventDispatcherRemote = class {
+extensions.mojom.EventDispatcherRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.EventDispatcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.EventDispatcherPendingReceiver,
+      extensions.mojom.EventDispatcherPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.EventDispatcherRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.EventDispatcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -79,7 +93,7 @@ extensions.mojom.mojom.EventDispatcherRemote = class {
   }
 };
 
-extensions.mojom.mojom.EventDispatcherRemoteCallHandler = class {
+extensions.mojom.EventDispatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -88,15 +102,15 @@ extensions.mojom.mojom.EventDispatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.EventDispatcher_DispatchEvent_ParamsSpec,
-      extensions.mojom.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec,
+      extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec,
+      extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec,
       [params, event_args]);
   }
 
 };
 
-extensions.mojom.mojom.EventDispatcher.getRemote = function() {
-  let remote = new extensions.mojom.mojom.EventDispatcherRemote();
+extensions.mojom.EventDispatcher.getRemote = function() {
+  let remote = new extensions.mojom.EventDispatcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -106,7 +120,7 @@ extensions.mojom.mojom.EventDispatcher.getRemote = function() {
 };
 
 // ParamsSpec for DispatchEvent
-extensions.mojom.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
+extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventDispatcher.DispatchEvent_Params',
@@ -120,7 +134,7 @@ extensions.mojom.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
   }
 };
 
-extensions.mojom.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
+extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventDispatcher.DispatchEvent_ResponseParams',
@@ -134,6 +148,6 @@ extensions.mojom.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.EventDispatcherPtr = extensions.mojom.mojom.EventDispatcherRemote;
-extensions.mojom.mojom.EventDispatcherRequest = extensions.mojom.mojom.EventDispatcherPendingReceiver;
+extensions.mojom.EventDispatcherPtr = extensions.mojom.EventDispatcherRemote;
+extensions.mojom.EventDispatcherRequest = extensions.mojom.EventDispatcherPendingReceiver;
 

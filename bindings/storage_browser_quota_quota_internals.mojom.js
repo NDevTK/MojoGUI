@@ -12,7 +12,7 @@ var blink = blink || {};
 
 
 // Struct: BucketTableEntry
-storage.mojom.mojom.BucketTableEntrySpec = {
+storage.mojom.BucketTableEntrySpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketTableEntry',
@@ -32,24 +32,97 @@ storage.mojom.mojom.BucketTableEntrySpec = {
 };
 
 // Interface: QuotaInternalsHandler
-storage.mojom.mojom.QuotaInternalsHandler = {};
+storage.mojom.QuotaInternalsHandler = {};
 
-storage.mojom.mojom.QuotaInternalsHandlerPendingReceiver = class {
+storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.QuotaInternalsHandler_GetStatistics_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'origin_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.QuotaInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.QuotaInternalsHandlerRemote = class {
+storage.mojom.QuotaInternalsHandlerRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.QuotaInternalsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.QuotaInternalsHandlerPendingReceiver,
+      storage.mojom.QuotaInternalsHandlerPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.QuotaInternalsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +134,7 @@ storage.mojom.mojom.QuotaInternalsHandlerRemote = class {
   }
 };
 
-storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
+storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,8 +143,8 @@ storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec,
-      storage.mojom.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec,
       []);
   }
 
@@ -79,8 +152,8 @@ storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec,
-      storage.mojom.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec,
       []);
   }
 
@@ -88,7 +161,7 @@ storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec,
       null,
       [origin_url]);
   }
@@ -97,8 +170,8 @@ storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec,
-      storage.mojom.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec,
+      storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec,
       []);
   }
 
@@ -106,8 +179,8 @@ storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec,
-      storage.mojom.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec,
       []);
   }
 
@@ -115,15 +188,15 @@ storage.mojom.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec,
-      storage.mojom.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec,
+      storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec,
       []);
   }
 
 };
 
-storage.mojom.mojom.QuotaInternalsHandler.getRemote = function() {
-  let remote = new storage.mojom.mojom.QuotaInternalsHandlerRemote();
+storage.mojom.QuotaInternalsHandler.getRemote = function() {
+  let remote = new storage.mojom.QuotaInternalsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -133,7 +206,7 @@ storage.mojom.mojom.QuotaInternalsHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetDiskAvailabilityAndTempPoolSize
-storage.mojom.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec = {
+storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.GetDiskAvailabilityAndTempPoolSize_Params',
@@ -145,7 +218,7 @@ storage.mojom.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_Par
   }
 };
 
-storage.mojom.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec = {
+storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.GetDiskAvailabilityAndTempPoolSize_ResponseParams',
@@ -161,7 +234,7 @@ storage.mojom.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_Res
 };
 
 // ParamsSpec for GetStatistics
-storage.mojom.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
+storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.GetStatistics_Params',
@@ -173,7 +246,7 @@ storage.mojom.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
+storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.GetStatistics_ResponseParams',
@@ -187,7 +260,7 @@ storage.mojom.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SimulateStoragePressure
-storage.mojom.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
+storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.SimulateStoragePressure_Params',
@@ -201,7 +274,7 @@ storage.mojom.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
 };
 
 // ParamsSpec for RetrieveBucketsTable
-storage.mojom.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
+storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.RetrieveBucketsTable_Params',
@@ -213,7 +286,7 @@ storage.mojom.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
+storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.RetrieveBucketsTable_ResponseParams',
@@ -227,7 +300,7 @@ storage.mojom.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpe
 };
 
 // ParamsSpec for GetGlobalUsageForInternals
-storage.mojom.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
+storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.GetGlobalUsageForInternals_Params',
@@ -239,7 +312,7 @@ storage.mojom.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec 
   }
 };
 
-storage.mojom.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec = {
+storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.GetGlobalUsageForInternals_ResponseParams',
@@ -254,7 +327,7 @@ storage.mojom.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponsePar
 };
 
 // ParamsSpec for IsSimulateStoragePressureAvailable
-storage.mojom.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec = {
+storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.IsSimulateStoragePressureAvailable_Params',
@@ -266,7 +339,7 @@ storage.mojom.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_Par
   }
 };
 
-storage.mojom.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec = {
+storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaInternalsHandler.IsSimulateStoragePressureAvailable_ResponseParams',
@@ -280,6 +353,6 @@ storage.mojom.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_Res
 };
 
 // Legacy compatibility
-storage.mojom.mojom.QuotaInternalsHandlerPtr = storage.mojom.mojom.QuotaInternalsHandlerRemote;
-storage.mojom.mojom.QuotaInternalsHandlerRequest = storage.mojom.mojom.QuotaInternalsHandlerPendingReceiver;
+storage.mojom.QuotaInternalsHandlerPtr = storage.mojom.QuotaInternalsHandlerRemote;
+storage.mojom.QuotaInternalsHandlerRequest = storage.mojom.QuotaInternalsHandlerPendingReceiver;
 

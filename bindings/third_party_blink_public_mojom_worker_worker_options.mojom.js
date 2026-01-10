@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: WorkerOptions
-blink.mojom.mojom.WorkerOptionsSpec = {
+blink.mojom.WorkerOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerOptions',

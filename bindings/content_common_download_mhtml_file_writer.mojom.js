@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Enum: MhtmlSaveStatus
-content.mojom.mojom.MhtmlSaveStatus = {
+content.mojom.MhtmlSaveStatus = {
   kSuccess: 0,
   kFileClosingError: 1,
   kFileCreationError: 2,
@@ -20,10 +20,10 @@ content.mojom.mojom.MhtmlSaveStatus = {
   kRenderProcessExited: 6,
   kStreamingError: 7,
 };
-content.mojom.mojom.MhtmlSaveStatusSpec = { $: mojo.internal.Enum() };
+content.mojom.MhtmlSaveStatusSpec = { $: mojo.internal.Enum() };
 
 // Union: MhtmlOutputHandle
-content.mojom.mojom.MhtmlOutputHandleSpec = { $: mojo.internal.Union(
+content.mojom.MhtmlOutputHandleSpec = { $: mojo.internal.Union(
     'content.mojom.MhtmlOutputHandle', {
       'file_handle': {
         'ordinal': 0,
@@ -37,7 +37,7 @@ content.mojom.mojom.MhtmlOutputHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SerializeAsMHTMLParams
-content.mojom.mojom.SerializeAsMHTMLParamsSpec = {
+content.mojom.SerializeAsMHTMLParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SerializeAsMHTMLParams',
@@ -56,24 +56,37 @@ content.mojom.mojom.SerializeAsMHTMLParamsSpec = {
 };
 
 // Interface: MhtmlFileWriter
-content.mojom.mojom.MhtmlFileWriter = {};
+content.mojom.MhtmlFileWriter = {};
 
-content.mojom.mojom.MhtmlFileWriterPendingReceiver = class {
+content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SerializeAsMHTMLParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.MhtmlFileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.MhtmlFileWriterRemote = class {
+content.mojom.MhtmlFileWriterRemote = class {
   static get $interfaceName() {
     return 'content.mojom.MhtmlFileWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.MhtmlFileWriterPendingReceiver,
+      content.mojom.MhtmlFileWriterPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.MhtmlFileWriterRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.MhtmlFileWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +98,7 @@ content.mojom.mojom.MhtmlFileWriterRemote = class {
   }
 };
 
-content.mojom.mojom.MhtmlFileWriterRemoteCallHandler = class {
+content.mojom.MhtmlFileWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,15 +107,15 @@ content.mojom.mojom.MhtmlFileWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
-      content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
+      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
+      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
       [params]);
   }
 
 };
 
-content.mojom.mojom.MhtmlFileWriter.getRemote = function() {
-  let remote = new content.mojom.mojom.MhtmlFileWriterRemote();
+content.mojom.MhtmlFileWriter.getRemote = function() {
+  let remote = new content.mojom.MhtmlFileWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -112,7 +125,7 @@ content.mojom.mojom.MhtmlFileWriter.getRemote = function() {
 };
 
 // ParamsSpec for SerializeAsMHTML
-content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
+content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_Params',
@@ -125,7 +138,7 @@ content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
+content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_ResponseParams',
@@ -140,6 +153,6 @@ content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.MhtmlFileWriterPtr = content.mojom.mojom.MhtmlFileWriterRemote;
-content.mojom.mojom.MhtmlFileWriterRequest = content.mojom.mojom.MhtmlFileWriterPendingReceiver;
+content.mojom.MhtmlFileWriterPtr = content.mojom.MhtmlFileWriterRemote;
+content.mojom.MhtmlFileWriterRequest = content.mojom.MhtmlFileWriterPendingReceiver;
 

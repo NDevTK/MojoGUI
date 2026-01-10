@@ -10,7 +10,7 @@ ax.mojom = ax.mojom || {};
 
 
 // Enum: TtsEventType
-ax.mojom.mojom.TtsEventType = {
+ax.mojom.TtsEventType = {
   kStart: 0,
   kEnd: 1,
   kWord: 2,
@@ -22,10 +22,10 @@ ax.mojom.mojom.TtsEventType = {
   kPause: 8,
   kResume: 9,
 };
-ax.mojom.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TtsError
-ax.mojom.mojom.TtsError = {
+ax.mojom.TtsError = {
   kNoError: 0,
   kErrorExtensionIdMismatch: 1,
   kErrorInvalidLang: 2,
@@ -36,10 +36,10 @@ ax.mojom.mojom.TtsError = {
   kErrorUndeclaredEventType: 7,
   kErrorUtteranceTooLong: 8,
 };
-ax.mojom.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
+ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: TtsVoice
-ax.mojom.mojom.TtsVoiceSpec = {
+ax.mojom.TtsVoiceSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsVoice',
@@ -57,7 +57,7 @@ ax.mojom.mojom.TtsVoiceSpec = {
 };
 
 // Struct: TtsOptions
-ax.mojom.mojom.TtsOptionsSpec = {
+ax.mojom.TtsOptionsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsOptions',
@@ -78,7 +78,7 @@ ax.mojom.mojom.TtsOptionsSpec = {
 };
 
 // Struct: TtsEvent
-ax.mojom.mojom.TtsEventSpec = {
+ax.mojom.TtsEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsEvent',
@@ -96,7 +96,7 @@ ax.mojom.mojom.TtsEventSpec = {
 };
 
 // Struct: TtsSpeakResult
-ax.mojom.mojom.TtsSpeakResultSpec = {
+ax.mojom.TtsSpeakResultSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsSpeakResult',
@@ -111,24 +111,37 @@ ax.mojom.mojom.TtsSpeakResultSpec = {
 };
 
 // Interface: TtsUtteranceClient
-ax.mojom.mojom.TtsUtteranceClient = {};
+ax.mojom.TtsUtteranceClient = {};
 
-ax.mojom.mojom.TtsUtteranceClientPendingReceiver = class {
+ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.TtsUtteranceClient_OnEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ax.mojom.TtsUtteranceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.mojom.TtsUtteranceClientRemote = class {
+ax.mojom.TtsUtteranceClientRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.TtsUtteranceClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.mojom.TtsUtteranceClientPendingReceiver,
+      ax.mojom.TtsUtteranceClientPendingReceiver,
       handle);
-    this.$ = new ax.mojom.mojom.TtsUtteranceClientRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.TtsUtteranceClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -140,7 +153,7 @@ ax.mojom.mojom.TtsUtteranceClientRemote = class {
   }
 };
 
-ax.mojom.mojom.TtsUtteranceClientRemoteCallHandler = class {
+ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -149,15 +162,15 @@ ax.mojom.mojom.TtsUtteranceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
+      ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
       null,
       [event]);
   }
 
 };
 
-ax.mojom.mojom.TtsUtteranceClient.getRemote = function() {
-  let remote = new ax.mojom.mojom.TtsUtteranceClientRemote();
+ax.mojom.TtsUtteranceClient.getRemote = function() {
+  let remote = new ax.mojom.TtsUtteranceClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -167,7 +180,7 @@ ax.mojom.mojom.TtsUtteranceClient.getRemote = function() {
 };
 
 // ParamsSpec for OnEvent
-ax.mojom.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
+ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsUtteranceClient.OnEvent_Params',
@@ -181,29 +194,103 @@ ax.mojom.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.mojom.TtsUtteranceClientPtr = ax.mojom.mojom.TtsUtteranceClientRemote;
-ax.mojom.mojom.TtsUtteranceClientRequest = ax.mojom.mojom.TtsUtteranceClientPendingReceiver;
+ax.mojom.TtsUtteranceClientPtr = ax.mojom.TtsUtteranceClientRemote;
+ax.mojom.TtsUtteranceClientRequest = ax.mojom.TtsUtteranceClientPendingReceiver;
 
 
 // Interface: Tts
-ax.mojom.mojom.Tts = {};
+ax.mojom.Tts = {};
 
-ax.mojom.mojom.TtsPendingReceiver = class {
+ax.mojom.Tts_Speak_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Tts_Speak_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ax.mojom.Tts_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Tts_Stop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ax.mojom.Tts_Pause_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Tts_Pause_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ax.mojom.Tts_Resume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Tts_Resume_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ax.mojom.Tts_IsSpeaking_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Tts_IsSpeaking_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ax.mojom.Tts_GetVoices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Tts_GetVoices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ax.mojom.TtsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.mojom.TtsRemote = class {
+ax.mojom.TtsRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.Tts';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.mojom.TtsPendingReceiver,
+      ax.mojom.TtsPendingReceiver,
       handle);
-    this.$ = new ax.mojom.mojom.TtsRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.TtsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -215,7 +302,7 @@ ax.mojom.mojom.TtsRemote = class {
   }
 };
 
-ax.mojom.mojom.TtsRemoteCallHandler = class {
+ax.mojom.TtsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -224,8 +311,8 @@ ax.mojom.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.mojom.Tts_Speak_ParamsSpec,
-      ax.mojom.mojom.Tts_Speak_ResponseParamsSpec,
+      ax.mojom.Tts_Speak_ParamsSpec,
+      ax.mojom.Tts_Speak_ResponseParamsSpec,
       [utterance, options]);
   }
 
@@ -233,7 +320,7 @@ ax.mojom.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.mojom.Tts_Stop_ParamsSpec,
+      ax.mojom.Tts_Stop_ParamsSpec,
       null,
       []);
   }
@@ -242,7 +329,7 @@ ax.mojom.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.mojom.Tts_Pause_ParamsSpec,
+      ax.mojom.Tts_Pause_ParamsSpec,
       null,
       []);
   }
@@ -251,7 +338,7 @@ ax.mojom.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.mojom.Tts_Resume_ParamsSpec,
+      ax.mojom.Tts_Resume_ParamsSpec,
       null,
       []);
   }
@@ -260,8 +347,8 @@ ax.mojom.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.mojom.Tts_IsSpeaking_ParamsSpec,
-      ax.mojom.mojom.Tts_IsSpeaking_ResponseParamsSpec,
+      ax.mojom.Tts_IsSpeaking_ParamsSpec,
+      ax.mojom.Tts_IsSpeaking_ResponseParamsSpec,
       []);
   }
 
@@ -269,15 +356,15 @@ ax.mojom.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.mojom.Tts_GetVoices_ParamsSpec,
-      ax.mojom.mojom.Tts_GetVoices_ResponseParamsSpec,
+      ax.mojom.Tts_GetVoices_ParamsSpec,
+      ax.mojom.Tts_GetVoices_ResponseParamsSpec,
       []);
   }
 
 };
 
-ax.mojom.mojom.Tts.getRemote = function() {
-  let remote = new ax.mojom.mojom.TtsRemote();
+ax.mojom.Tts.getRemote = function() {
+  let remote = new ax.mojom.TtsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -287,7 +374,7 @@ ax.mojom.mojom.Tts.getRemote = function() {
 };
 
 // ParamsSpec for Speak
-ax.mojom.mojom.Tts_Speak_ParamsSpec = {
+ax.mojom.Tts_Speak_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Speak_Params',
@@ -301,7 +388,7 @@ ax.mojom.mojom.Tts_Speak_ParamsSpec = {
   }
 };
 
-ax.mojom.mojom.Tts_Speak_ResponseParamsSpec = {
+ax.mojom.Tts_Speak_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Speak_ResponseParams',
@@ -315,7 +402,7 @@ ax.mojom.mojom.Tts_Speak_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Stop
-ax.mojom.mojom.Tts_Stop_ParamsSpec = {
+ax.mojom.Tts_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Stop_Params',
@@ -328,7 +415,7 @@ ax.mojom.mojom.Tts_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-ax.mojom.mojom.Tts_Pause_ParamsSpec = {
+ax.mojom.Tts_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Pause_Params',
@@ -341,7 +428,7 @@ ax.mojom.mojom.Tts_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-ax.mojom.mojom.Tts_Resume_ParamsSpec = {
+ax.mojom.Tts_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Resume_Params',
@@ -354,7 +441,7 @@ ax.mojom.mojom.Tts_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for IsSpeaking
-ax.mojom.mojom.Tts_IsSpeaking_ParamsSpec = {
+ax.mojom.Tts_IsSpeaking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.IsSpeaking_Params',
@@ -366,7 +453,7 @@ ax.mojom.mojom.Tts_IsSpeaking_ParamsSpec = {
   }
 };
 
-ax.mojom.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
+ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.IsSpeaking_ResponseParams',
@@ -380,7 +467,7 @@ ax.mojom.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetVoices
-ax.mojom.mojom.Tts_GetVoices_ParamsSpec = {
+ax.mojom.Tts_GetVoices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.GetVoices_Params',
@@ -392,7 +479,7 @@ ax.mojom.mojom.Tts_GetVoices_ParamsSpec = {
   }
 };
 
-ax.mojom.mojom.Tts_GetVoices_ResponseParamsSpec = {
+ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.GetVoices_ResponseParams',
@@ -406,6 +493,6 @@ ax.mojom.mojom.Tts_GetVoices_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.mojom.TtsPtr = ax.mojom.mojom.TtsRemote;
-ax.mojom.mojom.TtsRequest = ax.mojom.mojom.TtsPendingReceiver;
+ax.mojom.TtsPtr = ax.mojom.TtsRemote;
+ax.mojom.TtsRequest = ax.mojom.TtsPendingReceiver;
 

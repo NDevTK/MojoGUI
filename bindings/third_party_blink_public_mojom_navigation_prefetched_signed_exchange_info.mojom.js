@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: SHA256HashValue
-blink.mojom.mojom.SHA256HashValueSpec = {
+blink.mojom.SHA256HashValueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SHA256HashValue',
@@ -25,7 +25,7 @@ blink.mojom.mojom.SHA256HashValueSpec = {
 };
 
 // Struct: PrefetchedSignedExchangeInfo
-blink.mojom.mojom.PrefetchedSignedExchangeInfoSpec = {
+blink.mojom.PrefetchedSignedExchangeInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrefetchedSignedExchangeInfo',

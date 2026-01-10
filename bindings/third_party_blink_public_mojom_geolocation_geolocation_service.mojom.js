@@ -11,24 +11,38 @@ var blink = blink || {};
 
 
 // Interface: GeolocationService
-blink.mojom.mojom.GeolocationService = {};
+blink.mojom.GeolocationService = {};
 
-blink.mojom.mojom.GeolocationServicePendingReceiver = class {
+blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GeolocationService_CreateGeolocation_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
+        { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.GeolocationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.GeolocationServiceRemote = class {
+blink.mojom.GeolocationServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.GeolocationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.GeolocationServicePendingReceiver,
+      blink.mojom.GeolocationServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.GeolocationServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.GeolocationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +54,7 @@ blink.mojom.mojom.GeolocationServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.GeolocationServiceRemoteCallHandler = class {
+blink.mojom.GeolocationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +63,15 @@ blink.mojom.mojom.GeolocationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.GeolocationService_CreateGeolocation_ParamsSpec,
-      blink.mojom.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec,
+      blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec,
+      blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec,
       [receiver, user_gesture]);
   }
 
 };
 
-blink.mojom.mojom.GeolocationService.getRemote = function() {
-  let remote = new blink.mojom.mojom.GeolocationServiceRemote();
+blink.mojom.GeolocationService.getRemote = function() {
+  let remote = new blink.mojom.GeolocationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +81,7 @@ blink.mojom.mojom.GeolocationService.getRemote = function() {
 };
 
 // ParamsSpec for CreateGeolocation
-blink.mojom.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
+blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GeolocationService.CreateGeolocation_Params',
@@ -81,7 +95,7 @@ blink.mojom.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
+blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GeolocationService.CreateGeolocation_ResponseParams',
@@ -95,6 +109,6 @@ blink.mojom.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.GeolocationServicePtr = blink.mojom.mojom.GeolocationServiceRemote;
-blink.mojom.mojom.GeolocationServiceRequest = blink.mojom.mojom.GeolocationServicePendingReceiver;
+blink.mojom.GeolocationServicePtr = blink.mojom.GeolocationServiceRemote;
+blink.mojom.GeolocationServiceRequest = blink.mojom.GeolocationServicePendingReceiver;
 

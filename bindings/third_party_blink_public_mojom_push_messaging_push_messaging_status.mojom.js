@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: PushEventStatus
-blink.mojom.mojom.PushEventStatus = {
+blink.mojom.PushEventStatus = {
   SUCCESS: 0,
   UNKNOWN_APP_ID: 1,
   PERMISSION_DENIED: 2,
@@ -23,10 +23,10 @@ blink.mojom.mojom.PushEventStatus = {
   NO_APP_LEVEL_PERMISSION_UNSUBSCRIBE: 9,
   PERMISSION_REVOKED_DISRUPTIVE: 10,
 };
-blink.mojom.mojom.PushEventStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.PushEventStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushGetRegistrationStatus
-blink.mojom.mojom.PushGetRegistrationStatus = {
+blink.mojom.PushGetRegistrationStatus = {
   SUCCESS: 0,
   SERVICE_NOT_AVAILABLE: 1,
   STORAGE_ERROR: 2,
@@ -36,10 +36,10 @@ blink.mojom.mojom.PushGetRegistrationStatus = {
   RENDERER_SHUTDOWN: 6,
   NO_LIVE_SERVICE_WORKER: 7,
 };
-blink.mojom.mojom.PushGetRegistrationStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.PushGetRegistrationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushRegistrationStatus
-blink.mojom.mojom.PushRegistrationStatus = {
+blink.mojom.PushRegistrationStatus = {
   SUCCESS_FROM_PUSH_SERVICE: 0,
   NO_SERVICE_WORKER: 1,
   SERVICE_NOT_AVAILABLE: 2,
@@ -59,10 +59,10 @@ blink.mojom.mojom.PushRegistrationStatus = {
   SUCCESS_NEW_SUBSCRIPTION_FROM_PUSH_SERVICE: 16,
   UNSUPPORTED_GCM_SENDER_ID: 17,
 };
-blink.mojom.mojom.PushRegistrationStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.PushRegistrationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushUnregistrationReason
-blink.mojom.mojom.PushUnregistrationReason = {
+blink.mojom.PushUnregistrationReason = {
   UNKNOWN: 0,
   JAVASCRIPT_API: 1,
   PERMISSION_REVOKED: 2,
@@ -80,10 +80,10 @@ blink.mojom.mojom.PushUnregistrationReason = {
   NO_APP_LEVEL_PERMISSION: 14,
   PERMISSION_REVOKED_DISRUPTIVE: 15,
 };
-blink.mojom.mojom.PushUnregistrationReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.PushUnregistrationReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushUnregistrationStatus
-blink.mojom.mojom.PushUnregistrationStatus = {
+blink.mojom.PushUnregistrationStatus = {
   SUCCESS_UNREGISTERED: 0,
   SUCCESS_WAS_NOT_REGISTERED: 1,
   PENDING_NETWORK_ERROR: 2,
@@ -93,4 +93,4 @@ blink.mojom.mojom.PushUnregistrationStatus = {
   STORAGE_ERROR: 6,
   NETWORK_ERROR: 7,
 };
-blink.mojom.mojom.PushUnregistrationStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.PushUnregistrationStatusSpec = { $: mojo.internal.Enum() };

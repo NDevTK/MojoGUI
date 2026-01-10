@@ -12,24 +12,155 @@ var url = url || {};
 
 
 // Interface: ServiceWorkerHost
-extensions.mojom.mojom.ServiceWorkerHost = {};
+extensions.mojom.ServiceWorkerHost = {};
 
-extensions.mojom.mojom.ServiceWorkerHostPendingReceiver = class {
+extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_version_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'worker_thread_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'service_worker_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'event_dispatcher', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(extensions.mojom.EventDispatcherRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'activation_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_scope', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_version_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'worker_thread_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'activation_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_scope', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_version_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'worker_thread_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_RequestWorker_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.RequestParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_WorkerResponseAck_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_type', packedOffset: 40, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port_id', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), nullable: false, minVersion: 0 },
+        { name: 'port_host', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'native_app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), nullable: false, minVersion: 0 },
+        { name: 'port_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerHost_OpenChannelToTab_Params',
+      packedSize: 64,
+      fields: [
+        { name: 'tab_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'document_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'channel_type', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port_id', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), nullable: false, minVersion: 0 },
+        { name: 'port_host', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 64}]
+    }
+  }
+};
+
+extensions.mojom.ServiceWorkerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.ServiceWorkerHostRemote = class {
+extensions.mojom.ServiceWorkerHostRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.ServiceWorkerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.ServiceWorkerHostPendingReceiver,
+      extensions.mojom.ServiceWorkerHostPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.ServiceWorkerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +172,7 @@ extensions.mojom.mojom.ServiceWorkerHostRemote = class {
   }
 };
 
-extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
+extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +181,7 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec,
       null,
       [extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher]);
   }
@@ -59,7 +190,7 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec,
       null,
       [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
   }
@@ -68,7 +199,7 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec,
       null,
       [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
   }
@@ -77,8 +208,8 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec,
-      extensions.mojom.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
+      extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
       [params]);
   }
 
@@ -86,7 +217,7 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec,
       null,
       [request_uuid]);
   }
@@ -95,7 +226,7 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec,
       null,
       [info, channel_type, channel_name, port_id, port, port_host]);
   }
@@ -104,7 +235,7 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec,
       null,
       [native_app_name, port_id, port, port_host]);
   }
@@ -113,15 +244,15 @@ extensions.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec,
       null,
       [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host]);
   }
 
 };
 
-extensions.mojom.mojom.ServiceWorkerHost.getRemote = function() {
-  let remote = new extensions.mojom.mojom.ServiceWorkerHostRemote();
+extensions.mojom.ServiceWorkerHost.getRemote = function() {
+  let remote = new extensions.mojom.ServiceWorkerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -131,7 +262,7 @@ extensions.mojom.mojom.ServiceWorkerHost.getRemote = function() {
 };
 
 // ParamsSpec for DidInitializeServiceWorkerContext
-extensions.mojom.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.DidInitializeServiceWorkerContext_Params',
@@ -149,7 +280,7 @@ extensions.mojom.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_Param
 };
 
 // ParamsSpec for DidStartServiceWorkerContext
-extensions.mojom.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.DidStartServiceWorkerContext_Params',
@@ -167,7 +298,7 @@ extensions.mojom.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec
 };
 
 // ParamsSpec for DidStopServiceWorkerContext
-extensions.mojom.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.DidStopServiceWorkerContext_Params',
@@ -185,7 +316,7 @@ extensions.mojom.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec 
 };
 
 // ParamsSpec for RequestWorker
-extensions.mojom.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.RequestWorker_Params',
@@ -198,7 +329,7 @@ extensions.mojom.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
   }
 };
 
-extensions.mojom.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
+extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.RequestWorker_ResponseParams',
@@ -215,7 +346,7 @@ extensions.mojom.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WorkerResponseAck
-extensions.mojom.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.WorkerResponseAck_Params',
@@ -229,7 +360,7 @@ extensions.mojom.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = {
 };
 
 // ParamsSpec for OpenChannelToExtension
-extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.OpenChannelToExtension_Params',
@@ -248,7 +379,7 @@ extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = {
 };
 
 // ParamsSpec for OpenChannelToNativeApp
-extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.OpenChannelToNativeApp_Params',
@@ -265,7 +396,7 @@ extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = {
 };
 
 // ParamsSpec for OpenChannelToTab
-extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = {
+extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerHost.OpenChannelToTab_Params',
@@ -286,6 +417,6 @@ extensions.mojom.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.ServiceWorkerHostPtr = extensions.mojom.mojom.ServiceWorkerHostRemote;
-extensions.mojom.mojom.ServiceWorkerHostRequest = extensions.mojom.mojom.ServiceWorkerHostPendingReceiver;
+extensions.mojom.ServiceWorkerHostPtr = extensions.mojom.ServiceWorkerHostRemote;
+extensions.mojom.ServiceWorkerHostRequest = extensions.mojom.ServiceWorkerHostPendingReceiver;
 

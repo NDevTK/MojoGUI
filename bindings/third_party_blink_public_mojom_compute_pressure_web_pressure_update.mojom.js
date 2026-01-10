@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: WebPressureUpdate
-blink.mojom.mojom.WebPressureUpdateSpec = {
+blink.mojom.WebPressureUpdateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPressureUpdate',

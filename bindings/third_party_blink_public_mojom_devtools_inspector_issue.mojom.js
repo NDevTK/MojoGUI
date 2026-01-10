@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Enum: InspectorIssueCode
-blink.mojom.mojom.InspectorIssueCode = {
+blink.mojom.InspectorIssueCode = {
   kCookieIssue: 0,
   kMixedContentIssue: 1,
   kBlockedByResponseIssue: 2,
@@ -30,25 +30,25 @@ blink.mojom.mojom.InspectorIssueCode = {
   kPartitioningBlobURLIssue: 14,
   kUserReidentificationIssue: 15,
 };
-blink.mojom.mojom.InspectorIssueCodeSpec = { $: mojo.internal.Enum() };
+blink.mojom.InspectorIssueCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HeavyAdResolutionStatus
-blink.mojom.mojom.HeavyAdResolutionStatus = {
+blink.mojom.HeavyAdResolutionStatus = {
   kHeavyAdBlocked: 0,
   kHeavyAdWarning: 1,
 };
-blink.mojom.mojom.HeavyAdResolutionStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.HeavyAdResolutionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: HeavyAdReason
-blink.mojom.mojom.HeavyAdReason = {
+blink.mojom.HeavyAdReason = {
   kNetworkTotalLimit: 0,
   kCpuTotalLimit: 1,
   kCpuPeakLimit: 2,
 };
-blink.mojom.mojom.HeavyAdReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.HeavyAdReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: AttributionReportingIssueType
-blink.mojom.mojom.AttributionReportingIssueType = {
+blink.mojom.AttributionReportingIssueType = {
   kPermissionPolicyDisabled: 0,
   kUntrustworthyReportingOrigin: 1,
   kInsecureContext: 2,
@@ -71,18 +71,18 @@ blink.mojom.mojom.AttributionReportingIssueType = {
   kNoRegisterOsTriggerHeader: 19,
   kNavigationRegistrationUniqueScopeAlreadySet: 20,
 };
-blink.mojom.mojom.AttributionReportingIssueTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AttributionReportingIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MixedContentResolutionStatus
-blink.mojom.mojom.MixedContentResolutionStatus = {
+blink.mojom.MixedContentResolutionStatus = {
   kMixedContentBlocked: 0,
   kMixedContentAutomaticallyUpgraded: 1,
   kMixedContentWarning: 2,
 };
-blink.mojom.mojom.MixedContentResolutionStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.MixedContentResolutionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentSecurityPolicyViolationType
-blink.mojom.mojom.ContentSecurityPolicyViolationType = {
+blink.mojom.ContentSecurityPolicyViolationType = {
   kInlineViolation: 0,
   kEvalViolation: 1,
   kURLViolation: 2,
@@ -91,17 +91,17 @@ blink.mojom.mojom.ContentSecurityPolicyViolationType = {
   kTrustedTypesPolicyViolation: 5,
   kWasmEvalViolation: 6,
 };
-blink.mojom.mojom.ContentSecurityPolicyViolationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ContentSecurityPolicyViolationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CookieOperation
-blink.mojom.mojom.CookieOperation = {
+blink.mojom.CookieOperation = {
   kSetCookie: 0,
   kReadCookie: 1,
 };
-blink.mojom.mojom.CookieOperationSpec = { $: mojo.internal.Enum() };
+blink.mojom.CookieOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: CookieExclusionReason
-blink.mojom.mojom.CookieExclusionReason = {
+blink.mojom.CookieExclusionReason = {
   kExcludeSameSiteUnspecifiedTreatedAsLax: 0,
   kExcludeSameSiteNoneInsecure: 1,
   kExcludeSameSiteLax: 2,
@@ -111,10 +111,10 @@ blink.mojom.mojom.CookieExclusionReason = {
   kExcludePortMismatch: 6,
   kExcludeSchemeMismatch: 7,
 };
-blink.mojom.mojom.CookieExclusionReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.CookieExclusionReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CookieWarningReason
-blink.mojom.mojom.CookieWarningReason = {
+blink.mojom.CookieWarningReason = {
   kWarnSameSiteUnspecifiedCrossSiteContext: 0,
   kWarnSameSiteNoneInsecure: 1,
   kWarnSameSiteUnspecifiedLaxAllowUnsafe: 2,
@@ -128,17 +128,17 @@ blink.mojom.mojom.CookieWarningReason = {
   kWarnThirdPartyPhaseout: 10,
   kWarnCrossSiteRedirectDowngradeChangesInclusion: 11,
 };
-blink.mojom.mojom.CookieWarningReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.CookieWarningReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SharedArrayBufferIssueType
-blink.mojom.mojom.SharedArrayBufferIssueType = {
+blink.mojom.SharedArrayBufferIssueType = {
   kTransferIssue: 0,
   kCreationIssue: 1,
 };
-blink.mojom.mojom.SharedArrayBufferIssueTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SharedArrayBufferIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FederatedAuthRequestResult
-blink.mojom.mojom.FederatedAuthRequestResult = {
+blink.mojom.FederatedAuthRequestResult = {
   kSuccess: 0,
   kShouldEmbargo: 1,
   kIdpNotPotentiallyTrustworthy: 2,
@@ -186,10 +186,10 @@ blink.mojom.mojom.FederatedAuthRequestResult = {
   kCorsError: 44,
   kSuppressedBySegmentationPlatform: 45,
 };
-blink.mojom.mojom.FederatedAuthRequestResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.FederatedAuthRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: FederatedAuthUserInfoRequestResult
-blink.mojom.mojom.FederatedAuthUserInfoRequestResult = {
+blink.mojom.FederatedAuthUserInfoRequestResult = {
   kSuccess: 0,
   kNotSameOrigin: 1,
   kNotIframe: 2,
@@ -202,17 +202,17 @@ blink.mojom.mojom.FederatedAuthUserInfoRequestResult = {
   kNoReturningUserFromFetchedAccounts: 9,
   kUnhandledRequest: 10,
 };
-blink.mojom.mojom.FederatedAuthUserInfoRequestResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.FederatedAuthUserInfoRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PartitioningBlobURLInfo
-blink.mojom.mojom.PartitioningBlobURLInfo = {
+blink.mojom.PartitioningBlobURLInfo = {
   kBlockedCrossPartitionFetching: 0,
   kEnforceNoopenerForNavigation: 1,
 };
-blink.mojom.mojom.PartitioningBlobURLInfoSpec = { $: mojo.internal.Enum() };
+blink.mojom.PartitioningBlobURLInfoSpec = { $: mojo.internal.Enum() };
 
 // Enum: GenericIssueErrorType
-blink.mojom.mojom.GenericIssueErrorType = {
+blink.mojom.GenericIssueErrorType = {
   kFormLabelForNameError: 0,
   kFormDuplicateIdForInputError: 1,
   kFormInputWithNoLabelError: 2,
@@ -229,25 +229,25 @@ blink.mojom.mojom.GenericIssueErrorType = {
   kAutofillPolicyControlledFeatureInfo: 13,
   kManualTextPolicyControlledFeatureInfo: 14,
 };
-blink.mojom.mojom.GenericIssueErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.GenericIssueErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeprecationIssueType
-blink.mojom.mojom.DeprecationIssueType = {
+blink.mojom.DeprecationIssueType = {
   kExampleBrowserProcessDeprecation: 0,
   kRelatedWebsiteSets: 1,
 };
-blink.mojom.mojom.DeprecationIssueTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.DeprecationIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserReidentificationIssueType
-blink.mojom.mojom.UserReidentificationIssueType = {
+blink.mojom.UserReidentificationIssueType = {
   kBlockedFrameNavigation: 0,
   kBlockedSubresource: 1,
   kNoisedCanvasReadback: 2,
 };
-blink.mojom.mojom.UserReidentificationIssueTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.UserReidentificationIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AffectedCookie
-blink.mojom.mojom.AffectedCookieSpec = {
+blink.mojom.AffectedCookieSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AffectedCookie',
@@ -263,7 +263,7 @@ blink.mojom.mojom.AffectedCookieSpec = {
 };
 
 // Struct: AffectedRequest
-blink.mojom.mojom.AffectedRequestSpec = {
+blink.mojom.AffectedRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AffectedRequest',
@@ -278,7 +278,7 @@ blink.mojom.mojom.AffectedRequestSpec = {
 };
 
 // Struct: AffectedFrame
-blink.mojom.mojom.AffectedFrameSpec = {
+blink.mojom.AffectedFrameSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AffectedFrame',
@@ -292,7 +292,7 @@ blink.mojom.mojom.AffectedFrameSpec = {
 };
 
 // Struct: AffectedLocation
-blink.mojom.mojom.AffectedLocationSpec = {
+blink.mojom.AffectedLocationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AffectedLocation',
@@ -309,7 +309,7 @@ blink.mojom.mojom.AffectedLocationSpec = {
 };
 
 // Struct: BlockedByResponseIssueDetails
-blink.mojom.mojom.BlockedByResponseIssueDetailsSpec = {
+blink.mojom.BlockedByResponseIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlockedByResponseIssueDetails',
@@ -326,7 +326,7 @@ blink.mojom.mojom.BlockedByResponseIssueDetailsSpec = {
 };
 
 // Struct: HeavyAdIssueDetails
-blink.mojom.mojom.HeavyAdIssueDetailsSpec = {
+blink.mojom.HeavyAdIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HeavyAdIssueDetails',
@@ -342,7 +342,7 @@ blink.mojom.mojom.HeavyAdIssueDetailsSpec = {
 };
 
 // Struct: AttributionReportingIssueDetails
-blink.mojom.mojom.AttributionReportingIssueDetailsSpec = {
+blink.mojom.AttributionReportingIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AttributionReportingIssueDetails',
@@ -358,7 +358,7 @@ blink.mojom.mojom.AttributionReportingIssueDetailsSpec = {
 };
 
 // Struct: MixedContentIssueDetails
-blink.mojom.mojom.MixedContentIssueDetailsSpec = {
+blink.mojom.MixedContentIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MixedContentIssueDetails',
@@ -377,7 +377,7 @@ blink.mojom.mojom.MixedContentIssueDetailsSpec = {
 };
 
 // Struct: ContentSecurityPolicyIssueDetails
-blink.mojom.mojom.ContentSecurityPolicyIssueDetailsSpec = {
+blink.mojom.ContentSecurityPolicyIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentSecurityPolicyIssueDetails',
@@ -397,7 +397,7 @@ blink.mojom.mojom.ContentSecurityPolicyIssueDetailsSpec = {
 };
 
 // Struct: CookieIssueDetails
-blink.mojom.mojom.CookieIssueDetailsSpec = {
+blink.mojom.CookieIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieIssueDetails',
@@ -417,7 +417,7 @@ blink.mojom.mojom.CookieIssueDetailsSpec = {
 };
 
 // Struct: SharedArrayBufferIssueDetails
-blink.mojom.mojom.SharedArrayBufferIssueDetailsSpec = {
+blink.mojom.SharedArrayBufferIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedArrayBufferIssueDetails',
@@ -433,7 +433,7 @@ blink.mojom.mojom.SharedArrayBufferIssueDetailsSpec = {
 };
 
 // Struct: LowTextContrastIssue
-blink.mojom.mojom.LowTextContrastIssueSpec = {
+blink.mojom.LowTextContrastIssueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LowTextContrastIssue',
@@ -453,7 +453,7 @@ blink.mojom.mojom.LowTextContrastIssueSpec = {
 };
 
 // Struct: FederatedAuthRequestIssueDetails
-blink.mojom.mojom.FederatedAuthRequestIssueDetailsSpec = {
+blink.mojom.FederatedAuthRequestIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FederatedAuthRequestIssueDetails',
@@ -467,7 +467,7 @@ blink.mojom.mojom.FederatedAuthRequestIssueDetailsSpec = {
 };
 
 // Struct: FederatedAuthUserInfoRequestIssueDetails
-blink.mojom.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec = {
+blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FederatedAuthUserInfoRequestIssueDetails',
@@ -481,7 +481,7 @@ blink.mojom.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec = {
 };
 
 // Struct: BounceTrackingIssueDetails
-blink.mojom.mojom.BounceTrackingIssueDetailsSpec = {
+blink.mojom.BounceTrackingIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BounceTrackingIssueDetails',
@@ -495,7 +495,7 @@ blink.mojom.mojom.BounceTrackingIssueDetailsSpec = {
 };
 
 // Struct: PartitioningBlobURLIssueDetails
-blink.mojom.mojom.PartitioningBlobURLIssueDetailsSpec = {
+blink.mojom.PartitioningBlobURLIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PartitioningBlobURLIssueDetails',
@@ -510,7 +510,7 @@ blink.mojom.mojom.PartitioningBlobURLIssueDetailsSpec = {
 };
 
 // Struct: CookieDeprecationMetadataIssueDetails
-blink.mojom.mojom.CookieDeprecationMetadataIssueDetailsSpec = {
+blink.mojom.CookieDeprecationMetadataIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieDeprecationMetadataIssueDetails',
@@ -527,7 +527,7 @@ blink.mojom.mojom.CookieDeprecationMetadataIssueDetailsSpec = {
 };
 
 // Struct: GenericIssueDetails
-blink.mojom.mojom.GenericIssueDetailsSpec = {
+blink.mojom.GenericIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GenericIssueDetails',
@@ -544,7 +544,7 @@ blink.mojom.mojom.GenericIssueDetailsSpec = {
 };
 
 // Struct: DeprecationIssueDetails
-blink.mojom.mojom.DeprecationIssueDetailsSpec = {
+blink.mojom.DeprecationIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeprecationIssueDetails',
@@ -559,7 +559,7 @@ blink.mojom.mojom.DeprecationIssueDetailsSpec = {
 };
 
 // Struct: UserReidentificationIssueDetails
-blink.mojom.mojom.UserReidentificationIssueDetailsSpec = {
+blink.mojom.UserReidentificationIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserReidentificationIssueDetails',
@@ -575,7 +575,7 @@ blink.mojom.mojom.UserReidentificationIssueDetailsSpec = {
 };
 
 // Struct: InspectorIssueDetails
-blink.mojom.mojom.InspectorIssueDetailsSpec = {
+blink.mojom.InspectorIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InspectorIssueDetails',
@@ -605,7 +605,7 @@ blink.mojom.mojom.InspectorIssueDetailsSpec = {
 };
 
 // Struct: InspectorIssueInfo
-blink.mojom.mojom.InspectorIssueInfoSpec = {
+blink.mojom.InspectorIssueInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InspectorIssueInfo',

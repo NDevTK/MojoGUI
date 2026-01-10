@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.ime.mojom = ash.ime.ime.mojom || {};
+ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Enum: JpPosType
-ash.ime.ime.mojom.mojom.JpPosType = {
+ash.ime.mojom.JpPosType = {
   kNoPos: 0,
   kNoun: 1,
   kAbbreviation: 2,
@@ -58,10 +58,10 @@ ash.ime.ime.mojom.mojom.JpPosType = {
   kFreeStandingWord: 43,
   kSuppressionWord: 44,
 };
-ash.ime.ime.mojom.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: JapaneseDictionaryEntry
-ash.ime.ime.mojom.mojom.JapaneseDictionaryEntrySpec = {
+ash.ime.mojom.JapaneseDictionaryEntrySpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JapaneseDictionaryEntry',
@@ -78,7 +78,7 @@ ash.ime.ime.mojom.mojom.JapaneseDictionaryEntrySpec = {
 };
 
 // Struct: JapaneseDictionary
-ash.ime.ime.mojom.mojom.JapaneseDictionarySpec = {
+ash.ime.mojom.JapaneseDictionarySpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JapaneseDictionary',

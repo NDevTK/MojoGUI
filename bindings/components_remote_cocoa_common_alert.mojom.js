@@ -10,15 +10,15 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
 // Enum: AlertDisposition
-remote_cocoa.mojom.mojom.AlertDisposition = {
+remote_cocoa.mojom.AlertDisposition = {
   PRIMARY_BUTTON: 0,
   SECONDARY_BUTTON: 1,
   CLOSE: 2,
 };
-remote_cocoa.mojom.mojom.AlertDispositionSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum() };
 
 // Struct: AlertBridgeInitParams
-remote_cocoa.mojom.mojom.AlertBridgeInitParamsSpec = {
+remote_cocoa.mojom.AlertBridgeInitParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.AlertBridgeInitParams',
@@ -37,24 +37,49 @@ remote_cocoa.mojom.mojom.AlertBridgeInitParamsSpec = {
 };
 
 // Interface: AlertBridge
-remote_cocoa.mojom.mojom.AlertBridge = {};
+remote_cocoa.mojom.AlertBridge = {};
 
-remote_cocoa.mojom.mojom.AlertBridgePendingReceiver = class {
+remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.AlertBridge_Show_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.AlertBridgeInitParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.AlertBridge_Dismiss_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+remote_cocoa.mojom.AlertBridgePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remote_cocoa.mojom.mojom.AlertBridgeRemote = class {
+remote_cocoa.mojom.AlertBridgeRemote = class {
   static get $interfaceName() {
     return 'remote_cocoa.mojom.AlertBridge';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remote_cocoa.mojom.mojom.AlertBridgePendingReceiver,
+      remote_cocoa.mojom.AlertBridgePendingReceiver,
       handle);
-    this.$ = new remote_cocoa.mojom.mojom.AlertBridgeRemoteCallHandler(this.proxy);
+    this.$ = new remote_cocoa.mojom.AlertBridgeRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -66,7 +91,7 @@ remote_cocoa.mojom.mojom.AlertBridgeRemote = class {
   }
 };
 
-remote_cocoa.mojom.mojom.AlertBridgeRemoteCallHandler = class {
+remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -75,8 +100,8 @@ remote_cocoa.mojom.mojom.AlertBridgeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.mojom.AlertBridge_Show_ParamsSpec,
-      remote_cocoa.mojom.mojom.AlertBridge_Show_ResponseParamsSpec,
+      remote_cocoa.mojom.AlertBridge_Show_ParamsSpec,
+      remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec,
       [params]);
   }
 
@@ -84,15 +109,15 @@ remote_cocoa.mojom.mojom.AlertBridgeRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.mojom.AlertBridge_Dismiss_ParamsSpec,
+      remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec,
       null,
       []);
   }
 
 };
 
-remote_cocoa.mojom.mojom.AlertBridge.getRemote = function() {
-  let remote = new remote_cocoa.mojom.mojom.AlertBridgeRemote();
+remote_cocoa.mojom.AlertBridge.getRemote = function() {
+  let remote = new remote_cocoa.mojom.AlertBridgeRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +127,7 @@ remote_cocoa.mojom.mojom.AlertBridge.getRemote = function() {
 };
 
 // ParamsSpec for Show
-remote_cocoa.mojom.mojom.AlertBridge_Show_ParamsSpec = {
+remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.AlertBridge.Show_Params',
@@ -115,7 +140,7 @@ remote_cocoa.mojom.mojom.AlertBridge_Show_ParamsSpec = {
   }
 };
 
-remote_cocoa.mojom.mojom.AlertBridge_Show_ResponseParamsSpec = {
+remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.AlertBridge.Show_ResponseParams',
@@ -131,7 +156,7 @@ remote_cocoa.mojom.mojom.AlertBridge_Show_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Dismiss
-remote_cocoa.mojom.mojom.AlertBridge_Dismiss_ParamsSpec = {
+remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.AlertBridge.Dismiss_Params',
@@ -144,6 +169,6 @@ remote_cocoa.mojom.mojom.AlertBridge_Dismiss_ParamsSpec = {
 };
 
 // Legacy compatibility
-remote_cocoa.mojom.mojom.AlertBridgePtr = remote_cocoa.mojom.mojom.AlertBridgeRemote;
-remote_cocoa.mojom.mojom.AlertBridgeRequest = remote_cocoa.mojom.mojom.AlertBridgePendingReceiver;
+remote_cocoa.mojom.AlertBridgePtr = remote_cocoa.mojom.AlertBridgeRemote;
+remote_cocoa.mojom.AlertBridgeRequest = remote_cocoa.mojom.AlertBridgePendingReceiver;
 

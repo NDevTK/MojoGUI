@@ -11,14 +11,14 @@ var url = url || {};
 
 
 // Enum: FullscreenContext
-webui_browser.mojom.mojom.FullscreenContext = {
+webui_browser.mojom.FullscreenContext = {
   kBrowser: 0,
   kTab: 1,
 };
-webui_browser.mojom.mojom.FullscreenContextSpec = { $: mojo.internal.Enum() };
+webui_browser.mojom.FullscreenContextSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurityIcon
-webui_browser.mojom.mojom.SecurityIcon = {
+webui_browser.mojom.SecurityIcon = {
   HttpChromeRefresh: 0,
   SecurePageInfoChromeRefresh: 1,
   NoEncryption: 2,
@@ -29,27 +29,53 @@ webui_browser.mojom.mojom.SecurityIcon = {
   ExtensionChromeRefresh: 7,
   OfflinePin: 8,
 };
-webui_browser.mojom.mojom.SecurityIconSpec = { $: mojo.internal.Enum() };
+webui_browser.mojom.SecurityIconSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-webui_browser.mojom.mojom.PageHandlerFactory = {};
+webui_browser.mojom.PageHandlerFactory = {};
 
-webui_browser.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(webui_browser.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(webui_browser.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandlerFactory_GetTabStripInset_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webui_browser.mojom.mojom.PageHandlerFactoryRemote = class {
+webui_browser.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'webui_browser.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webui_browser.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      webui_browser.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new webui_browser.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new webui_browser.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +87,7 @@ webui_browser.mojom.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-webui_browser.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,7 +96,7 @@ webui_browser.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -79,15 +105,15 @@ webui_browser.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
-      webui_browser.mojom.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
+      webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
+      webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
       []);
   }
 
 };
 
-webui_browser.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new webui_browser.mojom.mojom.PageHandlerFactoryRemote();
+webui_browser.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new webui_browser.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +123,7 @@ webui_browser.mojom.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-webui_browser.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -112,7 +138,7 @@ webui_browser.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // ParamsSpec for GetTabStripInset
-webui_browser.mojom.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
+webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandlerFactory.GetTabStripInset_Params',
@@ -124,7 +150,7 @@ webui_browser.mojom.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
   }
 };
 
-webui_browser.mojom.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
+webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandlerFactory.GetTabStripInset_ResponseParams',
@@ -138,29 +164,95 @@ webui_browser.mojom.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec
 };
 
 // Legacy compatibility
-webui_browser.mojom.mojom.PageHandlerFactoryPtr = webui_browser.mojom.mojom.PageHandlerFactoryRemote;
-webui_browser.mojom.mojom.PageHandlerFactoryRequest = webui_browser.mojom.mojom.PageHandlerFactoryPendingReceiver;
+webui_browser.mojom.PageHandlerFactoryPtr = webui_browser.mojom.PageHandlerFactoryRemote;
+webui_browser.mojom.PageHandlerFactoryRequest = webui_browser.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: Page
-webui_browser.mojom.mojom.Page = {};
+webui_browser.mojom.Page = {};
 
-webui_browser.mojom.mojom.PagePendingReceiver = class {
+webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.Page_SetFocusToLocationBar_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_user_initiated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_browser.mojom.Page_SetReloadStopState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.Page_SetReloadStopState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.Page_ShowSidePanel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+webui_browser.mojom.Page_CloseSidePanel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.Page_CloseSidePanel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.Page_OnFullscreenModeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_fullscreen', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: webui_browser.mojom.FullscreenContextSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_browser.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webui_browser.mojom.mojom.PageRemote = class {
+webui_browser.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'webui_browser.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webui_browser.mojom.mojom.PagePendingReceiver,
+      webui_browser.mojom.PagePendingReceiver,
       handle);
-    this.$ = new webui_browser.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new webui_browser.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -172,7 +264,7 @@ webui_browser.mojom.mojom.PageRemote = class {
   }
 };
 
-webui_browser.mojom.mojom.PageRemoteCallHandler = class {
+webui_browser.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -181,7 +273,7 @@ webui_browser.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.mojom.Page_SetFocusToLocationBar_ParamsSpec,
+      webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec,
       null,
       [is_user_initiated]);
   }
@@ -190,7 +282,7 @@ webui_browser.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.mojom.Page_SetReloadStopState_ParamsSpec,
+      webui_browser.mojom.Page_SetReloadStopState_ParamsSpec,
       null,
       [is_loading]);
   }
@@ -199,7 +291,7 @@ webui_browser.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_browser.mojom.mojom.Page_ShowSidePanel_ParamsSpec,
+      webui_browser.mojom.Page_ShowSidePanel_ParamsSpec,
       null,
       [guest_contents_id, title]);
   }
@@ -208,7 +300,7 @@ webui_browser.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webui_browser.mojom.mojom.Page_CloseSidePanel_ParamsSpec,
+      webui_browser.mojom.Page_CloseSidePanel_ParamsSpec,
       null,
       []);
   }
@@ -217,15 +309,15 @@ webui_browser.mojom.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webui_browser.mojom.mojom.Page_OnFullscreenModeChanged_ParamsSpec,
+      webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec,
       null,
       [is_fullscreen, context]);
   }
 
 };
 
-webui_browser.mojom.mojom.Page.getRemote = function() {
-  let remote = new webui_browser.mojom.mojom.PageRemote();
+webui_browser.mojom.Page.getRemote = function() {
+  let remote = new webui_browser.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -235,7 +327,7 @@ webui_browser.mojom.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for SetFocusToLocationBar
-webui_browser.mojom.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
+webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.Page.SetFocusToLocationBar_Params',
@@ -249,7 +341,7 @@ webui_browser.mojom.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
 };
 
 // ParamsSpec for SetReloadStopState
-webui_browser.mojom.mojom.Page_SetReloadStopState_ParamsSpec = {
+webui_browser.mojom.Page_SetReloadStopState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.Page.SetReloadStopState_Params',
@@ -263,7 +355,7 @@ webui_browser.mojom.mojom.Page_SetReloadStopState_ParamsSpec = {
 };
 
 // ParamsSpec for ShowSidePanel
-webui_browser.mojom.mojom.Page_ShowSidePanel_ParamsSpec = {
+webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.Page.ShowSidePanel_Params',
@@ -278,7 +370,7 @@ webui_browser.mojom.mojom.Page_ShowSidePanel_ParamsSpec = {
 };
 
 // ParamsSpec for CloseSidePanel
-webui_browser.mojom.mojom.Page_CloseSidePanel_ParamsSpec = {
+webui_browser.mojom.Page_CloseSidePanel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.Page.CloseSidePanel_Params',
@@ -291,7 +383,7 @@ webui_browser.mojom.mojom.Page_CloseSidePanel_ParamsSpec = {
 };
 
 // ParamsSpec for OnFullscreenModeChanged
-webui_browser.mojom.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
+webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.Page.OnFullscreenModeChanged_Params',
@@ -306,29 +398,164 @@ webui_browser.mojom.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-webui_browser.mojom.mojom.PagePtr = webui_browser.mojom.mojom.PageRemote;
-webui_browser.mojom.mojom.PageRequest = webui_browser.mojom.mojom.PagePendingReceiver;
+webui_browser.mojom.PagePtr = webui_browser.mojom.PageRemote;
+webui_browser.mojom.PageRequest = webui_browser.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
-webui_browser.mojom.mojom.PageHandler = {};
+webui_browser.mojom.PageHandler = {};
 
-webui_browser.mojom.mojom.PageHandlerPendingReceiver = class {
+webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_GetGuestIdForTabId_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(webui_browser.mojom.GuestHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_LoadTabSearch_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_ShowTabSearchBubble_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'anchor_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_OpenAppMenu_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_OpenProfileMenu_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_OnSidePanelClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_Minimize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_Minimize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_Maximize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_Maximize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_Restore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_Restore_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandler_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.PageHandler_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webui_browser.mojom.mojom.PageHandlerRemote = class {
+webui_browser.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'webui_browser.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webui_browser.mojom.mojom.PageHandlerPendingReceiver,
+      webui_browser.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new webui_browser.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new webui_browser.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -340,7 +567,7 @@ webui_browser.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
+webui_browser.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -349,8 +576,8 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec,
-      webui_browser.mojom.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
+      webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec,
+      webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
       [tab_id, handler]);
   }
 
@@ -358,8 +585,8 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_LoadTabSearch_ParamsSpec,
-      webui_browser.mojom.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
+      webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec,
+      webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
       []);
   }
 
@@ -367,7 +594,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec,
+      webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec,
       null,
       [anchor_name]);
   }
@@ -376,7 +603,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_OpenAppMenu_ParamsSpec,
+      webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec,
       null,
       []);
   }
@@ -385,7 +612,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_OpenProfileMenu_ParamsSpec,
+      webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec,
       null,
       []);
   }
@@ -394,7 +621,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec,
+      webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec,
       null,
       []);
   }
@@ -403,7 +630,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_OnSidePanelClosed_ParamsSpec,
+      webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec,
       null,
       []);
   }
@@ -412,7 +639,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_Minimize_ParamsSpec,
+      webui_browser.mojom.PageHandler_Minimize_ParamsSpec,
       null,
       []);
   }
@@ -421,7 +648,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_Maximize_ParamsSpec,
+      webui_browser.mojom.PageHandler_Maximize_ParamsSpec,
       null,
       []);
   }
@@ -430,7 +657,7 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_Restore_ParamsSpec,
+      webui_browser.mojom.PageHandler_Restore_ParamsSpec,
       null,
       []);
   }
@@ -439,15 +666,15 @@ webui_browser.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      webui_browser.mojom.mojom.PageHandler_Close_ParamsSpec,
+      webui_browser.mojom.PageHandler_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-webui_browser.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new webui_browser.mojom.mojom.PageHandlerRemote();
+webui_browser.mojom.PageHandler.getRemote = function() {
+  let remote = new webui_browser.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -457,7 +684,7 @@ webui_browser.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetGuestIdForTabId
-webui_browser.mojom.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
+webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_Params',
@@ -471,7 +698,7 @@ webui_browser.mojom.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
   }
 };
 
-webui_browser.mojom.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
+webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_ResponseParams',
@@ -485,7 +712,7 @@ webui_browser.mojom.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadTabSearch
-webui_browser.mojom.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
+webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.LoadTabSearch_Params',
@@ -497,7 +724,7 @@ webui_browser.mojom.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
   }
 };
 
-webui_browser.mojom.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
+webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.LoadTabSearch_ResponseParams',
@@ -511,7 +738,7 @@ webui_browser.mojom.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ShowTabSearchBubble
-webui_browser.mojom.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
+webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.ShowTabSearchBubble_Params',
@@ -525,7 +752,7 @@ webui_browser.mojom.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
 };
 
 // ParamsSpec for OpenAppMenu
-webui_browser.mojom.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
+webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.OpenAppMenu_Params',
@@ -538,7 +765,7 @@ webui_browser.mojom.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
 };
 
 // ParamsSpec for OpenProfileMenu
-webui_browser.mojom.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
+webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.OpenProfileMenu_Params',
@@ -551,7 +778,7 @@ webui_browser.mojom.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchDevToolsForBrowser
-webui_browser.mojom.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
+webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.LaunchDevToolsForBrowser_Params',
@@ -564,7 +791,7 @@ webui_browser.mojom.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
 };
 
 // ParamsSpec for OnSidePanelClosed
-webui_browser.mojom.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
+webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.OnSidePanelClosed_Params',
@@ -577,7 +804,7 @@ webui_browser.mojom.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
 };
 
 // ParamsSpec for Minimize
-webui_browser.mojom.mojom.PageHandler_Minimize_ParamsSpec = {
+webui_browser.mojom.PageHandler_Minimize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.Minimize_Params',
@@ -590,7 +817,7 @@ webui_browser.mojom.mojom.PageHandler_Minimize_ParamsSpec = {
 };
 
 // ParamsSpec for Maximize
-webui_browser.mojom.mojom.PageHandler_Maximize_ParamsSpec = {
+webui_browser.mojom.PageHandler_Maximize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.Maximize_Params',
@@ -603,7 +830,7 @@ webui_browser.mojom.mojom.PageHandler_Maximize_ParamsSpec = {
 };
 
 // ParamsSpec for Restore
-webui_browser.mojom.mojom.PageHandler_Restore_ParamsSpec = {
+webui_browser.mojom.PageHandler_Restore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.Restore_Params',
@@ -616,7 +843,7 @@ webui_browser.mojom.mojom.PageHandler_Restore_ParamsSpec = {
 };
 
 // ParamsSpec for Close
-webui_browser.mojom.mojom.PageHandler_Close_ParamsSpec = {
+webui_browser.mojom.PageHandler_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.PageHandler.Close_Params',
@@ -629,29 +856,138 @@ webui_browser.mojom.mojom.PageHandler_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-webui_browser.mojom.mojom.PageHandlerPtr = webui_browser.mojom.mojom.PageHandlerRemote;
-webui_browser.mojom.mojom.PageHandlerRequest = webui_browser.mojom.mojom.PageHandlerPendingReceiver;
+webui_browser.mojom.PageHandlerPtr = webui_browser.mojom.PageHandlerRemote;
+webui_browser.mojom.PageHandlerRequest = webui_browser.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: GuestHandler
-webui_browser.mojom.mojom.GuestHandler = {};
+webui_browser.mojom.GuestHandler = {};
 
-webui_browser.mojom.mojom.GuestHandlerPendingReceiver = class {
+webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_Navigate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_CanGoBack_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_GoBack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_GoBack_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_CanGoForward_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_GoForward_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_GoForward_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_Reload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_Reload_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_StopLoading_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_OpenPageInfoMenu_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webui_browser.mojom.GuestHandler_GetSecurityIcon_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+webui_browser.mojom.GuestHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webui_browser.mojom.mojom.GuestHandlerRemote = class {
+webui_browser.mojom.GuestHandlerRemote = class {
   static get $interfaceName() {
     return 'webui_browser.mojom.GuestHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webui_browser.mojom.mojom.GuestHandlerPendingReceiver,
+      webui_browser.mojom.GuestHandlerPendingReceiver,
       handle);
-    this.$ = new webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler(this.proxy);
+    this.$ = new webui_browser.mojom.GuestHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -663,7 +999,7 @@ webui_browser.mojom.mojom.GuestHandlerRemote = class {
   }
 };
 
-webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
+webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -672,7 +1008,7 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_Navigate_ParamsSpec,
+      webui_browser.mojom.GuestHandler_Navigate_ParamsSpec,
       null,
       [src]);
   }
@@ -681,8 +1017,8 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_CanGoBack_ParamsSpec,
-      webui_browser.mojom.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
+      webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec,
+      webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
       []);
   }
 
@@ -690,7 +1026,7 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_GoBack_ParamsSpec,
+      webui_browser.mojom.GuestHandler_GoBack_ParamsSpec,
       null,
       []);
   }
@@ -699,8 +1035,8 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_CanGoForward_ParamsSpec,
-      webui_browser.mojom.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
+      webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec,
+      webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
       []);
   }
 
@@ -708,7 +1044,7 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_GoForward_ParamsSpec,
+      webui_browser.mojom.GuestHandler_GoForward_ParamsSpec,
       null,
       []);
   }
@@ -717,7 +1053,7 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_Reload_ParamsSpec,
+      webui_browser.mojom.GuestHandler_Reload_ParamsSpec,
       null,
       []);
   }
@@ -726,7 +1062,7 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_StopLoading_ParamsSpec,
+      webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec,
       null,
       []);
   }
@@ -735,7 +1071,7 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec,
+      webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec,
       null,
       []);
   }
@@ -744,15 +1080,15 @@ webui_browser.mojom.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      webui_browser.mojom.mojom.GuestHandler_GetSecurityIcon_ParamsSpec,
-      webui_browser.mojom.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
+      webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec,
+      webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
       []);
   }
 
 };
 
-webui_browser.mojom.mojom.GuestHandler.getRemote = function() {
-  let remote = new webui_browser.mojom.mojom.GuestHandlerRemote();
+webui_browser.mojom.GuestHandler.getRemote = function() {
+  let remote = new webui_browser.mojom.GuestHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -762,7 +1098,7 @@ webui_browser.mojom.mojom.GuestHandler.getRemote = function() {
 };
 
 // ParamsSpec for Navigate
-webui_browser.mojom.mojom.GuestHandler_Navigate_ParamsSpec = {
+webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.Navigate_Params',
@@ -776,7 +1112,7 @@ webui_browser.mojom.mojom.GuestHandler_Navigate_ParamsSpec = {
 };
 
 // ParamsSpec for CanGoBack
-webui_browser.mojom.mojom.GuestHandler_CanGoBack_ParamsSpec = {
+webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.CanGoBack_Params',
@@ -788,7 +1124,7 @@ webui_browser.mojom.mojom.GuestHandler_CanGoBack_ParamsSpec = {
   }
 };
 
-webui_browser.mojom.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
+webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.CanGoBack_ResponseParams',
@@ -802,7 +1138,7 @@ webui_browser.mojom.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GoBack
-webui_browser.mojom.mojom.GuestHandler_GoBack_ParamsSpec = {
+webui_browser.mojom.GuestHandler_GoBack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.GoBack_Params',
@@ -815,7 +1151,7 @@ webui_browser.mojom.mojom.GuestHandler_GoBack_ParamsSpec = {
 };
 
 // ParamsSpec for CanGoForward
-webui_browser.mojom.mojom.GuestHandler_CanGoForward_ParamsSpec = {
+webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.CanGoForward_Params',
@@ -827,7 +1163,7 @@ webui_browser.mojom.mojom.GuestHandler_CanGoForward_ParamsSpec = {
   }
 };
 
-webui_browser.mojom.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
+webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.CanGoForward_ResponseParams',
@@ -841,7 +1177,7 @@ webui_browser.mojom.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GoForward
-webui_browser.mojom.mojom.GuestHandler_GoForward_ParamsSpec = {
+webui_browser.mojom.GuestHandler_GoForward_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.GoForward_Params',
@@ -854,7 +1190,7 @@ webui_browser.mojom.mojom.GuestHandler_GoForward_ParamsSpec = {
 };
 
 // ParamsSpec for Reload
-webui_browser.mojom.mojom.GuestHandler_Reload_ParamsSpec = {
+webui_browser.mojom.GuestHandler_Reload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.Reload_Params',
@@ -867,7 +1203,7 @@ webui_browser.mojom.mojom.GuestHandler_Reload_ParamsSpec = {
 };
 
 // ParamsSpec for StopLoading
-webui_browser.mojom.mojom.GuestHandler_StopLoading_ParamsSpec = {
+webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.StopLoading_Params',
@@ -880,7 +1216,7 @@ webui_browser.mojom.mojom.GuestHandler_StopLoading_ParamsSpec = {
 };
 
 // ParamsSpec for OpenPageInfoMenu
-webui_browser.mojom.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
+webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.OpenPageInfoMenu_Params',
@@ -893,7 +1229,7 @@ webui_browser.mojom.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
 };
 
 // ParamsSpec for GetSecurityIcon
-webui_browser.mojom.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
+webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.GetSecurityIcon_Params',
@@ -905,7 +1241,7 @@ webui_browser.mojom.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
   }
 };
 
-webui_browser.mojom.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
+webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.GuestHandler.GetSecurityIcon_ResponseParams',
@@ -919,6 +1255,6 @@ webui_browser.mojom.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-webui_browser.mojom.mojom.GuestHandlerPtr = webui_browser.mojom.mojom.GuestHandlerRemote;
-webui_browser.mojom.mojom.GuestHandlerRequest = webui_browser.mojom.mojom.GuestHandlerPendingReceiver;
+webui_browser.mojom.GuestHandlerPtr = webui_browser.mojom.GuestHandlerRemote;
+webui_browser.mojom.GuestHandlerRequest = webui_browser.mojom.GuestHandlerPendingReceiver;
 

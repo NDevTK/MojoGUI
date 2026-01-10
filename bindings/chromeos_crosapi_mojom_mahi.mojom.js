@@ -15,7 +15,7 @@ var url = url || {};
 
 
 // Enum: MahiContextMenuActionType
-crosapi.mojom.mojom.MahiContextMenuActionType = {
+crosapi.mojom.MahiContextMenuActionType = {
   kSummary: 0,
   kOutline: 1,
   kSettings: 2,
@@ -23,10 +23,10 @@ crosapi.mojom.mojom.MahiContextMenuActionType = {
   kElucidation: 4,
   kSummaryOfSelection: 5,
 };
-crosapi.mojom.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MahiPageInfo
-crosapi.mojom.mojom.MahiPageInfoSpec = {
+crosapi.mojom.MahiPageInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MahiPageInfo',
@@ -47,7 +47,7 @@ crosapi.mojom.mojom.MahiPageInfoSpec = {
 };
 
 // Struct: MahiContextMenuRequest
-crosapi.mojom.mojom.MahiContextMenuRequestSpec = {
+crosapi.mojom.MahiContextMenuRequestSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MahiContextMenuRequest',
@@ -64,7 +64,7 @@ crosapi.mojom.mojom.MahiContextMenuRequestSpec = {
 };
 
 // Struct: MahiPageContent
-crosapi.mojom.mojom.MahiPageContentSpec = {
+crosapi.mojom.MahiPageContentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MahiPageContent',

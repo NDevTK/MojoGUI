@@ -10,24 +10,36 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SmartCardService
-blink.mojom.mojom.SmartCardService = {};
+blink.mojom.SmartCardService = {};
 
-blink.mojom.mojom.SmartCardServicePendingReceiver = class {
+blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SmartCardService_CreateContext_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.SmartCardServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SmartCardServiceRemote = class {
+blink.mojom.SmartCardServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SmartCardService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SmartCardServicePendingReceiver,
+      blink.mojom.SmartCardServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SmartCardServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SmartCardServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ blink.mojom.mojom.SmartCardServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.SmartCardServiceRemoteCallHandler = class {
+blink.mojom.SmartCardServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ blink.mojom.mojom.SmartCardServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SmartCardService_CreateContext_ParamsSpec,
-      blink.mojom.mojom.SmartCardService_CreateContext_ResponseParamsSpec,
+      blink.mojom.SmartCardService_CreateContext_ParamsSpec,
+      blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.SmartCardService.getRemote = function() {
-  let remote = new blink.mojom.mojom.SmartCardServiceRemote();
+blink.mojom.SmartCardService.getRemote = function() {
+  let remote = new blink.mojom.SmartCardServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ blink.mojom.mojom.SmartCardService.getRemote = function() {
 };
 
 // ParamsSpec for CreateContext
-blink.mojom.mojom.SmartCardService_CreateContext_ParamsSpec = {
+blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SmartCardService.CreateContext_Params',
@@ -78,7 +90,7 @@ blink.mojom.mojom.SmartCardService_CreateContext_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
+blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SmartCardService.CreateContext_ResponseParams',
@@ -92,6 +104,6 @@ blink.mojom.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SmartCardServicePtr = blink.mojom.mojom.SmartCardServiceRemote;
-blink.mojom.mojom.SmartCardServiceRequest = blink.mojom.mojom.SmartCardServicePendingReceiver;
+blink.mojom.SmartCardServicePtr = blink.mojom.SmartCardServiceRemote;
+blink.mojom.SmartCardServiceRequest = blink.mojom.SmartCardServicePendingReceiver;
 

@@ -10,17 +10,17 @@ network.mojom = network.mojom || {};
 
 
 // Enum: PrivateNetworkRequestPolicy
-network.mojom.mojom.PrivateNetworkRequestPolicy = {
+network.mojom.PrivateNetworkRequestPolicy = {
   kAllow: 0,
   kWarn: 1,
   kBlock: 2,
   kPermissionWarn: 3,
   kPermissionBlock: 4,
 };
-network.mojom.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: ClientSecurityState
-network.mojom.mojom.ClientSecurityStateSpec = {
+network.mojom.ClientSecurityStateSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ClientSecurityState',

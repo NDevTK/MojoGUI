@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: BackgroundSyncError
-blink.mojom.mojom.BackgroundSyncError = {
+blink.mojom.BackgroundSyncError = {
   NONE: 0,
   STORAGE: 1,
   NOT_FOUND: 2,
@@ -19,32 +19,32 @@ blink.mojom.mojom.BackgroundSyncError = {
   PERMISSION_DENIED: 5,
   MAX: 6,
 };
-blink.mojom.mojom.BackgroundSyncErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.BackgroundSyncErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundSyncState
-blink.mojom.mojom.BackgroundSyncState = {
+blink.mojom.BackgroundSyncState = {
   PENDING: 0,
   FIRING: 1,
   REREGISTERED_WHILE_FIRING: 2,
 };
-blink.mojom.mojom.BackgroundSyncStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.BackgroundSyncStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundSyncEventLastChance
-blink.mojom.mojom.BackgroundSyncEventLastChance = {
+blink.mojom.BackgroundSyncEventLastChance = {
   IS_NOT_LAST_CHANCE: 0,
   IS_LAST_CHANCE: 1,
 };
-blink.mojom.mojom.BackgroundSyncEventLastChanceSpec = { $: mojo.internal.Enum() };
+blink.mojom.BackgroundSyncEventLastChanceSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundSyncType
-blink.mojom.mojom.BackgroundSyncType = {
+blink.mojom.BackgroundSyncType = {
   ONE_SHOT: 0,
   PERIODIC: 1,
 };
-blink.mojom.mojom.BackgroundSyncTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.BackgroundSyncTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyncRegistrationOptions
-blink.mojom.mojom.SyncRegistrationOptionsSpec = {
+blink.mojom.SyncRegistrationOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncRegistrationOptions',
@@ -59,7 +59,7 @@ blink.mojom.mojom.SyncRegistrationOptionsSpec = {
 };
 
 // Struct: BackgroundSyncRegistrationInfo
-blink.mojom.mojom.BackgroundSyncRegistrationInfoSpec = {
+blink.mojom.BackgroundSyncRegistrationInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundSyncRegistrationInfo',
@@ -75,24 +75,64 @@ blink.mojom.mojom.BackgroundSyncRegistrationInfoSpec = {
 };
 
 // Interface: OneShotBackgroundSyncService
-blink.mojom.mojom.OneShotBackgroundSyncService = {};
+blink.mojom.OneShotBackgroundSyncService = {};
 
-blink.mojom.mojom.OneShotBackgroundSyncServicePendingReceiver = class {
+blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OneShotBackgroundSyncService_Register_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncRegistrationInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OneShotBackgroundSyncService_GetRegistrations_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.OneShotBackgroundSyncServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.OneShotBackgroundSyncServiceRemote = class {
+blink.mojom.OneShotBackgroundSyncServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.OneShotBackgroundSyncService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.OneShotBackgroundSyncServicePendingReceiver,
+      blink.mojom.OneShotBackgroundSyncServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.OneShotBackgroundSyncServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -104,7 +144,7 @@ blink.mojom.mojom.OneShotBackgroundSyncServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
+blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -113,8 +153,8 @@ blink.mojom.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.OneShotBackgroundSyncService_Register_ParamsSpec,
-      blink.mojom.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
+      blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec,
+      blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
       [options, service_worker_registration_id]);
   }
 
@@ -122,7 +162,7 @@ blink.mojom.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec,
+      blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec,
       null,
       [registration_info]);
   }
@@ -131,15 +171,15 @@ blink.mojom.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec,
-      blink.mojom.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
+      blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec,
+      blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
 };
 
-blink.mojom.mojom.OneShotBackgroundSyncService.getRemote = function() {
-  let remote = new blink.mojom.mojom.OneShotBackgroundSyncServiceRemote();
+blink.mojom.OneShotBackgroundSyncService.getRemote = function() {
+  let remote = new blink.mojom.OneShotBackgroundSyncServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -149,7 +189,7 @@ blink.mojom.mojom.OneShotBackgroundSyncService.getRemote = function() {
 };
 
 // ParamsSpec for Register
-blink.mojom.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
+blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OneShotBackgroundSyncService.Register_Params',
@@ -163,7 +203,7 @@ blink.mojom.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
+blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OneShotBackgroundSyncService.Register_ResponseParams',
@@ -178,7 +218,7 @@ blink.mojom.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DidResolveRegistration
-blink.mojom.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = {
+blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OneShotBackgroundSyncService.DidResolveRegistration_Params',
@@ -192,7 +232,7 @@ blink.mojom.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec
 };
 
 // ParamsSpec for GetRegistrations
-blink.mojom.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
+blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OneShotBackgroundSyncService.GetRegistrations_Params',
@@ -205,7 +245,7 @@ blink.mojom.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
+blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OneShotBackgroundSyncService.GetRegistrations_ResponseParams',
@@ -220,29 +260,70 @@ blink.mojom.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSp
 };
 
 // Legacy compatibility
-blink.mojom.mojom.OneShotBackgroundSyncServicePtr = blink.mojom.mojom.OneShotBackgroundSyncServiceRemote;
-blink.mojom.mojom.OneShotBackgroundSyncServiceRequest = blink.mojom.mojom.OneShotBackgroundSyncServicePendingReceiver;
+blink.mojom.OneShotBackgroundSyncServicePtr = blink.mojom.OneShotBackgroundSyncServiceRemote;
+blink.mojom.OneShotBackgroundSyncServiceRequest = blink.mojom.OneShotBackgroundSyncServicePendingReceiver;
 
 
 // Interface: PeriodicBackgroundSyncService
-blink.mojom.mojom.PeriodicBackgroundSyncService = {};
+blink.mojom.PeriodicBackgroundSyncService = {};
 
-blink.mojom.mojom.PeriodicBackgroundSyncServicePendingReceiver = class {
+blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PeriodicBackgroundSyncService_Register_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PeriodicBackgroundSyncService_Unregister_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PeriodicBackgroundSyncServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PeriodicBackgroundSyncServiceRemote = class {
+blink.mojom.PeriodicBackgroundSyncServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PeriodicBackgroundSyncService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PeriodicBackgroundSyncServicePendingReceiver,
+      blink.mojom.PeriodicBackgroundSyncServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -254,7 +335,7 @@ blink.mojom.mojom.PeriodicBackgroundSyncServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
+blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -263,8 +344,8 @@ blink.mojom.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec,
-      blink.mojom.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
       [options, service_worker_registration_id]);
   }
 
@@ -272,8 +353,8 @@ blink.mojom.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec,
-      blink.mojom.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
       [service_worker_registration_id, tag]);
   }
 
@@ -281,15 +362,15 @@ blink.mojom.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec,
-      blink.mojom.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
 };
 
-blink.mojom.mojom.PeriodicBackgroundSyncService.getRemote = function() {
-  let remote = new blink.mojom.mojom.PeriodicBackgroundSyncServiceRemote();
+blink.mojom.PeriodicBackgroundSyncService.getRemote = function() {
+  let remote = new blink.mojom.PeriodicBackgroundSyncServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -299,7 +380,7 @@ blink.mojom.mojom.PeriodicBackgroundSyncService.getRemote = function() {
 };
 
 // ParamsSpec for Register
-blink.mojom.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
+blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PeriodicBackgroundSyncService.Register_Params',
@@ -313,7 +394,7 @@ blink.mojom.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
+blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PeriodicBackgroundSyncService.Register_ResponseParams',
@@ -328,7 +409,7 @@ blink.mojom.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Unregister
-blink.mojom.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
+blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PeriodicBackgroundSyncService.Unregister_Params',
@@ -342,7 +423,7 @@ blink.mojom.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = {
+blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PeriodicBackgroundSyncService.Unregister_ResponseParams',
@@ -356,7 +437,7 @@ blink.mojom.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = 
 };
 
 // ParamsSpec for GetRegistrations
-blink.mojom.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
+blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PeriodicBackgroundSyncService.GetRegistrations_Params',
@@ -369,7 +450,7 @@ blink.mojom.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
+blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PeriodicBackgroundSyncService.GetRegistrations_ResponseParams',
@@ -384,6 +465,6 @@ blink.mojom.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsS
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PeriodicBackgroundSyncServicePtr = blink.mojom.mojom.PeriodicBackgroundSyncServiceRemote;
-blink.mojom.mojom.PeriodicBackgroundSyncServiceRequest = blink.mojom.mojom.PeriodicBackgroundSyncServicePendingReceiver;
+blink.mojom.PeriodicBackgroundSyncServicePtr = blink.mojom.PeriodicBackgroundSyncServiceRemote;
+blink.mojom.PeriodicBackgroundSyncServiceRequest = blink.mojom.PeriodicBackgroundSyncServicePendingReceiver;
 

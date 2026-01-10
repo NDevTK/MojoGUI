@@ -12,24 +12,50 @@ var url = url || {};
 
 
 // Interface: GuestView
-extensions.mojom.mojom.GuestView = {};
+extensions.mojom.GuestView = {};
 
-extensions.mojom.mojom.GuestViewPendingReceiver = class {
+extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.GuestView_CanExecuteContentScript_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.GuestViewPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.GuestViewRemote = class {
+extensions.mojom.GuestViewRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.GuestView';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.GuestViewPendingReceiver,
+      extensions.mojom.GuestViewPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.GuestViewRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.GuestViewRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +67,7 @@ extensions.mojom.mojom.GuestViewRemote = class {
   }
 };
 
-extensions.mojom.mojom.GuestViewRemoteCallHandler = class {
+extensions.mojom.GuestViewRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +76,7 @@ extensions.mojom.mojom.GuestViewRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec,
+      extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec,
       null,
       [success]);
   }
@@ -59,15 +85,15 @@ extensions.mojom.mojom.GuestViewRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.mojom.GuestView_CanExecuteContentScript_ParamsSpec,
-      extensions.mojom.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
+      extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec,
+      extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
       [script_id]);
   }
 
 };
 
-extensions.mojom.mojom.GuestView.getRemote = function() {
-  let remote = new extensions.mojom.mojom.GuestViewRemote();
+extensions.mojom.GuestView.getRemote = function() {
+  let remote = new extensions.mojom.GuestViewRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -77,7 +103,7 @@ extensions.mojom.mojom.GuestView.getRemote = function() {
 };
 
 // ParamsSpec for ReadyToCreateMimeHandlerView
-extensions.mojom.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
+extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.GuestView.ReadyToCreateMimeHandlerView_Params',
@@ -91,7 +117,7 @@ extensions.mojom.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
 };
 
 // ParamsSpec for CanExecuteContentScript
-extensions.mojom.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
+extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.GuestView.CanExecuteContentScript_Params',
@@ -104,7 +130,7 @@ extensions.mojom.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
   }
 };
 
-extensions.mojom.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
+extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.GuestView.CanExecuteContentScript_ResponseParams',
@@ -118,29 +144,81 @@ extensions.mojom.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.GuestViewPtr = extensions.mojom.mojom.GuestViewRemote;
-extensions.mojom.mojom.GuestViewRequest = extensions.mojom.mojom.GuestViewPendingReceiver;
+extensions.mojom.GuestViewPtr = extensions.mojom.GuestViewRemote;
+extensions.mojom.GuestViewRequest = extensions.mojom.GuestViewPendingReceiver;
 
 
 // Interface: MimeHandlerViewContainerManager
-extensions.mojom.mojom.MimeHandlerViewContainerManager = {};
+extensions.mojom.MimeHandlerViewContainerManager = {};
 
-extensions.mojom.mojom.MimeHandlerViewContainerManagerPendingReceiver = class {
+extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.MimeHandlerViewContainerManager_DidLoad_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'resource_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+extensions.mojom.MimeHandlerViewContainerManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.mojom.MimeHandlerViewContainerManagerRemote = class {
+extensions.mojom.MimeHandlerViewContainerManagerRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.MimeHandlerViewContainerManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.mojom.MimeHandlerViewContainerManagerPendingReceiver,
+      extensions.mojom.MimeHandlerViewContainerManagerPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.mojom.MimeHandlerViewContainerManagerRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -152,7 +230,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManagerRemote = class {
   }
 };
 
-extensions.mojom.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
+extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -161,7 +239,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec,
+      extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec,
       null,
       [token_id]);
   }
@@ -170,8 +248,8 @@ extensions.mojom.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec,
-      extensions.mojom.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
+      extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec,
+      extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
       []);
   }
 
@@ -179,7 +257,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec,
+      extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec,
       null,
       [element_instance_id]);
   }
@@ -188,15 +266,15 @@ extensions.mojom.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec,
+      extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec,
       null,
       [mime_handler_view_guest_element_instance_id, resource_url]);
   }
 
 };
 
-extensions.mojom.mojom.MimeHandlerViewContainerManager.getRemote = function() {
-  let remote = new extensions.mojom.mojom.MimeHandlerViewContainerManagerRemote();
+extensions.mojom.MimeHandlerViewContainerManager.getRemote = function() {
+  let remote = new extensions.mojom.MimeHandlerViewContainerManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -206,7 +284,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManager.getRemote = function() {
 };
 
 // ParamsSpec for SetInternalId
-extensions.mojom.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
+extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.SetInternalId_Params',
@@ -220,7 +298,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec 
 };
 
 // ParamsSpec for CreateBeforeUnloadControl
-extensions.mojom.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = {
+extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_Params',
@@ -232,7 +310,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl
   }
 };
 
-extensions.mojom.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = {
+extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_ResponseParams',
@@ -246,7 +324,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl
 };
 
 // ParamsSpec for DestroyFrameContainer
-extensions.mojom.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = {
+extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.DestroyFrameContainer_Params',
@@ -260,7 +338,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_Par
 };
 
 // ParamsSpec for DidLoad
-extensions.mojom.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
+extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.DidLoad_Params',
@@ -275,6 +353,6 @@ extensions.mojom.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.mojom.MimeHandlerViewContainerManagerPtr = extensions.mojom.mojom.MimeHandlerViewContainerManagerRemote;
-extensions.mojom.mojom.MimeHandlerViewContainerManagerRequest = extensions.mojom.mojom.MimeHandlerViewContainerManagerPendingReceiver;
+extensions.mojom.MimeHandlerViewContainerManagerPtr = extensions.mojom.MimeHandlerViewContainerManagerRemote;
+extensions.mojom.MimeHandlerViewContainerManagerRequest = extensions.mojom.MimeHandlerViewContainerManagerPendingReceiver;
 

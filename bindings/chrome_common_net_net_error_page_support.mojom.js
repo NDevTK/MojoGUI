@@ -10,24 +10,61 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: NetErrorPageSupport
-chrome.mojom.mojom.NetErrorPageSupport = {};
+chrome.mojom.NetErrorPageSupport = {};
 
-chrome.mojom.mojom.NetErrorPageSupportPendingReceiver = class {
+chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.NetErrorPageSupport_DownloadPageLater_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'showing_download_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.NetErrorPageSupport_ShowPortalSignin_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chrome.mojom.NetErrorPageSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.NetErrorPageSupportRemote = class {
+chrome.mojom.NetErrorPageSupportRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.NetErrorPageSupport';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.NetErrorPageSupportPendingReceiver,
+      chrome.mojom.NetErrorPageSupportPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.NetErrorPageSupportRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.NetErrorPageSupportRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +76,7 @@ chrome.mojom.mojom.NetErrorPageSupportRemote = class {
   }
 };
 
-chrome.mojom.mojom.NetErrorPageSupportRemoteCallHandler = class {
+chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +85,7 @@ chrome.mojom.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
+      chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +94,7 @@ chrome.mojom.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
+      chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
       null,
       [showing_download_button]);
   }
@@ -66,15 +103,15 @@ chrome.mojom.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
+      chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chrome.mojom.mojom.NetErrorPageSupport.getRemote = function() {
-  let remote = new chrome.mojom.mojom.NetErrorPageSupportRemote();
+chrome.mojom.NetErrorPageSupport.getRemote = function() {
+  let remote = new chrome.mojom.NetErrorPageSupportRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +121,7 @@ chrome.mojom.mojom.NetErrorPageSupport.getRemote = function() {
 };
 
 // ParamsSpec for DownloadPageLater
-chrome.mojom.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
+chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.NetErrorPageSupport.DownloadPageLater_Params',
@@ -97,7 +134,7 @@ chrome.mojom.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsShowingDownloadButtonInErrorPage
-chrome.mojom.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
+chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.NetErrorPageSupport.SetIsShowingDownloadButtonInErrorPage_Params',
@@ -111,7 +148,7 @@ chrome.mojom.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_Par
 };
 
 // ParamsSpec for ShowPortalSignin
-chrome.mojom.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
+chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.NetErrorPageSupport.ShowPortalSignin_Params',
@@ -124,6 +161,6 @@ chrome.mojom.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.NetErrorPageSupportPtr = chrome.mojom.mojom.NetErrorPageSupportRemote;
-chrome.mojom.mojom.NetErrorPageSupportRequest = chrome.mojom.mojom.NetErrorPageSupportPendingReceiver;
+chrome.mojom.NetErrorPageSupportPtr = chrome.mojom.NetErrorPageSupportRemote;
+chrome.mojom.NetErrorPageSupportRequest = chrome.mojom.NetErrorPageSupportPendingReceiver;
 

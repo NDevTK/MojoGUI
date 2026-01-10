@@ -10,24 +10,37 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PersistentRendererPrefsService
-blink.mojom.mojom.PersistentRendererPrefsService = {};
+blink.mojom.PersistentRendererPrefsService = {};
 
-blink.mojom.mojom.PersistentRendererPrefsServicePendingReceiver = class {
+blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.PersistentRendererPrefsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PersistentRendererPrefsServiceRemote = class {
+blink.mojom.PersistentRendererPrefsServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PersistentRendererPrefsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PersistentRendererPrefsServicePendingReceiver,
+      blink.mojom.PersistentRendererPrefsServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PersistentRendererPrefsServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PersistentRendererPrefsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ blink.mojom.mojom.PersistentRendererPrefsServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.PersistentRendererPrefsServiceRemoteCallHandler = class {
+blink.mojom.PersistentRendererPrefsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ blink.mojom.mojom.PersistentRendererPrefsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec,
+      blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec,
       null,
       [value]);
   }
 
 };
 
-blink.mojom.mojom.PersistentRendererPrefsService.getRemote = function() {
-  let remote = new blink.mojom.mojom.PersistentRendererPrefsServiceRemote();
+blink.mojom.PersistentRendererPrefsService.getRemote = function() {
+  let remote = new blink.mojom.PersistentRendererPrefsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ blink.mojom.mojom.PersistentRendererPrefsService.getRemote = function() {
 };
 
 // ParamsSpec for SetViewSourceLineWrapping
-blink.mojom.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = {
+blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PersistentRendererPrefsService.SetViewSourceLineWrapping_Params',
@@ -80,6 +93,6 @@ blink.mojom.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_Param
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PersistentRendererPrefsServicePtr = blink.mojom.mojom.PersistentRendererPrefsServiceRemote;
-blink.mojom.mojom.PersistentRendererPrefsServiceRequest = blink.mojom.mojom.PersistentRendererPrefsServicePendingReceiver;
+blink.mojom.PersistentRendererPrefsServicePtr = blink.mojom.PersistentRendererPrefsServiceRemote;
+blink.mojom.PersistentRendererPrefsServiceRequest = blink.mojom.PersistentRendererPrefsServicePendingReceiver;
 

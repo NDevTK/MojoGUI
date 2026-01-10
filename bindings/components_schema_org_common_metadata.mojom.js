@@ -10,7 +10,7 @@ schema_org.mojom = schema_org.mojom || {};
 
 
 // Union: Values
-schema_org.mojom.mojom.ValuesSpec = { $: mojo.internal.Union(
+schema_org.mojom.ValuesSpec = { $: mojo.internal.Union(
     'schema_org.mojom.Values', {
       'bool_values': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ schema_org.mojom.mojom.ValuesSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Property
-schema_org.mojom.mojom.PropertySpec = {
+schema_org.mojom.PropertySpec = {
   $: {
     structSpec: {
       name: 'schema_org.mojom.Property',
@@ -47,7 +47,7 @@ schema_org.mojom.mojom.PropertySpec = {
 };
 
 // Struct: Entity
-schema_org.mojom.mojom.EntitySpec = {
+schema_org.mojom.EntitySpec = {
   $: {
     structSpec: {
       name: 'schema_org.mojom.Entity',

@@ -7,11 +7,11 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.media = chromecast.media || {};
-chromecast.media.media.mojom = chromecast.media.media.mojom || {};
+chromecast.media.mojom = chromecast.media.mojom || {};
 
 
 // Enum: AudioCodec
-chromecast.media.media.mojom.mojom.AudioCodec = {
+chromecast.media.mojom.AudioCodec = {
   kAudioCodecUnknown: 0,
   kCodecAAC: 1,
   kCodecMP3: 2,
@@ -27,10 +27,10 @@ chromecast.media.media.mojom.mojom.AudioCodec = {
   kCodecFLAC: 12,
   kCodecMpegHAudio: 13,
 };
-chromecast.media.media.mojom.mojom.AudioCodecSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChannelLayout
-chromecast.media.media.mojom.mojom.ChannelLayout = {
+chromecast.media.mojom.ChannelLayout = {
   kUnsupported: 0,
   kMono: 1,
   kStereo: 2,
@@ -38,10 +38,10 @@ chromecast.media.media.mojom.mojom.ChannelLayout = {
   kBitstream: 4,
   kDiscrete: 5,
 };
-chromecast.media.media.mojom.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: SampleFormat
-chromecast.media.media.mojom.mojom.SampleFormat = {
+chromecast.media.mojom.SampleFormat = {
   kUnknownSampleFormat: 0,
   kSampleFormatU8: 1,
   kSampleFormatS16: 2,
@@ -53,25 +53,25 @@ chromecast.media.media.mojom.mojom.SampleFormat = {
   kSampleFormatS24: 8,
   kSampleFormatPlanarU8: 9,
 };
-chromecast.media.media.mojom.mojom.SampleFormatSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: StreamId
-chromecast.media.media.mojom.mojom.StreamId = {
+chromecast.media.mojom.StreamId = {
   kPrimary: 0,
   kSecondary: 1,
 };
-chromecast.media.media.mojom.mojom.StreamIdSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.StreamIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionScheme
-chromecast.media.media.mojom.mojom.EncryptionScheme = {
+chromecast.media.mojom.EncryptionScheme = {
   kUnencrypted: 0,
   kAesCtr: 1,
   kAesCbc: 2,
 };
-chromecast.media.media.mojom.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AudioConfig
-chromecast.media.media.mojom.mojom.AudioConfigSpec = {
+chromecast.media.mojom.AudioConfigSpec = {
   $: {
     structSpec: {
       name: 'chromecast.media.mojom.AudioConfig',

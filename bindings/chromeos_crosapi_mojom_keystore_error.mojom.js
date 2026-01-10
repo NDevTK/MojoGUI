@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: KeystoreError
-crosapi.mojom.mojom.KeystoreError = {
+crosapi.mojom.KeystoreError = {
   kAlgorithmNotSupported: 0,
   kAlgorithmNotPermittedByCertificate: 1,
   kCertificateNotFound: 2,
@@ -28,4 +28,4 @@ crosapi.mojom.mojom.KeystoreError = {
   kNetCertificateInvalid: 14,
   kUnsupportedKeystoreType: 15,
 };
-crosapi.mojom.mojom.KeystoreErrorSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.KeystoreErrorSpec = { $: mojo.internal.Enum() };

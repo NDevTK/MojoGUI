@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.cfm = ash.cfm || {};
-ash.cfm.cfm.mojom = ash.cfm.cfm.mojom || {};
+ash.cfm.mojom = ash.cfm.mojom || {};
 
 
 // Enum: GetFn
-ash.cfm.cfm.mojom.mojom.GetFn = {
+ash.cfm.mojom.GetFn = {
   kCur: 0,
   kMin: 1,
   kMax: 2,
@@ -20,10 +20,10 @@ ash.cfm.cfm.mojom.mojom.GetFn = {
   kLen: 5,
   kInfo: 6,
 };
-ash.cfm.cfm.mojom.mojom.GetFnSpec = { $: mojo.internal.Enum() };
+ash.cfm.mojom.GetFnSpec = { $: mojo.internal.Enum() };
 
 // Union: WebcamId
-ash.cfm.cfm.mojom.mojom.WebcamIdSpec = { $: mojo.internal.Union(
+ash.cfm.mojom.WebcamIdSpec = { $: mojo.internal.Union(
     'ash.cfm.mojom.WebcamId', {
       'device_id': {
         'ordinal': 0,
@@ -37,7 +37,7 @@ ash.cfm.cfm.mojom.mojom.WebcamIdSpec = { $: mojo.internal.Union(
 };
 
 // Union: CtrlType
-ash.cfm.cfm.mojom.mojom.CtrlTypeSpec = { $: mojo.internal.Union(
+ash.cfm.mojom.CtrlTypeSpec = { $: mojo.internal.Union(
     'ash.cfm.mojom.CtrlType', {
       'mapping_ctrl': {
         'ordinal': 0,
@@ -51,7 +51,7 @@ ash.cfm.cfm.mojom.mojom.CtrlTypeSpec = { $: mojo.internal.Union(
 };
 
 // Struct: MenuInfo
-ash.cfm.cfm.mojom.mojom.MenuInfoSpec = {
+ash.cfm.mojom.MenuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.MenuInfo',
@@ -66,7 +66,7 @@ ash.cfm.cfm.mojom.mojom.MenuInfoSpec = {
 };
 
 // Struct: MenuEntries
-ash.cfm.cfm.mojom.mojom.MenuEntriesSpec = {
+ash.cfm.mojom.MenuEntriesSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.MenuEntries',
@@ -80,7 +80,7 @@ ash.cfm.cfm.mojom.mojom.MenuEntriesSpec = {
 };
 
 // Struct: ControlMapping
-ash.cfm.cfm.mojom.mojom.ControlMappingSpec = {
+ash.cfm.mojom.ControlMappingSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.ControlMapping',
@@ -102,7 +102,7 @@ ash.cfm.cfm.mojom.mojom.ControlMappingSpec = {
 };
 
 // Struct: ControlQuery
-ash.cfm.cfm.mojom.mojom.ControlQuerySpec = {
+ash.cfm.mojom.ControlQuerySpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.ControlQuery',
@@ -117,24 +117,82 @@ ash.cfm.cfm.mojom.mojom.ControlQuerySpec = {
 };
 
 // Interface: XuCamera
-ash.cfm.cfm.mojom.mojom.XuCamera = {};
+ash.cfm.mojom.XuCamera = {};
 
-ash.cfm.cfm.mojom.mojom.XuCameraPendingReceiver = class {
+ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.XuCamera_GetUnitId_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false, minVersion: 0 },
+        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.XuCamera_MapCtrl_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false, minVersion: 0 },
+        { name: 'mapping_ctrl', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.ControlMappingSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.XuCamera_GetCtrl_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false, minVersion: 0 },
+        { name: 'ctrl', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'fn', packedOffset: 32, packedBitOffset: 0, type: ash.cfm.mojom.GetFnSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.XuCamera_SetCtrl_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false, minVersion: 0 },
+        { name: 'ctrl', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+ash.cfm.mojom.XuCameraPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cfm.cfm.mojom.mojom.XuCameraRemote = class {
+ash.cfm.mojom.XuCameraRemote = class {
   static get $interfaceName() {
     return 'ash.cfm.mojom.XuCamera';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cfm.cfm.mojom.mojom.XuCameraPendingReceiver,
+      ash.cfm.mojom.XuCameraPendingReceiver,
       handle);
-    this.$ = new ash.cfm.cfm.mojom.mojom.XuCameraRemoteCallHandler(this.proxy);
+    this.$ = new ash.cfm.mojom.XuCameraRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -146,7 +204,7 @@ ash.cfm.cfm.mojom.mojom.XuCameraRemote = class {
   }
 };
 
-ash.cfm.cfm.mojom.mojom.XuCameraRemoteCallHandler = class {
+ash.cfm.mojom.XuCameraRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -155,8 +213,8 @@ ash.cfm.cfm.mojom.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cfm.cfm.mojom.mojom.XuCamera_GetUnitId_ParamsSpec,
-      ash.cfm.cfm.mojom.mojom.XuCamera_GetUnitId_ResponseParamsSpec,
+      ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec,
+      ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec,
       [id, guid]);
   }
 
@@ -164,8 +222,8 @@ ash.cfm.cfm.mojom.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cfm.cfm.mojom.mojom.XuCamera_MapCtrl_ParamsSpec,
-      ash.cfm.cfm.mojom.mojom.XuCamera_MapCtrl_ResponseParamsSpec,
+      ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec,
+      ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec,
       [id, mapping_ctrl]);
   }
 
@@ -173,8 +231,8 @@ ash.cfm.cfm.mojom.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cfm.cfm.mojom.mojom.XuCamera_GetCtrl_ParamsSpec,
-      ash.cfm.cfm.mojom.mojom.XuCamera_GetCtrl_ResponseParamsSpec,
+      ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec,
+      ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec,
       [id, ctrl, fn]);
   }
 
@@ -182,15 +240,15 @@ ash.cfm.cfm.mojom.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cfm.cfm.mojom.mojom.XuCamera_SetCtrl_ParamsSpec,
-      ash.cfm.cfm.mojom.mojom.XuCamera_SetCtrl_ResponseParamsSpec,
+      ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec,
+      ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec,
       [id, ctrl, data]);
   }
 
 };
 
-ash.cfm.cfm.mojom.mojom.XuCamera.getRemote = function() {
-  let remote = new ash.cfm.cfm.mojom.mojom.XuCameraRemote();
+ash.cfm.mojom.XuCamera.getRemote = function() {
+  let remote = new ash.cfm.mojom.XuCameraRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -200,7 +258,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera.getRemote = function() {
 };
 
 // ParamsSpec for GetUnitId
-ash.cfm.cfm.mojom.mojom.XuCamera_GetUnitId_ParamsSpec = {
+ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.GetUnitId_Params',
@@ -214,7 +272,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera_GetUnitId_ParamsSpec = {
   }
 };
 
-ash.cfm.cfm.mojom.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
+ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.GetUnitId_ResponseParams',
@@ -229,7 +287,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for MapCtrl
-ash.cfm.cfm.mojom.mojom.XuCamera_MapCtrl_ParamsSpec = {
+ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.MapCtrl_Params',
@@ -243,7 +301,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera_MapCtrl_ParamsSpec = {
   }
 };
 
-ash.cfm.cfm.mojom.mojom.XuCamera_MapCtrl_ResponseParamsSpec = {
+ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.MapCtrl_ResponseParams',
@@ -257,7 +315,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera_MapCtrl_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCtrl
-ash.cfm.cfm.mojom.mojom.XuCamera_GetCtrl_ParamsSpec = {
+ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.GetCtrl_Params',
@@ -272,7 +330,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera_GetCtrl_ParamsSpec = {
   }
 };
 
-ash.cfm.cfm.mojom.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
+ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.GetCtrl_ResponseParams',
@@ -287,7 +345,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetCtrl
-ash.cfm.cfm.mojom.mojom.XuCamera_SetCtrl_ParamsSpec = {
+ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.SetCtrl_Params',
@@ -302,7 +360,7 @@ ash.cfm.cfm.mojom.mojom.XuCamera_SetCtrl_ParamsSpec = {
   }
 };
 
-ash.cfm.cfm.mojom.mojom.XuCamera_SetCtrl_ResponseParamsSpec = {
+ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.SetCtrl_ResponseParams',
@@ -316,6 +374,6 @@ ash.cfm.cfm.mojom.mojom.XuCamera_SetCtrl_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cfm.cfm.mojom.mojom.XuCameraPtr = ash.cfm.cfm.mojom.mojom.XuCameraRemote;
-ash.cfm.cfm.mojom.mojom.XuCameraRequest = ash.cfm.cfm.mojom.mojom.XuCameraPendingReceiver;
+ash.cfm.mojom.XuCameraPtr = ash.cfm.mojom.XuCameraRemote;
+ash.cfm.mojom.XuCameraRequest = ash.cfm.mojom.XuCameraPendingReceiver;
 

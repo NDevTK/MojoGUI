@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: EncryptionPattern
-media.mojom.mojom.EncryptionPatternSpec = {
+media.mojom.EncryptionPatternSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.EncryptionPattern',

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: RecordContentToVisibleTimeRequest
-blink.mojom.mojom.RecordContentToVisibleTimeRequestSpec = {
+blink.mojom.RecordContentToVisibleTimeRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RecordContentToVisibleTimeRequest',

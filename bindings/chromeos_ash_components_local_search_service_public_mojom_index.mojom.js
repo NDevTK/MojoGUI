@@ -7,28 +7,118 @@
 // Module namespace
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};
-ash.local_search_service.local_search_service.mojom = ash.local_search_service.local_search_service.mojom || {};
+ash.local_search_service.mojom = ash.local_search_service.mojom || {};
 
 
 // Interface: Index
-ash.local_search_service.local_search_service.mojom.mojom.Index = {};
+ash.local_search_service.mojom.Index = {};
 
-ash.local_search_service.local_search_service.mojom.mojom.IndexPendingReceiver = class {
+ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.Index_GetSize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.Index_AddOrUpdate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.Index_Delete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.Index_UpdateDocuments_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.Index_Find_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.Index_Find_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.Index_ClearIndex_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.local_search_service.mojom.Index_SetSearchParams_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'search_params', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.SearchParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.local_search_service.mojom.IndexPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.IndexRemote = class {
+ash.local_search_service.mojom.IndexRemote = class {
   static get $interfaceName() {
     return 'ash.local_search_service.mojom.Index';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.local_search_service.local_search_service.mojom.mojom.IndexPendingReceiver,
+      ash.local_search_service.mojom.IndexPendingReceiver,
       handle);
-    this.$ = new ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler(this.proxy);
+    this.$ = new ash.local_search_service.mojom.IndexRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +130,7 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemote = class {
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler = class {
+ash.local_search_service.mojom.IndexRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +139,8 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.Index_GetSize_ParamsSpec,
-      ash.local_search_service.local_search_service.mojom.mojom.Index_GetSize_ResponseParamsSpec,
+      ash.local_search_service.mojom.Index_GetSize_ParamsSpec,
+      ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +148,7 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.Index_AddOrUpdate_ParamsSpec,
+      ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec,
       null,
       [data]);
   }
@@ -67,8 +157,8 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.Index_Delete_ParamsSpec,
-      ash.local_search_service.local_search_service.mojom.mojom.Index_Delete_ResponseParamsSpec,
+      ash.local_search_service.mojom.Index_Delete_ParamsSpec,
+      ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec,
       [ids]);
   }
 
@@ -76,8 +166,8 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.Index_UpdateDocuments_ParamsSpec,
-      ash.local_search_service.local_search_service.mojom.mojom.Index_UpdateDocuments_ResponseParamsSpec,
+      ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec,
+      ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec,
       [data]);
   }
 
@@ -85,8 +175,8 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.Index_Find_ParamsSpec,
-      ash.local_search_service.local_search_service.mojom.mojom.Index_Find_ResponseParamsSpec,
+      ash.local_search_service.mojom.Index_Find_ParamsSpec,
+      ash.local_search_service.mojom.Index_Find_ResponseParamsSpec,
       [query, max_results]);
   }
 
@@ -94,7 +184,7 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.Index_ClearIndex_ParamsSpec,
+      ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec,
       null,
       []);
   }
@@ -103,15 +193,15 @@ ash.local_search_service.local_search_service.mojom.mojom.IndexRemoteCallHandler
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.local_search_service.local_search_service.mojom.mojom.Index_SetSearchParams_ParamsSpec,
+      ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec,
       null,
       [search_params]);
   }
 
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.Index.getRemote = function() {
-  let remote = new ash.local_search_service.local_search_service.mojom.mojom.IndexRemote();
+ash.local_search_service.mojom.Index.getRemote = function() {
+  let remote = new ash.local_search_service.mojom.IndexRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -121,7 +211,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index.getRemote = func
 };
 
 // ParamsSpec for GetSize
-ash.local_search_service.local_search_service.mojom.mojom.Index_GetSize_ParamsSpec = {
+ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.GetSize_Params',
@@ -133,7 +223,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_GetSize_ParamsSp
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.Index_GetSize_ResponseParamsSpec = {
+ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.GetSize_ResponseParams',
@@ -147,7 +237,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_GetSize_Response
 };
 
 // ParamsSpec for AddOrUpdate
-ash.local_search_service.local_search_service.mojom.mojom.Index_AddOrUpdate_ParamsSpec = {
+ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.AddOrUpdate_Params',
@@ -161,7 +251,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_AddOrUpdate_Para
 };
 
 // ParamsSpec for Delete
-ash.local_search_service.local_search_service.mojom.mojom.Index_Delete_ParamsSpec = {
+ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.Delete_Params',
@@ -174,7 +264,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_Delete_ParamsSpe
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.Index_Delete_ResponseParamsSpec = {
+ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.Delete_ResponseParams',
@@ -188,7 +278,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_Delete_ResponseP
 };
 
 // ParamsSpec for UpdateDocuments
-ash.local_search_service.local_search_service.mojom.mojom.Index_UpdateDocuments_ParamsSpec = {
+ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.UpdateDocuments_Params',
@@ -201,7 +291,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_UpdateDocuments_
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.Index_UpdateDocuments_ResponseParamsSpec = {
+ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.UpdateDocuments_ResponseParams',
@@ -215,7 +305,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_UpdateDocuments_
 };
 
 // ParamsSpec for Find
-ash.local_search_service.local_search_service.mojom.mojom.Index_Find_ParamsSpec = {
+ash.local_search_service.mojom.Index_Find_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.Find_Params',
@@ -229,7 +319,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_Find_ParamsSpec 
   }
 };
 
-ash.local_search_service.local_search_service.mojom.mojom.Index_Find_ResponseParamsSpec = {
+ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.Find_ResponseParams',
@@ -244,7 +334,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_Find_ResponsePar
 };
 
 // ParamsSpec for ClearIndex
-ash.local_search_service.local_search_service.mojom.mojom.Index_ClearIndex_ParamsSpec = {
+ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.ClearIndex_Params',
@@ -257,7 +347,7 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_ClearIndex_Param
 };
 
 // ParamsSpec for SetSearchParams
-ash.local_search_service.local_search_service.mojom.mojom.Index_SetSearchParams_ParamsSpec = {
+ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Index.SetSearchParams_Params',
@@ -271,6 +361,6 @@ ash.local_search_service.local_search_service.mojom.mojom.Index_SetSearchParams_
 };
 
 // Legacy compatibility
-ash.local_search_service.local_search_service.mojom.mojom.IndexPtr = ash.local_search_service.local_search_service.mojom.mojom.IndexRemote;
-ash.local_search_service.local_search_service.mojom.mojom.IndexRequest = ash.local_search_service.local_search_service.mojom.mojom.IndexPendingReceiver;
+ash.local_search_service.mojom.IndexPtr = ash.local_search_service.mojom.IndexRemote;
+ash.local_search_service.mojom.IndexRequest = ash.local_search_service.mojom.IndexPendingReceiver;
 

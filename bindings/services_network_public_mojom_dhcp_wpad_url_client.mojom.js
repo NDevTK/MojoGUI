@@ -10,24 +10,36 @@ network.mojom = network.mojom || {};
 
 
 // Interface: DhcpWpadUrlClient
-network.mojom.mojom.DhcpWpadUrlClient = {};
+network.mojom.DhcpWpadUrlClient = {};
 
-network.mojom.mojom.DhcpWpadUrlClientPendingReceiver = class {
+network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DhcpWpadUrlClient_GetPacUrl_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+network.mojom.DhcpWpadUrlClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.DhcpWpadUrlClientRemote = class {
+network.mojom.DhcpWpadUrlClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DhcpWpadUrlClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.DhcpWpadUrlClientPendingReceiver,
+      network.mojom.DhcpWpadUrlClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.DhcpWpadUrlClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.DhcpWpadUrlClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ network.mojom.mojom.DhcpWpadUrlClientRemote = class {
   }
 };
 
-network.mojom.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
+network.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ network.mojom.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec,
-      network.mojom.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
+      network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec,
+      network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
       []);
   }
 
 };
 
-network.mojom.mojom.DhcpWpadUrlClient.getRemote = function() {
-  let remote = new network.mojom.mojom.DhcpWpadUrlClientRemote();
+network.mojom.DhcpWpadUrlClient.getRemote = function() {
+  let remote = new network.mojom.DhcpWpadUrlClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ network.mojom.mojom.DhcpWpadUrlClient.getRemote = function() {
 };
 
 // ParamsSpec for GetPacUrl
-network.mojom.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
+network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DhcpWpadUrlClient.GetPacUrl_Params',
@@ -78,7 +90,7 @@ network.mojom.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
+network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DhcpWpadUrlClient.GetPacUrl_ResponseParams',
@@ -92,6 +104,6 @@ network.mojom.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.DhcpWpadUrlClientPtr = network.mojom.mojom.DhcpWpadUrlClientRemote;
-network.mojom.mojom.DhcpWpadUrlClientRequest = network.mojom.mojom.DhcpWpadUrlClientPendingReceiver;
+network.mojom.DhcpWpadUrlClientPtr = network.mojom.DhcpWpadUrlClientRemote;
+network.mojom.DhcpWpadUrlClientRequest = network.mojom.DhcpWpadUrlClientPendingReceiver;
 

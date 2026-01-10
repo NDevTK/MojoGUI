@@ -7,38 +7,38 @@
 // Module namespace
 var ash = ash || {};
 ash.language = ash.language || {};
-ash.language.language.mojom = ash.language.language.mojom || {};
+ash.language.mojom = ash.language.mojom || {};
 
 
 // Enum: FeatureId
-ash.language.language.mojom.mojom.FeatureId = {
+ash.language.mojom.FeatureId = {
   UNSUPPORTED_UNKNOWN: 0,
   HANDWRITING_RECOGNITION: 1,
 };
-ash.language.language.mojom.mojom.FeatureIdSpec = { $: mojo.internal.Enum() };
+ash.language.mojom.FeatureIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: PackState
-ash.language.language.mojom.mojom.PackState = {
+ash.language.mojom.PackState = {
   ERROR: 0,
   NOT_INSTALLED: 1,
   INSTALLING: 2,
   INSTALLED: 3,
   Default: 4,
 };
-ash.language.language.mojom.mojom.PackStateSpec = { $: mojo.internal.Enum() };
+ash.language.mojom.PackStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ErrorCode
-ash.language.language.mojom.mojom.ErrorCode = {
+ash.language.mojom.ErrorCode = {
   kNone: 0,
   kOther: 1,
   kWrongId: 2,
   kNeedReboot: 3,
   kAllocation: 4,
 };
-ash.language.language.mojom.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.language.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LanguagePackInfo
-ash.language.language.mojom.mojom.LanguagePackInfoSpec = {
+ash.language.mojom.LanguagePackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePackInfo',
@@ -56,7 +56,7 @@ ash.language.language.mojom.mojom.LanguagePackInfoSpec = {
 };
 
 // Struct: BasePackInfo
-ash.language.language.mojom.mojom.BasePackInfoSpec = {
+ash.language.mojom.BasePackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.BasePackInfo',
@@ -72,24 +72,37 @@ ash.language.language.mojom.mojom.BasePackInfoSpec = {
 };
 
 // Interface: LanguagePacksObserver
-ash.language.language.mojom.mojom.LanguagePacksObserver = {};
+ash.language.mojom.LanguagePacksObserver = {};
 
-ash.language.language.mojom.mojom.LanguagePacksObserverPendingReceiver = class {
+ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.LanguagePackInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacksObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.language.language.mojom.mojom.LanguagePacksObserverRemote = class {
+ash.language.mojom.LanguagePacksObserverRemote = class {
   static get $interfaceName() {
     return 'ash.language.mojom.LanguagePacksObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.language.language.mojom.mojom.LanguagePacksObserverPendingReceiver,
+      ash.language.mojom.LanguagePacksObserverPendingReceiver,
       handle);
-    this.$ = new ash.language.language.mojom.mojom.LanguagePacksObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.language.mojom.LanguagePacksObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -101,7 +114,7 @@ ash.language.language.mojom.mojom.LanguagePacksObserverRemote = class {
   }
 };
 
-ash.language.language.mojom.mojom.LanguagePacksObserverRemoteCallHandler = class {
+ash.language.mojom.LanguagePacksObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -110,15 +123,15 @@ ash.language.language.mojom.mojom.LanguagePacksObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.language.language.mojom.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec,
+      ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-ash.language.language.mojom.mojom.LanguagePacksObserver.getRemote = function() {
-  let remote = new ash.language.language.mojom.mojom.LanguagePacksObserverRemote();
+ash.language.mojom.LanguagePacksObserver.getRemote = function() {
+  let remote = new ash.language.mojom.LanguagePacksObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -128,7 +141,7 @@ ash.language.language.mojom.mojom.LanguagePacksObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnPackStateChanged
-ash.language.language.mojom.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec = {
+ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacksObserver.OnPackStateChanged_Params',
@@ -142,29 +155,97 @@ ash.language.language.mojom.mojom.LanguagePacksObserver_OnPackStateChanged_Param
 };
 
 // Legacy compatibility
-ash.language.language.mojom.mojom.LanguagePacksObserverPtr = ash.language.language.mojom.mojom.LanguagePacksObserverRemote;
-ash.language.language.mojom.mojom.LanguagePacksObserverRequest = ash.language.language.mojom.mojom.LanguagePacksObserverPendingReceiver;
+ash.language.mojom.LanguagePacksObserverPtr = ash.language.mojom.LanguagePacksObserverRemote;
+ash.language.mojom.LanguagePacksObserverRequest = ash.language.mojom.LanguagePacksObserverPendingReceiver;
 
 
 // Interface: LanguagePacks
-ash.language.language.mojom.mojom.LanguagePacks = {};
+ash.language.mojom.LanguagePacks = {};
 
-ash.language.language.mojom.mojom.LanguagePacksPendingReceiver = class {
+ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks_GetPackInfo_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_id', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks_InstallPack_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_id', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks_InstallBasePack_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'feature_id', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks_UninstallPack_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_id', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks_AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.language.mojom.LanguagePacksObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacksPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.language.language.mojom.mojom.LanguagePacksRemote = class {
+ash.language.mojom.LanguagePacksRemote = class {
   static get $interfaceName() {
     return 'ash.language.mojom.LanguagePacks';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.language.language.mojom.mojom.LanguagePacksPendingReceiver,
+      ash.language.mojom.LanguagePacksPendingReceiver,
       handle);
-    this.$ = new ash.language.language.mojom.mojom.LanguagePacksRemoteCallHandler(this.proxy);
+    this.$ = new ash.language.mojom.LanguagePacksRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -176,7 +257,7 @@ ash.language.language.mojom.mojom.LanguagePacksRemote = class {
   }
 };
 
-ash.language.language.mojom.mojom.LanguagePacksRemoteCallHandler = class {
+ash.language.mojom.LanguagePacksRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -185,8 +266,8 @@ ash.language.language.mojom.mojom.LanguagePacksRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.language.language.mojom.mojom.LanguagePacks_GetPackInfo_ParamsSpec,
-      ash.language.language.mojom.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec,
+      ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec,
+      ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec,
       [feature_id, language]);
   }
 
@@ -194,8 +275,8 @@ ash.language.language.mojom.mojom.LanguagePacksRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.language.language.mojom.mojom.LanguagePacks_InstallPack_ParamsSpec,
-      ash.language.language.mojom.mojom.LanguagePacks_InstallPack_ResponseParamsSpec,
+      ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec,
+      ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec,
       [feature_id, language]);
   }
 
@@ -203,8 +284,8 @@ ash.language.language.mojom.mojom.LanguagePacksRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.language.language.mojom.mojom.LanguagePacks_InstallBasePack_ParamsSpec,
-      ash.language.language.mojom.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec,
+      ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec,
+      ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec,
       [feature_id]);
   }
 
@@ -212,7 +293,7 @@ ash.language.language.mojom.mojom.LanguagePacksRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.language.language.mojom.mojom.LanguagePacks_UninstallPack_ParamsSpec,
+      ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec,
       null,
       [feature_id, language]);
   }
@@ -221,15 +302,15 @@ ash.language.language.mojom.mojom.LanguagePacksRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.language.language.mojom.mojom.LanguagePacks_AddObserver_ParamsSpec,
+      ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.language.language.mojom.mojom.LanguagePacks.getRemote = function() {
-  let remote = new ash.language.language.mojom.mojom.LanguagePacksRemote();
+ash.language.mojom.LanguagePacks.getRemote = function() {
+  let remote = new ash.language.mojom.LanguagePacksRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -239,7 +320,7 @@ ash.language.language.mojom.mojom.LanguagePacks.getRemote = function() {
 };
 
 // ParamsSpec for GetPackInfo
-ash.language.language.mojom.mojom.LanguagePacks_GetPackInfo_ParamsSpec = {
+ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.GetPackInfo_Params',
@@ -253,7 +334,7 @@ ash.language.language.mojom.mojom.LanguagePacks_GetPackInfo_ParamsSpec = {
   }
 };
 
-ash.language.language.mojom.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec = {
+ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.GetPackInfo_ResponseParams',
@@ -267,7 +348,7 @@ ash.language.language.mojom.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec =
 };
 
 // ParamsSpec for InstallPack
-ash.language.language.mojom.mojom.LanguagePacks_InstallPack_ParamsSpec = {
+ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.InstallPack_Params',
@@ -281,7 +362,7 @@ ash.language.language.mojom.mojom.LanguagePacks_InstallPack_ParamsSpec = {
   }
 };
 
-ash.language.language.mojom.mojom.LanguagePacks_InstallPack_ResponseParamsSpec = {
+ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.InstallPack_ResponseParams',
@@ -295,7 +376,7 @@ ash.language.language.mojom.mojom.LanguagePacks_InstallPack_ResponseParamsSpec =
 };
 
 // ParamsSpec for InstallBasePack
-ash.language.language.mojom.mojom.LanguagePacks_InstallBasePack_ParamsSpec = {
+ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.InstallBasePack_Params',
@@ -308,7 +389,7 @@ ash.language.language.mojom.mojom.LanguagePacks_InstallBasePack_ParamsSpec = {
   }
 };
 
-ash.language.language.mojom.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec = {
+ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.InstallBasePack_ResponseParams',
@@ -322,7 +403,7 @@ ash.language.language.mojom.mojom.LanguagePacks_InstallBasePack_ResponseParamsSp
 };
 
 // ParamsSpec for UninstallPack
-ash.language.language.mojom.mojom.LanguagePacks_UninstallPack_ParamsSpec = {
+ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.UninstallPack_Params',
@@ -337,7 +418,7 @@ ash.language.language.mojom.mojom.LanguagePacks_UninstallPack_ParamsSpec = {
 };
 
 // ParamsSpec for AddObserver
-ash.language.language.mojom.mojom.LanguagePacks_AddObserver_ParamsSpec = {
+ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePacks.AddObserver_Params',
@@ -351,6 +432,6 @@ ash.language.language.mojom.mojom.LanguagePacks_AddObserver_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.language.language.mojom.mojom.LanguagePacksPtr = ash.language.language.mojom.mojom.LanguagePacksRemote;
-ash.language.language.mojom.mojom.LanguagePacksRequest = ash.language.language.mojom.mojom.LanguagePacksPendingReceiver;
+ash.language.mojom.LanguagePacksPtr = ash.language.mojom.LanguagePacksRemote;
+ash.language.mojom.LanguagePacksRequest = ash.language.mojom.LanguagePacksPendingReceiver;
 

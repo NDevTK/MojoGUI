@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: CropIdBoundsPair
-viz.mojom.mojom.CropIdBoundsPairSpec = {
+viz.mojom.CropIdBoundsPairSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CropIdBoundsPair',
@@ -27,7 +27,7 @@ viz.mojom.mojom.CropIdBoundsPairSpec = {
 };
 
 // Struct: RegionCaptureBounds
-viz.mojom.mojom.RegionCaptureBoundsSpec = {
+viz.mojom.RegionCaptureBoundsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RegionCaptureBounds',

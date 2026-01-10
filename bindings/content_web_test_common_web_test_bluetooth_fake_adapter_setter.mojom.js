@@ -10,24 +10,37 @@ content.mojom = content.mojom || {};
 
 
 // Interface: WebTestBluetoothFakeAdapterSetter
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetter = {};
+content.mojom.WebTestBluetoothFakeAdapterSetter = {};
 
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver = class {
+content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'adapter_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRemote = class {
+content.mojom.WebTestBluetoothFakeAdapterSetterRemote = class {
   static get $interfaceName() {
     return 'content.mojom.WebTestBluetoothFakeAdapterSetter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver,
+      content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRemote = class {
   }
 };
 
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
+content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec,
+      content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec,
       null,
       [adapter_name]);
   }
 
 };
 
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetter.getRemote = function() {
-  let remote = new content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRemote();
+content.mojom.WebTestBluetoothFakeAdapterSetter.getRemote = function() {
+  let remote = new content.mojom.WebTestBluetoothFakeAdapterSetterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ content.mojom.mojom.WebTestBluetoothFakeAdapterSetter.getRemote = function() {
 };
 
 // ParamsSpec for Set
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
+content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebTestBluetoothFakeAdapterSetter.Set_Params',
@@ -80,6 +93,6 @@ content.mojom.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetterPtr = content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRemote;
-content.mojom.mojom.WebTestBluetoothFakeAdapterSetterRequest = content.mojom.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver;
+content.mojom.WebTestBluetoothFakeAdapterSetterPtr = content.mojom.WebTestBluetoothFakeAdapterSetterRemote;
+content.mojom.WebTestBluetoothFakeAdapterSetterRequest = content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver;
 

@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: OffsetTag
-viz.mojom.mojom.OffsetTagSpec = {
+viz.mojom.OffsetTagSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTag',
@@ -26,7 +26,7 @@ viz.mojom.mojom.OffsetTagSpec = {
 };
 
 // Struct: OffsetTagValue
-viz.mojom.mojom.OffsetTagValueSpec = {
+viz.mojom.OffsetTagValueSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTagValue',
@@ -41,7 +41,7 @@ viz.mojom.mojom.OffsetTagValueSpec = {
 };
 
 // Struct: OffsetTagDefinition
-viz.mojom.mojom.OffsetTagDefinitionSpec = {
+viz.mojom.OffsetTagDefinitionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTagDefinition',

@@ -10,24 +10,37 @@ prerender.mojom = prerender.mojom || {};
 
 
 // Interface: NoStatePrefetchMessages
-prerender.mojom.mojom.NoStatePrefetchMessages = {};
+prerender.mojom.NoStatePrefetchMessages = {};
 
-prerender.mojom.mojom.NoStatePrefetchMessagesPendingReceiver = class {
+prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'histogram_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+prerender.mojom.NoStatePrefetchMessagesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-prerender.mojom.mojom.NoStatePrefetchMessagesRemote = class {
+prerender.mojom.NoStatePrefetchMessagesRemote = class {
   static get $interfaceName() {
     return 'prerender.mojom.NoStatePrefetchMessages';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      prerender.mojom.mojom.NoStatePrefetchMessagesPendingReceiver,
+      prerender.mojom.NoStatePrefetchMessagesPendingReceiver,
       handle);
-    this.$ = new prerender.mojom.mojom.NoStatePrefetchMessagesRemoteCallHandler(this.proxy);
+    this.$ = new prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ prerender.mojom.mojom.NoStatePrefetchMessagesRemote = class {
   }
 };
 
-prerender.mojom.mojom.NoStatePrefetchMessagesRemoteCallHandler = class {
+prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ prerender.mojom.mojom.NoStatePrefetchMessagesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      prerender.mojom.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec,
+      prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec,
       null,
       [histogram_prefix]);
   }
 
 };
 
-prerender.mojom.mojom.NoStatePrefetchMessages.getRemote = function() {
-  let remote = new prerender.mojom.mojom.NoStatePrefetchMessagesRemote();
+prerender.mojom.NoStatePrefetchMessages.getRemote = function() {
+  let remote = new prerender.mojom.NoStatePrefetchMessagesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ prerender.mojom.mojom.NoStatePrefetchMessages.getRemote = function() {
 };
 
 // ParamsSpec for SetIsNoStatePrefetching
-prerender.mojom.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
+prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
   $: {
     structSpec: {
       name: 'prerender.mojom.NoStatePrefetchMessages.SetIsNoStatePrefetching_Params',
@@ -80,6 +93,6 @@ prerender.mojom.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec
 };
 
 // Legacy compatibility
-prerender.mojom.mojom.NoStatePrefetchMessagesPtr = prerender.mojom.mojom.NoStatePrefetchMessagesRemote;
-prerender.mojom.mojom.NoStatePrefetchMessagesRequest = prerender.mojom.mojom.NoStatePrefetchMessagesPendingReceiver;
+prerender.mojom.NoStatePrefetchMessagesPtr = prerender.mojom.NoStatePrefetchMessagesRemote;
+prerender.mojom.NoStatePrefetchMessagesRequest = prerender.mojom.NoStatePrefetchMessagesPendingReceiver;
 

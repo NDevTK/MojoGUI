@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: BucketLocator
-storage.mojom.mojom.BucketLocatorSpec = {
+storage.mojom.BucketLocatorSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketLocator',

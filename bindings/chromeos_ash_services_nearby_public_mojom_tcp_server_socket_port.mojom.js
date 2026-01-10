@@ -10,7 +10,7 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Struct: TcpServerSocketPort
-sharing.mojom.mojom.TcpServerSocketPortSpec = {
+sharing.mojom.TcpServerSocketPortSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.TcpServerSocketPort',

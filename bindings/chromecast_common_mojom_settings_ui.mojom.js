@@ -12,41 +12,69 @@ var gfx = gfx || {};
 
 
 // Enum: SideSwipeEvent
-chromecast.mojom.mojom.SideSwipeEvent = {
+chromecast.mojom.SideSwipeEvent = {
   BEGIN: 0,
   CONTINUE: 1,
   END: 2,
 };
-chromecast.mojom.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: SideSwipeOrigin
-chromecast.mojom.mojom.SideSwipeOrigin = {
+chromecast.mojom.SideSwipeOrigin = {
   TOP: 0,
   BOTTOM: 1,
   LEFT: 2,
   RIGHT: 3,
 };
-chromecast.mojom.mojom.SideSwipeOriginSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.SideSwipeOriginSpec = { $: mojo.internal.Enum() };
 
 // Interface: SettingsClient
-chromecast.mojom.mojom.SettingsClient = {};
+chromecast.mojom.SettingsClient = {};
 
-chromecast.mojom.mojom.SettingsClientPendingReceiver = class {
+chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.SettingsClient_HandleSideSwipe_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.SideSwipeEventSpec, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 12, packedBitOffset: 0, type: chromecast.mojom.SideSwipeOriginSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.SettingsClient_SendPlatformInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'platform_info_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.mojom.SettingsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.mojom.SettingsClientRemote = class {
+chromecast.mojom.SettingsClientRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.SettingsClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.mojom.SettingsClientPendingReceiver,
+      chromecast.mojom.SettingsClientPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.mojom.SettingsClientRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.SettingsClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +86,7 @@ chromecast.mojom.mojom.SettingsClientRemote = class {
   }
 };
 
-chromecast.mojom.mojom.SettingsClientRemoteCallHandler = class {
+chromecast.mojom.SettingsClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,7 +95,7 @@ chromecast.mojom.mojom.SettingsClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.mojom.SettingsClient_HandleSideSwipe_ParamsSpec,
+      chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec,
       null,
       [event, origin, touch_location]);
   }
@@ -76,15 +104,15 @@ chromecast.mojom.mojom.SettingsClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.mojom.SettingsClient_SendPlatformInfo_ParamsSpec,
+      chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec,
       null,
       [platform_info_json]);
   }
 
 };
 
-chromecast.mojom.mojom.SettingsClient.getRemote = function() {
-  let remote = new chromecast.mojom.mojom.SettingsClientRemote();
+chromecast.mojom.SettingsClient.getRemote = function() {
+  let remote = new chromecast.mojom.SettingsClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +122,7 @@ chromecast.mojom.mojom.SettingsClient.getRemote = function() {
 };
 
 // ParamsSpec for HandleSideSwipe
-chromecast.mojom.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
+chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.SettingsClient.HandleSideSwipe_Params',
@@ -110,7 +138,7 @@ chromecast.mojom.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
 };
 
 // ParamsSpec for SendPlatformInfo
-chromecast.mojom.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
+chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.SettingsClient.SendPlatformInfo_Params',
@@ -124,29 +152,55 @@ chromecast.mojom.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.mojom.SettingsClientPtr = chromecast.mojom.mojom.SettingsClientRemote;
-chromecast.mojom.mojom.SettingsClientRequest = chromecast.mojom.mojom.SettingsClientPendingReceiver;
+chromecast.mojom.SettingsClientPtr = chromecast.mojom.SettingsClientRemote;
+chromecast.mojom.SettingsClientRequest = chromecast.mojom.SettingsClientPendingReceiver;
 
 
 // Interface: SettingsPlatform
-chromecast.mojom.mojom.SettingsPlatform = {};
+chromecast.mojom.SettingsPlatform = {};
 
-chromecast.mojom.mojom.SettingsPlatformPendingReceiver = class {
+chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.SettingsPlatform_Connect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.SettingsClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.SettingsPlatform_RequestVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.mojom.SettingsPlatformPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.mojom.SettingsPlatformRemote = class {
+chromecast.mojom.SettingsPlatformRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.SettingsPlatform';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.mojom.SettingsPlatformPendingReceiver,
+      chromecast.mojom.SettingsPlatformPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.mojom.SettingsPlatformRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.SettingsPlatformRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -158,7 +212,7 @@ chromecast.mojom.mojom.SettingsPlatformRemote = class {
   }
 };
 
-chromecast.mojom.mojom.SettingsPlatformRemoteCallHandler = class {
+chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -167,7 +221,7 @@ chromecast.mojom.mojom.SettingsPlatformRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.mojom.SettingsPlatform_Connect_ParamsSpec,
+      chromecast.mojom.SettingsPlatform_Connect_ParamsSpec,
       null,
       [client]);
   }
@@ -176,15 +230,15 @@ chromecast.mojom.mojom.SettingsPlatformRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.mojom.SettingsPlatform_RequestVisible_ParamsSpec,
+      chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec,
       null,
       [visible]);
   }
 
 };
 
-chromecast.mojom.mojom.SettingsPlatform.getRemote = function() {
-  let remote = new chromecast.mojom.mojom.SettingsPlatformRemote();
+chromecast.mojom.SettingsPlatform.getRemote = function() {
+  let remote = new chromecast.mojom.SettingsPlatformRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -194,7 +248,7 @@ chromecast.mojom.mojom.SettingsPlatform.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-chromecast.mojom.mojom.SettingsPlatform_Connect_ParamsSpec = {
+chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.SettingsPlatform.Connect_Params',
@@ -208,7 +262,7 @@ chromecast.mojom.mojom.SettingsPlatform_Connect_ParamsSpec = {
 };
 
 // ParamsSpec for RequestVisible
-chromecast.mojom.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
+chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.SettingsPlatform.RequestVisible_Params',
@@ -222,6 +276,6 @@ chromecast.mojom.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.mojom.SettingsPlatformPtr = chromecast.mojom.mojom.SettingsPlatformRemote;
-chromecast.mojom.mojom.SettingsPlatformRequest = chromecast.mojom.mojom.SettingsPlatformPendingReceiver;
+chromecast.mojom.SettingsPlatformPtr = chromecast.mojom.SettingsPlatformRemote;
+chromecast.mojom.SettingsPlatformRequest = chromecast.mojom.SettingsPlatformPendingReceiver;
 

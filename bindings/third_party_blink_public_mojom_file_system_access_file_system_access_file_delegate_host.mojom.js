@@ -10,24 +10,77 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessFileDelegateHost
-blink.mojom.mojom.FileSystemAccessFileDelegateHost = {};
+blink.mojom.FileSystemAccessFileDelegateHost = {};
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHostPendingReceiver = class {
+blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost_Read_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'bytes_to_read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost_Write_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost_GetLength_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost_SetLength_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessFileDelegateHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHostRemote = class {
+blink.mojom.FileSystemAccessFileDelegateHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessFileDelegateHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.FileSystemAccessFileDelegateHostPendingReceiver,
+      blink.mojom.FileSystemAccessFileDelegateHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +92,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHostRemote = class {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
+blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +101,8 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
       [offset, bytes_to_read]);
   }
 
@@ -57,8 +110,8 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
       [offset, data]);
   }
 
@@ -66,8 +119,8 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
       []);
   }
 
@@ -75,15 +128,15 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
       [length]);
   }
 
 };
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.FileSystemAccessFileDelegateHostRemote();
+blink.mojom.FileSystemAccessFileDelegateHost.getRemote = function() {
+  let remote = new blink.mojom.FileSystemAccessFileDelegateHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +146,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost.getRemote = function() {
 };
 
 // ParamsSpec for Read
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Read_Params',
@@ -107,7 +160,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Read_ResponseParams',
@@ -123,7 +176,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Write
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Write_Params',
@@ -137,7 +190,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Write_ResponseParams',
@@ -152,7 +205,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetLength
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.GetLength_Params',
@@ -164,7 +217,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.GetLength_ResponseParams',
@@ -179,7 +232,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec 
 };
 
 // ParamsSpec for SetLength
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.SetLength_Params',
@@ -192,7 +245,7 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.SetLength_ResponseParams',
@@ -206,6 +259,6 @@ blink.mojom.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-blink.mojom.mojom.FileSystemAccessFileDelegateHostPtr = blink.mojom.mojom.FileSystemAccessFileDelegateHostRemote;
-blink.mojom.mojom.FileSystemAccessFileDelegateHostRequest = blink.mojom.mojom.FileSystemAccessFileDelegateHostPendingReceiver;
+blink.mojom.FileSystemAccessFileDelegateHostPtr = blink.mojom.FileSystemAccessFileDelegateHostRemote;
+blink.mojom.FileSystemAccessFileDelegateHostRequest = blink.mojom.FileSystemAccessFileDelegateHostPendingReceiver;
 

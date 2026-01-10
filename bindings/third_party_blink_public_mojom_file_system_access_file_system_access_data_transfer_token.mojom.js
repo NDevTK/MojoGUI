@@ -10,24 +10,49 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessDataTransferToken
-blink.mojom.mojom.FileSystemAccessDataTransferToken = {};
+blink.mojom.FileSystemAccessDataTransferToken = {};
 
-blink.mojom.mojom.FileSystemAccessDataTransferTokenPendingReceiver = class {
+blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessDataTransferToken_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessDataTransferTokenRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.FileSystemAccessDataTransferTokenPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.FileSystemAccessDataTransferTokenRemote = class {
+blink.mojom.FileSystemAccessDataTransferTokenRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessDataTransferToken';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.FileSystemAccessDataTransferTokenPendingReceiver,
+      blink.mojom.FileSystemAccessDataTransferTokenPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +64,7 @@ blink.mojom.mojom.FileSystemAccessDataTransferTokenRemote = class {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler = class {
+blink.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +73,8 @@ blink.mojom.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec,
-      blink.mojom.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec,
+      blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec,
+      blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec,
       []);
   }
 
@@ -57,15 +82,15 @@ blink.mojom.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec,
+      blink.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec,
       null,
       [token_clone]);
   }
 
 };
 
-blink.mojom.mojom.FileSystemAccessDataTransferToken.getRemote = function() {
-  let remote = new blink.mojom.mojom.FileSystemAccessDataTransferTokenRemote();
+blink.mojom.FileSystemAccessDataTransferToken.getRemote = function() {
+  let remote = new blink.mojom.FileSystemAccessDataTransferTokenRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +100,7 @@ blink.mojom.mojom.FileSystemAccessDataTransferToken.getRemote = function() {
 };
 
 // ParamsSpec for GetInternalId
-blink.mojom.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec = {
+blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDataTransferToken.GetInternalId_Params',
@@ -87,7 +112,7 @@ blink.mojom.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec = {
+blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDataTransferToken.GetInternalId_ResponseParams',
@@ -101,7 +126,7 @@ blink.mojom.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParams
 };
 
 // ParamsSpec for Clone
-blink.mojom.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec = {
+blink.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDataTransferToken.Clone_Params',
@@ -115,6 +140,6 @@ blink.mojom.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.FileSystemAccessDataTransferTokenPtr = blink.mojom.mojom.FileSystemAccessDataTransferTokenRemote;
-blink.mojom.mojom.FileSystemAccessDataTransferTokenRequest = blink.mojom.mojom.FileSystemAccessDataTransferTokenPendingReceiver;
+blink.mojom.FileSystemAccessDataTransferTokenPtr = blink.mojom.FileSystemAccessDataTransferTokenRemote;
+blink.mojom.FileSystemAccessDataTransferTokenRequest = blink.mojom.FileSystemAccessDataTransferTokenPendingReceiver;
 

@@ -10,7 +10,7 @@ media_router.mojom = media_router.mojom || {};
 
 
 // Enum: RouteRequestResultCode
-media_router.mojom.mojom.RouteRequestResultCode = {
+media_router.mojom.RouteRequestResultCode = {
   UNKNOWN_ERROR: 0,
   OK: 1,
   TIMED_OUT: 2,
@@ -27,4 +27,4 @@ media_router.mojom.mojom.RouteRequestResultCode = {
   USER_NOT_ALLOWED: 13,
   NOTIFICATION_DISABLED: 14,
 };
-media_router.mojom.mojom.RouteRequestResultCodeSpec = { $: mojo.internal.Enum() };
+media_router.mojom.RouteRequestResultCodeSpec = { $: mojo.internal.Enum() };

@@ -10,24 +10,50 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SurfaceEmbedder
-blink.mojom.mojom.SurfaceEmbedder = {};
+blink.mojom.SurfaceEmbedder = {};
 
-blink.mojom.mojom.SurfaceEmbedderPendingReceiver = class {
+blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SurfaceEmbedder_OnOpacityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_opaque', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.SurfaceEmbedderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.SurfaceEmbedderRemote = class {
+blink.mojom.SurfaceEmbedderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SurfaceEmbedder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.SurfaceEmbedderPendingReceiver,
+      blink.mojom.SurfaceEmbedderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.SurfaceEmbedderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.SurfaceEmbedderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +65,7 @@ blink.mojom.mojom.SurfaceEmbedderRemote = class {
   }
 };
 
-blink.mojom.mojom.SurfaceEmbedderRemoteCallHandler = class {
+blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +74,7 @@ blink.mojom.mojom.SurfaceEmbedderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec,
+      blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec,
       null,
       [local_surface_id]);
   }
@@ -57,15 +83,15 @@ blink.mojom.mojom.SurfaceEmbedderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec,
+      blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec,
       null,
       [is_opaque]);
   }
 
 };
 
-blink.mojom.mojom.SurfaceEmbedder.getRemote = function() {
-  let remote = new blink.mojom.mojom.SurfaceEmbedderRemote();
+blink.mojom.SurfaceEmbedder.getRemote = function() {
+  let remote = new blink.mojom.SurfaceEmbedderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +101,7 @@ blink.mojom.mojom.SurfaceEmbedder.getRemote = function() {
 };
 
 // ParamsSpec for SetLocalSurfaceId
-blink.mojom.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = {
+blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SurfaceEmbedder.SetLocalSurfaceId_Params',
@@ -89,7 +115,7 @@ blink.mojom.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpacityChanged
-blink.mojom.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = {
+blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SurfaceEmbedder.OnOpacityChanged_Params',
@@ -103,29 +129,42 @@ blink.mojom.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.SurfaceEmbedderPtr = blink.mojom.mojom.SurfaceEmbedderRemote;
-blink.mojom.mojom.SurfaceEmbedderRequest = blink.mojom.mojom.SurfaceEmbedderPendingReceiver;
+blink.mojom.SurfaceEmbedderPtr = blink.mojom.SurfaceEmbedderRemote;
+blink.mojom.SurfaceEmbedderRequest = blink.mojom.SurfaceEmbedderPendingReceiver;
 
 
 // Interface: EmbeddedFrameSinkClient
-blink.mojom.mojom.EmbeddedFrameSinkClient = {};
+blink.mojom.EmbeddedFrameSinkClient = {};
 
-blink.mojom.mojom.EmbeddedFrameSinkClientPendingReceiver = class {
+blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'embedder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SurfaceEmbedderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.EmbeddedFrameSinkClientRemote = class {
+blink.mojom.EmbeddedFrameSinkClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.EmbeddedFrameSinkClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.EmbeddedFrameSinkClientPendingReceiver,
+      blink.mojom.EmbeddedFrameSinkClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.EmbeddedFrameSinkClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -137,7 +176,7 @@ blink.mojom.mojom.EmbeddedFrameSinkClientRemote = class {
   }
 };
 
-blink.mojom.mojom.EmbeddedFrameSinkClientRemoteCallHandler = class {
+blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -146,15 +185,15 @@ blink.mojom.mojom.EmbeddedFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec,
       null,
       [embedder]);
   }
 
 };
 
-blink.mojom.mojom.EmbeddedFrameSinkClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.EmbeddedFrameSinkClientRemote();
+blink.mojom.EmbeddedFrameSinkClient.getRemote = function() {
+  let remote = new blink.mojom.EmbeddedFrameSinkClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -164,7 +203,7 @@ blink.mojom.mojom.EmbeddedFrameSinkClient.getRemote = function() {
 };
 
 // ParamsSpec for BindSurfaceEmbedder
-blink.mojom.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkClient.BindSurfaceEmbedder_Params',
@@ -178,29 +217,147 @@ blink.mojom.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.EmbeddedFrameSinkClientPtr = blink.mojom.mojom.EmbeddedFrameSinkClientRemote;
-blink.mojom.mojom.EmbeddedFrameSinkClientRequest = blink.mojom.mojom.EmbeddedFrameSinkClientPendingReceiver;
+blink.mojom.EmbeddedFrameSinkClientPtr = blink.mojom.EmbeddedFrameSinkClientRemote;
+blink.mojom.EmbeddedFrameSinkClientRequest = blink.mojom.EmbeddedFrameSinkClientPendingReceiver;
 
 
 // Interface: EmbeddedFrameSinkProvider
-blink.mojom.mojom.EmbeddedFrameSinkProvider = {};
+blink.mojom.EmbeddedFrameSinkProvider = {};
 
-blink.mojom.mojom.EmbeddedFrameSinkProviderPendingReceiver = class {
+blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'parent_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.EmbeddedFrameSinkClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'bundle_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkBundleIdSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.FrameSinkBundleRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkBundleClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CompositorFrameSinkClientRemote), nullable: false, minVersion: 0 },
+        { name: 'sink', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.CompositorFrameSinkRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'bundle_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkBundleIdSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CompositorFrameSinkClientRemote), nullable: false, minVersion: 0 },
+        { name: 'sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.CompositorFrameSinkRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'parent_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'surface_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.EmbeddedFrameSinkClientRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CompositorFrameSinkClientRemote), nullable: false, minVersion: 0 },
+        { name: 'sink', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.CompositorFrameSinkRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'embedder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SurfaceEmbedderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.EmbeddedFrameSinkProviderRemote = class {
+blink.mojom.EmbeddedFrameSinkProviderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.EmbeddedFrameSinkProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.EmbeddedFrameSinkProviderPendingReceiver,
+      blink.mojom.EmbeddedFrameSinkProviderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -212,7 +369,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemote = class {
   }
 };
 
-blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
+blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -221,7 +378,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec,
       null,
       [parent_frame_sink_id, frame_sink_id, client]);
   }
@@ -230,7 +387,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec,
       null,
       [bundle_id, receiver, client]);
   }
@@ -239,7 +396,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id, client, sink]);
   }
@@ -248,7 +405,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id, bundle_id, client, sink]);
   }
@@ -257,7 +414,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec,
       null,
       [parent_frame_sink_id, frame_sink_id, surface_client, client, sink]);
   }
@@ -266,7 +423,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec,
       null,
       [frame_sink_id, embedder]);
   }
@@ -275,7 +432,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -284,15 +441,15 @@ blink.mojom.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec,
+      blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
       [frame_sink_id]);
   }
 
 };
 
-blink.mojom.mojom.EmbeddedFrameSinkProvider.getRemote = function() {
-  let remote = new blink.mojom.mojom.EmbeddedFrameSinkProviderRemote();
+blink.mojom.EmbeddedFrameSinkProvider.getRemote = function() {
+  let remote = new blink.mojom.EmbeddedFrameSinkProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -302,7 +459,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider.getRemote = function() {
 };
 
 // ParamsSpec for RegisterEmbeddedFrameSink
-blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.RegisterEmbeddedFrameSink_Params',
@@ -318,7 +475,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec
 };
 
 // ParamsSpec for RegisterEmbeddedFrameSinkBundle
-blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.RegisterEmbeddedFrameSinkBundle_Params',
@@ -334,7 +491,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_Para
 };
 
 // ParamsSpec for CreateCompositorFrameSink
-blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.CreateCompositorFrameSink_Params',
@@ -350,7 +507,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec
 };
 
 // ParamsSpec for CreateBundledCompositorFrameSink
-blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.CreateBundledCompositorFrameSink_Params',
@@ -367,7 +524,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_Par
 };
 
 // ParamsSpec for CreateSimpleCompositorFrameSink
-blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.CreateSimpleCompositorFrameSink_Params',
@@ -385,7 +542,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_Para
 };
 
 // ParamsSpec for ConnectToEmbedder
-blink.mojom.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.ConnectToEmbedder_Params',
@@ -400,7 +557,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterFrameSinkHierarchy
-blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.RegisterFrameSinkHierarchy_Params',
@@ -414,7 +571,7 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpe
 };
 
 // ParamsSpec for UnregisterFrameSinkHierarchy
-blink.mojom.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec = {
+blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedFrameSinkProvider.UnregisterFrameSinkHierarchy_Params',
@@ -428,6 +585,6 @@ blink.mojom.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsS
 };
 
 // Legacy compatibility
-blink.mojom.mojom.EmbeddedFrameSinkProviderPtr = blink.mojom.mojom.EmbeddedFrameSinkProviderRemote;
-blink.mojom.mojom.EmbeddedFrameSinkProviderRequest = blink.mojom.mojom.EmbeddedFrameSinkProviderPendingReceiver;
+blink.mojom.EmbeddedFrameSinkProviderPtr = blink.mojom.EmbeddedFrameSinkProviderRemote;
+blink.mojom.EmbeddedFrameSinkProviderRequest = blink.mojom.EmbeddedFrameSinkProviderPendingReceiver;
 

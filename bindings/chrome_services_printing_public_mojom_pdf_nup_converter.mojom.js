@@ -13,32 +13,90 @@ var url = url || {};
 
 
 // Enum: Status
-printing.mojom.mojom.Status = {
+printing.mojom.Status = {
   SUCCESS: 0,
   CONVERSION_FAILURE: 1,
   HANDLE_MAP_ERROR: 2,
 };
-printing.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
+printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: PdfNupConverter
-printing.mojom.mojom.PdfNupConverter = {};
+printing.mojom.PdfNupConverter = {};
 
-printing.mojom.mojom.PdfNupConverterPendingReceiver = class {
+printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfNupConverter_NupPageConvert_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'pages_per_sheet', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'printable_area', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'pdf_page_regions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfNupConverter_NupDocumentConvert_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'pages_per_sheet', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'printable_area', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'src_pdf_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfNupConverter_SetWebContentsURL_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PdfNupConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.mojom.PdfNupConverterRemote = class {
+printing.mojom.PdfNupConverterRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PdfNupConverter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.mojom.PdfNupConverterPendingReceiver,
+      printing.mojom.PdfNupConverterPendingReceiver,
       handle);
-    this.$ = new printing.mojom.mojom.PdfNupConverterRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.PdfNupConverterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -50,7 +108,7 @@ printing.mojom.mojom.PdfNupConverterRemote = class {
   }
 };
 
-printing.mojom.mojom.PdfNupConverterRemoteCallHandler = class {
+printing.mojom.PdfNupConverterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -59,8 +117,8 @@ printing.mojom.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.mojom.PdfNupConverter_NupPageConvert_ParamsSpec,
-      printing.mojom.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec,
+      printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec,
+      printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec,
       [pages_per_sheet, page_size, printable_area, pdf_page_regions]);
   }
 
@@ -68,8 +126,8 @@ printing.mojom.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec,
-      printing.mojom.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec,
+      printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec,
+      printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec,
       [pages_per_sheet, page_size, printable_area, src_pdf_region]);
   }
 
@@ -77,7 +135,7 @@ printing.mojom.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec,
+      printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec,
       null,
       [url]);
   }
@@ -86,15 +144,15 @@ printing.mojom.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec,
+      printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }
 
 };
 
-printing.mojom.mojom.PdfNupConverter.getRemote = function() {
-  let remote = new printing.mojom.mojom.PdfNupConverterRemote();
+printing.mojom.PdfNupConverter.getRemote = function() {
+  let remote = new printing.mojom.PdfNupConverterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -104,7 +162,7 @@ printing.mojom.mojom.PdfNupConverter.getRemote = function() {
 };
 
 // ParamsSpec for NupPageConvert
-printing.mojom.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
+printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfNupConverter.NupPageConvert_Params',
@@ -120,7 +178,7 @@ printing.mojom.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
+printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfNupConverter.NupPageConvert_ResponseParams',
@@ -135,7 +193,7 @@ printing.mojom.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
 };
 
 // ParamsSpec for NupDocumentConvert
-printing.mojom.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
+printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfNupConverter.NupDocumentConvert_Params',
@@ -151,7 +209,7 @@ printing.mojom.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
   }
 };
 
-printing.mojom.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
+printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfNupConverter.NupDocumentConvert_ResponseParams',
@@ -166,7 +224,7 @@ printing.mojom.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetWebContentsURL
-printing.mojom.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
+printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfNupConverter.SetWebContentsURL_Params',
@@ -180,7 +238,7 @@ printing.mojom.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
 };
 
 // ParamsSpec for SetUseSkiaRendererPolicy
-printing.mojom.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
+printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfNupConverter.SetUseSkiaRendererPolicy_Params',
@@ -194,6 +252,6 @@ printing.mojom.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.mojom.PdfNupConverterPtr = printing.mojom.mojom.PdfNupConverterRemote;
-printing.mojom.mojom.PdfNupConverterRequest = printing.mojom.mojom.PdfNupConverterPendingReceiver;
+printing.mojom.PdfNupConverterPtr = printing.mojom.PdfNupConverterRemote;
+printing.mojom.PdfNupConverterRequest = printing.mojom.PdfNupConverterPendingReceiver;
 

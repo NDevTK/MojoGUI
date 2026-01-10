@@ -10,17 +10,17 @@ viz.mojom = viz.mojom || {};
 
 
 // Enum: ThreadType
-viz.mojom.mojom.ThreadType = {
+viz.mojom.ThreadType = {
   kMain: 0,
   kIO: 1,
   kCompositor: 2,
   kVideo: 3,
   kOther: 4,
 };
-viz.mojom.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Thread
-viz.mojom.mojom.ThreadSpec = {
+viz.mojom.ThreadSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Thread',

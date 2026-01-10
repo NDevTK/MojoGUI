@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Enum: VkPhysicalDeviceType
-gpu.mojom.mojom.VkPhysicalDeviceType = {
+gpu.mojom.VkPhysicalDeviceType = {
   OTHER: 0,
   INTEGRATED_GPU: 1,
   DISCRETE_GPU: 2,
@@ -18,10 +18,10 @@ gpu.mojom.mojom.VkPhysicalDeviceType = {
   CPU: 4,
   INVALID_VALUE: 5,
 };
-gpu.mojom.mojom.VkPhysicalDeviceTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.VkPhysicalDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: VkExtensionProperties
-gpu.mojom.mojom.VkExtensionPropertiesSpec = {
+gpu.mojom.VkExtensionPropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkExtensionProperties',
@@ -36,7 +36,7 @@ gpu.mojom.mojom.VkExtensionPropertiesSpec = {
 };
 
 // Struct: VkLayerProperties
-gpu.mojom.mojom.VkLayerPropertiesSpec = {
+gpu.mojom.VkLayerPropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkLayerProperties',
@@ -53,7 +53,7 @@ gpu.mojom.mojom.VkLayerPropertiesSpec = {
 };
 
 // Struct: VkPhysicalDeviceLimits
-gpu.mojom.mojom.VkPhysicalDeviceLimitsSpec = {
+gpu.mojom.VkPhysicalDeviceLimitsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceLimits',
@@ -172,7 +172,7 @@ gpu.mojom.mojom.VkPhysicalDeviceLimitsSpec = {
 };
 
 // Struct: VkPhysicalDeviceSparseProperties
-gpu.mojom.mojom.VkPhysicalDeviceSparsePropertiesSpec = {
+gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceSparseProperties',
@@ -190,7 +190,7 @@ gpu.mojom.mojom.VkPhysicalDeviceSparsePropertiesSpec = {
 };
 
 // Struct: VkPhysicalDeviceProperties
-gpu.mojom.mojom.VkPhysicalDevicePropertiesSpec = {
+gpu.mojom.VkPhysicalDevicePropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceProperties',
@@ -212,7 +212,7 @@ gpu.mojom.mojom.VkPhysicalDevicePropertiesSpec = {
 };
 
 // Struct: VkPhysicalDeviceFeatures
-gpu.mojom.mojom.VkPhysicalDeviceFeaturesSpec = {
+gpu.mojom.VkPhysicalDeviceFeaturesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceFeatures',
@@ -280,7 +280,7 @@ gpu.mojom.mojom.VkPhysicalDeviceFeaturesSpec = {
 };
 
 // Struct: VkExtent3D
-gpu.mojom.mojom.VkExtent3DSpec = {
+gpu.mojom.VkExtent3DSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkExtent3D',
@@ -296,7 +296,7 @@ gpu.mojom.mojom.VkExtent3DSpec = {
 };
 
 // Struct: VkQueueFamilyProperties
-gpu.mojom.mojom.VkQueueFamilyPropertiesSpec = {
+gpu.mojom.VkQueueFamilyPropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkQueueFamilyProperties',

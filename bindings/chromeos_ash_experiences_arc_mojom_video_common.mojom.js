@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: VideoCodecProfile
-arc.mojom.mojom.VideoCodecProfile = {
+arc.mojom.VideoCodecProfile = {
   VIDEO_CODEC_PROFILE_UNKNOWN: 0,
   VIDEO_CODEC_PROFILE_MIN: 1,
   H264PROFILE_MIN: 2,
@@ -82,26 +82,26 @@ arc.mojom.mojom.VideoCodecProfile = {
   VVCPROFILE_MAX: 68,
   VIDEO_CODEC_PROFILE_MAX: 69,
 };
-arc.mojom.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
+arc.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
 
 // Enum: HalPixelFormat
-arc.mojom.mojom.HalPixelFormat = {
+arc.mojom.HalPixelFormat = {
   HAL_PIXEL_FORMAT_BGRA_8888: 0,
   HAL_PIXEL_FORMAT_YCbCr_420_888: 1,
   HAL_PIXEL_FORMAT_YV12: 2,
   HAL_PIXEL_FORMAT_NV12: 3,
 };
-arc.mojom.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
+arc.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoPixelFormat
-arc.mojom.mojom.VideoPixelFormat = {
+arc.mojom.VideoPixelFormat = {
   PIXEL_FORMAT_UNKNOWN: 0,
   PIXEL_FORMAT_I420: 1,
 };
-arc.mojom.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum() };
+arc.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: VideoFramePlane
-arc.mojom.mojom.VideoFramePlaneSpec = {
+arc.mojom.VideoFramePlaneSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoFramePlane',
@@ -116,7 +116,7 @@ arc.mojom.mojom.VideoFramePlaneSpec = {
 };
 
 // Struct: ColorPlaneLayout
-arc.mojom.mojom.ColorPlaneLayoutSpec = {
+arc.mojom.ColorPlaneLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ColorPlaneLayout',
@@ -132,7 +132,7 @@ arc.mojom.mojom.ColorPlaneLayoutSpec = {
 };
 
 // Struct: VideoFrameLayout
-arc.mojom.mojom.VideoFrameLayoutSpec = {
+arc.mojom.VideoFrameLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoFrameLayout',

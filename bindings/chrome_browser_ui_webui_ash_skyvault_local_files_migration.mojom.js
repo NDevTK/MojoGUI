@@ -7,26 +7,26 @@
 // Module namespace
 var policy = policy || {};
 policy.local_user_files = policy.local_user_files || {};
-policy.local_user_files.local_user_files.mojom = policy.local_user_files.local_user_files.mojom || {};
+policy.local_user_files.mojom = policy.local_user_files.mojom || {};
 
 
 // Enum: CloudProvider
-policy.local_user_files.local_user_files.mojom.mojom.CloudProvider = {
+policy.local_user_files.mojom.CloudProvider = {
   kGoogleDrive: 0,
   kOneDrive: 1,
   kDelete: 2,
 };
-policy.local_user_files.local_user_files.mojom.mojom.CloudProviderSpec = { $: mojo.internal.Enum() };
+policy.local_user_files.mojom.CloudProviderSpec = { $: mojo.internal.Enum() };
 
 // Enum: TimeUnit
-policy.local_user_files.local_user_files.mojom.mojom.TimeUnit = {
+policy.local_user_files.mojom.TimeUnit = {
   kMinutes: 0,
   kHours: 1,
 };
-policy.local_user_files.local_user_files.mojom.mojom.TimeUnitSpec = { $: mojo.internal.Enum() };
+policy.local_user_files.mojom.TimeUnitSpec = { $: mojo.internal.Enum() };
 
 // Struct: TimeUnitAndValue
-policy.local_user_files.local_user_files.mojom.mojom.TimeUnitAndValueSpec = {
+policy.local_user_files.mojom.TimeUnitAndValueSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.TimeUnitAndValue',
@@ -41,24 +41,38 @@ policy.local_user_files.local_user_files.mojom.mojom.TimeUnitAndValueSpec = {
 };
 
 // Interface: PageHandlerFactory
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactory = {};
+policy.local_user_files.mojom.PageHandlerFactory = {};
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
+policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(policy.local_user_files.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(policy.local_user_files.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+policy.local_user_files.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRemote = class {
+policy.local_user_files.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'policy.local_user_files.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryPendingReceiver,
+      policy.local_user_files.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -70,7 +84,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRemote = 
   }
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
+policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -79,15 +93,15 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRemoteCal
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRemote();
+policy.local_user_files.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new policy.local_user_files.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +111,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactory.getRemot
 };
 
 // ParamsSpec for CreatePageHandler
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -112,29 +126,65 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactory_CreatePa
 };
 
 // Legacy compatibility
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryPtr = policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRemote;
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryRequest = policy.local_user_files.local_user_files.mojom.mojom.PageHandlerFactoryPendingReceiver;
+policy.local_user_files.mojom.PageHandlerFactoryPtr = policy.local_user_files.mojom.PageHandlerFactoryRemote;
+policy.local_user_files.mojom.PageHandlerFactoryRequest = policy.local_user_files.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-policy.local_user_files.local_user_files.mojom.mojom.PageHandler = {};
+policy.local_user_files.mojom.PageHandler = {};
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerPendingReceiver = class {
+policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'policy.local_user_files.mojom.PageHandler_Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+policy.local_user_files.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemote = class {
+policy.local_user_files.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'policy.local_user_files.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      policy.local_user_files.local_user_files.mojom.mojom.PageHandlerPendingReceiver,
+      policy.local_user_files.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new policy.local_user_files.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -146,7 +196,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemoteCallHandler = class {
+policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -155,8 +205,8 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      policy.local_user_files.local_user_files.mojom.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec,
-      policy.local_user_files.local_user_files.mojom.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
+      policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec,
+      policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
       []);
   }
 
@@ -164,7 +214,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemoteCallHandle
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      policy.local_user_files.local_user_files.mojom.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec,
+      policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec,
       null,
       []);
   }
@@ -173,15 +223,15 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemoteCallHandle
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      policy.local_user_files.local_user_files.mojom.mojom.PageHandler_Close_ParamsSpec,
+      policy.local_user_files.mojom.PageHandler_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemote();
+policy.local_user_files.mojom.PageHandler.getRemote = function() {
+  let remote = new policy.local_user_files.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -191,7 +241,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandler.getRemote = fun
 };
 
 // ParamsSpec for GetInitialDialogInfo
-policy.local_user_files.local_user_files.mojom.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
+policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.PageHandler.GetInitialDialogInfo_Params',
@@ -203,7 +253,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandler_GetInitialDialo
   }
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = {
+policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.PageHandler.GetInitialDialogInfo_ResponseParams',
@@ -219,7 +269,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandler_GetInitialDialo
 };
 
 // ParamsSpec for UploadOrDeleteNow
-policy.local_user_files.local_user_files.mojom.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = {
+policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.PageHandler.UploadOrDeleteNow_Params',
@@ -232,7 +282,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandler_UploadOrDeleteN
 };
 
 // ParamsSpec for Close
-policy.local_user_files.local_user_files.mojom.mojom.PageHandler_Close_ParamsSpec = {
+policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.PageHandler.Close_Params',
@@ -245,29 +295,42 @@ policy.local_user_files.local_user_files.mojom.mojom.PageHandler_Close_ParamsSpe
 };
 
 // Legacy compatibility
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerPtr = policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRemote;
-policy.local_user_files.local_user_files.mojom.mojom.PageHandlerRequest = policy.local_user_files.local_user_files.mojom.mojom.PageHandlerPendingReceiver;
+policy.local_user_files.mojom.PageHandlerPtr = policy.local_user_files.mojom.PageHandlerRemote;
+policy.local_user_files.mojom.PageHandlerRequest = policy.local_user_files.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-policy.local_user_files.local_user_files.mojom.mojom.Page = {};
+policy.local_user_files.mojom.Page = {};
 
-policy.local_user_files.local_user_files.mojom.mojom.PagePendingReceiver = class {
+policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'policy.local_user_files.mojom.Page_UpdateRemainingTime_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitAndValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+policy.local_user_files.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageRemote = class {
+policy.local_user_files.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'policy.local_user_files.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      policy.local_user_files.local_user_files.mojom.mojom.PagePendingReceiver,
+      policy.local_user_files.mojom.PagePendingReceiver,
       handle);
-    this.$ = new policy.local_user_files.local_user_files.mojom.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new policy.local_user_files.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -279,7 +342,7 @@ policy.local_user_files.local_user_files.mojom.mojom.PageRemote = class {
   }
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.PageRemoteCallHandler = class {
+policy.local_user_files.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -288,15 +351,15 @@ policy.local_user_files.local_user_files.mojom.mojom.PageRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      policy.local_user_files.local_user_files.mojom.mojom.Page_UpdateRemainingTime_ParamsSpec,
+      policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec,
       null,
       [remaining_time]);
   }
 
 };
 
-policy.local_user_files.local_user_files.mojom.mojom.Page.getRemote = function() {
-  let remote = new policy.local_user_files.local_user_files.mojom.mojom.PageRemote();
+policy.local_user_files.mojom.Page.getRemote = function() {
+  let remote = new policy.local_user_files.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -306,7 +369,7 @@ policy.local_user_files.local_user_files.mojom.mojom.Page.getRemote = function()
 };
 
 // ParamsSpec for UpdateRemainingTime
-policy.local_user_files.local_user_files.mojom.mojom.Page_UpdateRemainingTime_ParamsSpec = {
+policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.Page.UpdateRemainingTime_Params',
@@ -320,6 +383,6 @@ policy.local_user_files.local_user_files.mojom.mojom.Page_UpdateRemainingTime_Pa
 };
 
 // Legacy compatibility
-policy.local_user_files.local_user_files.mojom.mojom.PagePtr = policy.local_user_files.local_user_files.mojom.mojom.PageRemote;
-policy.local_user_files.local_user_files.mojom.mojom.PageRequest = policy.local_user_files.local_user_files.mojom.mojom.PagePendingReceiver;
+policy.local_user_files.mojom.PagePtr = policy.local_user_files.mojom.PageRemote;
+policy.local_user_files.mojom.PageRequest = policy.local_user_files.mojom.PagePendingReceiver;
 

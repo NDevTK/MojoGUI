@@ -10,23 +10,23 @@ lens.mojom = lens.mojom || {};
 
 
 // Enum: VertexOrdering
-lens.mojom.mojom.VertexOrdering = {
+lens.mojom.VertexOrdering = {
   kUnspecified: 0,
   kClockwise: 1,
   kCounterClockwise: 2,
 };
-lens.mojom.mojom.VertexOrderingSpec = { $: mojo.internal.Enum() };
+lens.mojom.VertexOrderingSpec = { $: mojo.internal.Enum() };
 
 // Enum: CoordinateType
-lens.mojom.mojom.CoordinateType = {
+lens.mojom.CoordinateType = {
   kUnspecified: 0,
   kNormalized: 1,
   kImage: 2,
 };
-lens.mojom.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
+lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Polygon
-lens.mojom.mojom.PolygonSpec = {
+lens.mojom.PolygonSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Polygon',
@@ -41,7 +41,7 @@ lens.mojom.mojom.PolygonSpec = {
 };
 
 // Struct: Vertex
-lens.mojom.mojom.VertexSpec = {
+lens.mojom.VertexSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Vertex',

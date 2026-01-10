@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: FullscreenOptions
-blink.mojom.mojom.FullscreenOptionsSpec = {
+blink.mojom.FullscreenOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FullscreenOptions',

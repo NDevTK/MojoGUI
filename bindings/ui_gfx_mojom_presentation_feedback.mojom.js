@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: PresentationFeedback
-gfx.mojom.mojom.PresentationFeedbackSpec = {
+gfx.mojom.PresentationFeedbackSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.PresentationFeedback',

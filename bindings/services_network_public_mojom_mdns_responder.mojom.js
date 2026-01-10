@@ -10,24 +10,50 @@ network.mojom = network.mojom || {};
 
 
 // Interface: MdnsResponder
-network.mojom.mojom.MdnsResponder = {};
+network.mojom.MdnsResponder = {};
 
-network.mojom.mojom.MdnsResponderPendingReceiver = class {
+network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.MdnsResponder_CreateNameForAddress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.MdnsResponder_RemoveNameForAddress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.MdnsResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.MdnsResponderRemote = class {
+network.mojom.MdnsResponderRemote = class {
   static get $interfaceName() {
     return 'network.mojom.MdnsResponder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.MdnsResponderPendingReceiver,
+      network.mojom.MdnsResponderPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.MdnsResponderRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.MdnsResponderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +65,7 @@ network.mojom.mojom.MdnsResponderRemote = class {
   }
 };
 
-network.mojom.mojom.MdnsResponderRemoteCallHandler = class {
+network.mojom.MdnsResponderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +74,8 @@ network.mojom.mojom.MdnsResponderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec,
-      network.mojom.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec,
+      network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec,
+      network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec,
       [address]);
   }
 
@@ -57,15 +83,15 @@ network.mojom.mojom.MdnsResponderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec,
-      network.mojom.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec,
+      network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec,
+      network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec,
       [address]);
   }
 
 };
 
-network.mojom.mojom.MdnsResponder.getRemote = function() {
-  let remote = new network.mojom.mojom.MdnsResponderRemote();
+network.mojom.MdnsResponder.getRemote = function() {
+  let remote = new network.mojom.MdnsResponderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +101,7 @@ network.mojom.mojom.MdnsResponder.getRemote = function() {
 };
 
 // ParamsSpec for CreateNameForAddress
-network.mojom.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
+network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsResponder.CreateNameForAddress_Params',
@@ -88,7 +114,7 @@ network.mojom.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
+network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsResponder.CreateNameForAddress_ResponseParams',
@@ -103,7 +129,7 @@ network.mojom.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveNameForAddress
-network.mojom.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
+network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsResponder.RemoveNameForAddress_Params',
@@ -116,7 +142,7 @@ network.mojom.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
+network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsResponder.RemoveNameForAddress_ResponseParams',
@@ -131,6 +157,6 @@ network.mojom.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.MdnsResponderPtr = network.mojom.mojom.MdnsResponderRemote;
-network.mojom.mojom.MdnsResponderRequest = network.mojom.mojom.MdnsResponderPendingReceiver;
+network.mojom.MdnsResponderPtr = network.mojom.MdnsResponderRemote;
+network.mojom.MdnsResponderRequest = network.mojom.MdnsResponderPendingReceiver;
 

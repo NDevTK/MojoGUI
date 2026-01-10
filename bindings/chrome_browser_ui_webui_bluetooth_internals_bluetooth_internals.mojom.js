@@ -11,6 +11,19 @@ var mojom = mojom || {};
 // Interface: DebugLogsChangeHandler
 mojom.DebugLogsChangeHandler = {};
 
+mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.DebugLogsChangeHandler_ChangeDebugLogsState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'should_debug_logs_be_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
 mojom.DebugLogsChangeHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +98,102 @@ mojom.DebugLogsChangeHandlerRequest = mojom.DebugLogsChangeHandlerPendingReceive
 
 // Interface: BluetoothInternalsHandler
 mojom.BluetoothInternalsHandler = {};
+
+mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_GetAdapter_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_CheckSystemPermissions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_RequestSystemPermissions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_RequestLocationServices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_RestartSystemBluetooth_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_StartBtsnoop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
 
 mojom.BluetoothInternalsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -382,6 +491,18 @@ mojom.BluetoothInternalsHandlerRequest = mojom.BluetoothInternalsHandlerPendingR
 
 // Interface: BluetoothBtsnoop
 mojom.BluetoothBtsnoop = {};
+
+mojom.BluetoothBtsnoop_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.BluetoothBtsnoop_Stop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
 
 mojom.BluetoothBtsnoopPendingReceiver = class {
   constructor(handle) {

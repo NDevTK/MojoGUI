@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: Button
-blink.mojom.mojom.Button = {
+blink.mojom.Button = {
   kNoButton: 0,
   kLeft: 1,
   kMiddle: 2,
@@ -20,19 +20,19 @@ blink.mojom.mojom.Button = {
   kForward: 6,
   kEraser: 7,
 };
-blink.mojom.mojom.ButtonSpec = { $: mojo.internal.Enum() };
+blink.mojom.ButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: DispatchType
-blink.mojom.mojom.DispatchType = {
+blink.mojom.DispatchType = {
   kBlocking: 0,
   kEventNonBlocking: 1,
   kListenersNonBlockingPassive: 2,
   kListenersForcedNonBlockingDueToFling: 3,
 };
-blink.mojom.mojom.DispatchTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.DispatchTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventType
-blink.mojom.mojom.EventType = {
+blink.mojom.EventType = {
   kUndefined: 0,
   kTypeFirst: 1,
   kMouseDown: 2,
@@ -91,4 +91,4 @@ blink.mojom.mojom.EventType = {
   kPointerTypeLast: 55,
   kTypeLast: 56,
 };
-blink.mojom.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.EventTypeSpec = { $: mojo.internal.Enum() };

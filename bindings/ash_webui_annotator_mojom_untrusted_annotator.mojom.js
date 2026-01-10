@@ -7,28 +7,77 @@
 // Module namespace
 var ash = ash || {};
 ash.annotator = ash.annotator || {};
-ash.annotator.annotator.mojom = ash.annotator.annotator.mojom || {};
+ash.annotator.mojom = ash.annotator.mojom || {};
 
 
 // Interface: UntrustedAnnotatorPage
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage = {};
+ash.annotator.mojom.UntrustedAnnotatorPage = {};
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPagePendingReceiver = class {
+ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_Clear_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_Undo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_Redo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: ash.annotator.mojom.AnnotatorToolSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemote = class {
+ash.annotator.mojom.UntrustedAnnotatorPageRemote = class {
   static get $interfaceName() {
     return 'ash.annotator.mojom.UntrustedAnnotatorPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPagePendingReceiver,
+      ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver,
       handle);
-    this.$ = new ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemoteCallHandler(this.proxy);
+    this.$ = new ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +89,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemote = class {
   }
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
+ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +98,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec,
+      ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +107,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec,
+      ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +116,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemoteCallHandler = cl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec,
+      ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec,
       null,
       []);
   }
@@ -76,15 +125,15 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemoteCallHandler = cl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec,
+      ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec,
       null,
       [tool]);
   }
 
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage.getRemote = function() {
-  let remote = new ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemote();
+ash.annotator.mojom.UntrustedAnnotatorPage.getRemote = function() {
+  let remote = new ash.annotator.mojom.UntrustedAnnotatorPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +143,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage.getRemote = function(
 };
 
 // ParamsSpec for Clear
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
+ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPage.Clear_Params',
@@ -107,7 +156,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
 };
 
 // ParamsSpec for Undo
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
+ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPage.Undo_Params',
@@ -120,7 +169,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
 };
 
 // ParamsSpec for Redo
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
+ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPage.Redo_Params',
@@ -133,7 +182,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
 };
 
 // ParamsSpec for SetTool
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
+ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPage.SetTool_Params',
@@ -147,29 +196,56 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = 
 };
 
 // Legacy compatibility
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPagePtr = ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRemote;
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageRequest = ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPagePendingReceiver;
+ash.annotator.mojom.UntrustedAnnotatorPagePtr = ash.annotator.mojom.UntrustedAnnotatorPageRemote;
+ash.annotator.mojom.UntrustedAnnotatorPageRequest = ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver;
 
 
 // Interface: UntrustedAnnotatorPageHandler
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler = {};
+ash.annotator.mojom.UntrustedAnnotatorPageHandler = {};
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerPendingReceiver = class {
+ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'undo_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'redo_available', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemote = class {
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.annotator.mojom.UntrustedAnnotatorPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerPendingReceiver,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -181,7 +257,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemote = class 
   }
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -190,7 +266,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec,
       null,
       [undo_available, redo_available]);
   }
@@ -199,15 +275,15 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec,
       null,
       [success]);
   }
 
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler.getRemote = function() {
-  let remote = new ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemote();
+ash.annotator.mojom.UntrustedAnnotatorPageHandler.getRemote = function() {
+  let remote = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -217,7 +293,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler.getRemote = fu
 };
 
 // ParamsSpec for OnUndoRedoAvailabilityChanged
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = {
+ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler.OnUndoRedoAvailabilityChanged_Params',
@@ -232,7 +308,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvai
 };
 
 // ParamsSpec for OnCanvasInitialized
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = {
+ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler.OnCanvasInitialized_Params',
@@ -246,29 +322,43 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitia
 };
 
 // Legacy compatibility
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerPtr = ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRemote;
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerRequest = ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerPendingReceiver;
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote;
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerRequest = ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver;
 
 
 // Interface: UntrustedAnnotatorPageHandlerFactory
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactory = {};
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory = {};
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver = class {
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'annotator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.annotator.mojom.UntrustedAnnotatorPageRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRemote = class {
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -280,7 +370,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRemote =
   }
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = class {
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -289,15 +379,15 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec,
       null,
       [handler, annotator]);
   }
 
 };
 
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactory.getRemote = function() {
-  let remote = new ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRemote();
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.getRemote = function() {
+  let remote = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -307,7 +397,7 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactory.getRemo
 };
 
 // ParamsSpec for Create
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.Create_Params',
@@ -322,6 +412,6 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactory_Create_
 };
 
 // Legacy compatibility
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryPtr = ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRemote;
-ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryRequest = ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver;
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote;
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRequest = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver;
 

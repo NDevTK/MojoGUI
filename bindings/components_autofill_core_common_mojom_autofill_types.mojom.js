@@ -13,7 +13,7 @@ var url = url || {};
 
 
 // Enum: FormControlType
-autofill.mojom.mojom.FormControlType = {
+autofill.mojom.FormControlType = {
   kContentEditable: 0,
   kInputCheckbox: 1,
   kInputEmail: 2,
@@ -29,18 +29,18 @@ autofill.mojom.mojom.FormControlType = {
   kTextArea: 12,
   kInputDate: 13,
 };
-autofill.mojom.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HtmlFieldMode
-autofill.mojom.mojom.HtmlFieldMode = {
+autofill.mojom.HtmlFieldMode = {
   kNone: 0,
   kBilling: 1,
   kShipping: 2,
 };
-autofill.mojom.mojom.HtmlFieldModeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.HtmlFieldModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HtmlFieldType
-autofill.mojom.mojom.HtmlFieldType = {
+autofill.mojom.HtmlFieldType = {
   kUnspecified: 0,
   kName: 1,
   kHonorificPrefix: 2,
@@ -91,10 +91,10 @@ autofill.mojom.mojom.HtmlFieldType = {
   kIban: 47,
   kUnrecognized: 48,
 };
-autofill.mojom.mojom.HtmlFieldTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.HtmlFieldTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionIndicatorEvent
-autofill.mojom.mojom.SubmissionIndicatorEvent = {
+autofill.mojom.SubmissionIndicatorEvent = {
   NONE: 0,
   HTML_FORM_SUBMISSION: 1,
   SAME_DOCUMENT_NAVIGATION: 2,
@@ -104,10 +104,10 @@ autofill.mojom.mojom.SubmissionIndicatorEvent = {
   CHANGE_PASSWORD_FORM_CLEARED: 6,
   DOM_MUTATION_AFTER_AUTOFILL: 7,
 };
-autofill.mojom.mojom.SubmissionIndicatorEventSpec = { $: mojo.internal.Enum() };
+autofill.mojom.SubmissionIndicatorEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionSource
-autofill.mojom.mojom.SubmissionSource = {
+autofill.mojom.SubmissionSource = {
   NONE: 0,
   SAME_DOCUMENT_NAVIGATION: 1,
   XHR_SUCCEEDED: 2,
@@ -116,10 +116,10 @@ autofill.mojom.mojom.SubmissionSource = {
   FORM_SUBMISSION: 5,
   DOM_MUTATION_AFTER_AUTOFILL: 6,
 };
-autofill.mojom.mojom.SubmissionSourceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.SubmissionSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FocusedFieldType
-autofill.mojom.mojom.FocusedFieldType = {
+autofill.mojom.FocusedFieldType = {
   kUnknown: 0,
   kUnfillableElement: 1,
   kFillableTextArea: 2,
@@ -129,10 +129,10 @@ autofill.mojom.mojom.FocusedFieldType = {
   kFillableUsernameField: 6,
   kFillablePasswordField: 7,
 };
-autofill.mojom.mojom.FocusedFieldTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FocusedFieldTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ButtonTitleType
-autofill.mojom.mojom.ButtonTitleType = {
+autofill.mojom.ButtonTitleType = {
   NONE: 0,
   BUTTON_ELEMENT_SUBMIT_TYPE: 1,
   BUTTON_ELEMENT_BUTTON_TYPE: 2,
@@ -142,10 +142,10 @@ autofill.mojom.mojom.ButtonTitleType = {
   DIV: 6,
   SPAN: 7,
 };
-autofill.mojom.mojom.ButtonTitleTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.ButtonTitleTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionReadinessState
-autofill.mojom.mojom.SubmissionReadinessState = {
+autofill.mojom.SubmissionReadinessState = {
   kNoInformation: 0,
   kError: 1,
   kNoUsernameField: 2,
@@ -157,25 +157,25 @@ autofill.mojom.mojom.SubmissionReadinessState = {
   kNoPasswordField: 8,
   kLikelyHasCaptcha: 9,
 };
-autofill.mojom.mojom.SubmissionReadinessStateSpec = { $: mojo.internal.Enum() };
+autofill.mojom.SubmissionReadinessStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CheckStatus
-autofill.mojom.mojom.CheckStatus = {
+autofill.mojom.CheckStatus = {
   kNotCheckable: 0,
   kCheckableButUnchecked: 1,
   kChecked: 2,
 };
-autofill.mojom.mojom.CheckStatusSpec = { $: mojo.internal.Enum() };
+autofill.mojom.CheckStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: RoleAttribute
-autofill.mojom.mojom.RoleAttribute = {
+autofill.mojom.RoleAttribute = {
   kPresentation: 0,
   kOther: 1,
 };
-autofill.mojom.mojom.RoleAttributeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.RoleAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LabelSource
-autofill.mojom.mojom.LabelSource = {
+autofill.mojom.LabelSource = {
   kUnknown: 0,
   kLabelTag: 1,
   kPTag: 2,
@@ -193,40 +193,40 @@ autofill.mojom.mojom.LabelSource = {
   kForShadowHostName: 14,
   kOverlayingLabel: 15,
 };
-autofill.mojom.mojom.LabelSourceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.LabelSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutofillSuggestionAvailability
-autofill.mojom.mojom.AutofillSuggestionAvailability = {
+autofill.mojom.AutofillSuggestionAvailability = {
   kNoSuggestions: 0,
   kAutofillAvailable: 1,
   kAutocompleteAvailable: 2,
 };
-autofill.mojom.mojom.AutofillSuggestionAvailabilitySpec = { $: mojo.internal.Enum() };
+autofill.mojom.AutofillSuggestionAvailabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionPersistence
-autofill.mojom.mojom.ActionPersistence = {
+autofill.mojom.ActionPersistence = {
   kFill: 0,
   kPreview: 1,
 };
-autofill.mojom.mojom.ActionPersistenceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.ActionPersistenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FormActionType
-autofill.mojom.mojom.FormActionType = {
+autofill.mojom.FormActionType = {
   kFill: 0,
   kUndo: 1,
 };
-autofill.mojom.mojom.FormActionTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FormActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FieldActionType
-autofill.mojom.mojom.FieldActionType = {
+autofill.mojom.FieldActionType = {
   kReplaceAll: 0,
   kReplaceSelection: 1,
   kSelectAll: 2,
 };
-autofill.mojom.mojom.FieldActionTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FieldActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutofillSuggestionTriggerSource
-autofill.mojom.mojom.AutofillSuggestionTriggerSource = {
+autofill.mojom.AutofillSuggestionTriggerSource = {
   kUnspecified: 0,
   kFormControlElementClicked: 1,
   kTextareaFocusedWithoutClick: 2,
@@ -244,10 +244,10 @@ autofill.mojom.mojom.AutofillSuggestionTriggerSource = {
   kPlusAddressUpdatedInBrowserProcess: 14,
   kProactivePasswordRecovery: 15,
 };
-autofill.mojom.mojom.AutofillSuggestionTriggerSourceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.AutofillSuggestionTriggerSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: FrameToken
-autofill.mojom.mojom.FrameTokenSpec = {
+autofill.mojom.FrameTokenSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FrameToken',
@@ -262,7 +262,7 @@ autofill.mojom.mojom.FrameTokenSpec = {
 };
 
 // Struct: FrameTokenWithPredecessor
-autofill.mojom.mojom.FrameTokenWithPredecessorSpec = {
+autofill.mojom.FrameTokenWithPredecessorSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FrameTokenWithPredecessor',
@@ -277,7 +277,7 @@ autofill.mojom.mojom.FrameTokenWithPredecessorSpec = {
 };
 
 // Struct: FormRendererId
-autofill.mojom.mojom.FormRendererIdSpec = {
+autofill.mojom.FormRendererIdSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FormRendererId',
@@ -291,7 +291,7 @@ autofill.mojom.mojom.FormRendererIdSpec = {
 };
 
 // Struct: FieldRendererId
-autofill.mojom.mojom.FieldRendererIdSpec = {
+autofill.mojom.FieldRendererIdSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FieldRendererId',
@@ -305,7 +305,7 @@ autofill.mojom.mojom.FieldRendererIdSpec = {
 };
 
 // Struct: FillId
-autofill.mojom.mojom.FillIdSpec = {
+autofill.mojom.FillIdSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FillId',
@@ -319,7 +319,7 @@ autofill.mojom.mojom.FillIdSpec = {
 };
 
 // Struct: SelectOption
-autofill.mojom.mojom.SelectOptionSpec = {
+autofill.mojom.SelectOptionSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.SelectOption',
@@ -334,7 +334,7 @@ autofill.mojom.mojom.SelectOptionSpec = {
 };
 
 // Struct: AutocompleteParsingResult
-autofill.mojom.mojom.AutocompleteParsingResultSpec = {
+autofill.mojom.AutocompleteParsingResultSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.AutocompleteParsingResult',
@@ -352,7 +352,7 @@ autofill.mojom.mojom.AutocompleteParsingResultSpec = {
 };
 
 // Struct: FormFieldData
-autofill.mojom.mojom.FormFieldDataSpec = {
+autofill.mojom.FormFieldDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FormFieldData',
@@ -366,7 +366,7 @@ autofill.mojom.mojom.FormFieldDataSpec = {
 };
 
 // Struct: FormFieldData_FillData
-autofill.mojom.mojom.FormFieldData_FillDataSpec = {
+autofill.mojom.FormFieldData_FillDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FormFieldData_FillData',
@@ -384,7 +384,7 @@ autofill.mojom.mojom.FormFieldData_FillDataSpec = {
 };
 
 // Struct: ButtonTitleInfo
-autofill.mojom.mojom.ButtonTitleInfoSpec = {
+autofill.mojom.ButtonTitleInfoSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.ButtonTitleInfo',
@@ -399,7 +399,7 @@ autofill.mojom.mojom.ButtonTitleInfoSpec = {
 };
 
 // Struct: FormData
-autofill.mojom.mojom.FormDataSpec = {
+autofill.mojom.FormDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FormData',
@@ -425,7 +425,7 @@ autofill.mojom.mojom.FormDataSpec = {
 };
 
 // Struct: FormFieldDataPredictions
-autofill.mojom.mojom.FormFieldDataPredictionsSpec = {
+autofill.mojom.FormFieldDataPredictionsSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FormFieldDataPredictions',
@@ -454,7 +454,7 @@ autofill.mojom.mojom.FormFieldDataPredictionsSpec = {
 };
 
 // Struct: FormDataPredictions
-autofill.mojom.mojom.FormDataPredictionsSpec = {
+autofill.mojom.FormDataPredictionsSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FormDataPredictions',
@@ -472,7 +472,7 @@ autofill.mojom.mojom.FormDataPredictionsSpec = {
 };
 
 // Struct: PasswordAndMetadata
-autofill.mojom.mojom.PasswordAndMetadataSpec = {
+autofill.mojom.PasswordAndMetadataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.PasswordAndMetadata',
@@ -490,7 +490,7 @@ autofill.mojom.mojom.PasswordAndMetadataSpec = {
 };
 
 // Struct: PasswordFormFillData
-autofill.mojom.mojom.PasswordFormFillDataSpec = {
+autofill.mojom.PasswordFormFillDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.PasswordFormFillData',
@@ -512,7 +512,7 @@ autofill.mojom.mojom.PasswordFormFillDataSpec = {
 };
 
 // Struct: PasswordFormGenerationData
-autofill.mojom.mojom.PasswordFormGenerationDataSpec = {
+autofill.mojom.PasswordFormGenerationDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.PasswordFormGenerationData',
@@ -527,7 +527,7 @@ autofill.mojom.mojom.PasswordFormGenerationDataSpec = {
 };
 
 // Struct: PasswordGenerationUIData
-autofill.mojom.mojom.PasswordGenerationUIDataSpec = {
+autofill.mojom.PasswordGenerationUIDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.PasswordGenerationUIData',
@@ -548,7 +548,7 @@ autofill.mojom.mojom.PasswordGenerationUIDataSpec = {
 };
 
 // Struct: TriggeringField
-autofill.mojom.mojom.TriggeringFieldSpec = {
+autofill.mojom.TriggeringFieldSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.TriggeringField',
@@ -568,7 +568,7 @@ autofill.mojom.mojom.TriggeringFieldSpec = {
 };
 
 // Struct: PasswordSuggestionRequest
-autofill.mojom.mojom.PasswordSuggestionRequestSpec = {
+autofill.mojom.PasswordSuggestionRequestSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.PasswordSuggestionRequest',
@@ -585,7 +585,7 @@ autofill.mojom.mojom.PasswordSuggestionRequestSpec = {
 };
 
 // Struct: ParsingResult
-autofill.mojom.mojom.ParsingResultSpec = {
+autofill.mojom.ParsingResultSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.ParsingResult',

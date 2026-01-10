@@ -10,24 +10,48 @@ updater.mojom = updater.mojom || {};
 
 
 // Interface: UpdateServiceInternal
-updater.mojom.mojom.UpdateServiceInternal = {};
+updater.mojom.UpdateServiceInternal = {};
 
-updater.mojom.mojom.UpdateServiceInternalPendingReceiver = class {
+updater.mojom.UpdateServiceInternal_Run_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateServiceInternal_Run_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateServiceInternal_Hello_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateServiceInternalPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-updater.mojom.mojom.UpdateServiceInternalRemote = class {
+updater.mojom.UpdateServiceInternalRemote = class {
   static get $interfaceName() {
     return 'updater.mojom.UpdateServiceInternal';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      updater.mojom.mojom.UpdateServiceInternalPendingReceiver,
+      updater.mojom.UpdateServiceInternalPendingReceiver,
       handle);
-    this.$ = new updater.mojom.mojom.UpdateServiceInternalRemoteCallHandler(this.proxy);
+    this.$ = new updater.mojom.UpdateServiceInternalRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +63,7 @@ updater.mojom.mojom.UpdateServiceInternalRemote = class {
   }
 };
 
-updater.mojom.mojom.UpdateServiceInternalRemoteCallHandler = class {
+updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +72,7 @@ updater.mojom.mojom.UpdateServiceInternalRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater.mojom.mojom.UpdateServiceInternal_Run_ParamsSpec,
+      updater.mojom.UpdateServiceInternal_Run_ParamsSpec,
       null,
       []);
   }
@@ -57,15 +81,15 @@ updater.mojom.mojom.UpdateServiceInternalRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      updater.mojom.mojom.UpdateServiceInternal_Hello_ParamsSpec,
+      updater.mojom.UpdateServiceInternal_Hello_ParamsSpec,
       null,
       []);
   }
 
 };
 
-updater.mojom.mojom.UpdateServiceInternal.getRemote = function() {
-  let remote = new updater.mojom.mojom.UpdateServiceInternalRemote();
+updater.mojom.UpdateServiceInternal.getRemote = function() {
+  let remote = new updater.mojom.UpdateServiceInternalRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +99,7 @@ updater.mojom.mojom.UpdateServiceInternal.getRemote = function() {
 };
 
 // ParamsSpec for Run
-updater.mojom.mojom.UpdateServiceInternal_Run_ParamsSpec = {
+updater.mojom.UpdateServiceInternal_Run_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateServiceInternal.Run_Params',
@@ -88,7 +112,7 @@ updater.mojom.mojom.UpdateServiceInternal_Run_ParamsSpec = {
 };
 
 // ParamsSpec for Hello
-updater.mojom.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
+updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateServiceInternal.Hello_Params',
@@ -101,6 +125,6 @@ updater.mojom.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
 };
 
 // Legacy compatibility
-updater.mojom.mojom.UpdateServiceInternalPtr = updater.mojom.mojom.UpdateServiceInternalRemote;
-updater.mojom.mojom.UpdateServiceInternalRequest = updater.mojom.mojom.UpdateServiceInternalPendingReceiver;
+updater.mojom.UpdateServiceInternalPtr = updater.mojom.UpdateServiceInternalRemote;
+updater.mojom.UpdateServiceInternalRequest = updater.mojom.UpdateServiceInternalPendingReceiver;
 

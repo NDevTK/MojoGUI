@@ -10,24 +10,36 @@ content.mojom = content.mojom || {};
 
 
 // Interface: TestInterfaceForDefer
-content.mojom.mojom.TestInterfaceForDefer = {};
+content.mojom.TestInterfaceForDefer = {};
 
-content.mojom.mojom.TestInterfaceForDeferPendingReceiver = class {
+content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestInterfaceForDefer_Ping_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.TestInterfaceForDeferPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.TestInterfaceForDeferRemote = class {
+content.mojom.TestInterfaceForDeferRemote = class {
   static get $interfaceName() {
     return 'content.mojom.TestInterfaceForDefer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.TestInterfaceForDeferPendingReceiver,
+      content.mojom.TestInterfaceForDeferPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.TestInterfaceForDeferRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.TestInterfaceForDeferRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ content.mojom.mojom.TestInterfaceForDeferRemote = class {
   }
 };
 
-content.mojom.mojom.TestInterfaceForDeferRemoteCallHandler = class {
+content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ content.mojom.mojom.TestInterfaceForDeferRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
+      content.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
       null,
       []);
   }
 
 };
 
-content.mojom.mojom.TestInterfaceForDefer.getRemote = function() {
-  let remote = new content.mojom.mojom.TestInterfaceForDeferRemote();
+content.mojom.TestInterfaceForDefer.getRemote = function() {
+  let remote = new content.mojom.TestInterfaceForDeferRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ content.mojom.mojom.TestInterfaceForDefer.getRemote = function() {
 };
 
 // ParamsSpec for Ping
-content.mojom.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
+content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.TestInterfaceForDefer.Ping_Params',
@@ -79,29 +91,29 @@ content.mojom.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.TestInterfaceForDeferPtr = content.mojom.mojom.TestInterfaceForDeferRemote;
-content.mojom.mojom.TestInterfaceForDeferRequest = content.mojom.mojom.TestInterfaceForDeferPendingReceiver;
+content.mojom.TestInterfaceForDeferPtr = content.mojom.TestInterfaceForDeferRemote;
+content.mojom.TestInterfaceForDeferRequest = content.mojom.TestInterfaceForDeferPendingReceiver;
 
 
 // Interface: TestInterfaceForGrant
-content.mojom.mojom.TestInterfaceForGrant = {};
+content.mojom.TestInterfaceForGrant = {};
 
-content.mojom.mojom.TestInterfaceForGrantPendingReceiver = class {
+content.mojom.TestInterfaceForGrantPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.TestInterfaceForGrantRemote = class {
+content.mojom.TestInterfaceForGrantRemote = class {
   static get $interfaceName() {
     return 'content.mojom.TestInterfaceForGrant';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.TestInterfaceForGrantPendingReceiver,
+      content.mojom.TestInterfaceForGrantPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.TestInterfaceForGrantRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.TestInterfaceForGrantRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -113,15 +125,15 @@ content.mojom.mojom.TestInterfaceForGrantRemote = class {
   }
 };
 
-content.mojom.mojom.TestInterfaceForGrantRemoteCallHandler = class {
+content.mojom.TestInterfaceForGrantRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-content.mojom.mojom.TestInterfaceForGrant.getRemote = function() {
-  let remote = new content.mojom.mojom.TestInterfaceForGrantRemote();
+content.mojom.TestInterfaceForGrant.getRemote = function() {
+  let remote = new content.mojom.TestInterfaceForGrantRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -131,29 +143,29 @@ content.mojom.mojom.TestInterfaceForGrant.getRemote = function() {
 };
 
 // Legacy compatibility
-content.mojom.mojom.TestInterfaceForGrantPtr = content.mojom.mojom.TestInterfaceForGrantRemote;
-content.mojom.mojom.TestInterfaceForGrantRequest = content.mojom.mojom.TestInterfaceForGrantPendingReceiver;
+content.mojom.TestInterfaceForGrantPtr = content.mojom.TestInterfaceForGrantRemote;
+content.mojom.TestInterfaceForGrantRequest = content.mojom.TestInterfaceForGrantPendingReceiver;
 
 
 // Interface: TestInterfaceForCancel
-content.mojom.mojom.TestInterfaceForCancel = {};
+content.mojom.TestInterfaceForCancel = {};
 
-content.mojom.mojom.TestInterfaceForCancelPendingReceiver = class {
+content.mojom.TestInterfaceForCancelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.TestInterfaceForCancelRemote = class {
+content.mojom.TestInterfaceForCancelRemote = class {
   static get $interfaceName() {
     return 'content.mojom.TestInterfaceForCancel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.TestInterfaceForCancelPendingReceiver,
+      content.mojom.TestInterfaceForCancelPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.TestInterfaceForCancelRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.TestInterfaceForCancelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,15 +177,15 @@ content.mojom.mojom.TestInterfaceForCancelRemote = class {
   }
 };
 
-content.mojom.mojom.TestInterfaceForCancelRemoteCallHandler = class {
+content.mojom.TestInterfaceForCancelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-content.mojom.mojom.TestInterfaceForCancel.getRemote = function() {
-  let remote = new content.mojom.mojom.TestInterfaceForCancelRemote();
+content.mojom.TestInterfaceForCancel.getRemote = function() {
+  let remote = new content.mojom.TestInterfaceForCancelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -183,29 +195,29 @@ content.mojom.mojom.TestInterfaceForCancel.getRemote = function() {
 };
 
 // Legacy compatibility
-content.mojom.mojom.TestInterfaceForCancelPtr = content.mojom.mojom.TestInterfaceForCancelRemote;
-content.mojom.mojom.TestInterfaceForCancelRequest = content.mojom.mojom.TestInterfaceForCancelPendingReceiver;
+content.mojom.TestInterfaceForCancelPtr = content.mojom.TestInterfaceForCancelRemote;
+content.mojom.TestInterfaceForCancelRequest = content.mojom.TestInterfaceForCancelPendingReceiver;
 
 
 // Interface: TestInterfaceForUnexpected
-content.mojom.mojom.TestInterfaceForUnexpected = {};
+content.mojom.TestInterfaceForUnexpected = {};
 
-content.mojom.mojom.TestInterfaceForUnexpectedPendingReceiver = class {
+content.mojom.TestInterfaceForUnexpectedPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.TestInterfaceForUnexpectedRemote = class {
+content.mojom.TestInterfaceForUnexpectedRemote = class {
   static get $interfaceName() {
     return 'content.mojom.TestInterfaceForUnexpected';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.TestInterfaceForUnexpectedPendingReceiver,
+      content.mojom.TestInterfaceForUnexpectedPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.TestInterfaceForUnexpectedRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.TestInterfaceForUnexpectedRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -217,15 +229,15 @@ content.mojom.mojom.TestInterfaceForUnexpectedRemote = class {
   }
 };
 
-content.mojom.mojom.TestInterfaceForUnexpectedRemoteCallHandler = class {
+content.mojom.TestInterfaceForUnexpectedRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-content.mojom.mojom.TestInterfaceForUnexpected.getRemote = function() {
-  let remote = new content.mojom.mojom.TestInterfaceForUnexpectedRemote();
+content.mojom.TestInterfaceForUnexpected.getRemote = function() {
+  let remote = new content.mojom.TestInterfaceForUnexpectedRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -235,29 +247,41 @@ content.mojom.mojom.TestInterfaceForUnexpected.getRemote = function() {
 };
 
 // Legacy compatibility
-content.mojom.mojom.TestInterfaceForUnexpectedPtr = content.mojom.mojom.TestInterfaceForUnexpectedRemote;
-content.mojom.mojom.TestInterfaceForUnexpectedRequest = content.mojom.mojom.TestInterfaceForUnexpectedPendingReceiver;
+content.mojom.TestInterfaceForUnexpectedPtr = content.mojom.TestInterfaceForUnexpectedRemote;
+content.mojom.TestInterfaceForUnexpectedRequest = content.mojom.TestInterfaceForUnexpectedPendingReceiver;
 
 
 // Interface: MojoContextProvider
-content.mojom.mojom.MojoContextProvider = {};
+content.mojom.MojoContextProvider = {};
 
-content.mojom.mojom.MojoContextProviderPendingReceiver = class {
+content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.MojoContextProvider_GrantAll_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.MojoContextProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.MojoContextProviderRemote = class {
+content.mojom.MojoContextProviderRemote = class {
   static get $interfaceName() {
     return 'content.mojom.MojoContextProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.MojoContextProviderPendingReceiver,
+      content.mojom.MojoContextProviderPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.MojoContextProviderRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.MojoContextProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -269,7 +293,7 @@ content.mojom.mojom.MojoContextProviderRemote = class {
   }
 };
 
-content.mojom.mojom.MojoContextProviderRemoteCallHandler = class {
+content.mojom.MojoContextProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -278,15 +302,15 @@ content.mojom.mojom.MojoContextProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.MojoContextProvider_GrantAll_ParamsSpec,
+      content.mojom.MojoContextProvider_GrantAll_ParamsSpec,
       null,
       []);
   }
 
 };
 
-content.mojom.mojom.MojoContextProvider.getRemote = function() {
-  let remote = new content.mojom.mojom.MojoContextProviderRemote();
+content.mojom.MojoContextProvider.getRemote = function() {
+  let remote = new content.mojom.MojoContextProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -296,7 +320,7 @@ content.mojom.mojom.MojoContextProvider.getRemote = function() {
 };
 
 // ParamsSpec for GrantAll
-content.mojom.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
+content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoContextProvider.GrantAll_Params',
@@ -309,6 +333,6 @@ content.mojom.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.MojoContextProviderPtr = content.mojom.mojom.MojoContextProviderRemote;
-content.mojom.mojom.MojoContextProviderRequest = content.mojom.mojom.MojoContextProviderPendingReceiver;
+content.mojom.MojoContextProviderPtr = content.mojom.MojoContextProviderRemote;
+content.mojom.MojoContextProviderRequest = content.mojom.MojoContextProviderPendingReceiver;
 

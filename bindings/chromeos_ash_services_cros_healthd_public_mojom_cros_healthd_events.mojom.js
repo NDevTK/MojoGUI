@@ -7,34 +7,34 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.cros_healthd.mojom = ash.cros_healthd.cros_healthd.mojom || {};
+ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kAdd: 0,
   kRemove: 1,
   kAuthorized: 2,
   kUnAuthorized: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kClosed: 0,
   kOpened: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kAdapterAdded: 0,
   kAdapterRemoved: 1,
   kAdapterPropertyChanged: 2,
@@ -42,76 +42,76 @@ ash.cros_healthd.cros_healthd.mojom.mojom.State = {
   kDeviceRemoved: 4,
   kDevicePropertyChanged: 5,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kAcInserted: 0,
   kAcRemoved: 1,
   kOsSuspend: 2,
   kOsResume: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kUnderrun: 0,
   kSevereUnderrun: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceType
-ash.cros_healthd.cros_healthd.mojom.mojom.DeviceType = {
+ash.cros_healthd.mojom.DeviceType = {
   kHeadphone: 0,
   kMicrophone: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputTouchButton
-ash.cros_healthd.cros_healthd.mojom.mojom.InputTouchButton = {
+ash.cros_healthd.mojom.InputTouchButton = {
   kLeft: 0,
   kMiddle: 1,
   kRight: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.InputTouchButtonSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.InputTouchButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-ash.cros_healthd.cros_healthd.mojom.mojom.State = {
+ash.cros_healthd.mojom.State = {
   kInserted: 0,
   kRemoved: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CrashType
-ash.cros_healthd.cros_healthd.mojom.mojom.CrashType = {
+ash.cros_healthd.mojom.CrashType = {
   kKernel: 0,
   kEmbeddedController: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.CrashTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.CrashTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventCategoryEnum
-ash.cros_healthd.cros_healthd.mojom.mojom.EventCategoryEnum = {
+ash.cros_healthd.mojom.EventCategoryEnum = {
   kUsb: 0,
   kThunderbolt: 1,
   kLid: 2,
@@ -119,10 +119,10 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EventCategoryEnum = {
   kPower: 4,
   kAudio: 5,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.EventCategoryEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.EventCategoryEnumSpec = { $: mojo.internal.Enum() };
 
 // Union: TouchpadEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadEventInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.TouchpadEventInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.TouchpadEventInfo', {
       'default_type': {
         'ordinal': 0,
@@ -144,7 +144,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadEventInfoSpec = { $: mojo.inte
 };
 
 // Union: TouchscreenEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenEventInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.TouchscreenEventInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.TouchscreenEventInfo', {
       'default_type': {
         'ordinal': 0,
@@ -162,7 +162,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenEventInfoSpec = { $: mojo.i
 };
 
 // Union: StylusEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.StylusEventInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.StylusEventInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.StylusEventInfo', {
       'default_type': {
         'ordinal': 0,
@@ -180,7 +180,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.StylusEventInfoSpec = { $: mojo.intern
 };
 
 // Union: EventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.EventInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.EventInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.EventInfo', {
       'default_type': {
         'ordinal': 0,
@@ -250,7 +250,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EventInfoSpec = { $: mojo.internal.Uni
 };
 
 // Struct: UsbEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.UsbEventInfoSpec = {
+ash.cros_healthd.mojom.UsbEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UsbEventInfo',
@@ -269,7 +269,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UsbEventInfoSpec = {
 };
 
 // Struct: ThunderboltEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltEventInfoSpec = {
+ash.cros_healthd.mojom.ThunderboltEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThunderboltEventInfo',
@@ -283,7 +283,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltEventInfoSpec = {
 };
 
 // Struct: LidEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.LidEventInfoSpec = {
+ash.cros_healthd.mojom.LidEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.LidEventInfo',
@@ -297,7 +297,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.LidEventInfoSpec = {
 };
 
 // Struct: BluetoothEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothEventInfoSpec = {
+ash.cros_healthd.mojom.BluetoothEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothEventInfo',
@@ -311,7 +311,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothEventInfoSpec = {
 };
 
 // Struct: PowerEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.PowerEventInfoSpec = {
+ash.cros_healthd.mojom.PowerEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PowerEventInfo',
@@ -325,7 +325,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.PowerEventInfoSpec = {
 };
 
 // Struct: AudioEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioEventInfoSpec = {
+ash.cros_healthd.mojom.AudioEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioEventInfo',
@@ -339,7 +339,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioEventInfoSpec = {
 };
 
 // Struct: AudioJackEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioJackEventInfoSpec = {
+ash.cros_healthd.mojom.AudioJackEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioJackEventInfo',
@@ -353,7 +353,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioJackEventInfoSpec = {
 };
 
 // Struct: SdCardEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.SdCardEventInfoSpec = {
+ash.cros_healthd.mojom.SdCardEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SdCardEventInfo',
@@ -367,7 +367,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SdCardEventInfoSpec = {
 };
 
 // Struct: TouchpadButtonEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadButtonEventSpec = {
+ash.cros_healthd.mojom.TouchpadButtonEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchpadButtonEvent',
@@ -382,7 +382,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadButtonEventSpec = {
 };
 
 // Struct: TouchPointInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchPointInfoSpec = {
+ash.cros_healthd.mojom.TouchPointInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchPointInfo',
@@ -401,7 +401,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchPointInfoSpec = {
 };
 
 // Struct: TouchpadTouchEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadTouchEventSpec = {
+ash.cros_healthd.mojom.TouchpadTouchEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchpadTouchEvent',
@@ -415,7 +415,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadTouchEventSpec = {
 };
 
 // Struct: TouchpadConnectedEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadConnectedEventSpec = {
+ash.cros_healthd.mojom.TouchpadConnectedEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchpadConnectedEvent',
@@ -432,7 +432,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadConnectedEventSpec = {
 };
 
 // Struct: ExternalDisplayEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ExternalDisplayEventInfoSpec = {
+ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ExternalDisplayEventInfo',
@@ -446,7 +446,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ExternalDisplayEventInfoSpec = {
 };
 
 // Struct: TouchscreenTouchEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenTouchEventSpec = {
+ash.cros_healthd.mojom.TouchscreenTouchEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchscreenTouchEvent',
@@ -460,7 +460,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenTouchEventSpec = {
 };
 
 // Struct: TouchscreenConnectedEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenConnectedEventSpec = {
+ash.cros_healthd.mojom.TouchscreenConnectedEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchscreenConnectedEvent',
@@ -476,7 +476,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenConnectedEventSpec = {
 };
 
 // Struct: StylusGarageEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.StylusGarageEventInfoSpec = {
+ash.cros_healthd.mojom.StylusGarageEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.StylusGarageEventInfo',
@@ -490,7 +490,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.StylusGarageEventInfoSpec = {
 };
 
 // Struct: StylusTouchPointInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.StylusTouchPointInfoSpec = {
+ash.cros_healthd.mojom.StylusTouchPointInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.StylusTouchPointInfo',
@@ -506,7 +506,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.StylusTouchPointInfoSpec = {
 };
 
 // Struct: StylusTouchEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.StylusTouchEventSpec = {
+ash.cros_healthd.mojom.StylusTouchEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.StylusTouchEvent',
@@ -520,7 +520,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.StylusTouchEventSpec = {
 };
 
 // Struct: StylusConnectedEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.StylusConnectedEventSpec = {
+ash.cros_healthd.mojom.StylusConnectedEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.StylusConnectedEvent',
@@ -536,7 +536,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.StylusConnectedEventSpec = {
 };
 
 // Struct: CrashUploadInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CrashUploadInfoSpec = {
+ash.cros_healthd.mojom.CrashUploadInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrashUploadInfo',
@@ -552,7 +552,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrashUploadInfoSpec = {
 };
 
 // Struct: CrashEventInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CrashEventInfoSpec = {
+ash.cros_healthd.mojom.CrashEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrashEventInfo',
@@ -566,24 +566,96 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrashEventInfoSpec = {
 };
 
 // Interface: CrosHealthdBluetoothObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver = {};
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverPendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemote = class {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverPendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -595,7 +667,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemote = c
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -604,7 +676,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCall
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec,
       null,
       []);
   }
@@ -613,7 +685,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCall
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec,
       null,
       []);
   }
@@ -622,7 +694,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCall
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec,
       null,
       []);
   }
@@ -631,7 +703,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCall
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec,
       null,
       []);
   }
@@ -640,7 +712,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCall
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec,
       null,
       []);
   }
@@ -649,15 +721,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemoteCall
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemote();
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -667,7 +739,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver.getRemote
 };
 
 // ParamsSpec for OnAdapterAdded
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.OnAdapterAdded_Params',
@@ -680,7 +752,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapter
 };
 
 // ParamsSpec for OnAdapterRemoved
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.OnAdapterRemoved_Params',
@@ -693,7 +765,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapter
 };
 
 // ParamsSpec for OnAdapterPropertyChanged
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.OnAdapterPropertyChanged_Params',
@@ -706,7 +778,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnAdapter
 };
 
 // ParamsSpec for OnDeviceAdded
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.OnDeviceAdded_Params',
@@ -719,7 +791,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDeviceA
 };
 
 // ParamsSpec for OnDeviceRemoved
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.OnDeviceRemoved_Params',
@@ -732,7 +804,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDeviceR
 };
 
 // ParamsSpec for OnDevicePropertyChanged
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.OnDevicePropertyChanged_Params',
@@ -745,29 +817,53 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserver_OnDeviceP
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdBluetoothObserverPendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPtr = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote;
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRequest = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver;
 
 
 // Interface: CrosHealthdLidObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver = {};
+ash.cros_healthd.mojom.CrosHealthdLidObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverPendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemote = class {
+ash.cros_healthd.mojom.CrosHealthdLidObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdLidObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverPendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -779,7 +875,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemote = class {
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -788,7 +884,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec,
       null,
       []);
   }
@@ -797,15 +893,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemoteCallHandle
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemote();
+ash.cros_healthd.mojom.CrosHealthdLidObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdLidObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -815,7 +911,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver.getRemote = fun
 };
 
 // ParamsSpec for OnLidClosed
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdLidObserver.OnLidClosed_Params',
@@ -828,7 +924,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver_OnLidClosed_Par
 };
 
 // ParamsSpec for OnLidOpened
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdLidObserver.OnLidOpened_Params',
@@ -841,29 +937,77 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserver_OnLidOpened_Par
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdLidObserverPendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdLidObserverPtr = ash.cros_healthd.mojom.CrosHealthdLidObserverRemote;
+ash.cros_healthd.mojom.CrosHealthdLidObserverRequest = ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver;
 
 
 // Interface: CrosHealthdPowerObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver = {};
+ash.cros_healthd.mojom.CrosHealthdPowerObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverPendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemote = class {
+ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdPowerObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverPendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -875,7 +1019,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemote = class
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -884,7 +1028,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemoteCallHand
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec,
       null,
       []);
   }
@@ -893,7 +1037,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemoteCallHand
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec,
       null,
       []);
   }
@@ -902,7 +1046,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemoteCallHand
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec,
       null,
       []);
   }
@@ -911,15 +1055,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemoteCallHand
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemote();
+ash.cros_healthd.mojom.CrosHealthdPowerObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -929,7 +1073,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver.getRemote = f
 };
 
 // ParamsSpec for OnAcInserted
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver.OnAcInserted_Params',
@@ -942,7 +1086,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnAcInserted_
 };
 
 // ParamsSpec for OnAcRemoved
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver.OnAcRemoved_Params',
@@ -955,7 +1099,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnAcRemoved_P
 };
 
 // ParamsSpec for OnOsSuspend
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver.OnOsSuspend_Params',
@@ -968,7 +1112,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnOsSuspend_P
 };
 
 // ParamsSpec for OnOsResume
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdPowerObserver.OnOsResume_Params',
@@ -981,29 +1125,53 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserver_OnOsResume_Pa
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdPowerObserverPendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdPowerObserverPtr = ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote;
+ash.cros_healthd.mojom.CrosHealthdPowerObserverRequest = ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver;
 
 
 // Interface: CrosHealthdAudioObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver = {};
+ash.cros_healthd.mojom.CrosHealthdAudioObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverPendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemote = class {
+ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdAudioObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverPendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1015,7 +1183,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemote = class
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1024,7 +1192,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemoteCallHand
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec,
       null,
       []);
   }
@@ -1033,15 +1201,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemoteCallHand
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemote();
+ash.cros_healthd.mojom.CrosHealthdAudioObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1051,7 +1219,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver.getRemote = f
 };
 
 // ParamsSpec for OnUnderrun
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdAudioObserver.OnUnderrun_Params',
@@ -1064,7 +1232,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver_OnUnderrun_Pa
 };
 
 // ParamsSpec for OnSevereUnderrun
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdAudioObserver.OnSevereUnderrun_Params',
@@ -1077,29 +1245,77 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserver_OnSevereUnder
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdAudioObserverPendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdAudioObserverPtr = ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote;
+ash.cros_healthd.mojom.CrosHealthdAudioObserverRequest = ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver;
 
 
 // Interface: CrosHealthdThunderboltObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver = {};
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverPendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemote = class {
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverPendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1111,7 +1327,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemote =
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1120,7 +1336,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemoteCa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec,
       null,
       []);
   }
@@ -1129,7 +1345,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemoteCa
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec,
       null,
       []);
   }
@@ -1138,7 +1354,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemoteCa
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec,
       null,
       []);
   }
@@ -1147,15 +1363,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemoteCa
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemote();
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1165,7 +1381,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver.getRemo
 };
 
 // ParamsSpec for OnAdd
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.OnAdd_Params',
@@ -1178,7 +1394,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnAdd_P
 };
 
 // ParamsSpec for OnRemove
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.OnRemove_Params',
@@ -1191,7 +1407,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnRemov
 };
 
 // ParamsSpec for OnAuthorized
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.OnAuthorized_Params',
@@ -1204,7 +1420,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnAutho
 };
 
 // ParamsSpec for OnUnAuthorized
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.OnUnAuthorized_Params',
@@ -1217,29 +1433,55 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserver_OnUnAut
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdThunderboltObserverPendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPtr = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote;
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRequest = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver;
 
 
 // Interface: CrosHealthdUsbObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver = {};
+ash.cros_healthd.mojom.CrosHealthdUsbObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverPendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbEventInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbEventInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemote = class {
+ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdUsbObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverPendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1251,7 +1493,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemote = class {
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1260,7 +1502,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec,
       null,
       [info]);
   }
@@ -1269,15 +1511,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemoteCallHandle
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemote();
+ash.cros_healthd.mojom.CrosHealthdUsbObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1287,7 +1529,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver.getRemote = fun
 };
 
 // ParamsSpec for OnAdd
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdUsbObserver.OnAdd_Params',
@@ -1301,7 +1543,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpe
 };
 
 // ParamsSpec for OnRemove
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdUsbObserver.OnRemove_Params',
@@ -1315,29 +1557,53 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserver_OnRemove_Params
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdUsbObserverPendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdUsbObserverPtr = ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote;
+ash.cros_healthd.mojom.CrosHealthdUsbObserverRequest = ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver;
 
 
 // Interface: CrosHealthdSdCardObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver = {};
+ash.cros_healthd.mojom.CrosHealthdSdCardObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverPendingReceiver = class {
+ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemote = class {
+ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverPendingReceiver,
+      ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1349,7 +1615,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemote = clas
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1358,7 +1624,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemoteCallHan
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec,
       null,
       []);
   }
@@ -1367,15 +1633,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemoteCallHan
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec,
+      ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemote();
+ash.cros_healthd.mojom.CrosHealthdSdCardObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1385,7 +1651,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver.getRemote = 
 };
 
 // ParamsSpec for OnAdd
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver.OnAdd_Params',
@@ -1398,7 +1664,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver_OnAdd_Params
 };
 
 // ParamsSpec for OnRemove
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec = {
+ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver.OnRemove_Params',
@@ -1411,29 +1677,42 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserver_OnRemove_Par
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdSdCardObserverPendingReceiver;
+ash.cros_healthd.mojom.CrosHealthdSdCardObserverPtr = ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote;
+ash.cros_healthd.mojom.CrosHealthdSdCardObserverRequest = ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver;
 
 
 // Interface: EventObserver
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserver = {};
+ash.cros_healthd.mojom.EventObserver = {};
 
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverPendingReceiver = class {
+ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.EventObserver_OnEvent_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.EventInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_healthd.mojom.EventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRemote = class {
+ash.cros_healthd.mojom.EventObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.EventObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverPendingReceiver,
+      ash.cros_healthd.mojom.EventObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.mojom.EventObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1445,7 +1724,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRemote = class {
   }
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRemoteCallHandler = class {
+ash.cros_healthd.mojom.EventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1454,15 +1733,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.cros_healthd.mojom.mojom.EventObserver_OnEvent_ParamsSpec,
+      ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRemote();
+ash.cros_healthd.mojom.EventObserver.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.EventObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1472,7 +1751,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EventObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserver_OnEvent_ParamsSpec = {
+ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.EventObserver.OnEvent_Params',
@@ -1486,6 +1765,6 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EventObserver_OnEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverPtr = ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRemote;
-ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverRequest = ash.cros_healthd.cros_healthd.mojom.mojom.EventObserverPendingReceiver;
+ash.cros_healthd.mojom.EventObserverPtr = ash.cros_healthd.mojom.EventObserverRemote;
+ash.cros_healthd.mojom.EventObserverRequest = ash.cros_healthd.mojom.EventObserverPendingReceiver;
 

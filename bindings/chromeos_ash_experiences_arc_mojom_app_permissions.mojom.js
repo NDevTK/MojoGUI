@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: AppPermission
-arc.mojom.mojom.AppPermission = {
+arc.mojom.AppPermission = {
   CAMERA: 0,
   LOCATION: 1,
   MICROPHONE: 2,
@@ -18,18 +18,18 @@ arc.mojom.mojom.AppPermission = {
   CONTACTS: 4,
   STORAGE: 5,
 };
-arc.mojom.mojom.AppPermissionSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppPermissionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppPermissionGroup
-arc.mojom.mojom.AppPermissionGroup = {
+arc.mojom.AppPermissionGroup = {
   CAMERA: 0,
   MICROPHONE: 1,
   LOCATION: 2,
 };
-arc.mojom.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum() };
 
 // Struct: PermissionState
-arc.mojom.mojom.PermissionStateSpec = {
+arc.mojom.PermissionStateSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PermissionState',
@@ -46,24 +46,52 @@ arc.mojom.mojom.PermissionStateSpec = {
 };
 
 // Interface: AppPermissionsInstance
-arc.mojom.mojom.AppPermissionsInstance = {};
+arc.mojom.AppPermissionsInstance = {};
 
-arc.mojom.mojom.AppPermissionsInstancePendingReceiver = class {
+arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppPermissionsInstance_GrantPermission_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppPermissionsInstance_RevokePermission_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.AppPermissionsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.AppPermissionsInstanceRemote = class {
+arc.mojom.AppPermissionsInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AppPermissionsInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.AppPermissionsInstancePendingReceiver,
+      arc.mojom.AppPermissionsInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.AppPermissionsInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.AppPermissionsInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -75,7 +103,7 @@ arc.mojom.mojom.AppPermissionsInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.AppPermissionsInstanceRemoteCallHandler = class {
+arc.mojom.AppPermissionsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -84,7 +112,7 @@ arc.mojom.mojom.AppPermissionsInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec,
+      arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec,
       null,
       [package_name, permission]);
   }
@@ -93,15 +121,15 @@ arc.mojom.mojom.AppPermissionsInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec,
+      arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec,
       null,
       [package_name, permission]);
   }
 
 };
 
-arc.mojom.mojom.AppPermissionsInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.AppPermissionsInstanceRemote();
+arc.mojom.AppPermissionsInstance.getRemote = function() {
+  let remote = new arc.mojom.AppPermissionsInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -111,7 +139,7 @@ arc.mojom.mojom.AppPermissionsInstance.getRemote = function() {
 };
 
 // ParamsSpec for GrantPermission
-arc.mojom.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = {
+arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppPermissionsInstance.GrantPermission_Params',
@@ -126,7 +154,7 @@ arc.mojom.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = {
 };
 
 // ParamsSpec for RevokePermission
-arc.mojom.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = {
+arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppPermissionsInstance.RevokePermission_Params',
@@ -141,6 +169,6 @@ arc.mojom.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.AppPermissionsInstancePtr = arc.mojom.mojom.AppPermissionsInstanceRemote;
-arc.mojom.mojom.AppPermissionsInstanceRequest = arc.mojom.mojom.AppPermissionsInstancePendingReceiver;
+arc.mojom.AppPermissionsInstancePtr = arc.mojom.AppPermissionsInstanceRemote;
+arc.mojom.AppPermissionsInstanceRequest = arc.mojom.AppPermissionsInstancePendingReceiver;
 

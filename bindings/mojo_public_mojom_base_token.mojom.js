@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: Token
-mojo_base.mojom.mojom.TokenSpec = {
+mojo_base.mojom.TokenSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Token',

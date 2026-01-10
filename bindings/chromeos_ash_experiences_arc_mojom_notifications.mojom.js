@@ -9,10 +9,10 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
-arc.mojom.mojom.SUPPORT_SNOOZE = 1;
+arc.mojom.SUPPORT_SNOOZE = 1;
 
 // Enum: ArcNotificationEvent
-arc.mojom.mojom.ArcNotificationEvent = {
+arc.mojom.ArcNotificationEvent = {
   BODY_CLICKED: 0,
   CLOSED: 1,
   DEPRECATED_BUTTON_1_CLICKED: 2,
@@ -21,20 +21,20 @@ arc.mojom.mojom.ArcNotificationEvent = {
   DEPRECATED_BUTTON_4_CLICKED: 5,
   DEPRECATED_BUTTON_5_CLICKED: 6,
 };
-arc.mojom.mojom.ArcNotificationEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationType
-arc.mojom.mojom.ArcNotificationType = {
+arc.mojom.ArcNotificationType = {
   SIMPLE: 0,
   DEPRECATED_IMAGE: 1,
   DEPRECATED_PROGRESS: 2,
   DEPRECATED_LIST: 3,
   BUNDLED: 4,
 };
-arc.mojom.mojom.ArcNotificationTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationPriority
-arc.mojom.mojom.ArcNotificationPriority = {
+arc.mojom.ArcNotificationPriority = {
   NONE: 0,
   MIN: 1,
   LOW: 2,
@@ -42,32 +42,32 @@ arc.mojom.mojom.ArcNotificationPriority = {
   HIGH: 4,
   MAX: 5,
 };
-arc.mojom.mojom.ArcNotificationPrioritySpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationExpandState
-arc.mojom.mojom.ArcNotificationExpandState = {
+arc.mojom.ArcNotificationExpandState = {
   FIXED_SIZE: 0,
   COLLAPSED: 1,
   EXPANDED: 2,
 };
-arc.mojom.mojom.ArcNotificationExpandStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationExpandStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationRemoteInputState
-arc.mojom.mojom.ArcNotificationRemoteInputState = {
+arc.mojom.ArcNotificationRemoteInputState = {
   CLOSED: 0,
   OPENED: 1,
 };
-arc.mojom.mojom.ArcNotificationRemoteInputStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationRemoteInputStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationShownContents
-arc.mojom.mojom.ArcNotificationShownContents = {
+arc.mojom.ArcNotificationShownContents = {
   CONTENTS_SHOWN: 0,
   SETTINGS_SHOWN: 1,
 };
-arc.mojom.mojom.ArcNotificationShownContentsSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationShownContentsSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationStyle
-arc.mojom.mojom.ArcNotificationStyle = {
+arc.mojom.ArcNotificationStyle = {
   NO_STYLE: 0,
   BIG_PICTURE_STYLE: 1,
   BIG_TEXT_STYLE: 2,
@@ -77,17 +77,17 @@ arc.mojom.mojom.ArcNotificationStyle = {
   DECORATED_CUSTOM_VIEW_STYLE: 6,
   DECORATED_MEDIA_CUSTOM_VIEW_STYLE: 7,
 };
-arc.mojom.mojom.ArcNotificationStyleSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: MessageCenterVisibility
-arc.mojom.mojom.MessageCenterVisibility = {
+arc.mojom.MessageCenterVisibility = {
   VISIBILITY_TRANSIENT: 0,
   VISIBILITY_MESSAGE_CENTER: 1,
 };
-arc.mojom.mojom.MessageCenterVisibilitySpec = { $: mojo.internal.Enum() };
+arc.mojom.MessageCenterVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: ArcNotificationButton
-arc.mojom.mojom.ArcNotificationButtonSpec = {
+arc.mojom.ArcNotificationButtonSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcNotificationButton',
@@ -102,7 +102,7 @@ arc.mojom.mojom.ArcNotificationButtonSpec = {
 };
 
 // Struct: ArcNotificationFlags
-arc.mojom.mojom.ArcNotificationFlagsSpec = {
+arc.mojom.ArcNotificationFlagsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcNotificationFlags',
@@ -117,7 +117,7 @@ arc.mojom.mojom.ArcNotificationFlagsSpec = {
 };
 
 // Struct: ArcNotificationData
-arc.mojom.mojom.ArcNotificationDataSpec = {
+arc.mojom.ArcNotificationDataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcNotificationData',
@@ -167,7 +167,7 @@ arc.mojom.mojom.ArcNotificationDataSpec = {
 };
 
 // Struct: ArcDoNotDisturbStatus
-arc.mojom.mojom.ArcDoNotDisturbStatusSpec = {
+arc.mojom.ArcDoNotDisturbStatusSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcDoNotDisturbStatus',
@@ -181,7 +181,7 @@ arc.mojom.mojom.ArcDoNotDisturbStatusSpec = {
 };
 
 // Struct: ArcNotificationUserActionData
-arc.mojom.mojom.ArcNotificationUserActionDataSpec = {
+arc.mojom.ArcNotificationUserActionDataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcNotificationUserActionData',
@@ -198,7 +198,7 @@ arc.mojom.mojom.ArcNotificationUserActionDataSpec = {
 };
 
 // Struct: ArcLockScreenNotificationSetting
-arc.mojom.mojom.ArcLockScreenNotificationSettingSpec = {
+arc.mojom.ArcLockScreenNotificationSettingSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcLockScreenNotificationSetting',
@@ -213,7 +213,7 @@ arc.mojom.mojom.ArcLockScreenNotificationSettingSpec = {
 };
 
 // Struct: NotificationConfiguration
-arc.mojom.mojom.NotificationConfigurationSpec = {
+arc.mojom.NotificationConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationConfiguration',
@@ -227,7 +227,7 @@ arc.mojom.mojom.NotificationConfigurationSpec = {
 };
 
 // Struct: ArcNotificationMessage
-arc.mojom.mojom.ArcNotificationMessageSpec = {
+arc.mojom.ArcNotificationMessageSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcNotificationMessage',
@@ -243,24 +243,139 @@ arc.mojom.mojom.ArcNotificationMessageSpec = {
 };
 
 // Interface: NotificationsHost
-arc.mojom.mojom.NotificationsHost = {};
+arc.mojom.NotificationsHost = {};
 
-arc.mojom.mojom.NotificationsHostPendingReceiver = class {
+arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDoNotDisturbStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_OnNotificationPosted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'notification_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_OnNotificationRemoved_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_OnNotificationUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'notification_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_OpenMessageCenter_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_CloseMessageCenter_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_ProcessUserAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationUserActionDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcLockScreenNotificationSettingSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsHost_LogInlineReplySent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.NotificationsHostRemote = class {
+arc.mojom.NotificationsHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NotificationsHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.NotificationsHostPendingReceiver,
+      arc.mojom.NotificationsHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.NotificationsHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.NotificationsHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -272,7 +387,7 @@ arc.mojom.mojom.NotificationsHostRemote = class {
   }
 };
 
-arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
+arc.mojom.NotificationsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -281,7 +396,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec,
+      arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec,
       null,
       [status]);
   }
@@ -290,7 +405,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec,
+      arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec,
       null,
       [notification_data]);
   }
@@ -299,7 +414,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec,
+      arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec,
       null,
       [key]);
   }
@@ -308,7 +423,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec,
+      arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec,
       null,
       [notification_data]);
   }
@@ -317,7 +432,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec,
+      arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec,
       null,
       []);
   }
@@ -326,7 +441,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec,
+      arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec,
       null,
       []);
   }
@@ -335,7 +450,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.mojom.NotificationsHost_ProcessUserAction_ParamsSpec,
+      arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec,
       null,
       [data]);
   }
@@ -344,7 +459,7 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec,
+      arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec,
       null,
       [setting]);
   }
@@ -353,15 +468,15 @@ arc.mojom.mojom.NotificationsHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec,
+      arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec,
       null,
       [key]);
   }
 
 };
 
-arc.mojom.mojom.NotificationsHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.NotificationsHostRemote();
+arc.mojom.NotificationsHost.getRemote = function() {
+  let remote = new arc.mojom.NotificationsHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -371,7 +486,7 @@ arc.mojom.mojom.NotificationsHost.getRemote = function() {
 };
 
 // ParamsSpec for OnDoNotDisturbStatusUpdated
-arc.mojom.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec = {
+arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.OnDoNotDisturbStatusUpdated_Params',
@@ -385,7 +500,7 @@ arc.mojom.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnNotificationPosted
-arc.mojom.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec = {
+arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.OnNotificationPosted_Params',
@@ -399,7 +514,7 @@ arc.mojom.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec = {
 };
 
 // ParamsSpec for OnNotificationRemoved
-arc.mojom.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec = {
+arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.OnNotificationRemoved_Params',
@@ -413,7 +528,7 @@ arc.mojom.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec = {
 };
 
 // ParamsSpec for OnNotificationUpdated
-arc.mojom.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec = {
+arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.OnNotificationUpdated_Params',
@@ -427,7 +542,7 @@ arc.mojom.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OpenMessageCenter
-arc.mojom.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec = {
+arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.OpenMessageCenter_Params',
@@ -440,7 +555,7 @@ arc.mojom.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec = {
 };
 
 // ParamsSpec for CloseMessageCenter
-arc.mojom.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec = {
+arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.CloseMessageCenter_Params',
@@ -453,7 +568,7 @@ arc.mojom.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec = {
 };
 
 // ParamsSpec for ProcessUserAction
-arc.mojom.mojom.NotificationsHost_ProcessUserAction_ParamsSpec = {
+arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.ProcessUserAction_Params',
@@ -467,7 +582,7 @@ arc.mojom.mojom.NotificationsHost_ProcessUserAction_ParamsSpec = {
 };
 
 // ParamsSpec for OnLockScreenSettingUpdated
-arc.mojom.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec = {
+arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.OnLockScreenSettingUpdated_Params',
@@ -481,7 +596,7 @@ arc.mojom.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for LogInlineReplySent
-arc.mojom.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec = {
+arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsHost.LogInlineReplySent_Params',
@@ -495,29 +610,227 @@ arc.mojom.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.NotificationsHostPtr = arc.mojom.mojom.NotificationsHostRemote;
-arc.mojom.mojom.NotificationsHostRequest = arc.mojom.mojom.NotificationsHostPendingReceiver;
+arc.mojom.NotificationsHostPtr = arc.mojom.NotificationsHostRemote;
+arc.mojom.NotificationsHostRequest = arc.mojom.NotificationsHostPendingReceiver;
 
 
 // Interface: NotificationsInstance
-arc.mojom.mojom.NotificationsInstance = {};
+arc.mojom.NotificationsInstance = {};
 
-arc.mojom.mojom.NotificationsInstancePendingReceiver = class {
+arc.mojom.NotificationsInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NotificationsHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ArcNotificationEventSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_CreateNotificationWindow_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_CloseNotificationWindow_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_OpenNotificationSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDoNotDisturbStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_CancelPress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_CancelPress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_PerformDeferredUserAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_CancelDeferredUserAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcLockScreenNotificationSettingSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_SetNotificationConfiguration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NotificationConfigurationSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MessageCenterVisibilitySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'action_button_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.NotificationsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.NotificationsInstanceRemote = class {
+arc.mojom.NotificationsInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NotificationsInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.NotificationsInstancePendingReceiver,
+      arc.mojom.NotificationsInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.NotificationsInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.NotificationsInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -529,7 +842,7 @@ arc.mojom.mojom.NotificationsInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
+arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -538,7 +851,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_Init_ParamsSpec,
+      arc.mojom.NotificationsInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -547,7 +860,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec,
+      arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec,
       null,
       [key, event]);
   }
@@ -556,7 +869,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec,
+      arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec,
       null,
       [key]);
   }
@@ -565,7 +878,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec,
+      arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec,
       null,
       [key]);
   }
@@ -574,7 +887,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec,
+      arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec,
       null,
       [key]);
   }
@@ -583,7 +896,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec,
+      arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec,
       null,
       [key]);
   }
@@ -592,7 +905,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec,
+      arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec,
       null,
       [status]);
   }
@@ -601,7 +914,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_CancelPress_ParamsSpec,
+      arc.mojom.NotificationsInstance_CancelPress_ParamsSpec,
       null,
       [key]);
   }
@@ -610,7 +923,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec,
+      arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec,
       null,
       [action_id]);
   }
@@ -619,7 +932,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec,
+      arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec,
       null,
       [action_id]);
   }
@@ -628,7 +941,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec,
+      arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec,
       null,
       [setting]);
   }
@@ -637,7 +950,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec,
+      arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec,
       null,
       [configuration]);
   }
@@ -646,7 +959,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec,
+      arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec,
       null,
       [visibility]);
   }
@@ -655,7 +968,7 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec,
+      arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec,
       null,
       [key, action_button_index, input]);
   }
@@ -664,15 +977,15 @@ arc.mojom.mojom.NotificationsInstanceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec,
+      arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec,
       null,
       [key]);
   }
 
 };
 
-arc.mojom.mojom.NotificationsInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.NotificationsInstanceRemote();
+arc.mojom.NotificationsInstance.getRemote = function() {
+  let remote = new arc.mojom.NotificationsInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -682,7 +995,7 @@ arc.mojom.mojom.NotificationsInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.NotificationsInstance_Init_ParamsSpec = {
+arc.mojom.NotificationsInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.Init_Params',
@@ -696,7 +1009,7 @@ arc.mojom.mojom.NotificationsInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for SendNotificationEventToAndroid
-arc.mojom.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec = {
+arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.SendNotificationEventToAndroid_Params',
@@ -711,7 +1024,7 @@ arc.mojom.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec 
 };
 
 // ParamsSpec for CreateNotificationWindow
-arc.mojom.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec = {
+arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.CreateNotificationWindow_Params',
@@ -725,7 +1038,7 @@ arc.mojom.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec = {
 };
 
 // ParamsSpec for CloseNotificationWindow
-arc.mojom.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec = {
+arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.CloseNotificationWindow_Params',
@@ -739,7 +1052,7 @@ arc.mojom.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec = {
 };
 
 // ParamsSpec for OpenNotificationSettings
-arc.mojom.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec = {
+arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.OpenNotificationSettings_Params',
@@ -753,7 +1066,7 @@ arc.mojom.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec = {
 };
 
 // ParamsSpec for OpenNotificationSnoozeSettings
-arc.mojom.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec = {
+arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.OpenNotificationSnoozeSettings_Params',
@@ -767,7 +1080,7 @@ arc.mojom.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec 
 };
 
 // ParamsSpec for SetDoNotDisturbStatusOnAndroid
-arc.mojom.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec = {
+arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.SetDoNotDisturbStatusOnAndroid_Params',
@@ -781,7 +1094,7 @@ arc.mojom.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec 
 };
 
 // ParamsSpec for CancelPress
-arc.mojom.mojom.NotificationsInstance_CancelPress_ParamsSpec = {
+arc.mojom.NotificationsInstance_CancelPress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.CancelPress_Params',
@@ -795,7 +1108,7 @@ arc.mojom.mojom.NotificationsInstance_CancelPress_ParamsSpec = {
 };
 
 // ParamsSpec for PerformDeferredUserAction
-arc.mojom.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec = {
+arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.PerformDeferredUserAction_Params',
@@ -809,7 +1122,7 @@ arc.mojom.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec = {
 };
 
 // ParamsSpec for CancelDeferredUserAction
-arc.mojom.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec = {
+arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.CancelDeferredUserAction_Params',
@@ -823,7 +1136,7 @@ arc.mojom.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec = {
 };
 
 // ParamsSpec for SetLockScreenSettingOnAndroid
-arc.mojom.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec = {
+arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.SetLockScreenSettingOnAndroid_Params',
@@ -837,7 +1150,7 @@ arc.mojom.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec =
 };
 
 // ParamsSpec for SetNotificationConfiguration
-arc.mojom.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec = {
+arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.SetNotificationConfiguration_Params',
@@ -851,7 +1164,7 @@ arc.mojom.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec = 
 };
 
 // ParamsSpec for OnMessageCenterVisibilityChanged
-arc.mojom.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec = {
+arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.OnMessageCenterVisibilityChanged_Params',
@@ -865,7 +1178,7 @@ arc.mojom.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpe
 };
 
 // ParamsSpec for SendNotificationButtonClickToAndroid
-arc.mojom.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec = {
+arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.SendNotificationButtonClickToAndroid_Params',
@@ -881,7 +1194,7 @@ arc.mojom.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_Param
 };
 
 // ParamsSpec for PopUpAppNotificationSettings
-arc.mojom.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec = {
+arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NotificationsInstance.PopUpAppNotificationSettings_Params',
@@ -895,6 +1208,6 @@ arc.mojom.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec = 
 };
 
 // Legacy compatibility
-arc.mojom.mojom.NotificationsInstancePtr = arc.mojom.mojom.NotificationsInstanceRemote;
-arc.mojom.mojom.NotificationsInstanceRequest = arc.mojom.mojom.NotificationsInstancePendingReceiver;
+arc.mojom.NotificationsInstancePtr = arc.mojom.NotificationsInstanceRemote;
+arc.mojom.NotificationsInstanceRequest = arc.mojom.NotificationsInstancePendingReceiver;
 

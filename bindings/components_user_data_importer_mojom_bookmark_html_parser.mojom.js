@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: ImportedBookmarkEntry
-user_data_importer.mojom.mojom.ImportedBookmarkEntrySpec = {
+user_data_importer.mojom.ImportedBookmarkEntrySpec = {
   $: {
     structSpec: {
       name: 'user_data_importer.mojom.ImportedBookmarkEntry',
@@ -31,7 +31,7 @@ user_data_importer.mojom.mojom.ImportedBookmarkEntrySpec = {
 };
 
 // Struct: SearchEngineInfo
-user_data_importer.mojom.mojom.SearchEngineInfoSpec = {
+user_data_importer.mojom.SearchEngineInfoSpec = {
   $: {
     structSpec: {
       name: 'user_data_importer.mojom.SearchEngineInfo',
@@ -47,7 +47,7 @@ user_data_importer.mojom.mojom.SearchEngineInfoSpec = {
 };
 
 // Struct: FaviconUsageData
-user_data_importer.mojom.mojom.FaviconUsageDataSpec = {
+user_data_importer.mojom.FaviconUsageDataSpec = {
   $: {
     structSpec: {
       name: 'user_data_importer.mojom.FaviconUsageData',
@@ -63,7 +63,7 @@ user_data_importer.mojom.mojom.FaviconUsageDataSpec = {
 };
 
 // Struct: ParsedBookmarks
-user_data_importer.mojom.mojom.ParsedBookmarksSpec = {
+user_data_importer.mojom.ParsedBookmarksSpec = {
   $: {
     structSpec: {
       name: 'user_data_importer.mojom.ParsedBookmarks',
@@ -80,24 +80,37 @@ user_data_importer.mojom.mojom.ParsedBookmarksSpec = {
 };
 
 // Interface: BookmarkHtmlParser
-user_data_importer.mojom.mojom.BookmarkHtmlParser = {};
+user_data_importer.mojom.BookmarkHtmlParser = {};
 
-user_data_importer.mojom.mojom.BookmarkHtmlParserPendingReceiver = class {
+user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'user_data_importer.mojom.BookmarkHtmlParser_Parse_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+user_data_importer.mojom.BookmarkHtmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-user_data_importer.mojom.mojom.BookmarkHtmlParserRemote = class {
+user_data_importer.mojom.BookmarkHtmlParserRemote = class {
   static get $interfaceName() {
     return 'user_data_importer.mojom.BookmarkHtmlParser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      user_data_importer.mojom.mojom.BookmarkHtmlParserPendingReceiver,
+      user_data_importer.mojom.BookmarkHtmlParserPendingReceiver,
       handle);
-    this.$ = new user_data_importer.mojom.mojom.BookmarkHtmlParserRemoteCallHandler(this.proxy);
+    this.$ = new user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -109,7 +122,7 @@ user_data_importer.mojom.mojom.BookmarkHtmlParserRemote = class {
   }
 };
 
-user_data_importer.mojom.mojom.BookmarkHtmlParserRemoteCallHandler = class {
+user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -118,15 +131,15 @@ user_data_importer.mojom.mojom.BookmarkHtmlParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      user_data_importer.mojom.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
-      user_data_importer.mojom.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
+      user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
+      user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
       [raw_html]);
   }
 
 };
 
-user_data_importer.mojom.mojom.BookmarkHtmlParser.getRemote = function() {
-  let remote = new user_data_importer.mojom.mojom.BookmarkHtmlParserRemote();
+user_data_importer.mojom.BookmarkHtmlParser.getRemote = function() {
+  let remote = new user_data_importer.mojom.BookmarkHtmlParserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -136,7 +149,7 @@ user_data_importer.mojom.mojom.BookmarkHtmlParser.getRemote = function() {
 };
 
 // ParamsSpec for Parse
-user_data_importer.mojom.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
+user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_Params',
@@ -149,7 +162,7 @@ user_data_importer.mojom.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
   }
 };
 
-user_data_importer.mojom.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
+user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_ResponseParams',
@@ -163,6 +176,6 @@ user_data_importer.mojom.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-user_data_importer.mojom.mojom.BookmarkHtmlParserPtr = user_data_importer.mojom.mojom.BookmarkHtmlParserRemote;
-user_data_importer.mojom.mojom.BookmarkHtmlParserRequest = user_data_importer.mojom.mojom.BookmarkHtmlParserPendingReceiver;
+user_data_importer.mojom.BookmarkHtmlParserPtr = user_data_importer.mojom.BookmarkHtmlParserRemote;
+user_data_importer.mojom.BookmarkHtmlParserRequest = user_data_importer.mojom.BookmarkHtmlParserPendingReceiver;
 

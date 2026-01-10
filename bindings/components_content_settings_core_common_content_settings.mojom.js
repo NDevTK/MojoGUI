@@ -10,17 +10,17 @@ content_settings.mojom = content_settings.mojom || {};
 
 
 // Enum: ContentSetting
-content_settings.mojom.mojom.ContentSetting = {
+content_settings.mojom.ContentSetting = {
   DEFAULT: 0,
   ALLOW: 1,
   BLOCK: 2,
   ASK: 3,
   SESSION_ONLY: 4,
 };
-content_settings.mojom.mojom.ContentSettingSpec = { $: mojo.internal.Enum() };
+content_settings.mojom.ContentSettingSpec = { $: mojo.internal.Enum() };
 
 // Struct: PatternParts
-content_settings.mojom.mojom.PatternPartsSpec = {
+content_settings.mojom.PatternPartsSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.PatternParts',
@@ -41,7 +41,7 @@ content_settings.mojom.mojom.PatternPartsSpec = {
 };
 
 // Struct: ContentSettingsPattern
-content_settings.mojom.mojom.ContentSettingsPatternSpec = {
+content_settings.mojom.ContentSettingsPatternSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.ContentSettingsPattern',
@@ -56,7 +56,7 @@ content_settings.mojom.mojom.ContentSettingsPatternSpec = {
 };
 
 // Struct: RuleMetaData
-content_settings.mojom.mojom.RuleMetaDataSpec = {
+content_settings.mojom.RuleMetaDataSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.RuleMetaData',
@@ -79,7 +79,7 @@ content_settings.mojom.mojom.RuleMetaDataSpec = {
 };
 
 // Struct: ContentSettingPatternSource
-content_settings.mojom.mojom.ContentSettingPatternSourceSpec = {
+content_settings.mojom.ContentSettingPatternSourceSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.ContentSettingPatternSource',
@@ -98,7 +98,7 @@ content_settings.mojom.mojom.ContentSettingPatternSourceSpec = {
 };
 
 // Struct: RendererContentSettingRules
-content_settings.mojom.mojom.RendererContentSettingRulesSpec = {
+content_settings.mojom.RendererContentSettingRulesSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.RendererContentSettingRules',

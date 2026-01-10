@@ -12,15 +12,15 @@ var url = url || {};
 
 
 // Enum: CacheState
-blink.mojom.mojom.CacheState = {
+blink.mojom.CacheState = {
   kNone: 0,
   kLocal: 1,
   kValidated: 2,
 };
-blink.mojom.mojom.CacheStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.CacheStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServerTimingInfo
-blink.mojom.mojom.ServerTimingInfoSpec = {
+blink.mojom.ServerTimingInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServerTimingInfo',
@@ -36,7 +36,7 @@ blink.mojom.mojom.ServerTimingInfoSpec = {
 };
 
 // Struct: ResourceTimingInfo
-blink.mojom.mojom.ResourceTimingInfoSpec = {
+blink.mojom.ResourceTimingInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceTimingInfo',

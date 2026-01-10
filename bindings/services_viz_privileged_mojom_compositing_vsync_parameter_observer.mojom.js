@@ -10,24 +10,38 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VSyncParameterObserver
-viz.mojom.mojom.VSyncParameterObserver = {};
+viz.mojom.VSyncParameterObserver = {};
 
-viz.mojom.mojom.VSyncParameterObserverPendingReceiver = class {
+viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.VSyncParameterObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.VSyncParameterObserverRemote = class {
+viz.mojom.VSyncParameterObserverRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.VSyncParameterObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.VSyncParameterObserverPendingReceiver,
+      viz.mojom.VSyncParameterObserverPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.VSyncParameterObserverRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.VSyncParameterObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +53,7 @@ viz.mojom.mojom.VSyncParameterObserverRemote = class {
   }
 };
 
-viz.mojom.mojom.VSyncParameterObserverRemoteCallHandler = class {
+viz.mojom.VSyncParameterObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +62,15 @@ viz.mojom.mojom.VSyncParameterObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec,
+      viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec,
       null,
       [timebase, interval]);
   }
 
 };
 
-viz.mojom.mojom.VSyncParameterObserver.getRemote = function() {
-  let remote = new viz.mojom.mojom.VSyncParameterObserverRemote();
+viz.mojom.VSyncParameterObserver.getRemote = function() {
+  let remote = new viz.mojom.VSyncParameterObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +80,7 @@ viz.mojom.mojom.VSyncParameterObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnUpdateVSyncParameters
-viz.mojom.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
+viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VSyncParameterObserver.OnUpdateVSyncParameters_Params',
@@ -81,6 +95,6 @@ viz.mojom.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.VSyncParameterObserverPtr = viz.mojom.mojom.VSyncParameterObserverRemote;
-viz.mojom.mojom.VSyncParameterObserverRequest = viz.mojom.mojom.VSyncParameterObserverPendingReceiver;
+viz.mojom.VSyncParameterObserverPtr = viz.mojom.VSyncParameterObserverRemote;
+viz.mojom.VSyncParameterObserverRequest = viz.mojom.VSyncParameterObserverPendingReceiver;
 

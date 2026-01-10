@@ -10,7 +10,7 @@ updater.mojom = updater.mojom || {};
 
 
 // Enum: State
-updater.mojom.mojom.State = {
+updater.mojom.State = {
   kNotStarted: 0,
   kCheckingForUpdates: 1,
   kUpdateAvailable: 2,
@@ -20,25 +20,25 @@ updater.mojom.mojom.State = {
   kNoUpdate: 6,
   kUpdateError: 7,
 };
-updater.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+updater.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: PolicySource
-updater.mojom.mojom.PolicySource = {
+updater.mojom.PolicySource = {
   kSourceDefault: 0,
   kSourceExternalConstants: 1,
   kSourcePlatform: 2,
   kSourceCloud: 3,
 };
-updater.mojom.mojom.PolicySourceSpec = { $: mojo.internal.Enum() };
+updater.mojom.PolicySourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: PolicySameVersionUpdate
-updater.mojom.mojom.PolicySameVersionUpdate = {
+updater.mojom.PolicySameVersionUpdate = {
   kAllowed: 0,
 };
-updater.mojom.mojom.PolicySameVersionUpdateSpec = { $: mojo.internal.Enum() };
+updater.mojom.PolicySameVersionUpdateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Result
-updater.mojom.mojom.Result = {
+updater.mojom.Result = {
   kSuccess: 0,
   kUpdateInProgress: 1,
   kUpdateCanceled: 2,
@@ -52,10 +52,10 @@ updater.mojom.mojom.Result = {
   kInstallFailed: 10,
   kPermissionDenied: 11,
 };
-updater.mojom.mojom.ResultSpec = { $: mojo.internal.Enum() };
+updater.mojom.ResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ErrorCategory
-updater.mojom.mojom.ErrorCategory = {
+updater.mojom.ErrorCategory = {
   kNone: 0,
   kDownload: 1,
   kUnpack: 2,
@@ -63,17 +63,17 @@ updater.mojom.mojom.ErrorCategory = {
   kService: 4,
   kUpdateCheck: 5,
 };
-updater.mojom.mojom.ErrorCategorySpec = { $: mojo.internal.Enum() };
+updater.mojom.ErrorCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: Priority
-updater.mojom.mojom.Priority = {
+updater.mojom.Priority = {
   kBackground: 0,
   kForeground: 1,
 };
-updater.mojom.mojom.PrioritySpec = { $: mojo.internal.Enum() };
+updater.mojom.PrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: RegistrationRequest
-updater.mojom.mojom.RegistrationRequestSpec = {
+updater.mojom.RegistrationRequestSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.RegistrationRequest',
@@ -107,7 +107,7 @@ updater.mojom.mojom.RegistrationRequestSpec = {
 };
 
 // Struct: UpdateState
-updater.mojom.mojom.UpdateStateSpec = {
+updater.mojom.UpdateStateSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateState',
@@ -121,7 +121,7 @@ updater.mojom.mojom.UpdateStateSpec = {
 };
 
 // Struct: AppState
-updater.mojom.mojom.AppStateSpec = {
+updater.mojom.AppStateSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.AppState',
@@ -145,7 +145,7 @@ updater.mojom.mojom.AppStateSpec = {
 };
 
 // Struct: PolicyValue
-updater.mojom.mojom.PolicyValueSpec = {
+updater.mojom.PolicyValueSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.PolicyValue',
@@ -159,7 +159,7 @@ updater.mojom.mojom.PolicyValueSpec = {
 };
 
 // Struct: UpdaterState
-updater.mojom.mojom.UpdaterStateSpec = {
+updater.mojom.UpdaterStateSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdaterState',
@@ -176,24 +176,216 @@ updater.mojom.mojom.UpdaterStateSpec = {
 };
 
 // Interface: UpdateService
-updater.mojom.mojom.UpdateService = {};
+updater.mojom.UpdateService = {};
 
-updater.mojom.mojom.UpdateServicePendingReceiver = class {
+updater.mojom.UpdateService_GetVersion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_GetVersion_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_FetchPolicies_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_FetchPolicies_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.PolicyFetchReasonSpec, nullable: false, minVersion: 4 },
+      ],
+      versions: [{version: 4, packedSize: 16}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_RegisterApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_RegisterApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: updater.mojom.RegistrationRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_GetAppStates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_GetAppStates_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_RunPeriodicTasks_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_UpdateAll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_UpdateAll_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_Update_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'install_data_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'policy_same_version_update', packedOffset: 20, packedBitOffset: 0, type: updater.mojom.PolicySameVersionUpdateSpec, nullable: false, minVersion: 0 },
+        { name: 'do_update_check_only', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+      ],
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}, {version: 3, packedSize: 48}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_Install_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_Install_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: updater.mojom.RegistrationRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'client_install_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'install_data_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+      ],
+      versions: [{version: 0, packedSize: 40}, {version: 3, packedSize: 48}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_CancelInstalls_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_CancelInstalls_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_RunInstaller_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_RunInstaller_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'installer_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'install_args', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'install_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'install_settings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+      ],
+      versions: [{version: 0, packedSize: 48}, {version: 3, packedSize: 56}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_CheckForUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_CheckForUpdate_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'policy_same_version_update', packedOffset: 12, packedBitOffset: 0, type: updater.mojom.PolicySameVersionUpdateSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+      ],
+      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 32}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_GetUpdaterState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_GetUpdaterState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_GetUpdaterPolicies_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateService_GetAppPolicies_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateService_GetAppPolicies_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+updater.mojom.UpdateServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-updater.mojom.mojom.UpdateServiceRemote = class {
+updater.mojom.UpdateServiceRemote = class {
   static get $interfaceName() {
     return 'updater.mojom.UpdateService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      updater.mojom.mojom.UpdateServicePendingReceiver,
+      updater.mojom.UpdateServicePendingReceiver,
       handle);
-    this.$ = new updater.mojom.mojom.UpdateServiceRemoteCallHandler(this.proxy);
+    this.$ = new updater.mojom.UpdateServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -205,7 +397,7 @@ updater.mojom.mojom.UpdateServiceRemote = class {
   }
 };
 
-updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
+updater.mojom.UpdateServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -214,8 +406,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater.mojom.mojom.UpdateService_GetVersion_ParamsSpec,
-      updater.mojom.mojom.UpdateService_GetVersion_ResponseParamsSpec,
+      updater.mojom.UpdateService_GetVersion_ParamsSpec,
+      updater.mojom.UpdateService_GetVersion_ResponseParamsSpec,
       []);
   }
 
@@ -223,8 +415,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      updater.mojom.mojom.UpdateService_FetchPolicies_ParamsSpec,
-      updater.mojom.mojom.UpdateService_FetchPolicies_ResponseParamsSpec,
+      updater.mojom.UpdateService_FetchPolicies_ParamsSpec,
+      updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec,
       [reason]);
   }
 
@@ -232,8 +424,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      updater.mojom.mojom.UpdateService_RegisterApp_ParamsSpec,
-      updater.mojom.mojom.UpdateService_RegisterApp_ResponseParamsSpec,
+      updater.mojom.UpdateService_RegisterApp_ParamsSpec,
+      updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec,
       [request]);
   }
 
@@ -241,8 +433,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      updater.mojom.mojom.UpdateService_GetAppStates_ParamsSpec,
-      updater.mojom.mojom.UpdateService_GetAppStates_ResponseParamsSpec,
+      updater.mojom.UpdateService_GetAppStates_ParamsSpec,
+      updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec,
       []);
   }
 
@@ -250,7 +442,7 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      updater.mojom.mojom.UpdateService_RunPeriodicTasks_ParamsSpec,
+      updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec,
       null,
       []);
   }
@@ -259,8 +451,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      updater.mojom.mojom.UpdateService_UpdateAll_ParamsSpec,
-      updater.mojom.mojom.UpdateService_UpdateAll_ResponseParamsSpec,
+      updater.mojom.UpdateService_UpdateAll_ParamsSpec,
+      updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec,
       []);
   }
 
@@ -268,8 +460,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      updater.mojom.mojom.UpdateService_Update_ParamsSpec,
-      updater.mojom.mojom.UpdateService_Update_ResponseParamsSpec,
+      updater.mojom.UpdateService_Update_ParamsSpec,
+      updater.mojom.UpdateService_Update_ResponseParamsSpec,
       [app_id, install_data_index, priority, policy_same_version_update, do_update_check_only, language]);
   }
 
@@ -277,8 +469,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      updater.mojom.mojom.UpdateService_Install_ParamsSpec,
-      updater.mojom.mojom.UpdateService_Install_ResponseParamsSpec,
+      updater.mojom.UpdateService_Install_ParamsSpec,
+      updater.mojom.UpdateService_Install_ResponseParamsSpec,
       [registration, client_install_data, install_data_index, priority, language]);
   }
 
@@ -286,7 +478,7 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      updater.mojom.mojom.UpdateService_CancelInstalls_ParamsSpec,
+      updater.mojom.UpdateService_CancelInstalls_ParamsSpec,
       null,
       [app_id]);
   }
@@ -295,8 +487,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      updater.mojom.mojom.UpdateService_RunInstaller_ParamsSpec,
-      updater.mojom.mojom.UpdateService_RunInstaller_ResponseParamsSpec,
+      updater.mojom.UpdateService_RunInstaller_ParamsSpec,
+      updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec,
       [app_id, installer_path, install_args, install_data, install_settings, language]);
   }
 
@@ -304,8 +496,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      updater.mojom.mojom.UpdateService_CheckForUpdate_ParamsSpec,
-      updater.mojom.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec,
+      updater.mojom.UpdateService_CheckForUpdate_ParamsSpec,
+      updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec,
       [app_id, priority, policy_same_version_update, language]);
   }
 
@@ -313,8 +505,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      updater.mojom.mojom.UpdateService_GetUpdaterState_ParamsSpec,
-      updater.mojom.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec,
+      updater.mojom.UpdateService_GetUpdaterState_ParamsSpec,
+      updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec,
       []);
   }
 
@@ -322,8 +514,8 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      updater.mojom.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec,
-      updater.mojom.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec,
+      updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec,
+      updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec,
       []);
   }
 
@@ -331,15 +523,15 @@ updater.mojom.mojom.UpdateServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      updater.mojom.mojom.UpdateService_GetAppPolicies_ParamsSpec,
-      updater.mojom.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec,
+      updater.mojom.UpdateService_GetAppPolicies_ParamsSpec,
+      updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec,
       []);
   }
 
 };
 
-updater.mojom.mojom.UpdateService.getRemote = function() {
-  let remote = new updater.mojom.mojom.UpdateServiceRemote();
+updater.mojom.UpdateService.getRemote = function() {
+  let remote = new updater.mojom.UpdateServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -349,7 +541,7 @@ updater.mojom.mojom.UpdateService.getRemote = function() {
 };
 
 // ParamsSpec for GetVersion
-updater.mojom.mojom.UpdateService_GetVersion_ParamsSpec = {
+updater.mojom.UpdateService_GetVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetVersion_Params',
@@ -361,7 +553,7 @@ updater.mojom.mojom.UpdateService_GetVersion_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_GetVersion_ResponseParamsSpec = {
+updater.mojom.UpdateService_GetVersion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetVersion_ResponseParams',
@@ -375,7 +567,7 @@ updater.mojom.mojom.UpdateService_GetVersion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for FetchPolicies
-updater.mojom.mojom.UpdateService_FetchPolicies_ParamsSpec = {
+updater.mojom.UpdateService_FetchPolicies_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.FetchPolicies_Params',
@@ -388,7 +580,7 @@ updater.mojom.mojom.UpdateService_FetchPolicies_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_FetchPolicies_ResponseParamsSpec = {
+updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.FetchPolicies_ResponseParams',
@@ -402,7 +594,7 @@ updater.mojom.mojom.UpdateService_FetchPolicies_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterApp
-updater.mojom.mojom.UpdateService_RegisterApp_ParamsSpec = {
+updater.mojom.UpdateService_RegisterApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.RegisterApp_Params',
@@ -415,7 +607,7 @@ updater.mojom.mojom.UpdateService_RegisterApp_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_RegisterApp_ResponseParamsSpec = {
+updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.RegisterApp_ResponseParams',
@@ -429,7 +621,7 @@ updater.mojom.mojom.UpdateService_RegisterApp_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAppStates
-updater.mojom.mojom.UpdateService_GetAppStates_ParamsSpec = {
+updater.mojom.UpdateService_GetAppStates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetAppStates_Params',
@@ -441,7 +633,7 @@ updater.mojom.mojom.UpdateService_GetAppStates_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_GetAppStates_ResponseParamsSpec = {
+updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetAppStates_ResponseParams',
@@ -455,7 +647,7 @@ updater.mojom.mojom.UpdateService_GetAppStates_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RunPeriodicTasks
-updater.mojom.mojom.UpdateService_RunPeriodicTasks_ParamsSpec = {
+updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.RunPeriodicTasks_Params',
@@ -468,7 +660,7 @@ updater.mojom.mojom.UpdateService_RunPeriodicTasks_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateAll
-updater.mojom.mojom.UpdateService_UpdateAll_ParamsSpec = {
+updater.mojom.UpdateService_UpdateAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.UpdateAll_Params',
@@ -480,7 +672,7 @@ updater.mojom.mojom.UpdateService_UpdateAll_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_UpdateAll_ResponseParamsSpec = {
+updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.UpdateAll_ResponseParams',
@@ -494,7 +686,7 @@ updater.mojom.mojom.UpdateService_UpdateAll_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Update
-updater.mojom.mojom.UpdateService_Update_ParamsSpec = {
+updater.mojom.UpdateService_Update_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.Update_Params',
@@ -512,7 +704,7 @@ updater.mojom.mojom.UpdateService_Update_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_Update_ResponseParamsSpec = {
+updater.mojom.UpdateService_Update_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.Update_ResponseParams',
@@ -526,7 +718,7 @@ updater.mojom.mojom.UpdateService_Update_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Install
-updater.mojom.mojom.UpdateService_Install_ParamsSpec = {
+updater.mojom.UpdateService_Install_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.Install_Params',
@@ -543,7 +735,7 @@ updater.mojom.mojom.UpdateService_Install_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_Install_ResponseParamsSpec = {
+updater.mojom.UpdateService_Install_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.Install_ResponseParams',
@@ -557,7 +749,7 @@ updater.mojom.mojom.UpdateService_Install_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelInstalls
-updater.mojom.mojom.UpdateService_CancelInstalls_ParamsSpec = {
+updater.mojom.UpdateService_CancelInstalls_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.CancelInstalls_Params',
@@ -571,7 +763,7 @@ updater.mojom.mojom.UpdateService_CancelInstalls_ParamsSpec = {
 };
 
 // ParamsSpec for RunInstaller
-updater.mojom.mojom.UpdateService_RunInstaller_ParamsSpec = {
+updater.mojom.UpdateService_RunInstaller_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.RunInstaller_Params',
@@ -589,7 +781,7 @@ updater.mojom.mojom.UpdateService_RunInstaller_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_RunInstaller_ResponseParamsSpec = {
+updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.RunInstaller_ResponseParams',
@@ -603,7 +795,7 @@ updater.mojom.mojom.UpdateService_RunInstaller_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CheckForUpdate
-updater.mojom.mojom.UpdateService_CheckForUpdate_ParamsSpec = {
+updater.mojom.UpdateService_CheckForUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.CheckForUpdate_Params',
@@ -619,7 +811,7 @@ updater.mojom.mojom.UpdateService_CheckForUpdate_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec = {
+updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.CheckForUpdate_ResponseParams',
@@ -633,7 +825,7 @@ updater.mojom.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetUpdaterState
-updater.mojom.mojom.UpdateService_GetUpdaterState_ParamsSpec = {
+updater.mojom.UpdateService_GetUpdaterState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetUpdaterState_Params',
@@ -645,7 +837,7 @@ updater.mojom.mojom.UpdateService_GetUpdaterState_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec = {
+updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetUpdaterState_ResponseParams',
@@ -659,7 +851,7 @@ updater.mojom.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetUpdaterPolicies
-updater.mojom.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec = {
+updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetUpdaterPolicies_Params',
@@ -671,7 +863,7 @@ updater.mojom.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec = {
+updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetUpdaterPolicies_ResponseParams',
@@ -685,7 +877,7 @@ updater.mojom.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAppPolicies
-updater.mojom.mojom.UpdateService_GetAppPolicies_ParamsSpec = {
+updater.mojom.UpdateService_GetAppPolicies_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetAppPolicies_Params',
@@ -697,7 +889,7 @@ updater.mojom.mojom.UpdateService_GetAppPolicies_ParamsSpec = {
   }
 };
 
-updater.mojom.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec = {
+updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.UpdateService.GetAppPolicies_ResponseParams',
@@ -711,29 +903,55 @@ updater.mojom.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-updater.mojom.mojom.UpdateServicePtr = updater.mojom.mojom.UpdateServiceRemote;
-updater.mojom.mojom.UpdateServiceRequest = updater.mojom.mojom.UpdateServicePendingReceiver;
+updater.mojom.UpdateServicePtr = updater.mojom.UpdateServiceRemote;
+updater.mojom.UpdateServiceRequest = updater.mojom.UpdateServicePendingReceiver;
 
 
 // Interface: StateChangeObserver
-updater.mojom.mojom.StateChangeObserver = {};
+updater.mojom.StateChangeObserver = {};
 
-updater.mojom.mojom.StateChangeObserverPendingReceiver = class {
+updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.StateChangeObserver_OnStateChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: updater.mojom.UpdateStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+updater.mojom.StateChangeObserver_OnComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.StateChangeObserver_OnComplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: UpdateService.ResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+updater.mojom.StateChangeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-updater.mojom.mojom.StateChangeObserverRemote = class {
+updater.mojom.StateChangeObserverRemote = class {
   static get $interfaceName() {
     return 'updater.mojom.StateChangeObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      updater.mojom.mojom.StateChangeObserverPendingReceiver,
+      updater.mojom.StateChangeObserverPendingReceiver,
       handle);
-    this.$ = new updater.mojom.mojom.StateChangeObserverRemoteCallHandler(this.proxy);
+    this.$ = new updater.mojom.StateChangeObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -745,7 +963,7 @@ updater.mojom.mojom.StateChangeObserverRemote = class {
   }
 };
 
-updater.mojom.mojom.StateChangeObserverRemoteCallHandler = class {
+updater.mojom.StateChangeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -754,7 +972,7 @@ updater.mojom.mojom.StateChangeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater.mojom.mojom.StateChangeObserver_OnStateChange_ParamsSpec,
+      updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec,
       null,
       [state]);
   }
@@ -763,15 +981,15 @@ updater.mojom.mojom.StateChangeObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      updater.mojom.mojom.StateChangeObserver_OnComplete_ParamsSpec,
+      updater.mojom.StateChangeObserver_OnComplete_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-updater.mojom.mojom.StateChangeObserver.getRemote = function() {
-  let remote = new updater.mojom.mojom.StateChangeObserverRemote();
+updater.mojom.StateChangeObserver.getRemote = function() {
+  let remote = new updater.mojom.StateChangeObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -781,7 +999,7 @@ updater.mojom.mojom.StateChangeObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnStateChange
-updater.mojom.mojom.StateChangeObserver_OnStateChange_ParamsSpec = {
+updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.StateChangeObserver.OnStateChange_Params',
@@ -795,7 +1013,7 @@ updater.mojom.mojom.StateChangeObserver_OnStateChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnComplete
-updater.mojom.mojom.StateChangeObserver_OnComplete_ParamsSpec = {
+updater.mojom.StateChangeObserver_OnComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater.mojom.StateChangeObserver.OnComplete_Params',
@@ -809,6 +1027,6 @@ updater.mojom.mojom.StateChangeObserver_OnComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-updater.mojom.mojom.StateChangeObserverPtr = updater.mojom.mojom.StateChangeObserverRemote;
-updater.mojom.mojom.StateChangeObserverRequest = updater.mojom.mojom.StateChangeObserverPendingReceiver;
+updater.mojom.StateChangeObserverPtr = updater.mojom.StateChangeObserverRemote;
+updater.mojom.StateChangeObserverRequest = updater.mojom.StateChangeObserverPendingReceiver;
 

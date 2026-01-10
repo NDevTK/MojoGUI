@@ -13,15 +13,15 @@ var gfx = gfx || {};
 
 
 // Enum: Status
-tenor.mojom.mojom.Status = {
+tenor.mojom.Status = {
   kHttpOk: 0,
   kNetError: 1,
   kHttpError: 2,
 };
-tenor.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
+tenor.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GifUrls
-tenor.mojom.mojom.GifUrlsSpec = {
+tenor.mojom.GifUrlsSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.GifUrls',
@@ -37,7 +37,7 @@ tenor.mojom.mojom.GifUrlsSpec = {
 };
 
 // Struct: GifResponse
-tenor.mojom.mojom.GifResponseSpec = {
+tenor.mojom.GifResponseSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.GifResponse',
@@ -55,7 +55,7 @@ tenor.mojom.mojom.GifResponseSpec = {
 };
 
 // Struct: PaginatedGifResponses
-tenor.mojom.mojom.PaginatedGifResponsesSpec = {
+tenor.mojom.PaginatedGifResponsesSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.PaginatedGifResponses',

@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Enum: GpuFeatureStatus
-gpu.mojom.mojom.GpuFeatureStatus = {
+gpu.mojom.GpuFeatureStatus = {
   Enabled: 0,
   Blocklisted: 1,
   Disabled: 2,
@@ -20,10 +20,10 @@ gpu.mojom.mojom.GpuFeatureStatus = {
   Undefined: 4,
   Max: 5,
 };
-gpu.mojom.mojom.GpuFeatureStatusSpec = { $: mojo.internal.Enum() };
+gpu.mojom.GpuFeatureStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuFeatureInfo
-gpu.mojom.mojom.GpuFeatureInfoSpec = {
+gpu.mojom.GpuFeatureInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuFeatureInfo',

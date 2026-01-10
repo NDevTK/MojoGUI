@@ -15,7 +15,7 @@ var url = url || {};
 
 
 // Struct: AssistantTree
-ax.mojom.mojom.AssistantTreeSpec = {
+ax.mojom.AssistantTreeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantTree',
@@ -29,7 +29,7 @@ ax.mojom.mojom.AssistantTreeSpec = {
 };
 
 // Struct: AssistantNode
-ax.mojom.mojom.AssistantNodeSpec = {
+ax.mojom.AssistantNodeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantNode',
@@ -55,7 +55,7 @@ ax.mojom.mojom.AssistantNodeSpec = {
 };
 
 // Struct: AssistantExtra
-ax.mojom.mojom.AssistantExtraSpec = {
+ax.mojom.AssistantExtraSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantExtra',
@@ -71,7 +71,7 @@ ax.mojom.mojom.AssistantExtraSpec = {
 };
 
 // Struct: AssistantStructure
-ax.mojom.mojom.AssistantStructureSpec = {
+ax.mojom.AssistantStructureSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantStructure',

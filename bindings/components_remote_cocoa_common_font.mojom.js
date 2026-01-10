@@ -10,15 +10,15 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
 // Enum: SystemFont
-remote_cocoa.mojom.mojom.SystemFont = {
+remote_cocoa.mojom.SystemFont = {
   kGeneral: 0,
   kMenu: 1,
   kToolTip: 2,
 };
-remote_cocoa.mojom.mojom.SystemFontSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.SystemFontSpec = { $: mojo.internal.Enum() };
 
 // Enum: FontWeight
-remote_cocoa.mojom.mojom.FontWeight = {
+remote_cocoa.mojom.FontWeight = {
   kThin: 0,
   kExtraLight: 1,
   kLight: 2,
@@ -29,10 +29,10 @@ remote_cocoa.mojom.mojom.FontWeight = {
   kExtraBold: 7,
   kBlack: 8,
 };
-remote_cocoa.mojom.mojom.FontWeightSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.FontWeightSpec = { $: mojo.internal.Enum() };
 
 // Union: FontName
-remote_cocoa.mojom.mojom.FontNameSpec = { $: mojo.internal.Union(
+remote_cocoa.mojom.FontNameSpec = { $: mojo.internal.Union(
     'remote_cocoa.mojom.FontName', {
       'system_font': {
         'ordinal': 0,
@@ -46,7 +46,7 @@ remote_cocoa.mojom.mojom.FontNameSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Font
-remote_cocoa.mojom.mojom.FontSpec = {
+remote_cocoa.mojom.FontSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.Font',

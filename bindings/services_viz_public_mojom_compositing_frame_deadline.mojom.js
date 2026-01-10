@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: FrameDeadline
-viz.mojom.mojom.FrameDeadlineSpec = {
+viz.mojom.FrameDeadlineSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameDeadline',

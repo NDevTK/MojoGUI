@@ -10,33 +10,100 @@ media_router.mojom = media_router.mojom || {};
 
 
 // Enum: LogCategory
-media_router.mojom.mojom.LogCategory = {
+media_router.mojom.LogCategory = {
   kDiscovery: 0,
   kRoute: 1,
   kMirroring: 2,
   kUi: 3,
 };
-media_router.mojom.mojom.LogCategorySpec = { $: mojo.internal.Enum() };
+media_router.mojom.LogCategorySpec = { $: mojo.internal.Enum() };
 
 // Interface: Logger
-media_router.mojom.mojom.Logger = {};
+media_router.mojom.Logger = {};
 
-media_router.mojom.mojom.LoggerPendingReceiver = class {
+media_router.mojom.Logger_LogInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.Logger_LogInfo_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+media_router.mojom.Logger_LogWarning_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.Logger_LogWarning_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+media_router.mojom.Logger_LogError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.Logger_LogError_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 56}]
+    }
+  }
+};
+
+media_router.mojom.Logger_BindReceiver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.Logger_BindReceiver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media_router.mojom.LoggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_router.mojom.mojom.LoggerRemote = class {
+media_router.mojom.LoggerRemote = class {
   static get $interfaceName() {
     return 'media_router.mojom.Logger';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_router.mojom.mojom.LoggerPendingReceiver,
+      media_router.mojom.LoggerPendingReceiver,
       handle);
-    this.$ = new media_router.mojom.mojom.LoggerRemoteCallHandler(this.proxy);
+    this.$ = new media_router.mojom.LoggerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +115,7 @@ media_router.mojom.mojom.LoggerRemote = class {
   }
 };
 
-media_router.mojom.mojom.LoggerRemoteCallHandler = class {
+media_router.mojom.LoggerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,7 +124,7 @@ media_router.mojom.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.mojom.Logger_LogInfo_ParamsSpec,
+      media_router.mojom.Logger_LogInfo_ParamsSpec,
       null,
       [category, component, message, sink_id, media_source, session_id]);
   }
@@ -66,7 +133,7 @@ media_router.mojom.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_router.mojom.mojom.Logger_LogWarning_ParamsSpec,
+      media_router.mojom.Logger_LogWarning_ParamsSpec,
       null,
       [category, component, message, sink_id, media_source, session_id]);
   }
@@ -75,7 +142,7 @@ media_router.mojom.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_router.mojom.mojom.Logger_LogError_ParamsSpec,
+      media_router.mojom.Logger_LogError_ParamsSpec,
       null,
       [category, component, message, sink_id, media_source, session_id]);
   }
@@ -84,15 +151,15 @@ media_router.mojom.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_router.mojom.mojom.Logger_BindReceiver_ParamsSpec,
+      media_router.mojom.Logger_BindReceiver_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-media_router.mojom.mojom.Logger.getRemote = function() {
-  let remote = new media_router.mojom.mojom.LoggerRemote();
+media_router.mojom.Logger.getRemote = function() {
+  let remote = new media_router.mojom.LoggerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +169,7 @@ media_router.mojom.mojom.Logger.getRemote = function() {
 };
 
 // ParamsSpec for LogInfo
-media_router.mojom.mojom.Logger_LogInfo_ParamsSpec = {
+media_router.mojom.Logger_LogInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Logger.LogInfo_Params',
@@ -121,7 +188,7 @@ media_router.mojom.mojom.Logger_LogInfo_ParamsSpec = {
 };
 
 // ParamsSpec for LogWarning
-media_router.mojom.mojom.Logger_LogWarning_ParamsSpec = {
+media_router.mojom.Logger_LogWarning_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Logger.LogWarning_Params',
@@ -140,7 +207,7 @@ media_router.mojom.mojom.Logger_LogWarning_ParamsSpec = {
 };
 
 // ParamsSpec for LogError
-media_router.mojom.mojom.Logger_LogError_ParamsSpec = {
+media_router.mojom.Logger_LogError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Logger.LogError_Params',
@@ -159,7 +226,7 @@ media_router.mojom.mojom.Logger_LogError_ParamsSpec = {
 };
 
 // ParamsSpec for BindReceiver
-media_router.mojom.mojom.Logger_BindReceiver_ParamsSpec = {
+media_router.mojom.Logger_BindReceiver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Logger.BindReceiver_Params',
@@ -173,6 +240,6 @@ media_router.mojom.mojom.Logger_BindReceiver_ParamsSpec = {
 };
 
 // Legacy compatibility
-media_router.mojom.mojom.LoggerPtr = media_router.mojom.mojom.LoggerRemote;
-media_router.mojom.mojom.LoggerRequest = media_router.mojom.mojom.LoggerPendingReceiver;
+media_router.mojom.LoggerPtr = media_router.mojom.LoggerRemote;
+media_router.mojom.LoggerRequest = media_router.mojom.LoggerPendingReceiver;
 

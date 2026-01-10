@@ -10,24 +10,36 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: InstallationService
-blink.mojom.mojom.InstallationService = {};
+blink.mojom.InstallationService = {};
 
-blink.mojom.mojom.InstallationServicePendingReceiver = class {
+blink.mojom.InstallationService_OnInstall_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InstallationService_OnInstall_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.InstallationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.InstallationServiceRemote = class {
+blink.mojom.InstallationServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.InstallationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.InstallationServicePendingReceiver,
+      blink.mojom.InstallationServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.InstallationServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.InstallationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ blink.mojom.mojom.InstallationServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.InstallationServiceRemoteCallHandler = class {
+blink.mojom.InstallationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ blink.mojom.mojom.InstallationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.InstallationService_OnInstall_ParamsSpec,
+      blink.mojom.InstallationService_OnInstall_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.InstallationService.getRemote = function() {
-  let remote = new blink.mojom.mojom.InstallationServiceRemote();
+blink.mojom.InstallationService.getRemote = function() {
+  let remote = new blink.mojom.InstallationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ blink.mojom.mojom.InstallationService.getRemote = function() {
 };
 
 // ParamsSpec for OnInstall
-blink.mojom.mojom.InstallationService_OnInstall_ParamsSpec = {
+blink.mojom.InstallationService_OnInstall_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InstallationService.OnInstall_Params',
@@ -79,6 +91,6 @@ blink.mojom.mojom.InstallationService_OnInstall_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.InstallationServicePtr = blink.mojom.mojom.InstallationServiceRemote;
-blink.mojom.mojom.InstallationServiceRequest = blink.mojom.mojom.InstallationServicePendingReceiver;
+blink.mojom.InstallationServicePtr = blink.mojom.InstallationServiceRemote;
+blink.mojom.InstallationServiceRequest = blink.mojom.InstallationServicePendingReceiver;
 

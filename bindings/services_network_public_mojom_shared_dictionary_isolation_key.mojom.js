@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: SharedDictionaryIsolationKey
-network.mojom.mojom.SharedDictionaryIsolationKeySpec = {
+network.mojom.SharedDictionaryIsolationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedDictionaryIsolationKey',

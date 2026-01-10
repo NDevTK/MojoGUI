@@ -11,24 +11,38 @@ var url = url || {};
 
 
 // Interface: OpenSearchDescriptionDocumentHandler
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler = {};
+chrome.mojom.OpenSearchDescriptionDocumentHandler = {};
 
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver = class {
+chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'osdd_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemote = class {
+chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.OpenSearchDescriptionDocumentHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver,
+      chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +54,7 @@ chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemote = class {
   }
 };
 
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
+chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +63,15 @@ chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
+      chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
       null,
       [page_url, osdd_url]);
   }
 
 };
 
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
-  let remote = new chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemote();
+chrome.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
+  let remote = new chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +81,7 @@ chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
 };
 
 // ParamsSpec for PageHasOpenSearchDescriptionDocument
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = {
+chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.OpenSearchDescriptionDocumentHandler.PageHasOpenSearchDescriptionDocument_Params',
@@ -82,6 +96,6 @@ chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescrip
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPtr = chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemote;
-chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRequest = chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver;
+chrome.mojom.OpenSearchDescriptionDocumentHandlerPtr = chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote;
+chrome.mojom.OpenSearchDescriptionDocumentHandlerRequest = chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver;
 

@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Enum: BillingResponseCode
-payments.mojom.mojom.BillingResponseCode = {
+payments.mojom.BillingResponseCode = {
   kOk: 0,
   kItemAlreadyOwned: 1,
   kItemNotOwned: 2,
@@ -19,25 +19,25 @@ payments.mojom.mojom.BillingResponseCode = {
   kClientAppUnavailable: 4,
   kClientAppError: 5,
 };
-payments.mojom.mojom.BillingResponseCodeSpec = { $: mojo.internal.Enum() };
+payments.mojom.BillingResponseCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ItemType
-payments.mojom.mojom.ItemType = {
+payments.mojom.ItemType = {
   kProduct: 0,
   kSubscription: 1,
 };
-payments.mojom.mojom.ItemTypeSpec = { $: mojo.internal.Enum() };
+payments.mojom.ItemTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateDigitalGoodsResponseCode
-payments.mojom.mojom.CreateDigitalGoodsResponseCode = {
+payments.mojom.CreateDigitalGoodsResponseCode = {
   kOk: 0,
   kUnsupportedPaymentMethod: 1,
   kUnsupportedContext: 2,
 };
-payments.mojom.mojom.CreateDigitalGoodsResponseCodeSpec = { $: mojo.internal.Enum() };
+payments.mojom.CreateDigitalGoodsResponseCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ItemDetails
-payments.mojom.mojom.ItemDetailsSpec = {
+payments.mojom.ItemDetailsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.ItemDetails',
@@ -61,7 +61,7 @@ payments.mojom.mojom.ItemDetailsSpec = {
 };
 
 // Struct: PurchaseReference
-payments.mojom.mojom.PurchaseReferenceSpec = {
+payments.mojom.PurchaseReferenceSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PurchaseReference',

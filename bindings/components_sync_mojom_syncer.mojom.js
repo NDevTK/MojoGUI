@@ -10,7 +10,7 @@ syncer.mojom = syncer.mojom || {};
 
 
 // Struct: StringOrdinal
-syncer.mojom.mojom.StringOrdinalSpec = {
+syncer.mojom.StringOrdinalSpec = {
   $: {
     structSpec: {
       name: 'syncer.mojom.StringOrdinal',

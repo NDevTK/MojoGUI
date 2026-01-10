@@ -10,19 +10,19 @@ network.mojom = network.mojom || {};
 
 
 // Enum: Destination
-network.mojom.mojom.Destination = {
+network.mojom.Destination = {
   kScript: 0,
 };
-network.mojom.mojom.DestinationSpec = { $: mojo.internal.Enum() };
+network.mojom.DestinationSpec = { $: mojo.internal.Enum() };
 
 // Enum: Source
-network.mojom.mojom.Source = {
+network.mojom.Source = {
   kInline: 0,
 };
-network.mojom.mojom.SourceSpec = { $: mojo.internal.Enum() };
+network.mojom.SourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: IntegrityPolicy
-network.mojom.mojom.IntegrityPolicySpec = {
+network.mojom.IntegrityPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.IntegrityPolicy',

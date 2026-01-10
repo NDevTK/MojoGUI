@@ -14,24 +14,57 @@ var url = url || {};
 
 
 // Interface: ImageDownloader
-blink.mojom.mojom.ImageDownloader = {};
+blink.mojom.ImageDownloader = {};
 
-blink.mojom.mojom.ImageDownloaderPendingReceiver = class {
+blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ImageDownloader_DownloadImage_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'is_favicon', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'preferred_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_bitmap_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bypass_cache', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'ax_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'preferred_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_bitmap_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bypass_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.ImageDownloaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ImageDownloaderRemote = class {
+blink.mojom.ImageDownloaderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ImageDownloader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ImageDownloaderPendingReceiver,
+      blink.mojom.ImageDownloaderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ImageDownloaderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ImageDownloaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -43,7 +76,7 @@ blink.mojom.mojom.ImageDownloaderRemote = class {
   }
 };
 
-blink.mojom.mojom.ImageDownloaderRemoteCallHandler = class {
+blink.mojom.ImageDownloaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -52,8 +85,8 @@ blink.mojom.mojom.ImageDownloaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ImageDownloader_DownloadImage_ParamsSpec,
-      blink.mojom.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec,
+      blink.mojom.ImageDownloader_DownloadImage_ParamsSpec,
+      blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec,
       [url, is_favicon, preferred_size, max_bitmap_size, bypass_cache]);
   }
 
@@ -61,15 +94,15 @@ blink.mojom.mojom.ImageDownloaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec,
-      blink.mojom.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec,
+      blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec,
+      blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec,
       [ax_node_id, preferred_size, max_bitmap_size, bypass_cache]);
   }
 
 };
 
-blink.mojom.mojom.ImageDownloader.getRemote = function() {
-  let remote = new blink.mojom.mojom.ImageDownloaderRemote();
+blink.mojom.ImageDownloader.getRemote = function() {
+  let remote = new blink.mojom.ImageDownloaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -79,7 +112,7 @@ blink.mojom.mojom.ImageDownloader.getRemote = function() {
 };
 
 // ParamsSpec for DownloadImage
-blink.mojom.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
+blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ImageDownloader.DownloadImage_Params',
@@ -96,7 +129,7 @@ blink.mojom.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
+blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ImageDownloader.DownloadImage_ResponseParams',
@@ -112,7 +145,7 @@ blink.mojom.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DownloadImageFromAxNode
-blink.mojom.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
+blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ImageDownloader.DownloadImageFromAxNode_Params',
@@ -128,7 +161,7 @@ blink.mojom.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
+blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ImageDownloader.DownloadImageFromAxNode_ResponseParams',
@@ -144,6 +177,6 @@ blink.mojom.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ImageDownloaderPtr = blink.mojom.mojom.ImageDownloaderRemote;
-blink.mojom.mojom.ImageDownloaderRequest = blink.mojom.mojom.ImageDownloaderPendingReceiver;
+blink.mojom.ImageDownloaderPtr = blink.mojom.ImageDownloaderRemote;
+blink.mojom.ImageDownloaderRequest = blink.mojom.ImageDownloaderPendingReceiver;
 

@@ -13,7 +13,7 @@ var gfx = gfx || {};
 
 
 // Struct: ScreenInfos
-display.mojom.mojom.ScreenInfosSpec = {
+display.mojom.ScreenInfosSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.ScreenInfos',

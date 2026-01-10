@@ -10,17 +10,17 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: DecoderStatus
-arc.mojom.mojom.DecoderStatus = {
+arc.mojom.DecoderStatus = {
   OK: 0,
   ABORTED: 1,
   FAILED: 2,
   INVALID_ARGUMENT: 3,
   CREATION_FAILED: 4,
 };
-arc.mojom.mojom.DecoderStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.DecoderStatusSpec = { $: mojo.internal.Enum() };
 
 // Union: DecoderBuffer
-arc.mojom.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
+arc.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
     'arc.mojom.DecoderBuffer', {
       'buffer': {
         'ordinal': 0,
@@ -34,7 +34,7 @@ arc.mojom.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Buffer
-arc.mojom.mojom.BufferSpec = {
+arc.mojom.BufferSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Buffer',
@@ -51,7 +51,7 @@ arc.mojom.mojom.BufferSpec = {
 };
 
 // Struct: VideoDecoderConfig
-arc.mojom.mojom.VideoDecoderConfigSpec = {
+arc.mojom.VideoDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoderConfig',
@@ -66,24 +66,77 @@ arc.mojom.mojom.VideoDecoderConfigSpec = {
 };
 
 // Interface: VideoDecoder
-arc.mojom.mojom.VideoDecoder = {};
+arc.mojom.VideoDecoder = {};
 
-arc.mojom.mojom.VideoDecoderPendingReceiver = class {
+arc.mojom.VideoDecoder_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecoder_Initialize_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoDecoderConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoDecoderClientRemote), nullable: false, minVersion: 0 },
+        { name: 'video_frame_pool', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(arc.mojom.VideoFramePoolRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.VideoDecoder_Decode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecoder_Decode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.VideoDecoder_Reset_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecoder_Reset_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecoder_ReleaseVideoFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'video_frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.VideoDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.VideoDecoderRemote = class {
+arc.mojom.VideoDecoderRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.VideoDecoder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.VideoDecoderPendingReceiver,
+      arc.mojom.VideoDecoderPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.VideoDecoderRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.VideoDecoderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -95,7 +148,7 @@ arc.mojom.mojom.VideoDecoderRemote = class {
   }
 };
 
-arc.mojom.mojom.VideoDecoderRemoteCallHandler = class {
+arc.mojom.VideoDecoderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -104,8 +157,8 @@ arc.mojom.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.VideoDecoder_Initialize_ParamsSpec,
-      arc.mojom.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
+      arc.mojom.VideoDecoder_Initialize_ParamsSpec,
+      arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
       [config, client, video_frame_pool]);
   }
 
@@ -113,8 +166,8 @@ arc.mojom.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.VideoDecoder_Decode_ParamsSpec,
-      arc.mojom.mojom.VideoDecoder_Decode_ResponseParamsSpec,
+      arc.mojom.VideoDecoder_Decode_ParamsSpec,
+      arc.mojom.VideoDecoder_Decode_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -122,7 +175,7 @@ arc.mojom.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.VideoDecoder_Reset_ParamsSpec,
+      arc.mojom.VideoDecoder_Reset_ParamsSpec,
       null,
       []);
   }
@@ -131,15 +184,15 @@ arc.mojom.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec,
+      arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec,
       null,
       [video_frame_id]);
   }
 
 };
 
-arc.mojom.mojom.VideoDecoder.getRemote = function() {
-  let remote = new arc.mojom.mojom.VideoDecoderRemote();
+arc.mojom.VideoDecoder.getRemote = function() {
+  let remote = new arc.mojom.VideoDecoderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -149,7 +202,7 @@ arc.mojom.mojom.VideoDecoder.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-arc.mojom.mojom.VideoDecoder_Initialize_ParamsSpec = {
+arc.mojom.VideoDecoder_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoder.Initialize_Params',
@@ -164,7 +217,7 @@ arc.mojom.mojom.VideoDecoder_Initialize_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
+arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoder.Initialize_ResponseParams',
@@ -178,7 +231,7 @@ arc.mojom.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Decode
-arc.mojom.mojom.VideoDecoder_Decode_ParamsSpec = {
+arc.mojom.VideoDecoder_Decode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoder.Decode_Params',
@@ -191,7 +244,7 @@ arc.mojom.mojom.VideoDecoder_Decode_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
+arc.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoder.Decode_ResponseParams',
@@ -205,7 +258,7 @@ arc.mojom.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Reset
-arc.mojom.mojom.VideoDecoder_Reset_ParamsSpec = {
+arc.mojom.VideoDecoder_Reset_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoder.Reset_Params',
@@ -218,7 +271,7 @@ arc.mojom.mojom.VideoDecoder_Reset_ParamsSpec = {
 };
 
 // ParamsSpec for ReleaseVideoFrame
-arc.mojom.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec = {
+arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoder.ReleaseVideoFrame_Params',
@@ -232,29 +285,57 @@ arc.mojom.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.VideoDecoderPtr = arc.mojom.mojom.VideoDecoderRemote;
-arc.mojom.mojom.VideoDecoderRequest = arc.mojom.mojom.VideoDecoderPendingReceiver;
+arc.mojom.VideoDecoderPtr = arc.mojom.VideoDecoderRemote;
+arc.mojom.VideoDecoderRequest = arc.mojom.VideoDecoderPendingReceiver;
 
 
 // Interface: VideoDecoderClient
-arc.mojom.mojom.VideoDecoderClient = {};
+arc.mojom.VideoDecoderClient = {};
 
-arc.mojom.mojom.VideoDecoderClientPendingReceiver = class {
+arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'video_frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'visible_rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.VideoDecoderClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecoderClient_OnError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DecoderStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.VideoDecoderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.VideoDecoderClientRemote = class {
+arc.mojom.VideoDecoderClientRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.VideoDecoderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.VideoDecoderClientPendingReceiver,
+      arc.mojom.VideoDecoderClientPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.VideoDecoderClientRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.VideoDecoderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -266,7 +347,7 @@ arc.mojom.mojom.VideoDecoderClientRemote = class {
   }
 };
 
-arc.mojom.mojom.VideoDecoderClientRemoteCallHandler = class {
+arc.mojom.VideoDecoderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -275,7 +356,7 @@ arc.mojom.mojom.VideoDecoderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
+      arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
       null,
       [video_frame_id, visible_rect, timestamp]);
   }
@@ -284,15 +365,15 @@ arc.mojom.mojom.VideoDecoderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.VideoDecoderClient_OnError_ParamsSpec,
+      arc.mojom.VideoDecoderClient_OnError_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-arc.mojom.mojom.VideoDecoderClient.getRemote = function() {
-  let remote = new arc.mojom.mojom.VideoDecoderClientRemote();
+arc.mojom.VideoDecoderClient.getRemote = function() {
+  let remote = new arc.mojom.VideoDecoderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -302,7 +383,7 @@ arc.mojom.mojom.VideoDecoderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnVideoFrameDecoded
-arc.mojom.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = {
+arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoderClient.OnVideoFrameDecoded_Params',
@@ -318,7 +399,7 @@ arc.mojom.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-arc.mojom.mojom.VideoDecoderClient_OnError_ParamsSpec = {
+arc.mojom.VideoDecoderClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoderClient.OnError_Params',
@@ -332,6 +413,6 @@ arc.mojom.mojom.VideoDecoderClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.VideoDecoderClientPtr = arc.mojom.mojom.VideoDecoderClientRemote;
-arc.mojom.mojom.VideoDecoderClientRequest = arc.mojom.mojom.VideoDecoderClientPendingReceiver;
+arc.mojom.VideoDecoderClientPtr = arc.mojom.VideoDecoderClientRemote;
+arc.mojom.VideoDecoderClientRequest = arc.mojom.VideoDecoderClientPendingReceiver;
 

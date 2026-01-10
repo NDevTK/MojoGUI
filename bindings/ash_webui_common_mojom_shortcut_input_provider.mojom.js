@@ -7,28 +7,56 @@
 // Module namespace
 var ash = ash || {};
 ash.common = ash.common || {};
-ash.common.common.mojom = ash.common.common.mojom || {};
+ash.common.mojom = ash.common.mojom || {};
 
 
 // Interface: ShortcutInputObserver
-ash.common.common.mojom.mojom.ShortcutInputObserver = {};
+ash.common.mojom.ShortcutInputObserver = {};
 
-ash.common.common.mojom.mojom.ShortcutInputObserverPendingReceiver = class {
+ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'prerewritten_key_event', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: false, minVersion: 0 },
+        { name: 'key_event', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'prerewritten_key_event', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: false, minVersion: 0 },
+        { name: 'key_event', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.common.mojom.ShortcutInputObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.common.common.mojom.mojom.ShortcutInputObserverRemote = class {
+ash.common.mojom.ShortcutInputObserverRemote = class {
   static get $interfaceName() {
     return 'ash.common.mojom.ShortcutInputObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.common.common.mojom.mojom.ShortcutInputObserverPendingReceiver,
+      ash.common.mojom.ShortcutInputObserverPendingReceiver,
       handle);
-    this.$ = new ash.common.common.mojom.mojom.ShortcutInputObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.common.mojom.ShortcutInputObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +68,7 @@ ash.common.common.mojom.mojom.ShortcutInputObserverRemote = class {
   }
 };
 
-ash.common.common.mojom.mojom.ShortcutInputObserverRemoteCallHandler = class {
+ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +77,7 @@ ash.common.common.mojom.mojom.ShortcutInputObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.common.mojom.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec,
+      ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec,
       null,
       [prerewritten_key_event, key_event]);
   }
@@ -58,15 +86,15 @@ ash.common.common.mojom.mojom.ShortcutInputObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.common.common.mojom.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec,
+      ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec,
       null,
       [prerewritten_key_event, key_event]);
   }
 
 };
 
-ash.common.common.mojom.mojom.ShortcutInputObserver.getRemote = function() {
-  let remote = new ash.common.common.mojom.mojom.ShortcutInputObserverRemote();
+ash.common.mojom.ShortcutInputObserver.getRemote = function() {
+  let remote = new ash.common.mojom.ShortcutInputObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +104,7 @@ ash.common.common.mojom.mojom.ShortcutInputObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnShortcutInputEventPressed
-ash.common.common.mojom.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = {
+ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.ShortcutInputObserver.OnShortcutInputEventPressed_Params',
@@ -91,7 +119,7 @@ ash.common.common.mojom.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_
 };
 
 // ParamsSpec for OnShortcutInputEventReleased
-ash.common.common.mojom.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec = {
+ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.ShortcutInputObserver.OnShortcutInputEventReleased_Params',
@@ -106,29 +134,54 @@ ash.common.common.mojom.mojom.ShortcutInputObserver_OnShortcutInputEventReleased
 };
 
 // Legacy compatibility
-ash.common.common.mojom.mojom.ShortcutInputObserverPtr = ash.common.common.mojom.mojom.ShortcutInputObserverRemote;
-ash.common.common.mojom.mojom.ShortcutInputObserverRequest = ash.common.common.mojom.mojom.ShortcutInputObserverPendingReceiver;
+ash.common.mojom.ShortcutInputObserverPtr = ash.common.mojom.ShortcutInputObserverRemote;
+ash.common.mojom.ShortcutInputObserverRequest = ash.common.mojom.ShortcutInputObserverPendingReceiver;
 
 
 // Interface: ShortcutInputProvider
-ash.common.common.mojom.mojom.ShortcutInputProvider = {};
+ash.common.mojom.ShortcutInputProvider = {};
 
-ash.common.common.mojom.mojom.ShortcutInputProviderPendingReceiver = class {
+ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.common.mojom.ShortcutInputObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.common.mojom.ShortcutInputProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.common.common.mojom.mojom.ShortcutInputProviderRemote = class {
+ash.common.mojom.ShortcutInputProviderRemote = class {
   static get $interfaceName() {
     return 'ash.common.mojom.ShortcutInputProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.common.common.mojom.mojom.ShortcutInputProviderPendingReceiver,
+      ash.common.mojom.ShortcutInputProviderPendingReceiver,
       handle);
-    this.$ = new ash.common.common.mojom.mojom.ShortcutInputProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.common.mojom.ShortcutInputProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -140,7 +193,7 @@ ash.common.common.mojom.mojom.ShortcutInputProviderRemote = class {
   }
 };
 
-ash.common.common.mojom.mojom.ShortcutInputProviderRemoteCallHandler = class {
+ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -149,7 +202,7 @@ ash.common.common.mojom.mojom.ShortcutInputProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.common.mojom.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec,
+      ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec,
       null,
       [observer]);
   }
@@ -158,15 +211,15 @@ ash.common.common.mojom.mojom.ShortcutInputProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.common.common.mojom.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec,
+      ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.common.common.mojom.mojom.ShortcutInputProvider.getRemote = function() {
-  let remote = new ash.common.common.mojom.mojom.ShortcutInputProviderRemote();
+ash.common.mojom.ShortcutInputProvider.getRemote = function() {
+  let remote = new ash.common.mojom.ShortcutInputProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -176,7 +229,7 @@ ash.common.common.mojom.mojom.ShortcutInputProvider.getRemote = function() {
 };
 
 // ParamsSpec for StartObservingShortcutInput
-ash.common.common.mojom.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = {
+ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.ShortcutInputProvider.StartObservingShortcutInput_Params',
@@ -190,7 +243,7 @@ ash.common.common.mojom.mojom.ShortcutInputProvider_StartObservingShortcutInput_
 };
 
 // ParamsSpec for StopObservingShortcutInput
-ash.common.common.mojom.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
+ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.ShortcutInputProvider.StopObservingShortcutInput_Params',
@@ -203,6 +256,6 @@ ash.common.common.mojom.mojom.ShortcutInputProvider_StopObservingShortcutInput_P
 };
 
 // Legacy compatibility
-ash.common.common.mojom.mojom.ShortcutInputProviderPtr = ash.common.common.mojom.mojom.ShortcutInputProviderRemote;
-ash.common.common.mojom.mojom.ShortcutInputProviderRequest = ash.common.common.mojom.mojom.ShortcutInputProviderPendingReceiver;
+ash.common.mojom.ShortcutInputProviderPtr = ash.common.mojom.ShortcutInputProviderRemote;
+ash.common.mojom.ShortcutInputProviderRequest = ash.common.mojom.ShortcutInputProviderPendingReceiver;
 

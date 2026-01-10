@@ -7,19 +7,19 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.cros_healthd.mojom = ash.cros_healthd.cros_healthd.mojom || {};
+ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Enum: CpuArchitectureEnum
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuArchitectureEnum = {
+ash.cros_healthd.mojom.CpuArchitectureEnum = {
   kX86_64: 0,
   kAArch64: 1,
   kArmv7l: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.CpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeCategoryEnum
-ash.cros_healthd.cros_healthd.mojom.mojom.ProbeCategoryEnum = {
+ash.cros_healthd.mojom.ProbeCategoryEnum = {
   kBattery: 0,
   kNonRemovableBlockDevices: 1,
   kCpu: 2,
@@ -40,19 +40,19 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ProbeCategoryEnum = {
   kNetworkInterface: 17,
   kInput: 18,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ErrorType
-ash.cros_healthd.cros_healthd.mojom.mojom.ErrorType = {
+ash.cros_healthd.mojom.ErrorType = {
   kFileReadError: 0,
   kParseError: 1,
   kSystemUtilityError: 2,
   kServiceUnavailable: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProcessState
-ash.cros_healthd.cros_healthd.mojom.mojom.ProcessState = {
+ash.cros_healthd.mojom.ProcessState = {
   kRunning: 0,
   kSleeping: 1,
   kWaiting: 2,
@@ -61,103 +61,103 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ProcessState = {
   kTracingStop: 5,
   kDead: 6,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ProcessStateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ProcessStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: StorageDevicePurpose
-ash.cros_healthd.cros_healthd.mojom.mojom.StorageDevicePurpose = {
+ash.cros_healthd.mojom.StorageDevicePurpose = {
   kBootDevice: 0,
   DEPRECATED_kSwapDevice: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StorageDevicePurposeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StorageDevicePurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SMTControl
-ash.cros_healthd.cros_healthd.mojom.mojom.SMTControl = {
+ash.cros_healthd.mojom.SMTControl = {
   kOn: 0,
   kOff: 1,
   kForceOff: 2,
   kNotSupported: 3,
   kNotImplemented: 4,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.SMTControlSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.SMTControlSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
-ash.cros_healthd.cros_healthd.mojom.mojom.Status = {
+ash.cros_healthd.mojom.Status = {
   kNotAffected: 0,
   kVulnerable: 1,
   kMitigation: 2,
   kUnknown: 3,
   kUnrecognized: 4,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-ash.cros_healthd.cros_healthd.mojom.mojom.Type = {
+ash.cros_healthd.mojom.Type = {
   kVMX: 0,
   kSVM: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionState
-ash.cros_healthd.cros_healthd.mojom.mojom.EncryptionState = {
+ash.cros_healthd.mojom.EncryptionState = {
   kEncryptionDisabled: 0,
   kTmeEnabled: 1,
   kMktmeEnabled: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.EncryptionStateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.EncryptionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CryptoAlgorithm
-ash.cros_healthd.cros_healthd.mojom.mojom.CryptoAlgorithm = {
+ash.cros_healthd.mojom.CryptoAlgorithm = {
   kAesXts128: 0,
   kAesXts256: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.CryptoAlgorithmSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.CryptoAlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothDeviceType
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDeviceType = {
+ash.cros_healthd.mojom.BluetoothDeviceType = {
   kUnknown: 0,
   kBrEdr: 1,
   kLe: 2,
   kDual: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDeviceTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.BluetoothDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EfiPlatformSize
-ash.cros_healthd.cros_healthd.mojom.mojom.EfiPlatformSize = {
+ash.cros_healthd.mojom.EfiPlatformSize = {
   kUnknown: 0,
   k64: 1,
   k32: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.EfiPlatformSizeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.EfiPlatformSizeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BootMode
-ash.cros_healthd.cros_healthd.mojom.mojom.BootMode = {
+ash.cros_healthd.mojom.BootMode = {
   kCrosSecure: 0,
   kCrosEfi: 1,
   kCrosLegacy: 2,
   kCrosEfiSecure: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.BootModeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.BootModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventType
-ash.cros_healthd.cros_healthd.mojom.mojom.EventType = {
+ash.cros_healthd.mojom.EventType = {
   kLogStart: 0,
   kLogEnd: 1,
   kCsmeRecovery: 2,
   kPrtcFailure: 3,
   kSvnIncrease: 4,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LogState
-ash.cros_healthd.cros_healthd.mojom.mojom.LogState = {
+ash.cros_healthd.mojom.LogState = {
   kNotStarted: 0,
   kStarted: 1,
   kStopped: 2,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.LogStateSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.LogStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BusDeviceClass
-ash.cros_healthd.cros_healthd.mojom.mojom.BusDeviceClass = {
+ash.cros_healthd.mojom.BusDeviceClass = {
   kDisplayController: 0,
   kEthernetController: 1,
   kWirelessController: 2,
@@ -165,10 +165,10 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BusDeviceClass = {
   kThunderboltController: 4,
   kAudioCard: 5,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.BusDeviceClassSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.BusDeviceClassSpec = { $: mojo.internal.Enum() };
 
 // Enum: FwupdVersionFormat
-ash.cros_healthd.cros_healthd.mojom.mojom.FwupdVersionFormat = {
+ash.cros_healthd.mojom.FwupdVersionFormat = {
   kUnknown: 0,
   kPlain: 1,
   kNumber: 2,
@@ -183,19 +183,19 @@ ash.cros_healthd.cros_healthd.mojom.mojom.FwupdVersionFormat = {
   kDellBios: 11,
   kHex: 12,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.FwupdVersionFormatSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.FwupdVersionFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: UsbVersion
-ash.cros_healthd.cros_healthd.mojom.mojom.UsbVersion = {
+ash.cros_healthd.mojom.UsbVersion = {
   kUnknown: 0,
   kUsb1: 1,
   kUsb2: 2,
   kUsb3: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.UsbVersionSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.UsbVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: UsbSpecSpeed
-ash.cros_healthd.cros_healthd.mojom.mojom.UsbSpecSpeed = {
+ash.cros_healthd.mojom.UsbSpecSpeed = {
   kUnknown: 0,
   k1_5Mbps: 1,
   k12Mbps: 2,
@@ -205,69 +205,69 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UsbSpecSpeed = {
   k10Gbps: 6,
   k20Gbps: 7,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.UsbSpecSpeedSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.UsbSpecSpeedSpec = { $: mojo.internal.Enum() };
 
 // Enum: TpmGSCVersion
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmGSCVersion = {
+ash.cros_healthd.mojom.TpmGSCVersion = {
   kCr50: 0,
   kTi50: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmGSCVersionSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.TpmGSCVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayInputType
-ash.cros_healthd.cros_healthd.mojom.mojom.DisplayInputType = {
+ash.cros_healthd.mojom.DisplayInputType = {
   kDigital: 0,
   kAnalog: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.DisplayInputTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DisplayInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ThunderboltSecurityLevel
-ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltSecurityLevel = {
+ash.cros_healthd.mojom.ThunderboltSecurityLevel = {
   kUserLevel: 0,
   kSecureLevel: 1,
   kDpOnlyLevel: 2,
   kUsbOnlyLevel: 3,
   kNoPcieLevel: 4,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltSecurityLevelSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ThunderboltSecurityLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionType
-ash.cros_healthd.cros_healthd.mojom.mojom.ConnectionType = {
+ash.cros_healthd.mojom.ConnectionType = {
   kInternal: 0,
   kUSB: 1,
   kBluetooth: 2,
   kUnknown: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-ash.cros_healthd.cros_healthd.mojom.mojom.Type = {
+ash.cros_healthd.mojom.Type = {
   kAccel: 0,
   kLight: 1,
   kGyro: 2,
   kAngle: 3,
   kGravity: 4,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Location
-ash.cros_healthd.cros_healthd.mojom.mojom.Location = {
+ash.cros_healthd.mojom.Location = {
   kUnknown: 0,
   kBase: 1,
   kLid: 2,
   kCamera: 3,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.LocationSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.LocationSpec = { $: mojo.internal.Enum() };
 
 // Enum: ThermalSensorSource
-ash.cros_healthd.cros_healthd.mojom.mojom.ThermalSensorSource = {
+ash.cros_healthd.mojom.ThermalSensorSource = {
   kEc: 0,
   kSysFs: 1,
 };
-ash.cros_healthd.cros_healthd.mojom.mojom.ThermalSensorSourceSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.ThermalSensorSourceSpec = { $: mojo.internal.Enum() };
 
 // Union: ProcessResult
-ash.cros_healthd.cros_healthd.mojom.mojom.ProcessResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.ProcessResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.ProcessResult', {
       'process_info': {
         'ordinal': 0,
@@ -281,7 +281,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ProcessResultSpec = { $: mojo.internal
 };
 
 // Union: BatteryResult
-ash.cros_healthd.cros_healthd.mojom.mojom.BatteryResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BatteryResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BatteryResult', {
       'battery_info': {
         'ordinal': 0,
@@ -296,7 +296,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BatteryResultSpec = { $: mojo.internal
 };
 
 // Union: NonRemovableBlockDeviceResult
-ash.cros_healthd.cros_healthd.mojom.mojom.NonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.NonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.NonRemovableBlockDeviceResult', {
       'block_device_info': {
         'ordinal': 0,
@@ -310,7 +310,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NonRemovableBlockDeviceResultSpec = { 
 };
 
 // Union: BlockDeviceVendor
-ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceVendorSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BlockDeviceVendorSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BlockDeviceVendor', {
       'nvme_subsystem_vendor': {
         'ordinal': 0,
@@ -336,7 +336,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceVendorSpec = { $: mojo.inte
 };
 
 // Union: BlockDeviceProduct
-ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceProductSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BlockDeviceProductSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BlockDeviceProduct', {
       'nvme_subsystem_device': {
         'ordinal': 0,
@@ -358,7 +358,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceProductSpec = { $: mojo.int
 };
 
 // Union: BlockDeviceRevision
-ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceRevisionSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BlockDeviceRevisionSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BlockDeviceRevision', {
       'nvme_pcie_rev': {
         'ordinal': 0,
@@ -380,7 +380,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceRevisionSpec = { $: mojo.in
 };
 
 // Union: BlockDeviceFirmware
-ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceFirmwareSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BlockDeviceFirmwareSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BlockDeviceFirmware', {
       'nvme_firmware_rev': {
         'ordinal': 0,
@@ -406,7 +406,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceFirmwareSpec = { $: mojo.in
 };
 
 // Union: BlockDeviceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BlockDeviceInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BlockDeviceInfo', {
       'unrecognized': {
         'ordinal': 0,
@@ -428,7 +428,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BlockDeviceInfoSpec = { $: mojo.intern
 };
 
 // Union: CpuResult
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.CpuResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.CpuResult', {
       'cpu_info': {
         'ordinal': 0,
@@ -442,7 +442,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuResultSpec = { $: mojo.internal.Uni
 };
 
 // Union: TimezoneResult
-ash.cros_healthd.cros_healthd.mojom.mojom.TimezoneResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.TimezoneResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.TimezoneResult', {
       'timezone_info': {
         'ordinal': 0,
@@ -456,7 +456,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TimezoneResultSpec = { $: mojo.interna
 };
 
 // Union: MemoryResult
-ash.cros_healthd.cros_healthd.mojom.mojom.MemoryResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.MemoryResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.MemoryResult', {
       'memory_info': {
         'ordinal': 0,
@@ -470,7 +470,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemoryResultSpec = { $: mojo.internal.
 };
 
 // Union: BacklightResult
-ash.cros_healthd.cros_healthd.mojom.mojom.BacklightResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BacklightResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BacklightResult', {
       'backlight_info': {
         'ordinal': 0,
@@ -484,7 +484,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BacklightResultSpec = { $: mojo.intern
 };
 
 // Union: FanResult
-ash.cros_healthd.cros_healthd.mojom.mojom.FanResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.FanResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.FanResult', {
       'fan_info': {
         'ordinal': 0,
@@ -498,7 +498,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.FanResultSpec = { $: mojo.internal.Uni
 };
 
 // Union: StatefulPartitionResult
-ash.cros_healthd.cros_healthd.mojom.mojom.StatefulPartitionResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.StatefulPartitionResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.StatefulPartitionResult', {
       'partition_info': {
         'ordinal': 0,
@@ -512,7 +512,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.StatefulPartitionResultSpec = { $: moj
 };
 
 // Union: BluetoothResult
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BluetoothResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BluetoothResult', {
       'bluetooth_adapter_info': {
         'ordinal': 0,
@@ -526,7 +526,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothResultSpec = { $: mojo.intern
 };
 
 // Union: DEPRECATED_SystemResult
-ash.cros_healthd.cros_healthd.mojom.mojom.DEPRECATED_SystemResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.DEPRECATED_SystemResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.DEPRECATED_SystemResult', {
       'error': {
         'ordinal': 0,
@@ -536,7 +536,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.DEPRECATED_SystemResultSpec = { $: moj
 };
 
 // Union: SystemResult
-ash.cros_healthd.cros_healthd.mojom.mojom.SystemResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.SystemResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.SystemResult', {
       'system_info': {
         'ordinal': 0,
@@ -550,7 +550,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SystemResultSpec = { $: mojo.internal.
 };
 
 // Union: NetworkResult
-ash.cros_healthd.cros_healthd.mojom.mojom.NetworkResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.NetworkResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.NetworkResult', {
       'network_health': {
         'ordinal': 0,
@@ -564,7 +564,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NetworkResultSpec = { $: mojo.internal
 };
 
 // Union: NetworkInterfaceResult
-ash.cros_healthd.cros_healthd.mojom.mojom.NetworkInterfaceResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.NetworkInterfaceResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.NetworkInterfaceResult', {
       'network_interface_info': {
         'ordinal': 0,
@@ -578,7 +578,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NetworkInterfaceResultSpec = { $: mojo
 };
 
 // Union: NetworkInterfaceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.NetworkInterfaceInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.NetworkInterfaceInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.NetworkInterfaceInfo', {
       'wireless_interface_info': {
         'ordinal': 0,
@@ -588,7 +588,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NetworkInterfaceInfoSpec = { $: mojo.i
 };
 
 // Union: AudioResult
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.AudioResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.AudioResult', {
       'audio_info': {
         'ordinal': 0,
@@ -602,7 +602,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioResultSpec = { $: mojo.internal.U
 };
 
 // Union: AudioHardwareResult
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioHardwareResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.AudioHardwareResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.AudioHardwareResult', {
       'audio_hardware_info': {
         'ordinal': 0,
@@ -616,7 +616,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioHardwareResultSpec = { $: mojo.in
 };
 
 // Union: BootPerformanceResult
-ash.cros_healthd.cros_healthd.mojom.mojom.BootPerformanceResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BootPerformanceResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BootPerformanceResult', {
       'boot_performance_info': {
         'ordinal': 0,
@@ -630,7 +630,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BootPerformanceResultSpec = { $: mojo.
 };
 
 // Union: BusResult
-ash.cros_healthd.cros_healthd.mojom.mojom.BusResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BusResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BusResult', {
       'bus_devices': {
         'ordinal': 0,
@@ -644,7 +644,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BusResultSpec = { $: mojo.internal.Uni
 };
 
 // Union: BusInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BusInfoSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.BusInfoSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.BusInfo', {
       'pci_bus_info': {
         'ordinal': 0,
@@ -666,7 +666,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BusInfoSpec = { $: mojo.internal.Union
 };
 
 // Union: TpmResult
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.TpmResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.TpmResult', {
       'tpm_info': {
         'ordinal': 0,
@@ -680,7 +680,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TpmResultSpec = { $: mojo.internal.Uni
 };
 
 // Union: GraphicsResult
-ash.cros_healthd.cros_healthd.mojom.mojom.GraphicsResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.GraphicsResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.GraphicsResult', {
       'graphics_info': {
         'ordinal': 0,
@@ -694,7 +694,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.GraphicsResultSpec = { $: mojo.interna
 };
 
 // Union: DisplayResult
-ash.cros_healthd.cros_healthd.mojom.mojom.DisplayResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.DisplayResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.DisplayResult', {
       'display_info': {
         'ordinal': 0,
@@ -708,7 +708,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.DisplayResultSpec = { $: mojo.internal
 };
 
 // Union: InputResult
-ash.cros_healthd.cros_healthd.mojom.mojom.InputResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.InputResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.InputResult', {
       'input_info': {
         'ordinal': 0,
@@ -722,7 +722,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.InputResultSpec = { $: mojo.internal.U
 };
 
 // Union: SensorResult
-ash.cros_healthd.cros_healthd.mojom.mojom.SensorResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.SensorResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.SensorResult', {
       'sensor_info': {
         'ordinal': 0,
@@ -736,7 +736,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SensorResultSpec = { $: mojo.internal.
 };
 
 // Union: ThermalResult
-ash.cros_healthd.cros_healthd.mojom.mojom.ThermalResultSpec = { $: mojo.internal.Union(
+ash.cros_healthd.mojom.ThermalResultSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.ThermalResult', {
       'thermal_info': {
         'ordinal': 0,
@@ -750,7 +750,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ThermalResultSpec = { $: mojo.internal
 };
 
 // Struct: ProbeError
-ash.cros_healthd.cros_healthd.mojom.mojom.ProbeErrorSpec = {
+ash.cros_healthd.mojom.ProbeErrorSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ProbeError',
@@ -765,7 +765,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ProbeErrorSpec = {
 };
 
 // Struct: MultipleProcessResult
-ash.cros_healthd.cros_healthd.mojom.mojom.MultipleProcessResultSpec = {
+ash.cros_healthd.mojom.MultipleProcessResultSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MultipleProcessResult',
@@ -780,7 +780,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MultipleProcessResultSpec = {
 };
 
 // Struct: ProcessInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ProcessInfoSpec = {
+ash.cros_healthd.mojom.ProcessInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ProcessInfo',
@@ -814,7 +814,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ProcessInfoSpec = {
 };
 
 // Struct: BatteryInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BatteryInfoSpec = {
+ash.cros_healthd.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BatteryInfo',
@@ -841,7 +841,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BatteryInfoSpec = {
 };
 
 // Struct: NvmeDeviceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.NvmeDeviceInfoSpec = {
+ash.cros_healthd.mojom.NvmeDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NvmeDeviceInfo',
@@ -858,7 +858,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NvmeDeviceInfoSpec = {
 };
 
 // Struct: EmmcDeviceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.EmmcDeviceInfoSpec = {
+ash.cros_healthd.mojom.EmmcDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.EmmcDeviceInfo',
@@ -875,7 +875,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EmmcDeviceInfoSpec = {
 };
 
 // Struct: UfsDeviceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.UfsDeviceInfoSpec = {
+ash.cros_healthd.mojom.UfsDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UfsDeviceInfo',
@@ -890,7 +890,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UfsDeviceInfoSpec = {
 };
 
 // Struct: NonRemovableBlockDeviceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.NonRemovableBlockDeviceInfoSpec = {
+ash.cros_healthd.mojom.NonRemovableBlockDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NonRemovableBlockDeviceInfo',
@@ -924,7 +924,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NonRemovableBlockDeviceInfoSpec = {
 };
 
 // Struct: CpuInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuInfoSpec = {
+ash.cros_healthd.mojom.CpuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuInfo',
@@ -944,7 +944,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuInfoSpec = {
 };
 
 // Struct: VirtualizationInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.VirtualizationInfoSpec = {
+ash.cros_healthd.mojom.VirtualizationInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.VirtualizationInfo',
@@ -958,7 +958,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.VirtualizationInfoSpec = {
 };
 
 // Struct: VulnerabilityInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.VulnerabilityInfoSpec = {
+ash.cros_healthd.mojom.VulnerabilityInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.VulnerabilityInfo',
@@ -972,7 +972,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.VulnerabilityInfoSpec = {
 };
 
 // Struct: KeylockerInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.KeylockerInfoSpec = {
+ash.cros_healthd.mojom.KeylockerInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.KeylockerInfo',
@@ -986,7 +986,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.KeylockerInfoSpec = {
 };
 
 // Struct: PhysicalCpuInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.PhysicalCpuInfoSpec = {
+ash.cros_healthd.mojom.PhysicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PhysicalCpuInfo',
@@ -1003,7 +1003,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.PhysicalCpuInfoSpec = {
 };
 
 // Struct: CpuVirtualizationInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuVirtualizationInfoSpec = {
+ash.cros_healthd.mojom.CpuVirtualizationInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuVirtualizationInfo',
@@ -1017,7 +1017,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuVirtualizationInfoSpec = {
 };
 
 // Struct: LogicalCpuInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.LogicalCpuInfoSpec = {
+ash.cros_healthd.mojom.LogicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.LogicalCpuInfo',
@@ -1038,7 +1038,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.LogicalCpuInfoSpec = {
 };
 
 // Struct: CpuCStateInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuCStateInfoSpec = {
+ash.cros_healthd.mojom.CpuCStateInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuCStateInfo',
@@ -1053,7 +1053,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuCStateInfoSpec = {
 };
 
 // Struct: CpuTemperatureChannel
-ash.cros_healthd.cros_healthd.mojom.mojom.CpuTemperatureChannelSpec = {
+ash.cros_healthd.mojom.CpuTemperatureChannelSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuTemperatureChannel',
@@ -1068,7 +1068,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuTemperatureChannelSpec = {
 };
 
 // Struct: TimezoneInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.TimezoneInfoSpec = {
+ash.cros_healthd.mojom.TimezoneInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TimezoneInfo',
@@ -1083,7 +1083,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TimezoneInfoSpec = {
 };
 
 // Struct: MemoryInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.MemoryInfoSpec = {
+ash.cros_healthd.mojom.MemoryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MemoryInfo',
@@ -1123,7 +1123,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemoryInfoSpec = {
 };
 
 // Struct: MemoryEncryptionInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.MemoryEncryptionInfoSpec = {
+ash.cros_healthd.mojom.MemoryEncryptionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MemoryEncryptionInfo',
@@ -1140,7 +1140,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemoryEncryptionInfoSpec = {
 };
 
 // Struct: BacklightInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BacklightInfoSpec = {
+ash.cros_healthd.mojom.BacklightInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BacklightInfo',
@@ -1156,7 +1156,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BacklightInfoSpec = {
 };
 
 // Struct: FanInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.FanInfoSpec = {
+ash.cros_healthd.mojom.FanInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.FanInfo',
@@ -1170,7 +1170,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.FanInfoSpec = {
 };
 
 // Struct: StatefulPartitionInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.StatefulPartitionInfoSpec = {
+ash.cros_healthd.mojom.StatefulPartitionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.StatefulPartitionInfo',
@@ -1187,7 +1187,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.StatefulPartitionInfoSpec = {
 };
 
 // Struct: BluetoothAdapterInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothAdapterInfoSpec = {
+ash.cros_healthd.mojom.BluetoothAdapterInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothAdapterInfo',
@@ -1211,7 +1211,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothAdapterInfoSpec = {
 };
 
 // Struct: BluetoothDeviceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDeviceInfoSpec = {
+ash.cros_healthd.mojom.BluetoothDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothDeviceInfo',
@@ -1234,7 +1234,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDeviceInfoSpec = {
 };
 
 // Struct: DEPRECATED_SupportedCapabilities
-ash.cros_healthd.cros_healthd.mojom.mojom.DEPRECATED_SupportedCapabilitiesSpec = {
+ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilities',
@@ -1247,7 +1247,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.DEPRECATED_SupportedCapabilitiesSpec =
 };
 
 // Struct: SystemInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.SystemInfoSpec = {
+ash.cros_healthd.mojom.SystemInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SystemInfo',
@@ -1264,7 +1264,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SystemInfoSpec = {
 };
 
 // Struct: OsInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.OsInfoSpec = {
+ash.cros_healthd.mojom.OsInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.OsInfo',
@@ -1283,7 +1283,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.OsInfoSpec = {
 };
 
 // Struct: OsVersion
-ash.cros_healthd.cros_healthd.mojom.mojom.OsVersionSpec = {
+ash.cros_healthd.mojom.OsVersionSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.OsVersion',
@@ -1301,7 +1301,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.OsVersionSpec = {
 };
 
 // Struct: VpdInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.VpdInfoSpec = {
+ash.cros_healthd.mojom.VpdInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.VpdInfo',
@@ -1321,7 +1321,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.VpdInfoSpec = {
 };
 
 // Struct: DmiInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.DmiInfoSpec = {
+ash.cros_healthd.mojom.DmiInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.DmiInfo',
@@ -1345,7 +1345,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.DmiInfoSpec = {
 };
 
 // Struct: PsrEvent
-ash.cros_healthd.cros_healthd.mojom.mojom.PsrEventSpec = {
+ash.cros_healthd.mojom.PsrEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PsrEvent',
@@ -1359,7 +1359,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.PsrEventSpec = {
 };
 
 // Struct: PsrInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.PsrInfoSpec = {
+ash.cros_healthd.mojom.PsrInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PsrInfo',
@@ -1373,7 +1373,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.PsrInfoSpec = {
 };
 
 // Struct: WirelessInterfaceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.WirelessInterfaceInfoSpec = {
+ash.cros_healthd.mojom.WirelessInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.WirelessInterfaceInfo',
@@ -1389,7 +1389,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.WirelessInterfaceInfoSpec = {
 };
 
 // Struct: WirelessLinkInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.WirelessLinkInfoSpec = {
+ash.cros_healthd.mojom.WirelessLinkInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.WirelessLinkInfo',
@@ -1409,7 +1409,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.WirelessLinkInfoSpec = {
 };
 
 // Struct: AudioInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioInfoSpec = {
+ash.cros_healthd.mojom.AudioInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioInfo',
@@ -1432,7 +1432,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioInfoSpec = {
 };
 
 // Struct: AudioNodeInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioNodeInfoSpec = {
+ash.cros_healthd.mojom.AudioNodeInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioNodeInfo',
@@ -1451,7 +1451,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioNodeInfoSpec = {
 };
 
 // Struct: AudioHardwareInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioHardwareInfoSpec = {
+ash.cros_healthd.mojom.AudioHardwareInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioHardwareInfo',
@@ -1465,7 +1465,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioHardwareInfoSpec = {
 };
 
 // Struct: AudioCard
-ash.cros_healthd.cros_healthd.mojom.mojom.AudioCardSpec = {
+ash.cros_healthd.mojom.AudioCardSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioCard',
@@ -1481,7 +1481,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioCardSpec = {
 };
 
 // Struct: HDAudioCodec
-ash.cros_healthd.cros_healthd.mojom.mojom.HDAudioCodecSpec = {
+ash.cros_healthd.mojom.HDAudioCodecSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.HDAudioCodec',
@@ -1496,7 +1496,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.HDAudioCodecSpec = {
 };
 
 // Struct: BootPerformanceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.BootPerformanceInfoSpec = {
+ash.cros_healthd.mojom.BootPerformanceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BootPerformanceInfo',
@@ -1525,7 +1525,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BootPerformanceInfoSpec = {
 };
 
 // Struct: BusDevice
-ash.cros_healthd.cros_healthd.mojom.mojom.BusDeviceSpec = {
+ash.cros_healthd.mojom.BusDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BusDevice',
@@ -1542,7 +1542,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BusDeviceSpec = {
 };
 
 // Struct: PciBusInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.PciBusInfoSpec = {
+ash.cros_healthd.mojom.PciBusInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PciBusInfo',
@@ -1563,7 +1563,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.PciBusInfoSpec = {
 };
 
 // Struct: UsbBusInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.UsbBusInfoSpec = {
+ash.cros_healthd.mojom.UsbBusInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UsbBusInfo',
@@ -1585,7 +1585,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UsbBusInfoSpec = {
 };
 
 // Struct: FwupdFirmwareVersionInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.FwupdFirmwareVersionInfoSpec = {
+ash.cros_healthd.mojom.FwupdFirmwareVersionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.FwupdFirmwareVersionInfo',
@@ -1600,7 +1600,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.FwupdFirmwareVersionInfoSpec = {
 };
 
 // Struct: UsbBusInterfaceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.UsbBusInterfaceInfoSpec = {
+ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UsbBusInterfaceInfo',
@@ -1618,7 +1618,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UsbBusInterfaceInfoSpec = {
 };
 
 // Struct: TpmInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmInfoSpec = {
+ash.cros_healthd.mojom.TpmInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmInfo',
@@ -1637,7 +1637,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TpmInfoSpec = {
 };
 
 // Struct: TpmVersion
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmVersionSpec = {
+ash.cros_healthd.mojom.TpmVersionSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmVersion',
@@ -1657,7 +1657,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TpmVersionSpec = {
 };
 
 // Struct: TpmStatus
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmStatusSpec = {
+ash.cros_healthd.mojom.TpmStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmStatus',
@@ -1673,7 +1673,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TpmStatusSpec = {
 };
 
 // Struct: TpmDictionaryAttack
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmDictionaryAttackSpec = {
+ash.cros_healthd.mojom.TpmDictionaryAttackSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmDictionaryAttack',
@@ -1690,7 +1690,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TpmDictionaryAttackSpec = {
 };
 
 // Struct: TpmAttestation
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmAttestationSpec = {
+ash.cros_healthd.mojom.TpmAttestationSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmAttestation',
@@ -1705,7 +1705,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TpmAttestationSpec = {
 };
 
 // Struct: TpmSupportedFeatures
-ash.cros_healthd.cros_healthd.mojom.mojom.TpmSupportedFeaturesSpec = {
+ash.cros_healthd.mojom.TpmSupportedFeaturesSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmSupportedFeatures',
@@ -1722,7 +1722,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TpmSupportedFeaturesSpec = {
 };
 
 // Struct: GraphicsInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.GraphicsInfoSpec = {
+ash.cros_healthd.mojom.GraphicsInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.GraphicsInfo',
@@ -1737,7 +1737,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.GraphicsInfoSpec = {
 };
 
 // Struct: GLESInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.GLESInfoSpec = {
+ash.cros_healthd.mojom.GLESInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.GLESInfo',
@@ -1755,7 +1755,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.GLESInfoSpec = {
 };
 
 // Struct: EGLInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.EGLInfoSpec = {
+ash.cros_healthd.mojom.EGLInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.EGLInfo',
@@ -1772,7 +1772,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EGLInfoSpec = {
 };
 
 // Struct: DisplayInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.DisplayInfoSpec = {
+ash.cros_healthd.mojom.DisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.DisplayInfo',
@@ -1787,7 +1787,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.DisplayInfoSpec = {
 };
 
 // Struct: EmbeddedDisplayInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.EmbeddedDisplayInfoSpec = {
+ash.cros_healthd.mojom.EmbeddedDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.EmbeddedDisplayInfo',
@@ -1815,7 +1815,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EmbeddedDisplayInfoSpec = {
 };
 
 // Struct: ExternalDisplayInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ExternalDisplayInfoSpec = {
+ash.cros_healthd.mojom.ExternalDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ExternalDisplayInfo',
@@ -1841,7 +1841,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ExternalDisplayInfoSpec = {
 };
 
 // Struct: ThunderboltBusInterfaceInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltBusInterfaceInfoSpec = {
+ash.cros_healthd.mojom.ThunderboltBusInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThunderboltBusInterfaceInfo',
@@ -1862,7 +1862,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltBusInterfaceInfoSpec = {
 };
 
 // Struct: ThunderboltBusInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltBusInfoSpec = {
+ash.cros_healthd.mojom.ThunderboltBusInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThunderboltBusInfo',
@@ -1877,7 +1877,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ThunderboltBusInfoSpec = {
 };
 
 // Struct: InputInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.InputInfoSpec = {
+ash.cros_healthd.mojom.InputInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.InputInfo',
@@ -1893,7 +1893,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.InputInfoSpec = {
 };
 
 // Struct: TouchscreenDevice
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenDeviceSpec = {
+ash.cros_healthd.mojom.TouchscreenDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchscreenDevice',
@@ -1910,7 +1910,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchscreenDeviceSpec = {
 };
 
 // Struct: TouchpadDevice
-ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadDeviceSpec = {
+ash.cros_healthd.mojom.TouchpadDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchpadDevice',
@@ -1927,7 +1927,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.TouchpadDeviceSpec = {
 };
 
 // Struct: InputDevice
-ash.cros_healthd.cros_healthd.mojom.mojom.InputDeviceSpec = {
+ash.cros_healthd.mojom.InputDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.InputDevice',
@@ -1942,7 +1942,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.InputDeviceSpec = {
 };
 
 // Struct: SensorInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.SensorInfoSpec = {
+ash.cros_healthd.mojom.SensorInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SensorInfo',
@@ -1957,7 +1957,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SensorInfoSpec = {
 };
 
 // Struct: Sensor
-ash.cros_healthd.cros_healthd.mojom.mojom.SensorSpec = {
+ash.cros_healthd.mojom.SensorSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.Sensor',
@@ -1973,7 +1973,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.SensorSpec = {
 };
 
 // Struct: ThermalInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ThermalInfoSpec = {
+ash.cros_healthd.mojom.ThermalInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThermalInfo',
@@ -1987,7 +1987,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ThermalInfoSpec = {
 };
 
 // Struct: ThermalSensorInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.ThermalSensorInfoSpec = {
+ash.cros_healthd.mojom.ThermalSensorInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThermalSensorInfo',
@@ -2001,7 +2001,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ThermalSensorInfoSpec = {
 };
 
 // Struct: TelemetryInfo
-ash.cros_healthd.cros_healthd.mojom.mojom.TelemetryInfoSpec = {
+ash.cros_healthd.mojom.TelemetryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TelemetryInfo',

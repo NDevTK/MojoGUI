@@ -12,41 +12,41 @@ var url = url || {};
 var url = url || {};
 
 
-blink.mojom.mojom.kMaxInterestGroupSize = 1048576;
+blink.mojom.kMaxInterestGroupSize = 1048576;
 
-blink.mojom.mojom.kMaxAllowedReportingOrigins = 10;
+blink.mojom.kMaxAllowedReportingOrigins = 10;
 
 // Enum: ExecutionMode
-blink.mojom.mojom.ExecutionMode = {
+blink.mojom.ExecutionMode = {
   kGroupedByOriginMode: 0,
   kFrozenContext: 1,
 };
-blink.mojom.mojom.ExecutionModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ExecutionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TrustedBiddingSignalsSlotSizeMode
-blink.mojom.mojom.TrustedBiddingSignalsSlotSizeMode = {
+blink.mojom.TrustedBiddingSignalsSlotSizeMode = {
   kSlotSize: 0,
   kAllSlotsRequestedSizes: 1,
 };
-blink.mojom.mojom.TrustedBiddingSignalsSlotSizeModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.TrustedBiddingSignalsSlotSizeModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BuyerReportType
-blink.mojom.mojom.BuyerReportType = {
+blink.mojom.BuyerReportType = {
   kInterestGroupCount: 0,
   kBidCount: 1,
   kTotalGenerateBidLatency: 2,
   kTotalSignalsFetchLatency: 3,
 };
-blink.mojom.mojom.BuyerReportTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.BuyerReportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RealTimeReportingType
-blink.mojom.mojom.RealTimeReportingType = {
+blink.mojom.RealTimeReportingType = {
   kDefaultLocalReporting: 0,
 };
-blink.mojom.mojom.RealTimeReportingTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.RealTimeReportingTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: AuctionAdConfigMaybePromiseJson
-blink.mojom.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: mojo.internal.Union(
+blink.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseJson', {
       'promise': {
         'ordinal': 0,
@@ -61,7 +61,7 @@ blink.mojom.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: mojo.internal.Union
 };
 
 // Union: AuctionAdConfigMaybePromisePerBuyerSignals
-blink.mojom.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: mojo.internal.Union(
+blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignals', {
       'promise': {
         'ordinal': 0,
@@ -76,7 +76,7 @@ blink.mojom.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: mojo.int
 };
 
 // Union: AuctionAdConfigMaybePromiseBuyerTimeouts
-blink.mojom.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: mojo.internal.Union(
+blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeouts', {
       'promise': {
         'ordinal': 0,
@@ -90,7 +90,7 @@ blink.mojom.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: mojo.inter
 };
 
 // Union: AuctionAdConfigMaybePromiseBuyerCurrencies
-blink.mojom.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = { $: mojo.internal.Union(
+blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrencies', {
       'promise': {
         'ordinal': 0,
@@ -104,7 +104,7 @@ blink.mojom.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = { $: mojo.int
 };
 
 // Union: AuctionAdConfigMaybePromiseDirectFromSellerSignals
-blink.mojom.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = { $: mojo.internal.Union(
+blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignals', {
       'promise': {
         'ordinal': 0,
@@ -119,7 +119,7 @@ blink.mojom.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = { $: 
 };
 
 // Union: AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacements
-blink.mojom.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec = { $: mojo.internal.Union(
+blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacements', {
       'promise': {
         'ordinal': 0,
@@ -133,7 +133,7 @@ blink.mojom.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec
 };
 
 // Union: AdAuctionRequestOrError
-blink.mojom.mojom.AdAuctionRequestOrErrorSpec = { $: mojo.internal.Union(
+blink.mojom.AdAuctionRequestOrErrorSpec = { $: mojo.internal.Union(
     'blink.mojom.AdAuctionRequestOrError', {
       'request': {
         'ordinal': 0,
@@ -147,7 +147,7 @@ blink.mojom.mojom.AdAuctionRequestOrErrorSpec = { $: mojo.internal.Union(
 };
 
 // Struct: InterestGroupAd
-blink.mojom.mojom.InterestGroupAdSpec = {
+blink.mojom.InterestGroupAdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InterestGroupAd',
@@ -169,7 +169,7 @@ blink.mojom.mojom.InterestGroupAdSpec = {
 };
 
 // Struct: SellerCapabilities
-blink.mojom.mojom.SellerCapabilitiesSpec = {
+blink.mojom.SellerCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SellerCapabilities',
@@ -184,7 +184,7 @@ blink.mojom.mojom.SellerCapabilitiesSpec = {
 };
 
 // Struct: AuctionServerRequestFlags
-blink.mojom.mojom.AuctionServerRequestFlagsSpec = {
+blink.mojom.AuctionServerRequestFlagsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionServerRequestFlags',
@@ -200,7 +200,7 @@ blink.mojom.mojom.AuctionServerRequestFlagsSpec = {
 };
 
 // Struct: AdKeywordReplacement
-blink.mojom.mojom.AdKeywordReplacementSpec = {
+blink.mojom.AdKeywordReplacementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdKeywordReplacement',
@@ -215,7 +215,7 @@ blink.mojom.mojom.AdKeywordReplacementSpec = {
 };
 
 // Struct: InterestGroup
-blink.mojom.mojom.InterestGroupSpec = {
+blink.mojom.InterestGroupSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InterestGroup',
@@ -229,7 +229,7 @@ blink.mojom.mojom.InterestGroupSpec = {
 };
 
 // Struct: PreviousWin
-blink.mojom.mojom.PreviousWinSpec = {
+blink.mojom.PreviousWinSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PreviousWin',
@@ -244,7 +244,7 @@ blink.mojom.mojom.PreviousWinSpec = {
 };
 
 // Struct: ViewOrClickCounts
-blink.mojom.mojom.ViewOrClickCountsSpec = {
+blink.mojom.ViewOrClickCountsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewOrClickCounts',
@@ -262,7 +262,7 @@ blink.mojom.mojom.ViewOrClickCountsSpec = {
 };
 
 // Struct: ViewAndClickCounts
-blink.mojom.mojom.ViewAndClickCountsSpec = {
+blink.mojom.ViewAndClickCountsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewAndClickCounts',
@@ -277,7 +277,7 @@ blink.mojom.mojom.ViewAndClickCountsSpec = {
 };
 
 // Struct: BiddingBrowserSignals
-blink.mojom.mojom.BiddingBrowserSignalsSpec = {
+blink.mojom.BiddingBrowserSignalsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BiddingBrowserSignals',
@@ -295,7 +295,7 @@ blink.mojom.mojom.BiddingBrowserSignalsSpec = {
 };
 
 // Struct: StorageInterestGroup
-blink.mojom.mojom.StorageInterestGroupSpec = {
+blink.mojom.StorageInterestGroupSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageInterestGroup',
@@ -315,7 +315,7 @@ blink.mojom.mojom.StorageInterestGroupSpec = {
 };
 
 // Struct: DirectFromSellerSignalsSubresource
-blink.mojom.mojom.DirectFromSellerSignalsSubresourceSpec = {
+blink.mojom.DirectFromSellerSignalsSubresourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectFromSellerSignalsSubresource',
@@ -330,7 +330,7 @@ blink.mojom.mojom.DirectFromSellerSignalsSubresourceSpec = {
 };
 
 // Struct: DirectFromSellerSignals
-blink.mojom.mojom.DirectFromSellerSignalsSpec = {
+blink.mojom.DirectFromSellerSignalsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectFromSellerSignals',
@@ -347,7 +347,7 @@ blink.mojom.mojom.DirectFromSellerSignalsSpec = {
 };
 
 // Struct: AuctionAdConfigBuyerTimeouts
-blink.mojom.mojom.AuctionAdConfigBuyerTimeoutsSpec = {
+blink.mojom.AuctionAdConfigBuyerTimeoutsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigBuyerTimeouts',
@@ -362,7 +362,7 @@ blink.mojom.mojom.AuctionAdConfigBuyerTimeoutsSpec = {
 };
 
 // Struct: AdCurrency
-blink.mojom.mojom.AdCurrencySpec = {
+blink.mojom.AdCurrencySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdCurrency',
@@ -376,7 +376,7 @@ blink.mojom.mojom.AdCurrencySpec = {
 };
 
 // Struct: AuctionAdConfigBuyerCurrencies
-blink.mojom.mojom.AuctionAdConfigBuyerCurrenciesSpec = {
+blink.mojom.AuctionAdConfigBuyerCurrenciesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigBuyerCurrencies',
@@ -391,7 +391,7 @@ blink.mojom.mojom.AuctionAdConfigBuyerCurrenciesSpec = {
 };
 
 // Struct: AuctionAdServerResponseConfig
-blink.mojom.mojom.AuctionAdServerResponseConfigSpec = {
+blink.mojom.AuctionAdServerResponseConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdServerResponseConfig',
@@ -405,7 +405,7 @@ blink.mojom.mojom.AuctionAdServerResponseConfigSpec = {
 };
 
 // Struct: AuctionReportBuyerDebugModeConfig
-blink.mojom.mojom.AuctionReportBuyerDebugModeConfigSpec = {
+blink.mojom.AuctionReportBuyerDebugModeConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionReportBuyerDebugModeConfig',
@@ -421,7 +421,7 @@ blink.mojom.mojom.AuctionReportBuyerDebugModeConfigSpec = {
 };
 
 // Struct: AuctionReportBuyersConfig
-blink.mojom.mojom.AuctionReportBuyersConfigSpec = {
+blink.mojom.AuctionReportBuyersConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionReportBuyersConfig',
@@ -436,7 +436,7 @@ blink.mojom.mojom.AuctionReportBuyersConfigSpec = {
 };
 
 // Struct: AuctionAdConfigNonSharedParams
-blink.mojom.mojom.AuctionAdConfigNonSharedParamsSpec = {
+blink.mojom.AuctionAdConfigNonSharedParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigNonSharedParams',
@@ -450,7 +450,7 @@ blink.mojom.mojom.AuctionAdConfigNonSharedParamsSpec = {
 };
 
 // Struct: AuctionAdConfig
-blink.mojom.mojom.AuctionAdConfigSpec = {
+blink.mojom.AuctionAdConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfig',
@@ -479,7 +479,7 @@ blink.mojom.mojom.AuctionAdConfigSpec = {
 };
 
 // Struct: AuctionDataBuyerConfig
-blink.mojom.mojom.AuctionDataBuyerConfigSpec = {
+blink.mojom.AuctionDataBuyerConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionDataBuyerConfig',
@@ -494,7 +494,7 @@ blink.mojom.mojom.AuctionDataBuyerConfigSpec = {
 };
 
 // Struct: AuctionDataConfig
-blink.mojom.mojom.AuctionDataConfigSpec = {
+blink.mojom.AuctionDataConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionDataConfig',
@@ -510,7 +510,7 @@ blink.mojom.mojom.AuctionDataConfigSpec = {
 };
 
 // Struct: AdAuctionPerSellerRequest
-blink.mojom.mojom.AdAuctionPerSellerRequestSpec = {
+blink.mojom.AdAuctionPerSellerRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionPerSellerRequest',

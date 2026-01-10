@@ -10,9 +10,9 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: SixPackShortcutModifier
-ui.mojom.mojom.SixPackShortcutModifier = {
+ui.mojom.SixPackShortcutModifier = {
   kNone: 0,
   kAlt: 1,
   kSearch: 2,
 };
-ui.mojom.mojom.SixPackShortcutModifierSpec = { $: mojo.internal.Enum() };
+ui.mojom.SixPackShortcutModifierSpec = { $: mojo.internal.Enum() };

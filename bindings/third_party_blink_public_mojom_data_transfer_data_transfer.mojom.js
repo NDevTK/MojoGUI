@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: DataTransferFile
-blink.mojom.mojom.DataTransferFileSpec = {
+blink.mojom.DataTransferFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DataTransferFile',

@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: BlockedByResponseReason
-network.mojom.mojom.BlockedByResponseReason = {
+network.mojom.BlockedByResponseReason = {
   kCoepFrameResourceNeedsCoepHeader: 0,
   kCoopSandboxedIFrameCannotNavigateToCoopPage: 1,
   kCorpNotSameOrigin: 2,
@@ -20,4 +20,4 @@ network.mojom.mojom.BlockedByResponseReason = {
   kCorpNotSameSite: 6,
   kSRIMessageSignatureMismatch: 7,
 };
-network.mojom.mojom.BlockedByResponseReasonSpec = { $: mojo.internal.Enum() };
+network.mojom.BlockedByResponseReasonSpec = { $: mojo.internal.Enum() };

@@ -10,9 +10,9 @@ viz.mojom = viz.mojom || {};
 
 
 // Enum: VerticalScrollDirection
-viz.mojom.mojom.VerticalScrollDirection = {
+viz.mojom.VerticalScrollDirection = {
   kNull: 0,
   kDown: 1,
   kUp: 2,
 };
-viz.mojom.mojom.VerticalScrollDirectionSpec = { $: mojo.internal.Enum() };
+viz.mojom.VerticalScrollDirectionSpec = { $: mojo.internal.Enum() };

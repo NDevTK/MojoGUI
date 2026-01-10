@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: DelegatedInkPoint
-gfx.mojom.mojom.DelegatedInkPointSpec = {
+gfx.mojom.DelegatedInkPointSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkPoint',

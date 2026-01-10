@@ -12,24 +12,65 @@ var blink = blink || {};
 
 
 // Interface: FileSystemAccessContext
-storage.mojom.mojom.FileSystemAccessContext = {};
+storage.mojom.FileSystemAccessContext = {};
 
-storage.mojom.mojom.FileSystemAccessContextPendingReceiver = class {
+storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.FileSystemAccessContext_SerializeHandle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.FileSystemAccessContext_DeserializeHandle_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'bits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.FileSystemAccessContext_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.FileSystemAccessContextRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.FileSystemAccessContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.FileSystemAccessContextRemote = class {
+storage.mojom.FileSystemAccessContextRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.FileSystemAccessContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.FileSystemAccessContextPendingReceiver,
+      storage.mojom.FileSystemAccessContextPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.FileSystemAccessContextRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.FileSystemAccessContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +82,7 @@ storage.mojom.mojom.FileSystemAccessContextRemote = class {
   }
 };
 
-storage.mojom.mojom.FileSystemAccessContextRemoteCallHandler = class {
+storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +91,8 @@ storage.mojom.mojom.FileSystemAccessContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec,
-      storage.mojom.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec,
+      storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec,
+      storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec,
       [token]);
   }
 
@@ -59,7 +100,7 @@ storage.mojom.mojom.FileSystemAccessContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec,
+      storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec,
       null,
       [storage_key, bits, token]);
   }
@@ -68,15 +109,15 @@ storage.mojom.mojom.FileSystemAccessContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.FileSystemAccessContext_Clone_ParamsSpec,
+      storage.mojom.FileSystemAccessContext_Clone_ParamsSpec,
       null,
       [receiever]);
   }
 
 };
 
-storage.mojom.mojom.FileSystemAccessContext.getRemote = function() {
-  let remote = new storage.mojom.mojom.FileSystemAccessContextRemote();
+storage.mojom.FileSystemAccessContext.getRemote = function() {
+  let remote = new storage.mojom.FileSystemAccessContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -86,7 +127,7 @@ storage.mojom.mojom.FileSystemAccessContext.getRemote = function() {
 };
 
 // ParamsSpec for SerializeHandle
-storage.mojom.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
+storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.FileSystemAccessContext.SerializeHandle_Params',
@@ -99,7 +140,7 @@ storage.mojom.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = {
+storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.FileSystemAccessContext.SerializeHandle_ResponseParams',
@@ -113,7 +154,7 @@ storage.mojom.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec =
 };
 
 // ParamsSpec for DeserializeHandle
-storage.mojom.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
+storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.FileSystemAccessContext.DeserializeHandle_Params',
@@ -129,7 +170,7 @@ storage.mojom.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
 };
 
 // ParamsSpec for Clone
-storage.mojom.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
+storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.FileSystemAccessContext.Clone_Params',
@@ -143,6 +184,6 @@ storage.mojom.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.FileSystemAccessContextPtr = storage.mojom.mojom.FileSystemAccessContextRemote;
-storage.mojom.mojom.FileSystemAccessContextRequest = storage.mojom.mojom.FileSystemAccessContextPendingReceiver;
+storage.mojom.FileSystemAccessContextPtr = storage.mojom.FileSystemAccessContextRemote;
+storage.mojom.FileSystemAccessContextRequest = storage.mojom.FileSystemAccessContextPendingReceiver;
 

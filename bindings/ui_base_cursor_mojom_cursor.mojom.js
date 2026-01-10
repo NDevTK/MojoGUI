@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: Cursor
-ui.mojom.mojom.CursorSpec = {
+ui.mojom.CursorSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.Cursor',

@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: Selection
-viz.mojom.mojom.SelectionSpec = {
+viz.mojom.SelectionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Selection',

@@ -10,15 +10,15 @@ ntp_promo.mojom = ntp_promo.mojom || {};
 
 
 // Enum: ShowNtpPromosResult
-ntp_promo.mojom.mojom.ShowNtpPromosResult = {
+ntp_promo.mojom.ShowNtpPromosResult = {
   kShown: 0,
   kNotShownNoPromos: 1,
   kNotShownDueToPolicy: 2,
 };
-ntp_promo.mojom.mojom.ShowNtpPromosResultSpec = { $: mojo.internal.Enum() };
+ntp_promo.mojom.ShowNtpPromosResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: PromosShown
-ntp_promo.mojom.mojom.PromosShownSpec = {
+ntp_promo.mojom.PromosShownSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.PromosShown',
@@ -33,7 +33,7 @@ ntp_promo.mojom.mojom.PromosShownSpec = {
 };
 
 // Struct: Promo
-ntp_promo.mojom.mojom.PromoSpec = {
+ntp_promo.mojom.PromoSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.Promo',
@@ -50,24 +50,111 @@ ntp_promo.mojom.mojom.PromoSpec = {
 };
 
 // Interface: NtpPromoHandler
-ntp_promo.mojom.mojom.NtpPromoHandler = {};
+ntp_promo.mojom.NtpPromoHandler = {};
 
-ntp_promo.mojom.mojom.NtpPromoHandlerPendingReceiver = class {
+ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandler_RequestPromos_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandler_OnPromosShown_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'eligible_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'completed_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandler_DisableSetupList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ntp_promo.mojom.mojom.NtpPromoHandlerRemote = class {
+ntp_promo.mojom.NtpPromoHandlerRemote = class {
   static get $interfaceName() {
     return 'ntp_promo.mojom.NtpPromoHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ntp_promo.mojom.mojom.NtpPromoHandlerPendingReceiver,
+      ntp_promo.mojom.NtpPromoHandlerPendingReceiver,
       handle);
-    this.$ = new ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -79,7 +166,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemote = class {
   }
 };
 
-ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
+ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -88,7 +175,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandler_RequestPromos_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec,
       null,
       []);
   }
@@ -97,7 +184,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec,
       null,
       [eligible_shown, completed_shown]);
   }
@@ -106,7 +193,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec,
       null,
       [promo_id]);
   }
@@ -115,7 +202,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec,
       null,
       []);
   }
@@ -124,7 +211,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec,
       null,
       []);
   }
@@ -133,7 +220,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec,
       null,
       []);
   }
@@ -142,15 +229,15 @@ ntp_promo.mojom.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ntp_promo.mojom.mojom.NtpPromoHandler.getRemote = function() {
-  let remote = new ntp_promo.mojom.mojom.NtpPromoHandlerRemote();
+ntp_promo.mojom.NtpPromoHandler.getRemote = function() {
+  let remote = new ntp_promo.mojom.NtpPromoHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -160,7 +247,7 @@ ntp_promo.mojom.mojom.NtpPromoHandler.getRemote = function() {
 };
 
 // ParamsSpec for RequestPromos
-ntp_promo.mojom.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandler.RequestPromos_Params',
@@ -173,7 +260,7 @@ ntp_promo.mojom.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
 };
 
 // ParamsSpec for OnPromosShown
-ntp_promo.mojom.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandler.OnPromosShown_Params',
@@ -188,7 +275,7 @@ ntp_promo.mojom.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
 };
 
 // ParamsSpec for OnPromoClicked
-ntp_promo.mojom.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandler.OnPromoClicked_Params',
@@ -202,7 +289,7 @@ ntp_promo.mojom.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
 };
 
 // ParamsSpec for SnoozeSetupList
-ntp_promo.mojom.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandler.SnoozeSetupList_Params',
@@ -215,7 +302,7 @@ ntp_promo.mojom.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
 };
 
 // ParamsSpec for UnsnoozeSetupList
-ntp_promo.mojom.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandler.UnsnoozeSetupList_Params',
@@ -228,7 +315,7 @@ ntp_promo.mojom.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
 };
 
 // ParamsSpec for DisableSetupList
-ntp_promo.mojom.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandler.DisableSetupList_Params',
@@ -241,7 +328,7 @@ ntp_promo.mojom.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
 };
 
 // ParamsSpec for UndisableSetupList
-ntp_promo.mojom.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandler.UndisableSetupList_Params',
@@ -254,29 +341,43 @@ ntp_promo.mojom.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
 };
 
 // Legacy compatibility
-ntp_promo.mojom.mojom.NtpPromoHandlerPtr = ntp_promo.mojom.mojom.NtpPromoHandlerRemote;
-ntp_promo.mojom.mojom.NtpPromoHandlerRequest = ntp_promo.mojom.mojom.NtpPromoHandlerPendingReceiver;
+ntp_promo.mojom.NtpPromoHandlerPtr = ntp_promo.mojom.NtpPromoHandlerRemote;
+ntp_promo.mojom.NtpPromoHandlerRequest = ntp_promo.mojom.NtpPromoHandlerPendingReceiver;
 
 
 // Interface: NtpPromoClient
-ntp_promo.mojom.mojom.NtpPromoClient = {};
+ntp_promo.mojom.NtpPromoClient = {};
 
-ntp_promo.mojom.mojom.NtpPromoClientPendingReceiver = class {
+ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoClient_SetPromos_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ntp_promo.mojom.mojom.NtpPromoClientRemote = class {
+ntp_promo.mojom.NtpPromoClientRemote = class {
   static get $interfaceName() {
     return 'ntp_promo.mojom.NtpPromoClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ntp_promo.mojom.mojom.NtpPromoClientPendingReceiver,
+      ntp_promo.mojom.NtpPromoClientPendingReceiver,
       handle);
-    this.$ = new ntp_promo.mojom.mojom.NtpPromoClientRemoteCallHandler(this.proxy);
+    this.$ = new ntp_promo.mojom.NtpPromoClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -288,7 +389,7 @@ ntp_promo.mojom.mojom.NtpPromoClientRemote = class {
   }
 };
 
-ntp_promo.mojom.mojom.NtpPromoClientRemoteCallHandler = class {
+ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -297,15 +398,15 @@ ntp_promo.mojom.mojom.NtpPromoClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoClient_SetPromos_ParamsSpec,
+      ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec,
       null,
       [eligible, completed]);
   }
 
 };
 
-ntp_promo.mojom.mojom.NtpPromoClient.getRemote = function() {
-  let remote = new ntp_promo.mojom.mojom.NtpPromoClientRemote();
+ntp_promo.mojom.NtpPromoClient.getRemote = function() {
+  let remote = new ntp_promo.mojom.NtpPromoClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -315,7 +416,7 @@ ntp_promo.mojom.mojom.NtpPromoClient.getRemote = function() {
 };
 
 // ParamsSpec for SetPromos
-ntp_promo.mojom.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
+ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoClient.SetPromos_Params',
@@ -330,29 +431,43 @@ ntp_promo.mojom.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
 };
 
 // Legacy compatibility
-ntp_promo.mojom.mojom.NtpPromoClientPtr = ntp_promo.mojom.mojom.NtpPromoClientRemote;
-ntp_promo.mojom.mojom.NtpPromoClientRequest = ntp_promo.mojom.mojom.NtpPromoClientPendingReceiver;
+ntp_promo.mojom.NtpPromoClientPtr = ntp_promo.mojom.NtpPromoClientRemote;
+ntp_promo.mojom.NtpPromoClientRequest = ntp_promo.mojom.NtpPromoClientPendingReceiver;
 
 
 // Interface: NtpPromoHandlerFactory
-ntp_promo.mojom.mojom.NtpPromoHandlerFactory = {};
+ntp_promo.mojom.NtpPromoHandlerFactory = {};
 
-ntp_promo.mojom.mojom.NtpPromoHandlerFactoryPendingReceiver = class {
+ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ntp_promo.mojom.NtpPromoClientRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ntp_promo.mojom.NtpPromoHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRemote = class {
+ntp_promo.mojom.NtpPromoHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ntp_promo.mojom.NtpPromoHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ntp_promo.mojom.mojom.NtpPromoHandlerFactoryPendingReceiver,
+      ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -364,7 +479,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRemote = class {
   }
 };
 
-ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRemoteCallHandler = class {
+ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -373,15 +488,15 @@ ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp_promo.mojom.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec,
+      ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec,
       null,
       [client, handler]);
   }
 
 };
 
-ntp_promo.mojom.mojom.NtpPromoHandlerFactory.getRemote = function() {
-  let remote = new ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRemote();
+ntp_promo.mojom.NtpPromoHandlerFactory.getRemote = function() {
+  let remote = new ntp_promo.mojom.NtpPromoHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -391,7 +506,7 @@ ntp_promo.mojom.mojom.NtpPromoHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateNtpPromoHandler
-ntp_promo.mojom.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
+ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandlerFactory.CreateNtpPromoHandler_Params',
@@ -406,6 +521,6 @@ ntp_promo.mojom.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = 
 };
 
 // Legacy compatibility
-ntp_promo.mojom.mojom.NtpPromoHandlerFactoryPtr = ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRemote;
-ntp_promo.mojom.mojom.NtpPromoHandlerFactoryRequest = ntp_promo.mojom.mojom.NtpPromoHandlerFactoryPendingReceiver;
+ntp_promo.mojom.NtpPromoHandlerFactoryPtr = ntp_promo.mojom.NtpPromoHandlerFactoryRemote;
+ntp_promo.mojom.NtpPromoHandlerFactoryRequest = ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver;
 

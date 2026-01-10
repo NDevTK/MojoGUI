@@ -12,7 +12,7 @@ var ui = ui || {};
 
 
 // Struct: AXBitsetData
-ax.mojom.mojom.AXBitsetDataSpec = {
+ax.mojom.AXBitsetDataSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXBitsetData',
@@ -27,7 +27,7 @@ ax.mojom.mojom.AXBitsetDataSpec = {
 };
 
 // Struct: AXNodeData
-ax.mojom.mojom.AXNodeDataSpec = {
+ax.mojom.AXNodeDataSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXNodeData',

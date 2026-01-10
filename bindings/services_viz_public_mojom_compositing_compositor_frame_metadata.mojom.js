@@ -21,7 +21,7 @@ var ui = ui || {};
 
 
 // Struct: CompositorFrameMetadata
-viz.mojom.mojom.CompositorFrameMetadataSpec = {
+viz.mojom.CompositorFrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameMetadata',

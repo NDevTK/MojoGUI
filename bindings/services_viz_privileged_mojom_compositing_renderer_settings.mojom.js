@@ -13,10 +13,10 @@ var ui = ui || {};
 var gfx = gfx || {};
 
 
-viz.mojom.mojom.kInvalidDisplayId = -1;
+viz.mojom.kInvalidDisplayId = -1;
 
 // Struct: OcclusionCullerSettings
-viz.mojom.mojom.OcclusionCullerSettingsSpec = {
+viz.mojom.OcclusionCullerSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OcclusionCullerSettings',
@@ -33,7 +33,7 @@ viz.mojom.mojom.OcclusionCullerSettingsSpec = {
 };
 
 // Struct: RendererSettings
-viz.mojom.mojom.RendererSettingsSpec = {
+viz.mojom.RendererSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RendererSettings',
@@ -59,7 +59,7 @@ viz.mojom.mojom.RendererSettingsSpec = {
 };
 
 // Struct: DebugRendererSettings
-viz.mojom.mojom.DebugRendererSettingsSpec = {
+viz.mojom.DebugRendererSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DebugRendererSettings',

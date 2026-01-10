@@ -10,39 +10,39 @@ storage.mojom = storage.mojom || {};
 
 
 // Enum: GetEntriesMode
-storage.mojom.mojom.GetEntriesMode = {
+storage.mojom.GetEntriesMode = {
   kFilesOnly: 0,
   kFilesAndDirectories: 1,
 };
-storage.mojom.mojom.GetEntriesModeSpec = { $: mojo.internal.Enum() };
+storage.mojom.GetEntriesModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileOpenMode
-storage.mojom.mojom.FileOpenMode = {
+storage.mojom.FileOpenMode = {
   kOpenIfExists: 0,
   kCreateAndOpenOnlyIfNotExists: 1,
   kAlwaysOpen: 2,
   kAlwaysCreate: 3,
   kOpenIfExistsAndTruncate: 4,
 };
-storage.mojom.mojom.FileOpenModeSpec = { $: mojo.internal.Enum() };
+storage.mojom.FileOpenModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileReadAccess
-storage.mojom.mojom.FileReadAccess = {
+storage.mojom.FileReadAccess = {
   kReadNotAllowed: 0,
   kReadAllowed: 1,
 };
-storage.mojom.mojom.FileReadAccessSpec = { $: mojo.internal.Enum() };
+storage.mojom.FileReadAccessSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileWriteAccess
-storage.mojom.mojom.FileWriteAccess = {
+storage.mojom.FileWriteAccess = {
   kWriteNotAllowed: 0,
   kWriteAllowed: 1,
   kAppendOnly: 2,
 };
-storage.mojom.mojom.FileWriteAccessSpec = { $: mojo.internal.Enum() };
+storage.mojom.FileWriteAccessSpec = { $: mojo.internal.Enum() };
 
 // Struct: StrictRelativePath
-storage.mojom.mojom.StrictRelativePathSpec = {
+storage.mojom.StrictRelativePathSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StrictRelativePath',
@@ -56,7 +56,7 @@ storage.mojom.mojom.StrictRelativePathSpec = {
 };
 
 // Struct: PathAccessInfo
-storage.mojom.mojom.PathAccessInfoSpec = {
+storage.mojom.PathAccessInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.PathAccessInfo',
@@ -71,24 +71,36 @@ storage.mojom.mojom.PathAccessInfoSpec = {
 };
 
 // Interface: FileLock
-storage.mojom.mojom.FileLock = {};
+storage.mojom.FileLock = {};
 
-storage.mojom.mojom.FileLockPendingReceiver = class {
+storage.mojom.FileLock_Release_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.FileLock_Release_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+storage.mojom.FileLockPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.FileLockRemote = class {
+storage.mojom.FileLockRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.FileLock';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.FileLockPendingReceiver,
+      storage.mojom.FileLockPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.FileLockRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.FileLockRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -100,7 +112,7 @@ storage.mojom.mojom.FileLockRemote = class {
   }
 };
 
-storage.mojom.mojom.FileLockRemoteCallHandler = class {
+storage.mojom.FileLockRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -109,15 +121,15 @@ storage.mojom.mojom.FileLockRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.FileLock_Release_ParamsSpec,
-      storage.mojom.mojom.FileLock_Release_ResponseParamsSpec,
+      storage.mojom.FileLock_Release_ParamsSpec,
+      storage.mojom.FileLock_Release_ResponseParamsSpec,
       []);
   }
 
 };
 
-storage.mojom.mojom.FileLock.getRemote = function() {
-  let remote = new storage.mojom.mojom.FileLockRemote();
+storage.mojom.FileLock.getRemote = function() {
+  let remote = new storage.mojom.FileLockRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -127,7 +139,7 @@ storage.mojom.mojom.FileLock.getRemote = function() {
 };
 
 // ParamsSpec for Release
-storage.mojom.mojom.FileLock_Release_ParamsSpec = {
+storage.mojom.FileLock_Release_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.FileLock.Release_Params',
@@ -139,7 +151,7 @@ storage.mojom.mojom.FileLock_Release_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.FileLock_Release_ResponseParamsSpec = {
+storage.mojom.FileLock_Release_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.FileLock.Release_ResponseParams',
@@ -153,29 +165,164 @@ storage.mojom.mojom.FileLock_Release_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.FileLockPtr = storage.mojom.mojom.FileLockRemote;
-storage.mojom.mojom.FileLockRequest = storage.mojom.mojom.FileLockPendingReceiver;
+storage.mojom.FileLockPtr = storage.mojom.FileLockRemote;
+storage.mojom.FileLockRequest = storage.mojom.FileLockPendingReceiver;
 
 
 // Interface: Directory
-storage.mojom.mojom.Directory = {};
+storage.mojom.Directory = {};
 
-storage.mojom.mojom.DirectoryPendingReceiver = class {
+storage.mojom.Directory_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.Directory_PathExists_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_PathExists_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.Directory_GetEntries_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_GetEntries_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.GetEntriesModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.Directory_OpenFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_OpenFile_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.FileOpenModeSpec, nullable: false, minVersion: 0 },
+        { name: 'read_access', packedOffset: 12, packedBitOffset: 0, type: storage.mojom.FileReadAccessSpec, nullable: false, minVersion: 0 },
+        { name: 'write_access', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.FileWriteAccessSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+storage.mojom.Directory_CreateDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_CreateDirectory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.Directory_DeleteFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_DeleteFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.Directory_GetFileInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_GetFileInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.Directory_GetPathAccess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_GetPathAccess_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.Directory_RenameFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_RenameFile_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'old_path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+        { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+storage.mojom.Directory_LockFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.Directory_LockFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.StrictRelativePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+storage.mojom.DirectoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.mojom.DirectoryRemote = class {
+storage.mojom.DirectoryRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.Directory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.mojom.DirectoryPendingReceiver,
+      storage.mojom.DirectoryPendingReceiver,
       handle);
-    this.$ = new storage.mojom.mojom.DirectoryRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.DirectoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -187,7 +334,7 @@ storage.mojom.mojom.DirectoryRemote = class {
   }
 };
 
-storage.mojom.mojom.DirectoryRemoteCallHandler = class {
+storage.mojom.DirectoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -196,7 +343,7 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.mojom.Directory_Clone_ParamsSpec,
+      storage.mojom.Directory_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -205,8 +352,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.mojom.Directory_PathExists_ParamsSpec,
-      storage.mojom.mojom.Directory_PathExists_ResponseParamsSpec,
+      storage.mojom.Directory_PathExists_ParamsSpec,
+      storage.mojom.Directory_PathExists_ResponseParamsSpec,
       [path]);
   }
 
@@ -214,8 +361,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.mojom.Directory_GetEntries_ParamsSpec,
-      storage.mojom.mojom.Directory_GetEntries_ResponseParamsSpec,
+      storage.mojom.Directory_GetEntries_ParamsSpec,
+      storage.mojom.Directory_GetEntries_ResponseParamsSpec,
       [path, mode]);
   }
 
@@ -223,8 +370,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.mojom.Directory_OpenFile_ParamsSpec,
-      storage.mojom.mojom.Directory_OpenFile_ResponseParamsSpec,
+      storage.mojom.Directory_OpenFile_ParamsSpec,
+      storage.mojom.Directory_OpenFile_ResponseParamsSpec,
       [path, mode, read_access, write_access]);
   }
 
@@ -232,8 +379,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.mojom.Directory_CreateDirectory_ParamsSpec,
-      storage.mojom.mojom.Directory_CreateDirectory_ResponseParamsSpec,
+      storage.mojom.Directory_CreateDirectory_ParamsSpec,
+      storage.mojom.Directory_CreateDirectory_ResponseParamsSpec,
       [path]);
   }
 
@@ -241,8 +388,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.mojom.Directory_DeleteFile_ParamsSpec,
-      storage.mojom.mojom.Directory_DeleteFile_ResponseParamsSpec,
+      storage.mojom.Directory_DeleteFile_ParamsSpec,
+      storage.mojom.Directory_DeleteFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -250,8 +397,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.mojom.Directory_GetFileInfo_ParamsSpec,
-      storage.mojom.mojom.Directory_GetFileInfo_ResponseParamsSpec,
+      storage.mojom.Directory_GetFileInfo_ParamsSpec,
+      storage.mojom.Directory_GetFileInfo_ResponseParamsSpec,
       [path]);
   }
 
@@ -259,8 +406,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.mojom.Directory_GetPathAccess_ParamsSpec,
-      storage.mojom.mojom.Directory_GetPathAccess_ResponseParamsSpec,
+      storage.mojom.Directory_GetPathAccess_ParamsSpec,
+      storage.mojom.Directory_GetPathAccess_ResponseParamsSpec,
       [path]);
   }
 
@@ -268,8 +415,8 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.mojom.Directory_RenameFile_ParamsSpec,
-      storage.mojom.mojom.Directory_RenameFile_ResponseParamsSpec,
+      storage.mojom.Directory_RenameFile_ParamsSpec,
+      storage.mojom.Directory_RenameFile_ResponseParamsSpec,
       [old_path, new_path]);
   }
 
@@ -277,15 +424,15 @@ storage.mojom.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      storage.mojom.mojom.Directory_LockFile_ParamsSpec,
-      storage.mojom.mojom.Directory_LockFile_ResponseParamsSpec,
+      storage.mojom.Directory_LockFile_ParamsSpec,
+      storage.mojom.Directory_LockFile_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-storage.mojom.mojom.Directory.getRemote = function() {
-  let remote = new storage.mojom.mojom.DirectoryRemote();
+storage.mojom.Directory.getRemote = function() {
+  let remote = new storage.mojom.DirectoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -295,7 +442,7 @@ storage.mojom.mojom.Directory.getRemote = function() {
 };
 
 // ParamsSpec for Clone
-storage.mojom.mojom.Directory_Clone_ParamsSpec = {
+storage.mojom.Directory_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.Clone_Params',
@@ -309,7 +456,7 @@ storage.mojom.mojom.Directory_Clone_ParamsSpec = {
 };
 
 // ParamsSpec for PathExists
-storage.mojom.mojom.Directory_PathExists_ParamsSpec = {
+storage.mojom.Directory_PathExists_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.PathExists_Params',
@@ -322,7 +469,7 @@ storage.mojom.mojom.Directory_PathExists_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_PathExists_ResponseParamsSpec = {
+storage.mojom.Directory_PathExists_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.PathExists_ResponseParams',
@@ -336,7 +483,7 @@ storage.mojom.mojom.Directory_PathExists_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetEntries
-storage.mojom.mojom.Directory_GetEntries_ParamsSpec = {
+storage.mojom.Directory_GetEntries_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.GetEntries_Params',
@@ -350,7 +497,7 @@ storage.mojom.mojom.Directory_GetEntries_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_GetEntries_ResponseParamsSpec = {
+storage.mojom.Directory_GetEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.GetEntries_ResponseParams',
@@ -365,7 +512,7 @@ storage.mojom.mojom.Directory_GetEntries_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenFile
-storage.mojom.mojom.Directory_OpenFile_ParamsSpec = {
+storage.mojom.Directory_OpenFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.OpenFile_Params',
@@ -381,7 +528,7 @@ storage.mojom.mojom.Directory_OpenFile_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_OpenFile_ResponseParamsSpec = {
+storage.mojom.Directory_OpenFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.OpenFile_ResponseParams',
@@ -396,7 +543,7 @@ storage.mojom.mojom.Directory_OpenFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateDirectory
-storage.mojom.mojom.Directory_CreateDirectory_ParamsSpec = {
+storage.mojom.Directory_CreateDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.CreateDirectory_Params',
@@ -409,7 +556,7 @@ storage.mojom.mojom.Directory_CreateDirectory_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_CreateDirectory_ResponseParamsSpec = {
+storage.mojom.Directory_CreateDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.CreateDirectory_ResponseParams',
@@ -423,7 +570,7 @@ storage.mojom.mojom.Directory_CreateDirectory_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteFile
-storage.mojom.mojom.Directory_DeleteFile_ParamsSpec = {
+storage.mojom.Directory_DeleteFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.DeleteFile_Params',
@@ -436,7 +583,7 @@ storage.mojom.mojom.Directory_DeleteFile_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_DeleteFile_ResponseParamsSpec = {
+storage.mojom.Directory_DeleteFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.DeleteFile_ResponseParams',
@@ -450,7 +597,7 @@ storage.mojom.mojom.Directory_DeleteFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetFileInfo
-storage.mojom.mojom.Directory_GetFileInfo_ParamsSpec = {
+storage.mojom.Directory_GetFileInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.GetFileInfo_Params',
@@ -463,7 +610,7 @@ storage.mojom.mojom.Directory_GetFileInfo_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_GetFileInfo_ResponseParamsSpec = {
+storage.mojom.Directory_GetFileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.GetFileInfo_ResponseParams',
@@ -477,7 +624,7 @@ storage.mojom.mojom.Directory_GetFileInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetPathAccess
-storage.mojom.mojom.Directory_GetPathAccess_ParamsSpec = {
+storage.mojom.Directory_GetPathAccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.GetPathAccess_Params',
@@ -490,7 +637,7 @@ storage.mojom.mojom.Directory_GetPathAccess_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_GetPathAccess_ResponseParamsSpec = {
+storage.mojom.Directory_GetPathAccess_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.GetPathAccess_ResponseParams',
@@ -504,7 +651,7 @@ storage.mojom.mojom.Directory_GetPathAccess_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RenameFile
-storage.mojom.mojom.Directory_RenameFile_ParamsSpec = {
+storage.mojom.Directory_RenameFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.RenameFile_Params',
@@ -518,7 +665,7 @@ storage.mojom.mojom.Directory_RenameFile_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_RenameFile_ResponseParamsSpec = {
+storage.mojom.Directory_RenameFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.RenameFile_ResponseParams',
@@ -532,7 +679,7 @@ storage.mojom.mojom.Directory_RenameFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LockFile
-storage.mojom.mojom.Directory_LockFile_ParamsSpec = {
+storage.mojom.Directory_LockFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.LockFile_Params',
@@ -545,7 +692,7 @@ storage.mojom.mojom.Directory_LockFile_ParamsSpec = {
   }
 };
 
-storage.mojom.mojom.Directory_LockFile_ResponseParamsSpec = {
+storage.mojom.Directory_LockFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.Directory.LockFile_ResponseParams',
@@ -560,6 +707,6 @@ storage.mojom.mojom.Directory_LockFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.mojom.DirectoryPtr = storage.mojom.mojom.DirectoryRemote;
-storage.mojom.mojom.DirectoryRequest = storage.mojom.mojom.DirectoryPendingReceiver;
+storage.mojom.DirectoryPtr = storage.mojom.DirectoryRemote;
+storage.mojom.DirectoryRequest = storage.mojom.DirectoryPendingReceiver;
 

@@ -10,11 +10,11 @@ proximity_auth.mojom = proximity_auth.mojom || {};
 
 
 // Enum: AuthType
-proximity_auth.mojom.mojom.AuthType = {
+proximity_auth.mojom.AuthType = {
   OFFLINE_PASSWORD: 0,
   ONLINE_SIGN_IN: 1,
   USER_CLICK: 2,
   EXPAND_THEN_USER_CLICK: 3,
   FORCE_OFFLINE_PASSWORD: 4,
 };
-proximity_auth.mojom.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };
+proximity_auth.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };

@@ -10,7 +10,7 @@ smbfs.mojom = smbfs.mojom || {};
 
 
 // Struct: IPAddress
-smbfs.mojom.mojom.IPAddressSpec = {
+smbfs.mojom.IPAddressSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.IPAddress',

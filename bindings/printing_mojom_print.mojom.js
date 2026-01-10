@@ -10,7 +10,7 @@ printing.mojom = printing.mojom || {};
 
 
 // Enum: ColorModel
-printing.mojom.mojom.ColorModel = {
+printing.mojom.ColorModel = {
   kUnknownColorModel: 0,
   kGray: 1,
   kColor: 2,
@@ -55,28 +55,28 @@ printing.mojom.mojom.ColorModel = {
   kHpPjlColorAsGrayNo: 41,
   kHpPjlColorAsGrayYes: 42,
 };
-printing.mojom.mojom.ColorModelSpec = { $: mojo.internal.Enum() };
+printing.mojom.ColorModelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Quality
-printing.mojom.mojom.Quality = {
+printing.mojom.Quality = {
   kUnknownQuality: 0,
   kDraft: 1,
   kNormal: 2,
   kHigh: 3,
 };
-printing.mojom.mojom.QualitySpec = { $: mojo.internal.Enum() };
+printing.mojom.QualitySpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexMode
-printing.mojom.mojom.DuplexMode = {
+printing.mojom.DuplexMode = {
   kUnknownDuplexMode: 0,
   kSimplex: 1,
   kLongEdge: 2,
   kShortEdge: 3,
 };
-printing.mojom.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
+printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintScalingType
-printing.mojom.mojom.PrintScalingType = {
+printing.mojom.PrintScalingType = {
   kUnknownPrintScalingType: 0,
   kAuto: 1,
   kAutoFit: 2,
@@ -84,119 +84,119 @@ printing.mojom.mojom.PrintScalingType = {
   kFill: 4,
   kNone: 5,
 };
-printing.mojom.mojom.PrintScalingTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.PrintScalingTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageOrientation
-printing.mojom.mojom.PageOrientation = {
+printing.mojom.PageOrientation = {
   kUpright: 0,
   kRotateLeft: 1,
   kRotateRight: 2,
 };
-printing.mojom.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
+printing.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintScalingOption
-printing.mojom.mojom.PrintScalingOption = {
+printing.mojom.PrintScalingOption = {
   kNone: 0,
   kFitToPrintableArea: 1,
   kSourceSize: 2,
   kFitToPaper: 3,
   kCenterShrinkToFitPaper: 4,
 };
-printing.mojom.mojom.PrintScalingOptionSpec = { $: mojo.internal.Enum() };
+printing.mojom.PrintScalingOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SkiaDocumentType
-printing.mojom.mojom.SkiaDocumentType = {
+printing.mojom.SkiaDocumentType = {
   kPDF: 0,
   kMSKP: 1,
 };
-printing.mojom.mojom.SkiaDocumentTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.SkiaDocumentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetafileDataType
-printing.mojom.mojom.MetafileDataType = {
+printing.mojom.MetafileDataType = {
   kPDF: 0,
 };
-printing.mojom.mojom.MetafileDataTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.MetafileDataTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GenerateDocumentOutline
-printing.mojom.mojom.GenerateDocumentOutline = {
+printing.mojom.GenerateDocumentOutline = {
   kNone: 0,
   kFromAccessibilityTreeHeaders: 1,
 };
-printing.mojom.mojom.GenerateDocumentOutlineSpec = { $: mojo.internal.Enum() };
+printing.mojom.GenerateDocumentOutlineSpec = { $: mojo.internal.Enum() };
 
 // Enum: MarginType
-printing.mojom.mojom.MarginType = {
+printing.mojom.MarginType = {
   kDefaultMargins: 0,
   kNoMargins: 1,
   kPrintableAreaMargins: 2,
   kCustomMargins: 3,
 };
-printing.mojom.mojom.MarginTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.MarginTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorModeRestriction
-printing.mojom.mojom.ColorModeRestriction = {
+printing.mojom.ColorModeRestriction = {
   kUnset: 0,
   kMonochrome: 1,
   kColor: 2,
 };
-printing.mojom.mojom.ColorModeRestrictionSpec = { $: mojo.internal.Enum() };
+printing.mojom.ColorModeRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexModeRestriction
-printing.mojom.mojom.DuplexModeRestriction = {
+printing.mojom.DuplexModeRestriction = {
   kUnset: 0,
   kSimplex: 1,
   kLongEdge: 2,
   kShortEdge: 3,
   kDuplex: 4,
 };
-printing.mojom.mojom.DuplexModeRestrictionSpec = { $: mojo.internal.Enum() };
+printing.mojom.DuplexModeRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: PinModeRestriction
-printing.mojom.mojom.PinModeRestriction = {
+printing.mojom.PinModeRestriction = {
   kUnset: 0,
   kPin: 1,
   kNoPin: 2,
 };
-printing.mojom.mojom.PinModeRestrictionSpec = { $: mojo.internal.Enum() };
+printing.mojom.PinModeRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResultCode
-printing.mojom.mojom.ResultCode = {
+printing.mojom.ResultCode = {
   kSuccess: 0,
   kFailed: 1,
   kAccessDenied: 2,
   kCanceled: 3,
 };
-printing.mojom.mojom.ResultCodeSpec = { $: mojo.internal.Enum() };
+printing.mojom.ResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrinterType
-printing.mojom.mojom.PrinterType = {
+printing.mojom.PrinterType = {
   kExtension: 0,
   kPdf: 1,
   kLocal: 2,
 };
-printing.mojom.mojom.PrinterTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.PrinterTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrinterLanguageType
-printing.mojom.mojom.PrinterLanguageType = {
+printing.mojom.PrinterLanguageType = {
   kNone: 0,
   kTextOnly: 1,
   kXps: 2,
   kPostscriptLevel2: 3,
   kPostscriptLevel3: 4,
 };
-printing.mojom.mojom.PrinterLanguageTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.PrinterLanguageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClientType
-printing.mojom.mojom.ClientType = {
+printing.mojom.ClientType = {
   kApplication: 0,
   kOperatingSystem: 1,
   kDriver: 2,
   kOther: 3,
 };
-printing.mojom.mojom.ClientTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.ClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PageSizeMargins
-printing.mojom.mojom.PageSizeMarginsSpec = {
+printing.mojom.PageSizeMarginsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PageSizeMargins',
@@ -215,7 +215,7 @@ printing.mojom.mojom.PageSizeMarginsSpec = {
 };
 
 // Struct: PageRange
-printing.mojom.mojom.PageRangeSpec = {
+printing.mojom.PageRangeSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PageRange',
@@ -230,7 +230,7 @@ printing.mojom.mojom.PageRangeSpec = {
 };
 
 // Struct: IppClientInfo
-printing.mojom.mojom.IppClientInfoSpec = {
+printing.mojom.IppClientInfoSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.IppClientInfo',

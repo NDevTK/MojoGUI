@@ -10,15 +10,15 @@ network.mojom = network.mojom || {};
 
 
 // Enum: OriginAgentClusterValue
-network.mojom.mojom.OriginAgentClusterValue = {
+network.mojom.OriginAgentClusterValue = {
   kAbsent: 0,
   kTrue: 1,
   kFalse: 2,
 };
-network.mojom.mojom.OriginAgentClusterValueSpec = { $: mojo.internal.Enum() };
+network.mojom.OriginAgentClusterValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: ParsedHeaders
-network.mojom.mojom.ParsedHeadersSpec = {
+network.mojom.ParsedHeadersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ParsedHeaders',

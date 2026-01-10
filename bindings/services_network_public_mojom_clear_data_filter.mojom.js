@@ -11,14 +11,14 @@ var url = url || {};
 
 
 // Enum: Type
-network.mojom.mojom.Type = {
+network.mojom.Type = {
   DELETE_MATCHES: 0,
   KEEP_MATCHES: 1,
 };
-network.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClearDataFilter
-network.mojom.mojom.ClearDataFilterSpec = {
+network.mojom.ClearDataFilterSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ClearDataFilter',

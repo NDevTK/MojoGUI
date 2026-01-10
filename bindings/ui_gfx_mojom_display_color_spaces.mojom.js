@@ -15,15 +15,15 @@ var gfx = gfx || {};
 
 
 // Enum: ContentColorUsage
-gfx.mojom.mojom.ContentColorUsage = {
+gfx.mojom.ContentColorUsage = {
   kSRGB: 0,
   kWideColorGamut: 1,
   kHDR: 2,
 };
-gfx.mojom.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayColorSpaces
-gfx.mojom.mojom.DisplayColorSpacesSpec = {
+gfx.mojom.DisplayColorSpacesSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DisplayColorSpaces',

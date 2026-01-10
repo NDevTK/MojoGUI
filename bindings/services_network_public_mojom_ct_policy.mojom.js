@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: CTPolicy
-network.mojom.mojom.CTPolicySpec = {
+network.mojom.CTPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CTPolicy',

@@ -7,29 +7,174 @@
 // Module namespace
 var ash = ash || {};
 ash.projector = ash.projector || {};
-ash.projector.projector.mojom = ash.projector.projector.mojom || {};
+ash.projector.mojom = ash.projector.mojom || {};
 var url = url || {};
 
 
 // Interface: UntrustedProjectorPageHandler
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler = {};
+ash.projector.mojom.UntrustedProjectorPageHandler = {};
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerPendingReceiver = class {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'pref', packedOffset: 16, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'storage_dir_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'method', packedOffset: 32, packedBitOffset: 0, type: ash.projector.mojom.RequestTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'request_body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'use_credentials', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_api_key', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'account_email', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'video_file_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'resource_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemote = class {
+ash.projector.mojom.UntrustedProjectorPageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.projector.mojom.UntrustedProjectorPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerPendingReceiver,
+      ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +186,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemote = class 
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
+ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +195,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
       []);
   }
 
@@ -59,8 +204,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
       []);
   }
 
@@ -68,8 +213,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
       []);
   }
 
@@ -77,8 +222,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
       []);
   }
 
@@ -86,8 +231,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
       [pref]);
   }
 
@@ -95,7 +240,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
       null,
       [pref, value]);
   }
@@ -104,7 +249,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
       null,
       []);
   }
@@ -113,8 +258,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
       [storage_dir_name]);
   }
 
@@ -122,8 +267,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
       [url, method, request_body, use_credentials, use_api_key, headers, account_email]);
   }
 
@@ -131,8 +276,8 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
       []);
   }
 
@@ -140,15 +285,15 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemoteCallHandl
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
       [video_file_id, resource_key]);
   }
 
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler.getRemote = function() {
-  let remote = new ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemote();
+ash.projector.mojom.UntrustedProjectorPageHandler.getRemote = function() {
+  let remote = new ash.projector.mojom.UntrustedProjectorPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -158,7 +303,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler.getRemote = fu
 };
 
 // ParamsSpec for GetNewScreencastPrecondition
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetNewScreencastPrecondition_Params',
@@ -170,7 +315,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetNewScreenca
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetNewScreencastPrecondition_ResponseParams',
@@ -184,7 +329,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetNewScreenca
 };
 
 // ParamsSpec for ShouldDownloadSoda
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.ShouldDownloadSoda_Params',
@@ -196,7 +341,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_ShouldDownload
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.ShouldDownloadSoda_ResponseParams',
@@ -210,7 +355,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_ShouldDownload
 };
 
 // ParamsSpec for InstallSoda
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.InstallSoda_Params',
@@ -222,7 +367,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_InstallSoda_Pa
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.InstallSoda_ResponseParams',
@@ -236,7 +381,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_InstallSoda_Re
 };
 
 // ParamsSpec for GetPendingScreencasts
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetPendingScreencasts_Params',
@@ -248,7 +393,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetPendingScre
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetPendingScreencasts_ResponseParams',
@@ -262,7 +407,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetPendingScre
 };
 
 // ParamsSpec for GetUserPref
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetUserPref_Params',
@@ -275,7 +420,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetUserPref_Pa
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetUserPref_ResponseParams',
@@ -289,7 +434,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetUserPref_Re
 };
 
 // ParamsSpec for SetUserPref
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SetUserPref_Params',
@@ -304,7 +449,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SetUserPref_Pa
 };
 
 // ParamsSpec for OpenFeedbackDialog
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.OpenFeedbackDialog_Params',
@@ -317,7 +462,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_OpenFeedbackDi
 };
 
 // ParamsSpec for StartProjectorSession
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.StartProjectorSession_Params',
@@ -330,7 +475,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_StartProjector
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.StartProjectorSession_ResponseParams',
@@ -344,7 +489,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_StartProjector
 };
 
 // ParamsSpec for SendXhr
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SendXhr_Params',
@@ -363,7 +508,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SendXhr_Params
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SendXhr_ResponseParams',
@@ -377,7 +522,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_SendXhr_Respon
 };
 
 // ParamsSpec for GetAccounts
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetAccounts_Params',
@@ -389,7 +534,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetAccounts_Pa
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetAccounts_ResponseParams',
@@ -403,7 +548,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetAccounts_Re
 };
 
 // ParamsSpec for GetVideo
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetVideo_Params',
@@ -417,7 +562,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetVideo_Param
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetVideo_ResponseParams',
@@ -431,29 +576,92 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandler_GetVideo_Respo
 };
 
 // Legacy compatibility
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerPtr = ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRemote;
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerRequest = ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerPendingReceiver;
+ash.projector.mojom.UntrustedProjectorPageHandlerPtr = ash.projector.mojom.UntrustedProjectorPageHandlerRemote;
+ash.projector.mojom.UntrustedProjectorPageHandlerRequest = ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver;
 
 
 // Interface: UntrustedProjectorPage
-ash.projector.projector.mojom.mojom.UntrustedProjectorPage = {};
+ash.projector.mojom.UntrustedProjectorPage = {};
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPagePendingReceiver = class {
+ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pending_screencasts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.projector.mojom.PendingScreencastSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemote = class {
+ash.projector.mojom.UntrustedProjectorPageRemote = class {
   static get $interfaceName() {
     return 'ash.projector.mojom.UntrustedProjectorPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPagePendingReceiver,
+      ash.projector.mojom.UntrustedProjectorPagePendingReceiver,
       handle);
-    this.$ = new ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemoteCallHandler(this.proxy);
+    this.$ = new ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -465,7 +673,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemote = class {
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemoteCallHandler = class {
+ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -474,7 +682,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
       null,
       [precondition]);
   }
@@ -483,7 +691,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
       null,
       [progress]);
   }
@@ -492,7 +700,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemoteCallHandler = cl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
       null,
       []);
   }
@@ -501,7 +709,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemoteCallHandler = cl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
       null,
       []);
   }
@@ -510,15 +718,15 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemoteCallHandler = cl
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
       null,
       [pending_screencasts]);
   }
 
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPage.getRemote = function() {
-  let remote = new ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemote();
+ash.projector.mojom.UntrustedProjectorPage.getRemote = function() {
+  let remote = new ash.projector.mojom.UntrustedProjectorPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -528,7 +736,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPage.getRemote = function(
 };
 
 // ParamsSpec for OnNewScreencastPreconditionChanged
-ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnNewScreencastPreconditionChanged_Params',
@@ -542,7 +750,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnNewScreencastPrecon
 };
 
 // ParamsSpec for OnSodaInstallProgressUpdated
-ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnSodaInstallProgressUpdated_Params',
@@ -556,7 +764,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstallProgress
 };
 
 // ParamsSpec for OnSodaInstalled
-ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnSodaInstalled_Params',
@@ -569,7 +777,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstalled_Param
 };
 
 // ParamsSpec for OnSodaInstallError
-ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnSodaInstallError_Params',
@@ -582,7 +790,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnSodaInstallError_Pa
 };
 
 // ParamsSpec for OnScreencastsStateChange
-ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnScreencastsStateChange_Params',
@@ -596,29 +804,43 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPage_OnScreencastsStateCha
 };
 
 // Legacy compatibility
-ash.projector.projector.mojom.mojom.UntrustedProjectorPagePtr = ash.projector.projector.mojom.mojom.UntrustedProjectorPageRemote;
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageRequest = ash.projector.projector.mojom.mojom.UntrustedProjectorPagePendingReceiver;
+ash.projector.mojom.UntrustedProjectorPagePtr = ash.projector.mojom.UntrustedProjectorPageRemote;
+ash.projector.mojom.UntrustedProjectorPageRequest = ash.projector.mojom.UntrustedProjectorPagePendingReceiver;
 
 
 // Interface: UntrustedProjectorPageHandlerFactory
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactory = {};
+ash.projector.mojom.UntrustedProjectorPageHandlerFactory = {};
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver = class {
+ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.projector.mojom.UntrustedProjectorPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.projector.mojom.UntrustedProjectorPageRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRemote = class {
+ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver,
+      ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -630,7 +852,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRemote =
   }
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = class {
+ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -639,15 +861,15 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRemoteCa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
       null,
       [handler, page]);
   }
 
 };
 
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactory.getRemote = function() {
-  let remote = new ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRemote();
+ash.projector.mojom.UntrustedProjectorPageHandlerFactory.getRemote = function() {
+  let remote = new ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -657,7 +879,7 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactory.getRemo
 };
 
 // ParamsSpec for Create
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = {
+ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory.Create_Params',
@@ -672,6 +894,6 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactory_Create_
 };
 
 // Legacy compatibility
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryPtr = ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRemote;
-ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryRequest = ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver;
+ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPtr = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote;
+ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRequest = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver;
 

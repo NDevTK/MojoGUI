@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Union: RegistrationHeaderErrorDetails
-attribution_reporting.mojom.mojom.RegistrationHeaderErrorDetailsSpec = { $: mojo.internal.Union(
+attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = { $: mojo.internal.Union(
     'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {
       'source_error': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ attribution_reporting.mojom.mojom.RegistrationHeaderErrorDetailsSpec = { $: mojo
 };
 
 // Struct: RegistrationHeaderError
-attribution_reporting.mojom.mojom.RegistrationHeaderErrorSpec = {
+attribution_reporting.mojom.RegistrationHeaderErrorSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.RegistrationHeaderError',

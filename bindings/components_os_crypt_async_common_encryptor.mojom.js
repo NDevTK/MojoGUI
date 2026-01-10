@@ -10,7 +10,7 @@ os_crypt_async.mojom = os_crypt_async.mojom || {};
 
 
 // Struct: Key
-os_crypt_async.mojom.mojom.KeySpec = {
+os_crypt_async.mojom.KeySpec = {
   $: {
     structSpec: {
       name: 'os_crypt_async.mojom.Key',
@@ -25,7 +25,7 @@ os_crypt_async.mojom.mojom.KeySpec = {
 };
 
 // Struct: Encryptor
-os_crypt_async.mojom.mojom.EncryptorSpec = {
+os_crypt_async.mojom.EncryptorSpec = {
   $: {
     structSpec: {
       name: 'os_crypt_async.mojom.Encryptor',

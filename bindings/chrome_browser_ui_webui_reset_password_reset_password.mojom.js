@@ -11,6 +11,18 @@ var mojom = mojom || {};
 // Interface: ResetPasswordHandler
 mojom.ResetPasswordHandler = {};
 
+mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ResetPasswordHandler_HandlePasswordReset_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
 mojom.ResetPasswordHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

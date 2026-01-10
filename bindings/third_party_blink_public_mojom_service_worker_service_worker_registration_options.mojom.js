@@ -12,15 +12,15 @@ var url = url || {};
 
 
 // Enum: ServiceWorkerUpdateViaCache
-blink.mojom.mojom.ServiceWorkerUpdateViaCache = {
+blink.mojom.ServiceWorkerUpdateViaCache = {
   kImports: 0,
   kAll: 1,
   kNone: 2,
 };
-blink.mojom.mojom.ServiceWorkerUpdateViaCacheSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerUpdateViaCacheSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerRegistrationOptions
-blink.mojom.mojom.ServiceWorkerRegistrationOptionsSpec = {
+blink.mojom.ServiceWorkerRegistrationOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationOptions',

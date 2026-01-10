@@ -10,7 +10,7 @@ ntp_tiles.mojom = ntp_tiles.mojom || {};
 
 
 // Enum: TileSource
-ntp_tiles.mojom.mojom.TileSource = {
+ntp_tiles.mojom.TileSource = {
   TOP_SITES: 0,
   POPULAR: 1,
   POPULAR_BAKED_IN: 2,
@@ -19,4 +19,4 @@ ntp_tiles.mojom.mojom.TileSource = {
   HOMEPAGE: 5,
   ENTERPRISE_SHORTCUTS: 6,
 };
-ntp_tiles.mojom.mojom.TileSourceSpec = { $: mojo.internal.Enum() };
+ntp_tiles.mojom.TileSourceSpec = { $: mojo.internal.Enum() };

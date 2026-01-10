@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.ime.mojom = ash.ime.ime.mojom || {};
+ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Union: JapaneseDictionaryResponse
-ash.ime.ime.mojom.mojom.JapaneseDictionaryResponseSpec = { $: mojo.internal.Union(
+ash.ime.mojom.JapaneseDictionaryResponseSpec = { $: mojo.internal.Union(
     'ash.ime.mojom.JapaneseDictionaryResponse', {
       'error_reason': {
         'ordinal': 0,
@@ -25,7 +25,7 @@ ash.ime.ime.mojom.mojom.JapaneseDictionaryResponseSpec = { $: mojo.internal.Unio
 };
 
 // Struct: Status
-ash.ime.ime.mojom.mojom.StatusSpec = {
+ash.ime.mojom.StatusSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.Status',
@@ -40,24 +40,160 @@ ash.ime.ime.mojom.mojom.StatusSpec = {
 };
 
 // Interface: InputMethodUserDataService
-ash.ime.ime.mojom.mojom.InputMethodUserDataService = {};
+ash.ime.mojom.InputMethodUserDataService = {};
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataServicePendingReceiver = class {
+ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'entry_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'entry_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'dictionary_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'dictionary_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'tsv_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'clear_conversion_history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'clear_suggestion_history', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.InputMethodUserDataServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemote = class {
+ash.ime.mojom.InputMethodUserDataServiceRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.InputMethodUserDataService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.ime.mojom.mojom.InputMethodUserDataServicePendingReceiver,
+      ash.ime.mojom.InputMethodUserDataServicePendingReceiver,
       handle);
-    this.$ = new ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +205,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemote = class {
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
+ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,8 +214,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec,
       []);
   }
 
@@ -87,8 +223,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec,
       [dict_id, entry]);
   }
 
@@ -96,8 +232,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec,
       [dict_id, entry_index, entry]);
   }
 
@@ -105,8 +241,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec,
       [dict_id, entry_index]);
   }
 
@@ -114,8 +250,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec,
       [dictionary_name]);
   }
 
@@ -123,8 +259,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec,
       [dict_id, dictionary_name]);
   }
 
@@ -132,8 +268,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec,
       [dict_id]);
   }
 
@@ -141,8 +277,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec,
       [dict_id]);
   }
 
@@ -150,8 +286,8 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec,
       [dict_id, tsv_data]);
   }
 
@@ -159,15 +295,15 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec,
-      ash.ime.ime.mojom.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec,
       [clear_conversion_history, clear_suggestion_history]);
   }
 
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService.getRemote = function() {
-  let remote = new ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemote();
+ash.ime.mojom.InputMethodUserDataService.getRemote = function() {
+  let remote = new ash.ime.mojom.InputMethodUserDataServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -177,7 +313,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService.getRemote = function() {
 };
 
 // ParamsSpec for FetchJapaneseDictionary
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.FetchJapaneseDictionary_Params',
@@ -189,7 +325,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_FetchJapaneseDictionary_Param
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.FetchJapaneseDictionary_ResponseParams',
@@ -203,7 +339,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_FetchJapaneseDictionary_Respo
 };
 
 // ParamsSpec for AddJapaneseDictionaryEntry
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.AddJapaneseDictionaryEntry_Params',
@@ -217,7 +353,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_Pa
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.AddJapaneseDictionaryEntry_ResponseParams',
@@ -231,7 +367,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_Re
 };
 
 // ParamsSpec for EditJapaneseDictionaryEntry
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.EditJapaneseDictionaryEntry_Params',
@@ -246,7 +382,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_P
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.EditJapaneseDictionaryEntry_ResponseParams',
@@ -260,7 +396,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_R
 };
 
 // ParamsSpec for DeleteJapaneseDictionaryEntry
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionaryEntry_Params',
@@ -274,7 +410,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionaryEntry_ResponseParams',
@@ -288,7 +424,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry
 };
 
 // ParamsSpec for CreateJapaneseDictionary
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.CreateJapaneseDictionary_Params',
@@ -301,7 +437,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_CreateJapaneseDictionary_Para
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.CreateJapaneseDictionary_ResponseParams',
@@ -315,7 +451,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_CreateJapaneseDictionary_Resp
 };
 
 // ParamsSpec for RenameJapaneseDictionary
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.RenameJapaneseDictionary_Params',
@@ -329,7 +465,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_RenameJapaneseDictionary_Para
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.RenameJapaneseDictionary_ResponseParams',
@@ -343,7 +479,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_RenameJapaneseDictionary_Resp
 };
 
 // ParamsSpec for DeleteJapaneseDictionary
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionary_Params',
@@ -356,7 +492,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_Para
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionary_ResponseParams',
@@ -370,7 +506,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_Resp
 };
 
 // ParamsSpec for ExportJapaneseDictionary
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.ExportJapaneseDictionary_Params',
@@ -383,7 +519,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_ExportJapaneseDictionary_Para
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.ExportJapaneseDictionary_ResponseParams',
@@ -397,7 +533,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_ExportJapaneseDictionary_Resp
 };
 
 // ParamsSpec for ImportJapaneseDictionary
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.ImportJapaneseDictionary_Params',
@@ -411,7 +547,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_ImportJapaneseDictionary_Para
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.ImportJapaneseDictionary_ResponseParams',
@@ -425,7 +561,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_ImportJapaneseDictionary_Resp
 };
 
 // ParamsSpec for ClearJapanesePersonalizationData
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.ClearJapanesePersonalizationData_Params',
@@ -439,7 +575,7 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_ClearJapanesePersonalizationD
   }
 };
 
-ash.ime.ime.mojom.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec = {
+ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.ClearJapanesePersonalizationData_ResponseParams',
@@ -453,6 +589,6 @@ ash.ime.ime.mojom.mojom.InputMethodUserDataService_ClearJapanesePersonalizationD
 };
 
 // Legacy compatibility
-ash.ime.ime.mojom.mojom.InputMethodUserDataServicePtr = ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRemote;
-ash.ime.ime.mojom.mojom.InputMethodUserDataServiceRequest = ash.ime.ime.mojom.mojom.InputMethodUserDataServicePendingReceiver;
+ash.ime.mojom.InputMethodUserDataServicePtr = ash.ime.mojom.InputMethodUserDataServiceRemote;
+ash.ime.mojom.InputMethodUserDataServiceRequest = ash.ime.mojom.InputMethodUserDataServicePendingReceiver;
 

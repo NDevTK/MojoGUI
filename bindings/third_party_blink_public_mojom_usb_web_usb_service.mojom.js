@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: WebUsbRequestDeviceOptions
-blink.mojom.mojom.WebUsbRequestDeviceOptionsSpec = {
+blink.mojom.WebUsbRequestDeviceOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbRequestDeviceOptions',
@@ -25,24 +25,89 @@ blink.mojom.mojom.WebUsbRequestDeviceOptionsSpec = {
 };
 
 // Interface: WebUsbService
-blink.mojom.mojom.WebUsbService = {};
+blink.mojom.WebUsbService = {};
 
-blink.mojom.mojom.WebUsbServicePendingReceiver = class {
+blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebUsbService_GetDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebUsbService_GetDevice_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebUsbService_GetPermission_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebUsbRequestDeviceOptionsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebUsbService_ForgetDevice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.WebUsbService_SetClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebUsbService_SetClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.WebUsbServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.WebUsbServiceRemote = class {
+blink.mojom.WebUsbServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebUsbService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.WebUsbServicePendingReceiver,
+      blink.mojom.WebUsbServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.WebUsbServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.WebUsbServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +119,7 @@ blink.mojom.mojom.WebUsbServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.WebUsbServiceRemoteCallHandler = class {
+blink.mojom.WebUsbServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +128,8 @@ blink.mojom.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.WebUsbService_GetDevices_ParamsSpec,
-      blink.mojom.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
+      blink.mojom.WebUsbService_GetDevices_ParamsSpec,
+      blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -72,7 +137,7 @@ blink.mojom.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.WebUsbService_GetDevice_ParamsSpec,
+      blink.mojom.WebUsbService_GetDevice_ParamsSpec,
       null,
       [guid, device_receiver]);
   }
@@ -81,8 +146,8 @@ blink.mojom.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.WebUsbService_GetPermission_ParamsSpec,
-      blink.mojom.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
+      blink.mojom.WebUsbService_GetPermission_ParamsSpec,
+      blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
       [options]);
   }
 
@@ -90,7 +155,7 @@ blink.mojom.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.WebUsbService_ForgetDevice_ParamsSpec,
+      blink.mojom.WebUsbService_ForgetDevice_ParamsSpec,
       null,
       [guid]);
   }
@@ -99,15 +164,15 @@ blink.mojom.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.WebUsbService_SetClient_ParamsSpec,
+      blink.mojom.WebUsbService_SetClient_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-blink.mojom.mojom.WebUsbService.getRemote = function() {
-  let remote = new blink.mojom.mojom.WebUsbServiceRemote();
+blink.mojom.WebUsbService.getRemote = function() {
+  let remote = new blink.mojom.WebUsbServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -117,7 +182,7 @@ blink.mojom.mojom.WebUsbService.getRemote = function() {
 };
 
 // ParamsSpec for GetDevices
-blink.mojom.mojom.WebUsbService_GetDevices_ParamsSpec = {
+blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbService.GetDevices_Params',
@@ -129,7 +194,7 @@ blink.mojom.mojom.WebUsbService_GetDevices_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
+blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbService.GetDevices_ResponseParams',
@@ -143,7 +208,7 @@ blink.mojom.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDevice
-blink.mojom.mojom.WebUsbService_GetDevice_ParamsSpec = {
+blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbService.GetDevice_Params',
@@ -158,7 +223,7 @@ blink.mojom.mojom.WebUsbService_GetDevice_ParamsSpec = {
 };
 
 // ParamsSpec for GetPermission
-blink.mojom.mojom.WebUsbService_GetPermission_ParamsSpec = {
+blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbService.GetPermission_Params',
@@ -171,7 +236,7 @@ blink.mojom.mojom.WebUsbService_GetPermission_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
+blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbService.GetPermission_ResponseParams',
@@ -185,7 +250,7 @@ blink.mojom.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ForgetDevice
-blink.mojom.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
+blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbService.ForgetDevice_Params',
@@ -199,7 +264,7 @@ blink.mojom.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
 };
 
 // ParamsSpec for SetClient
-blink.mojom.mojom.WebUsbService_SetClient_ParamsSpec = {
+blink.mojom.WebUsbService_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbService.SetClient_Params',
@@ -213,6 +278,6 @@ blink.mojom.mojom.WebUsbService_SetClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.WebUsbServicePtr = blink.mojom.mojom.WebUsbServiceRemote;
-blink.mojom.mojom.WebUsbServiceRequest = blink.mojom.mojom.WebUsbServicePendingReceiver;
+blink.mojom.WebUsbServicePtr = blink.mojom.WebUsbServiceRemote;
+blink.mojom.WebUsbServiceRequest = blink.mojom.WebUsbServicePendingReceiver;
 

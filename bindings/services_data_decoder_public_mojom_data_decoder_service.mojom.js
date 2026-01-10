@@ -10,24 +10,115 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: DataDecoderService
-data_decoder.mojom.mojom.DataDecoderService = {};
+data_decoder.mojom.DataDecoderService = {};
 
-data_decoder.mojom.mojom.DataDecoderServicePendingReceiver = class {
+data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.DataDecoderService_BindImageDecoder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.ImageDecoderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.DataDecoderService_BindXmlParser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reciever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.XmlParserRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserFactoryRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.DataDecoderService_BindGzipper_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.GzipperRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.StructuredHeadersParserRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.DataDecoderService_BindCborParser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.CborParserRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.DataDecoderService_BindPixCodeValidator_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(payments.facilitated.mojom.PixCodeValidatorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+data_decoder.mojom.DataDecoderServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-data_decoder.mojom.mojom.DataDecoderServiceRemote = class {
+data_decoder.mojom.DataDecoderServiceRemote = class {
   static get $interfaceName() {
     return 'data_decoder.mojom.DataDecoderService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      data_decoder.mojom.mojom.DataDecoderServicePendingReceiver,
+      data_decoder.mojom.DataDecoderServicePendingReceiver,
       handle);
-    this.$ = new data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler(this.proxy);
+    this.$ = new data_decoder.mojom.DataDecoderServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +130,7 @@ data_decoder.mojom.mojom.DataDecoderServiceRemote = class {
   }
 };
 
-data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
+data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +139,7 @@ data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.mojom.DataDecoderService_BindImageDecoder_ParamsSpec,
+      data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +148,7 @@ data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_decoder.mojom.mojom.DataDecoderService_BindXmlParser_ParamsSpec,
+      data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec,
       null,
       [reciever]);
   }
@@ -66,7 +157,7 @@ data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_decoder.mojom.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec,
+      data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +166,7 @@ data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      data_decoder.mojom.mojom.DataDecoderService_BindGzipper_ParamsSpec,
+      data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec,
       null,
       [receiver]);
   }
@@ -84,7 +175,7 @@ data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      data_decoder.mojom.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec,
+      data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec,
       null,
       [receiver]);
   }
@@ -93,7 +184,7 @@ data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      data_decoder.mojom.mojom.DataDecoderService_BindCborParser_ParamsSpec,
+      data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec,
       null,
       [receiver]);
   }
@@ -102,15 +193,15 @@ data_decoder.mojom.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      data_decoder.mojom.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec,
+      data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-data_decoder.mojom.mojom.DataDecoderService.getRemote = function() {
-  let remote = new data_decoder.mojom.mojom.DataDecoderServiceRemote();
+data_decoder.mojom.DataDecoderService.getRemote = function() {
+  let remote = new data_decoder.mojom.DataDecoderServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +211,7 @@ data_decoder.mojom.mojom.DataDecoderService.getRemote = function() {
 };
 
 // ParamsSpec for BindImageDecoder
-data_decoder.mojom.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
+data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.DataDecoderService.BindImageDecoder_Params',
@@ -134,7 +225,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
 };
 
 // ParamsSpec for BindXmlParser
-data_decoder.mojom.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
+data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.DataDecoderService.BindXmlParser_Params',
@@ -148,7 +239,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
 };
 
 // ParamsSpec for BindWebBundleParserFactory
-data_decoder.mojom.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
+data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.DataDecoderService.BindWebBundleParserFactory_Params',
@@ -162,7 +253,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpe
 };
 
 // ParamsSpec for BindGzipper
-data_decoder.mojom.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
+data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.DataDecoderService.BindGzipper_Params',
@@ -176,7 +267,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
 };
 
 // ParamsSpec for BindStructuredHeadersParser
-data_decoder.mojom.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
+data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.DataDecoderService.BindStructuredHeadersParser_Params',
@@ -190,7 +281,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSp
 };
 
 // ParamsSpec for BindCborParser
-data_decoder.mojom.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
+data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.DataDecoderService.BindCborParser_Params',
@@ -204,7 +295,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
 };
 
 // ParamsSpec for BindPixCodeValidator
-data_decoder.mojom.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
+data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.DataDecoderService.BindPixCodeValidator_Params',
@@ -218,6 +309,6 @@ data_decoder.mojom.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
 };
 
 // Legacy compatibility
-data_decoder.mojom.mojom.DataDecoderServicePtr = data_decoder.mojom.mojom.DataDecoderServiceRemote;
-data_decoder.mojom.mojom.DataDecoderServiceRequest = data_decoder.mojom.mojom.DataDecoderServicePendingReceiver;
+data_decoder.mojom.DataDecoderServicePtr = data_decoder.mojom.DataDecoderServiceRemote;
+data_decoder.mojom.DataDecoderServiceRequest = data_decoder.mojom.DataDecoderServicePendingReceiver;
 

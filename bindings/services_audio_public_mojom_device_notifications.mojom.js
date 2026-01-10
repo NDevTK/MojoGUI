@@ -10,24 +10,36 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: DeviceListener
-audio.mojom.mojom.DeviceListener = {};
+audio.mojom.DeviceListener = {};
 
-audio.mojom.mojom.DeviceListenerPendingReceiver = class {
+audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.DeviceListener_DevicesChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+audio.mojom.DeviceListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.mojom.DeviceListenerRemote = class {
+audio.mojom.DeviceListenerRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.DeviceListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.mojom.DeviceListenerPendingReceiver,
+      audio.mojom.DeviceListenerPendingReceiver,
       handle);
-    this.$ = new audio.mojom.mojom.DeviceListenerRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.DeviceListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ audio.mojom.mojom.DeviceListenerRemote = class {
   }
 };
 
-audio.mojom.mojom.DeviceListenerRemoteCallHandler = class {
+audio.mojom.DeviceListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ audio.mojom.mojom.DeviceListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.mojom.DeviceListener_DevicesChanged_ParamsSpec,
+      audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-audio.mojom.mojom.DeviceListener.getRemote = function() {
-  let remote = new audio.mojom.mojom.DeviceListenerRemote();
+audio.mojom.DeviceListener.getRemote = function() {
+  let remote = new audio.mojom.DeviceListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ audio.mojom.mojom.DeviceListener.getRemote = function() {
 };
 
 // ParamsSpec for DevicesChanged
-audio.mojom.mojom.DeviceListener_DevicesChanged_ParamsSpec = {
+audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.DeviceListener.DevicesChanged_Params',
@@ -79,29 +91,42 @@ audio.mojom.mojom.DeviceListener_DevicesChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.mojom.DeviceListenerPtr = audio.mojom.mojom.DeviceListenerRemote;
-audio.mojom.mojom.DeviceListenerRequest = audio.mojom.mojom.DeviceListenerPendingReceiver;
+audio.mojom.DeviceListenerPtr = audio.mojom.DeviceListenerRemote;
+audio.mojom.DeviceListenerRequest = audio.mojom.DeviceListenerPendingReceiver;
 
 
 // Interface: DeviceNotifier
-audio.mojom.mojom.DeviceNotifier = {};
+audio.mojom.DeviceNotifier = {};
 
-audio.mojom.mojom.DeviceNotifierPendingReceiver = class {
+audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.DeviceNotifier_RegisterListener_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(audio.mojom.DeviceListenerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+audio.mojom.DeviceNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.mojom.DeviceNotifierRemote = class {
+audio.mojom.DeviceNotifierRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.DeviceNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.mojom.DeviceNotifierPendingReceiver,
+      audio.mojom.DeviceNotifierPendingReceiver,
       handle);
-    this.$ = new audio.mojom.mojom.DeviceNotifierRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.DeviceNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -113,7 +138,7 @@ audio.mojom.mojom.DeviceNotifierRemote = class {
   }
 };
 
-audio.mojom.mojom.DeviceNotifierRemoteCallHandler = class {
+audio.mojom.DeviceNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -122,15 +147,15 @@ audio.mojom.mojom.DeviceNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
+      audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-audio.mojom.mojom.DeviceNotifier.getRemote = function() {
-  let remote = new audio.mojom.mojom.DeviceNotifierRemote();
+audio.mojom.DeviceNotifier.getRemote = function() {
+  let remote = new audio.mojom.DeviceNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -140,7 +165,7 @@ audio.mojom.mojom.DeviceNotifier.getRemote = function() {
 };
 
 // ParamsSpec for RegisterListener
-audio.mojom.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
+audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.DeviceNotifier.RegisterListener_Params',
@@ -154,6 +179,6 @@ audio.mojom.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.mojom.DeviceNotifierPtr = audio.mojom.mojom.DeviceNotifierRemote;
-audio.mojom.mojom.DeviceNotifierRequest = audio.mojom.mojom.DeviceNotifierPendingReceiver;
+audio.mojom.DeviceNotifierPtr = audio.mojom.DeviceNotifierRemote;
+audio.mojom.DeviceNotifierRequest = audio.mojom.DeviceNotifierPendingReceiver;
 

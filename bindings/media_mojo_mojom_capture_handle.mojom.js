@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: CaptureHandle
-media.mojom.mojom.CaptureHandleSpec = {
+media.mojom.CaptureHandleSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CaptureHandle',

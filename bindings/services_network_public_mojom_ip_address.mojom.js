@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: IPAddress
-network.mojom.mojom.IPAddressSpec = {
+network.mojom.IPAddressSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.IPAddress',

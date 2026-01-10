@@ -10,24 +10,38 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ModelDownloadProgressObserver
-blink.mojom.mojom.ModelDownloadProgressObserver = {};
+blink.mojom.ModelDownloadProgressObserver = {};
 
-blink.mojom.mojom.ModelDownloadProgressObserverPendingReceiver = class {
+blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.ModelDownloadProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ModelDownloadProgressObserverRemote = class {
+blink.mojom.ModelDownloadProgressObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ModelDownloadProgressObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ModelDownloadProgressObserverPendingReceiver,
+      blink.mojom.ModelDownloadProgressObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ModelDownloadProgressObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ModelDownloadProgressObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +53,7 @@ blink.mojom.mojom.ModelDownloadProgressObserverRemote = class {
   }
 };
 
-blink.mojom.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
+blink.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +62,15 @@ blink.mojom.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec,
+      blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec,
       null,
       [downloaded_bytes, total_bytes]);
   }
 
 };
 
-blink.mojom.mojom.ModelDownloadProgressObserver.getRemote = function() {
-  let remote = new blink.mojom.mojom.ModelDownloadProgressObserverRemote();
+blink.mojom.ModelDownloadProgressObserver.getRemote = function() {
+  let remote = new blink.mojom.ModelDownloadProgressObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +80,7 @@ blink.mojom.mojom.ModelDownloadProgressObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnDownloadProgressUpdate
-blink.mojom.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = {
+blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ModelDownloadProgressObserver.OnDownloadProgressUpdate_Params',
@@ -81,6 +95,6 @@ blink.mojom.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsS
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ModelDownloadProgressObserverPtr = blink.mojom.mojom.ModelDownloadProgressObserverRemote;
-blink.mojom.mojom.ModelDownloadProgressObserverRequest = blink.mojom.mojom.ModelDownloadProgressObserverPendingReceiver;
+blink.mojom.ModelDownloadProgressObserverPtr = blink.mojom.ModelDownloadProgressObserverRemote;
+blink.mojom.ModelDownloadProgressObserverRequest = blink.mojom.ModelDownloadProgressObserverPendingReceiver;
 

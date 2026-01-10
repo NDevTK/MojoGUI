@@ -10,14 +10,14 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: SharedWorkerErrorType
-blink.mojom.mojom.SharedWorkerErrorType = {
+blink.mojom.SharedWorkerErrorType = {
   kParseError: 0,
   kRuntimeError: 1,
 };
-blink.mojom.mojom.SharedWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SharedWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SharedWorkerExceptionDetails
-blink.mojom.mojom.SharedWorkerExceptionDetailsSpec = {
+blink.mojom.SharedWorkerExceptionDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerExceptionDetails',

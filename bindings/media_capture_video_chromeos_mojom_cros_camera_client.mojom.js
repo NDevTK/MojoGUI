@@ -10,24 +10,37 @@ cros.mojom = cros.mojom || {};
 
 
 // Interface: CameraHalClient
-cros.mojom.mojom.CameraHalClient = {};
+cros.mojom.CameraHalClient = {};
 
-cros.mojom.mojom.CameraHalClientPendingReceiver = class {
+cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraHalClient_SetUpChannel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CameraHalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.mojom.CameraHalClientRemote = class {
+cros.mojom.CameraHalClientRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CameraHalClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.mojom.CameraHalClientPendingReceiver,
+      cros.mojom.CameraHalClientPendingReceiver,
       handle);
-    this.$ = new cros.mojom.mojom.CameraHalClientRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.CameraHalClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ cros.mojom.mojom.CameraHalClientRemote = class {
   }
 };
 
-cros.mojom.mojom.CameraHalClientRemoteCallHandler = class {
+cros.mojom.CameraHalClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ cros.mojom.mojom.CameraHalClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
+      cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
       null,
       [camera_module]);
   }
 
 };
 
-cros.mojom.mojom.CameraHalClient.getRemote = function() {
-  let remote = new cros.mojom.mojom.CameraHalClientRemote();
+cros.mojom.CameraHalClient.getRemote = function() {
+  let remote = new cros.mojom.CameraHalClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ cros.mojom.mojom.CameraHalClient.getRemote = function() {
 };
 
 // ParamsSpec for SetUpChannel
-cros.mojom.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
+cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraHalClient.SetUpChannel_Params',
@@ -80,6 +93,6 @@ cros.mojom.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.mojom.CameraHalClientPtr = cros.mojom.mojom.CameraHalClientRemote;
-cros.mojom.mojom.CameraHalClientRequest = cros.mojom.mojom.CameraHalClientPendingReceiver;
+cros.mojom.CameraHalClientPtr = cros.mojom.CameraHalClientRemote;
+cros.mojom.CameraHalClientRequest = cros.mojom.CameraHalClientPendingReceiver;
 

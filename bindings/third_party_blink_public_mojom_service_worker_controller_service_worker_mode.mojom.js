@@ -10,9 +10,9 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ControllerServiceWorkerMode
-blink.mojom.mojom.ControllerServiceWorkerMode = {
+blink.mojom.ControllerServiceWorkerMode = {
   kNoController: 0,
   kNoFetchEventHandler: 1,
   kControlled: 2,
 };
-blink.mojom.mojom.ControllerServiceWorkerModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ControllerServiceWorkerModeSpec = { $: mojo.internal.Enum() };

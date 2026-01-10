@@ -10,24 +10,74 @@ payments.mojom = payments.mojom || {};
 
 
 // Interface: DigitalGoods
-payments.mojom.mojom.DigitalGoods = {};
+payments.mojom.DigitalGoods = {};
 
-payments.mojom.mojom.DigitalGoodsPendingReceiver = class {
+payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods_GetDetails_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods_ListPurchases_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods_ListPurchaseHistory_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+payments.mojom.DigitalGoods_Consume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods_Consume_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.DigitalGoodsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.mojom.mojom.DigitalGoodsRemote = class {
+payments.mojom.DigitalGoodsRemote = class {
   static get $interfaceName() {
     return 'payments.mojom.DigitalGoods';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.mojom.mojom.DigitalGoodsPendingReceiver,
+      payments.mojom.DigitalGoodsPendingReceiver,
       handle);
-    this.$ = new payments.mojom.mojom.DigitalGoodsRemoteCallHandler(this.proxy);
+    this.$ = new payments.mojom.DigitalGoodsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +89,7 @@ payments.mojom.mojom.DigitalGoodsRemote = class {
   }
 };
 
-payments.mojom.mojom.DigitalGoodsRemoteCallHandler = class {
+payments.mojom.DigitalGoodsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +98,8 @@ payments.mojom.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.mojom.DigitalGoods_GetDetails_ParamsSpec,
-      payments.mojom.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
+      payments.mojom.DigitalGoods_GetDetails_ParamsSpec,
+      payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
       [item_ids]);
   }
 
@@ -57,8 +107,8 @@ payments.mojom.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.mojom.DigitalGoods_ListPurchases_ParamsSpec,
-      payments.mojom.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
+      payments.mojom.DigitalGoods_ListPurchases_ParamsSpec,
+      payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +116,8 @@ payments.mojom.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec,
-      payments.mojom.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
+      payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec,
+      payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
       []);
   }
 
@@ -75,15 +125,15 @@ payments.mojom.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      payments.mojom.mojom.DigitalGoods_Consume_ParamsSpec,
-      payments.mojom.mojom.DigitalGoods_Consume_ResponseParamsSpec,
+      payments.mojom.DigitalGoods_Consume_ParamsSpec,
+      payments.mojom.DigitalGoods_Consume_ResponseParamsSpec,
       [purchase_token]);
   }
 
 };
 
-payments.mojom.mojom.DigitalGoods.getRemote = function() {
-  let remote = new payments.mojom.mojom.DigitalGoodsRemote();
+payments.mojom.DigitalGoods.getRemote = function() {
+  let remote = new payments.mojom.DigitalGoodsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +143,7 @@ payments.mojom.mojom.DigitalGoods.getRemote = function() {
 };
 
 // ParamsSpec for GetDetails
-payments.mojom.mojom.DigitalGoods_GetDetails_ParamsSpec = {
+payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.GetDetails_Params',
@@ -106,7 +156,7 @@ payments.mojom.mojom.DigitalGoods_GetDetails_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
+payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.GetDetails_ResponseParams',
@@ -121,7 +171,7 @@ payments.mojom.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ListPurchases
-payments.mojom.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
+payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.ListPurchases_Params',
@@ -133,7 +183,7 @@ payments.mojom.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
+payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.ListPurchases_ResponseParams',
@@ -148,7 +198,7 @@ payments.mojom.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ListPurchaseHistory
-payments.mojom.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
+payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_Params',
@@ -160,7 +210,7 @@ payments.mojom.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
+payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_ResponseParams',
@@ -175,7 +225,7 @@ payments.mojom.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Consume
-payments.mojom.mojom.DigitalGoods_Consume_ParamsSpec = {
+payments.mojom.DigitalGoods_Consume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.Consume_Params',
@@ -188,7 +238,7 @@ payments.mojom.mojom.DigitalGoods_Consume_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
+payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoods.Consume_ResponseParams',
@@ -202,29 +252,42 @@ payments.mojom.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-payments.mojom.mojom.DigitalGoodsPtr = payments.mojom.mojom.DigitalGoodsRemote;
-payments.mojom.mojom.DigitalGoodsRequest = payments.mojom.mojom.DigitalGoodsPendingReceiver;
+payments.mojom.DigitalGoodsPtr = payments.mojom.DigitalGoodsRemote;
+payments.mojom.DigitalGoodsRequest = payments.mojom.DigitalGoodsPendingReceiver;
 
 
 // Interface: DigitalGoodsFactory
-payments.mojom.mojom.DigitalGoodsFactory = {};
+payments.mojom.DigitalGoodsFactory = {};
 
-payments.mojom.mojom.DigitalGoodsFactoryPendingReceiver = class {
+payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.DigitalGoodsFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.mojom.mojom.DigitalGoodsFactoryRemote = class {
+payments.mojom.DigitalGoodsFactoryRemote = class {
   static get $interfaceName() {
     return 'payments.mojom.DigitalGoodsFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.mojom.mojom.DigitalGoodsFactoryPendingReceiver,
+      payments.mojom.DigitalGoodsFactoryPendingReceiver,
       handle);
-    this.$ = new payments.mojom.mojom.DigitalGoodsFactoryRemoteCallHandler(this.proxy);
+    this.$ = new payments.mojom.DigitalGoodsFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -236,7 +299,7 @@ payments.mojom.mojom.DigitalGoodsFactoryRemote = class {
   }
 };
 
-payments.mojom.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
+payments.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -245,15 +308,15 @@ payments.mojom.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec,
-      payments.mojom.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
+      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec,
+      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
       [payment_method]);
   }
 
 };
 
-payments.mojom.mojom.DigitalGoodsFactory.getRemote = function() {
-  let remote = new payments.mojom.mojom.DigitalGoodsFactoryRemote();
+payments.mojom.DigitalGoodsFactory.getRemote = function() {
+  let remote = new payments.mojom.DigitalGoodsFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -263,7 +326,7 @@ payments.mojom.mojom.DigitalGoodsFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateDigitalGoods
-payments.mojom.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
+payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_Params',
@@ -276,7 +339,7 @@ payments.mojom.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
+payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_ResponseParams',
@@ -291,6 +354,6 @@ payments.mojom.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-payments.mojom.mojom.DigitalGoodsFactoryPtr = payments.mojom.mojom.DigitalGoodsFactoryRemote;
-payments.mojom.mojom.DigitalGoodsFactoryRequest = payments.mojom.mojom.DigitalGoodsFactoryPendingReceiver;
+payments.mojom.DigitalGoodsFactoryPtr = payments.mojom.DigitalGoodsFactoryRemote;
+payments.mojom.DigitalGoodsFactoryRequest = payments.mojom.DigitalGoodsFactoryPendingReceiver;
 

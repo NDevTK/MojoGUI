@@ -7,11 +7,11 @@
 // Module namespace
 var metrics = metrics || {};
 metrics.structured = metrics.structured || {};
-metrics.structured.structured.mojom = metrics.structured.structured.mojom || {};
+metrics.structured.mojom = metrics.structured.mojom || {};
 
 
 // Union: MetricValue
-metrics.structured.structured.mojom.mojom.MetricValueSpec = { $: mojo.internal.Union(
+metrics.structured.mojom.MetricValueSpec = { $: mojo.internal.Union(
     'metrics.structured.mojom.MetricValue', {
       'hmac_value': {
         'ordinal': 0,
@@ -41,7 +41,7 @@ metrics.structured.structured.mojom.mojom.MetricValueSpec = { $: mojo.internal.U
 };
 
 // Struct: Event
-metrics.structured.structured.mojom.mojom.EventSpec = {
+metrics.structured.mojom.EventSpec = {
   $: {
     structSpec: {
       name: 'metrics.structured.mojom.Event',

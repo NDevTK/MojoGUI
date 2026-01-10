@@ -12,26 +12,26 @@ var gfx = gfx || {};
 
 
 // Enum: ImageFormat
-lens.mojom.mojom.ImageFormat = {
+lens.mojom.ImageFormat = {
   JPEG: 0,
   PNG: 1,
   WEBP: 2,
   ORIGINAL: 3,
 };
-lens.mojom.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
+lens.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: Phase
-lens.mojom.mojom.Phase = {
+lens.mojom.Phase = {
   OVERALL_START: 0,
   DOWNSCALE_START: 1,
   DOWNSCALE_END: 2,
   ENCODE_START: 3,
   ENCODE_END: 4,
 };
-lens.mojom.mojom.PhaseSpec = { $: mojo.internal.Enum() };
+lens.mojom.PhaseSpec = { $: mojo.internal.Enum() };
 
 // Struct: LatencyLog
-lens.mojom.mojom.LatencyLogSpec = {
+lens.mojom.LatencyLogSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LatencyLog',

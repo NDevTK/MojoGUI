@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: FrameData
-gfx.mojom.mojom.FrameDataSpec = {
+gfx.mojom.FrameDataSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.FrameData',

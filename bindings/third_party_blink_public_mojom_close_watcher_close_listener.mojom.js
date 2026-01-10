@@ -10,24 +10,36 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: CloseListener
-blink.mojom.mojom.CloseListener = {};
+blink.mojom.CloseListener = {};
 
-blink.mojom.mojom.CloseListenerPendingReceiver = class {
+blink.mojom.CloseListener_Signal_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CloseListener_Signal_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.CloseListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.CloseListenerRemote = class {
+blink.mojom.CloseListenerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.CloseListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.CloseListenerPendingReceiver,
+      blink.mojom.CloseListenerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.CloseListenerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.CloseListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ blink.mojom.mojom.CloseListenerRemote = class {
   }
 };
 
-blink.mojom.mojom.CloseListenerRemoteCallHandler = class {
+blink.mojom.CloseListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ blink.mojom.mojom.CloseListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.CloseListener_Signal_ParamsSpec,
+      blink.mojom.CloseListener_Signal_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.CloseListener.getRemote = function() {
-  let remote = new blink.mojom.mojom.CloseListenerRemote();
+blink.mojom.CloseListener.getRemote = function() {
+  let remote = new blink.mojom.CloseListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ blink.mojom.mojom.CloseListener.getRemote = function() {
 };
 
 // ParamsSpec for Signal
-blink.mojom.mojom.CloseListener_Signal_ParamsSpec = {
+blink.mojom.CloseListener_Signal_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CloseListener.Signal_Params',
@@ -79,6 +91,6 @@ blink.mojom.mojom.CloseListener_Signal_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.CloseListenerPtr = blink.mojom.mojom.CloseListenerRemote;
-blink.mojom.mojom.CloseListenerRequest = blink.mojom.mojom.CloseListenerPendingReceiver;
+blink.mojom.CloseListenerPtr = blink.mojom.CloseListenerRemote;
+blink.mojom.CloseListenerRequest = blink.mojom.CloseListenerPendingReceiver;
 

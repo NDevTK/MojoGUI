@@ -16,7 +16,7 @@ var gfx = gfx || {};
 
 
 // Union: VideoBufferHandle
-media.mojom.mojom.VideoBufferHandleSpec = { $: mojo.internal.Union(
+media.mojom.VideoBufferHandleSpec = { $: mojo.internal.Union(
     'media.mojom.VideoBufferHandle', {
       'unsafe_shmem_region': {
         'ordinal': 0,
@@ -38,7 +38,7 @@ media.mojom.mojom.VideoBufferHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: VideoFrameInfo
-media.mojom.mojom.VideoFrameInfoSpec = {
+media.mojom.VideoFrameInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoFrameInfo',
@@ -59,7 +59,7 @@ media.mojom.mojom.VideoFrameInfoSpec = {
 };
 
 // Struct: ReadyBuffer
-media.mojom.mojom.ReadyBufferSpec = {
+media.mojom.ReadyBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ReadyBuffer',
@@ -74,7 +74,7 @@ media.mojom.mojom.ReadyBufferSpec = {
 };
 
 // Struct: SharedImageBufferHandleSet
-media.mojom.mojom.SharedImageBufferHandleSetSpec = {
+media.mojom.SharedImageBufferHandleSetSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SharedImageBufferHandleSet',

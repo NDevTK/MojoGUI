@@ -9,47 +9,118 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
-content.mojom.mojom.name = "WinSboxProxyLocale";
+content.mojom.name = "WinSboxProxyLocale";
 
-content.mojom.mojom.enabled_state = false;
+content.mojom.enabled_state = false;
 
 // Enum: LcTypeString
-content.mojom.mojom.LcTypeString = {
+content.mojom.LcTypeString = {
   kShortDate: 0,
   kYearMonth: 1,
   kTimeFormat: 2,
   kShortTime: 3,
 };
-content.mojom.mojom.LcTypeStringSpec = { $: mojo.internal.Enum() };
+content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum() };
 
 // Enum: LcTypeStrings
-content.mojom.mojom.LcTypeStrings = {
+content.mojom.LcTypeStrings = {
   kMonths: 0,
   kShortMonths: 1,
   kShortWeekDays: 2,
   kAmPm: 3,
 };
-content.mojom.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum() };
+content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum() };
 
 // Interface: SandboxSupport
-content.mojom.mojom.SandboxSupport = {};
+content.mojom.SandboxSupport = {};
 
-content.mojom.mojom.SandboxSupportPendingReceiver = class {
+content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SandboxSupport_GetSystemColors_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'default_language', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'defaults', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SandboxSupport_DigitsAndSigns_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'defaults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SandboxSupport_LocaleString_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: content.mojom.LcTypeStringSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SandboxSupport_LocaleStrings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'collection', packedOffset: 4, packedBitOffset: 0, type: content.mojom.LcTypeStringsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+content.mojom.SandboxSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.SandboxSupportRemote = class {
+content.mojom.SandboxSupportRemote = class {
   static get $interfaceName() {
     return 'content.mojom.SandboxSupport';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.SandboxSupportPendingReceiver,
+      content.mojom.SandboxSupportPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.SandboxSupportRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.SandboxSupportRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +132,7 @@ content.mojom.mojom.SandboxSupportRemote = class {
   }
 };
 
-content.mojom.mojom.SandboxSupportRemoteCallHandler = class {
+content.mojom.SandboxSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,8 +141,8 @@ content.mojom.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.SandboxSupport_GetSystemColors_ParamsSpec,
-      content.mojom.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec,
+      content.mojom.SandboxSupport_GetSystemColors_ParamsSpec,
+      content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec,
       []);
   }
 
@@ -79,8 +150,8 @@ content.mojom.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec,
-      content.mojom.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
+      content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec,
+      content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
       [locale, default_language, defaults]);
   }
 
@@ -88,8 +159,8 @@ content.mojom.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec,
-      content.mojom.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
+      content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec,
+      content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
       [lcid, defaults]);
   }
 
@@ -97,8 +168,8 @@ content.mojom.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.mojom.SandboxSupport_LocaleString_ParamsSpec,
-      content.mojom.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
+      content.mojom.SandboxSupport_LocaleString_ParamsSpec,
+      content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
       [lcid, defaults, type]);
   }
 
@@ -106,15 +177,15 @@ content.mojom.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.mojom.SandboxSupport_LocaleStrings_ParamsSpec,
-      content.mojom.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
+      content.mojom.SandboxSupport_LocaleStrings_ParamsSpec,
+      content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
       [lcid, defaults, collection]);
   }
 
 };
 
-content.mojom.mojom.SandboxSupport.getRemote = function() {
-  let remote = new content.mojom.mojom.SandboxSupportRemote();
+content.mojom.SandboxSupport.getRemote = function() {
+  let remote = new content.mojom.SandboxSupportRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -124,7 +195,7 @@ content.mojom.mojom.SandboxSupport.getRemote = function() {
 };
 
 // ParamsSpec for GetSystemColors
-content.mojom.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
+content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.GetSystemColors_Params',
@@ -136,7 +207,7 @@ content.mojom.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
+content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.GetSystemColors_ResponseParams',
@@ -150,7 +221,7 @@ content.mojom.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LcidAndFirstDayOfWeek
-content.mojom.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
+content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.LcidAndFirstDayOfWeek_Params',
@@ -165,7 +236,7 @@ content.mojom.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
+content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.LcidAndFirstDayOfWeek_ResponseParams',
@@ -180,7 +251,7 @@ content.mojom.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DigitsAndSigns
-content.mojom.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
+content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.DigitsAndSigns_Params',
@@ -194,7 +265,7 @@ content.mojom.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
+content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.DigitsAndSigns_ResponseParams',
@@ -213,7 +284,7 @@ content.mojom.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LocaleString
-content.mojom.mojom.SandboxSupport_LocaleString_ParamsSpec = {
+content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.LocaleString_Params',
@@ -228,7 +299,7 @@ content.mojom.mojom.SandboxSupport_LocaleString_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
+content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.LocaleString_ResponseParams',
@@ -242,7 +313,7 @@ content.mojom.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LocaleStrings
-content.mojom.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
+content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.LocaleStrings_Params',
@@ -257,7 +328,7 @@ content.mojom.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
+content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.LocaleStrings_ResponseParams',
@@ -271,6 +342,6 @@ content.mojom.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.SandboxSupportPtr = content.mojom.mojom.SandboxSupportRemote;
-content.mojom.mojom.SandboxSupportRequest = content.mojom.mojom.SandboxSupportPendingReceiver;
+content.mojom.SandboxSupportPtr = content.mojom.SandboxSupportRemote;
+content.mojom.SandboxSupportRequest = content.mojom.SandboxSupportPendingReceiver;
 

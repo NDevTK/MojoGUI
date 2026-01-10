@@ -12,7 +12,7 @@ var blink = blink || {};
 
 
 // Struct: BucketInfo
-storage.mojom.mojom.BucketInfoSpec = {
+storage.mojom.BucketInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketInfo',

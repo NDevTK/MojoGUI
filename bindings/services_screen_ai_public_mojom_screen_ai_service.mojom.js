@@ -16,16 +16,16 @@ var gfx = gfx || {};
 
 
 // Enum: Direction
-screen_ai.mojom.mojom.Direction = {
+screen_ai.mojom.Direction = {
   DIRECTION_UNSPECIFIED: 0,
   DIRECTION_LEFT_TO_RIGHT: 1,
   DIRECTION_RIGHT_TO_LEFT: 2,
   DIRECTION_TOP_TO_BOTTOM: 3,
 };
-screen_ai.mojom.mojom.DirectionSpec = { $: mojo.internal.Enum() };
+screen_ai.mojom.DirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: OcrClientType
-screen_ai.mojom.mojom.OcrClientType = {
+screen_ai.mojom.OcrClientType = {
   kTest: 0,
   kPdfViewer: 1,
   kLocalSearch: 2,
@@ -33,19 +33,19 @@ screen_ai.mojom.mojom.OcrClientType = {
   kMediaApp: 4,
   kScreenshotTextDetection: 5,
 };
-screen_ai.mojom.mojom.OcrClientTypeSpec = { $: mojo.internal.Enum() };
+screen_ai.mojom.OcrClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MceClientType
-screen_ai.mojom.mojom.MceClientType = {
+screen_ai.mojom.MceClientType = {
   kTest: 0,
   kReadingMode: 1,
   kMainNode: 2,
   kMahi: 3,
 };
-screen_ai.mojom.mojom.MceClientTypeSpec = { $: mojo.internal.Enum() };
+screen_ai.mojom.MceClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: VisualAnnotation
-screen_ai.mojom.mojom.VisualAnnotationSpec = {
+screen_ai.mojom.VisualAnnotationSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.VisualAnnotation',
@@ -59,7 +59,7 @@ screen_ai.mojom.mojom.VisualAnnotationSpec = {
 };
 
 // Struct: LineBox
-screen_ai.mojom.mojom.LineBoxSpec = {
+screen_ai.mojom.LineBoxSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.LineBox',
@@ -80,7 +80,7 @@ screen_ai.mojom.mojom.LineBoxSpec = {
 };
 
 // Struct: WordBox
-screen_ai.mojom.mojom.WordBoxSpec = {
+screen_ai.mojom.WordBoxSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.WordBox',
@@ -101,24 +101,100 @@ screen_ai.mojom.mojom.WordBoxSpec = {
 };
 
 // Interface: ScreenAIAnnotator
-screen_ai.mojom.mojom.ScreenAIAnnotator = {};
+screen_ai.mojom.ScreenAIAnnotator = {};
 
-screen_ai.mojom.mojom.ScreenAIAnnotatorPendingReceiver = class {
+screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIAnnotator_SetClientType_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: screen_ai.mojom.OcrClientTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+screen_ai.mojom.ScreenAIAnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIAnnotatorRemote = class {
+screen_ai.mojom.ScreenAIAnnotatorRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.ScreenAIAnnotator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.mojom.ScreenAIAnnotatorPendingReceiver,
+      screen_ai.mojom.ScreenAIAnnotatorPendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler(this.proxy);
+    this.$ = new screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,7 +206,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotatorRemote = class {
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
+screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -139,8 +215,8 @@ screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec,
-      screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec,
       [image]);
   }
 
@@ -148,8 +224,8 @@ screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec,
-      screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
       [image]);
   }
 
@@ -157,7 +233,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec,
       null,
       [client_type]);
   }
@@ -166,8 +242,8 @@ screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec,
-      screen_ai.mojom.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
       []);
   }
 
@@ -175,7 +251,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec,
       null,
       [enabled]);
   }
@@ -184,15 +260,15 @@ screen_ai.mojom.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      screen_ai.mojom.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec,
-      screen_ai.mojom.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
       []);
   }
 
 };
 
-screen_ai.mojom.mojom.ScreenAIAnnotator.getRemote = function() {
-  let remote = new screen_ai.mojom.mojom.ScreenAIAnnotatorRemote();
+screen_ai.mojom.ScreenAIAnnotator.getRemote = function() {
+  let remote = new screen_ai.mojom.ScreenAIAnnotatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -202,7 +278,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator.getRemote = function() {
 };
 
 // ParamsSpec for PerformOcrAndReturnAXTreeUpdate
-screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAXTreeUpdate_Params',
@@ -215,7 +291,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSp
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAXTreeUpdate_ResponseParams',
@@ -229,7 +305,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_Response
 };
 
 // ParamsSpec for PerformOcrAndReturnAnnotation
-screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAnnotation_Params',
@@ -242,7 +318,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAnnotation_ResponseParams',
@@ -256,7 +332,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponsePa
 };
 
 // ParamsSpec for SetClientType
-screen_ai.mojom.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.SetClientType_Params',
@@ -270,7 +346,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
 };
 
 // ParamsSpec for GetMaxImageDimension
-screen_ai.mojom.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.GetMaxImageDimension_Params',
@@ -282,7 +358,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = {
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.GetMaxImageDimension_ResponseParams',
@@ -296,7 +372,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec 
 };
 
 // ParamsSpec for SetOCRLightMode
-screen_ai.mojom.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.SetOCRLightMode_Params',
@@ -310,7 +386,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
 };
 
 // ParamsSpec for IsOCRBusy
-screen_ai.mojom.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.IsOCRBusy_Params',
@@ -322,7 +398,7 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = {
   }
 };
 
-screen_ai.mojom.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = {
+screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.ScreenAIAnnotator.IsOCRBusy_ResponseParams',
@@ -336,29 +412,81 @@ screen_ai.mojom.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-screen_ai.mojom.mojom.ScreenAIAnnotatorPtr = screen_ai.mojom.mojom.ScreenAIAnnotatorRemote;
-screen_ai.mojom.mojom.ScreenAIAnnotatorRequest = screen_ai.mojom.mojom.ScreenAIAnnotatorPendingReceiver;
+screen_ai.mojom.ScreenAIAnnotatorPtr = screen_ai.mojom.ScreenAIAnnotatorRemote;
+screen_ai.mojom.ScreenAIAnnotatorRequest = screen_ai.mojom.ScreenAIAnnotatorPendingReceiver;
 
 
 // Interface: Screen2xMainContentExtractor
-screen_ai.mojom.mojom.Screen2xMainContentExtractor = {};
+screen_ai.mojom.Screen2xMainContentExtractor = {};
 
-screen_ai.mojom.mojom.Screen2xMainContentExtractorPendingReceiver = class {
+screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ax_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: screen_ai.mojom.MceClientTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.mojom.Screen2xMainContentExtractorRemote = class {
+screen_ai.mojom.Screen2xMainContentExtractorRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.Screen2xMainContentExtractor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.mojom.Screen2xMainContentExtractorPendingReceiver,
+      screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.mojom.Screen2xMainContentExtractorRemoteCallHandler(this.proxy);
+    this.$ = new screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -370,7 +498,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractorRemote = class {
   }
 };
 
-screen_ai.mojom.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
+screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -379,8 +507,8 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec,
-      screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec,
       [snapshot]);
   }
 
@@ -388,8 +516,8 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec,
-      screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec,
       [snapshot]);
   }
 
@@ -397,8 +525,8 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      screen_ai.mojom.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec,
-      screen_ai.mojom.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec,
       [ax_tree]);
   }
 
@@ -406,15 +534,15 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      screen_ai.mojom.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec,
       null,
       [client_type]);
   }
 
 };
 
-screen_ai.mojom.mojom.Screen2xMainContentExtractor.getRemote = function() {
-  let remote = new screen_ai.mojom.mojom.Screen2xMainContentExtractorRemote();
+screen_ai.mojom.Screen2xMainContentExtractor.getRemote = function() {
+  let remote = new screen_ai.mojom.Screen2xMainContentExtractorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -424,7 +552,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor.getRemote = function() {
 };
 
 // ParamsSpec for ExtractMainContent
-screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
+screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainContent_Params',
@@ -437,7 +565,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec
   }
 };
 
-screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec = {
+screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainContent_ResponseParams',
@@ -451,7 +579,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponsePa
 };
 
 // ParamsSpec for ExtractMainNode
-screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
+screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainNode_Params',
@@ -464,7 +592,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = 
   }
 };
 
-screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec = {
+screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainNode_ResponseParams',
@@ -478,7 +606,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParam
 };
 
 // ParamsSpec for IdentifyMainNode
-screen_ai.mojom.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
+screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.IdentifyMainNode_Params',
@@ -491,7 +619,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec =
   }
 };
 
-screen_ai.mojom.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec = {
+screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.IdentifyMainNode_ResponseParams',
@@ -506,7 +634,7 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponsePara
 };
 
 // ParamsSpec for SetClientType
-screen_ai.mojom.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
+screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.SetClientType_Params',
@@ -520,29 +648,42 @@ screen_ai.mojom.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
 };
 
 // Legacy compatibility
-screen_ai.mojom.mojom.Screen2xMainContentExtractorPtr = screen_ai.mojom.mojom.Screen2xMainContentExtractorRemote;
-screen_ai.mojom.mojom.Screen2xMainContentExtractorRequest = screen_ai.mojom.mojom.Screen2xMainContentExtractorPendingReceiver;
+screen_ai.mojom.Screen2xMainContentExtractorPtr = screen_ai.mojom.Screen2xMainContentExtractorRemote;
+screen_ai.mojom.Screen2xMainContentExtractorRequest = screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver;
 
 
 // Interface: OCRService
-screen_ai.mojom.mojom.OCRService = {};
+screen_ai.mojom.OCRService = {};
 
-screen_ai.mojom.mojom.OCRServicePendingReceiver = class {
+screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.OCRService_BindAnnotator_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'annotator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.ScreenAIAnnotatorRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.OCRServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.mojom.OCRServiceRemote = class {
+screen_ai.mojom.OCRServiceRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.OCRService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.mojom.OCRServicePendingReceiver,
+      screen_ai.mojom.OCRServicePendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.mojom.OCRServiceRemoteCallHandler(this.proxy);
+    this.$ = new screen_ai.mojom.OCRServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -554,7 +695,7 @@ screen_ai.mojom.mojom.OCRServiceRemote = class {
   }
 };
 
-screen_ai.mojom.mojom.OCRServiceRemoteCallHandler = class {
+screen_ai.mojom.OCRServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -563,15 +704,15 @@ screen_ai.mojom.mojom.OCRServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.mojom.OCRService_BindAnnotator_ParamsSpec,
+      screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec,
       null,
       [annotator]);
   }
 
 };
 
-screen_ai.mojom.mojom.OCRService.getRemote = function() {
-  let remote = new screen_ai.mojom.mojom.OCRServiceRemote();
+screen_ai.mojom.OCRService.getRemote = function() {
+  let remote = new screen_ai.mojom.OCRServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -581,7 +722,7 @@ screen_ai.mojom.mojom.OCRService.getRemote = function() {
 };
 
 // ParamsSpec for BindAnnotator
-screen_ai.mojom.mojom.OCRService_BindAnnotator_ParamsSpec = {
+screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.OCRService.BindAnnotator_Params',
@@ -595,29 +736,42 @@ screen_ai.mojom.mojom.OCRService_BindAnnotator_ParamsSpec = {
 };
 
 // Legacy compatibility
-screen_ai.mojom.mojom.OCRServicePtr = screen_ai.mojom.mojom.OCRServiceRemote;
-screen_ai.mojom.mojom.OCRServiceRequest = screen_ai.mojom.mojom.OCRServicePendingReceiver;
+screen_ai.mojom.OCRServicePtr = screen_ai.mojom.OCRServiceRemote;
+screen_ai.mojom.OCRServiceRequest = screen_ai.mojom.OCRServicePendingReceiver;
 
 
 // Interface: MainContentExtractionService
-screen_ai.mojom.mojom.MainContentExtractionService = {};
+screen_ai.mojom.MainContentExtractionService = {};
 
-screen_ai.mojom.mojom.MainContentExtractionServicePendingReceiver = class {
+screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'main_content_extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.Screen2xMainContentExtractorRemote), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+screen_ai.mojom.MainContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.mojom.MainContentExtractionServiceRemote = class {
+screen_ai.mojom.MainContentExtractionServiceRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.MainContentExtractionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.mojom.MainContentExtractionServicePendingReceiver,
+      screen_ai.mojom.MainContentExtractionServicePendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.mojom.MainContentExtractionServiceRemoteCallHandler(this.proxy);
+    this.$ = new screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -629,7 +783,7 @@ screen_ai.mojom.mojom.MainContentExtractionServiceRemote = class {
   }
 };
 
-screen_ai.mojom.mojom.MainContentExtractionServiceRemoteCallHandler = class {
+screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -638,15 +792,15 @@ screen_ai.mojom.mojom.MainContentExtractionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec,
+      screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec,
       null,
       [main_content_extractor]);
   }
 
 };
 
-screen_ai.mojom.mojom.MainContentExtractionService.getRemote = function() {
-  let remote = new screen_ai.mojom.mojom.MainContentExtractionServiceRemote();
+screen_ai.mojom.MainContentExtractionService.getRemote = function() {
+  let remote = new screen_ai.mojom.MainContentExtractionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -656,7 +810,7 @@ screen_ai.mojom.mojom.MainContentExtractionService.getRemote = function() {
 };
 
 // ParamsSpec for BindMainContentExtractor
-screen_ai.mojom.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec = {
+screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.MainContentExtractionService.BindMainContentExtractor_Params',
@@ -670,6 +824,6 @@ screen_ai.mojom.mojom.MainContentExtractionService_BindMainContentExtractor_Para
 };
 
 // Legacy compatibility
-screen_ai.mojom.mojom.MainContentExtractionServicePtr = screen_ai.mojom.mojom.MainContentExtractionServiceRemote;
-screen_ai.mojom.mojom.MainContentExtractionServiceRequest = screen_ai.mojom.mojom.MainContentExtractionServicePendingReceiver;
+screen_ai.mojom.MainContentExtractionServicePtr = screen_ai.mojom.MainContentExtractionServiceRemote;
+screen_ai.mojom.MainContentExtractionServiceRequest = screen_ai.mojom.MainContentExtractionServicePendingReceiver;
 

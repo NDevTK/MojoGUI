@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ScrollDirection
-blink.mojom.mojom.ScrollDirection = {
+blink.mojom.ScrollDirection = {
   kScrollUpIgnoringWritingMode: 0,
   kScrollDownIgnoringWritingMode: 1,
   kScrollLeftIgnoringWritingMode: 2,
@@ -20,4 +20,4 @@ blink.mojom.mojom.ScrollDirection = {
   kScrollInlineDirectionBackward: 6,
   kScrollInlineDirectionForward: 7,
 };
-blink.mojom.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };
+blink.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };

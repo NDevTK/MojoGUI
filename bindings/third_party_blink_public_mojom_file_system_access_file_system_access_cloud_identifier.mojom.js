@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: FileSystemAccessCloudIdentifier
-blink.mojom.mojom.FileSystemAccessCloudIdentifierSpec = {
+blink.mojom.FileSystemAccessCloudIdentifierSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessCloudIdentifier',

@@ -11,23 +11,23 @@ var url = url || {};
 
 
 // Enum: IsolationInfoRequestType
-network.mojom.mojom.IsolationInfoRequestType = {
+network.mojom.IsolationInfoRequestType = {
   kMainFrame: 0,
   kSubFrame: 1,
   kOther: 2,
 };
-network.mojom.mojom.IsolationInfoRequestTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.IsolationInfoRequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IsolationInfoFrameAncestorRelation
-network.mojom.mojom.IsolationInfoFrameAncestorRelation = {
+network.mojom.IsolationInfoFrameAncestorRelation = {
   kSameOrigin: 0,
   kSameSite: 1,
   kCrossSite: 2,
 };
-network.mojom.mojom.IsolationInfoFrameAncestorRelationSpec = { $: mojo.internal.Enum() };
+network.mojom.IsolationInfoFrameAncestorRelationSpec = { $: mojo.internal.Enum() };
 
 // Struct: IsolationInfo
-network.mojom.mojom.IsolationInfoSpec = {
+network.mojom.IsolationInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.IsolationInfo',

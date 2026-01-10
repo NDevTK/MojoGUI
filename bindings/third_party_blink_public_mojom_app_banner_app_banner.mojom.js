@@ -10,31 +10,46 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: AppBannerPromptReply
-blink.mojom.mojom.AppBannerPromptReply = {
+blink.mojom.AppBannerPromptReply = {
   NONE: 0,
   CANCEL: 1,
 };
-blink.mojom.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum() };
+blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum() };
 
 // Interface: AppBannerController
-blink.mojom.mojom.AppBannerController = {};
+blink.mojom.AppBannerController = {};
 
-blink.mojom.mojom.AppBannerControllerPendingReceiver = class {
+blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AppBannerController_BannerPromptRequest_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AppBannerServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'event_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.AppBannerEventRemote), nullable: false, minVersion: 0 },
+        { name: 'platform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.AppBannerControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AppBannerControllerRemote = class {
+blink.mojom.AppBannerControllerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AppBannerController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AppBannerControllerPendingReceiver,
+      blink.mojom.AppBannerControllerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AppBannerControllerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AppBannerControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -46,7 +61,7 @@ blink.mojom.mojom.AppBannerControllerRemote = class {
   }
 };
 
-blink.mojom.mojom.AppBannerControllerRemoteCallHandler = class {
+blink.mojom.AppBannerControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -55,15 +70,15 @@ blink.mojom.mojom.AppBannerControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AppBannerController_BannerPromptRequest_ParamsSpec,
-      blink.mojom.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
+      blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec,
+      blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
       [service, event_receiver, platform]);
   }
 
 };
 
-blink.mojom.mojom.AppBannerController.getRemote = function() {
-  let remote = new blink.mojom.mojom.AppBannerControllerRemote();
+blink.mojom.AppBannerController.getRemote = function() {
+  let remote = new blink.mojom.AppBannerControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -73,7 +88,7 @@ blink.mojom.mojom.AppBannerController.getRemote = function() {
 };
 
 // ParamsSpec for BannerPromptRequest
-blink.mojom.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
+blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AppBannerController.BannerPromptRequest_Params',
@@ -88,7 +103,7 @@ blink.mojom.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
+blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AppBannerController.BannerPromptRequest_ResponseParams',
@@ -102,29 +117,54 @@ blink.mojom.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AppBannerControllerPtr = blink.mojom.mojom.AppBannerControllerRemote;
-blink.mojom.mojom.AppBannerControllerRequest = blink.mojom.mojom.AppBannerControllerPendingReceiver;
+blink.mojom.AppBannerControllerPtr = blink.mojom.AppBannerControllerRemote;
+blink.mojom.AppBannerControllerRequest = blink.mojom.AppBannerControllerPendingReceiver;
 
 
 // Interface: AppBannerEvent
-blink.mojom.mojom.AppBannerEvent = {};
+blink.mojom.AppBannerEvent = {};
 
-blink.mojom.mojom.AppBannerEventPendingReceiver = class {
+blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AppBannerEvent_BannerAccepted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AppBannerEvent_BannerDismissed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.AppBannerEventPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AppBannerEventRemote = class {
+blink.mojom.AppBannerEventRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AppBannerEvent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AppBannerEventPendingReceiver,
+      blink.mojom.AppBannerEventPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AppBannerEventRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AppBannerEventRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -136,7 +176,7 @@ blink.mojom.mojom.AppBannerEventRemote = class {
   }
 };
 
-blink.mojom.mojom.AppBannerEventRemoteCallHandler = class {
+blink.mojom.AppBannerEventRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -145,7 +185,7 @@ blink.mojom.mojom.AppBannerEventRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AppBannerEvent_BannerAccepted_ParamsSpec,
+      blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec,
       null,
       [platform]);
   }
@@ -154,15 +194,15 @@ blink.mojom.mojom.AppBannerEventRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AppBannerEvent_BannerDismissed_ParamsSpec,
+      blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.AppBannerEvent.getRemote = function() {
-  let remote = new blink.mojom.mojom.AppBannerEventRemote();
+blink.mojom.AppBannerEvent.getRemote = function() {
+  let remote = new blink.mojom.AppBannerEventRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -172,7 +212,7 @@ blink.mojom.mojom.AppBannerEvent.getRemote = function() {
 };
 
 // ParamsSpec for BannerAccepted
-blink.mojom.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
+blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AppBannerEvent.BannerAccepted_Params',
@@ -186,7 +226,7 @@ blink.mojom.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
 };
 
 // ParamsSpec for BannerDismissed
-blink.mojom.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
+blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AppBannerEvent.BannerDismissed_Params',
@@ -199,29 +239,41 @@ blink.mojom.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AppBannerEventPtr = blink.mojom.mojom.AppBannerEventRemote;
-blink.mojom.mojom.AppBannerEventRequest = blink.mojom.mojom.AppBannerEventPendingReceiver;
+blink.mojom.AppBannerEventPtr = blink.mojom.AppBannerEventRemote;
+blink.mojom.AppBannerEventRequest = blink.mojom.AppBannerEventPendingReceiver;
 
 
 // Interface: AppBannerService
-blink.mojom.mojom.AppBannerService = {};
+blink.mojom.AppBannerService = {};
 
-blink.mojom.mojom.AppBannerServicePendingReceiver = class {
+blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AppBannerService_DisplayAppBanner_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.AppBannerServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AppBannerServiceRemote = class {
+blink.mojom.AppBannerServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AppBannerService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AppBannerServicePendingReceiver,
+      blink.mojom.AppBannerServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AppBannerServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AppBannerServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -233,7 +285,7 @@ blink.mojom.mojom.AppBannerServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.AppBannerServiceRemoteCallHandler = class {
+blink.mojom.AppBannerServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -242,15 +294,15 @@ blink.mojom.mojom.AppBannerServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AppBannerService_DisplayAppBanner_ParamsSpec,
+      blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.AppBannerService.getRemote = function() {
-  let remote = new blink.mojom.mojom.AppBannerServiceRemote();
+blink.mojom.AppBannerService.getRemote = function() {
+  let remote = new blink.mojom.AppBannerServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -260,7 +312,7 @@ blink.mojom.mojom.AppBannerService.getRemote = function() {
 };
 
 // ParamsSpec for DisplayAppBanner
-blink.mojom.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
+blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AppBannerService.DisplayAppBanner_Params',
@@ -273,6 +325,6 @@ blink.mojom.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AppBannerServicePtr = blink.mojom.mojom.AppBannerServiceRemote;
-blink.mojom.mojom.AppBannerServiceRequest = blink.mojom.mojom.AppBannerServicePendingReceiver;
+blink.mojom.AppBannerServicePtr = blink.mojom.AppBannerServiceRemote;
+blink.mojom.AppBannerServiceRequest = blink.mojom.AppBannerServicePendingReceiver;
 

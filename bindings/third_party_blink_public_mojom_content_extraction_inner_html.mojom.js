@@ -10,24 +10,36 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: InnerHtmlAgent
-blink.mojom.mojom.InnerHtmlAgent = {};
+blink.mojom.InnerHtmlAgent = {};
 
-blink.mojom.mojom.InnerHtmlAgentPendingReceiver = class {
+blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InnerHtmlAgent_GetInnerHtml_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.InnerHtmlAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.InnerHtmlAgentRemote = class {
+blink.mojom.InnerHtmlAgentRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.InnerHtmlAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.InnerHtmlAgentPendingReceiver,
+      blink.mojom.InnerHtmlAgentPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.InnerHtmlAgentRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.InnerHtmlAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +51,7 @@ blink.mojom.mojom.InnerHtmlAgentRemote = class {
   }
 };
 
-blink.mojom.mojom.InnerHtmlAgentRemoteCallHandler = class {
+blink.mojom.InnerHtmlAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +60,15 @@ blink.mojom.mojom.InnerHtmlAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec,
-      blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec,
+      blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec,
+      blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.InnerHtmlAgent.getRemote = function() {
-  let remote = new blink.mojom.mojom.InnerHtmlAgentRemote();
+blink.mojom.InnerHtmlAgent.getRemote = function() {
+  let remote = new blink.mojom.InnerHtmlAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +78,7 @@ blink.mojom.mojom.InnerHtmlAgent.getRemote = function() {
 };
 
 // ParamsSpec for GetInnerHtml
-blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
+blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_Params',
@@ -78,7 +90,7 @@ blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
+blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_ResponseParams',
@@ -92,6 +104,6 @@ blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.InnerHtmlAgentPtr = blink.mojom.mojom.InnerHtmlAgentRemote;
-blink.mojom.mojom.InnerHtmlAgentRequest = blink.mojom.mojom.InnerHtmlAgentPendingReceiver;
+blink.mojom.InnerHtmlAgentPtr = blink.mojom.InnerHtmlAgentRemote;
+blink.mojom.InnerHtmlAgentRequest = blink.mojom.InnerHtmlAgentPendingReceiver;
 

@@ -10,7 +10,7 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Struct: ActivityUrlFilterCriteria
-chromecast.mojom.mojom.ActivityUrlFilterCriteriaSpec = {
+chromecast.mojom.ActivityUrlFilterCriteriaSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ActivityUrlFilterCriteria',
@@ -24,24 +24,37 @@ chromecast.mojom.mojom.ActivityUrlFilterCriteriaSpec = {
 };
 
 // Interface: ActivityUrlFilterConfiguration
-chromecast.mojom.mojom.ActivityUrlFilterConfiguration = {};
+chromecast.mojom.ActivityUrlFilterConfiguration = {};
 
-chromecast.mojom.mojom.ActivityUrlFilterConfigurationPendingReceiver = class {
+chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.ActivityUrlFilterCriteriaSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemote = class {
+chromecast.mojom.ActivityUrlFilterConfigurationRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.ActivityUrlFilterConfiguration';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.mojom.ActivityUrlFilterConfigurationPendingReceiver,
+      chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +66,7 @@ chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemote = class {
   }
 };
 
-chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
+chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +75,15 @@ chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
+      chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
       null,
       [filter]);
   }
 
 };
 
-chromecast.mojom.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
-  let remote = new chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemote();
+chromecast.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
+  let remote = new chromecast.mojom.ActivityUrlFilterConfigurationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +93,7 @@ chromecast.mojom.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
 };
 
 // ParamsSpec for SetFilter
-chromecast.mojom.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
+chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ActivityUrlFilterConfiguration.SetFilter_Params',
@@ -94,6 +107,6 @@ chromecast.mojom.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.mojom.ActivityUrlFilterConfigurationPtr = chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemote;
-chromecast.mojom.mojom.ActivityUrlFilterConfigurationRequest = chromecast.mojom.mojom.ActivityUrlFilterConfigurationPendingReceiver;
+chromecast.mojom.ActivityUrlFilterConfigurationPtr = chromecast.mojom.ActivityUrlFilterConfigurationRemote;
+chromecast.mojom.ActivityUrlFilterConfigurationRequest = chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver;
 

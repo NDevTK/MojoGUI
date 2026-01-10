@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: WebBundleErrorType
-network.mojom.mojom.WebBundleErrorType = {
+network.mojom.WebBundleErrorType = {
   kMetadataParseError: 0,
   kResponseParseError: 1,
   kResourceNotFound: 2,
@@ -20,27 +20,67 @@ network.mojom.mojom.WebBundleErrorType = {
   kWebBundleRedirected: 6,
   kDeprecationWarning: 7,
 };
-network.mojom.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: WebBundleHandle
-network.mojom.mojom.WebBundleHandle = {};
+network.mojom.WebBundleHandle = {};
 
-network.mojom.mojom.WebBundleHandlePendingReceiver = class {
+network.mojom.WebBundleHandle_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebBundleHandle_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.WebBundleHandleRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebBundleHandle_OnWebBundleError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebBundleErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebBundleHandle_OnWebBundleLoadFinished_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.WebBundleHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.WebBundleHandleRemote = class {
+network.mojom.WebBundleHandleRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebBundleHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.WebBundleHandlePendingReceiver,
+      network.mojom.WebBundleHandlePendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.WebBundleHandleRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.WebBundleHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -52,7 +92,7 @@ network.mojom.mojom.WebBundleHandleRemote = class {
   }
 };
 
-network.mojom.mojom.WebBundleHandleRemoteCallHandler = class {
+network.mojom.WebBundleHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -61,7 +101,7 @@ network.mojom.mojom.WebBundleHandleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.WebBundleHandle_Clone_ParamsSpec,
+      network.mojom.WebBundleHandle_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -70,7 +110,7 @@ network.mojom.mojom.WebBundleHandleRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec,
+      network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec,
       null,
       [type, message]);
   }
@@ -79,15 +119,15 @@ network.mojom.mojom.WebBundleHandleRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec,
+      network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec,
       null,
       [success]);
   }
 
 };
 
-network.mojom.mojom.WebBundleHandle.getRemote = function() {
-  let remote = new network.mojom.mojom.WebBundleHandleRemote();
+network.mojom.WebBundleHandle.getRemote = function() {
+  let remote = new network.mojom.WebBundleHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +137,7 @@ network.mojom.mojom.WebBundleHandle.getRemote = function() {
 };
 
 // ParamsSpec for Clone
-network.mojom.mojom.WebBundleHandle_Clone_ParamsSpec = {
+network.mojom.WebBundleHandle_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebBundleHandle.Clone_Params',
@@ -111,7 +151,7 @@ network.mojom.mojom.WebBundleHandle_Clone_ParamsSpec = {
 };
 
 // ParamsSpec for OnWebBundleError
-network.mojom.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
+network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebBundleHandle.OnWebBundleError_Params',
@@ -126,7 +166,7 @@ network.mojom.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
 };
 
 // ParamsSpec for OnWebBundleLoadFinished
-network.mojom.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
+network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebBundleHandle.OnWebBundleLoadFinished_Params',
@@ -140,6 +180,6 @@ network.mojom.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.WebBundleHandlePtr = network.mojom.mojom.WebBundleHandleRemote;
-network.mojom.mojom.WebBundleHandleRequest = network.mojom.mojom.WebBundleHandlePendingReceiver;
+network.mojom.WebBundleHandlePtr = network.mojom.WebBundleHandleRemote;
+network.mojom.WebBundleHandleRequest = network.mojom.WebBundleHandlePendingReceiver;
 

@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: SupportedAudioDecoderConfig
-media.mojom.mojom.SupportedAudioDecoderConfigSpec = {
+media.mojom.SupportedAudioDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SupportedAudioDecoderConfig',
@@ -25,24 +25,102 @@ media.mojom.mojom.SupportedAudioDecoderConfigSpec = {
 };
 
 // Interface: AudioDecoder
-media.mojom.mojom.AudioDecoder = {};
+media.mojom.AudioDecoder = {};
 
-media.mojom.mojom.AudioDecoderPendingReceiver = class {
+media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoder_GetSupportedConfigs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.AudioDecoder_Construct_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoder_Construct_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.AudioDecoderClientRemote), nullable: false, minVersion: 0 },
+        { name: 'media_log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.AudioDecoder_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoder_Initialize_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'cdm_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.AudioDecoder_SetDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoder_SetDataSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receive_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.AudioDecoder_Decode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoder_Decode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.AudioDecoder_Reset_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoder_Reset_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+media.mojom.AudioDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.AudioDecoderRemote = class {
+media.mojom.AudioDecoderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioDecoder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.AudioDecoderPendingReceiver,
+      media.mojom.AudioDecoderPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.AudioDecoderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.AudioDecoderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +132,7 @@ media.mojom.mojom.AudioDecoderRemote = class {
   }
 };
 
-media.mojom.mojom.AudioDecoderRemoteCallHandler = class {
+media.mojom.AudioDecoderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +141,8 @@ media.mojom.mojom.AudioDecoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec,
-      media.mojom.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec,
+      media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec,
+      media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec,
       []);
   }
 
@@ -72,7 +150,7 @@ media.mojom.mojom.AudioDecoderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.AudioDecoder_Construct_ParamsSpec,
+      media.mojom.AudioDecoder_Construct_ParamsSpec,
       null,
       [client, media_log]);
   }
@@ -81,8 +159,8 @@ media.mojom.mojom.AudioDecoderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.mojom.AudioDecoder_Initialize_ParamsSpec,
-      media.mojom.mojom.AudioDecoder_Initialize_ResponseParamsSpec,
+      media.mojom.AudioDecoder_Initialize_ParamsSpec,
+      media.mojom.AudioDecoder_Initialize_ResponseParamsSpec,
       [config, cdm_id]);
   }
 
@@ -90,7 +168,7 @@ media.mojom.mojom.AudioDecoderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.mojom.AudioDecoder_SetDataSource_ParamsSpec,
+      media.mojom.AudioDecoder_SetDataSource_ParamsSpec,
       null,
       [receive_pipe]);
   }
@@ -99,8 +177,8 @@ media.mojom.mojom.AudioDecoderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.mojom.AudioDecoder_Decode_ParamsSpec,
-      media.mojom.mojom.AudioDecoder_Decode_ResponseParamsSpec,
+      media.mojom.AudioDecoder_Decode_ParamsSpec,
+      media.mojom.AudioDecoder_Decode_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -108,15 +186,15 @@ media.mojom.mojom.AudioDecoderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.mojom.AudioDecoder_Reset_ParamsSpec,
+      media.mojom.AudioDecoder_Reset_ParamsSpec,
       null,
       []);
   }
 
 };
 
-media.mojom.mojom.AudioDecoder.getRemote = function() {
-  let remote = new media.mojom.mojom.AudioDecoderRemote();
+media.mojom.AudioDecoder.getRemote = function() {
+  let remote = new media.mojom.AudioDecoderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -126,7 +204,7 @@ media.mojom.mojom.AudioDecoder.getRemote = function() {
 };
 
 // ParamsSpec for GetSupportedConfigs
-media.mojom.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
+media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.GetSupportedConfigs_Params',
@@ -138,7 +216,7 @@ media.mojom.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = {
+media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.GetSupportedConfigs_ResponseParams',
@@ -152,7 +230,7 @@ media.mojom.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Construct
-media.mojom.mojom.AudioDecoder_Construct_ParamsSpec = {
+media.mojom.AudioDecoder_Construct_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.Construct_Params',
@@ -167,7 +245,7 @@ media.mojom.mojom.AudioDecoder_Construct_ParamsSpec = {
 };
 
 // ParamsSpec for Initialize
-media.mojom.mojom.AudioDecoder_Initialize_ParamsSpec = {
+media.mojom.AudioDecoder_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.Initialize_Params',
@@ -181,7 +259,7 @@ media.mojom.mojom.AudioDecoder_Initialize_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
+media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.Initialize_ResponseParams',
@@ -197,7 +275,7 @@ media.mojom.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetDataSource
-media.mojom.mojom.AudioDecoder_SetDataSource_ParamsSpec = {
+media.mojom.AudioDecoder_SetDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.SetDataSource_Params',
@@ -211,7 +289,7 @@ media.mojom.mojom.AudioDecoder_SetDataSource_ParamsSpec = {
 };
 
 // ParamsSpec for Decode
-media.mojom.mojom.AudioDecoder_Decode_ParamsSpec = {
+media.mojom.AudioDecoder_Decode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.Decode_Params',
@@ -224,7 +302,7 @@ media.mojom.mojom.AudioDecoder_Decode_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.AudioDecoder_Decode_ResponseParamsSpec = {
+media.mojom.AudioDecoder_Decode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.Decode_ResponseParams',
@@ -238,7 +316,7 @@ media.mojom.mojom.AudioDecoder_Decode_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Reset
-media.mojom.mojom.AudioDecoder_Reset_ParamsSpec = {
+media.mojom.AudioDecoder_Reset_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoder.Reset_Params',
@@ -251,29 +329,55 @@ media.mojom.mojom.AudioDecoder_Reset_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.AudioDecoderPtr = media.mojom.mojom.AudioDecoderRemote;
-media.mojom.mojom.AudioDecoderRequest = media.mojom.mojom.AudioDecoderPendingReceiver;
+media.mojom.AudioDecoderPtr = media.mojom.AudioDecoderRemote;
+media.mojom.AudioDecoderRequest = media.mojom.AudioDecoderPendingReceiver;
 
 
 // Interface: AudioDecoderClient
-media.mojom.mojom.AudioDecoderClient = {};
+media.mojom.AudioDecoderClient = {};
 
-media.mojom.mojom.AudioDecoderClientPendingReceiver = class {
+media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoderClient_OnBufferDecoded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioDecoderClient_OnWaiting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WaitingReasonSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.AudioDecoderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.AudioDecoderClientRemote = class {
+media.mojom.AudioDecoderClientRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioDecoderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.AudioDecoderClientPendingReceiver,
+      media.mojom.AudioDecoderClientPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.AudioDecoderClientRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.AudioDecoderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -285,7 +389,7 @@ media.mojom.mojom.AudioDecoderClientRemote = class {
   }
 };
 
-media.mojom.mojom.AudioDecoderClientRemoteCallHandler = class {
+media.mojom.AudioDecoderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -294,7 +398,7 @@ media.mojom.mojom.AudioDecoderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec,
+      media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec,
       null,
       [buffer]);
   }
@@ -303,15 +407,15 @@ media.mojom.mojom.AudioDecoderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.mojom.AudioDecoderClient_OnWaiting_ParamsSpec,
+      media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec,
       null,
       [reason]);
   }
 
 };
 
-media.mojom.mojom.AudioDecoderClient.getRemote = function() {
-  let remote = new media.mojom.mojom.AudioDecoderClientRemote();
+media.mojom.AudioDecoderClient.getRemote = function() {
+  let remote = new media.mojom.AudioDecoderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -321,7 +425,7 @@ media.mojom.mojom.AudioDecoderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnBufferDecoded
-media.mojom.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = {
+media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoderClient.OnBufferDecoded_Params',
@@ -335,7 +439,7 @@ media.mojom.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = {
 };
 
 // ParamsSpec for OnWaiting
-media.mojom.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = {
+media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoderClient.OnWaiting_Params',
@@ -349,6 +453,6 @@ media.mojom.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.AudioDecoderClientPtr = media.mojom.mojom.AudioDecoderClientRemote;
-media.mojom.mojom.AudioDecoderClientRequest = media.mojom.mojom.AudioDecoderClientPendingReceiver;
+media.mojom.AudioDecoderClientPtr = media.mojom.AudioDecoderClientRemote;
+media.mojom.AudioDecoderClientRequest = media.mojom.AudioDecoderClientPendingReceiver;
 

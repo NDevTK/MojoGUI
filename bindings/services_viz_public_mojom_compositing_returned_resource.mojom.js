@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: ReturnedResource
-viz.mojom.mojom.ReturnedResourceSpec = {
+viz.mojom.ReturnedResourceSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ReturnedResource',

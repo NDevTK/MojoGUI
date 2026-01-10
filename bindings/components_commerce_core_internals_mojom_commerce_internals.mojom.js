@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: EligibilityDetail
-commerce.mojom.mojom.EligibilityDetailSpec = {
+commerce.mojom.EligibilityDetailSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.EligibilityDetail',
@@ -27,7 +27,7 @@ commerce.mojom.mojom.EligibilityDetailSpec = {
 };
 
 // Struct: ShoppingEligibilityDetails
-commerce.mojom.mojom.ShoppingEligibilityDetailsSpec = {
+commerce.mojom.ShoppingEligibilityDetailsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.ShoppingEligibilityDetails',
@@ -43,7 +43,7 @@ commerce.mojom.mojom.ShoppingEligibilityDetailsSpec = {
 };
 
 // Struct: Subscription
-commerce.mojom.mojom.SubscriptionSpec = {
+commerce.mojom.SubscriptionSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.Subscription',
@@ -58,7 +58,7 @@ commerce.mojom.mojom.SubscriptionSpec = {
 };
 
 // Struct: ProductSpecificationsSet
-commerce.mojom.mojom.ProductSpecificationsSetSpec = {
+commerce.mojom.ProductSpecificationsSetSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.ProductSpecificationsSet',
@@ -76,24 +76,38 @@ commerce.mojom.mojom.ProductSpecificationsSetSpec = {
 };
 
 // Interface: CommerceInternalsHandlerFactory
-commerce.mojom.mojom.CommerceInternalsHandlerFactory = {};
+commerce.mojom.CommerceInternalsHandlerFactory = {};
 
-commerce.mojom.mojom.CommerceInternalsHandlerFactoryPendingReceiver = class {
+commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(commerce.mojom.CommerceInternalsPageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(commerce.mojom.CommerceInternalsHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandlerFactoryRemote = class {
+commerce.mojom.CommerceInternalsHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'commerce.mojom.CommerceInternalsHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.mojom.mojom.CommerceInternalsHandlerFactoryPendingReceiver,
+      commerce.mojom.CommerceInternalsHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new commerce.mojom.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -105,7 +119,7 @@ commerce.mojom.mojom.CommerceInternalsHandlerFactoryRemote = class {
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
+commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -114,15 +128,15 @@ commerce.mojom.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-commerce.mojom.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
-  let remote = new commerce.mojom.mojom.CommerceInternalsHandlerFactoryRemote();
+commerce.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
+  let remote = new commerce.mojom.CommerceInternalsHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -132,7 +146,7 @@ commerce.mojom.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateCommerceInternalsHandler
-commerce.mojom.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandlerFactory.CreateCommerceInternalsHandler_Params',
@@ -147,29 +161,114 @@ commerce.mojom.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHand
 };
 
 // Legacy compatibility
-commerce.mojom.mojom.CommerceInternalsHandlerFactoryPtr = commerce.mojom.mojom.CommerceInternalsHandlerFactoryRemote;
-commerce.mojom.mojom.CommerceInternalsHandlerFactoryRequest = commerce.mojom.mojom.CommerceInternalsHandlerFactoryPendingReceiver;
+commerce.mojom.CommerceInternalsHandlerFactoryPtr = commerce.mojom.CommerceInternalsHandlerFactoryRemote;
+commerce.mojom.CommerceInternalsHandlerFactoryRequest = commerce.mojom.CommerceInternalsHandlerFactoryPendingReceiver;
 
 
 // Interface: CommerceInternalsHandler
-commerce.mojom.mojom.CommerceInternalsHandler = {};
+commerce.mojom.CommerceInternalsHandler = {};
 
-commerce.mojom.mojom.CommerceInternalsHandlerPendingReceiver = class {
+commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandlerRemote = class {
+commerce.mojom.CommerceInternalsHandlerRemote = class {
   static get $interfaceName() {
     return 'commerce.mojom.CommerceInternalsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.mojom.mojom.CommerceInternalsHandlerPendingReceiver,
+      commerce.mojom.CommerceInternalsHandlerPendingReceiver,
       handle);
-    this.$ = new commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new commerce.mojom.CommerceInternalsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -181,7 +280,7 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemote = class {
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
+commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -190,8 +289,8 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec,
-      commerce.mojom.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
       []);
   }
 
@@ -199,7 +298,7 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec,
       null,
       []);
   }
@@ -208,8 +307,8 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec,
-      commerce.mojom.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
       [url]);
   }
 
@@ -217,8 +316,8 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec,
-      commerce.mojom.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
       []);
   }
 
@@ -226,8 +325,8 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec,
-      commerce.mojom.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
       []);
   }
 
@@ -235,7 +334,7 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec,
       null,
       []);
   }
@@ -244,15 +343,15 @@ commerce.mojom.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec,
-      commerce.mojom.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
       []);
   }
 
 };
 
-commerce.mojom.mojom.CommerceInternalsHandler.getRemote = function() {
-  let remote = new commerce.mojom.mojom.CommerceInternalsHandlerRemote();
+commerce.mojom.CommerceInternalsHandler.getRemote = function() {
+  let remote = new commerce.mojom.CommerceInternalsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -262,7 +361,7 @@ commerce.mojom.mojom.CommerceInternalsHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetIsShoppingListEligible
-commerce.mojom.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetIsShoppingListEligible_Params',
@@ -274,7 +373,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSp
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetIsShoppingListEligible_ResponseParams',
@@ -288,7 +387,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_Response
 };
 
 // ParamsSpec for ResetPriceTrackingEmailPref
-commerce.mojom.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.ResetPriceTrackingEmailPref_Params',
@@ -301,7 +400,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_Params
 };
 
 // ParamsSpec for GetProductInfoForUrl
-commerce.mojom.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_Params',
@@ -314,7 +413,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = 
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_ResponseParams',
@@ -328,7 +427,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParam
 };
 
 // ParamsSpec for GetSubscriptionDetails
-commerce.mojom.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetSubscriptionDetails_Params',
@@ -340,7 +439,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec 
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetSubscriptionDetails_ResponseParams',
@@ -354,7 +453,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponsePar
 };
 
 // ParamsSpec for GetProductSpecificationsDetails
-commerce.mojom.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductSpecificationsDetails_Params',
@@ -366,7 +465,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Pa
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductSpecificationsDetails_ResponseParams',
@@ -380,7 +479,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Re
 };
 
 // ParamsSpec for ResetProductSpecifications
-commerce.mojom.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.ResetProductSpecifications_Params',
@@ -393,7 +492,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsS
 };
 
 // ParamsSpec for GetShoppingEligibilityDetails
-commerce.mojom.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetShoppingEligibilityDetails_Params',
@@ -405,7 +504,7 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_Para
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = {
+commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsHandler.GetShoppingEligibilityDetails_ResponseParams',
@@ -419,29 +518,42 @@ commerce.mojom.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_Resp
 };
 
 // Legacy compatibility
-commerce.mojom.mojom.CommerceInternalsHandlerPtr = commerce.mojom.mojom.CommerceInternalsHandlerRemote;
-commerce.mojom.mojom.CommerceInternalsHandlerRequest = commerce.mojom.mojom.CommerceInternalsHandlerPendingReceiver;
+commerce.mojom.CommerceInternalsHandlerPtr = commerce.mojom.CommerceInternalsHandlerRemote;
+commerce.mojom.CommerceInternalsHandlerRequest = commerce.mojom.CommerceInternalsHandlerPendingReceiver;
 
 
 // Interface: CommerceInternalsPage
-commerce.mojom.mojom.CommerceInternalsPage = {};
+commerce.mojom.CommerceInternalsPage = {};
 
-commerce.mojom.mojom.CommerceInternalsPagePendingReceiver = class {
+commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+commerce.mojom.CommerceInternalsPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsPageRemote = class {
+commerce.mojom.CommerceInternalsPageRemote = class {
   static get $interfaceName() {
     return 'commerce.mojom.CommerceInternalsPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.mojom.mojom.CommerceInternalsPagePendingReceiver,
+      commerce.mojom.CommerceInternalsPagePendingReceiver,
       handle);
-    this.$ = new commerce.mojom.mojom.CommerceInternalsPageRemoteCallHandler(this.proxy);
+    this.$ = new commerce.mojom.CommerceInternalsPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -453,7 +565,7 @@ commerce.mojom.mojom.CommerceInternalsPageRemote = class {
   }
 };
 
-commerce.mojom.mojom.CommerceInternalsPageRemoteCallHandler = class {
+commerce.mojom.CommerceInternalsPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -462,15 +574,15 @@ commerce.mojom.mojom.CommerceInternalsPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.mojom.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec,
+      commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec,
       null,
       [eligible]);
   }
 
 };
 
-commerce.mojom.mojom.CommerceInternalsPage.getRemote = function() {
-  let remote = new commerce.mojom.mojom.CommerceInternalsPageRemote();
+commerce.mojom.CommerceInternalsPage.getRemote = function() {
+  let remote = new commerce.mojom.CommerceInternalsPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -480,7 +592,7 @@ commerce.mojom.mojom.CommerceInternalsPage.getRemote = function() {
 };
 
 // ParamsSpec for OnShoppingListEligibilityChanged
-commerce.mojom.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = {
+commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.CommerceInternalsPage.OnShoppingListEligibilityChanged_Params',
@@ -494,6 +606,6 @@ commerce.mojom.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_Para
 };
 
 // Legacy compatibility
-commerce.mojom.mojom.CommerceInternalsPagePtr = commerce.mojom.mojom.CommerceInternalsPageRemote;
-commerce.mojom.mojom.CommerceInternalsPageRequest = commerce.mojom.mojom.CommerceInternalsPagePendingReceiver;
+commerce.mojom.CommerceInternalsPagePtr = commerce.mojom.CommerceInternalsPageRemote;
+commerce.mojom.CommerceInternalsPageRequest = commerce.mojom.CommerceInternalsPagePendingReceiver;
 

@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: GpuFenceHandle
-gfx.mojom.mojom.GpuFenceHandleSpec = {
+gfx.mojom.GpuFenceHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.GpuFenceHandle',

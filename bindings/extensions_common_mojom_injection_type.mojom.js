@@ -10,8 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: InjectionType
-extensions.mojom.mojom.InjectionType = {
+extensions.mojom.InjectionType = {
   kContentScript: 0,
   kProgrammaticScript: 1,
 };
-extensions.mojom.mojom.InjectionTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.InjectionTypeSpec = { $: mojo.internal.Enum() };

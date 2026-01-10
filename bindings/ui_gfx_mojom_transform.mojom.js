@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Union: TransformData
-gfx.mojom.mojom.TransformDataSpec = { $: mojo.internal.Union(
+gfx.mojom.TransformDataSpec = { $: mojo.internal.Union(
     'gfx.mojom.TransformData', {
       'axis_2d': {
         'ordinal': 0,
@@ -26,7 +26,7 @@ gfx.mojom.mojom.TransformDataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Transform
-gfx.mojom.mojom.TransformSpec = {
+gfx.mojom.TransformSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Transform',

@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Union: ObliviousHttpCompletionResult
-network.mojom.mojom.ObliviousHttpCompletionResultSpec = { $: mojo.internal.Union(
+network.mojom.ObliviousHttpCompletionResultSpec = { $: mojo.internal.Union(
     'network.mojom.ObliviousHttpCompletionResult', {
       'net_error': {
         'ordinal': 0,
@@ -29,7 +29,7 @@ network.mojom.mojom.ObliviousHttpCompletionResultSpec = { $: mojo.internal.Union
 };
 
 // Struct: ObliviousHttpRequestBody
-network.mojom.mojom.ObliviousHttpRequestBodySpec = {
+network.mojom.ObliviousHttpRequestBodySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpRequestBody',
@@ -44,7 +44,7 @@ network.mojom.mojom.ObliviousHttpRequestBodySpec = {
 };
 
 // Struct: ObliviousHttpResponse
-network.mojom.mojom.ObliviousHttpResponseSpec = {
+network.mojom.ObliviousHttpResponseSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpResponse',
@@ -60,7 +60,7 @@ network.mojom.mojom.ObliviousHttpResponseSpec = {
 };
 
 // Struct: ObliviousHttpPaddingParameters
-network.mojom.mojom.ObliviousHttpPaddingParametersSpec = {
+network.mojom.ObliviousHttpPaddingParametersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpPaddingParameters',
@@ -76,7 +76,7 @@ network.mojom.mojom.ObliviousHttpPaddingParametersSpec = {
 };
 
 // Struct: ObliviousHttpRequest
-network.mojom.mojom.ObliviousHttpRequestSpec = {
+network.mojom.ObliviousHttpRequestSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpRequest',
@@ -98,24 +98,37 @@ network.mojom.mojom.ObliviousHttpRequestSpec = {
 };
 
 // Interface: ObliviousHttpClient
-network.mojom.mojom.ObliviousHttpClient = {};
+network.mojom.ObliviousHttpClient = {};
 
-network.mojom.mojom.ObliviousHttpClientPendingReceiver = class {
+network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ObliviousHttpClient_OnCompleted_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ObliviousHttpCompletionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.ObliviousHttpClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.ObliviousHttpClientRemote = class {
+network.mojom.ObliviousHttpClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ObliviousHttpClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.ObliviousHttpClientPendingReceiver,
+      network.mojom.ObliviousHttpClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.ObliviousHttpClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.ObliviousHttpClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -127,7 +140,7 @@ network.mojom.mojom.ObliviousHttpClientRemote = class {
   }
 };
 
-network.mojom.mojom.ObliviousHttpClientRemoteCallHandler = class {
+network.mojom.ObliviousHttpClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -136,15 +149,15 @@ network.mojom.mojom.ObliviousHttpClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
+      network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
       null,
       [response]);
   }
 
 };
 
-network.mojom.mojom.ObliviousHttpClient.getRemote = function() {
-  let remote = new network.mojom.mojom.ObliviousHttpClientRemote();
+network.mojom.ObliviousHttpClient.getRemote = function() {
+  let remote = new network.mojom.ObliviousHttpClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -154,7 +167,7 @@ network.mojom.mojom.ObliviousHttpClient.getRemote = function() {
 };
 
 // ParamsSpec for OnCompleted
-network.mojom.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
+network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpClient.OnCompleted_Params',
@@ -168,6 +181,6 @@ network.mojom.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.ObliviousHttpClientPtr = network.mojom.mojom.ObliviousHttpClientRemote;
-network.mojom.mojom.ObliviousHttpClientRequest = network.mojom.mojom.ObliviousHttpClientPendingReceiver;
+network.mojom.ObliviousHttpClientPtr = network.mojom.ObliviousHttpClientRemote;
+network.mojom.ObliviousHttpClientRequest = network.mojom.ObliviousHttpClientPendingReceiver;
 

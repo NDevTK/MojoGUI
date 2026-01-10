@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.shimless_rma = ash.shimless_rma || {};
-ash.shimless_rma.shimless_rma.mojom = ash.shimless_rma.shimless_rma.mojom || {};
+ash.shimless_rma.mojom = ash.shimless_rma.mojom || {};
 
 
 // Enum: State
-ash.shimless_rma.shimless_rma.mojom.mojom.State = {
+ash.shimless_rma.mojom.State = {
   kUnknown: 0,
   kWelcomeScreen: 1,
   kConfigureNetwork: 2,
@@ -36,10 +36,10 @@ ash.shimless_rma.shimless_rma.mojom.mojom.State = {
   kHardwareError: 21,
   kReboot: 22,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: RmadErrorCode
-ash.shimless_rma.shimless_rma.mojom.mojom.RmadErrorCode = {
+ash.shimless_rma.mojom.RmadErrorCode = {
   kNotSet: 0,
   kOk: 1,
   kWait: 2,
@@ -87,10 +87,10 @@ ash.shimless_rma.shimless_rma.mojom.mojom.RmadErrorCode = {
   kCannotRecordBrowserAction: 44,
   kUsbNotFound: 45,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.RmadErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.RmadErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OsUpdateOperation
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateOperation = {
+ash.shimless_rma.mojom.OsUpdateOperation = {
   kIdle: 0,
   kCheckingForUpdate: 1,
   kUpdateAvailable: 2,
@@ -105,18 +105,18 @@ ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateOperation = {
   kCleanupPreviousUpdate: 11,
   kUpdatedButDeferred: 12,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateOperationSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.OsUpdateOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateErrorCode
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateErrorCode = {
+ash.shimless_rma.mojom.UpdateErrorCode = {
   kSuccess: 0,
   kDownloadError: 1,
   kOtherError: 2,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.UpdateErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ComponentType
-ash.shimless_rma.shimless_rma.mojom.mojom.ComponentType = {
+ash.shimless_rma.mojom.ComponentType = {
   kComponentUnknown: 0,
   kAudioCodec: 1,
   kBattery: 2,
@@ -140,29 +140,29 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ComponentType = {
   kKeyboard: 20,
   kPowerButton: 21,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.ComponentTypeSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.ComponentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ComponentRepairStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.ComponentRepairStatus = {
+ash.shimless_rma.mojom.ComponentRepairStatus = {
   kRepairUnknown: 0,
   kOriginal: 1,
   kReplaced: 2,
   kMissing: 3,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.ComponentRepairStatusSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.ComponentRepairStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: WriteProtectDisableCompleteAction
-ash.shimless_rma.shimless_rma.mojom.mojom.WriteProtectDisableCompleteAction = {
+ash.shimless_rma.mojom.WriteProtectDisableCompleteAction = {
   kUnknown: 0,
   kSkippedAssembleDevice: 1,
   kCompleteAssembleDevice: 2,
   kCompleteKeepDeviceOpen: 3,
   kCompleteNoOp: 4,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.WriteProtectDisableCompleteActionSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.WriteProtectDisableCompleteActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateRoFirmwareStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareStatus = {
+ash.shimless_rma.mojom.UpdateRoFirmwareStatus = {
   kUnknown: 0,
   kWaitUsb: 1,
   kFileNotFound: 2,
@@ -171,46 +171,46 @@ ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareStatus = {
   kRebooting: 5,
   kComplete: 6,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareStatusSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.UpdateRoFirmwareStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: CalibrationSetupInstruction
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationSetupInstruction = {
+ash.shimless_rma.mojom.CalibrationSetupInstruction = {
   kCalibrationInstructionUnknown: 0,
   kCalibrationInstructionPlaceBaseOnFlatSurface: 1,
   kCalibrationInstructionPlaceLidOnFlatSurface: 2,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationSetupInstructionSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.CalibrationSetupInstructionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CalibrationOverallStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationOverallStatus = {
+ash.shimless_rma.mojom.CalibrationOverallStatus = {
   kCalibrationOverallComplete: 0,
   kCalibrationOverallCurrentRoundComplete: 1,
   kCalibrationOverallCurrentRoundFailed: 2,
   kCalibrationOverallInitializationFailed: 3,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationOverallStatusSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.CalibrationOverallStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: CalibrationStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationStatus = {
+ash.shimless_rma.mojom.CalibrationStatus = {
   kCalibrationWaiting: 0,
   kCalibrationInProgress: 1,
   kCalibrationComplete: 2,
   kCalibrationFailed: 3,
   kCalibrationSkip: 4,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationStatusSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.CalibrationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProvisioningStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningStatus = {
+ash.shimless_rma.mojom.ProvisioningStatus = {
   kInProgress: 0,
   kComplete: 1,
   kFailedBlocking: 2,
   kFailedNonBlocking: 3,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningStatusSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.ProvisioningStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProvisioningError
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningError = {
+ash.shimless_rma.mojom.ProvisioningError = {
   kUnknown: 0,
   kInternal: 1,
   kWpEnabled: 2,
@@ -224,19 +224,19 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningError = {
   kCr50: 10,
   kGbb: 11,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningErrorSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.ProvisioningErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: FinalizationStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationStatus = {
+ash.shimless_rma.mojom.FinalizationStatus = {
   kInProgress: 0,
   kComplete: 1,
   kFailedBlocking: 2,
   kFailedNonBlocking: 3,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationStatusSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.FinalizationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: FinalizationError
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationError = {
+ash.shimless_rma.mojom.FinalizationError = {
   kUnknown: 0,
   kInternal: 1,
   kCannotEnableHardwareWp: 2,
@@ -244,42 +244,42 @@ ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationError = {
   kCr50: 4,
   kGbb: 5,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationErrorSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.FinalizationErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShutdownMethod
-ash.shimless_rma.shimless_rma.mojom.mojom.ShutdownMethod = {
+ash.shimless_rma.mojom.ShutdownMethod = {
   kUnknown: 0,
   kReboot: 1,
   kShutdown: 2,
   kBatteryCutoff: 3,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.ShutdownMethodSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.ShutdownMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeatureLevel
-ash.shimless_rma.shimless_rma.mojom.mojom.FeatureLevel = {
+ash.shimless_rma.mojom.FeatureLevel = {
   kRmadFeatureLevelUnsupported: 0,
   kRmadFeatureLevelUnknown: 1,
   kRmadFeatureLevel0: 2,
   kRmadFeatureLevel1: 3,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.FeatureLevelSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.FeatureLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Show3pDiagnosticsAppResult
-ash.shimless_rma.shimless_rma.mojom.mojom.Show3pDiagnosticsAppResult = {
+ash.shimless_rma.mojom.Show3pDiagnosticsAppResult = {
   kOk: 0,
   kAppNotInstalled: 1,
   kFailedToLoad: 2,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.Show3pDiagnosticsAppResultSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.Show3pDiagnosticsAppResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: StatePropertyError
-ash.shimless_rma.shimless_rma.mojom.mojom.StatePropertyError = {
+ash.shimless_rma.mojom.StatePropertyError = {
   kUnsupported: 0,
 };
-ash.shimless_rma.shimless_rma.mojom.mojom.StatePropertyErrorSpec = { $: mojo.internal.Enum() };
+ash.shimless_rma.mojom.StatePropertyErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: HardwareVerificationResult
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationResultSpec = { $: mojo.internal.Union(
+ash.shimless_rma.mojom.HardwareVerificationResultSpec = { $: mojo.internal.Union(
     'ash.shimless_rma.mojom.HardwareVerificationResult', {
       'pass_result': {
         'ordinal': 0,
@@ -297,7 +297,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationResultSpec = { $: 
 };
 
 // Union: StateProperty
-ash.shimless_rma.shimless_rma.mojom.mojom.StatePropertySpec = { $: mojo.internal.Union(
+ash.shimless_rma.mojom.StatePropertySpec = { $: mojo.internal.Union(
     'ash.shimless_rma.mojom.StateProperty', {
       'update_device_info_state_property': {
         'ordinal': 0,
@@ -307,7 +307,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.StatePropertySpec = { $: mojo.internal
 };
 
 // Union: StatePropertyResult
-ash.shimless_rma.shimless_rma.mojom.mojom.StatePropertyResultSpec = { $: mojo.internal.Union(
+ash.shimless_rma.mojom.StatePropertyResultSpec = { $: mojo.internal.Union(
     'ash.shimless_rma.mojom.StatePropertyResult', {
       'property': {
         'ordinal': 0,
@@ -321,7 +321,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.StatePropertyResultSpec = { $: mojo.in
 };
 
 // Struct: StateResult
-ash.shimless_rma.shimless_rma.mojom.mojom.StateResultSpec = {
+ash.shimless_rma.mojom.StateResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.StateResult',
@@ -338,7 +338,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.StateResultSpec = {
 };
 
 // Struct: QrCode
-ash.shimless_rma.shimless_rma.mojom.mojom.QrCodeSpec = {
+ash.shimless_rma.mojom.QrCodeSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.QrCode',
@@ -353,7 +353,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.QrCodeSpec = {
 };
 
 // Struct: Component
-ash.shimless_rma.shimless_rma.mojom.mojom.ComponentSpec = {
+ash.shimless_rma.mojom.ComponentSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.Component',
@@ -369,7 +369,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ComponentSpec = {
 };
 
 // Struct: CalibrationComponentStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationComponentStatusSpec = {
+ash.shimless_rma.mojom.CalibrationComponentStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.CalibrationComponentStatus',
@@ -385,7 +385,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationComponentStatusSpec = {
 };
 
 // Struct: Shimless3pDiagnosticsAppInfo
-ash.shimless_rma.shimless_rma.mojom.mojom.Shimless3pDiagnosticsAppInfoSpec = {
+ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfo',
@@ -400,7 +400,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.Shimless3pDiagnosticsAppInfoSpec = {
 };
 
 // Struct: PassHardwareVerificationResult
-ash.shimless_rma.shimless_rma.mojom.mojom.PassHardwareVerificationResultSpec = {
+ash.shimless_rma.mojom.PassHardwareVerificationResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.PassHardwareVerificationResult',
@@ -413,7 +413,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.PassHardwareVerificationResultSpec = {
 };
 
 // Struct: FailHardwareVerificationResult
-ash.shimless_rma.shimless_rma.mojom.mojom.FailHardwareVerificationResultSpec = {
+ash.shimless_rma.mojom.FailHardwareVerificationResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.FailHardwareVerificationResult',
@@ -427,7 +427,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.FailHardwareVerificationResultSpec = {
 };
 
 // Struct: SkipHardwareVerificationResult
-ash.shimless_rma.shimless_rma.mojom.mojom.SkipHardwareVerificationResultSpec = {
+ash.shimless_rma.mojom.SkipHardwareVerificationResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.SkipHardwareVerificationResult',
@@ -440,7 +440,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.SkipHardwareVerificationResultSpec = {
 };
 
 // Struct: UpdateDeviceInfoStateProperty
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateDeviceInfoStatePropertySpec = {
+ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.UpdateDeviceInfoStateProperty',
@@ -461,24 +461,37 @@ ash.shimless_rma.shimless_rma.mojom.mojom.UpdateDeviceInfoStatePropertySpec = {
 };
 
 // Interface: ErrorObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserver = {};
+ash.shimless_rma.mojom.ErrorObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverPendingReceiver = class {
+ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ErrorObserver_OnError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ErrorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRemote = class {
+ash.shimless_rma.mojom.ErrorObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.ErrorObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverPendingReceiver,
+      ash.shimless_rma.mojom.ErrorObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -490,7 +503,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRemote = class {
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -499,15 +512,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserver_OnError_ParamsSpec,
+      ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec,
       null,
       [error]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRemote();
+ash.shimless_rma.mojom.ErrorObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.ErrorObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -517,7 +530,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnError
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserver_OnError_ParamsSpec = {
+ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ErrorObserver.OnError_Params',
@@ -531,29 +544,44 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserver_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.ErrorObserverPendingReceiver;
+ash.shimless_rma.mojom.ErrorObserverPtr = ash.shimless_rma.mojom.ErrorObserverRemote;
+ash.shimless_rma.mojom.ErrorObserverRequest = ash.shimless_rma.mojom.ErrorObserverPendingReceiver;
 
 
 // Interface: OsUpdateObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserver = {};
+ash.shimless_rma.mojom.OsUpdateObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverPendingReceiver = class {
+ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.OsUpdateOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'update_error_code', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateErrorCodeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.OsUpdateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRemote = class {
+ash.shimless_rma.mojom.OsUpdateObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.OsUpdateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverPendingReceiver,
+      ash.shimless_rma.mojom.OsUpdateObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -565,7 +593,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRemote = class {
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -574,15 +602,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec,
+      ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec,
       null,
       [operation, progress, update_error_code]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRemote();
+ash.shimless_rma.mojom.OsUpdateObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.OsUpdateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -592,7 +620,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserver.getRemote = function(
 };
 
 // ParamsSpec for OnOsUpdateProgressUpdated
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
+ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.OsUpdateObserver.OnOsUpdateProgressUpdated_Params',
@@ -608,29 +636,55 @@ ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserver_OnOsUpdateProgressUpd
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.OsUpdateObserverPendingReceiver;
+ash.shimless_rma.mojom.OsUpdateObserverPtr = ash.shimless_rma.mojom.OsUpdateObserverRemote;
+ash.shimless_rma.mojom.OsUpdateObserverRequest = ash.shimless_rma.mojom.OsUpdateObserverPendingReceiver;
 
 
 // Interface: CalibrationObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver = {};
+ash.shimless_rma.mojom.CalibrationObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverPendingReceiver = class {
+ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'componentStatus', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationComponentStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationOverallStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.CalibrationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemote = class {
+ash.shimless_rma.mojom.CalibrationObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.CalibrationObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverPendingReceiver,
+      ash.shimless_rma.mojom.CalibrationObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -642,7 +696,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemote = class {
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -651,7 +705,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec,
+      ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec,
       null,
       [componentStatus]);
   }
@@ -660,15 +714,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemoteCallHandler =
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec,
+      ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemote();
+ash.shimless_rma.mojom.CalibrationObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.CalibrationObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -678,7 +732,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver.getRemote = functi
 };
 
 // ParamsSpec for OnCalibrationUpdated
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec = {
+ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.CalibrationObserver.OnCalibrationUpdated_Params',
@@ -692,7 +746,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver_OnCalibrationUpdat
 };
 
 // ParamsSpec for OnCalibrationStepComplete
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec = {
+ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.CalibrationObserver.OnCalibrationStepComplete_Params',
@@ -706,29 +760,44 @@ ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserver_OnCalibrationStepC
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.CalibrationObserverPendingReceiver;
+ash.shimless_rma.mojom.CalibrationObserverPtr = ash.shimless_rma.mojom.CalibrationObserverRemote;
+ash.shimless_rma.mojom.CalibrationObserverRequest = ash.shimless_rma.mojom.CalibrationObserverPendingReceiver;
 
 
 // Interface: ProvisioningObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserver = {};
+ash.shimless_rma.mojom.ProvisioningObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverPendingReceiver = class {
+ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ProvisioningObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRemote = class {
+ash.shimless_rma.mojom.ProvisioningObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.ProvisioningObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverPendingReceiver,
+      ash.shimless_rma.mojom.ProvisioningObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -740,7 +809,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRemote = class {
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -749,15 +818,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRemoteCallHandler 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec,
+      ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec,
       null,
       [status, progress, error]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRemote();
+ash.shimless_rma.mojom.ProvisioningObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.ProvisioningObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -767,7 +836,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserver.getRemote = funct
 };
 
 // ParamsSpec for OnProvisioningUpdated
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
+ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ProvisioningObserver.OnProvisioningUpdated_Params',
@@ -783,29 +852,42 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserver_OnProvisioningUpd
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.ProvisioningObserverPendingReceiver;
+ash.shimless_rma.mojom.ProvisioningObserverPtr = ash.shimless_rma.mojom.ProvisioningObserverRemote;
+ash.shimless_rma.mojom.ProvisioningObserverRequest = ash.shimless_rma.mojom.ProvisioningObserverPendingReceiver;
 
 
 // Interface: HardwareWriteProtectionStateObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserver = {};
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverPendingReceiver = class {
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRemote = class {
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverPendingReceiver,
+      ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -817,7 +899,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRe
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -826,15 +908,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRe
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec,
+      ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRemote();
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -844,7 +926,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserver.g
 };
 
 // ParamsSpec for OnHardwareWriteProtectionStateChanged
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec = {
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.OnHardwareWriteProtectionStateChanged_Params',
@@ -858,29 +940,42 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserver_O
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.HardwareWriteProtectionStateObserverPendingReceiver;
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPtr = ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote;
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRequest = ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPendingReceiver;
 
 
 // Interface: PowerCableStateObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserver = {};
+ash.shimless_rma.mojom.PowerCableStateObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverPendingReceiver = class {
+ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'plugged_in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.PowerCableStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRemote = class {
+ash.shimless_rma.mojom.PowerCableStateObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.PowerCableStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverPendingReceiver,
+      ash.shimless_rma.mojom.PowerCableStateObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -892,7 +987,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRemote = class 
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -901,15 +996,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec,
+      ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec,
       null,
       [plugged_in]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRemote();
+ash.shimless_rma.mojom.PowerCableStateObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.PowerCableStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -919,7 +1014,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserver.getRemote = fu
 };
 
 // ParamsSpec for OnPowerCableStateChanged
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec = {
+ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.PowerCableStateObserver.OnPowerCableStateChanged_Params',
@@ -933,29 +1028,42 @@ ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserver_OnPowerCableSt
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.PowerCableStateObserverPendingReceiver;
+ash.shimless_rma.mojom.PowerCableStateObserverPtr = ash.shimless_rma.mojom.PowerCableStateObserverRemote;
+ash.shimless_rma.mojom.PowerCableStateObserverRequest = ash.shimless_rma.mojom.PowerCableStateObserverPendingReceiver;
 
 
 // Interface: ExternalDiskStateObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserver = {};
+ash.shimless_rma.mojom.ExternalDiskStateObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverPendingReceiver = class {
+ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'detected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ExternalDiskStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRemote = class {
+ash.shimless_rma.mojom.ExternalDiskStateObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.ExternalDiskStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverPendingReceiver,
+      ash.shimless_rma.mojom.ExternalDiskStateObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -967,7 +1075,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRemote = clas
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -976,15 +1084,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRemoteCallHan
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec,
+      ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec,
       null,
       [detected]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRemote();
+ash.shimless_rma.mojom.ExternalDiskStateObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.ExternalDiskStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -994,7 +1102,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserver.getRemote = 
 };
 
 // ParamsSpec for OnExternalDiskStateChanged
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec = {
+ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ExternalDiskStateObserver.OnExternalDiskStateChanged_Params',
@@ -1008,29 +1116,42 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserver_OnExternalDi
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.ExternalDiskStateObserverPendingReceiver;
+ash.shimless_rma.mojom.ExternalDiskStateObserverPtr = ash.shimless_rma.mojom.ExternalDiskStateObserverRemote;
+ash.shimless_rma.mojom.ExternalDiskStateObserverRequest = ash.shimless_rma.mojom.ExternalDiskStateObserverPendingReceiver;
 
 
 // Interface: HardwareVerificationStatusObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserver = {};
+ash.shimless_rma.mojom.HardwareVerificationStatusObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverPendingReceiver = class {
+ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.HardwareVerificationResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.HardwareVerificationStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRemote = class {
+ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverPendingReceiver,
+      ash.shimless_rma.mojom.HardwareVerificationStatusObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1042,7 +1163,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRemo
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1051,15 +1172,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRemo
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec,
+      ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRemote();
+ash.shimless_rma.mojom.HardwareVerificationStatusObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1069,7 +1190,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserver.get
 };
 
 // ParamsSpec for OnHardwareVerificationResult
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec = {
+ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver.OnHardwareVerificationResult_Params',
@@ -1083,29 +1204,44 @@ ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserver_OnH
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.HardwareVerificationStatusObserverPendingReceiver;
+ash.shimless_rma.mojom.HardwareVerificationStatusObserverPtr = ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote;
+ash.shimless_rma.mojom.HardwareVerificationStatusObserverRequest = ash.shimless_rma.mojom.HardwareVerificationStatusObserverPendingReceiver;
 
 
 // Interface: FinalizationObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserver = {};
+ash.shimless_rma.mojom.FinalizationObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverPendingReceiver = class {
+ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.FinalizationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRemote = class {
+ash.shimless_rma.mojom.FinalizationObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.FinalizationObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverPendingReceiver,
+      ash.shimless_rma.mojom.FinalizationObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1117,7 +1253,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRemote = class {
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1126,15 +1262,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRemoteCallHandler 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec,
+      ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec,
       null,
       [status, progress, error]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRemote();
+ash.shimless_rma.mojom.FinalizationObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.FinalizationObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1144,7 +1280,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserver.getRemote = funct
 };
 
 // ParamsSpec for OnFinalizationUpdated
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
+ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.FinalizationObserver.OnFinalizationUpdated_Params',
@@ -1160,29 +1296,42 @@ ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserver_OnFinalizationUpd
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.FinalizationObserverPendingReceiver;
+ash.shimless_rma.mojom.FinalizationObserverPtr = ash.shimless_rma.mojom.FinalizationObserverRemote;
+ash.shimless_rma.mojom.FinalizationObserverRequest = ash.shimless_rma.mojom.FinalizationObserverPendingReceiver;
 
 
 // Interface: UpdateRoFirmwareObserver
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserver = {};
+ash.shimless_rma.mojom.UpdateRoFirmwareObserver = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverPendingReceiver = class {
+ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateRoFirmwareStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.UpdateRoFirmwareObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRemote = class {
+ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.UpdateRoFirmwareObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverPendingReceiver,
+      ash.shimless_rma.mojom.UpdateRoFirmwareObserverPendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1194,7 +1343,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRemote = class
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRemoteCallHandler = class {
+ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1203,15 +1352,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRemoteCallHand
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec,
+      ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserver.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRemote();
+ash.shimless_rma.mojom.UpdateRoFirmwareObserver.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1221,7 +1370,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserver.getRemote = f
 };
 
 // ParamsSpec for OnUpdateRoFirmwareStatusChanged
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec = {
+ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.UpdateRoFirmwareObserver.OnUpdateRoFirmwareStatusChanged_Params',
@@ -1235,29 +1384,940 @@ ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserver_OnUpdateRoFir
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverPtr = ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverRequest = ash.shimless_rma.shimless_rma.mojom.mojom.UpdateRoFirmwareObserverPendingReceiver;
+ash.shimless_rma.mojom.UpdateRoFirmwareObserverPtr = ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote;
+ash.shimless_rma.mojom.UpdateRoFirmwareObserverRequest = ash.shimless_rma.mojom.UpdateRoFirmwareObserverPendingReceiver;
 
 
 // Interface: ShimlessRmaService
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService = {};
+ash.shimless_rma.mojom.ShimlessRmaService = {};
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServicePendingReceiver = class {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'should_wipe_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shimless_rma.mojom.ComponentSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'region_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sku_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'custom_label_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'dram_part_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_chassis_branded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hw_compliance_version', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 48}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shimless_rma.mojom.CalibrationComponentStatusSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetLog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_EndRma_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'shutdown_method', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.ShutdownMethodSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_approved', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.ErrorObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.OsUpdateObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.CalibrationObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.ProvisioningObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.PowerCableStateObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.ExternalDiskStateObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.FinalizationObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemote = class {
+ash.shimless_rma.mojom.ShimlessRmaServiceRemote = class {
   static get $interfaceName() {
     return 'ash.shimless_rma.mojom.ShimlessRmaService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServicePendingReceiver,
+      ash.shimless_rma.mojom.ShimlessRmaServicePendingReceiver,
       handle);
-    this.$ = new ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1269,7 +2329,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemote = class {
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = class {
+ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1278,8 +2338,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec,
       []);
   }
 
@@ -1287,8 +2347,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec,
       []);
   }
 
@@ -1296,8 +2356,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec,
       []);
   }
 
@@ -1305,8 +2365,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_AbortRma_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec,
       []);
   }
 
@@ -1314,8 +2374,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec,
       []);
   }
 
@@ -1323,7 +2383,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec,
       null,
       []);
   }
@@ -1332,8 +2392,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1341,8 +2401,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec,
       []);
   }
 
@@ -1350,8 +2410,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec,
       []);
   }
 
@@ -1359,8 +2419,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOs_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec,
       []);
   }
 
@@ -1368,8 +2428,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec,
       []);
   }
 
@@ -1377,8 +2437,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec,
       []);
   }
 
@@ -1386,8 +2446,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec,
       []);
   }
 
@@ -1395,8 +2455,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec,
       [should_wipe_device]);
   }
 
@@ -1404,8 +2464,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec,
       []);
   }
 
@@ -1413,8 +2473,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec,
       []);
   }
 
@@ -1422,8 +2482,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec,
       []);
   }
 
@@ -1431,8 +2491,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec,
       []);
   }
 
@@ -1440,8 +2500,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec,
       []);
   }
 
@@ -1449,8 +2509,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec,
       [code]);
   }
 
@@ -1458,8 +2518,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec,
       []);
   }
 
@@ -1467,8 +2527,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec,
       []);
   }
 
@@ -1476,8 +2536,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1485,8 +2545,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetComponentList_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec,
       []);
   }
 
@@ -1494,8 +2554,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetComponentList_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec,
       [components]);
   }
 
@@ -1503,8 +2563,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec,
       []);
   }
 
@@ -1512,8 +2572,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1521,8 +2581,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec,
       []);
   }
 
@@ -1530,8 +2590,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec,
       []);
   }
 
@@ -1539,8 +2599,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRegionList_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec,
       []);
   }
 
@@ -1548,8 +2608,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuList_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec,
       []);
   }
 
@@ -1557,8 +2617,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec,
       []);
   }
 
@@ -1566,8 +2626,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec,
       []);
   }
 
@@ -1575,8 +2635,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec,
       []);
   }
 
@@ -1584,8 +2644,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec,
       []);
   }
 
@@ -1593,8 +2653,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec,
       []);
   }
 
@@ -1602,8 +2662,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec,
       []);
   }
 
@@ -1611,8 +2671,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec,
       []);
   }
 
@@ -1620,8 +2680,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec,
       []);
   }
 
@@ -1629,8 +2689,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec,
       [serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version]);
   }
 
@@ -1638,8 +2698,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec,
       []);
   }
 
@@ -1647,8 +2707,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec,
       []);
   }
 
@@ -1656,8 +2716,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_StartCalibration_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec,
       [components]);
   }
 
@@ -1665,8 +2725,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec,
       []);
   }
 
@@ -1674,8 +2734,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec,
       []);
   }
 
@@ -1683,8 +2743,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1692,8 +2752,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec,
       []);
   }
 
@@ -1701,8 +2761,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1710,8 +2770,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec,
       []);
   }
 
@@ -1719,8 +2779,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 49
     return this.proxy.sendMessage(
       49,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1728,8 +2788,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 50
     return this.proxy.sendMessage(
       50,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1737,8 +2797,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 51
     return this.proxy.sendMessage(
       51,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetLog_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec,
       []);
   }
 
@@ -1746,8 +2806,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 52
     return this.proxy.sendMessage(
       52,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SaveLog_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec,
       []);
   }
 
@@ -1755,8 +2815,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 53
     return this.proxy.sendMessage(
       53,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec,
       []);
   }
 
@@ -1764,7 +2824,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 54
     return this.proxy.sendMessage(
       54,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec,
       null,
       []);
   }
@@ -1773,8 +2833,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 55
     return this.proxy.sendMessage(
       55,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_EndRma_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec,
       [shutdown_method]);
   }
 
@@ -1782,7 +2842,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 56
     return this.proxy.sendMessage(
       56,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec,
       null,
       []);
   }
@@ -1791,8 +2851,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 57
     return this.proxy.sendMessage(
       57,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec,
       []);
   }
 
@@ -1800,8 +2860,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 58
     return this.proxy.sendMessage(
       58,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec,
       []);
   }
 
@@ -1809,8 +2869,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 59
     return this.proxy.sendMessage(
       59,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec,
       []);
   }
 
@@ -1818,8 +2878,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 60
     return this.proxy.sendMessage(
       60,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec,
       []);
   }
 
@@ -1827,8 +2887,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 61
     return this.proxy.sendMessage(
       61,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec,
       []);
   }
 
@@ -1836,7 +2896,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 62
     return this.proxy.sendMessage(
       62,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec,
       null,
       [is_approved]);
   }
@@ -1845,8 +2905,8 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 63
     return this.proxy.sendMessage(
       63,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec,
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec,
       []);
   }
 
@@ -1854,7 +2914,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 64
     return this.proxy.sendMessage(
       64,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveError_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec,
       null,
       [observer]);
   }
@@ -1863,7 +2923,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 65
     return this.proxy.sendMessage(
       65,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec,
       null,
       [observer]);
   }
@@ -1872,7 +2932,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 66
     return this.proxy.sendMessage(
       66,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec,
       null,
       [observer]);
   }
@@ -1881,7 +2941,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 67
     return this.proxy.sendMessage(
       67,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec,
       null,
       [observer]);
   }
@@ -1890,7 +2950,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 68
     return this.proxy.sendMessage(
       68,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec,
       null,
       [observer]);
   }
@@ -1899,7 +2959,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 69
     return this.proxy.sendMessage(
       69,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec,
       null,
       [observer]);
   }
@@ -1908,7 +2968,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 70
     return this.proxy.sendMessage(
       70,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec,
       null,
       [observer]);
   }
@@ -1917,7 +2977,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 71
     return this.proxy.sendMessage(
       71,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec,
       null,
       [observer]);
   }
@@ -1926,7 +2986,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 72
     return this.proxy.sendMessage(
       72,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec,
       null,
       [observer]);
   }
@@ -1935,15 +2995,15 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemoteCallHandler = 
     // Ordinal: 73
     return this.proxy.sendMessage(
       73,  // ordinal
-      ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService.getRemote = function() {
-  let remote = new ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemote();
+ash.shimless_rma.mojom.ShimlessRmaService.getRemote = function() {
+  let remote = new ash.shimless_rma.mojom.ShimlessRmaServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1953,7 +3013,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService.getRemote = functio
 };
 
 // ParamsSpec for GetCurrentState
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCurrentState_Params',
@@ -1965,7 +3025,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentState_Par
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCurrentState_ResponseParams',
@@ -1979,7 +3039,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentState_Res
 };
 
 // ParamsSpec for GetStateProperties
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetStateProperties_Params',
@@ -1991,7 +3051,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetStateProperties_
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetStateProperties_ResponseParams',
@@ -2005,7 +3065,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetStateProperties_
 };
 
 // ParamsSpec for TransitionPreviousState
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.TransitionPreviousState_Params',
@@ -2017,7 +3077,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TransitionPreviousS
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.TransitionPreviousState_ResponseParams',
@@ -2031,7 +3091,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TransitionPreviousS
 };
 
 // ParamsSpec for AbortRma
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_AbortRma_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.AbortRma_Params',
@@ -2043,7 +3103,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_AbortRma_ParamsSpec
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.AbortRma_ResponseParams',
@@ -2057,7 +3117,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_AbortRma_ResponsePa
 };
 
 // ParamsSpec for BeginFinalization
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.BeginFinalization_Params',
@@ -2069,7 +3129,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_BeginFinalization_P
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.BeginFinalization_ResponseParams',
@@ -2083,7 +3143,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_BeginFinalization_R
 };
 
 // ParamsSpec for TrackConfiguredNetworks
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.TrackConfiguredNetworks_Params',
@@ -2096,7 +3156,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_TrackConfiguredNetw
 };
 
 // ParamsSpec for NetworkSelectionComplete
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.NetworkSelectionComplete_Params',
@@ -2108,7 +3168,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_NetworkSelectionCom
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.NetworkSelectionComplete_ResponseParams',
@@ -2122,7 +3182,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_NetworkSelectionCom
 };
 
 // ParamsSpec for GetCurrentOsVersion
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCurrentOsVersion_Params',
@@ -2134,7 +3194,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentOsVersion
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCurrentOsVersion_ResponseParams',
@@ -2148,7 +3208,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCurrentOsVersion
 };
 
 // ParamsSpec for CheckForOsUpdates
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CheckForOsUpdates_Params',
@@ -2160,7 +3220,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CheckForOsUpdates_P
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CheckForOsUpdates_ResponseParams',
@@ -2175,7 +3235,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CheckForOsUpdates_R
 };
 
 // ParamsSpec for UpdateOs
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOs_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOs_Params',
@@ -2187,7 +3247,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOs_ParamsSpec
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOs_ResponseParams',
@@ -2201,7 +3261,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOs_ResponsePa
 };
 
 // ParamsSpec for UpdateOsSkipped
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOsSkipped_Params',
@@ -2213,7 +3273,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOsSkipped_Par
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOsSkipped_ResponseParams',
@@ -2227,7 +3287,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_UpdateOsSkipped_Res
 };
 
 // ParamsSpec for SetSameOwner
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetSameOwner_Params',
@@ -2239,7 +3299,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetSameOwner_Params
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetSameOwner_ResponseParams',
@@ -2253,7 +3313,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetSameOwner_Respon
 };
 
 // ParamsSpec for SetDifferentOwner
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDifferentOwner_Params',
@@ -2265,7 +3325,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDifferentOwner_P
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDifferentOwner_ResponseParams',
@@ -2279,7 +3339,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDifferentOwner_R
 };
 
 // ParamsSpec for SetWipeDevice
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetWipeDevice_Params',
@@ -2292,7 +3352,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetWipeDevice_Param
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetWipeDevice_ResponseParams',
@@ -2306,7 +3366,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetWipeDevice_Respo
 };
 
 // ParamsSpec for SetManuallyDisableWriteProtect
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetManuallyDisableWriteProtect_Params',
@@ -2318,7 +3378,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetManuallyDisableW
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetManuallyDisableWriteProtect_ResponseParams',
@@ -2332,7 +3392,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetManuallyDisableW
 };
 
 // ParamsSpec for SetRsuDisableWriteProtect
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtect_Params',
@@ -2344,7 +3404,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteP
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtect_ResponseParams',
@@ -2358,7 +3418,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteP
 };
 
 // ParamsSpec for GetRsuDisableWriteProtectChallenge
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallenge_Params',
@@ -2370,7 +3430,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteP
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallenge_ResponseParams',
@@ -2384,7 +3444,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteP
 };
 
 // ParamsSpec for GetRsuDisableWriteProtectHwid
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectHwid_Params',
@@ -2396,7 +3456,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteP
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectHwid_ResponseParams',
@@ -2410,7 +3470,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteP
 };
 
 // ParamsSpec for GetRsuDisableWriteProtectChallengeQrCode
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallengeQrCode_Params',
@@ -2422,7 +3482,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteP
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallengeQrCode_ResponseParams',
@@ -2436,7 +3496,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRsuDisableWriteP
 };
 
 // ParamsSpec for SetRsuDisableWriteProtectCode
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtectCode_Params',
@@ -2449,7 +3509,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteP
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtectCode_ResponseParams',
@@ -2463,7 +3523,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetRsuDisableWriteP
 };
 
 // ParamsSpec for WriteProtectManuallyDisabled
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyDisabled_Params',
@@ -2475,7 +3535,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuall
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyDisabled_ResponseParams',
@@ -2489,7 +3549,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuall
 };
 
 // ParamsSpec for GetWriteProtectDisableCompleteAction
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetWriteProtectDisableCompleteAction_Params',
@@ -2501,7 +3561,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetWriteProtectDisa
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetWriteProtectDisableCompleteAction_ResponseParams',
@@ -2515,7 +3575,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetWriteProtectDisa
 };
 
 // ParamsSpec for ConfirmManualWpDisableComplete
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ConfirmManualWpDisableComplete_Params',
@@ -2527,7 +3587,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ConfirmManualWpDisa
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ConfirmManualWpDisableComplete_ResponseParams',
@@ -2541,7 +3601,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ConfirmManualWpDisa
 };
 
 // ParamsSpec for GetComponentList
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetComponentList_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetComponentList_Params',
@@ -2553,7 +3613,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetComponentList_Pa
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetComponentList_ResponseParams',
@@ -2567,7 +3627,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetComponentList_Re
 };
 
 // ParamsSpec for SetComponentList
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetComponentList_Params',
@@ -2580,7 +3640,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetComponentList_Pa
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetComponentList_ResponseParams',
@@ -2594,7 +3654,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetComponentList_Re
 };
 
 // ParamsSpec for ReworkMainboard
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ReworkMainboard_Params',
@@ -2606,7 +3666,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ReworkMainboard_Par
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ReworkMainboard_ResponseParams',
@@ -2620,7 +3680,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ReworkMainboard_Res
 };
 
 // ParamsSpec for RoFirmwareUpdateComplete
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RoFirmwareUpdateComplete_Params',
@@ -2632,7 +3692,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RoFirmwareUpdateCom
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RoFirmwareUpdateComplete_ResponseParams',
@@ -2646,7 +3706,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RoFirmwareUpdateCom
 };
 
 // ParamsSpec for ShutdownForRestock
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ShutdownForRestock_Params',
@@ -2658,7 +3718,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutdownForRestock_
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ShutdownForRestock_ResponseParams',
@@ -2672,7 +3732,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutdownForRestock_
 };
 
 // ParamsSpec for ContinueFinalizationAfterRestock
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueFinalizationAfterRestock_Params',
@@ -2684,7 +3744,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueFinalizatio
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueFinalizationAfterRestock_ResponseParams',
@@ -2698,7 +3758,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueFinalizatio
 };
 
 // ParamsSpec for GetRegionList
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRegionList_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRegionList_Params',
@@ -2710,7 +3770,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRegionList_Param
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRegionList_ResponseParams',
@@ -2724,7 +3784,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetRegionList_Respo
 };
 
 // ParamsSpec for GetSkuList
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuList_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuList_Params',
@@ -2736,7 +3796,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuList_ParamsSp
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuList_ResponseParams',
@@ -2750,7 +3810,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuList_Response
 };
 
 // ParamsSpec for GetCustomLabelList
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCustomLabelList_Params',
@@ -2762,7 +3822,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCustomLabelList_
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCustomLabelList_ResponseParams',
@@ -2776,7 +3836,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCustomLabelList_
 };
 
 // ParamsSpec for GetSkuDescriptionList
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuDescriptionList_Params',
@@ -2788,7 +3848,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuDescriptionLi
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuDescriptionList_ResponseParams',
@@ -2802,7 +3862,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetSkuDescriptionLi
 };
 
 // ParamsSpec for GetOriginalSerialNumber
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSerialNumber_Params',
@@ -2814,7 +3874,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSerialNu
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSerialNumber_ResponseParams',
@@ -2828,7 +3888,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSerialNu
 };
 
 // ParamsSpec for GetOriginalRegion
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalRegion_Params',
@@ -2840,7 +3900,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalRegion_P
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalRegion_ResponseParams',
@@ -2854,7 +3914,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalRegion_R
 };
 
 // ParamsSpec for GetOriginalSku
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSku_Params',
@@ -2866,7 +3926,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSku_Para
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSku_ResponseParams',
@@ -2880,7 +3940,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalSku_Resp
 };
 
 // ParamsSpec for GetOriginalCustomLabel
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalCustomLabel_Params',
@@ -2892,7 +3952,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalCustomLa
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalCustomLabel_ResponseParams',
@@ -2906,7 +3966,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalCustomLa
 };
 
 // ParamsSpec for GetOriginalDramPartNumber
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalDramPartNumber_Params',
@@ -2918,7 +3978,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalDramPart
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalDramPartNumber_ResponseParams',
@@ -2932,7 +3992,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalDramPart
 };
 
 // ParamsSpec for GetOriginalFeatureLevel
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalFeatureLevel_Params',
@@ -2944,7 +4004,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalFeatureL
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalFeatureLevel_ResponseParams',
@@ -2958,7 +4018,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetOriginalFeatureL
 };
 
 // ParamsSpec for SetDeviceInformation
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDeviceInformation_Params',
@@ -2977,7 +4037,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDeviceInformatio
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDeviceInformation_ResponseParams',
@@ -2991,7 +4051,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SetDeviceInformatio
 };
 
 // ParamsSpec for GetCalibrationComponentList
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationComponentList_Params',
@@ -3003,7 +4063,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationCompo
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationComponentList_ResponseParams',
@@ -3017,7 +4077,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationCompo
 };
 
 // ParamsSpec for GetCalibrationSetupInstructions
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationSetupInstructions_Params',
@@ -3029,7 +4089,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationSetup
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationSetupInstructions_ResponseParams',
@@ -3043,7 +4103,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetCalibrationSetup
 };
 
 // ParamsSpec for StartCalibration
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.StartCalibration_Params',
@@ -3056,7 +4116,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_StartCalibration_Pa
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.StartCalibration_ResponseParams',
@@ -3070,7 +4130,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_StartCalibration_Re
 };
 
 // ParamsSpec for RunCalibrationStep
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RunCalibrationStep_Params',
@@ -3082,7 +4142,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RunCalibrationStep_
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RunCalibrationStep_ResponseParams',
@@ -3096,7 +4156,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RunCalibrationStep_
 };
 
 // ParamsSpec for ContinueCalibration
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueCalibration_Params',
@@ -3108,7 +4168,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueCalibration
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueCalibration_ResponseParams',
@@ -3122,7 +4182,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ContinueCalibration
 };
 
 // ParamsSpec for CalibrationComplete
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CalibrationComplete_Params',
@@ -3134,7 +4194,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CalibrationComplete
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CalibrationComplete_ResponseParams',
@@ -3148,7 +4208,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CalibrationComplete
 };
 
 // ParamsSpec for RetryProvisioning
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryProvisioning_Params',
@@ -3160,7 +4220,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryProvisioning_P
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryProvisioning_ResponseParams',
@@ -3174,7 +4234,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryProvisioning_R
 };
 
 // ParamsSpec for ProvisioningComplete
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ProvisioningComplete_Params',
@@ -3186,7 +4246,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ProvisioningComplet
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ProvisioningComplete_ResponseParams',
@@ -3200,7 +4260,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ProvisioningComplet
 };
 
 // ParamsSpec for RetryFinalization
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryFinalization_Params',
@@ -3212,7 +4272,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryFinalization_P
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryFinalization_ResponseParams',
@@ -3226,7 +4286,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_RetryFinalization_R
 };
 
 // ParamsSpec for FinalizationComplete
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.FinalizationComplete_Params',
@@ -3238,7 +4298,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_FinalizationComplet
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.FinalizationComplete_ResponseParams',
@@ -3252,7 +4312,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_FinalizationComplet
 };
 
 // ParamsSpec for WriteProtectManuallyEnabled
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyEnabled_Params',
@@ -3264,7 +4324,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuall
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyEnabled_ResponseParams',
@@ -3278,7 +4338,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_WriteProtectManuall
 };
 
 // ParamsSpec for GetLog
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetLog_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetLog_Params',
@@ -3290,7 +4350,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetLog_ParamsSpec =
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetLog_ResponseParams',
@@ -3305,7 +4365,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetLog_ResponsePara
 };
 
 // ParamsSpec for SaveLog
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SaveLog_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SaveLog_Params',
@@ -3317,7 +4377,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SaveLog_ParamsSpec 
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SaveLog_ResponseParams',
@@ -3332,7 +4392,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_SaveLog_ResponsePar
 };
 
 // ParamsSpec for GetPowerwashRequired
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetPowerwashRequired_Params',
@@ -3344,7 +4404,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetPowerwashRequire
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetPowerwashRequired_ResponseParams',
@@ -3358,7 +4418,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetPowerwashRequire
 };
 
 // ParamsSpec for LaunchDiagnostics
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.LaunchDiagnostics_Params',
@@ -3371,7 +4431,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_LaunchDiagnostics_P
 };
 
 // ParamsSpec for EndRma
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.EndRma_Params',
@@ -3384,7 +4444,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_EndRma_ParamsSpec =
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.EndRma_ResponseParams',
@@ -3398,7 +4458,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_EndRma_ResponsePara
 };
 
 // ParamsSpec for ShutDownAfterHardwareError
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ShutDownAfterHardwareError_Params',
@@ -3411,7 +4471,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ShutDownAfterHardwa
 };
 
 // ParamsSpec for CriticalErrorExitToLogin
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorExitToLogin_Params',
@@ -3423,7 +4483,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorExitTo
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorExitToLogin_ResponseParams',
@@ -3437,7 +4497,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorExitTo
 };
 
 // ParamsSpec for CriticalErrorReboot
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorReboot_Params',
@@ -3449,7 +4509,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorReboot
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorReboot_ResponseParams',
@@ -3463,7 +4523,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CriticalErrorReboot
 };
 
 // ParamsSpec for Get3pDiagnosticsProvider
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.Get3pDiagnosticsProvider_Params',
@@ -3475,7 +4535,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Get3pDiagnosticsPro
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.Get3pDiagnosticsProvider_ResponseParams',
@@ -3489,7 +4549,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Get3pDiagnosticsPro
 };
 
 // ParamsSpec for GetInstallable3pDiagnosticsAppPath
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetInstallable3pDiagnosticsAppPath_Params',
@@ -3501,7 +4561,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetInstallable3pDia
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetInstallable3pDiagnosticsAppPath_ResponseParams',
@@ -3515,7 +4575,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_GetInstallable3pDia
 };
 
 // ParamsSpec for InstallLastFound3pDiagnosticsApp
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.InstallLastFound3pDiagnosticsApp_Params',
@@ -3527,7 +4587,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_InstallLastFound3pD
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.InstallLastFound3pDiagnosticsApp_ResponseParams',
@@ -3541,7 +4601,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_InstallLastFound3pD
 };
 
 // ParamsSpec for CompleteLast3pDiagnosticsInstallation
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CompleteLast3pDiagnosticsInstallation_Params',
@@ -3555,7 +4615,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_CompleteLast3pDiagn
 };
 
 // ParamsSpec for Show3pDiagnosticsApp
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.Show3pDiagnosticsApp_Params',
@@ -3567,7 +4627,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Show3pDiagnosticsAp
   }
 };
 
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.Show3pDiagnosticsApp_ResponseParams',
@@ -3581,7 +4641,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_Show3pDiagnosticsAp
 };
 
 // ParamsSpec for ObserveError
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveError_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveError_Params',
@@ -3595,7 +4655,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveError_Params
 };
 
 // ParamsSpec for ObserveOsUpdateProgress
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveOsUpdateProgress_Params',
@@ -3609,7 +4669,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveOsUpdateProg
 };
 
 // ParamsSpec for ObserveCalibrationProgress
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveCalibrationProgress_Params',
@@ -3623,7 +4683,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveCalibrationP
 };
 
 // ParamsSpec for ObserveProvisioningProgress
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveProvisioningProgress_Params',
@@ -3637,7 +4697,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveProvisioning
 };
 
 // ParamsSpec for ObserveHardwareWriteProtectionState
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveHardwareWriteProtectionState_Params',
@@ -3651,7 +4711,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveHardwareWrit
 };
 
 // ParamsSpec for ObservePowerCableState
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObservePowerCableState_Params',
@@ -3665,7 +4725,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObservePowerCableSt
 };
 
 // ParamsSpec for ObserveExternalDiskState
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveExternalDiskState_Params',
@@ -3679,7 +4739,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveExternalDisk
 };
 
 // ParamsSpec for ObserveHardwareVerificationStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveHardwareVerificationStatus_Params',
@@ -3693,7 +4753,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveHardwareVeri
 };
 
 // ParamsSpec for ObserveFinalizationStatus
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveFinalizationStatus_Params',
@@ -3707,7 +4767,7 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveFinalization
 };
 
 // ParamsSpec for ObserveRoFirmwareUpdateProgress
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec = {
+ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveRoFirmwareUpdateProgress_Params',
@@ -3721,6 +4781,6 @@ ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaService_ObserveRoFirmwareUp
 };
 
 // Legacy compatibility
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServicePtr = ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRemote;
-ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServiceRequest = ash.shimless_rma.shimless_rma.mojom.mojom.ShimlessRmaServicePendingReceiver;
+ash.shimless_rma.mojom.ShimlessRmaServicePtr = ash.shimless_rma.mojom.ShimlessRmaServiceRemote;
+ash.shimless_rma.mojom.ShimlessRmaServiceRequest = ash.shimless_rma.mojom.ShimlessRmaServicePendingReceiver;
 

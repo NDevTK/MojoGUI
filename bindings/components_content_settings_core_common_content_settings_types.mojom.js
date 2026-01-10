@@ -10,7 +10,7 @@ content_settings.mojom = content_settings.mojom || {};
 
 
 // Enum: ContentSettingsType
-content_settings.mojom.mojom.ContentSettingsType = {
+content_settings.mojom.ContentSettingsType = {
   DEFAULT: 0,
   COOKIES: 1,
   IMAGES: 2,
@@ -136,4 +136,4 @@ content_settings.mojom.mojom.ContentSettingsType = {
   PERMISSION_ACTIONS_HISTORY: 122,
   SUSPICIOUS_NOTIFICATION_SHOW_ORIGINAL: 123,
 };
-content_settings.mojom.mojom.ContentSettingsTypeSpec = { $: mojo.internal.Enum() };
+content_settings.mojom.ContentSettingsTypeSpec = { $: mojo.internal.Enum() };

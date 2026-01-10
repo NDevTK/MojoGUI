@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: AnchorElementPointerData
-blink.mojom.mojom.AnchorElementPointerDataSpec = {
+blink.mojom.AnchorElementPointerDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerData',
@@ -27,24 +27,91 @@ blink.mojom.mojom.AnchorElementPointerDataSpec = {
 };
 
 // Interface: AnchorElementInteractionHost
-blink.mojom.mojom.AnchorElementInteractionHost = {};
+blink.mojom.AnchorElementInteractionHost = {};
 
-blink.mojom.mojom.AnchorElementInteractionHostPendingReceiver = class {
+blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementInteractionHost_OnPointerDown_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AnchorElementInteractionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AnchorElementInteractionHostRemote = class {
+blink.mojom.AnchorElementInteractionHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AnchorElementInteractionHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AnchorElementInteractionHostPendingReceiver,
+      blink.mojom.AnchorElementInteractionHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AnchorElementInteractionHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AnchorElementInteractionHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +123,7 @@ blink.mojom.mojom.AnchorElementInteractionHostRemote = class {
   }
 };
 
-blink.mojom.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
+blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,7 +132,7 @@ blink.mojom.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec,
+      blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec,
       null,
       [target]);
   }
@@ -74,7 +141,7 @@ blink.mojom.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec,
+      blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec,
       null,
       [target, mouse_data]);
   }
@@ -83,7 +150,7 @@ blink.mojom.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec,
+      blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec,
       null,
       [target, mouse_data]);
   }
@@ -92,7 +159,7 @@ blink.mojom.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec,
+      blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec,
       null,
       [target]);
   }
@@ -101,15 +168,15 @@ blink.mojom.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec,
+      blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec,
       null,
       [targets]);
   }
 
 };
 
-blink.mojom.mojom.AnchorElementInteractionHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.AnchorElementInteractionHostRemote();
+blink.mojom.AnchorElementInteractionHost.getRemote = function() {
+  let remote = new blink.mojom.AnchorElementInteractionHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +186,7 @@ blink.mojom.mojom.AnchorElementInteractionHost.getRemote = function() {
 };
 
 // ParamsSpec for OnPointerDown
-blink.mojom.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
+blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerDown_Params',
@@ -133,7 +200,7 @@ blink.mojom.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
 };
 
 // ParamsSpec for OnPointerHoverEager
-blink.mojom.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
+blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverEager_Params',
@@ -148,7 +215,7 @@ blink.mojom.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = 
 };
 
 // ParamsSpec for OnPointerHoverModerate
-blink.mojom.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
+blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverModerate_Params',
@@ -163,7 +230,7 @@ blink.mojom.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec
 };
 
 // ParamsSpec for OnModerateViewportHeuristicTriggered
-blink.mojom.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec = {
+blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementInteractionHost.OnModerateViewportHeuristicTriggered_Params',
@@ -177,7 +244,7 @@ blink.mojom.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTrigge
 };
 
 // ParamsSpec for OnEagerViewportHeuristicTriggered
-blink.mojom.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec = {
+blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementInteractionHost.OnEagerViewportHeuristicTriggered_Params',
@@ -191,6 +258,6 @@ blink.mojom.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AnchorElementInteractionHostPtr = blink.mojom.mojom.AnchorElementInteractionHostRemote;
-blink.mojom.mojom.AnchorElementInteractionHostRequest = blink.mojom.mojom.AnchorElementInteractionHostPendingReceiver;
+blink.mojom.AnchorElementInteractionHostPtr = blink.mojom.AnchorElementInteractionHostRemote;
+blink.mojom.AnchorElementInteractionHostRequest = blink.mojom.AnchorElementInteractionHostPendingReceiver;
 

@@ -13,27 +13,27 @@ var blink = blink || {};
 
 
 // Enum: AILanguageModelPromptRole
-blink.mojom.mojom.AILanguageModelPromptRole = {
+blink.mojom.AILanguageModelPromptRole = {
   kSystem: 0,
   kUser: 1,
   kAssistant: 2,
   kToolCall: 3,
   kToolResponse: 4,
 };
-blink.mojom.mojom.AILanguageModelPromptRoleSpec = { $: mojo.internal.Enum() };
+blink.mojom.AILanguageModelPromptRoleSpec = { $: mojo.internal.Enum() };
 
 // Enum: AILanguageModelPromptType
-blink.mojom.mojom.AILanguageModelPromptType = {
+blink.mojom.AILanguageModelPromptType = {
   kText: 0,
   kImage: 1,
   kAudio: 2,
   kToolCall: 3,
   kToolResponse: 4,
 };
-blink.mojom.mojom.AILanguageModelPromptTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AILanguageModelPromptTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: AILanguageModelPromptContent
-blink.mojom.mojom.AILanguageModelPromptContentSpec = { $: mojo.internal.Union(
+blink.mojom.AILanguageModelPromptContentSpec = { $: mojo.internal.Union(
     'blink.mojom.AILanguageModelPromptContent', {
       'text': {
         'ordinal': 0,
@@ -51,7 +51,7 @@ blink.mojom.mojom.AILanguageModelPromptContentSpec = { $: mojo.internal.Union(
 };
 
 // Struct: AILanguageModelSamplingParams
-blink.mojom.mojom.AILanguageModelSamplingParamsSpec = {
+blink.mojom.AILanguageModelSamplingParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelSamplingParams',
@@ -66,7 +66,7 @@ blink.mojom.mojom.AILanguageModelSamplingParamsSpec = {
 };
 
 // Struct: AILanguageModelParams
-blink.mojom.mojom.AILanguageModelParamsSpec = {
+blink.mojom.AILanguageModelParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelParams',
@@ -81,7 +81,7 @@ blink.mojom.mojom.AILanguageModelParamsSpec = {
 };
 
 // Struct: AILanguageModelInstanceInfo
-blink.mojom.mojom.AILanguageModelInstanceInfoSpec = {
+blink.mojom.AILanguageModelInstanceInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelInstanceInfo',
@@ -98,7 +98,7 @@ blink.mojom.mojom.AILanguageModelInstanceInfoSpec = {
 };
 
 // Struct: AILanguageModelExpected
-blink.mojom.mojom.AILanguageModelExpectedSpec = {
+blink.mojom.AILanguageModelExpectedSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelExpected',
@@ -113,7 +113,7 @@ blink.mojom.mojom.AILanguageModelExpectedSpec = {
 };
 
 // Struct: AILanguageModelPrompt
-blink.mojom.mojom.AILanguageModelPromptSpec = {
+blink.mojom.AILanguageModelPromptSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelPrompt',
@@ -129,7 +129,7 @@ blink.mojom.mojom.AILanguageModelPromptSpec = {
 };
 
 // Struct: AILanguageModelCreateOptions
-blink.mojom.mojom.AILanguageModelCreateOptionsSpec = {
+blink.mojom.AILanguageModelCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelCreateOptions',
@@ -146,24 +146,52 @@ blink.mojom.mojom.AILanguageModelCreateOptionsSpec = {
 };
 
 // Interface: AIManagerCreateLanguageModelClient
-blink.mojom.mojom.AIManagerCreateLanguageModelClient = {};
+blink.mojom.AIManagerCreateLanguageModelClient = {};
 
-blink.mojom.mojom.AIManagerCreateLanguageModelClientPendingReceiver = class {
+blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateLanguageModelClient_OnResult_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'language_model_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AILanguageModelRemote), nullable: false, minVersion: 0 },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelInstanceInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIManagerCreateLanguageModelClient_OnError_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'quota_error_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AIManagerCreateLanguageModelClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AIManagerCreateLanguageModelClientRemote = class {
+blink.mojom.AIManagerCreateLanguageModelClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIManagerCreateLanguageModelClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AIManagerCreateLanguageModelClientPendingReceiver,
+      blink.mojom.AIManagerCreateLanguageModelClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -175,7 +203,7 @@ blink.mojom.mojom.AIManagerCreateLanguageModelClientRemote = class {
   }
 };
 
-blink.mojom.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
+blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -184,7 +212,7 @@ blink.mojom.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec,
+      blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec,
       null,
       [language_model_remote, info]);
   }
@@ -193,15 +221,15 @@ blink.mojom.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec,
+      blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
 
 };
 
-blink.mojom.mojom.AIManagerCreateLanguageModelClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.AIManagerCreateLanguageModelClientRemote();
+blink.mojom.AIManagerCreateLanguageModelClient.getRemote = function() {
+  let remote = new blink.mojom.AIManagerCreateLanguageModelClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -211,7 +239,7 @@ blink.mojom.mojom.AIManagerCreateLanguageModelClient.getRemote = function() {
 };
 
 // ParamsSpec for OnResult
-blink.mojom.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
+blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateLanguageModelClient.OnResult_Params',
@@ -226,7 +254,7 @@ blink.mojom.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-blink.mojom.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
+blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIManagerCreateLanguageModelClient.OnError_Params',
@@ -241,29 +269,96 @@ blink.mojom.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AIManagerCreateLanguageModelClientPtr = blink.mojom.mojom.AIManagerCreateLanguageModelClientRemote;
-blink.mojom.mojom.AIManagerCreateLanguageModelClientRequest = blink.mojom.mojom.AIManagerCreateLanguageModelClientPendingReceiver;
+blink.mojom.AIManagerCreateLanguageModelClientPtr = blink.mojom.AIManagerCreateLanguageModelClientRemote;
+blink.mojom.AIManagerCreateLanguageModelClientRequest = blink.mojom.AIManagerCreateLanguageModelClientPendingReceiver;
 
 
 // Interface: AILanguageModel
-blink.mojom.mojom.AILanguageModel = {};
+blink.mojom.AILanguageModel = {};
 
-blink.mojom.mojom.AILanguageModelPendingReceiver = class {
+blink.mojom.AILanguageModel_Prompt_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModel_Prompt_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'prompts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageModelPromptSpec, false), nullable: false, minVersion: 0 },
+        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ResponseConstraintSpec, nullable: true, minVersion: 0 },
+        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+blink.mojom.AILanguageModel_Append_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModel_Append_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'prompts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageModelPromptSpec, false), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AILanguageModel_Fork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModel_Fork_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateLanguageModelClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AILanguageModel_Destroy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModel_Destroy_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModel_MeasureInputUsage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageModelPromptSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.AILanguageModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AILanguageModelRemote = class {
+blink.mojom.AILanguageModelRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AILanguageModel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AILanguageModelPendingReceiver,
+      blink.mojom.AILanguageModelPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AILanguageModelRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AILanguageModelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -275,7 +370,7 @@ blink.mojom.mojom.AILanguageModelRemote = class {
   }
 };
 
-blink.mojom.mojom.AILanguageModelRemoteCallHandler = class {
+blink.mojom.AILanguageModelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -284,7 +379,7 @@ blink.mojom.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AILanguageModel_Prompt_ParamsSpec,
+      blink.mojom.AILanguageModel_Prompt_ParamsSpec,
       null,
       [prompts, constraint, pending_responder]);
   }
@@ -293,7 +388,7 @@ blink.mojom.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AILanguageModel_Append_ParamsSpec,
+      blink.mojom.AILanguageModel_Append_ParamsSpec,
       null,
       [prompts, client]);
   }
@@ -302,7 +397,7 @@ blink.mojom.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.AILanguageModel_Fork_ParamsSpec,
+      blink.mojom.AILanguageModel_Fork_ParamsSpec,
       null,
       [client]);
   }
@@ -311,7 +406,7 @@ blink.mojom.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.AILanguageModel_Destroy_ParamsSpec,
+      blink.mojom.AILanguageModel_Destroy_ParamsSpec,
       null,
       []);
   }
@@ -320,15 +415,15 @@ blink.mojom.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec,
-      blink.mojom.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
+      blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec,
+      blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
       [input]);
   }
 
 };
 
-blink.mojom.mojom.AILanguageModel.getRemote = function() {
-  let remote = new blink.mojom.mojom.AILanguageModelRemote();
+blink.mojom.AILanguageModel.getRemote = function() {
+  let remote = new blink.mojom.AILanguageModelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -338,7 +433,7 @@ blink.mojom.mojom.AILanguageModel.getRemote = function() {
 };
 
 // ParamsSpec for Prompt
-blink.mojom.mojom.AILanguageModel_Prompt_ParamsSpec = {
+blink.mojom.AILanguageModel_Prompt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModel.Prompt_Params',
@@ -354,7 +449,7 @@ blink.mojom.mojom.AILanguageModel_Prompt_ParamsSpec = {
 };
 
 // ParamsSpec for Append
-blink.mojom.mojom.AILanguageModel_Append_ParamsSpec = {
+blink.mojom.AILanguageModel_Append_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModel.Append_Params',
@@ -369,7 +464,7 @@ blink.mojom.mojom.AILanguageModel_Append_ParamsSpec = {
 };
 
 // ParamsSpec for Fork
-blink.mojom.mojom.AILanguageModel_Fork_ParamsSpec = {
+blink.mojom.AILanguageModel_Fork_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModel.Fork_Params',
@@ -383,7 +478,7 @@ blink.mojom.mojom.AILanguageModel_Fork_ParamsSpec = {
 };
 
 // ParamsSpec for Destroy
-blink.mojom.mojom.AILanguageModel_Destroy_ParamsSpec = {
+blink.mojom.AILanguageModel_Destroy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModel.Destroy_Params',
@@ -396,7 +491,7 @@ blink.mojom.mojom.AILanguageModel_Destroy_ParamsSpec = {
 };
 
 // ParamsSpec for MeasureInputUsage
-blink.mojom.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
+blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModel.MeasureInputUsage_Params',
@@ -409,7 +504,7 @@ blink.mojom.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = {
+blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModel.MeasureInputUsage_ResponseParams',
@@ -424,6 +519,6 @@ blink.mojom.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AILanguageModelPtr = blink.mojom.mojom.AILanguageModelRemote;
-blink.mojom.mojom.AILanguageModelRequest = blink.mojom.mojom.AILanguageModelPendingReceiver;
+blink.mojom.AILanguageModelPtr = blink.mojom.AILanguageModelRemote;
+blink.mojom.AILanguageModelRequest = blink.mojom.AILanguageModelPendingReceiver;
 

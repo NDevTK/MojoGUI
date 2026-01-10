@@ -10,7 +10,7 @@ ax.mojom = ax.mojom || {};
 
 
 // Struct: AXMode
-ax.mojom.mojom.AXModeSpec = {
+ax.mojom.AXModeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXMode',

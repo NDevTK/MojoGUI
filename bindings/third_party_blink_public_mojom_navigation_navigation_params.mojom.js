@@ -34,7 +34,7 @@ var url = url || {};
 
 
 // Enum: NavigationType
-blink.mojom.mojom.NavigationType = {
+blink.mojom.NavigationType = {
   RELOAD: 0,
   RELOAD_BYPASSING_CACHE: 1,
   RESTORE: 2,
@@ -44,34 +44,34 @@ blink.mojom.mojom.NavigationType = {
   SAME_DOCUMENT: 6,
   DIFFERENT_DOCUMENT: 7,
 };
-blink.mojom.mojom.NavigationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.NavigationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NavigationTypeForNavigationApi
-blink.mojom.mojom.NavigationTypeForNavigationApi = {
+blink.mojom.NavigationTypeForNavigationApi = {
   kPush: 0,
   kTraverse: 1,
   kReplace: 2,
   kReload: 3,
 };
-blink.mojom.mojom.NavigationTypeForNavigationApiSpec = { $: mojo.internal.Enum() };
+blink.mojom.NavigationTypeForNavigationApiSpec = { $: mojo.internal.Enum() };
 
 // Enum: ForceHistoryPush
-blink.mojom.mojom.ForceHistoryPush = {
+blink.mojom.ForceHistoryPush = {
   kYes: 0,
   kNo: 1,
 };
-blink.mojom.mojom.ForceHistoryPushSpec = { $: mojo.internal.Enum() };
+blink.mojom.ForceHistoryPushSpec = { $: mojo.internal.Enum() };
 
 // Enum: ParentResourceTimingAccess
-blink.mojom.mojom.ParentResourceTimingAccess = {
+blink.mojom.ParentResourceTimingAccess = {
   kDoNotReport: 0,
   kReportWithoutResponseDetails: 1,
   kReportWithResponseDetails: 2,
 };
-blink.mojom.mojom.ParentResourceTimingAccessSpec = { $: mojo.internal.Enum() };
+blink.mojom.ParentResourceTimingAccessSpec = { $: mojo.internal.Enum() };
 
 // Struct: BeginNavigationParams
-blink.mojom.mojom.BeginNavigationParamsSpec = {
+blink.mojom.BeginNavigationParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BeginNavigationParams',
@@ -103,7 +103,7 @@ blink.mojom.mojom.BeginNavigationParamsSpec = {
 };
 
 // Struct: CommonNavigationParams
-blink.mojom.mojom.CommonNavigationParamsSpec = {
+blink.mojom.CommonNavigationParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CommonNavigationParams',
@@ -137,7 +137,7 @@ blink.mojom.mojom.CommonNavigationParamsSpec = {
 };
 
 // Struct: NavigationTiming
-blink.mojom.mojom.NavigationTimingSpec = {
+blink.mojom.NavigationTimingSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationTiming',
@@ -153,7 +153,7 @@ blink.mojom.mojom.NavigationTimingSpec = {
 };
 
 // Struct: OldPageInfo
-blink.mojom.mojom.OldPageInfoSpec = {
+blink.mojom.OldPageInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OldPageInfo',
@@ -168,7 +168,7 @@ blink.mojom.mojom.OldPageInfoSpec = {
 };
 
 // Struct: CommitNavigationParams
-blink.mojom.mojom.CommitNavigationParamsSpec = {
+blink.mojom.CommitNavigationParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CommitNavigationParams',
@@ -244,7 +244,7 @@ blink.mojom.mojom.CommitNavigationParamsSpec = {
 };
 
 // Struct: PageSwapEventParams
-blink.mojom.mojom.PageSwapEventParamsSpec = {
+blink.mojom.PageSwapEventParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PageSwapEventParams',

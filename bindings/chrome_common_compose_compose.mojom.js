@@ -10,16 +10,16 @@ compose.mojom = compose.mojom || {};
 
 
 // Enum: InputMode
-compose.mojom.mojom.InputMode = {
+compose.mojom.InputMode = {
   kUnset: 0,
   kPolish: 1,
   kElaborate: 2,
   kFormalize: 3,
 };
-compose.mojom.mojom.InputModeSpec = { $: mojo.internal.Enum() };
+compose.mojom.InputModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StyleModifier
-compose.mojom.mojom.StyleModifier = {
+compose.mojom.StyleModifier = {
   kUnset: 0,
   kFormal: 1,
   kCasual: 2,
@@ -27,27 +27,27 @@ compose.mojom.mojom.StyleModifier = {
   kShorter: 4,
   kRetry: 5,
 };
-compose.mojom.mojom.StyleModifierSpec = { $: mojo.internal.Enum() };
+compose.mojom.StyleModifierSpec = { $: mojo.internal.Enum() };
 
 // Enum: CloseReason
-compose.mojom.mojom.CloseReason = {
+compose.mojom.CloseReason = {
   kFirstRunCloseButton: 0,
   kCloseButton: 1,
   kInsertButton: 2,
   kMSBBCloseButton: 3,
 };
-compose.mojom.mojom.CloseReasonSpec = { $: mojo.internal.Enum() };
+compose.mojom.CloseReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserFeedback
-compose.mojom.mojom.UserFeedback = {
+compose.mojom.UserFeedback = {
   kUserFeedbackUnspecified: 0,
   kUserFeedbackNegative: 1,
   kUserFeedbackPositive: 2,
 };
-compose.mojom.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+compose.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
 
 // Struct: ComposeResponse
-compose.mojom.mojom.ComposeResponseSpec = {
+compose.mojom.ComposeResponseSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeResponse',
@@ -67,7 +67,7 @@ compose.mojom.mojom.ComposeResponseSpec = {
 };
 
 // Struct: PartialComposeResponse
-compose.mojom.mojom.PartialComposeResponseSpec = {
+compose.mojom.PartialComposeResponseSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.PartialComposeResponse',
@@ -81,7 +81,7 @@ compose.mojom.mojom.PartialComposeResponseSpec = {
 };
 
 // Struct: ComposeState
-compose.mojom.mojom.ComposeStateSpec = {
+compose.mojom.ComposeStateSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeState',
@@ -98,7 +98,7 @@ compose.mojom.mojom.ComposeStateSpec = {
 };
 
 // Struct: ConfigurableParams
-compose.mojom.mojom.ConfigurableParamsSpec = {
+compose.mojom.ConfigurableParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ConfigurableParams',
@@ -114,7 +114,7 @@ compose.mojom.mojom.ConfigurableParamsSpec = {
 };
 
 // Struct: OpenMetadata
-compose.mojom.mojom.OpenMetadataSpec = {
+compose.mojom.OpenMetadataSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.OpenMetadata',
@@ -133,24 +133,39 @@ compose.mojom.mojom.OpenMetadataSpec = {
 };
 
 // Interface: ComposeSessionUntrustedPageHandlerFactory
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactory = {};
+compose.mojom.ComposeSessionUntrustedPageHandlerFactory = {};
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver = class {
+compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'client_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(compose.mojom.ComposeClientUntrustedPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(compose.mojom.ComposeSessionUntrustedPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'dialog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(compose.mojom.ComposeUntrustedDialogRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote = class {
+compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'compose.mojom.ComposeSessionUntrustedPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver,
+      compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -162,7 +177,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote = class {
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class {
+compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -171,15 +186,15 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec,
       null,
       [client_handler, handler, dialog]);
   }
 
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactory.getRemote = function() {
-  let remote = new compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote();
+compose.mojom.ComposeSessionUntrustedPageHandlerFactory.getRemote = function() {
+  let remote = new compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -189,7 +204,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactory.getRemote = functi
 };
 
 // ParamsSpec for CreateComposeSessionUntrustedPageHandler
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandlerFactory.CreateComposeSessionUntrustedPageHandler_Params',
@@ -205,29 +220,240 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessi
 };
 
 // Legacy compatibility
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryPtr = compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote;
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryRequest = compose.mojom.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver;
+compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPtr = compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote;
+compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRequest = compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver;
 
 
 // Interface: ComposeSessionUntrustedPageHandler
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler = {};
+compose.mojom.ComposeSessionUntrustedPageHandler = {};
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver = class {
+compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_Compose_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: compose.mojom.InputModeSpec, nullable: false, minVersion: 0 },
+        { name: 'edited', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.StyleModifierSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'webui_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_Undo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_Redo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.UserFeedbackSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemote = class {
+compose.mojom.ComposeSessionUntrustedPageHandlerRemote = class {
   static get $interfaceName() {
     return 'compose.mojom.ComposeSessionUntrustedPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver,
+      compose.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver,
       handle);
-    this.$ = new compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -239,7 +465,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemote = class {
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
+compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -248,7 +474,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec,
       null,
       []);
   }
@@ -257,7 +483,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec,
       null,
       [input, mode, edited]);
   }
@@ -266,7 +492,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec,
       null,
       [style]);
   }
@@ -275,7 +501,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec,
       null,
       []);
   }
@@ -284,7 +510,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec,
       null,
       [webui_state]);
   }
@@ -293,8 +519,8 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec,
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
       []);
   }
 
@@ -302,8 +528,8 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec,
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
       []);
   }
 
@@ -311,8 +537,8 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec,
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
       []);
   }
 
@@ -320,8 +546,8 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec,
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
       []);
   }
 
@@ -329,8 +555,8 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec,
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
       []);
   }
 
@@ -338,7 +564,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec,
       null,
       []);
   }
@@ -347,7 +573,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec,
       null,
       []);
   }
@@ -356,7 +582,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec,
       null,
       []);
   }
@@ -365,7 +591,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec,
       null,
       []);
   }
@@ -374,7 +600,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec,
       null,
       []);
   }
@@ -383,7 +609,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec,
       null,
       [feedback]);
   }
@@ -392,15 +618,15 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class 
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec,
-      compose.mojom.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
       [new_result]);
   }
 
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler.getRemote = function() {
-  let remote = new compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemote();
+compose.mojom.ComposeSessionUntrustedPageHandler.getRemote = function() {
+  let remote = new compose.mojom.ComposeSessionUntrustedPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -410,7 +636,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for LogCancelEdit
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.LogCancelEdit_Params',
@@ -423,7 +649,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec 
 };
 
 // ParamsSpec for Compose
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Compose_Params',
@@ -439,7 +665,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
 };
 
 // ParamsSpec for Rewrite
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Rewrite_Params',
@@ -453,7 +679,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
 };
 
 // ParamsSpec for LogEditInput
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.LogEditInput_Params',
@@ -466,7 +692,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec =
 };
 
 // ParamsSpec for SaveWebUIState
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.SaveWebUIState_Params',
@@ -480,7 +706,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec
 };
 
 // ParamsSpec for AcceptComposeResult
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.AcceptComposeResult_Params',
@@ -492,7 +718,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_Param
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.AcceptComposeResult_ResponseParams',
@@ -506,7 +732,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_Respo
 };
 
 // ParamsSpec for RequestInitialState
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RequestInitialState_Params',
@@ -518,7 +744,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_Param
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RequestInitialState_ResponseParams',
@@ -532,7 +758,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_Respo
 };
 
 // ParamsSpec for Undo
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Undo_Params',
@@ -544,7 +770,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Undo_ResponseParams',
@@ -558,7 +784,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec =
 };
 
 // ParamsSpec for RecoverFromErrorState
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RecoverFromErrorState_Params',
@@ -570,7 +796,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_Par
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RecoverFromErrorState_ResponseParams',
@@ -584,7 +810,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_Res
 };
 
 // ParamsSpec for Redo
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Redo_Params',
@@ -596,7 +822,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Redo_ResponseParams',
@@ -610,7 +836,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec =
 };
 
 // ParamsSpec for OpenBugReportingLink
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.OpenBugReportingLink_Params',
@@ -623,7 +849,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_Para
 };
 
 // ParamsSpec for OpenComposeLearnMorePage
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.OpenComposeLearnMorePage_Params',
@@ -636,7 +862,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_
 };
 
 // ParamsSpec for OpenEnterpriseComposeLearnMorePage
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.OpenEnterpriseComposeLearnMorePage_Params',
@@ -649,7 +875,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLear
 };
 
 // ParamsSpec for OpenFeedbackSurveyLink
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.OpenFeedbackSurveyLink_Params',
@@ -662,7 +888,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_Pa
 };
 
 // ParamsSpec for OpenSignInPage
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.OpenSignInPage_Params',
@@ -675,7 +901,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec
 };
 
 // ParamsSpec for SetUserFeedback
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.SetUserFeedback_Params',
@@ -689,7 +915,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpe
 };
 
 // ParamsSpec for EditResult
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.EditResult_Params',
@@ -702,7 +928,7 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
   }
 };
 
-compose.mojom.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec = {
+compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.EditResult_ResponseParams',
@@ -716,29 +942,78 @@ compose.mojom.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParams
 };
 
 // Legacy compatibility
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerPtr = compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRemote;
-compose.mojom.mojom.ComposeSessionUntrustedPageHandlerRequest = compose.mojom.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver;
+compose.mojom.ComposeSessionUntrustedPageHandlerPtr = compose.mojom.ComposeSessionUntrustedPageHandlerRemote;
+compose.mojom.ComposeSessionUntrustedPageHandlerRequest = compose.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver;
 
 
 // Interface: ComposeClientUntrustedPageHandler
-compose.mojom.mojom.ComposeClientUntrustedPageHandler = {};
+compose.mojom.ComposeClientUntrustedPageHandler = {};
 
-compose.mojom.mojom.ComposeClientUntrustedPageHandlerPendingReceiver = class {
+compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.CloseReasonSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+compose.mojom.ComposeClientUntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemote = class {
+compose.mojom.ComposeClientUntrustedPageHandlerRemote = class {
   static get $interfaceName() {
     return 'compose.mojom.ComposeClientUntrustedPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      compose.mojom.mojom.ComposeClientUntrustedPageHandlerPendingReceiver,
+      compose.mojom.ComposeClientUntrustedPageHandlerPendingReceiver,
       handle);
-    this.$ = new compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -750,7 +1025,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemote = class {
   }
 };
 
-compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
+compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -759,7 +1034,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec,
+      compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -768,7 +1043,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      compose.mojom.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec,
+      compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec,
       null,
       [reason]);
   }
@@ -777,7 +1052,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      compose.mojom.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec,
+      compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec,
       null,
       []);
   }
@@ -786,15 +1061,15 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      compose.mojom.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec,
+      compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec,
       null,
       []);
   }
 
 };
 
-compose.mojom.mojom.ComposeClientUntrustedPageHandler.getRemote = function() {
-  let remote = new compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemote();
+compose.mojom.ComposeClientUntrustedPageHandler.getRemote = function() {
+  let remote = new compose.mojom.ComposeClientUntrustedPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -804,7 +1079,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ShowUI
-compose.mojom.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = {
+compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeClientUntrustedPageHandler.ShowUI_Params',
@@ -817,7 +1092,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = {
 };
 
 // ParamsSpec for CloseUI
-compose.mojom.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
+compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeClientUntrustedPageHandler.CloseUI_Params',
@@ -831,7 +1106,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
 };
 
 // ParamsSpec for CompleteFirstRun
-compose.mojom.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec = {
+compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeClientUntrustedPageHandler.CompleteFirstRun_Params',
@@ -844,7 +1119,7 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpe
 };
 
 // ParamsSpec for OpenComposeSettings
-compose.mojom.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec = {
+compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeClientUntrustedPageHandler.OpenComposeSettings_Params',
@@ -857,29 +1132,55 @@ compose.mojom.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_Params
 };
 
 // Legacy compatibility
-compose.mojom.mojom.ComposeClientUntrustedPageHandlerPtr = compose.mojom.mojom.ComposeClientUntrustedPageHandlerRemote;
-compose.mojom.mojom.ComposeClientUntrustedPageHandlerRequest = compose.mojom.mojom.ComposeClientUntrustedPageHandlerPendingReceiver;
+compose.mojom.ComposeClientUntrustedPageHandlerPtr = compose.mojom.ComposeClientUntrustedPageHandlerRemote;
+compose.mojom.ComposeClientUntrustedPageHandlerRequest = compose.mojom.ComposeClientUntrustedPageHandlerPendingReceiver;
 
 
 // Interface: ComposeUntrustedDialog
-compose.mojom.mojom.ComposeUntrustedDialog = {};
+compose.mojom.ComposeUntrustedDialog = {};
 
-compose.mojom.mojom.ComposeUntrustedDialogPendingReceiver = class {
+compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeUntrustedDialog_ResponseReceived_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'partial_response', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.PartialComposeResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+compose.mojom.ComposeUntrustedDialogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-compose.mojom.mojom.ComposeUntrustedDialogRemote = class {
+compose.mojom.ComposeUntrustedDialogRemote = class {
   static get $interfaceName() {
     return 'compose.mojom.ComposeUntrustedDialog';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      compose.mojom.mojom.ComposeUntrustedDialogPendingReceiver,
+      compose.mojom.ComposeUntrustedDialogPendingReceiver,
       handle);
-    this.$ = new compose.mojom.mojom.ComposeUntrustedDialogRemoteCallHandler(this.proxy);
+    this.$ = new compose.mojom.ComposeUntrustedDialogRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -891,7 +1192,7 @@ compose.mojom.mojom.ComposeUntrustedDialogRemote = class {
   }
 };
 
-compose.mojom.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
+compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -900,7 +1201,7 @@ compose.mojom.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec,
+      compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec,
       null,
       [response]);
   }
@@ -909,15 +1210,15 @@ compose.mojom.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      compose.mojom.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec,
+      compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec,
       null,
       [partial_response]);
   }
 
 };
 
-compose.mojom.mojom.ComposeUntrustedDialog.getRemote = function() {
-  let remote = new compose.mojom.mojom.ComposeUntrustedDialogRemote();
+compose.mojom.ComposeUntrustedDialog.getRemote = function() {
+  let remote = new compose.mojom.ComposeUntrustedDialogRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -927,7 +1228,7 @@ compose.mojom.mojom.ComposeUntrustedDialog.getRemote = function() {
 };
 
 // ParamsSpec for ResponseReceived
-compose.mojom.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
+compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeUntrustedDialog.ResponseReceived_Params',
@@ -941,7 +1242,7 @@ compose.mojom.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
 };
 
 // ParamsSpec for PartialResponseReceived
-compose.mojom.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = {
+compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeUntrustedDialog.PartialResponseReceived_Params',
@@ -955,6 +1256,6 @@ compose.mojom.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = 
 };
 
 // Legacy compatibility
-compose.mojom.mojom.ComposeUntrustedDialogPtr = compose.mojom.mojom.ComposeUntrustedDialogRemote;
-compose.mojom.mojom.ComposeUntrustedDialogRequest = compose.mojom.mojom.ComposeUntrustedDialogPendingReceiver;
+compose.mojom.ComposeUntrustedDialogPtr = compose.mojom.ComposeUntrustedDialogRemote;
+compose.mojom.ComposeUntrustedDialogRequest = compose.mojom.ComposeUntrustedDialogPendingReceiver;
 

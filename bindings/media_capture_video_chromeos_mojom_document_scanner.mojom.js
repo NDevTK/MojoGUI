@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: DetectCornersResult
-cros.mojom.mojom.DetectCornersResultSpec = {
+cros.mojom.DetectCornersResultSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.DetectCornersResult',
@@ -27,24 +27,37 @@ cros.mojom.mojom.DetectCornersResultSpec = {
 };
 
 // Interface: CrosDocumentScanner
-cros.mojom.mojom.CrosDocumentScanner = {};
+cros.mojom.CrosDocumentScanner = {};
 
-cros.mojom.mojom.CrosDocumentScannerPendingReceiver = class {
+cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'nv12_image', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CrosDocumentScannerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.mojom.CrosDocumentScannerRemote = class {
+cros.mojom.CrosDocumentScannerRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosDocumentScanner';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.mojom.CrosDocumentScannerPendingReceiver,
+      cros.mojom.CrosDocumentScannerPendingReceiver,
       handle);
-    this.$ = new cros.mojom.mojom.CrosDocumentScannerRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.CrosDocumentScannerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +69,7 @@ cros.mojom.mojom.CrosDocumentScannerRemote = class {
   }
 };
 
-cros.mojom.mojom.CrosDocumentScannerRemoteCallHandler = class {
+cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,15 +78,15 @@ cros.mojom.mojom.CrosDocumentScannerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
-      cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
+      cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
+      cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
       [nv12_image]);
   }
 
 };
 
-cros.mojom.mojom.CrosDocumentScanner.getRemote = function() {
-  let remote = new cros.mojom.mojom.CrosDocumentScannerRemote();
+cros.mojom.CrosDocumentScanner.getRemote = function() {
+  let remote = new cros.mojom.CrosDocumentScannerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +96,7 @@ cros.mojom.mojom.CrosDocumentScanner.getRemote = function() {
 };
 
 // ParamsSpec for DetectCornersFromNV12Image
-cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
+cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosDocumentScanner.DetectCornersFromNV12Image_Params',
@@ -96,7 +109,7 @@ cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
   }
 };
 
-cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
+cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosDocumentScanner.DetectCornersFromNV12Image_ResponseParams',
@@ -110,6 +123,6 @@ cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSp
 };
 
 // Legacy compatibility
-cros.mojom.mojom.CrosDocumentScannerPtr = cros.mojom.mojom.CrosDocumentScannerRemote;
-cros.mojom.mojom.CrosDocumentScannerRequest = cros.mojom.mojom.CrosDocumentScannerPendingReceiver;
+cros.mojom.CrosDocumentScannerPtr = cros.mojom.CrosDocumentScannerRemote;
+cros.mojom.CrosDocumentScannerRequest = cros.mojom.CrosDocumentScannerPendingReceiver;
 

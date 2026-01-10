@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.network_diagnostics = chromeos.network_diagnostics || {};
-chromeos.network_diagnostics.network_diagnostics.mojom = chromeos.network_diagnostics.network_diagnostics.mojom || {};
+chromeos.network_diagnostics.mojom = chromeos.network_diagnostics.mojom || {};
 
 
 // Enum: RoutineType
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineType = {
+chromeos.network_diagnostics.mojom.RoutineType = {
   kSignalStrength: 0,
   kGatewayCanBePinged: 1,
   kHasSecureWiFiConnection: 2,
@@ -28,130 +28,130 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineType = {
   kArcPing: 13,
   kGoogleServicesConnectivity: 14,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RoutineVerdict
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineVerdict = {
+chromeos.network_diagnostics.mojom.RoutineVerdict = {
   kProblem: 0,
   kNotRun: 1,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineVerdictSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.RoutineVerdictSpec = { $: mojo.internal.Enum() };
 
 // Enum: RoutineCallSource
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineCallSource = {
+chromeos.network_diagnostics.mojom.RoutineCallSource = {
   kDiagnosticsUI: 0,
   kChromeNetworkPage: 1,
   kCrosHealthd: 2,
   kMetricsReporting: 3,
   kNetworkHealthSource: 4,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineCallSourceSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.RoutineCallSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: LanConnectivityProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.LanConnectivityProblem = {
+chromeos.network_diagnostics.mojom.LanConnectivityProblem = {
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.LanConnectivityProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.LanConnectivityProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: SignalStrengthProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.SignalStrengthProblem = {
+chromeos.network_diagnostics.mojom.SignalStrengthProblem = {
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.SignalStrengthProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.SignalStrengthProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: GatewayCanBePingedProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GatewayCanBePingedProblem = {
+chromeos.network_diagnostics.mojom.GatewayCanBePingedProblem = {
   kFailedToPingDefaultNetwork: 0,
   kDefaultNetworkAboveLatencyThreshold: 1,
   kUnsuccessfulNonDefaultNetworksPings: 2,
   kNonDefaultNetworksAboveLatencyThreshold: 3,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GatewayCanBePingedProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.GatewayCanBePingedProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: HasSecureWiFiConnectionProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HasSecureWiFiConnectionProblem = {
+chromeos.network_diagnostics.mojom.HasSecureWiFiConnectionProblem = {
   kSecurityTypeWep8021x: 0,
   kSecurityTypeWepPsk: 1,
   kUnknownSecurityType: 2,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HasSecureWiFiConnectionProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.HasSecureWiFiConnectionProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: DnsResolverPresentProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.DnsResolverPresentProblem = {
+chromeos.network_diagnostics.mojom.DnsResolverPresentProblem = {
   kMalformedNameServers: 0,
   kEmptyNameServers: 1,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.DnsResolverPresentProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.DnsResolverPresentProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: DnsLatencyProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.DnsLatencyProblem = {
+chromeos.network_diagnostics.mojom.DnsLatencyProblem = {
   kSlightlyAboveThreshold: 0,
   kSignificantlyAboveThreshold: 1,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.DnsLatencyProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.DnsLatencyProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: DnsResolutionProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.DnsResolutionProblem = {
+chromeos.network_diagnostics.mojom.DnsResolutionProblem = {
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.DnsResolutionProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.DnsResolutionProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptivePortalProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.CaptivePortalProblem = {
+chromeos.network_diagnostics.mojom.CaptivePortalProblem = {
   kUnknownPortalState: 0,
   kPortalSuspected: 1,
   kPortal: 2,
   kProxyAuthRequired: 3,
   kNoInternet: 4,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.CaptivePortalProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.CaptivePortalProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: HttpFirewallProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpFirewallProblem = {
+chromeos.network_diagnostics.mojom.HttpFirewallProblem = {
   kFirewallDetected: 0,
   kPotentialFirewall: 1,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpFirewallProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.HttpFirewallProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: HttpsFirewallProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpsFirewallProblem = {
+chromeos.network_diagnostics.mojom.HttpsFirewallProblem = {
   kFirewallDetected: 0,
   kPotentialFirewall: 1,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpsFirewallProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.HttpsFirewallProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: HttpsLatencyProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpsLatencyProblem = {
+chromeos.network_diagnostics.mojom.HttpsLatencyProblem = {
   kFailedHttpsRequests: 0,
   kHighLatency: 1,
   kVeryHighLatency: 2,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpsLatencyProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.HttpsLatencyProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoConferencingProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.VideoConferencingProblem = {
+chromeos.network_diagnostics.mojom.VideoConferencingProblem = {
   kTcpFailure: 0,
   kMediaFailure: 1,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.VideoConferencingProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.VideoConferencingProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcHttpProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.ArcHttpProblem = {
+chromeos.network_diagnostics.mojom.ArcHttpProblem = {
   kFailedToGetNetInstanceForHttpTest: 0,
   kHighLatency: 1,
   kVeryHighLatency: 2,
   kFailedHttpRequests: 3,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.ArcHttpProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.ArcHttpProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcDnsResolutionProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.ArcDnsResolutionProblem = {
+chromeos.network_diagnostics.mojom.ArcDnsResolutionProblem = {
   kFailedToGetNetInstanceForDnsResolutionTest: 0,
   kHighLatency: 1,
   kVeryHighLatency: 2,
   kFailedDnsQueries: 3,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.ArcDnsResolutionProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.ArcDnsResolutionProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcPingProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.ArcPingProblem = {
+chromeos.network_diagnostics.mojom.ArcPingProblem = {
   kFailedToGetNetInstanceForPingTest: 0,
   kGetManagedPropertiesTimeoutFailure: 1,
   kUnreachableGateway: 2,
@@ -160,10 +160,10 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.ArcPingProblem = {
   kUnsuccessfulNonDefaultNetworksPings: 5,
   kNonDefaultNetworksAboveLatencyThreshold: 6,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.ArcPingProblemSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.ArcPingProblemSpec = { $: mojo.internal.Enum() };
 
 // Enum: GoogleServicesConnectivityProblemType
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityProblemType = {
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemType = {
   kUnknownError: 0,
   kConnectionFailure: 1,
   kConnectionTimeout: 2,
@@ -173,16 +173,16 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConne
   kHttpError: 6,
   kNoNetworkError: 7,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityProblemTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GoogleServicesConnectivityProxyProblemType
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityProxyProblemType = {
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemType = {
   kProxyConnectionFailure: 0,
 };
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityProxyProblemTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: GoogleServicesConnectivityProblem
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityProblemSpec = { $: mojo.internal.Union(
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec = { $: mojo.internal.Union(
     'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblem', {
       'connection_error': {
         'ordinal': 0,
@@ -200,7 +200,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConne
 };
 
 // Union: RoutineProblems
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineProblemsSpec = { $: mojo.internal.Union(
+chromeos.network_diagnostics.mojom.RoutineProblemsSpec = { $: mojo.internal.Union(
     'chromeos.network_diagnostics.mojom.RoutineProblems', {
       'lan_connectivity_problems': {
         'ordinal': 0,
@@ -270,7 +270,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineProblemsSpec
 };
 
 // Union: RoutineResultValue
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineResultValueSpec = { $: mojo.internal.Union(
+chromeos.network_diagnostics.mojom.RoutineResultValueSpec = { $: mojo.internal.Union(
     'chromeos.network_diagnostics.mojom.RoutineResultValue', {
       'https_latency_result_value': {
         'ordinal': 0,
@@ -280,7 +280,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineResultValueS
 };
 
 // Struct: GoogleServicesConnectivityErrorDetails
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityErrorDetailsSpec = {
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetails',
@@ -295,7 +295,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConne
 };
 
 // Struct: GoogleServicesConnectivityConnectionErrorInfo
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec = {
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo',
@@ -312,7 +312,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConne
 };
 
 // Struct: GoogleServicesConnectivityConnectionError
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityConnectionErrorSpec = {
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError',
@@ -328,7 +328,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConne
 };
 
 // Struct: GoogleServicesConnectivityProxyConnectionError
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec = {
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError',
@@ -344,7 +344,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConne
 };
 
 // Struct: GoogleServicesConnectivityNoValidProxyError
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConnectivityNoValidProxyErrorSpec = {
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyError',
@@ -360,7 +360,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.GoogleServicesConne
 };
 
 // Struct: HttpsLatencyResultValue
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpsLatencyResultValueSpec = {
+chromeos.network_diagnostics.mojom.HttpsLatencyResultValueSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.HttpsLatencyResultValue',
@@ -374,7 +374,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.HttpsLatencyResultV
 };
 
 // Struct: RoutineResult
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineResultSpec = {
+chromeos.network_diagnostics.mojom.RoutineResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.RoutineResult',
@@ -392,24 +392,258 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineResultSpec =
 };
 
 // Interface: NetworkDiagnosticsRoutines
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines = {};
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines = {};
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesPendingReceiver = class {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'routine', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'stun_server_hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesRemote = class {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote = class {
   static get $interfaceName() {
     return 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesPendingReceiver,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver,
       handle);
-    this.$ = new chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -421,7 +655,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler = class {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -430,8 +664,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec,
       [routine]);
   }
 
@@ -439,8 +673,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec,
       []);
   }
 
@@ -448,8 +682,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec,
       [source]);
   }
 
@@ -457,8 +691,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec,
       [source]);
   }
 
@@ -466,8 +700,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec,
       [source]);
   }
 
@@ -475,8 +709,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec,
       [source]);
   }
 
@@ -484,8 +718,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec,
       [source]);
   }
 
@@ -493,8 +727,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec,
       [source]);
   }
 
@@ -502,8 +736,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec,
       [source]);
   }
 
@@ -511,8 +745,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec,
       [source]);
   }
 
@@ -520,8 +754,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec,
       [source]);
   }
 
@@ -529,8 +763,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec,
       [source]);
   }
 
@@ -538,8 +772,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec,
       [source]);
   }
 
@@ -547,8 +781,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec,
       [stun_server_hostname, source]);
   }
 
@@ -556,8 +790,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec,
       [source]);
   }
 
@@ -565,8 +799,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec,
       [source]);
   }
 
@@ -574,8 +808,8 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec,
       [source]);
   }
 
@@ -583,15 +817,15 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec,
-      chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec,
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec,
       [source]);
   }
 
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines.getRemote = function() {
-  let remote = new chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesRemote();
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.getRemote = function() {
+  let remote = new chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -601,7 +835,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for GetResult
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.GetResult_Params',
@@ -614,7 +848,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.GetResult_ResponseParams',
@@ -628,7 +862,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for GetAllResults
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.GetAllResults_Params',
@@ -640,7 +874,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.GetAllResults_ResponseParams',
@@ -654,7 +888,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunLanConnectivity
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunLanConnectivity_Params',
@@ -667,7 +901,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunLanConnectivity_ResponseParams',
@@ -681,7 +915,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunSignalStrength
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunSignalStrength_Params',
@@ -694,7 +928,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunSignalStrength_ResponseParams',
@@ -708,7 +942,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunGatewayCanBePinged
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunGatewayCanBePinged_Params',
@@ -721,7 +955,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunGatewayCanBePinged_ResponseParams',
@@ -735,7 +969,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunHasSecureWiFiConnection
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHasSecureWiFiConnection_Params',
@@ -748,7 +982,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHasSecureWiFiConnection_ResponseParams',
@@ -762,7 +996,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunDnsResolverPresent
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsResolverPresent_Params',
@@ -775,7 +1009,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsResolverPresent_ResponseParams',
@@ -789,7 +1023,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunDnsLatency
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsLatency_Params',
@@ -802,7 +1036,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsLatency_ResponseParams',
@@ -816,7 +1050,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunDnsResolution
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsResolution_Params',
@@ -829,7 +1063,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsResolution_ResponseParams',
@@ -843,7 +1077,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunCaptivePortal
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunCaptivePortal_Params',
@@ -856,7 +1090,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunCaptivePortal_ResponseParams',
@@ -870,7 +1104,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunHttpFirewall
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpFirewall_Params',
@@ -883,7 +1117,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpFirewall_ResponseParams',
@@ -897,7 +1131,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunHttpsFirewall
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpsFirewall_Params',
@@ -910,7 +1144,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpsFirewall_ResponseParams',
@@ -924,7 +1158,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunHttpsLatency
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpsLatency_Params',
@@ -937,7 +1171,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpsLatency_ResponseParams',
@@ -951,7 +1185,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunVideoConferencing
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunVideoConferencing_Params',
@@ -965,7 +1199,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunVideoConferencing_ResponseParams',
@@ -979,7 +1213,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunArcHttp
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcHttp_Params',
@@ -992,7 +1226,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcHttp_ResponseParams',
@@ -1006,7 +1240,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunArcPing
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcPing_Params',
@@ -1019,7 +1253,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcPing_ResponseParams',
@@ -1033,7 +1267,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunArcDnsResolution
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcDnsResolution_Params',
@@ -1046,7 +1280,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcDnsResolution_ResponseParams',
@@ -1060,7 +1294,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // ParamsSpec for RunGoogleServicesConnectivity
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunGoogleServicesConnectivity_Params',
@@ -1073,7 +1307,7 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
   }
 };
 
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec = {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunGoogleServicesConnectivity_ResponseParams',
@@ -1087,6 +1321,6 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsR
 };
 
 // Legacy compatibility
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesPtr = chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesRemote;
-chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesRequest = chromeos.network_diagnostics.network_diagnostics.mojom.mojom.NetworkDiagnosticsRoutinesPendingReceiver;
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPtr = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote;
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRequest = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver;
 

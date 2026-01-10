@@ -10,11 +10,11 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: WindowShowState
-ui.mojom.mojom.WindowShowState = {
+ui.mojom.WindowShowState = {
   kNormal: 0,
   kMinimized: 1,
   kMaximized: 2,
   kInactive: 3,
   kFullscreen: 4,
 };
-ui.mojom.mojom.WindowShowStateSpec = { $: mojo.internal.Enum() };
+ui.mojom.WindowShowStateSpec = { $: mojo.internal.Enum() };

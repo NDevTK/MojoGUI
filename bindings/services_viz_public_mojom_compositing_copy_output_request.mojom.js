@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: CopyOutputRequest
-viz.mojom.mojom.CopyOutputRequestSpec = {
+viz.mojom.CopyOutputRequestSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CopyOutputRequest',
@@ -35,24 +35,37 @@ viz.mojom.mojom.CopyOutputRequestSpec = {
 };
 
 // Interface: CopyOutputResultSender
-viz.mojom.mojom.CopyOutputResultSender = {};
+viz.mojom.CopyOutputResultSender = {};
 
-viz.mojom.mojom.CopyOutputResultSenderPendingReceiver = class {
+viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CopyOutputResultSender_SendResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CopyOutputResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.CopyOutputResultSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.CopyOutputResultSenderRemote = class {
+viz.mojom.CopyOutputResultSenderRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.CopyOutputResultSender';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.CopyOutputResultSenderPendingReceiver,
+      viz.mojom.CopyOutputResultSenderPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.CopyOutputResultSenderRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.CopyOutputResultSenderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -64,7 +77,7 @@ viz.mojom.mojom.CopyOutputResultSenderRemote = class {
   }
 };
 
-viz.mojom.mojom.CopyOutputResultSenderRemoteCallHandler = class {
+viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -73,15 +86,15 @@ viz.mojom.mojom.CopyOutputResultSenderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
+      viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-viz.mojom.mojom.CopyOutputResultSender.getRemote = function() {
-  let remote = new viz.mojom.mojom.CopyOutputResultSenderRemote();
+viz.mojom.CopyOutputResultSender.getRemote = function() {
+  let remote = new viz.mojom.CopyOutputResultSenderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -91,7 +104,7 @@ viz.mojom.mojom.CopyOutputResultSender.getRemote = function() {
 };
 
 // ParamsSpec for SendResult
-viz.mojom.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
+viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CopyOutputResultSender.SendResult_Params',
@@ -105,6 +118,6 @@ viz.mojom.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.CopyOutputResultSenderPtr = viz.mojom.mojom.CopyOutputResultSenderRemote;
-viz.mojom.mojom.CopyOutputResultSenderRequest = viz.mojom.mojom.CopyOutputResultSenderPendingReceiver;
+viz.mojom.CopyOutputResultSenderPtr = viz.mojom.CopyOutputResultSenderRemote;
+viz.mojom.CopyOutputResultSenderRequest = viz.mojom.CopyOutputResultSenderPendingReceiver;
 

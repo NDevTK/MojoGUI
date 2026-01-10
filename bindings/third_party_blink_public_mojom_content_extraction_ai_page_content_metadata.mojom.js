@@ -11,7 +11,7 @@ var url = url || {};
 
 
 // Struct: MetaTag
-blink.mojom.mojom.MetaTagSpec = {
+blink.mojom.MetaTagSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MetaTag',
@@ -26,7 +26,7 @@ blink.mojom.mojom.MetaTagSpec = {
 };
 
 // Struct: FrameMetadata
-blink.mojom.mojom.FrameMetadataSpec = {
+blink.mojom.FrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameMetadata',
@@ -41,7 +41,7 @@ blink.mojom.mojom.FrameMetadataSpec = {
 };
 
 // Struct: PageMetadata
-blink.mojom.mojom.PageMetadataSpec = {
+blink.mojom.PageMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PageMetadata',

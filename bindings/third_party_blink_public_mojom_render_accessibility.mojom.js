@@ -22,7 +22,7 @@ var blink = blink || {};
 
 
 // Struct: HitTestResponse
-blink.mojom.mojom.HitTestResponseSpec = {
+blink.mojom.HitTestResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HitTestResponse',
@@ -39,24 +39,53 @@ blink.mojom.mojom.HitTestResponseSpec = {
 };
 
 // Interface: RenderAccessibilityHost
-blink.mojom.mojom.RenderAccessibilityHost = {};
+blink.mojom.RenderAccessibilityHost = {};
 
-blink.mojom.mojom.RenderAccessibilityHostPendingReceiver = class {
+blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RenderAccessibilityHost_HandleAXEvents_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'events_and_updates', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXUpdatesAndEventsSpec, nullable: false, minVersion: 0 },
+        { name: 'location_and_scroll_updates', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXLocationAndScrollUpdatesSpec, nullable: false, minVersion: 0 },
+        { name: 'reset_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXLocationAndScrollUpdatesSpec, nullable: false, minVersion: 0 },
+        { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.RenderAccessibilityHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.RenderAccessibilityHostRemote = class {
+blink.mojom.RenderAccessibilityHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RenderAccessibilityHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.RenderAccessibilityHostPendingReceiver,
+      blink.mojom.RenderAccessibilityHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.RenderAccessibilityHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.RenderAccessibilityHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -68,7 +97,7 @@ blink.mojom.mojom.RenderAccessibilityHostRemote = class {
   }
 };
 
-blink.mojom.mojom.RenderAccessibilityHostRemoteCallHandler = class {
+blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -77,7 +106,7 @@ blink.mojom.mojom.RenderAccessibilityHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
+      blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
       null,
       [events_and_updates, location_and_scroll_updates, reset_token]);
   }
@@ -86,15 +115,15 @@ blink.mojom.mojom.RenderAccessibilityHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
+      blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
       null,
       [changes, reset_token]);
   }
 
 };
 
-blink.mojom.mojom.RenderAccessibilityHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.RenderAccessibilityHostRemote();
+blink.mojom.RenderAccessibilityHost.getRemote = function() {
+  let remote = new blink.mojom.RenderAccessibilityHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -104,7 +133,7 @@ blink.mojom.mojom.RenderAccessibilityHost.getRemote = function() {
 };
 
 // ParamsSpec for HandleAXEvents
-blink.mojom.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
+blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibilityHost.HandleAXEvents_Params',
@@ -120,7 +149,7 @@ blink.mojom.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
 };
 
 // ParamsSpec for HandleAXLocationChanges
-blink.mojom.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
+blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibilityHost.HandleAXLocationChanges_Params',
@@ -135,29 +164,96 @@ blink.mojom.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.RenderAccessibilityHostPtr = blink.mojom.mojom.RenderAccessibilityHostRemote;
-blink.mojom.mojom.RenderAccessibilityHostRequest = blink.mojom.mojom.RenderAccessibilityHostPendingReceiver;
+blink.mojom.RenderAccessibilityHostPtr = blink.mojom.RenderAccessibilityHostRemote;
+blink.mojom.RenderAccessibilityHostRequest = blink.mojom.RenderAccessibilityHostPendingReceiver;
 
 
 // Interface: RenderAccessibility
-blink.mojom.mojom.RenderAccessibility = {};
+blink.mojom.RenderAccessibility = {};
 
-blink.mojom.mojom.RenderAccessibilityPendingReceiver = class {
+blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RenderAccessibility_SetMode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'ax_mode', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXModeSpec, nullable: false, minVersion: 0 },
+        { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.RenderAccessibility_FatalError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RenderAccessibility_FatalError_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RenderAccessibility_HitTest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'event_to_fire', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.EventSpec, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RenderAccessibility_PerformAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RenderAccessibility_Reset_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reset_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.RenderAccessibilityPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.RenderAccessibilityRemote = class {
+blink.mojom.RenderAccessibilityRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RenderAccessibility';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.RenderAccessibilityPendingReceiver,
+      blink.mojom.RenderAccessibilityPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.RenderAccessibilityRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.RenderAccessibilityRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -169,7 +265,7 @@ blink.mojom.mojom.RenderAccessibilityRemote = class {
   }
 };
 
-blink.mojom.mojom.RenderAccessibilityRemoteCallHandler = class {
+blink.mojom.RenderAccessibilityRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -178,7 +274,7 @@ blink.mojom.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.RenderAccessibility_SetMode_ParamsSpec,
+      blink.mojom.RenderAccessibility_SetMode_ParamsSpec,
       null,
       [ax_mode, reset_token]);
   }
@@ -187,7 +283,7 @@ blink.mojom.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.RenderAccessibility_FatalError_ParamsSpec,
+      blink.mojom.RenderAccessibility_FatalError_ParamsSpec,
       null,
       []);
   }
@@ -196,8 +292,8 @@ blink.mojom.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.RenderAccessibility_HitTest_ParamsSpec,
-      blink.mojom.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
+      blink.mojom.RenderAccessibility_HitTest_ParamsSpec,
+      blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
       [point, event_to_fire, request_id]);
   }
 
@@ -205,7 +301,7 @@ blink.mojom.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.RenderAccessibility_PerformAction_ParamsSpec,
+      blink.mojom.RenderAccessibility_PerformAction_ParamsSpec,
       null,
       [action_data]);
   }
@@ -214,15 +310,15 @@ blink.mojom.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.RenderAccessibility_Reset_ParamsSpec,
+      blink.mojom.RenderAccessibility_Reset_ParamsSpec,
       null,
       [reset_token]);
   }
 
 };
 
-blink.mojom.mojom.RenderAccessibility.getRemote = function() {
-  let remote = new blink.mojom.mojom.RenderAccessibilityRemote();
+blink.mojom.RenderAccessibility.getRemote = function() {
+  let remote = new blink.mojom.RenderAccessibilityRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -232,7 +328,7 @@ blink.mojom.mojom.RenderAccessibility.getRemote = function() {
 };
 
 // ParamsSpec for SetMode
-blink.mojom.mojom.RenderAccessibility_SetMode_ParamsSpec = {
+blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.SetMode_Params',
@@ -247,7 +343,7 @@ blink.mojom.mojom.RenderAccessibility_SetMode_ParamsSpec = {
 };
 
 // ParamsSpec for FatalError
-blink.mojom.mojom.RenderAccessibility_FatalError_ParamsSpec = {
+blink.mojom.RenderAccessibility_FatalError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.FatalError_Params',
@@ -260,7 +356,7 @@ blink.mojom.mojom.RenderAccessibility_FatalError_ParamsSpec = {
 };
 
 // ParamsSpec for HitTest
-blink.mojom.mojom.RenderAccessibility_HitTest_ParamsSpec = {
+blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.HitTest_Params',
@@ -275,7 +371,7 @@ blink.mojom.mojom.RenderAccessibility_HitTest_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
+blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.HitTest_ResponseParams',
@@ -289,7 +385,7 @@ blink.mojom.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PerformAction
-blink.mojom.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
+blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.PerformAction_Params',
@@ -303,7 +399,7 @@ blink.mojom.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
 };
 
 // ParamsSpec for Reset
-blink.mojom.mojom.RenderAccessibility_Reset_ParamsSpec = {
+blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.Reset_Params',
@@ -317,6 +413,6 @@ blink.mojom.mojom.RenderAccessibility_Reset_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.RenderAccessibilityPtr = blink.mojom.mojom.RenderAccessibilityRemote;
-blink.mojom.mojom.RenderAccessibilityRequest = blink.mojom.mojom.RenderAccessibilityPendingReceiver;
+blink.mojom.RenderAccessibilityPtr = blink.mojom.RenderAccessibilityRemote;
+blink.mojom.RenderAccessibilityRequest = blink.mojom.RenderAccessibilityPendingReceiver;
 

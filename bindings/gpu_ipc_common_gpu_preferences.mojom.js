@@ -12,54 +12,54 @@ var gfx = gfx || {};
 
 
 // Enum: VulkanImplementationName
-gpu.mojom.mojom.VulkanImplementationName = {
+gpu.mojom.VulkanImplementationName = {
   kNone: 0,
   kNative: 1,
   kForcedNative: 2,
   kSwiftshader: 3,
   kLast: 4,
 };
-gpu.mojom.mojom.VulkanImplementationNameSpec = { $: mojo.internal.Enum() };
+gpu.mojom.VulkanImplementationNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebGPUAdapterName
-gpu.mojom.mojom.WebGPUAdapterName = {
+gpu.mojom.WebGPUAdapterName = {
   kDefault: 0,
   kD3D11: 1,
   kOpenGLES: 2,
   kSwiftShader: 3,
 };
-gpu.mojom.mojom.WebGPUAdapterNameSpec = { $: mojo.internal.Enum() };
+gpu.mojom.WebGPUAdapterNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebGPUPowerPreference
-gpu.mojom.mojom.WebGPUPowerPreference = {
+gpu.mojom.WebGPUPowerPreference = {
   kNone: 0,
   kDefaultLowPower: 1,
   kDefaultHighPerformance: 2,
   kForceLowPower: 3,
   kForceHighPerformance: 4,
 };
-gpu.mojom.mojom.WebGPUPowerPreferenceSpec = { $: mojo.internal.Enum() };
+gpu.mojom.WebGPUPowerPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: GrContextType
-gpu.mojom.mojom.GrContextType = {
+gpu.mojom.GrContextType = {
   kNone: 0,
   kGL: 1,
   kVulkan: 2,
   kGraphiteDawn: 3,
   kGraphiteMetal: 4,
 };
-gpu.mojom.mojom.GrContextTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.GrContextTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DawnBackendValidationLevel
-gpu.mojom.mojom.DawnBackendValidationLevel = {
+gpu.mojom.DawnBackendValidationLevel = {
   kDisabled: 0,
   kPartial: 1,
   kFull: 2,
 };
-gpu.mojom.mojom.DawnBackendValidationLevelSpec = { $: mojo.internal.Enum() };
+gpu.mojom.DawnBackendValidationLevelSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuPreferences
-gpu.mojom.mojom.GpuPreferencesSpec = {
+gpu.mojom.GpuPreferencesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuPreferences',

@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
-ash.settings.settings.mojom = ash.settings.settings.mojom || {};
+ash.settings.mojom = ash.settings.mojom || {};
 
 
 // Union: SettingChangeValue
-ash.settings.settings.mojom.mojom.SettingChangeValueSpec = { $: mojo.internal.Union(
+ash.settings.mojom.SettingChangeValueSpec = { $: mojo.internal.Union(
     'ash.settings.mojom.SettingChangeValue', {
       'bool_value': {
         'ordinal': 0,
@@ -29,24 +29,110 @@ ash.settings.settings.mojom.mojom.SettingChangeValueSpec = { $: mojo.internal.Un
 };
 
 // Interface: UserActionRecorder
-ash.settings.settings.mojom.mojom.UserActionRecorder = {};
+ash.settings.mojom.UserActionRecorder = {};
 
-ash.settings.settings.mojom.mojom.UserActionRecorderPendingReceiver = class {
+ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.UserActionRecorder_RecordPageFocus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.UserActionRecorder_RecordPageBlur_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.UserActionRecorder_RecordClick_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.UserActionRecorder_RecordNavigation_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.UserActionRecorder_RecordSearch_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.UserActionRecorder_RecordSettingChange_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'setting', packedOffset: 16, packedBitOffset: 0, type: chromeos.settings.mojom.SettingSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.SettingChangeValueSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.settings.mojom.UserActionRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.settings.mojom.mojom.UserActionRecorderRemote = class {
+ash.settings.mojom.UserActionRecorderRemote = class {
   static get $interfaceName() {
     return 'ash.settings.mojom.UserActionRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.settings.mojom.mojom.UserActionRecorderPendingReceiver,
+      ash.settings.mojom.UserActionRecorderPendingReceiver,
       handle);
-    this.$ = new ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.mojom.UserActionRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +144,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemote = class {
   }
 };
 
-ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
+ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,7 +153,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.settings.mojom.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec,
+      ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec,
       null,
       []);
   }
@@ -76,7 +162,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.settings.mojom.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec,
+      ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec,
       null,
       []);
   }
@@ -85,7 +171,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.settings.mojom.mojom.UserActionRecorder_RecordClick_ParamsSpec,
+      ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec,
       null,
       []);
   }
@@ -94,7 +180,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.settings.mojom.mojom.UserActionRecorder_RecordNavigation_ParamsSpec,
+      ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec,
       null,
       []);
   }
@@ -103,7 +189,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSearch_ParamsSpec,
+      ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec,
       null,
       []);
   }
@@ -112,7 +198,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec,
+      ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec,
       null,
       []);
   }
@@ -121,15 +207,15 @@ ash.settings.settings.mojom.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec,
+      ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec,
       null,
       [setting, value]);
   }
 
 };
 
-ash.settings.settings.mojom.mojom.UserActionRecorder.getRemote = function() {
-  let remote = new ash.settings.settings.mojom.mojom.UserActionRecorderRemote();
+ash.settings.mojom.UserActionRecorder.getRemote = function() {
+  let remote = new ash.settings.mojom.UserActionRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -139,7 +225,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorder.getRemote = function() {
 };
 
 // ParamsSpec for RecordPageFocus
-ash.settings.settings.mojom.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
+ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordPageFocus_Params',
@@ -152,7 +238,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec 
 };
 
 // ParamsSpec for RecordPageBlur
-ash.settings.settings.mojom.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
+ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordPageBlur_Params',
@@ -165,7 +251,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec =
 };
 
 // ParamsSpec for RecordClick
-ash.settings.settings.mojom.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
+ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordClick_Params',
@@ -178,7 +264,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
 };
 
 // ParamsSpec for RecordNavigation
-ash.settings.settings.mojom.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
+ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordNavigation_Params',
@@ -191,7 +277,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorder_RecordNavigation_ParamsSpec
 };
 
 // ParamsSpec for RecordSearch
-ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
+ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordSearch_Params',
@@ -204,7 +290,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
 };
 
 // ParamsSpec for RecordSettingChange
-ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
+ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordSettingChange_Params',
@@ -217,7 +303,7 @@ ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSettingChange_ParamsS
 };
 
 // ParamsSpec for RecordSettingChangeWithDetails
-ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = {
+ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordSettingChangeWithDetails_Params',
@@ -232,6 +318,6 @@ ash.settings.settings.mojom.mojom.UserActionRecorder_RecordSettingChangeWithDeta
 };
 
 // Legacy compatibility
-ash.settings.settings.mojom.mojom.UserActionRecorderPtr = ash.settings.settings.mojom.mojom.UserActionRecorderRemote;
-ash.settings.settings.mojom.mojom.UserActionRecorderRequest = ash.settings.settings.mojom.mojom.UserActionRecorderPendingReceiver;
+ash.settings.mojom.UserActionRecorderPtr = ash.settings.mojom.UserActionRecorderRemote;
+ash.settings.mojom.UserActionRecorderRequest = ash.settings.mojom.UserActionRecorderPendingReceiver;
 

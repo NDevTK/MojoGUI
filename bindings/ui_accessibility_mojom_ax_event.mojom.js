@@ -12,7 +12,7 @@ var ui = ui || {};
 
 
 // Struct: AXEvent
-ax.mojom.mojom.AXEventSpec = {
+ax.mojom.AXEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXEvent',

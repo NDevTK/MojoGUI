@@ -13,7 +13,7 @@ var gfx = gfx || {};
 
 
 // Struct: DisplayConfigurationParams
-display.mojom.mojom.DisplayConfigurationParamsSpec = {
+display.mojom.DisplayConfigurationParamsSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayConfigurationParams',

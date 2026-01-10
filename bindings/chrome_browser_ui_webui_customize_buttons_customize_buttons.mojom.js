@@ -11,31 +11,45 @@ var ui = ui || {};
 
 
 // Enum: SidePanelOpenTrigger
-customize_buttons.mojom.mojom.SidePanelOpenTrigger = {
+customize_buttons.mojom.SidePanelOpenTrigger = {
   kNewTabPage: 0,
   kNewTabFooter: 1,
 };
-customize_buttons.mojom.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
+customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
 
 // Interface: CustomizeButtonsHandlerFactory
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactory = {};
+customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryPendingReceiver = class {
+customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(customize_buttons.mojom.CustomizeButtonsDocumentRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(customize_buttons.mojom.CustomizeButtonsHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRemote = class {
+customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'customize_buttons.mojom.CustomizeButtonsHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryPendingReceiver,
+      customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +61,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRemote = class {
   }
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = class {
+customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,15 +70,15 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec,
+      customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactory.getRemote = function() {
-  let remote = new customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRemote();
+customize_buttons.mojom.CustomizeButtonsHandlerFactory.getRemote = function() {
+  let remote = new customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -74,7 +88,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactory.getRemote = functio
 };
 
 // ParamsSpec for CreateCustomizeButtonsHandler
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = {
+customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_buttons.mojom.CustomizeButtonsHandlerFactory.CreateCustomizeButtonsHandler_Params',
@@ -89,29 +103,68 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButt
 };
 
 // Legacy compatibility
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryPtr = customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRemote;
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryRequest = customize_buttons.mojom.mojom.CustomizeButtonsHandlerFactoryPendingReceiver;
+customize_buttons.mojom.CustomizeButtonsHandlerFactoryPtr = customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote;
+customize_buttons.mojom.CustomizeButtonsHandlerFactoryRequest = customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver;
 
 
 // Interface: CustomizeButtonsHandler
-customize_buttons.mojom.mojom.CustomizeButtonsHandler = {};
+customize_buttons.mojom.CustomizeButtonsHandler = {};
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerPendingReceiver = class {
+customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false, minVersion: 0 },
+        { name: 'trigger', packedOffset: 4, packedBitOffset: 0, type: customize_buttons.mojom.SidePanelOpenTriggerSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemote = class {
+customize_buttons.mojom.CustomizeButtonsHandlerRemote = class {
   static get $interfaceName() {
     return 'customize_buttons.mojom.CustomizeButtonsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      customize_buttons.mojom.mojom.CustomizeButtonsHandlerPendingReceiver,
+      customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver,
       handle);
-    this.$ = new customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -123,7 +176,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemote = class {
   }
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
+customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -132,7 +185,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_buttons.mojom.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec,
+      customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec,
       null,
       []);
   }
@@ -141,7 +194,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      customize_buttons.mojom.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec,
+      customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec,
       null,
       []);
   }
@@ -150,15 +203,15 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      customize_buttons.mojom.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec,
+      customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec,
       null,
       [visible, section, trigger]);
   }
 
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsHandler.getRemote = function() {
-  let remote = new customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemote();
+customize_buttons.mojom.CustomizeButtonsHandler.getRemote = function() {
+  let remote = new customize_buttons.mojom.CustomizeButtonsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -168,7 +221,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandler.getRemote = function() {
 };
 
 // ParamsSpec for IncrementCustomizeChromeButtonOpenCount
-customize_buttons.mojom.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = {
+customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_buttons.mojom.CustomizeButtonsHandler.IncrementCustomizeChromeButtonOpenCount_Params',
@@ -181,7 +234,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeBu
 };
 
 // ParamsSpec for IncrementWallpaperSearchButtonShownCount
-customize_buttons.mojom.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = {
+customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_buttons.mojom.CustomizeButtonsHandler.IncrementWallpaperSearchButtonShownCount_Params',
@@ -194,7 +247,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchBu
 };
 
 // ParamsSpec for SetCustomizeChromeSidePanelVisible
-customize_buttons.mojom.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = {
+customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_buttons.mojom.CustomizeButtonsHandler.SetCustomizeChromeSidePanelVisible_Params',
@@ -210,29 +263,42 @@ customize_buttons.mojom.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePane
 };
 
 // Legacy compatibility
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerPtr = customize_buttons.mojom.mojom.CustomizeButtonsHandlerRemote;
-customize_buttons.mojom.mojom.CustomizeButtonsHandlerRequest = customize_buttons.mojom.mojom.CustomizeButtonsHandlerPendingReceiver;
+customize_buttons.mojom.CustomizeButtonsHandlerPtr = customize_buttons.mojom.CustomizeButtonsHandlerRemote;
+customize_buttons.mojom.CustomizeButtonsHandlerRequest = customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver;
 
 
 // Interface: CustomizeButtonsDocument
-customize_buttons.mojom.mojom.CustomizeButtonsDocument = {};
+customize_buttons.mojom.CustomizeButtonsDocument = {};
 
-customize_buttons.mojom.mojom.CustomizeButtonsDocumentPendingReceiver = class {
+customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsDocumentRemote = class {
+customize_buttons.mojom.CustomizeButtonsDocumentRemote = class {
   static get $interfaceName() {
     return 'customize_buttons.mojom.CustomizeButtonsDocument';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      customize_buttons.mojom.mojom.CustomizeButtonsDocumentPendingReceiver,
+      customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver,
       handle);
-    this.$ = new customize_buttons.mojom.mojom.CustomizeButtonsDocumentRemoteCallHandler(this.proxy);
+    this.$ = new customize_buttons.mojom.CustomizeButtonsDocumentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -244,7 +310,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsDocumentRemote = class {
   }
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsDocumentRemoteCallHandler = class {
+customize_buttons.mojom.CustomizeButtonsDocumentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -253,15 +319,15 @@ customize_buttons.mojom.mojom.CustomizeButtonsDocumentRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_buttons.mojom.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec,
+      customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec,
       null,
       [visible]);
   }
 
 };
 
-customize_buttons.mojom.mojom.CustomizeButtonsDocument.getRemote = function() {
-  let remote = new customize_buttons.mojom.mojom.CustomizeButtonsDocumentRemote();
+customize_buttons.mojom.CustomizeButtonsDocument.getRemote = function() {
+  let remote = new customize_buttons.mojom.CustomizeButtonsDocumentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -271,7 +337,7 @@ customize_buttons.mojom.mojom.CustomizeButtonsDocument.getRemote = function() {
 };
 
 // ParamsSpec for SetCustomizeChromeSidePanelVisibility
-customize_buttons.mojom.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = {
+customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_buttons.mojom.CustomizeButtonsDocument.SetCustomizeChromeSidePanelVisibility_Params',
@@ -285,6 +351,6 @@ customize_buttons.mojom.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePan
 };
 
 // Legacy compatibility
-customize_buttons.mojom.mojom.CustomizeButtonsDocumentPtr = customize_buttons.mojom.mojom.CustomizeButtonsDocumentRemote;
-customize_buttons.mojom.mojom.CustomizeButtonsDocumentRequest = customize_buttons.mojom.mojom.CustomizeButtonsDocumentPendingReceiver;
+customize_buttons.mojom.CustomizeButtonsDocumentPtr = customize_buttons.mojom.CustomizeButtonsDocumentRemote;
+customize_buttons.mojom.CustomizeButtonsDocumentRequest = customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver;
 

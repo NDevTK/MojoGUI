@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: HttpRawHeaderPair
-network.mojom.mojom.HttpRawHeaderPairSpec = {
+network.mojom.HttpRawHeaderPairSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpRawHeaderPair',

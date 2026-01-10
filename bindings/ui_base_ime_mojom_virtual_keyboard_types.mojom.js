@@ -10,25 +10,25 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: VirtualKeyboardPolicy
-ui.mojom.mojom.VirtualKeyboardPolicy = {
+ui.mojom.VirtualKeyboardPolicy = {
   AUTO: 0,
   MANUAL: 1,
 };
-ui.mojom.mojom.VirtualKeyboardPolicySpec = { $: mojo.internal.Enum() };
+ui.mojom.VirtualKeyboardPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: VirtualKeyboardVisibilityRequest
-ui.mojom.mojom.VirtualKeyboardVisibilityRequest = {
+ui.mojom.VirtualKeyboardVisibilityRequest = {
   NONE: 0,
   SHOW: 1,
   HIDE: 2,
 };
-ui.mojom.mojom.VirtualKeyboardVisibilityRequestSpec = { $: mojo.internal.Enum() };
+ui.mojom.VirtualKeyboardVisibilityRequestSpec = { $: mojo.internal.Enum() };
 
 // Enum: VirtualKeyboardMode
-ui.mojom.mojom.VirtualKeyboardMode = {
+ui.mojom.VirtualKeyboardMode = {
   kUnset: 0,
   kResizesVisual: 1,
   kResizesContent: 2,
   kOverlaysContent: 3,
 };
-ui.mojom.mojom.VirtualKeyboardModeSpec = { $: mojo.internal.Enum() };
+ui.mojom.VirtualKeyboardModeSpec = { $: mojo.internal.Enum() };

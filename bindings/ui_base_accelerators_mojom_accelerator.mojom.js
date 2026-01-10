@@ -12,14 +12,14 @@ var ui = ui || {};
 
 
 // Enum: AcceleratorKeyState
-ui.mojom.mojom.AcceleratorKeyState = {
+ui.mojom.AcceleratorKeyState = {
   PRESSED: 0,
   RELEASED: 1,
 };
-ui.mojom.mojom.AcceleratorKeyStateSpec = { $: mojo.internal.Enum() };
+ui.mojom.AcceleratorKeyStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: Accelerator
-ui.mojom.mojom.AcceleratorSpec = {
+ui.mojom.AcceleratorSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.Accelerator',

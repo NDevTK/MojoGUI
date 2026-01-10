@@ -14,7 +14,7 @@ var ui = ui || {};
 
 
 // Enum: SkiaBackendType
-gpu.mojom.mojom.SkiaBackendType = {
+gpu.mojom.SkiaBackendType = {
   kUnknown: 0,
   kNone: 1,
   kGaneshGL: 2,
@@ -25,10 +25,10 @@ gpu.mojom.mojom.SkiaBackendType = {
   kGraphiteDawnD3D12: 7,
   kGraphiteMetal: 8,
 };
-gpu.mojom.mojom.SkiaBackendTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.SkiaBackendTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoCodecProfile
-gpu.mojom.mojom.VideoCodecProfile = {
+gpu.mojom.VideoCodecProfile = {
   VIDEO_CODEC_PROFILE_UNKNOWN: 0,
   H264PROFILE_BASELINE: 1,
   H264PROFILE_MAIN: 2,
@@ -82,35 +82,35 @@ gpu.mojom.mojom.VideoCodecProfile = {
   VVCPROFILE_MAIN12_444_STILL_PICTURE: 50,
   VVCPROFILE_MAIN16_444_STILL_PICTURE: 51,
 };
-gpu.mojom.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
+gpu.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImageDecodeAcceleratorType
-gpu.mojom.mojom.ImageDecodeAcceleratorType = {
+gpu.mojom.ImageDecodeAcceleratorType = {
   kJpeg: 0,
   kWebP: 1,
   kUnknown: 2,
 };
-gpu.mojom.mojom.ImageDecodeAcceleratorTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.ImageDecodeAcceleratorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImageDecodeAcceleratorSubsampling
-gpu.mojom.mojom.ImageDecodeAcceleratorSubsampling = {
+gpu.mojom.ImageDecodeAcceleratorSubsampling = {
   k420: 0,
   k422: 1,
   k444: 2,
 };
-gpu.mojom.mojom.ImageDecodeAcceleratorSubsamplingSpec = { $: mojo.internal.Enum() };
+gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec = { $: mojo.internal.Enum() };
 
 // Enum: OverlaySupport
-gpu.mojom.mojom.OverlaySupport = {
+gpu.mojom.OverlaySupport = {
   NONE: 0,
   DIRECT: 1,
   SCALING: 2,
   SOFTWARE: 3,
 };
-gpu.mojom.mojom.OverlaySupportSpec = { $: mojo.internal.Enum() };
+gpu.mojom.OverlaySupportSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuDevice
-gpu.mojom.mojom.GpuDeviceSpec = {
+gpu.mojom.GpuDeviceSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuDevice',
@@ -134,7 +134,7 @@ gpu.mojom.mojom.GpuDeviceSpec = {
 };
 
 // Struct: VideoDecodeAcceleratorSupportedProfile
-gpu.mojom.mojom.VideoDecodeAcceleratorSupportedProfileSpec = {
+gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoDecodeAcceleratorSupportedProfile',
@@ -151,7 +151,7 @@ gpu.mojom.mojom.VideoDecodeAcceleratorSupportedProfileSpec = {
 };
 
 // Struct: VideoDecodeAcceleratorCapabilities
-gpu.mojom.mojom.VideoDecodeAcceleratorCapabilitiesSpec = {
+gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoDecodeAcceleratorCapabilities',
@@ -166,7 +166,7 @@ gpu.mojom.mojom.VideoDecodeAcceleratorCapabilitiesSpec = {
 };
 
 // Struct: VideoEncodeAcceleratorSupportedProfile
-gpu.mojom.mojom.VideoEncodeAcceleratorSupportedProfileSpec = {
+gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoEncodeAcceleratorSupportedProfile',
@@ -184,7 +184,7 @@ gpu.mojom.mojom.VideoEncodeAcceleratorSupportedProfileSpec = {
 };
 
 // Struct: ImageDecodeAcceleratorSupportedProfile
-gpu.mojom.mojom.ImageDecodeAcceleratorSupportedProfileSpec = {
+gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.ImageDecodeAcceleratorSupportedProfile',
@@ -201,7 +201,7 @@ gpu.mojom.mojom.ImageDecodeAcceleratorSupportedProfileSpec = {
 };
 
 // Struct: OverlayInfo
-gpu.mojom.mojom.OverlayInfoSpec = {
+gpu.mojom.OverlayInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.OverlayInfo',
@@ -221,7 +221,7 @@ gpu.mojom.mojom.OverlayInfoSpec = {
 };
 
 // Struct: GpuInfo
-gpu.mojom.mojom.GpuInfoSpec = {
+gpu.mojom.GpuInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuInfo',

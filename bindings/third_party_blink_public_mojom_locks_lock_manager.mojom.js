@@ -10,22 +10,22 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: LockMode
-blink.mojom.mojom.LockMode = {
+blink.mojom.LockMode = {
   SHARED: 0,
   EXCLUSIVE: 1,
 };
-blink.mojom.mojom.LockModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.LockModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WaitMode
-blink.mojom.mojom.WaitMode = {
+blink.mojom.WaitMode = {
   WAIT: 0,
   NO_WAIT: 1,
   PREEMPT: 2,
 };
-blink.mojom.mojom.WaitModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.WaitModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LockInfo
-blink.mojom.mojom.LockInfoSpec = {
+blink.mojom.LockInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LockInfo',
@@ -41,24 +41,24 @@ blink.mojom.mojom.LockInfoSpec = {
 };
 
 // Interface: LockHandle
-blink.mojom.mojom.LockHandle = {};
+blink.mojom.LockHandle = {};
 
-blink.mojom.mojom.LockHandlePendingReceiver = class {
+blink.mojom.LockHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.LockHandleRemote = class {
+blink.mojom.LockHandleRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.LockHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.LockHandlePendingReceiver,
+      blink.mojom.LockHandlePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.LockHandleRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.LockHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -70,15 +70,15 @@ blink.mojom.mojom.LockHandleRemote = class {
   }
 };
 
-blink.mojom.mojom.LockHandleRemoteCallHandler = class {
+blink.mojom.LockHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-blink.mojom.mojom.LockHandle.getRemote = function() {
-  let remote = new blink.mojom.mojom.LockHandleRemote();
+blink.mojom.LockHandle.getRemote = function() {
+  let remote = new blink.mojom.LockHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -88,29 +88,54 @@ blink.mojom.mojom.LockHandle.getRemote = function() {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.LockHandlePtr = blink.mojom.mojom.LockHandleRemote;
-blink.mojom.mojom.LockHandleRequest = blink.mojom.mojom.LockHandlePendingReceiver;
+blink.mojom.LockHandlePtr = blink.mojom.LockHandleRemote;
+blink.mojom.LockHandleRequest = blink.mojom.LockHandlePendingReceiver;
 
 
 // Interface: LockRequest
-blink.mojom.mojom.LockRequest = {};
+blink.mojom.LockRequest = {};
 
-blink.mojom.mojom.LockRequestPendingReceiver = class {
+blink.mojom.LockRequest_Granted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LockRequest_Granted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockHandleRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.LockRequest_Failed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LockRequest_Failed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.LockRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.LockRequestRemote = class {
+blink.mojom.LockRequestRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.LockRequest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.LockRequestPendingReceiver,
+      blink.mojom.LockRequestPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.LockRequestRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.LockRequestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -122,7 +147,7 @@ blink.mojom.mojom.LockRequestRemote = class {
   }
 };
 
-blink.mojom.mojom.LockRequestRemoteCallHandler = class {
+blink.mojom.LockRequestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -131,7 +156,7 @@ blink.mojom.mojom.LockRequestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.LockRequest_Granted_ParamsSpec,
+      blink.mojom.LockRequest_Granted_ParamsSpec,
       null,
       [lock_handle]);
   }
@@ -140,15 +165,15 @@ blink.mojom.mojom.LockRequestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.LockRequest_Failed_ParamsSpec,
+      blink.mojom.LockRequest_Failed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.LockRequest.getRemote = function() {
-  let remote = new blink.mojom.mojom.LockRequestRemote();
+blink.mojom.LockRequest.getRemote = function() {
+  let remote = new blink.mojom.LockRequestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -158,7 +183,7 @@ blink.mojom.mojom.LockRequest.getRemote = function() {
 };
 
 // ParamsSpec for Granted
-blink.mojom.mojom.LockRequest_Granted_ParamsSpec = {
+blink.mojom.LockRequest_Granted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LockRequest.Granted_Params',
@@ -172,7 +197,7 @@ blink.mojom.mojom.LockRequest_Granted_ParamsSpec = {
 };
 
 // ParamsSpec for Failed
-blink.mojom.mojom.LockRequest_Failed_ParamsSpec = {
+blink.mojom.LockRequest_Failed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LockRequest.Failed_Params',
@@ -185,29 +210,57 @@ blink.mojom.mojom.LockRequest_Failed_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.LockRequestPtr = blink.mojom.mojom.LockRequestRemote;
-blink.mojom.mojom.LockRequestRequest = blink.mojom.mojom.LockRequestPendingReceiver;
+blink.mojom.LockRequestPtr = blink.mojom.LockRequestRemote;
+blink.mojom.LockRequestRequest = blink.mojom.LockRequestPendingReceiver;
 
 
 // Interface: LockManager
-blink.mojom.mojom.LockManager = {};
+blink.mojom.LockManager = {};
 
-blink.mojom.mojom.LockManagerPendingReceiver = class {
+blink.mojom.LockManager_RequestLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LockManager_RequestLock_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
+        { name: 'wait', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.WaitModeSpec, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.LockManager_QueryState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LockManager_QueryState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.LockManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.LockManagerRemote = class {
+blink.mojom.LockManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.LockManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.LockManagerPendingReceiver,
+      blink.mojom.LockManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.LockManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.LockManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -219,7 +272,7 @@ blink.mojom.mojom.LockManagerRemote = class {
   }
 };
 
-blink.mojom.mojom.LockManagerRemoteCallHandler = class {
+blink.mojom.LockManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -228,7 +281,7 @@ blink.mojom.mojom.LockManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.LockManager_RequestLock_ParamsSpec,
+      blink.mojom.LockManager_RequestLock_ParamsSpec,
       null,
       [name, mode, wait, request]);
   }
@@ -237,15 +290,15 @@ blink.mojom.mojom.LockManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.LockManager_QueryState_ParamsSpec,
-      blink.mojom.mojom.LockManager_QueryState_ResponseParamsSpec,
+      blink.mojom.LockManager_QueryState_ParamsSpec,
+      blink.mojom.LockManager_QueryState_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.LockManager.getRemote = function() {
-  let remote = new blink.mojom.mojom.LockManagerRemote();
+blink.mojom.LockManager.getRemote = function() {
+  let remote = new blink.mojom.LockManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -255,7 +308,7 @@ blink.mojom.mojom.LockManager.getRemote = function() {
 };
 
 // ParamsSpec for RequestLock
-blink.mojom.mojom.LockManager_RequestLock_ParamsSpec = {
+blink.mojom.LockManager_RequestLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LockManager.RequestLock_Params',
@@ -272,7 +325,7 @@ blink.mojom.mojom.LockManager_RequestLock_ParamsSpec = {
 };
 
 // ParamsSpec for QueryState
-blink.mojom.mojom.LockManager_QueryState_ParamsSpec = {
+blink.mojom.LockManager_QueryState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LockManager.QueryState_Params',
@@ -284,7 +337,7 @@ blink.mojom.mojom.LockManager_QueryState_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.LockManager_QueryState_ResponseParamsSpec = {
+blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LockManager.QueryState_ResponseParams',
@@ -299,6 +352,6 @@ blink.mojom.mojom.LockManager_QueryState_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.LockManagerPtr = blink.mojom.mojom.LockManagerRemote;
-blink.mojom.mojom.LockManagerRequest = blink.mojom.mojom.LockManagerPendingReceiver;
+blink.mojom.LockManagerPtr = blink.mojom.LockManagerRemote;
+blink.mojom.LockManagerRequest = blink.mojom.LockManagerPendingReceiver;
 

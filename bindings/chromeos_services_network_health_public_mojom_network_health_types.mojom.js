@@ -7,12 +7,12 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.network_health = chromeos.network_health || {};
-chromeos.network_health.network_health.mojom = chromeos.network_health.network_health.mojom || {};
+chromeos.network_health.mojom = chromeos.network_health.mojom || {};
 var url = url || {};
 
 
 // Enum: NetworkState
-chromeos.network_health.network_health.mojom.mojom.NetworkState = {
+chromeos.network_health.mojom.NetworkState = {
   kDisabled: 0,
   kProhibited: 1,
   kNotConnected: 2,
@@ -21,10 +21,10 @@ chromeos.network_health.network_health.mojom.mojom.NetworkState = {
   kConnected: 5,
   kOnline: 6,
 };
-chromeos.network_health.network_health.mojom.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
+chromeos.network_health.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: UInt32Value
-chromeos.network_health.network_health.mojom.mojom.UInt32ValueSpec = {
+chromeos.network_health.mojom.UInt32ValueSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_health.mojom.UInt32Value',
@@ -38,7 +38,7 @@ chromeos.network_health.network_health.mojom.mojom.UInt32ValueSpec = {
 };
 
 // Struct: SignalStrengthStats
-chromeos.network_health.network_health.mojom.mojom.SignalStrengthStatsSpec = {
+chromeos.network_health.mojom.SignalStrengthStatsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_health.mojom.SignalStrengthStats',
@@ -54,7 +54,7 @@ chromeos.network_health.network_health.mojom.mojom.SignalStrengthStatsSpec = {
 };
 
 // Struct: Network
-chromeos.network_health.network_health.mojom.mojom.NetworkSpec = {
+chromeos.network_health.mojom.NetworkSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_health.mojom.Network',
@@ -78,7 +78,7 @@ chromeos.network_health.network_health.mojom.mojom.NetworkSpec = {
 };
 
 // Struct: NetworkHealthState
-chromeos.network_health.network_health.mojom.mojom.NetworkHealthStateSpec = {
+chromeos.network_health.mojom.NetworkHealthStateSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_health.mojom.NetworkHealthState',

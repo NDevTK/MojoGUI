@@ -14,7 +14,7 @@ var gfx = gfx || {};
 
 
 // Struct: HitTestRegion
-viz.mojom.mojom.HitTestRegionSpec = {
+viz.mojom.HitTestRegionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.HitTestRegion',
@@ -32,7 +32,7 @@ viz.mojom.mojom.HitTestRegionSpec = {
 };
 
 // Struct: HitTestRegionList
-viz.mojom.mojom.HitTestRegionListSpec = {
+viz.mojom.HitTestRegionListSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.HitTestRegionList',

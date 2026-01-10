@@ -10,16 +10,16 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ConsoleMessageLevel
-blink.mojom.mojom.ConsoleMessageLevel = {
+blink.mojom.ConsoleMessageLevel = {
   kVerbose: 0,
   kInfo: 1,
   kWarning: 2,
   kError: 3,
 };
-blink.mojom.mojom.ConsoleMessageLevelSpec = { $: mojo.internal.Enum() };
+blink.mojom.ConsoleMessageLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConsoleMessageSource
-blink.mojom.mojom.ConsoleMessageSource = {
+blink.mojom.ConsoleMessageSource = {
   kXml: 0,
   kJavaScript: 1,
   kNetwork: 2,
@@ -34,10 +34,10 @@ blink.mojom.mojom.ConsoleMessageSource = {
   kIntervention: 11,
   kRecommendation: 12,
 };
-blink.mojom.mojom.ConsoleMessageSourceSpec = { $: mojo.internal.Enum() };
+blink.mojom.ConsoleMessageSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConsoleMessageCategory
-blink.mojom.mojom.ConsoleMessageCategory = {
+blink.mojom.ConsoleMessageCategory = {
   Cors: 0,
 };
-blink.mojom.mojom.ConsoleMessageCategorySpec = { $: mojo.internal.Enum() };
+blink.mojom.ConsoleMessageCategorySpec = { $: mojo.internal.Enum() };

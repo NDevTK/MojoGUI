@@ -10,7 +10,7 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Union: VideoFrameData
-chrome.mojom.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
+chrome.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
     'chrome.mojom.VideoFrameData', {
       'encoded_data': {
         'ordinal': 0,
@@ -25,7 +25,7 @@ chrome.mojom.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ExtractVideoFrameResult
-chrome.mojom.mojom.ExtractVideoFrameResultSpec = {
+chrome.mojom.ExtractVideoFrameResultSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ExtractVideoFrameResult',
@@ -40,7 +40,7 @@ chrome.mojom.mojom.ExtractVideoFrameResultSpec = {
 };
 
 // Struct: MediaStreamInfo
-chrome.mojom.mojom.MediaStreamInfoSpec = {
+chrome.mojom.MediaStreamInfoSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaStreamInfo',
@@ -55,7 +55,7 @@ chrome.mojom.mojom.MediaStreamInfoSpec = {
 };
 
 // Struct: MediaMetadata
-chrome.mojom.mojom.MediaMetadataSpec = {
+chrome.mojom.MediaMetadataSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaMetadata',
@@ -83,7 +83,7 @@ chrome.mojom.mojom.MediaMetadataSpec = {
 };
 
 // Struct: AttachedImage
-chrome.mojom.mojom.AttachedImageSpec = {
+chrome.mojom.AttachedImageSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AttachedImage',
@@ -98,24 +98,81 @@ chrome.mojom.mojom.AttachedImageSpec = {
 };
 
 // Interface: MediaParser
-chrome.mojom.mojom.MediaParser = {};
+chrome.mojom.MediaParser = {};
 
-chrome.mojom.mojom.MediaParserPendingReceiver = class {
+chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaParser_ParseMediaMetadata_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'get_attached_images', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'media_data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaParser_ExtractVideoFrame_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'total_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'media_data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaParser_CheckMediaFile_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'decode_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaParser_GetCpuInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chrome.mojom.MediaParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.MediaParserRemote = class {
+chrome.mojom.MediaParserRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.MediaParser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.MediaParserPendingReceiver,
+      chrome.mojom.MediaParserPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.MediaParserRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.MediaParserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -127,7 +184,7 @@ chrome.mojom.mojom.MediaParserRemote = class {
   }
 };
 
-chrome.mojom.mojom.MediaParserRemoteCallHandler = class {
+chrome.mojom.MediaParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -136,8 +193,8 @@ chrome.mojom.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.MediaParser_ParseMediaMetadata_ParamsSpec,
-      chrome.mojom.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
+      chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec,
+      chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
       [mime_type, total_size, get_attached_images, media_data_source]);
   }
 
@@ -145,8 +202,8 @@ chrome.mojom.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.mojom.MediaParser_ExtractVideoFrame_ParamsSpec,
-      chrome.mojom.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec,
+      chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec,
+      chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec,
       [mime_type, total_size, media_data_source]);
   }
 
@@ -154,8 +211,8 @@ chrome.mojom.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.mojom.MediaParser_CheckMediaFile_ParamsSpec,
-      chrome.mojom.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
+      chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec,
+      chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
       [decode_time, file]);
   }
 
@@ -163,15 +220,15 @@ chrome.mojom.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.mojom.MediaParser_GetCpuInfo_ParamsSpec,
-      chrome.mojom.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
+      chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec,
+      chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
       []);
   }
 
 };
 
-chrome.mojom.mojom.MediaParser.getRemote = function() {
-  let remote = new chrome.mojom.mojom.MediaParserRemote();
+chrome.mojom.MediaParser.getRemote = function() {
+  let remote = new chrome.mojom.MediaParserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -181,7 +238,7 @@ chrome.mojom.mojom.MediaParser.getRemote = function() {
 };
 
 // ParamsSpec for ParseMediaMetadata
-chrome.mojom.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
+chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.ParseMediaMetadata_Params',
@@ -197,7 +254,7 @@ chrome.mojom.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
   }
 };
 
-chrome.mojom.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
+chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.ParseMediaMetadata_ResponseParams',
@@ -213,7 +270,7 @@ chrome.mojom.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExtractVideoFrame
-chrome.mojom.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
+chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.ExtractVideoFrame_Params',
@@ -228,7 +285,7 @@ chrome.mojom.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
   }
 };
 
-chrome.mojom.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
+chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.ExtractVideoFrame_ResponseParams',
@@ -242,7 +299,7 @@ chrome.mojom.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CheckMediaFile
-chrome.mojom.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
+chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.CheckMediaFile_Params',
@@ -256,7 +313,7 @@ chrome.mojom.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = {
+chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.CheckMediaFile_ResponseParams',
@@ -270,7 +327,7 @@ chrome.mojom.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCpuInfo
-chrome.mojom.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
+chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.GetCpuInfo_Params',
@@ -282,7 +339,7 @@ chrome.mojom.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
   }
 };
 
-chrome.mojom.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = {
+chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.GetCpuInfo_ResponseParams',
@@ -297,29 +354,43 @@ chrome.mojom.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.MediaParserPtr = chrome.mojom.mojom.MediaParserRemote;
-chrome.mojom.mojom.MediaParserRequest = chrome.mojom.mojom.MediaParserPendingReceiver;
+chrome.mojom.MediaParserPtr = chrome.mojom.MediaParserRemote;
+chrome.mojom.MediaParserRequest = chrome.mojom.MediaParserPendingReceiver;
 
 
 // Interface: MediaParserFactory
-chrome.mojom.mojom.MediaParserFactory = {};
+chrome.mojom.MediaParserFactory = {};
 
-chrome.mojom.mojom.MediaParserFactoryPendingReceiver = class {
+chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaParserFactory_CreateMediaParser_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'libyuv_cpu_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'libavutil_cpu_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chrome.mojom.MediaParserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.MediaParserFactoryRemote = class {
+chrome.mojom.MediaParserFactoryRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.MediaParserFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.MediaParserFactoryPendingReceiver,
+      chrome.mojom.MediaParserFactoryPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.MediaParserFactoryRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.MediaParserFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -331,7 +402,7 @@ chrome.mojom.mojom.MediaParserFactoryRemote = class {
   }
 };
 
-chrome.mojom.mojom.MediaParserFactoryRemoteCallHandler = class {
+chrome.mojom.MediaParserFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -340,15 +411,15 @@ chrome.mojom.mojom.MediaParserFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec,
-      chrome.mojom.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
+      chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec,
+      chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
       [libyuv_cpu_flags, libavutil_cpu_flags]);
   }
 
 };
 
-chrome.mojom.mojom.MediaParserFactory.getRemote = function() {
-  let remote = new chrome.mojom.mojom.MediaParserFactoryRemote();
+chrome.mojom.MediaParserFactory.getRemote = function() {
+  let remote = new chrome.mojom.MediaParserFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -358,7 +429,7 @@ chrome.mojom.mojom.MediaParserFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateMediaParser
-chrome.mojom.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
+chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParserFactory.CreateMediaParser_Params',
@@ -372,7 +443,7 @@ chrome.mojom.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
   }
 };
 
-chrome.mojom.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
+chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParserFactory.CreateMediaParser_ResponseParams',
@@ -386,29 +457,43 @@ chrome.mojom.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.MediaParserFactoryPtr = chrome.mojom.mojom.MediaParserFactoryRemote;
-chrome.mojom.mojom.MediaParserFactoryRequest = chrome.mojom.mojom.MediaParserFactoryPendingReceiver;
+chrome.mojom.MediaParserFactoryPtr = chrome.mojom.MediaParserFactoryRemote;
+chrome.mojom.MediaParserFactoryRequest = chrome.mojom.MediaParserFactoryPendingReceiver;
 
 
 // Interface: MediaDataSource
-chrome.mojom.mojom.MediaDataSource = {};
+chrome.mojom.MediaDataSource = {};
 
-chrome.mojom.mojom.MediaDataSourcePendingReceiver = class {
+chrome.mojom.MediaDataSource_Read_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaDataSource_Read_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chrome.mojom.MediaDataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.mojom.MediaDataSourceRemote = class {
+chrome.mojom.MediaDataSourceRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.MediaDataSource';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.mojom.MediaDataSourcePendingReceiver,
+      chrome.mojom.MediaDataSourcePendingReceiver,
       handle);
-    this.$ = new chrome.mojom.mojom.MediaDataSourceRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.MediaDataSourceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -420,7 +505,7 @@ chrome.mojom.mojom.MediaDataSourceRemote = class {
   }
 };
 
-chrome.mojom.mojom.MediaDataSourceRemoteCallHandler = class {
+chrome.mojom.MediaDataSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -429,15 +514,15 @@ chrome.mojom.mojom.MediaDataSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.mojom.MediaDataSource_Read_ParamsSpec,
-      chrome.mojom.mojom.MediaDataSource_Read_ResponseParamsSpec,
+      chrome.mojom.MediaDataSource_Read_ParamsSpec,
+      chrome.mojom.MediaDataSource_Read_ResponseParamsSpec,
       [position, length]);
   }
 
 };
 
-chrome.mojom.mojom.MediaDataSource.getRemote = function() {
-  let remote = new chrome.mojom.mojom.MediaDataSourceRemote();
+chrome.mojom.MediaDataSource.getRemote = function() {
+  let remote = new chrome.mojom.MediaDataSourceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -447,7 +532,7 @@ chrome.mojom.mojom.MediaDataSource.getRemote = function() {
 };
 
 // ParamsSpec for Read
-chrome.mojom.mojom.MediaDataSource_Read_ParamsSpec = {
+chrome.mojom.MediaDataSource_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaDataSource.Read_Params',
@@ -461,7 +546,7 @@ chrome.mojom.mojom.MediaDataSource_Read_ParamsSpec = {
   }
 };
 
-chrome.mojom.mojom.MediaDataSource_Read_ResponseParamsSpec = {
+chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaDataSource.Read_ResponseParams',
@@ -475,6 +560,6 @@ chrome.mojom.mojom.MediaDataSource_Read_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.mojom.MediaDataSourcePtr = chrome.mojom.mojom.MediaDataSourceRemote;
-chrome.mojom.mojom.MediaDataSourceRequest = chrome.mojom.mojom.MediaDataSourcePendingReceiver;
+chrome.mojom.MediaDataSourcePtr = chrome.mojom.MediaDataSourceRemote;
+chrome.mojom.MediaDataSourceRequest = chrome.mojom.MediaDataSourcePendingReceiver;
 

@@ -10,15 +10,15 @@ cert_verifier.mojom = cert_verifier.mojom || {};
 
 
 // Enum: CertificateTrust
-cert_verifier.mojom.mojom.CertificateTrust = {
+cert_verifier.mojom.CertificateTrust = {
   kUnspecified: 0,
   kDistrusted: 1,
   kTrusted: 2,
 };
-cert_verifier.mojom.mojom.CertificateTrustSpec = { $: mojo.internal.Enum() };
+cert_verifier.mojom.CertificateTrustSpec = { $: mojo.internal.Enum() };
 
 // Struct: CertVerifierCreationParams
-cert_verifier.mojom.mojom.CertVerifierCreationParamsSpec = {
+cert_verifier.mojom.CertVerifierCreationParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierCreationParams',
@@ -34,7 +34,7 @@ cert_verifier.mojom.mojom.CertVerifierCreationParamsSpec = {
 };
 
 // Struct: ChromeRootCertInfo
-cert_verifier.mojom.mojom.ChromeRootCertInfoSpec = {
+cert_verifier.mojom.ChromeRootCertInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.ChromeRootCertInfo',
@@ -49,7 +49,7 @@ cert_verifier.mojom.mojom.ChromeRootCertInfoSpec = {
 };
 
 // Struct: ChromeRootMerkleTreeCertInfo
-cert_verifier.mojom.mojom.ChromeRootMerkleTreeCertInfoSpec = {
+cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.ChromeRootMerkleTreeCertInfo',
@@ -65,7 +65,7 @@ cert_verifier.mojom.mojom.ChromeRootMerkleTreeCertInfoSpec = {
 };
 
 // Struct: ChromeRootStoreInfo
-cert_verifier.mojom.mojom.ChromeRootStoreInfoSpec = {
+cert_verifier.mojom.ChromeRootStoreInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.ChromeRootStoreInfo',
@@ -82,7 +82,7 @@ cert_verifier.mojom.mojom.ChromeRootStoreInfoSpec = {
 };
 
 // Struct: PlatformCertInfo
-cert_verifier.mojom.mojom.PlatformCertInfoSpec = {
+cert_verifier.mojom.PlatformCertInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.PlatformCertInfo',
@@ -97,7 +97,7 @@ cert_verifier.mojom.mojom.PlatformCertInfoSpec = {
 };
 
 // Struct: PlatformRootStoreInfo
-cert_verifier.mojom.mojom.PlatformRootStoreInfoSpec = {
+cert_verifier.mojom.PlatformRootStoreInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.PlatformRootStoreInfo',
@@ -111,24 +111,157 @@ cert_verifier.mojom.mojom.PlatformRootStoreInfoSpec = {
 };
 
 // Interface: CertVerifierServiceFactory
-cert_verifier.mojom.mojom.CertVerifierServiceFactory = {};
+cert_verifier.mojom.CertVerifierServiceFactory = {};
 
-cert_verifier.mojom.mojom.CertVerifierServiceFactoryPendingReceiver = class {
+cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cert_verifier.mojom.CertVerifierServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'updater', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cert_verifier.mojom.CertVerifierServiceUpdaterRemote), nullable: true, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierServiceClientRemote), nullable: false, minVersion: 0 },
+        { name: 'creation_params', packedOffset: 24, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierCreationParamsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'crl_set', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'log_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CTLogInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'update_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_root_store', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_mtc_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'use_crs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'system_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'system_ticks', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'current_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemote = class {
+cert_verifier.mojom.CertVerifierServiceFactoryRemote = class {
   static get $interfaceName() {
     return 'cert_verifier.mojom.CertVerifierServiceFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cert_verifier.mojom.mojom.CertVerifierServiceFactoryPendingReceiver,
+      cert_verifier.mojom.CertVerifierServiceFactoryPendingReceiver,
       handle);
-    this.$ = new cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler(this.proxy);
+    this.$ = new cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -140,7 +273,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemote = class {
   }
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
+cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -149,7 +282,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec,
       null,
       [receiver, updater, client, creation_params]);
   }
@@ -158,7 +291,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec,
       null,
       [crl_set]);
   }
@@ -167,7 +300,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec,
       null,
       [log_list, update_time]);
   }
@@ -176,7 +309,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec,
       null,
       []);
   }
@@ -185,7 +318,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec,
       null,
       [new_root_store]);
   }
@@ -194,7 +327,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec,
       null,
       [new_mtc_metadata]);
   }
@@ -203,7 +336,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec,
       null,
       [use_crs]);
   }
@@ -212,8 +345,8 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec,
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec,
       []);
   }
 
@@ -221,8 +354,8 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec,
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec,
       []);
   }
 
@@ -230,15 +363,15 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec,
       null,
       [system_time, system_ticks, current_time]);
   }
 
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceFactory.getRemote = function() {
-  let remote = new cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemote();
+cert_verifier.mojom.CertVerifierServiceFactory.getRemote = function() {
+  let remote = new cert_verifier.mojom.CertVerifierServiceFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -248,7 +381,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory.getRemote = function() {
 };
 
 // ParamsSpec for GetNewCertVerifier
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetNewCertVerifier_Params',
@@ -265,7 +398,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSp
 };
 
 // ParamsSpec for UpdateCRLSet
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateCRLSet_Params',
@@ -279,7 +412,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateCtLogList
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateCtLogList_Params',
@@ -294,7 +427,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec 
 };
 
 // ParamsSpec for DisableCtEnforcement
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.DisableCtEnforcement_Params',
@@ -307,7 +440,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_DisableCtEnforcement_Params
 };
 
 // ParamsSpec for UpdateChromeRootStore
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateChromeRootStore_Params',
@@ -321,7 +454,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_Param
 };
 
 // ParamsSpec for UpdateMtcMetadata
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateMtcMetadata_Params',
@@ -335,7 +468,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpe
 };
 
 // ParamsSpec for SetUseChromeRootStore
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.SetUseChromeRootStore_Params',
@@ -349,7 +482,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_Param
 };
 
 // ParamsSpec for GetChromeRootStoreInfo
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetChromeRootStoreInfo_Params',
@@ -361,7 +494,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_Para
   }
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetChromeRootStoreInfo_ResponseParams',
@@ -375,7 +508,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_Resp
 };
 
 // ParamsSpec for GetPlatformRootStoreInfo
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetPlatformRootStoreInfo_Params',
@@ -387,7 +520,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_Pa
   }
 };
 
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetPlatformRootStoreInfo_ResponseParams',
@@ -401,7 +534,7 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_Re
 };
 
 // ParamsSpec for UpdateNetworkTime
-cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = {
+cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateNetworkTime_Params',
@@ -417,6 +550,6 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpe
 };
 
 // Legacy compatibility
-cert_verifier.mojom.mojom.CertVerifierServiceFactoryPtr = cert_verifier.mojom.mojom.CertVerifierServiceFactoryRemote;
-cert_verifier.mojom.mojom.CertVerifierServiceFactoryRequest = cert_verifier.mojom.mojom.CertVerifierServiceFactoryPendingReceiver;
+cert_verifier.mojom.CertVerifierServiceFactoryPtr = cert_verifier.mojom.CertVerifierServiceFactoryRemote;
+cert_verifier.mojom.CertVerifierServiceFactoryRequest = cert_verifier.mojom.CertVerifierServiceFactoryPendingReceiver;
 

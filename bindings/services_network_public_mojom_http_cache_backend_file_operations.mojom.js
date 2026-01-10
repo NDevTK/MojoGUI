@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: HttpCacheBackendOpenFileFlags
-network.mojom.mojom.HttpCacheBackendOpenFileFlags = {
+network.mojom.HttpCacheBackendOpenFileFlags = {
   kOpenAndRead: 0,
   kCreateAndWrite: 1,
   kOpenReadWriteWinShareDelete: 2,
@@ -18,17 +18,17 @@ network.mojom.mojom.HttpCacheBackendOpenFileFlags = {
   kCreateAlwaysWriteWinShareDelete: 4,
   kOpenReadWinShareDeleteWinSequentialScan: 5,
 };
-network.mojom.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum() };
+network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum() };
 
 // Enum: HttpCacheBackendDeleteFileMode
-network.mojom.mojom.HttpCacheBackendDeleteFileMode = {
+network.mojom.HttpCacheBackendDeleteFileMode = {
   kDefault: 0,
   kEnsureImmediateAvailability: 1,
 };
-network.mojom.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum() };
+network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FileEnumerationEntry
-network.mojom.mojom.FileEnumerationEntrySpec = {
+network.mojom.FileEnumerationEntrySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FileEnumerationEntry',
@@ -45,24 +45,37 @@ network.mojom.mojom.FileEnumerationEntrySpec = {
 };
 
 // Interface: FileEnumerator
-network.mojom.mojom.FileEnumerator = {};
+network.mojom.FileEnumerator = {};
 
-network.mojom.mojom.FileEnumeratorPendingReceiver = class {
+network.mojom.FileEnumerator_GetNext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.FileEnumerator_GetNext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.FileEnumeratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.FileEnumeratorRemote = class {
+network.mojom.FileEnumeratorRemote = class {
   static get $interfaceName() {
     return 'network.mojom.FileEnumerator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.FileEnumeratorPendingReceiver,
+      network.mojom.FileEnumeratorPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.FileEnumeratorRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.FileEnumeratorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +87,7 @@ network.mojom.mojom.FileEnumeratorRemote = class {
   }
 };
 
-network.mojom.mojom.FileEnumeratorRemoteCallHandler = class {
+network.mojom.FileEnumeratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,15 +96,15 @@ network.mojom.mojom.FileEnumeratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.FileEnumerator_GetNext_ParamsSpec,
-      network.mojom.mojom.FileEnumerator_GetNext_ResponseParamsSpec,
+      network.mojom.FileEnumerator_GetNext_ParamsSpec,
+      network.mojom.FileEnumerator_GetNext_ResponseParamsSpec,
       [num_entries]);
   }
 
 };
 
-network.mojom.mojom.FileEnumerator.getRemote = function() {
-  let remote = new network.mojom.mojom.FileEnumeratorRemote();
+network.mojom.FileEnumerator.getRemote = function() {
+  let remote = new network.mojom.FileEnumeratorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -101,7 +114,7 @@ network.mojom.mojom.FileEnumerator.getRemote = function() {
 };
 
 // ParamsSpec for GetNext
-network.mojom.mojom.FileEnumerator_GetNext_ParamsSpec = {
+network.mojom.FileEnumerator_GetNext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FileEnumerator.GetNext_Params',
@@ -114,7 +127,7 @@ network.mojom.mojom.FileEnumerator_GetNext_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
+network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FileEnumerator.GetNext_ResponseParams',
@@ -130,29 +143,150 @@ network.mojom.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.FileEnumeratorPtr = network.mojom.mojom.FileEnumeratorRemote;
-network.mojom.mojom.FileEnumeratorRequest = network.mojom.mojom.FileEnumeratorPendingReceiver;
+network.mojom.FileEnumeratorPtr = network.mojom.FileEnumeratorRemote;
+network.mojom.FileEnumeratorRequest = network.mojom.FileEnumeratorPendingReceiver;
 
 
 // Interface: HttpCacheBackendFileOperations
-network.mojom.mojom.HttpCacheBackendFileOperations = {};
+network.mojom.HttpCacheBackendFileOperations = {};
 
-network.mojom.mojom.HttpCacheBackendFileOperationsPendingReceiver = class {
+network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_CreateDirectory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_PathExists_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_DirectoryExists_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_OpenFile_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendOpenFileFlagsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_DeleteFile_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendDeleteFileModeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_RenameFile_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'from_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'to_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_GetFileInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.FileEnumeratorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperationsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperationsRemote = class {
+network.mojom.HttpCacheBackendFileOperationsRemote = class {
   static get $interfaceName() {
     return 'network.mojom.HttpCacheBackendFileOperations';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.HttpCacheBackendFileOperationsPendingReceiver,
+      network.mojom.HttpCacheBackendFileOperationsPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -164,7 +298,7 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemote = class {
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
+network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -173,8 +307,8 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec,
       [path]);
   }
 
@@ -182,8 +316,8 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec,
       [path]);
   }
 
@@ -191,8 +325,8 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec,
       [path]);
   }
 
@@ -200,8 +334,8 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec,
       [path, flags]);
   }
 
@@ -209,8 +343,8 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec,
       [path, mode]);
   }
 
@@ -218,8 +352,8 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec,
       [from_path, to_path]);
   }
 
@@ -227,8 +361,8 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec,
       [path]);
   }
 
@@ -236,7 +370,7 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec,
       null,
       [path, receiver]);
   }
@@ -245,15 +379,15 @@ network.mojom.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec,
-      network.mojom.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations.getRemote = function() {
-  let remote = new network.mojom.mojom.HttpCacheBackendFileOperationsRemote();
+network.mojom.HttpCacheBackendFileOperations.getRemote = function() {
+  let remote = new network.mojom.HttpCacheBackendFileOperationsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -263,7 +397,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations.getRemote = function() {
 };
 
 // ParamsSpec for CreateDirectory
-network.mojom.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.CreateDirectory_Params',
@@ -276,7 +410,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = 
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.CreateDirectory_ResponseParams',
@@ -290,7 +424,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParam
 };
 
 // ParamsSpec for PathExists
-network.mojom.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.PathExists_Params',
@@ -303,7 +437,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.PathExists_ResponseParams',
@@ -317,7 +451,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec
 };
 
 // ParamsSpec for DirectoryExists
-network.mojom.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.DirectoryExists_Params',
@@ -330,7 +464,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = 
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.DirectoryExists_ResponseParams',
@@ -344,7 +478,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParam
 };
 
 // ParamsSpec for OpenFile
-network.mojom.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.OpenFile_Params',
@@ -358,7 +492,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.OpenFile_ResponseParams',
@@ -373,7 +507,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec =
 };
 
 // ParamsSpec for DeleteFile
-network.mojom.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.DeleteFile_Params',
@@ -387,7 +521,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.DeleteFile_ResponseParams',
@@ -401,7 +535,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec
 };
 
 // ParamsSpec for RenameFile
-network.mojom.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.RenameFile_Params',
@@ -415,7 +549,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.RenameFile_ResponseParams',
@@ -429,7 +563,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec
 };
 
 // ParamsSpec for GetFileInfo
-network.mojom.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.GetFileInfo_Params',
@@ -442,7 +576,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.GetFileInfo_ResponseParams',
@@ -456,7 +590,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpe
 };
 
 // ParamsSpec for EnumerateFiles
-network.mojom.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.EnumerateFiles_Params',
@@ -471,7 +605,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
 };
 
 // ParamsSpec for CleanupDirectory
-network.mojom.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.CleanupDirectory_Params',
@@ -484,7 +618,7 @@ network.mojom.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec =
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = {
+network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperations.CleanupDirectory_ResponseParams',
@@ -498,29 +632,42 @@ network.mojom.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponsePara
 };
 
 // Legacy compatibility
-network.mojom.mojom.HttpCacheBackendFileOperationsPtr = network.mojom.mojom.HttpCacheBackendFileOperationsRemote;
-network.mojom.mojom.HttpCacheBackendFileOperationsRequest = network.mojom.mojom.HttpCacheBackendFileOperationsPendingReceiver;
+network.mojom.HttpCacheBackendFileOperationsPtr = network.mojom.HttpCacheBackendFileOperationsRemote;
+network.mojom.HttpCacheBackendFileOperationsRequest = network.mojom.HttpCacheBackendFileOperationsPendingReceiver;
 
 
 // Interface: HttpCacheBackendFileOperationsFactory
-network.mojom.mojom.HttpCacheBackendFileOperationsFactory = {};
+network.mojom.HttpCacheBackendFileOperationsFactory = {};
 
-network.mojom.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver = class {
+network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpCacheBackendFileOperationsFactory_Create_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.HttpCacheBackendFileOperationsRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRemote = class {
+network.mojom.HttpCacheBackendFileOperationsFactoryRemote = class {
   static get $interfaceName() {
     return 'network.mojom.HttpCacheBackendFileOperationsFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver,
+      network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -532,7 +679,7 @@ network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRemote = class {
   }
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler = class {
+network.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -541,15 +688,15 @@ network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-network.mojom.mojom.HttpCacheBackendFileOperationsFactory.getRemote = function() {
-  let remote = new network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRemote();
+network.mojom.HttpCacheBackendFileOperationsFactory.getRemote = function() {
+  let remote = new network.mojom.HttpCacheBackendFileOperationsFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -559,7 +706,7 @@ network.mojom.mojom.HttpCacheBackendFileOperationsFactory.getRemote = function()
 };
 
 // ParamsSpec for Create
-network.mojom.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
+network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpCacheBackendFileOperationsFactory.Create_Params',
@@ -573,6 +720,6 @@ network.mojom.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.HttpCacheBackendFileOperationsFactoryPtr = network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRemote;
-network.mojom.mojom.HttpCacheBackendFileOperationsFactoryRequest = network.mojom.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver;
+network.mojom.HttpCacheBackendFileOperationsFactoryPtr = network.mojom.HttpCacheBackendFileOperationsFactoryRemote;
+network.mojom.HttpCacheBackendFileOperationsFactoryRequest = network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver;
 

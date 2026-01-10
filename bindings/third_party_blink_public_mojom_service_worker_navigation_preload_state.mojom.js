@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: NavigationPreloadState
-blink.mojom.mojom.NavigationPreloadStateSpec = {
+blink.mojom.NavigationPreloadStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationPreloadState',

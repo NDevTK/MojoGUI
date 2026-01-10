@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Union: GpuMemoryBufferPlatformHandle
-gfx.mojom.mojom.GpuMemoryBufferPlatformHandleSpec = { $: mojo.internal.Union(
+gfx.mojom.GpuMemoryBufferPlatformHandleSpec = { $: mojo.internal.Union(
     'gfx.mojom.GpuMemoryBufferPlatformHandle', {
       'shared_memory_handle': {
         'ordinal': 0,
@@ -36,7 +36,7 @@ gfx.mojom.mojom.GpuMemoryBufferPlatformHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: NativePixmapPlane
-gfx.mojom.mojom.NativePixmapPlaneSpec = {
+gfx.mojom.NativePixmapPlaneSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.NativePixmapPlane',
@@ -53,7 +53,7 @@ gfx.mojom.mojom.NativePixmapPlaneSpec = {
 };
 
 // Struct: NativePixmapHandle
-gfx.mojom.mojom.NativePixmapHandleSpec = {
+gfx.mojom.NativePixmapHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.NativePixmapHandle',
@@ -72,7 +72,7 @@ gfx.mojom.mojom.NativePixmapHandleSpec = {
 };
 
 // Struct: AHardwareBufferHandle
-gfx.mojom.mojom.AHardwareBufferHandleSpec = {
+gfx.mojom.AHardwareBufferHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.AHardwareBufferHandle',
@@ -87,7 +87,7 @@ gfx.mojom.mojom.AHardwareBufferHandleSpec = {
 };
 
 // Struct: DXGIHandleToken
-gfx.mojom.mojom.DXGIHandleTokenSpec = {
+gfx.mojom.DXGIHandleTokenSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DXGIHandleToken',
@@ -101,7 +101,7 @@ gfx.mojom.mojom.DXGIHandleTokenSpec = {
 };
 
 // Struct: DXGIHandle
-gfx.mojom.mojom.DXGIHandleSpec = {
+gfx.mojom.DXGIHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DXGIHandle',
@@ -117,7 +117,7 @@ gfx.mojom.mojom.DXGIHandleSpec = {
 };
 
 // Struct: IOSurfaceHandle
-gfx.mojom.mojom.IOSurfaceHandleSpec = {
+gfx.mojom.IOSurfaceHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.IOSurfaceHandle',

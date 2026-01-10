@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: FrameRoutingInfo
-content.mojom.mojom.FrameRoutingInfoSpec = {
+content.mojom.FrameRoutingInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.FrameRoutingInfo',
@@ -28,24 +28,48 @@ content.mojom.mojom.FrameRoutingInfoSpec = {
 };
 
 // Interface: RenderMessageFilter
-content.mojom.mojom.RenderMessageFilter = {};
+content.mojom.RenderMessageFilter = {};
 
-content.mojom.mojom.RenderMessageFilterPendingReceiver = class {
+content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.RenderMessageFilterRemote = class {
+content.mojom.RenderMessageFilterRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RenderMessageFilter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.RenderMessageFilterPendingReceiver,
+      content.mojom.RenderMessageFilterPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.RenderMessageFilterRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.RenderMessageFilterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +81,7 @@ content.mojom.mojom.RenderMessageFilterRemote = class {
   }
 };
 
-content.mojom.mojom.RenderMessageFilterRemoteCallHandler = class {
+content.mojom.RenderMessageFilterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,8 +90,8 @@ content.mojom.mojom.RenderMessageFilterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec,
-      content.mojom.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
+      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec,
+      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
       []);
   }
 
@@ -75,15 +99,15 @@ content.mojom.mojom.RenderMessageFilterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec,
-      content.mojom.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
+      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec,
+      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
       []);
   }
 
 };
 
-content.mojom.mojom.RenderMessageFilter.getRemote = function() {
-  let remote = new content.mojom.mojom.RenderMessageFilterRemote();
+content.mojom.RenderMessageFilter.getRemote = function() {
+  let remote = new content.mojom.RenderMessageFilterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +117,7 @@ content.mojom.mojom.RenderMessageFilter.getRemote = function() {
 };
 
 // ParamsSpec for GenerateSingleFrameRoutingInfo
-content.mojom.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
+content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_Params',
@@ -105,7 +129,7 @@ content.mojom.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpe
   }
 };
 
-content.mojom.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = {
+content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_ResponseParams',
@@ -119,7 +143,7 @@ content.mojom.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseP
 };
 
 // ParamsSpec for GenerateFrameRoutingInfos
-content.mojom.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
+content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_Params',
@@ -131,7 +155,7 @@ content.mojom.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
   }
 };
 
-content.mojom.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = {
+content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_ResponseParams',
@@ -145,6 +169,6 @@ content.mojom.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams
 };
 
 // Legacy compatibility
-content.mojom.mojom.RenderMessageFilterPtr = content.mojom.mojom.RenderMessageFilterRemote;
-content.mojom.mojom.RenderMessageFilterRequest = content.mojom.mojom.RenderMessageFilterPendingReceiver;
+content.mojom.RenderMessageFilterPtr = content.mojom.RenderMessageFilterRemote;
+content.mojom.RenderMessageFilterRequest = content.mojom.RenderMessageFilterPendingReceiver;
 

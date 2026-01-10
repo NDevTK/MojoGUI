@@ -11,24 +11,63 @@ var skia = skia || {};
 
 
 // Interface: PdfProgressiveSearchifier
-pdf.mojom.mojom.PdfProgressiveSearchifier = {};
+pdf.mojom.PdfProgressiveSearchifier = {};
 
-pdf.mojom.mojom.PdfProgressiveSearchifierPendingReceiver = class {
+pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfProgressiveSearchifier_AddPage_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
+        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfProgressiveSearchifier_DeletePage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfProgressiveSearchifier_Save_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+pdf.mojom.PdfProgressiveSearchifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-pdf.mojom.mojom.PdfProgressiveSearchifierRemote = class {
+pdf.mojom.PdfProgressiveSearchifierRemote = class {
   static get $interfaceName() {
     return 'pdf.mojom.PdfProgressiveSearchifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      pdf.mojom.mojom.PdfProgressiveSearchifierPendingReceiver,
+      pdf.mojom.PdfProgressiveSearchifierPendingReceiver,
       handle);
-    this.$ = new pdf.mojom.mojom.PdfProgressiveSearchifierRemoteCallHandler(this.proxy);
+    this.$ = new pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +79,7 @@ pdf.mojom.mojom.PdfProgressiveSearchifierRemote = class {
   }
 };
 
-pdf.mojom.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
+pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +88,7 @@ pdf.mojom.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec,
+      pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec,
       null,
       [image, page_index]);
   }
@@ -58,7 +97,7 @@ pdf.mojom.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec,
+      pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec,
       null,
       [page_index]);
   }
@@ -67,15 +106,15 @@ pdf.mojom.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      pdf.mojom.mojom.PdfProgressiveSearchifier_Save_ParamsSpec,
-      pdf.mojom.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
+      pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec,
+      pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
       []);
   }
 
 };
 
-pdf.mojom.mojom.PdfProgressiveSearchifier.getRemote = function() {
-  let remote = new pdf.mojom.mojom.PdfProgressiveSearchifierRemote();
+pdf.mojom.PdfProgressiveSearchifier.getRemote = function() {
+  let remote = new pdf.mojom.PdfProgressiveSearchifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -85,7 +124,7 @@ pdf.mojom.mojom.PdfProgressiveSearchifier.getRemote = function() {
 };
 
 // ParamsSpec for AddPage
-pdf.mojom.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
+pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfProgressiveSearchifier.AddPage_Params',
@@ -100,7 +139,7 @@ pdf.mojom.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
 };
 
 // ParamsSpec for DeletePage
-pdf.mojom.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
+pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfProgressiveSearchifier.DeletePage_Params',
@@ -114,7 +153,7 @@ pdf.mojom.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
 };
 
 // ParamsSpec for Save
-pdf.mojom.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
+pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfProgressiveSearchifier.Save_Params',
@@ -126,7 +165,7 @@ pdf.mojom.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
   }
 };
 
-pdf.mojom.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
+pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfProgressiveSearchifier.Save_ResponseParams',
@@ -140,6 +179,6 @@ pdf.mojom.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-pdf.mojom.mojom.PdfProgressiveSearchifierPtr = pdf.mojom.mojom.PdfProgressiveSearchifierRemote;
-pdf.mojom.mojom.PdfProgressiveSearchifierRequest = pdf.mojom.mojom.PdfProgressiveSearchifierPendingReceiver;
+pdf.mojom.PdfProgressiveSearchifierPtr = pdf.mojom.PdfProgressiveSearchifierRemote;
+pdf.mojom.PdfProgressiveSearchifierRequest = pdf.mojom.PdfProgressiveSearchifierPendingReceiver;
 

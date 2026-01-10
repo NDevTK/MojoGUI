@@ -13,14 +13,14 @@ var url = url || {};
 
 
 // Enum: SharedWorkerSameSiteCookies
-blink.mojom.mojom.SharedWorkerSameSiteCookies = {
+blink.mojom.SharedWorkerSameSiteCookies = {
   kAll: 0,
   kNone: 1,
 };
-blink.mojom.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.internal.Enum() };
+blink.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.internal.Enum() };
 
 // Struct: SharedWorkerInfo
-blink.mojom.mojom.SharedWorkerInfoSpec = {
+blink.mojom.SharedWorkerInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerInfo',

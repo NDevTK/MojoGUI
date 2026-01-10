@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Struct: PrivacyApplication
-arc.mojom.mojom.PrivacyApplicationSpec = {
+arc.mojom.PrivacyApplicationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyApplication',
@@ -25,7 +25,7 @@ arc.mojom.mojom.PrivacyApplicationSpec = {
 };
 
 // Struct: PrivacyItem
-arc.mojom.mojom.PrivacyItemSpec = {
+arc.mojom.PrivacyItemSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyItem',
@@ -40,24 +40,63 @@ arc.mojom.mojom.PrivacyItemSpec = {
 };
 
 // Interface: PrivacyItemsHost
-arc.mojom.mojom.PrivacyItemsHost = {};
+arc.mojom.PrivacyItemsHost = {};
 
-arc.mojom.mojom.PrivacyItemsHostPendingReceiver = class {
+arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'privacy_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PrivacyItemSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.PrivacyItemsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.PrivacyItemsHostRemote = class {
+arc.mojom.PrivacyItemsHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PrivacyItemsHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.PrivacyItemsHostPendingReceiver,
+      arc.mojom.PrivacyItemsHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.PrivacyItemsHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.PrivacyItemsHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +108,7 @@ arc.mojom.mojom.PrivacyItemsHostRemote = class {
   }
 };
 
-arc.mojom.mojom.PrivacyItemsHostRemoteCallHandler = class {
+arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,7 +117,7 @@ arc.mojom.mojom.PrivacyItemsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec,
+      arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec,
       null,
       [privacy_items]);
   }
@@ -87,7 +126,7 @@ arc.mojom.mojom.PrivacyItemsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec,
+      arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec,
       null,
       [flag]);
   }
@@ -96,15 +135,15 @@ arc.mojom.mojom.PrivacyItemsHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec,
+      arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec,
       null,
       [flag]);
   }
 
 };
 
-arc.mojom.mojom.PrivacyItemsHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.PrivacyItemsHostRemote();
+arc.mojom.PrivacyItemsHost.getRemote = function() {
+  let remote = new arc.mojom.PrivacyItemsHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -114,7 +153,7 @@ arc.mojom.mojom.PrivacyItemsHost.getRemote = function() {
 };
 
 // ParamsSpec for OnPrivacyItemsChanged
-arc.mojom.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = {
+arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyItemsHost.OnPrivacyItemsChanged_Params',
@@ -128,7 +167,7 @@ arc.mojom.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnMicCameraIndicatorRequirementChanged
-arc.mojom.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = {
+arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyItemsHost.OnMicCameraIndicatorRequirementChanged_Params',
@@ -142,7 +181,7 @@ arc.mojom.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSp
 };
 
 // ParamsSpec for OnLocationIndicatorRequirementChanged
-arc.mojom.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = {
+arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyItemsHost.OnLocationIndicatorRequirementChanged_Params',
@@ -156,29 +195,56 @@ arc.mojom.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpe
 };
 
 // Legacy compatibility
-arc.mojom.mojom.PrivacyItemsHostPtr = arc.mojom.mojom.PrivacyItemsHostRemote;
-arc.mojom.mojom.PrivacyItemsHostRequest = arc.mojom.mojom.PrivacyItemsHostPendingReceiver;
+arc.mojom.PrivacyItemsHostPtr = arc.mojom.PrivacyItemsHostRemote;
+arc.mojom.PrivacyItemsHostRequest = arc.mojom.PrivacyItemsHostPendingReceiver;
 
 
 // Interface: PrivacyItemsInstance
-arc.mojom.mojom.PrivacyItemsInstance = {};
+arc.mojom.PrivacyItemsInstance = {};
 
-arc.mojom.mojom.PrivacyItemsInstancePendingReceiver = class {
+arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrivacyItemsInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'displayId', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.RectSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.PrivacyItemsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.PrivacyItemsInstanceRemote = class {
+arc.mojom.PrivacyItemsInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PrivacyItemsInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.PrivacyItemsInstancePendingReceiver,
+      arc.mojom.PrivacyItemsInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.PrivacyItemsInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.PrivacyItemsInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -190,7 +256,7 @@ arc.mojom.mojom.PrivacyItemsInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
+arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -199,7 +265,7 @@ arc.mojom.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.PrivacyItemsInstance_Init_ParamsSpec,
+      arc.mojom.PrivacyItemsInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -208,15 +274,15 @@ arc.mojom.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec,
+      arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec,
       null,
       [displayId, bounds]);
   }
 
 };
 
-arc.mojom.mojom.PrivacyItemsInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.PrivacyItemsInstanceRemote();
+arc.mojom.PrivacyItemsInstance.getRemote = function() {
+  let remote = new arc.mojom.PrivacyItemsInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -226,7 +292,7 @@ arc.mojom.mojom.PrivacyItemsInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.PrivacyItemsInstance_Init_ParamsSpec = {
+arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyItemsInstance.Init_Params',
@@ -240,7 +306,7 @@ arc.mojom.mojom.PrivacyItemsInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for OnStaticPrivacyIndicatorBoundsChanged
-arc.mojom.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = {
+arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyItemsInstance.OnStaticPrivacyIndicatorBoundsChanged_Params',
@@ -255,6 +321,6 @@ arc.mojom.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Param
 };
 
 // Legacy compatibility
-arc.mojom.mojom.PrivacyItemsInstancePtr = arc.mojom.mojom.PrivacyItemsInstanceRemote;
-arc.mojom.mojom.PrivacyItemsInstanceRequest = arc.mojom.mojom.PrivacyItemsInstancePendingReceiver;
+arc.mojom.PrivacyItemsInstancePtr = arc.mojom.PrivacyItemsInstanceRemote;
+arc.mojom.PrivacyItemsInstanceRequest = arc.mojom.PrivacyItemsInstancePendingReceiver;
 

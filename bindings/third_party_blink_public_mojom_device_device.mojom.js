@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Union: DeviceAttributeResult
-blink.mojom.mojom.DeviceAttributeResultSpec = { $: mojo.internal.Union(
+blink.mojom.DeviceAttributeResultSpec = { $: mojo.internal.Union(
     'blink.mojom.DeviceAttributeResult', {
       'error_message': {
         'ordinal': 0,
@@ -25,24 +25,36 @@ blink.mojom.mojom.DeviceAttributeResultSpec = { $: mojo.internal.Union(
 };
 
 // Interface: ManagedConfigurationObserver
-blink.mojom.mojom.ManagedConfigurationObserver = {};
+blink.mojom.ManagedConfigurationObserver = {};
 
-blink.mojom.mojom.ManagedConfigurationObserverPendingReceiver = class {
+blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.ManagedConfigurationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ManagedConfigurationObserverRemote = class {
+blink.mojom.ManagedConfigurationObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ManagedConfigurationObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ManagedConfigurationObserverPendingReceiver,
+      blink.mojom.ManagedConfigurationObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ManagedConfigurationObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ManagedConfigurationObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +66,7 @@ blink.mojom.mojom.ManagedConfigurationObserverRemote = class {
   }
 };
 
-blink.mojom.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
+blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,15 +75,15 @@ blink.mojom.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec,
+      blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.mojom.ManagedConfigurationObserver.getRemote = function() {
-  let remote = new blink.mojom.mojom.ManagedConfigurationObserverRemote();
+blink.mojom.ManagedConfigurationObserver.getRemote = function() {
+  let remote = new blink.mojom.ManagedConfigurationObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -81,7 +93,7 @@ blink.mojom.mojom.ManagedConfigurationObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnConfigurationChanged
-blink.mojom.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
+blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManagedConfigurationObserver.OnConfigurationChanged_Params',
@@ -94,29 +106,89 @@ blink.mojom.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ManagedConfigurationObserverPtr = blink.mojom.mojom.ManagedConfigurationObserverRemote;
-blink.mojom.mojom.ManagedConfigurationObserverRequest = blink.mojom.mojom.ManagedConfigurationObserverPendingReceiver;
+blink.mojom.ManagedConfigurationObserverPtr = blink.mojom.ManagedConfigurationObserverRemote;
+blink.mojom.ManagedConfigurationObserverRequest = blink.mojom.ManagedConfigurationObserverPendingReceiver;
 
 
 // Interface: DeviceAPIService
-blink.mojom.mojom.DeviceAPIService = {};
+blink.mojom.DeviceAPIService = {};
 
-blink.mojom.mojom.DeviceAPIServicePendingReceiver = class {
+blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DeviceAPIService_GetDirectoryId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DeviceAPIService_GetHostname_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DeviceAPIService_GetSerialNumber_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.DeviceAPIServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.DeviceAPIServiceRemote = class {
+blink.mojom.DeviceAPIServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DeviceAPIService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.DeviceAPIServicePendingReceiver,
+      blink.mojom.DeviceAPIServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.DeviceAPIServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.DeviceAPIServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -128,7 +200,7 @@ blink.mojom.mojom.DeviceAPIServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.DeviceAPIServiceRemoteCallHandler = class {
+blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -137,8 +209,8 @@ blink.mojom.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec,
-      blink.mojom.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
+      blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
       []);
   }
 
@@ -146,8 +218,8 @@ blink.mojom.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.DeviceAPIService_GetHostname_ParamsSpec,
-      blink.mojom.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
+      blink.mojom.DeviceAPIService_GetHostname_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
       []);
   }
 
@@ -155,8 +227,8 @@ blink.mojom.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec,
-      blink.mojom.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
+      blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
       []);
   }
 
@@ -164,8 +236,8 @@ blink.mojom.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec,
-      blink.mojom.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
+      blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
       []);
   }
 
@@ -173,15 +245,15 @@ blink.mojom.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec,
-      blink.mojom.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
+      blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.DeviceAPIService.getRemote = function() {
-  let remote = new blink.mojom.mojom.DeviceAPIServiceRemote();
+blink.mojom.DeviceAPIService.getRemote = function() {
+  let remote = new blink.mojom.DeviceAPIServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -191,7 +263,7 @@ blink.mojom.mojom.DeviceAPIService.getRemote = function() {
 };
 
 // ParamsSpec for GetDirectoryId
-blink.mojom.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
+blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetDirectoryId_Params',
@@ -203,7 +275,7 @@ blink.mojom.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
+blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetDirectoryId_ResponseParams',
@@ -217,7 +289,7 @@ blink.mojom.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetHostname
-blink.mojom.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
+blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetHostname_Params',
@@ -229,7 +301,7 @@ blink.mojom.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
+blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetHostname_ResponseParams',
@@ -243,7 +315,7 @@ blink.mojom.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSerialNumber
-blink.mojom.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
+blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetSerialNumber_Params',
@@ -255,7 +327,7 @@ blink.mojom.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
+blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetSerialNumber_ResponseParams',
@@ -269,7 +341,7 @@ blink.mojom.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAnnotatedAssetId
-blink.mojom.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
+blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedAssetId_Params',
@@ -281,7 +353,7 @@ blink.mojom.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
+blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedAssetId_ResponseParams',
@@ -295,7 +367,7 @@ blink.mojom.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAnnotatedLocation
-blink.mojom.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
+blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedLocation_Params',
@@ -307,7 +379,7 @@ blink.mojom.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
+blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedLocation_ResponseParams',
@@ -321,29 +393,55 @@ blink.mojom.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.DeviceAPIServicePtr = blink.mojom.mojom.DeviceAPIServiceRemote;
-blink.mojom.mojom.DeviceAPIServiceRequest = blink.mojom.mojom.DeviceAPIServicePendingReceiver;
+blink.mojom.DeviceAPIServicePtr = blink.mojom.DeviceAPIServiceRemote;
+blink.mojom.DeviceAPIServiceRequest = blink.mojom.DeviceAPIServicePendingReceiver;
 
 
 // Interface: ManagedConfigurationService
-blink.mojom.mojom.ManagedConfigurationService = {};
+blink.mojom.ManagedConfigurationService = {};
 
-blink.mojom.mojom.ManagedConfigurationServicePendingReceiver = class {
+blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManagedConfigurationService_GetManagedConfiguration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ManagedConfigurationObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.ManagedConfigurationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.ManagedConfigurationServiceRemote = class {
+blink.mojom.ManagedConfigurationServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ManagedConfigurationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.ManagedConfigurationServicePendingReceiver,
+      blink.mojom.ManagedConfigurationServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.ManagedConfigurationServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.ManagedConfigurationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -355,7 +453,7 @@ blink.mojom.mojom.ManagedConfigurationServiceRemote = class {
   }
 };
 
-blink.mojom.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
+blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -364,8 +462,8 @@ blink.mojom.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec,
-      blink.mojom.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
+      blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec,
+      blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
       [keys]);
   }
 
@@ -373,15 +471,15 @@ blink.mojom.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec,
+      blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-blink.mojom.mojom.ManagedConfigurationService.getRemote = function() {
-  let remote = new blink.mojom.mojom.ManagedConfigurationServiceRemote();
+blink.mojom.ManagedConfigurationService.getRemote = function() {
+  let remote = new blink.mojom.ManagedConfigurationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -391,7 +489,7 @@ blink.mojom.mojom.ManagedConfigurationService.getRemote = function() {
 };
 
 // ParamsSpec for GetManagedConfiguration
-blink.mojom.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
+blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManagedConfigurationService.GetManagedConfiguration_Params',
@@ -404,7 +502,7 @@ blink.mojom.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec
   }
 };
 
-blink.mojom.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = {
+blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManagedConfigurationService.GetManagedConfiguration_ResponseParams',
@@ -418,7 +516,7 @@ blink.mojom.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponsePa
 };
 
 // ParamsSpec for SubscribeToManagedConfiguration
-blink.mojom.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = {
+blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManagedConfigurationService.SubscribeToManagedConfiguration_Params',
@@ -432,6 +530,6 @@ blink.mojom.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_Pa
 };
 
 // Legacy compatibility
-blink.mojom.mojom.ManagedConfigurationServicePtr = blink.mojom.mojom.ManagedConfigurationServiceRemote;
-blink.mojom.mojom.ManagedConfigurationServiceRequest = blink.mojom.mojom.ManagedConfigurationServicePendingReceiver;
+blink.mojom.ManagedConfigurationServicePtr = blink.mojom.ManagedConfigurationServiceRemote;
+blink.mojom.ManagedConfigurationServiceRequest = blink.mojom.ManagedConfigurationServicePendingReceiver;
 

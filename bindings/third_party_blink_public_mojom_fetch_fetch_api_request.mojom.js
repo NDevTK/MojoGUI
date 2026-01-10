@@ -15,7 +15,7 @@ var url = url || {};
 
 
 // Enum: RequestContextType
-blink.mojom.mojom.RequestContextType = {
+blink.mojom.RequestContextType = {
   UNSPECIFIED: 0,
   ATTRIBUTION_SRC: 1,
   AUDIO: 2,
@@ -54,10 +54,10 @@ blink.mojom.mojom.RequestContextType = {
   XML_HTTP_REQUEST: 35,
   XSLT: 36,
 };
-blink.mojom.mojom.RequestContextTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.RequestContextTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchCacheMode
-blink.mojom.mojom.FetchCacheMode = {
+blink.mojom.FetchCacheMode = {
   kDefault: 0,
   kNoStore: 1,
   kBypassCache: 2,
@@ -67,18 +67,18 @@ blink.mojom.mojom.FetchCacheMode = {
   kUnspecifiedOnlyIfCachedStrict: 6,
   kUnspecifiedForceCacheMiss: 7,
 };
-blink.mojom.mojom.FetchCacheModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FetchCacheModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchPriorityHint
-blink.mojom.mojom.FetchPriorityHint = {
+blink.mojom.FetchPriorityHint = {
   kLow: 0,
   kAuto: 1,
   kHigh: 2,
 };
-blink.mojom.mojom.FetchPriorityHintSpec = { $: mojo.internal.Enum() };
+blink.mojom.FetchPriorityHintSpec = { $: mojo.internal.Enum() };
 
 // Struct: FetchAPIRequestHeaders
-blink.mojom.mojom.FetchAPIRequestHeadersSpec = {
+blink.mojom.FetchAPIRequestHeadersSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchAPIRequestHeaders',
@@ -92,7 +92,7 @@ blink.mojom.mojom.FetchAPIRequestHeadersSpec = {
 };
 
 // Struct: FetchAPIRequestBody
-blink.mojom.mojom.FetchAPIRequestBodySpec = {
+blink.mojom.FetchAPIRequestBodySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchAPIRequestBody',
@@ -108,7 +108,7 @@ blink.mojom.mojom.FetchAPIRequestBodySpec = {
 };
 
 // Struct: FetchAPIRequest
-blink.mojom.mojom.FetchAPIRequestSpec = {
+blink.mojom.FetchAPIRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchAPIRequest',

@@ -10,7 +10,7 @@ cc.mojom = cc.mojom || {};
 
 
 // Struct: LayerTreeDebugState
-cc.mojom.mojom.LayerTreeDebugStateSpec = {
+cc.mojom.LayerTreeDebugStateSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.LayerTreeDebugState',

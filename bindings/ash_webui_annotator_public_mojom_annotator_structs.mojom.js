@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.annotator = ash.annotator || {};
-ash.annotator.annotator.mojom = ash.annotator.annotator.mojom || {};
+ash.annotator.mojom = ash.annotator.mojom || {};
 
 
 // Struct: AnnotatorTool
-ash.annotator.annotator.mojom.mojom.AnnotatorToolSpec = {
+ash.annotator.mojom.AnnotatorToolSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.AnnotatorTool',

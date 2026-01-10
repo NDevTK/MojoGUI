@@ -19,14 +19,14 @@ var gfx = gfx || {};
 
 
 // Enum: Type
-viz.mojom.mojom.Type = {
+viz.mojom.Type = {
   kCreate: 0,
   kDelete: 1,
 };
-viz.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TransferableUIResourceRequest
-viz.mojom.mojom.TransferableUIResourceRequestSpec = {
+viz.mojom.TransferableUIResourceRequestSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TransferableUIResourceRequest',
@@ -40,7 +40,7 @@ viz.mojom.mojom.TransferableUIResourceRequestSpec = {
 };
 
 // Struct: LayerTreeUpdate
-viz.mojom.mojom.LayerTreeUpdateSpec = {
+viz.mojom.LayerTreeUpdateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerTreeUpdate',
@@ -110,7 +110,7 @@ viz.mojom.mojom.LayerTreeUpdateSpec = {
 };
 
 // Struct: PendingLayerContext
-viz.mojom.mojom.PendingLayerContextSpec = {
+viz.mojom.PendingLayerContextSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.PendingLayerContext',
@@ -125,24 +125,63 @@ viz.mojom.mojom.PendingLayerContextSpec = {
 };
 
 // Interface: LayerContext
-viz.mojom.mojom.LayerContext = {};
+viz.mojom.LayerContext = {};
 
-viz.mojom.mojom.LayerContextPendingReceiver = class {
+viz.mojom.LayerContext_SetVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContext_SetVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContext_UpdateDisplayTree_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LayerTreeUpdateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContext_UpdateDisplayTiling_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TilingSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.LayerContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.LayerContextRemote = class {
+viz.mojom.LayerContextRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.LayerContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.LayerContextPendingReceiver,
+      viz.mojom.LayerContextPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.LayerContextRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.LayerContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -154,7 +193,7 @@ viz.mojom.mojom.LayerContextRemote = class {
   }
 };
 
-viz.mojom.mojom.LayerContextRemoteCallHandler = class {
+viz.mojom.LayerContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -163,7 +202,7 @@ viz.mojom.mojom.LayerContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.LayerContext_SetVisible_ParamsSpec,
+      viz.mojom.LayerContext_SetVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -172,7 +211,7 @@ viz.mojom.mojom.LayerContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.LayerContext_UpdateDisplayTree_ParamsSpec,
+      viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec,
       null,
       [update]);
   }
@@ -181,15 +220,15 @@ viz.mojom.mojom.LayerContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec,
+      viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec,
       null,
       [tiling]);
   }
 
 };
 
-viz.mojom.mojom.LayerContext.getRemote = function() {
-  let remote = new viz.mojom.mojom.LayerContextRemote();
+viz.mojom.LayerContext.getRemote = function() {
+  let remote = new viz.mojom.LayerContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -199,7 +238,7 @@ viz.mojom.mojom.LayerContext.getRemote = function() {
 };
 
 // ParamsSpec for SetVisible
-viz.mojom.mojom.LayerContext_SetVisible_ParamsSpec = {
+viz.mojom.LayerContext_SetVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContext.SetVisible_Params',
@@ -213,7 +252,7 @@ viz.mojom.mojom.LayerContext_SetVisible_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateDisplayTree
-viz.mojom.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
+viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContext.UpdateDisplayTree_Params',
@@ -227,7 +266,7 @@ viz.mojom.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateDisplayTiling
-viz.mojom.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
+viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContext.UpdateDisplayTiling_Params',
@@ -241,29 +280,56 @@ viz.mojom.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.LayerContextPtr = viz.mojom.mojom.LayerContextRemote;
-viz.mojom.mojom.LayerContextRequest = viz.mojom.mojom.LayerContextPendingReceiver;
+viz.mojom.LayerContextPtr = viz.mojom.LayerContextRemote;
+viz.mojom.LayerContextRequest = viz.mojom.LayerContextPendingReceiver;
 
 
 // Interface: LayerContextClient
-viz.mojom.mojom.LayerContextClient = {};
+viz.mojom.LayerContextClient = {};
 
-viz.mojom.mojom.LayerContextClientPendingReceiver = class {
+viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContextClient_OnRequestCommitForFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'layer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'tiling_scales_to_clean_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.LayerContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.LayerContextClientRemote = class {
+viz.mojom.LayerContextClientRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.LayerContextClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.LayerContextClientPendingReceiver,
+      viz.mojom.LayerContextClientPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.LayerContextClientRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.LayerContextClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -275,7 +341,7 @@ viz.mojom.mojom.LayerContextClientRemote = class {
   }
 };
 
-viz.mojom.mojom.LayerContextClientRemoteCallHandler = class {
+viz.mojom.LayerContextClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -284,7 +350,7 @@ viz.mojom.mojom.LayerContextClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec,
+      viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec,
       null,
       [args]);
   }
@@ -293,15 +359,15 @@ viz.mojom.mojom.LayerContextClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec,
+      viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec,
       null,
       [layer_id, tiling_scales_to_clean_up]);
   }
 
 };
 
-viz.mojom.mojom.LayerContextClient.getRemote = function() {
-  let remote = new viz.mojom.mojom.LayerContextClientRemote();
+viz.mojom.LayerContextClient.getRemote = function() {
+  let remote = new viz.mojom.LayerContextClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -311,7 +377,7 @@ viz.mojom.mojom.LayerContextClient.getRemote = function() {
 };
 
 // ParamsSpec for OnRequestCommitForFrame
-viz.mojom.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
+viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContextClient.OnRequestCommitForFrame_Params',
@@ -325,7 +391,7 @@ viz.mojom.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
 };
 
 // ParamsSpec for OnTilingsReadyForCleanup
-viz.mojom.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
+viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContextClient.OnTilingsReadyForCleanup_Params',
@@ -340,6 +406,6 @@ viz.mojom.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.LayerContextClientPtr = viz.mojom.mojom.LayerContextClientRemote;
-viz.mojom.mojom.LayerContextClientRequest = viz.mojom.mojom.LayerContextClientPendingReceiver;
+viz.mojom.LayerContextClientPtr = viz.mojom.LayerContextClientRemote;
+viz.mojom.LayerContextClientRequest = viz.mojom.LayerContextClientPendingReceiver;
 

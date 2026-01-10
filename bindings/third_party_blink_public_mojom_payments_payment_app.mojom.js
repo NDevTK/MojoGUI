@@ -14,7 +14,7 @@ var url = url || {};
 
 
 // Enum: PaymentHandlerStatus
-payments.mojom.mojom.PaymentHandlerStatus = {
+payments.mojom.PaymentHandlerStatus = {
   SUCCESS: 0,
   NOT_FOUND: 1,
   NO_ACTIVE_WORKER: 2,
@@ -22,10 +22,10 @@ payments.mojom.mojom.PaymentHandlerStatus = {
   FETCH_INSTRUMENT_ICON_FAILED: 4,
   FETCH_PAYMENT_APP_INFO_FAILED: 5,
 };
-payments.mojom.mojom.PaymentHandlerStatusSpec = { $: mojo.internal.Enum() };
+payments.mojom.PaymentHandlerStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: CanMakePaymentEventResponseType
-payments.mojom.mojom.CanMakePaymentEventResponseType = {
+payments.mojom.CanMakePaymentEventResponseType = {
   INCOGNITO: 0,
   NO_EXPLICITLY_VERIFIED_METHODS: 1,
   NOT_INSTALLED: 2,
@@ -38,10 +38,10 @@ payments.mojom.mojom.CanMakePaymentEventResponseType = {
   SUCCESS: 9,
   TIMEOUT: 10,
 };
-payments.mojom.mojom.CanMakePaymentEventResponseTypeSpec = { $: mojo.internal.Enum() };
+payments.mojom.CanMakePaymentEventResponseTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PaymentEventResponseType
-payments.mojom.mojom.PaymentEventResponseType = {
+payments.mojom.PaymentEventResponseType = {
   PAYER_NAME_EMPTY: 0,
   PAYER_EMAIL_EMPTY: 1,
   PAYER_PHONE_EMPTY: 2,
@@ -64,19 +64,19 @@ payments.mojom.mojom.PaymentEventResponseType = {
   SHIPPING_ADDRESS_INVALID: 19,
   SHIPPING_OPTION_EMPTY: 20,
 };
-payments.mojom.mojom.PaymentEventResponseTypeSpec = { $: mojo.internal.Enum() };
+payments.mojom.PaymentEventResponseTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PaymentDelegation
-payments.mojom.mojom.PaymentDelegation = {
+payments.mojom.PaymentDelegation = {
   SHIPPING_ADDRESS: 0,
   PAYER_NAME: 1,
   PAYER_PHONE: 2,
   PAYER_EMAIL: 3,
 };
-payments.mojom.mojom.PaymentDelegationSpec = { $: mojo.internal.Enum() };
+payments.mojom.PaymentDelegationSpec = { $: mojo.internal.Enum() };
 
 // Struct: PaymentInstrument
-payments.mojom.mojom.PaymentInstrumentSpec = {
+payments.mojom.PaymentInstrumentSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentInstrument',
@@ -92,7 +92,7 @@ payments.mojom.mojom.PaymentInstrumentSpec = {
 };
 
 // Struct: CanMakePaymentEventData
-payments.mojom.mojom.CanMakePaymentEventDataSpec = {
+payments.mojom.CanMakePaymentEventDataSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.CanMakePaymentEventData',
@@ -109,7 +109,7 @@ payments.mojom.mojom.CanMakePaymentEventDataSpec = {
 };
 
 // Struct: PaymentRequestEventData
-payments.mojom.mojom.PaymentRequestEventDataSpec = {
+payments.mojom.PaymentRequestEventDataSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentRequestEventData',
@@ -132,7 +132,7 @@ payments.mojom.mojom.PaymentRequestEventDataSpec = {
 };
 
 // Struct: CanMakePaymentResponse
-payments.mojom.mojom.CanMakePaymentResponseSpec = {
+payments.mojom.CanMakePaymentResponseSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.CanMakePaymentResponse',
@@ -147,7 +147,7 @@ payments.mojom.mojom.CanMakePaymentResponseSpec = {
 };
 
 // Struct: PaymentHandlerResponse
-payments.mojom.mojom.PaymentHandlerResponseSpec = {
+payments.mojom.PaymentHandlerResponseSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerResponse',
@@ -168,24 +168,141 @@ payments.mojom.mojom.PaymentHandlerResponseSpec = {
 };
 
 // Interface: PaymentManager
-payments.mojom.mojom.PaymentManager = {};
+payments.mojom.PaymentManager = {};
 
-payments.mojom.mojom.PaymentManagerPendingReceiver = class {
+payments.mojom.PaymentManager_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_Init_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'context_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_DeletePaymentInstrument_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_GetPaymentInstrument_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_HasPaymentInstrument_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_SetPaymentInstrument_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'instrument', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentInstrumentSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_ClearPaymentInstruments_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_SetUserHint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_SetUserHint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'user_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentManager_EnableDelegations_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'delegations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PaymentDelegationSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.mojom.mojom.PaymentManagerRemote = class {
+payments.mojom.PaymentManagerRemote = class {
   static get $interfaceName() {
     return 'payments.mojom.PaymentManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.mojom.mojom.PaymentManagerPendingReceiver,
+      payments.mojom.PaymentManagerPendingReceiver,
       handle);
-    this.$ = new payments.mojom.mojom.PaymentManagerRemoteCallHandler(this.proxy);
+    this.$ = new payments.mojom.PaymentManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -197,7 +314,7 @@ payments.mojom.mojom.PaymentManagerRemote = class {
   }
 };
 
-payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
+payments.mojom.PaymentManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -206,7 +323,7 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.mojom.PaymentManager_Init_ParamsSpec,
+      payments.mojom.PaymentManager_Init_ParamsSpec,
       null,
       [context_url, service_worker_scope]);
   }
@@ -215,8 +332,8 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec,
-      payments.mojom.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec,
+      payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec,
       [instrument_key]);
   }
 
@@ -224,8 +341,8 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec,
-      payments.mojom.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec,
+      payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec,
       [instrument_key]);
   }
 
@@ -233,8 +350,8 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      payments.mojom.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec,
-      payments.mojom.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec,
+      payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec,
+      payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec,
       []);
   }
 
@@ -242,8 +359,8 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      payments.mojom.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec,
-      payments.mojom.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec,
+      payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec,
       [instrument_key]);
   }
 
@@ -251,8 +368,8 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      payments.mojom.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec,
-      payments.mojom.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec,
+      payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec,
       [instrument_key, instrument]);
   }
 
@@ -260,8 +377,8 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      payments.mojom.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec,
-      payments.mojom.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec,
+      payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec,
+      payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec,
       []);
   }
 
@@ -269,7 +386,7 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      payments.mojom.mojom.PaymentManager_SetUserHint_ParamsSpec,
+      payments.mojom.PaymentManager_SetUserHint_ParamsSpec,
       null,
       [user_hint]);
   }
@@ -278,15 +395,15 @@ payments.mojom.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      payments.mojom.mojom.PaymentManager_EnableDelegations_ParamsSpec,
-      payments.mojom.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec,
+      payments.mojom.PaymentManager_EnableDelegations_ParamsSpec,
+      payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec,
       [delegations]);
   }
 
 };
 
-payments.mojom.mojom.PaymentManager.getRemote = function() {
-  let remote = new payments.mojom.mojom.PaymentManagerRemote();
+payments.mojom.PaymentManager.getRemote = function() {
+  let remote = new payments.mojom.PaymentManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -296,7 +413,7 @@ payments.mojom.mojom.PaymentManager.getRemote = function() {
 };
 
 // ParamsSpec for Init
-payments.mojom.mojom.PaymentManager_Init_ParamsSpec = {
+payments.mojom.PaymentManager_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.Init_Params',
@@ -311,7 +428,7 @@ payments.mojom.mojom.PaymentManager_Init_ParamsSpec = {
 };
 
 // ParamsSpec for DeletePaymentInstrument
-payments.mojom.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
+payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.DeletePaymentInstrument_Params',
@@ -324,7 +441,7 @@ payments.mojom.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = {
+payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.DeletePaymentInstrument_ResponseParams',
@@ -338,7 +455,7 @@ payments.mojom.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec =
 };
 
 // ParamsSpec for GetPaymentInstrument
-payments.mojom.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
+payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.GetPaymentInstrument_Params',
@@ -351,7 +468,7 @@ payments.mojom.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
+payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.GetPaymentInstrument_ResponseParams',
@@ -366,7 +483,7 @@ payments.mojom.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
 };
 
 // ParamsSpec for KeysOfPaymentInstruments
-payments.mojom.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
+payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.KeysOfPaymentInstruments_Params',
@@ -378,7 +495,7 @@ payments.mojom.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = {
+payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.KeysOfPaymentInstruments_ResponseParams',
@@ -393,7 +510,7 @@ payments.mojom.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec 
 };
 
 // ParamsSpec for HasPaymentInstrument
-payments.mojom.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
+payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.HasPaymentInstrument_Params',
@@ -406,7 +523,7 @@ payments.mojom.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
+payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.HasPaymentInstrument_ResponseParams',
@@ -420,7 +537,7 @@ payments.mojom.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetPaymentInstrument
-payments.mojom.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
+payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.SetPaymentInstrument_Params',
@@ -434,7 +551,7 @@ payments.mojom.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
+payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.SetPaymentInstrument_ResponseParams',
@@ -448,7 +565,7 @@ payments.mojom.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ClearPaymentInstruments
-payments.mojom.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
+payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.ClearPaymentInstruments_Params',
@@ -460,7 +577,7 @@ payments.mojom.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = {
+payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.ClearPaymentInstruments_ResponseParams',
@@ -474,7 +591,7 @@ payments.mojom.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec =
 };
 
 // ParamsSpec for SetUserHint
-payments.mojom.mojom.PaymentManager_SetUserHint_ParamsSpec = {
+payments.mojom.PaymentManager_SetUserHint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.SetUserHint_Params',
@@ -488,7 +605,7 @@ payments.mojom.mojom.PaymentManager_SetUserHint_ParamsSpec = {
 };
 
 // ParamsSpec for EnableDelegations
-payments.mojom.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
+payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.EnableDelegations_Params',
@@ -501,7 +618,7 @@ payments.mojom.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
   }
 };
 
-payments.mojom.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
+payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentManager.EnableDelegations_ResponseParams',
@@ -515,29 +632,68 @@ payments.mojom.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-payments.mojom.mojom.PaymentManagerPtr = payments.mojom.mojom.PaymentManagerRemote;
-payments.mojom.mojom.PaymentManagerRequest = payments.mojom.mojom.PaymentManagerPendingReceiver;
+payments.mojom.PaymentManagerPtr = payments.mojom.PaymentManagerRemote;
+payments.mojom.PaymentManagerRequest = payments.mojom.PaymentManagerPendingReceiver;
 
 
 // Interface: PaymentHandlerResponseCallback
-payments.mojom.mojom.PaymentHandlerResponseCallback = {};
+payments.mojom.PaymentHandlerResponseCallback = {};
 
-payments.mojom.mojom.PaymentHandlerResponseCallbackPendingReceiver = class {
+payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'payment_aborted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CanMakePaymentResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+payments.mojom.PaymentHandlerResponseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.mojom.mojom.PaymentHandlerResponseCallbackRemote = class {
+payments.mojom.PaymentHandlerResponseCallbackRemote = class {
   static get $interfaceName() {
     return 'payments.mojom.PaymentHandlerResponseCallback';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.mojom.mojom.PaymentHandlerResponseCallbackPendingReceiver,
+      payments.mojom.PaymentHandlerResponseCallbackPendingReceiver,
       handle);
-    this.$ = new payments.mojom.mojom.PaymentHandlerResponseCallbackRemoteCallHandler(this.proxy);
+    this.$ = new payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -549,7 +705,7 @@ payments.mojom.mojom.PaymentHandlerResponseCallbackRemote = class {
   }
 };
 
-payments.mojom.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
+payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -558,7 +714,7 @@ payments.mojom.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec,
+      payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec,
       null,
       [payment_aborted]);
   }
@@ -567,7 +723,7 @@ payments.mojom.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec,
+      payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec,
       null,
       [response]);
   }
@@ -576,15 +732,15 @@ payments.mojom.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec,
+      payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec,
       null,
       [response]);
   }
 
 };
 
-payments.mojom.mojom.PaymentHandlerResponseCallback.getRemote = function() {
-  let remote = new payments.mojom.mojom.PaymentHandlerResponseCallbackRemote();
+payments.mojom.PaymentHandlerResponseCallback.getRemote = function() {
+  let remote = new payments.mojom.PaymentHandlerResponseCallbackRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -594,7 +750,7 @@ payments.mojom.mojom.PaymentHandlerResponseCallback.getRemote = function() {
 };
 
 // ParamsSpec for OnResponseForAbortPayment
-payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec = {
+payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerResponseCallback.OnResponseForAbortPayment_Params',
@@ -608,7 +764,7 @@ payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_Pa
 };
 
 // ParamsSpec for OnResponseForCanMakePayment
-payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec = {
+payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerResponseCallback.OnResponseForCanMakePayment_Params',
@@ -622,7 +778,7 @@ payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_
 };
 
 // ParamsSpec for OnResponseForPaymentRequest
-payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec = {
+payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerResponseCallback.OnResponseForPaymentRequest_Params',
@@ -636,6 +792,6 @@ payments.mojom.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_
 };
 
 // Legacy compatibility
-payments.mojom.mojom.PaymentHandlerResponseCallbackPtr = payments.mojom.mojom.PaymentHandlerResponseCallbackRemote;
-payments.mojom.mojom.PaymentHandlerResponseCallbackRequest = payments.mojom.mojom.PaymentHandlerResponseCallbackPendingReceiver;
+payments.mojom.PaymentHandlerResponseCallbackPtr = payments.mojom.PaymentHandlerResponseCallbackRemote;
+payments.mojom.PaymentHandlerResponseCallbackRequest = payments.mojom.PaymentHandlerResponseCallbackPendingReceiver;
 

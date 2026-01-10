@@ -12,16 +12,16 @@ var gfx = gfx || {};
 
 
 // Enum: AdvancedCapabilityType
-printing.mojom.mojom.AdvancedCapabilityType = {
+printing.mojom.AdvancedCapabilityType = {
   kString: 0,
   kBoolean: 1,
   kFloat: 2,
   kInteger: 3,
 };
-printing.mojom.mojom.AdvancedCapabilityTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.AdvancedCapabilityTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PrinterBasicInfo
-printing.mojom.mojom.PrinterBasicInfoSpec = {
+printing.mojom.PrinterBasicInfoSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrinterBasicInfo',
@@ -38,7 +38,7 @@ printing.mojom.mojom.PrinterBasicInfoSpec = {
 };
 
 // Struct: PaperMargins
-printing.mojom.mojom.PaperMarginsSpec = {
+printing.mojom.PaperMarginsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PaperMargins',
@@ -55,7 +55,7 @@ printing.mojom.mojom.PaperMarginsSpec = {
 };
 
 // Struct: Paper
-printing.mojom.mojom.PaperSpec = {
+printing.mojom.PaperSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.Paper',
@@ -75,7 +75,7 @@ printing.mojom.mojom.PaperSpec = {
 };
 
 // Struct: MediaType
-printing.mojom.mojom.MediaTypeSpec = {
+printing.mojom.MediaTypeSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.MediaType',
@@ -90,7 +90,7 @@ printing.mojom.mojom.MediaTypeSpec = {
 };
 
 // Struct: AdvancedCapabilityValue
-printing.mojom.mojom.AdvancedCapabilityValueSpec = {
+printing.mojom.AdvancedCapabilityValueSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.AdvancedCapabilityValue',
@@ -105,7 +105,7 @@ printing.mojom.mojom.AdvancedCapabilityValueSpec = {
 };
 
 // Struct: AdvancedCapability
-printing.mojom.mojom.AdvancedCapabilitySpec = {
+printing.mojom.AdvancedCapabilitySpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.AdvancedCapability',
@@ -123,7 +123,7 @@ printing.mojom.mojom.AdvancedCapabilitySpec = {
 };
 
 // Struct: PageOutputQualityAttribute
-printing.mojom.mojom.PageOutputQualityAttributeSpec = {
+printing.mojom.PageOutputQualityAttributeSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PageOutputQualityAttribute',
@@ -138,7 +138,7 @@ printing.mojom.mojom.PageOutputQualityAttributeSpec = {
 };
 
 // Struct: PageOutputQuality
-printing.mojom.mojom.PageOutputQualitySpec = {
+printing.mojom.PageOutputQualitySpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PageOutputQuality',
@@ -153,7 +153,7 @@ printing.mojom.mojom.PageOutputQualitySpec = {
 };
 
 // Struct: PrinterSemanticCapsAndDefaults
-printing.mojom.mojom.PrinterSemanticCapsAndDefaultsSpec = {
+printing.mojom.PrinterSemanticCapsAndDefaultsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrinterSemanticCapsAndDefaults',

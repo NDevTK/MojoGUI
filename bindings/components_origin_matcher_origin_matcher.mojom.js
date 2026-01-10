@@ -10,7 +10,7 @@ origin_matcher.mojom = origin_matcher.mojom || {};
 
 
 // Struct: SubdomainMatchingRule
-origin_matcher.mojom.mojom.SubdomainMatchingRuleSpec = {
+origin_matcher.mojom.SubdomainMatchingRuleSpec = {
   $: {
     structSpec: {
       name: 'origin_matcher.mojom.SubdomainMatchingRule',
@@ -26,7 +26,7 @@ origin_matcher.mojom.mojom.SubdomainMatchingRuleSpec = {
 };
 
 // Struct: OriginMatcherRule
-origin_matcher.mojom.mojom.OriginMatcherRuleSpec = {
+origin_matcher.mojom.OriginMatcherRuleSpec = {
   $: {
     structSpec: {
       name: 'origin_matcher.mojom.OriginMatcherRule',
@@ -40,7 +40,7 @@ origin_matcher.mojom.mojom.OriginMatcherRuleSpec = {
 };
 
 // Struct: OriginMatcher
-origin_matcher.mojom.mojom.OriginMatcherSpec = {
+origin_matcher.mojom.OriginMatcherSpec = {
   $: {
     structSpec: {
       name: 'origin_matcher.mojom.OriginMatcher',

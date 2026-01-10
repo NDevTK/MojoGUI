@@ -10,17 +10,17 @@ cros.mojom = cros.mojom || {};
 
 
 // Enum: PortraitModeSegResult
-cros.mojom.mojom.PortraitModeSegResult = {
+cros.mojom.PortraitModeSegResult = {
   kSuccess: 0,
   kFailure: 1,
   kTimeout: 2,
   kNoFaces: 3,
   kUnknown: 4,
 };
-cros.mojom.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum() };
+cros.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum() };
 
 // Union: Camera3StreamEffect
-cros.mojom.mojom.Camera3StreamEffectSpec = { $: mojo.internal.Union(
+cros.mojom.Camera3StreamEffectSpec = { $: mojo.internal.Union(
     'cros.mojom.Camera3StreamEffect', {
       'unknown_config': {
         'ordinal': 0,
@@ -34,7 +34,7 @@ cros.mojom.mojom.Camera3StreamEffectSpec = { $: mojo.internal.Union(
 };
 
 // Struct: PortraitModeConfig
-cros.mojom.mojom.PortraitModeConfigSpec = {
+cros.mojom.PortraitModeConfigSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.PortraitModeConfig',

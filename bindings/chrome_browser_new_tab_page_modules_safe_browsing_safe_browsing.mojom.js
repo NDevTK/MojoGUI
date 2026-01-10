@@ -7,28 +7,76 @@
 // Module namespace
 var ntp = ntp || {};
 ntp.safe_browsing = ntp.safe_browsing || {};
-ntp.safe_browsing.safe_browsing.mojom = ntp.safe_browsing.safe_browsing.mojom || {};
+ntp.safe_browsing.mojom = ntp.safe_browsing.mojom || {};
 
 
 // Interface: SafeBrowsingHandler
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler = {};
+ntp.safe_browsing.mojom.SafeBrowsingHandler = {};
 
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerPendingReceiver = class {
+ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.safe_browsing.mojom.SafeBrowsingHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemote = class {
+ntp.safe_browsing.mojom.SafeBrowsingHandlerRemote = class {
   static get $interfaceName() {
     return 'ntp.safe_browsing.mojom.SafeBrowsingHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerPendingReceiver,
+      ntp.safe_browsing.mojom.SafeBrowsingHandlerPendingReceiver,
       handle);
-    this.$ = new ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +88,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemote = class {
   }
 };
 
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
+ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +97,8 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemoteCallHandler
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec,
-      ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +106,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemoteCallHandler
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +115,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemoteCallHandler
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -76,15 +124,15 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemoteCallHandler
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler.getRemote = function() {
-  let remote = new ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemote();
+ntp.safe_browsing.mojom.SafeBrowsingHandler.getRemote = function() {
+  let remote = new ntp.safe_browsing.mojom.SafeBrowsingHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +142,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler.getRemote = func
 };
 
 // ParamsSpec for CanShowModule
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
+ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler.CanShowModule_Params',
@@ -106,7 +154,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_CanShowModule_Pa
   }
 };
 
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = {
+ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler.CanShowModule_ResponseParams',
@@ -120,7 +168,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_CanShowModule_Re
 };
 
 // ParamsSpec for ProcessModuleClick
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = {
+ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler.ProcessModuleClick_Params',
@@ -133,7 +181,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_ProcessModuleCli
 };
 
 // ParamsSpec for DismissModule
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = {
+ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler.DismissModule_Params',
@@ -146,7 +194,7 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_DismissModule_Pa
 };
 
 // ParamsSpec for RestoreModule
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = {
+ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler.RestoreModule_Params',
@@ -159,6 +207,6 @@ ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandler_RestoreModule_Pa
 };
 
 // Legacy compatibility
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerPtr = ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRemote;
-ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerRequest = ntp.safe_browsing.safe_browsing.mojom.mojom.SafeBrowsingHandlerPendingReceiver;
+ntp.safe_browsing.mojom.SafeBrowsingHandlerPtr = ntp.safe_browsing.mojom.SafeBrowsingHandlerRemote;
+ntp.safe_browsing.mojom.SafeBrowsingHandlerRequest = ntp.safe_browsing.mojom.SafeBrowsingHandlerPendingReceiver;
 

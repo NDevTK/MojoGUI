@@ -13,7 +13,7 @@ var blink = blink || {};
 
 
 // Struct: FramePolicy
-blink.mojom.mojom.FramePolicySpec = {
+blink.mojom.FramePolicySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FramePolicy',

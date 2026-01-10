@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Struct: BatteryStatus
-device.mojom.mojom.BatteryStatusSpec = {
+device.mojom.BatteryStatusSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.BatteryStatus',

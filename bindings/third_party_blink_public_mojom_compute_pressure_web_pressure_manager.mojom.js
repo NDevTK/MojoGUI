@@ -11,24 +11,38 @@ var blink = blink || {};
 
 
 // Interface: WebPressureManager
-blink.mojom.mojom.WebPressureManager = {};
+blink.mojom.WebPressureManager = {};
 
-blink.mojom.mojom.WebPressureManagerPendingReceiver = class {
+blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPressureManager_AddClient_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.WebPressureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.WebPressureManagerRemote = class {
+blink.mojom.WebPressureManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebPressureManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.WebPressureManagerPendingReceiver,
+      blink.mojom.WebPressureManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.WebPressureManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.WebPressureManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +54,7 @@ blink.mojom.mojom.WebPressureManagerRemote = class {
   }
 };
 
-blink.mojom.mojom.WebPressureManagerRemoteCallHandler = class {
+blink.mojom.WebPressureManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +63,15 @@ blink.mojom.mojom.WebPressureManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.WebPressureManager_AddClient_ParamsSpec,
-      blink.mojom.mojom.WebPressureManager_AddClient_ResponseParamsSpec,
+      blink.mojom.WebPressureManager_AddClient_ParamsSpec,
+      blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec,
       [source, client]);
   }
 
 };
 
-blink.mojom.mojom.WebPressureManager.getRemote = function() {
-  let remote = new blink.mojom.mojom.WebPressureManagerRemote();
+blink.mojom.WebPressureManager.getRemote = function() {
+  let remote = new blink.mojom.WebPressureManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +81,7 @@ blink.mojom.mojom.WebPressureManager.getRemote = function() {
 };
 
 // ParamsSpec for AddClient
-blink.mojom.mojom.WebPressureManager_AddClient_ParamsSpec = {
+blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPressureManager.AddClient_Params',
@@ -81,7 +95,7 @@ blink.mojom.mojom.WebPressureManager_AddClient_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
+blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPressureManager.AddClient_ResponseParams',
@@ -95,29 +109,42 @@ blink.mojom.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.WebPressureManagerPtr = blink.mojom.mojom.WebPressureManagerRemote;
-blink.mojom.mojom.WebPressureManagerRequest = blink.mojom.mojom.WebPressureManagerPendingReceiver;
+blink.mojom.WebPressureManagerPtr = blink.mojom.WebPressureManagerRemote;
+blink.mojom.WebPressureManagerRequest = blink.mojom.WebPressureManagerPendingReceiver;
 
 
 // Interface: WebPressureClient
-blink.mojom.mojom.WebPressureClient = {};
+blink.mojom.WebPressureClient = {};
 
-blink.mojom.mojom.WebPressureClientPendingReceiver = class {
+blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPressureClient_OnPressureUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPressureUpdateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.WebPressureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.WebPressureClientRemote = class {
+blink.mojom.WebPressureClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebPressureClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.WebPressureClientPendingReceiver,
+      blink.mojom.WebPressureClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.WebPressureClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.WebPressureClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -129,7 +156,7 @@ blink.mojom.mojom.WebPressureClientRemote = class {
   }
 };
 
-blink.mojom.mojom.WebPressureClientRemoteCallHandler = class {
+blink.mojom.WebPressureClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -138,15 +165,15 @@ blink.mojom.mojom.WebPressureClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec,
+      blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec,
       null,
       [update]);
   }
 
 };
 
-blink.mojom.mojom.WebPressureClient.getRemote = function() {
-  let remote = new blink.mojom.mojom.WebPressureClientRemote();
+blink.mojom.WebPressureClient.getRemote = function() {
+  let remote = new blink.mojom.WebPressureClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -156,7 +183,7 @@ blink.mojom.mojom.WebPressureClient.getRemote = function() {
 };
 
 // ParamsSpec for OnPressureUpdated
-blink.mojom.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
+blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPressureClient.OnPressureUpdated_Params',
@@ -170,6 +197,6 @@ blink.mojom.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.WebPressureClientPtr = blink.mojom.mojom.WebPressureClientRemote;
-blink.mojom.mojom.WebPressureClientRequest = blink.mojom.mojom.WebPressureClientPendingReceiver;
+blink.mojom.WebPressureClientPtr = blink.mojom.WebPressureClientRemote;
+blink.mojom.WebPressureClientRequest = blink.mojom.WebPressureClientPendingReceiver;
 

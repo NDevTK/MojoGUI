@@ -11,34 +11,34 @@ var skia = skia || {};
 var url = url || {};
 
 
-blink.mojom.mojom.kMaximumDeveloperDataSize = 1048576;
+blink.mojom.kMaximumDeveloperDataSize = 1048576;
 
-blink.mojom.mojom.kMaximumActions = 2;
+blink.mojom.kMaximumActions = 2;
 
 // Enum: NotificationDirection
-blink.mojom.mojom.NotificationDirection = {
+blink.mojom.NotificationDirection = {
   LEFT_TO_RIGHT: 0,
   RIGHT_TO_LEFT: 1,
   AUTO: 2,
 };
-blink.mojom.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum() };
+blink.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: NotificationActionType
-blink.mojom.mojom.NotificationActionType = {
+blink.mojom.NotificationActionType = {
   BUTTON: 0,
   TEXT: 1,
 };
-blink.mojom.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NotificationScenario
-blink.mojom.mojom.NotificationScenario = {
+blink.mojom.NotificationScenario = {
   DEFAULT: 0,
   INCOMING_CALL: 1,
 };
-blink.mojom.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum() };
+blink.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum() };
 
 // Struct: NotificationAction
-blink.mojom.mojom.NotificationActionSpec = {
+blink.mojom.NotificationActionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationAction',
@@ -56,7 +56,7 @@ blink.mojom.mojom.NotificationActionSpec = {
 };
 
 // Struct: NotificationData
-blink.mojom.mojom.NotificationDataSpec = {
+blink.mojom.NotificationDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationData',
@@ -88,7 +88,7 @@ blink.mojom.mojom.NotificationDataSpec = {
 };
 
 // Struct: NotificationResources
-blink.mojom.mojom.NotificationResourcesSpec = {
+blink.mojom.NotificationResourcesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationResources',

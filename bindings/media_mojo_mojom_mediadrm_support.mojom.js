@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: MediaDrmSupportResult
-media.mojom.mojom.MediaDrmSupportResultSpec = {
+media.mojom.MediaDrmSupportResultSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmSupportResult',
@@ -26,24 +26,38 @@ media.mojom.mojom.MediaDrmSupportResultSpec = {
 };
 
 // Interface: MediaDrmSupport
-media.mojom.mojom.MediaDrmSupport = {};
+media.mojom.MediaDrmSupport = {};
 
-media.mojom.mojom.MediaDrmSupportPendingReceiver = class {
+media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaDrmSupport_IsKeySystemSupported_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_secure', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+media.mojom.MediaDrmSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.MediaDrmSupportRemote = class {
+media.mojom.MediaDrmSupportRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaDrmSupport';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.MediaDrmSupportPendingReceiver,
+      media.mojom.MediaDrmSupportPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.MediaDrmSupportRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.MediaDrmSupportRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +69,7 @@ media.mojom.mojom.MediaDrmSupportRemote = class {
   }
 };
 
-media.mojom.mojom.MediaDrmSupportRemoteCallHandler = class {
+media.mojom.MediaDrmSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +78,15 @@ media.mojom.mojom.MediaDrmSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec,
-      media.mojom.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
+      media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec,
+      media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
       [key_system, is_secure]);
   }
 
 };
 
-media.mojom.mojom.MediaDrmSupport.getRemote = function() {
-  let remote = new media.mojom.mojom.MediaDrmSupportRemote();
+media.mojom.MediaDrmSupport.getRemote = function() {
+  let remote = new media.mojom.MediaDrmSupportRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +96,7 @@ media.mojom.mojom.MediaDrmSupport.getRemote = function() {
 };
 
 // ParamsSpec for IsKeySystemSupported
-media.mojom.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
+media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmSupport.IsKeySystemSupported_Params',
@@ -96,7 +110,7 @@ media.mojom.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
+media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmSupport.IsKeySystemSupported_ResponseParams',
@@ -110,6 +124,6 @@ media.mojom.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.MediaDrmSupportPtr = media.mojom.mojom.MediaDrmSupportRemote;
-media.mojom.mojom.MediaDrmSupportRequest = media.mojom.mojom.MediaDrmSupportPendingReceiver;
+media.mojom.MediaDrmSupportPtr = media.mojom.MediaDrmSupportRemote;
+media.mojom.MediaDrmSupportRequest = media.mojom.MediaDrmSupportPendingReceiver;
 

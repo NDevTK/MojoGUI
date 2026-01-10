@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Struct: SuitableOrigin
-attribution_reporting.mojom.mojom.SuitableOriginSpec = {
+attribution_reporting.mojom.SuitableOriginSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.SuitableOrigin',
@@ -26,7 +26,7 @@ attribution_reporting.mojom.mojom.SuitableOriginSpec = {
 };
 
 // Struct: FilterData
-attribution_reporting.mojom.mojom.FilterDataSpec = {
+attribution_reporting.mojom.FilterDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.FilterData',
@@ -40,7 +40,7 @@ attribution_reporting.mojom.mojom.FilterDataSpec = {
 };
 
 // Struct: FilterConfig
-attribution_reporting.mojom.mojom.FilterConfigSpec = {
+attribution_reporting.mojom.FilterConfigSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.FilterConfig',
@@ -55,7 +55,7 @@ attribution_reporting.mojom.mojom.FilterConfigSpec = {
 };
 
 // Struct: FilterPair
-attribution_reporting.mojom.mojom.FilterPairSpec = {
+attribution_reporting.mojom.FilterPairSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.FilterPair',
@@ -70,7 +70,7 @@ attribution_reporting.mojom.mojom.FilterPairSpec = {
 };
 
 // Struct: AggregationKeys
-attribution_reporting.mojom.mojom.AggregationKeysSpec = {
+attribution_reporting.mojom.AggregationKeysSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregationKeys',
@@ -84,7 +84,7 @@ attribution_reporting.mojom.mojom.AggregationKeysSpec = {
 };
 
 // Struct: AggregatableTriggerData
-attribution_reporting.mojom.mojom.AggregatableTriggerDataSpec = {
+attribution_reporting.mojom.AggregatableTriggerDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableTriggerData',
@@ -100,7 +100,7 @@ attribution_reporting.mojom.mojom.AggregatableTriggerDataSpec = {
 };
 
 // Struct: DestinationSet
-attribution_reporting.mojom.mojom.DestinationSetSpec = {
+attribution_reporting.mojom.DestinationSetSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.DestinationSet',
@@ -114,7 +114,7 @@ attribution_reporting.mojom.mojom.DestinationSetSpec = {
 };
 
 // Struct: EventReportWindows
-attribution_reporting.mojom.mojom.EventReportWindowsSpec = {
+attribution_reporting.mojom.EventReportWindowsSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.EventReportWindows',
@@ -129,7 +129,7 @@ attribution_reporting.mojom.mojom.EventReportWindowsSpec = {
 };
 
 // Struct: TriggerDataSet
-attribution_reporting.mojom.mojom.TriggerDataSetSpec = {
+attribution_reporting.mojom.TriggerDataSetSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.TriggerDataSet',
@@ -143,7 +143,7 @@ attribution_reporting.mojom.mojom.TriggerDataSetSpec = {
 };
 
 // Struct: AggregatableDebugReportingContribution
-attribution_reporting.mojom.mojom.AggregatableDebugReportingContributionSpec = {
+attribution_reporting.mojom.AggregatableDebugReportingContributionSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableDebugReportingContribution',
@@ -158,7 +158,7 @@ attribution_reporting.mojom.mojom.AggregatableDebugReportingContributionSpec = {
 };
 
 // Struct: AggregatableDebugReportingConfig
-attribution_reporting.mojom.mojom.AggregatableDebugReportingConfigSpec = {
+attribution_reporting.mojom.AggregatableDebugReportingConfigSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableDebugReportingConfig',
@@ -174,7 +174,7 @@ attribution_reporting.mojom.mojom.AggregatableDebugReportingConfigSpec = {
 };
 
 // Struct: SourceAggregatableDebugReportingConfig
-attribution_reporting.mojom.mojom.SourceAggregatableDebugReportingConfigSpec = {
+attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.SourceAggregatableDebugReportingConfig',
@@ -189,7 +189,7 @@ attribution_reporting.mojom.mojom.SourceAggregatableDebugReportingConfigSpec = {
 };
 
 // Struct: AttributionScopesSet
-attribution_reporting.mojom.mojom.AttributionScopesSetSpec = {
+attribution_reporting.mojom.AttributionScopesSetSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AttributionScopesSet',
@@ -203,7 +203,7 @@ attribution_reporting.mojom.mojom.AttributionScopesSetSpec = {
 };
 
 // Struct: AttributionScopesData
-attribution_reporting.mojom.mojom.AttributionScopesDataSpec = {
+attribution_reporting.mojom.AttributionScopesDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AttributionScopesData',
@@ -219,7 +219,7 @@ attribution_reporting.mojom.mojom.AttributionScopesDataSpec = {
 };
 
 // Struct: AggregatableNamedBudgetDefs
-attribution_reporting.mojom.mojom.AggregatableNamedBudgetDefsSpec = {
+attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableNamedBudgetDefs',
@@ -233,7 +233,7 @@ attribution_reporting.mojom.mojom.AggregatableNamedBudgetDefsSpec = {
 };
 
 // Struct: SourceRegistration
-attribution_reporting.mojom.mojom.SourceRegistrationSpec = {
+attribution_reporting.mojom.SourceRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.SourceRegistration',
@@ -265,7 +265,7 @@ attribution_reporting.mojom.mojom.SourceRegistrationSpec = {
 };
 
 // Struct: EventTriggerData
-attribution_reporting.mojom.mojom.EventTriggerDataSpec = {
+attribution_reporting.mojom.EventTriggerDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.EventTriggerData',
@@ -283,7 +283,7 @@ attribution_reporting.mojom.mojom.EventTriggerDataSpec = {
 };
 
 // Struct: AggregatableDedupKey
-attribution_reporting.mojom.mojom.AggregatableDedupKeySpec = {
+attribution_reporting.mojom.AggregatableDedupKeySpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableDedupKey',
@@ -299,7 +299,7 @@ attribution_reporting.mojom.mojom.AggregatableDedupKeySpec = {
 };
 
 // Struct: AggregatableValuesValue
-attribution_reporting.mojom.mojom.AggregatableValuesValueSpec = {
+attribution_reporting.mojom.AggregatableValuesValueSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableValuesValue',
@@ -314,7 +314,7 @@ attribution_reporting.mojom.mojom.AggregatableValuesValueSpec = {
 };
 
 // Struct: AggregatableValues
-attribution_reporting.mojom.mojom.AggregatableValuesSpec = {
+attribution_reporting.mojom.AggregatableValuesSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableValues',
@@ -329,7 +329,7 @@ attribution_reporting.mojom.mojom.AggregatableValuesSpec = {
 };
 
 // Struct: AggregatableNamedBudgetCandidate
-attribution_reporting.mojom.mojom.AggregatableNamedBudgetCandidateSpec = {
+attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.AggregatableNamedBudgetCandidate',
@@ -344,7 +344,7 @@ attribution_reporting.mojom.mojom.AggregatableNamedBudgetCandidateSpec = {
 };
 
 // Struct: TriggerRegistration
-attribution_reporting.mojom.mojom.TriggerRegistrationSpec = {
+attribution_reporting.mojom.TriggerRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.TriggerRegistration',
@@ -372,7 +372,7 @@ attribution_reporting.mojom.mojom.TriggerRegistrationSpec = {
 };
 
 // Struct: OsRegistrationItem
-attribution_reporting.mojom.mojom.OsRegistrationItemSpec = {
+attribution_reporting.mojom.OsRegistrationItemSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.OsRegistrationItem',
@@ -387,7 +387,7 @@ attribution_reporting.mojom.mojom.OsRegistrationItemSpec = {
 };
 
 // Struct: OsRegistration
-attribution_reporting.mojom.mojom.OsRegistrationSpec = {
+attribution_reporting.mojom.OsRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.OsRegistration',

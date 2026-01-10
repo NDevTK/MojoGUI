@@ -10,10 +10,10 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: MessagePumpType
-mojo_base.mojom.mojom.MessagePumpType = {
+mojo_base.mojom.MessagePumpType = {
   kDefault: 0,
   kUi: 1,
   kCustom: 2,
   kIo: 3,
 };
-mojo_base.mojom.mojom.MessagePumpTypeSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.MessagePumpTypeSpec = { $: mojo.internal.Enum() };

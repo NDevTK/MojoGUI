@@ -10,24 +10,24 @@ network.mojom = network.mojom || {};
 
 
 // Interface: SocketConnectionTracker
-network.mojom.mojom.SocketConnectionTracker = {};
+network.mojom.SocketConnectionTracker = {};
 
-network.mojom.mojom.SocketConnectionTrackerPendingReceiver = class {
+network.mojom.SocketConnectionTrackerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.SocketConnectionTrackerRemote = class {
+network.mojom.SocketConnectionTrackerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.SocketConnectionTracker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.SocketConnectionTrackerPendingReceiver,
+      network.mojom.SocketConnectionTrackerPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.SocketConnectionTrackerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.SocketConnectionTrackerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ network.mojom.mojom.SocketConnectionTrackerRemote = class {
   }
 };
 
-network.mojom.mojom.SocketConnectionTrackerRemoteCallHandler = class {
+network.mojom.SocketConnectionTrackerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-network.mojom.mojom.SocketConnectionTracker.getRemote = function() {
-  let remote = new network.mojom.mojom.SocketConnectionTrackerRemote();
+network.mojom.SocketConnectionTracker.getRemote = function() {
+  let remote = new network.mojom.SocketConnectionTrackerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,6 +57,6 @@ network.mojom.mojom.SocketConnectionTracker.getRemote = function() {
 };
 
 // Legacy compatibility
-network.mojom.mojom.SocketConnectionTrackerPtr = network.mojom.mojom.SocketConnectionTrackerRemote;
-network.mojom.mojom.SocketConnectionTrackerRequest = network.mojom.mojom.SocketConnectionTrackerPendingReceiver;
+network.mojom.SocketConnectionTrackerPtr = network.mojom.SocketConnectionTrackerRemote;
+network.mojom.SocketConnectionTrackerRequest = network.mojom.SocketConnectionTrackerPendingReceiver;
 

@@ -12,7 +12,7 @@ var ui = ui || {};
 
 
 // Struct: Theme
-theme_color_picker.mojom.mojom.ThemeSpec = {
+theme_color_picker.mojom.ThemeSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.Theme',
@@ -38,7 +38,7 @@ theme_color_picker.mojom.mojom.ThemeSpec = {
 };
 
 // Struct: ChromeColor
-theme_color_picker.mojom.mojom.ChromeColorSpec = {
+theme_color_picker.mojom.ChromeColorSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ChromeColor',
@@ -57,24 +57,38 @@ theme_color_picker.mojom.mojom.ChromeColorSpec = {
 };
 
 // Interface: ThemeColorPickerHandlerFactory
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactory = {};
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory = {};
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryPendingReceiver = class {
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(theme_color_picker.mojom.ThemeColorPickerHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(theme_color_picker.mojom.ThemeColorPickerClientRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRemote = class {
+theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryPendingReceiver,
+      theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -86,7 +100,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRemote = class {
   }
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class {
+theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -95,15 +109,15 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec,
       null,
       [handler, client]);
   }
 
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactory.getRemote = function() {
-  let remote = new theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRemote();
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory.getRemote = function() {
+  let remote = new theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -113,7 +127,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactory.getRemote = functi
 };
 
 // ParamsSpec for CreateThemeColorPickerHandler
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory.CreateThemeColorPickerHandler_Params',
@@ -128,29 +142,117 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPi
 };
 
 // Legacy compatibility
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryPtr = theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRemote;
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryRequest = theme_color_picker.mojom.mojom.ThemeColorPickerHandlerFactoryPendingReceiver;
+theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPtr = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote;
+theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRequest = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver;
 
 
 // Interface: ThemeColorPickerHandler
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler = {};
+theme_color_picker.mojom.ThemeColorPickerHandler = {};
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerPendingReceiver = class {
+theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemote = class {
+theme_color_picker.mojom.ThemeColorPickerHandlerRemote = class {
   static get $interfaceName() {
     return 'theme_color_picker.mojom.ThemeColorPickerHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandlerPendingReceiver,
+      theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver,
       handle);
-    this.$ = new theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler(this.proxy);
+    this.$ = new theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -162,7 +264,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemote = class {
   }
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
+theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -171,8 +273,8 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec,
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec,
       [is_dark_mode]);
   }
 
@@ -180,7 +282,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec,
       null,
       []);
   }
@@ -189,7 +291,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec,
       null,
       []);
   }
@@ -198,7 +300,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec,
       null,
       []);
   }
@@ -207,7 +309,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class 
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec,
       null,
       [seed_color, variant]);
   }
@@ -216,7 +318,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class 
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec,
       null,
       [hue]);
   }
@@ -225,15 +327,15 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemoteCallHandler = class 
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec,
       null,
       []);
   }
 
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler.getRemote = function() {
-  let remote = new theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemote();
+theme_color_picker.mojom.ThemeColorPickerHandler.getRemote = function() {
+  let remote = new theme_color_picker.mojom.ThemeColorPickerHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -243,7 +345,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetChromeColors
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_Params',
@@ -256,7 +358,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpe
   }
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_ResponseParams',
@@ -270,7 +372,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseP
 };
 
 // ParamsSpec for UpdateTheme
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.UpdateTheme_Params',
@@ -283,7 +385,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = 
 };
 
 // ParamsSpec for SetDefaultColor
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetDefaultColor_Params',
@@ -296,7 +398,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpe
 };
 
 // ParamsSpec for SetGreyDefaultColor
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetGreyDefaultColor_Params',
@@ -309,7 +411,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_Param
 };
 
 // ParamsSpec for SetSeedColor
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColor_Params',
@@ -324,7 +426,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec =
 };
 
 // ParamsSpec for SetSeedColorFromHue
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColorFromHue_Params',
@@ -338,7 +440,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_Param
 };
 
 // ParamsSpec for RemoveBackgroundImage
-theme_color_picker.mojom.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.RemoveBackgroundImage_Params',
@@ -351,29 +453,42 @@ theme_color_picker.mojom.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_Par
 };
 
 // Legacy compatibility
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerPtr = theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRemote;
-theme_color_picker.mojom.mojom.ThemeColorPickerHandlerRequest = theme_color_picker.mojom.mojom.ThemeColorPickerHandlerPendingReceiver;
+theme_color_picker.mojom.ThemeColorPickerHandlerPtr = theme_color_picker.mojom.ThemeColorPickerHandlerRemote;
+theme_color_picker.mojom.ThemeColorPickerHandlerRequest = theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver;
 
 
 // Interface: ThemeColorPickerClient
-theme_color_picker.mojom.mojom.ThemeColorPickerClient = {};
+theme_color_picker.mojom.ThemeColorPickerClient = {};
 
-theme_color_picker.mojom.mojom.ThemeColorPickerClientPendingReceiver = class {
+theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: theme_color_picker.mojom.ThemeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerClientRemote = class {
+theme_color_picker.mojom.ThemeColorPickerClientRemote = class {
   static get $interfaceName() {
     return 'theme_color_picker.mojom.ThemeColorPickerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      theme_color_picker.mojom.mojom.ThemeColorPickerClientPendingReceiver,
+      theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver,
       handle);
-    this.$ = new theme_color_picker.mojom.mojom.ThemeColorPickerClientRemoteCallHandler(this.proxy);
+    this.$ = new theme_color_picker.mojom.ThemeColorPickerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -385,7 +500,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerClientRemote = class {
   }
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerClientRemoteCallHandler = class {
+theme_color_picker.mojom.ThemeColorPickerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -394,15 +509,15 @@ theme_color_picker.mojom.mojom.ThemeColorPickerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      theme_color_picker.mojom.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec,
       null,
       [theme]);
   }
 
 };
 
-theme_color_picker.mojom.mojom.ThemeColorPickerClient.getRemote = function() {
-  let remote = new theme_color_picker.mojom.mojom.ThemeColorPickerClientRemote();
+theme_color_picker.mojom.ThemeColorPickerClient.getRemote = function() {
+  let remote = new theme_color_picker.mojom.ThemeColorPickerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -412,7 +527,7 @@ theme_color_picker.mojom.mojom.ThemeColorPickerClient.getRemote = function() {
 };
 
 // ParamsSpec for SetTheme
-theme_color_picker.mojom.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
+theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ThemeColorPickerClient.SetTheme_Params',
@@ -426,6 +541,6 @@ theme_color_picker.mojom.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
 };
 
 // Legacy compatibility
-theme_color_picker.mojom.mojom.ThemeColorPickerClientPtr = theme_color_picker.mojom.mojom.ThemeColorPickerClientRemote;
-theme_color_picker.mojom.mojom.ThemeColorPickerClientRequest = theme_color_picker.mojom.mojom.ThemeColorPickerClientPendingReceiver;
+theme_color_picker.mojom.ThemeColorPickerClientPtr = theme_color_picker.mojom.ThemeColorPickerClientRemote;
+theme_color_picker.mojom.ThemeColorPickerClientRequest = theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver;
 

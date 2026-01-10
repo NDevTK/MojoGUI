@@ -10,7 +10,7 @@ skia.mojom = skia.mojom || {};
 
 
 // Struct: SkcmsMatrix3x3
-skia.mojom.mojom.SkcmsMatrix3x3Spec = {
+skia.mojom.SkcmsMatrix3x3Spec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkcmsMatrix3x3',
@@ -24,7 +24,7 @@ skia.mojom.mojom.SkcmsMatrix3x3Spec = {
 };
 
 // Struct: SkcmsTransferFunction
-skia.mojom.mojom.SkcmsTransferFunctionSpec = {
+skia.mojom.SkcmsTransferFunctionSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkcmsTransferFunction',
@@ -44,7 +44,7 @@ skia.mojom.mojom.SkcmsTransferFunctionSpec = {
 };
 
 // Struct: SkColorSpace
-skia.mojom.mojom.SkColorSpaceSpec = {
+skia.mojom.SkColorSpaceSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkColorSpace',

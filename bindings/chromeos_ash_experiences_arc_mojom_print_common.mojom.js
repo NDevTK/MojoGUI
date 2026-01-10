@@ -10,38 +10,38 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: PrintColorMode
-arc.mojom.mojom.PrintColorMode = {
+arc.mojom.PrintColorMode = {
   MONOCHROME: 0,
   COLOR: 1,
 };
-arc.mojom.mojom.PrintColorModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrintColorModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintDuplexMode
-arc.mojom.mojom.PrintDuplexMode = {
+arc.mojom.PrintDuplexMode = {
   NONE: 0,
   LONG_EDGE: 1,
   SHORT_EDGE: 2,
 };
-arc.mojom.mojom.PrintDuplexModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrintDuplexModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintContentType
-arc.mojom.mojom.PrintContentType = {
+arc.mojom.PrintContentType = {
   UNKNOWN: 0,
   DOCUMENT: 1,
   PHOTO: 2,
 };
-arc.mojom.mojom.PrintContentTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrintContentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrinterStatus
-arc.mojom.mojom.PrinterStatus = {
+arc.mojom.PrinterStatus = {
   IDLE: 0,
   BUSY: 1,
   UNAVAILABLE: 2,
 };
-arc.mojom.mojom.PrinterStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrinterStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PrintPageRange
-arc.mojom.mojom.PrintPageRangeSpec = {
+arc.mojom.PrintPageRangeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintPageRange',
@@ -56,7 +56,7 @@ arc.mojom.mojom.PrintPageRangeSpec = {
 };
 
 // Struct: PrintMediaSize
-arc.mojom.mojom.PrintMediaSizeSpec = {
+arc.mojom.PrintMediaSizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintMediaSize',
@@ -73,7 +73,7 @@ arc.mojom.mojom.PrintMediaSizeSpec = {
 };
 
 // Struct: PrintResolution
-arc.mojom.mojom.PrintResolutionSpec = {
+arc.mojom.PrintResolutionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintResolution',
@@ -90,7 +90,7 @@ arc.mojom.mojom.PrintResolutionSpec = {
 };
 
 // Struct: PrintMargins
-arc.mojom.mojom.PrintMarginsSpec = {
+arc.mojom.PrintMarginsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintMargins',
@@ -107,7 +107,7 @@ arc.mojom.mojom.PrintMarginsSpec = {
 };
 
 // Struct: PrintAttributes
-arc.mojom.mojom.PrintAttributesSpec = {
+arc.mojom.PrintAttributesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintAttributes',
@@ -125,7 +125,7 @@ arc.mojom.mojom.PrintAttributesSpec = {
 };
 
 // Struct: PrintDocumentRequest
-arc.mojom.mojom.PrintDocumentRequestSpec = {
+arc.mojom.PrintDocumentRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintDocumentRequest',
@@ -140,7 +140,7 @@ arc.mojom.mojom.PrintDocumentRequestSpec = {
 };
 
 // Struct: PrintJobRequest
-arc.mojom.mojom.PrintJobRequestSpec = {
+arc.mojom.PrintJobRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintJobRequest',
@@ -165,7 +165,7 @@ arc.mojom.mojom.PrintJobRequestSpec = {
 };
 
 // Struct: PrinterCapabilities
-arc.mojom.mojom.PrinterCapabilitiesSpec = {
+arc.mojom.PrinterCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrinterCapabilities',
@@ -184,7 +184,7 @@ arc.mojom.mojom.PrinterCapabilitiesSpec = {
 };
 
 // Struct: PrinterInfo
-arc.mojom.mojom.PrinterInfoSpec = {
+arc.mojom.PrinterInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrinterInfo',

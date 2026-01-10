@@ -7,28 +7,40 @@
 // Module namespace
 var ash = ash || {};
 ash.vm = ash.vm || {};
-ash.vm.vm.mojom = ash.vm.vm.mojom || {};
+ash.vm.mojom = ash.vm.mojom || {};
 
 
 // Interface: VmDiagnosticsProvider
-ash.vm.vm.mojom.mojom.VmDiagnosticsProvider = {};
+ash.vm.mojom.VmDiagnosticsProvider = {};
 
-ash.vm.vm.mojom.mojom.VmDiagnosticsProviderPendingReceiver = class {
+ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.vm.mojom.VmDiagnosticsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRemote = class {
+ash.vm.mojom.VmDiagnosticsProviderRemote = class {
   static get $interfaceName() {
     return 'ash.vm.mojom.VmDiagnosticsProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.vm.vm.mojom.mojom.VmDiagnosticsProviderPendingReceiver,
+      ash.vm.mojom.VmDiagnosticsProviderPendingReceiver,
       handle);
-    this.$ = new ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +52,7 @@ ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRemote = class {
   }
 };
 
-ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRemoteCallHandler = class {
+ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +61,15 @@ ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.vm.vm.mojom.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec,
-      ash.vm.vm.mojom.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec,
+      ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec,
+      ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.vm.vm.mojom.mojom.VmDiagnosticsProvider.getRemote = function() {
-  let remote = new ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRemote();
+ash.vm.mojom.VmDiagnosticsProvider.getRemote = function() {
+  let remote = new ash.vm.mojom.VmDiagnosticsProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +79,7 @@ ash.vm.vm.mojom.mojom.VmDiagnosticsProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetPluginVmDiagnostics
-ash.vm.vm.mojom.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
+ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.vm.mojom.VmDiagnosticsProvider.GetPluginVmDiagnostics_Params',
@@ -79,7 +91,7 @@ ash.vm.vm.mojom.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = 
   }
 };
 
-ash.vm.vm.mojom.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
+ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.vm.mojom.VmDiagnosticsProvider.GetPluginVmDiagnostics_ResponseParams',
@@ -93,6 +105,6 @@ ash.vm.vm.mojom.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParam
 };
 
 // Legacy compatibility
-ash.vm.vm.mojom.mojom.VmDiagnosticsProviderPtr = ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRemote;
-ash.vm.vm.mojom.mojom.VmDiagnosticsProviderRequest = ash.vm.vm.mojom.mojom.VmDiagnosticsProviderPendingReceiver;
+ash.vm.mojom.VmDiagnosticsProviderPtr = ash.vm.mojom.VmDiagnosticsProviderRemote;
+ash.vm.mojom.VmDiagnosticsProviderRequest = ash.vm.mojom.VmDiagnosticsProviderPendingReceiver;
 

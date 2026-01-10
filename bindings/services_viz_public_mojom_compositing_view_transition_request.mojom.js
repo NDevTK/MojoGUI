@@ -11,7 +11,7 @@ var blink = blink || {};
 
 
 // Struct: ViewTransitionRequest
-viz.mojom.mojom.ViewTransitionRequestSpec = {
+viz.mojom.ViewTransitionRequestSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ViewTransitionRequest',

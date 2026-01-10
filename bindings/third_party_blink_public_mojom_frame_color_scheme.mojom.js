@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ColorScheme
-blink.mojom.mojom.ColorScheme = {
+blink.mojom.ColorScheme = {
   kLight: 0,
   kDark: 1,
 };
-blink.mojom.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };

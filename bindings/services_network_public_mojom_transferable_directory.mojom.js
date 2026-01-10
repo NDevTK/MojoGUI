@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Union: TransferableDirectory
-network.mojom.mojom.TransferableDirectorySpec = { $: mojo.internal.Union(
+network.mojom.TransferableDirectorySpec = { $: mojo.internal.Union(
     'network.mojom.TransferableDirectory', {
       'handle_for_ipc': {
         'ordinal': 0,

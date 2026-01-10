@@ -12,15 +12,15 @@ var gfx = gfx || {};
 
 
 // Enum: CoordinateType
-lens.mojom.mojom.CoordinateType = {
+lens.mojom.CoordinateType = {
   kUnspecified: 0,
   kNormalized: 1,
   kImage: 2,
 };
-lens.mojom.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
+lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CenterRotatedBox
-lens.mojom.mojom.CenterRotatedBoxSpec = {
+lens.mojom.CenterRotatedBoxSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.CenterRotatedBox',
@@ -36,7 +36,7 @@ lens.mojom.mojom.CenterRotatedBoxSpec = {
 };
 
 // Struct: Geometry
-lens.mojom.mojom.GeometrySpec = {
+lens.mojom.GeometrySpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Geometry',

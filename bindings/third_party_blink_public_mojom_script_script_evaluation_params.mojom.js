@@ -10,37 +10,37 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: UserActivationOption
-blink.mojom.mojom.UserActivationOption = {
+blink.mojom.UserActivationOption = {
   kDoNotActivate: 0,
   kActivate: 1,
 };
-blink.mojom.mojom.UserActivationOptionSpec = { $: mojo.internal.Enum() };
+blink.mojom.UserActivationOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: WantResultOption
-blink.mojom.mojom.WantResultOption = {
+blink.mojom.WantResultOption = {
   kNoResult: 0,
   kWantResult: 1,
   kWantResultDateAndRegExpAllowed: 2,
 };
-blink.mojom.mojom.WantResultOptionSpec = { $: mojo.internal.Enum() };
+blink.mojom.WantResultOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: PromiseResultOption
-blink.mojom.mojom.PromiseResultOption = {
+blink.mojom.PromiseResultOption = {
   kAwait: 0,
   kDoNotWait: 1,
 };
-blink.mojom.mojom.PromiseResultOptionSpec = { $: mojo.internal.Enum() };
+blink.mojom.PromiseResultOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: EvaluationTiming
-blink.mojom.mojom.EvaluationTiming = {
+blink.mojom.EvaluationTiming = {
   kAsynchronous: 0,
   kSynchronous: 1,
 };
-blink.mojom.mojom.EvaluationTimingSpec = { $: mojo.internal.Enum() };
+blink.mojom.EvaluationTimingSpec = { $: mojo.internal.Enum() };
 
 // Enum: LoadEventBlockingOption
-blink.mojom.mojom.LoadEventBlockingOption = {
+blink.mojom.LoadEventBlockingOption = {
   kDoNotBlock: 0,
   kBlock: 1,
 };
-blink.mojom.mojom.LoadEventBlockingOptionSpec = { $: mojo.internal.Enum() };
+blink.mojom.LoadEventBlockingOptionSpec = { $: mojo.internal.Enum() };

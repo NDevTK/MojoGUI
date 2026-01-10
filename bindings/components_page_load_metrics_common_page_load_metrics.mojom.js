@@ -14,15 +14,15 @@ var gfx = gfx || {};
 
 
 // Enum: CacheType
-page_load_metrics.mojom.mojom.CacheType = {
+page_load_metrics.mojom.CacheType = {
   kNotCached: 0,
   kHttp: 1,
   kMemory: 2,
 };
-page_load_metrics.mojom.mojom.CacheTypeSpec = { $: mojo.internal.Enum() };
+page_load_metrics.mojom.CacheTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DocumentTiming
-page_load_metrics.mojom.mojom.DocumentTimingSpec = {
+page_load_metrics.mojom.DocumentTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.DocumentTiming',
@@ -37,7 +37,7 @@ page_load_metrics.mojom.mojom.DocumentTimingSpec = {
 };
 
 // Struct: LcpResourceLoadTimings
-page_load_metrics.mojom.mojom.LcpResourceLoadTimingsSpec = {
+page_load_metrics.mojom.LcpResourceLoadTimingsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LcpResourceLoadTimings',
@@ -53,7 +53,7 @@ page_load_metrics.mojom.mojom.LcpResourceLoadTimingsSpec = {
 };
 
 // Struct: LargestContentfulPaintTiming
-page_load_metrics.mojom.mojom.LargestContentfulPaintTimingSpec = {
+page_load_metrics.mojom.LargestContentfulPaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LargestContentfulPaintTiming',
@@ -75,7 +75,7 @@ page_load_metrics.mojom.mojom.LargestContentfulPaintTimingSpec = {
 };
 
 // Struct: PaintTiming
-page_load_metrics.mojom.mojom.PaintTimingSpec = {
+page_load_metrics.mojom.PaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PaintTiming',
@@ -96,7 +96,7 @@ page_load_metrics.mojom.mojom.PaintTimingSpec = {
 };
 
 // Struct: MonotonicPaintTiming
-page_load_metrics.mojom.mojom.MonotonicPaintTimingSpec = {
+page_load_metrics.mojom.MonotonicPaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.MonotonicPaintTiming',
@@ -111,7 +111,7 @@ page_load_metrics.mojom.mojom.MonotonicPaintTimingSpec = {
 };
 
 // Struct: ParseTiming
-page_load_metrics.mojom.mojom.ParseTimingSpec = {
+page_load_metrics.mojom.ParseTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ParseTiming',
@@ -130,7 +130,7 @@ page_load_metrics.mojom.mojom.ParseTimingSpec = {
 };
 
 // Struct: InteractiveTiming
-page_load_metrics.mojom.mojom.InteractiveTimingSpec = {
+page_load_metrics.mojom.InteractiveTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.InteractiveTiming',
@@ -147,7 +147,7 @@ page_load_metrics.mojom.mojom.InteractiveTimingSpec = {
 };
 
 // Struct: CustomUserTimingMark
-page_load_metrics.mojom.mojom.CustomUserTimingMarkSpec = {
+page_load_metrics.mojom.CustomUserTimingMarkSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.CustomUserTimingMark',
@@ -162,7 +162,7 @@ page_load_metrics.mojom.mojom.CustomUserTimingMarkSpec = {
 };
 
 // Struct: DomainLookupTiming
-page_load_metrics.mojom.mojom.DomainLookupTimingSpec = {
+page_load_metrics.mojom.DomainLookupTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.DomainLookupTiming',
@@ -177,7 +177,7 @@ page_load_metrics.mojom.mojom.DomainLookupTimingSpec = {
 };
 
 // Struct: PageLoadTiming
-page_load_metrics.mojom.mojom.PageLoadTimingSpec = {
+page_load_metrics.mojom.PageLoadTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadTiming',
@@ -206,7 +206,7 @@ page_load_metrics.mojom.mojom.PageLoadTimingSpec = {
 };
 
 // Struct: FrameMetadata
-page_load_metrics.mojom.mojom.FrameMetadataSpec = {
+page_load_metrics.mojom.FrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.FrameMetadata',
@@ -224,7 +224,7 @@ page_load_metrics.mojom.mojom.FrameMetadataSpec = {
 };
 
 // Struct: SubresourceLoadMetrics
-page_load_metrics.mojom.mojom.SubresourceLoadMetricsSpec = {
+page_load_metrics.mojom.SubresourceLoadMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.SubresourceLoadMetrics',
@@ -240,7 +240,7 @@ page_load_metrics.mojom.mojom.SubresourceLoadMetricsSpec = {
 };
 
 // Struct: ServiceWorkerSubresourceLoadMetrics
-page_load_metrics.mojom.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
+page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetrics',
@@ -290,7 +290,7 @@ page_load_metrics.mojom.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
 };
 
 // Struct: ResourceDataUpdate
-page_load_metrics.mojom.mojom.ResourceDataUpdateSpec = {
+page_load_metrics.mojom.ResourceDataUpdateSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ResourceDataUpdate',
@@ -316,7 +316,7 @@ page_load_metrics.mojom.mojom.ResourceDataUpdateSpec = {
 };
 
 // Struct: LayoutShift
-page_load_metrics.mojom.mojom.LayoutShiftSpec = {
+page_load_metrics.mojom.LayoutShiftSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LayoutShift',
@@ -331,7 +331,7 @@ page_load_metrics.mojom.mojom.LayoutShiftSpec = {
 };
 
 // Struct: FrameRenderDataUpdate
-page_load_metrics.mojom.mojom.FrameRenderDataUpdateSpec = {
+page_load_metrics.mojom.FrameRenderDataUpdateSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.FrameRenderDataUpdate',
@@ -347,7 +347,7 @@ page_load_metrics.mojom.mojom.FrameRenderDataUpdateSpec = {
 };
 
 // Struct: CpuTiming
-page_load_metrics.mojom.mojom.CpuTimingSpec = {
+page_load_metrics.mojom.CpuTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.CpuTiming',
@@ -361,7 +361,7 @@ page_load_metrics.mojom.mojom.CpuTimingSpec = {
 };
 
 // Struct: InputTiming
-page_load_metrics.mojom.mojom.InputTimingSpec = {
+page_load_metrics.mojom.InputTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.InputTiming',
@@ -375,7 +375,7 @@ page_load_metrics.mojom.mojom.InputTimingSpec = {
 };
 
 // Struct: UserInteractionLatency
-page_load_metrics.mojom.mojom.UserInteractionLatencySpec = {
+page_load_metrics.mojom.UserInteractionLatencySpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.UserInteractionLatency',
@@ -391,7 +391,7 @@ page_load_metrics.mojom.mojom.UserInteractionLatencySpec = {
 };
 
 // Struct: BackForwardCacheTiming
-page_load_metrics.mojom.mojom.BackForwardCacheTimingSpec = {
+page_load_metrics.mojom.BackForwardCacheTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.BackForwardCacheTiming',
@@ -407,7 +407,7 @@ page_load_metrics.mojom.mojom.BackForwardCacheTimingSpec = {
 };
 
 // Struct: SoftNavigationMetrics
-page_load_metrics.mojom.mojom.SoftNavigationMetricsSpec = {
+page_load_metrics.mojom.SoftNavigationMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.SoftNavigationMetrics',
@@ -425,24 +425,71 @@ page_load_metrics.mojom.mojom.SoftNavigationMetricsSpec = {
 };
 
 // Interface: PageLoadMetrics
-page_load_metrics.mojom.mojom.PageLoadMetrics = {};
+page_load_metrics.mojom.PageLoadMetrics = {};
 
-page_load_metrics.mojom.mojom.PageLoadMetricsPendingReceiver = class {
+page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_Params',
+      packedSize: 80,
+      fields: [
+        { name: 'page_load_timing', packedOffset: 0, packedBitOffset: 0, type: page_load_metrics.mojom.PageLoadTimingSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_metadata', packedOffset: 8, packedBitOffset: 0, type: page_load_metrics.mojom.FrameMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'new_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.UseCounterFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(page_load_metrics.mojom.ResourceDataUpdateSpec, false), nullable: false, minVersion: 0 },
+        { name: 'render_data', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.FrameRenderDataUpdateSpec, nullable: false, minVersion: 0 },
+        { name: 'cpu_load_timing', packedOffset: 40, packedBitOffset: 0, type: page_load_metrics.mojom.CpuTimingSpec, nullable: false, minVersion: 0 },
+        { name: 'input_timing_delta', packedOffset: 48, packedBitOffset: 0, type: page_load_metrics.mojom.InputTimingSpec, nullable: false, minVersion: 0 },
+        { name: 'subresource_load_metrics', packedOffset: 56, packedBitOffset: 0, type: page_load_metrics.mojom.SubresourceLoadMetricsSpec, nullable: true, minVersion: 0 },
+        { name: 'soft_navigation_metrics', packedOffset: 64, packedBitOffset: 0, type: page_load_metrics.mojom.SoftNavigationMetricsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 80}]
+    }
+  }
+};
+
+page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'dropped_frames_memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'custom_user_timing', packedOffset: 0, packedBitOffset: 0, type: page_load_metrics.mojom.CustomUserTimingMarkSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+page_load_metrics.mojom.PageLoadMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-page_load_metrics.mojom.mojom.PageLoadMetricsRemote = class {
+page_load_metrics.mojom.PageLoadMetricsRemote = class {
   static get $interfaceName() {
     return 'page_load_metrics.mojom.PageLoadMetrics';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      page_load_metrics.mojom.mojom.PageLoadMetricsPendingReceiver,
+      page_load_metrics.mojom.PageLoadMetricsPendingReceiver,
       handle);
-    this.$ = new page_load_metrics.mojom.mojom.PageLoadMetricsRemoteCallHandler(this.proxy);
+    this.$ = new page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -454,7 +501,7 @@ page_load_metrics.mojom.mojom.PageLoadMetricsRemote = class {
   }
 };
 
-page_load_metrics.mojom.mojom.PageLoadMetricsRemoteCallHandler = class {
+page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -463,7 +510,7 @@ page_load_metrics.mojom.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      page_load_metrics.mojom.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
+      page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
       [page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics]);
   }
@@ -472,7 +519,7 @@ page_load_metrics.mojom.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      page_load_metrics.mojom.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
+      page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
       null,
       [dropped_frames_memory]);
   }
@@ -481,15 +528,15 @@ page_load_metrics.mojom.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      page_load_metrics.mojom.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
+      page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
       [custom_user_timing]);
   }
 
 };
 
-page_load_metrics.mojom.mojom.PageLoadMetrics.getRemote = function() {
-  let remote = new page_load_metrics.mojom.mojom.PageLoadMetricsRemote();
+page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
+  let remote = new page_load_metrics.mojom.PageLoadMetricsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -499,7 +546,7 @@ page_load_metrics.mojom.mojom.PageLoadMetrics.getRemote = function() {
 };
 
 // ParamsSpec for UpdateTiming
-page_load_metrics.mojom.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
+page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadMetrics.UpdateTiming_Params',
@@ -521,7 +568,7 @@ page_load_metrics.mojom.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
 };
 
 // ParamsSpec for SetUpSharedMemoryForDroppedFrames
-page_load_metrics.mojom.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = {
+page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadMetrics.SetUpSharedMemoryForDroppedFrames_Params',
@@ -535,7 +582,7 @@ page_load_metrics.mojom.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_
 };
 
 // ParamsSpec for AddCustomUserTiming
-page_load_metrics.mojom.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
+page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadMetrics.AddCustomUserTiming_Params',
@@ -549,6 +596,6 @@ page_load_metrics.mojom.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
 };
 
 // Legacy compatibility
-page_load_metrics.mojom.mojom.PageLoadMetricsPtr = page_load_metrics.mojom.mojom.PageLoadMetricsRemote;
-page_load_metrics.mojom.mojom.PageLoadMetricsRequest = page_load_metrics.mojom.mojom.PageLoadMetricsPendingReceiver;
+page_load_metrics.mojom.PageLoadMetricsPtr = page_load_metrics.mojom.PageLoadMetricsRemote;
+page_load_metrics.mojom.PageLoadMetricsRequest = page_load_metrics.mojom.PageLoadMetricsPendingReceiver;
 

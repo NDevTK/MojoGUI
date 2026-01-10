@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: IntrinsicSizingInfo
-blink.mojom.mojom.IntrinsicSizingInfoSpec = {
+blink.mojom.IntrinsicSizingInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IntrinsicSizingInfo',

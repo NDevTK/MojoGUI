@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: CursorType
-ui.mojom.mojom.CursorType = {
+ui.mojom.CursorType = {
   kNull: 0,
   kPointer: 1,
   kCross: 2,
@@ -67,4 +67,4 @@ ui.mojom.mojom.CursorType = {
   kNorthEastSouthWestNoResize: 53,
   kNorthWestSouthEastNoResize: 54,
 };
-ui.mojom.mojom.CursorTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.CursorTypeSpec = { $: mojo.internal.Enum() };

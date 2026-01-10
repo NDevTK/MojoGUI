@@ -10,17 +10,17 @@ network.mojom = network.mojom || {};
 
 
 // Enum: ServiceWorkerRouterSourceType
-network.mojom.mojom.ServiceWorkerRouterSourceType = {
+network.mojom.ServiceWorkerRouterSourceType = {
   kNetwork: 0,
   kRaceNetworkAndFetchEvent: 1,
   kFetchEvent: 2,
   kCache: 3,
   kRaceNetworkAndCache: 4,
 };
-network.mojom.mojom.ServiceWorkerRouterSourceTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.ServiceWorkerRouterSourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerStatus
-network.mojom.mojom.ServiceWorkerStatus = {
+network.mojom.ServiceWorkerStatus = {
   kRunning: 0,
   kStarting: 1,
   kStopping: 2,
@@ -28,10 +28,10 @@ network.mojom.mojom.ServiceWorkerStatus = {
   kWarmingUp: 4,
   kWarmedUp: 5,
 };
-network.mojom.mojom.ServiceWorkerStatusSpec = { $: mojo.internal.Enum() };
+network.mojom.ServiceWorkerStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerRouterInfo
-network.mojom.mojom.ServiceWorkerRouterInfoSpec = {
+network.mojom.ServiceWorkerRouterInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ServiceWorkerRouterInfo',

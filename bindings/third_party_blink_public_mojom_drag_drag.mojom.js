@@ -16,7 +16,7 @@ var blink = blink || {};
 
 
 // Union: DragItem
-blink.mojom.mojom.DragItemSpec = { $: mojo.internal.Union(
+blink.mojom.DragItemSpec = { $: mojo.internal.Union(
     'blink.mojom.DragItem', {
       'string': {
         'ordinal': 0,
@@ -38,7 +38,7 @@ blink.mojom.mojom.DragItemSpec = { $: mojo.internal.Union(
 };
 
 // Struct: AllowedDragOperations
-blink.mojom.mojom.AllowedDragOperationsSpec = {
+blink.mojom.AllowedDragOperationsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AllowedDragOperations',
@@ -54,7 +54,7 @@ blink.mojom.mojom.AllowedDragOperationsSpec = {
 };
 
 // Struct: DragItemString
-blink.mojom.mojom.DragItemStringSpec = {
+blink.mojom.DragItemStringSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragItemString',
@@ -71,7 +71,7 @@ blink.mojom.mojom.DragItemStringSpec = {
 };
 
 // Struct: DragItemBinary
-blink.mojom.mojom.DragItemBinarySpec = {
+blink.mojom.DragItemBinarySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragItemBinary',
@@ -89,7 +89,7 @@ blink.mojom.mojom.DragItemBinarySpec = {
 };
 
 // Struct: DragItemFileSystemFile
-blink.mojom.mojom.DragItemFileSystemFileSpec = {
+blink.mojom.DragItemFileSystemFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragItemFileSystemFile',
@@ -106,7 +106,7 @@ blink.mojom.mojom.DragItemFileSystemFileSpec = {
 };
 
 // Struct: DragData
-blink.mojom.mojom.DragDataSpec = {
+blink.mojom.DragDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragData',
@@ -122,7 +122,7 @@ blink.mojom.mojom.DragDataSpec = {
 };
 
 // Struct: DragEventSourceInfo
-blink.mojom.mojom.DragEventSourceInfoSpec = {
+blink.mojom.DragEventSourceInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragEventSourceInfo',

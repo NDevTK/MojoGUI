@@ -10,24 +10,75 @@ dom_distiller.mojom = dom_distiller.mojom || {};
 
 
 // Interface: DistillerJavaScriptService
-dom_distiller.mojom.mojom.DistillerJavaScriptService = {};
+dom_distiller.mojom.DistillerJavaScriptService = {};
 
-dom_distiller.mojom.mojom.DistillerJavaScriptServicePendingReceiver = class {
+dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.ThemeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.FontFamilySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'font_scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemote = class {
+dom_distiller.mojom.DistillerJavaScriptServiceRemote = class {
   static get $interfaceName() {
     return 'dom_distiller.mojom.DistillerJavaScriptService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      dom_distiller.mojom.mojom.DistillerJavaScriptServicePendingReceiver,
+      dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver,
       handle);
-    this.$ = new dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemoteCallHandler(this.proxy);
+    this.$ = new dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +90,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemote = class {
   }
 };
 
-dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
+dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +99,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +108,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec,
       null,
       [theme]);
   }
@@ -66,7 +117,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec,
       null,
       [font_family]);
   }
@@ -75,15 +126,15 @@ dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec,
       null,
       [font_scale]);
   }
 
 };
 
-dom_distiller.mojom.mojom.DistillerJavaScriptService.getRemote = function() {
-  let remote = new dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemote();
+dom_distiller.mojom.DistillerJavaScriptService.getRemote = function() {
+  let remote = new dom_distiller.mojom.DistillerJavaScriptServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +144,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptService.getRemote = function() {
 };
 
 // ParamsSpec for HandleDistillerOpenSettingsCall
-dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = {
+dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleDistillerOpenSettingsCall_Params',
@@ -106,7 +157,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleDistillerOpenSettings
 };
 
 // ParamsSpec for HandleStoreThemePref
-dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = {
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreThemePref_Params',
@@ -120,7 +171,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params
 };
 
 // ParamsSpec for HandleStoreFontFamilyPref
-dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = {
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreFontFamilyPref_Params',
@@ -134,7 +185,7 @@ dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_P
 };
 
 // ParamsSpec for HandleStoreFontScalingPref
-dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = {
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreFontScalingPref_Params',
@@ -148,6 +199,6 @@ dom_distiller.mojom.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_
 };
 
 // Legacy compatibility
-dom_distiller.mojom.mojom.DistillerJavaScriptServicePtr = dom_distiller.mojom.mojom.DistillerJavaScriptServiceRemote;
-dom_distiller.mojom.mojom.DistillerJavaScriptServiceRequest = dom_distiller.mojom.mojom.DistillerJavaScriptServicePendingReceiver;
+dom_distiller.mojom.DistillerJavaScriptServicePtr = dom_distiller.mojom.DistillerJavaScriptServiceRemote;
+dom_distiller.mojom.DistillerJavaScriptServiceRequest = dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver;
 

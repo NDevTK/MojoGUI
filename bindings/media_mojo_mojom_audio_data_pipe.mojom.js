@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: ReadWriteAudioDataPipe
-media.mojom.mojom.ReadWriteAudioDataPipeSpec = {
+media.mojom.ReadWriteAudioDataPipeSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ReadWriteAudioDataPipe',

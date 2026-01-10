@@ -7,19 +7,19 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
-chromeos.cdm.cdm.mojom = chromeos.cdm.cdm.mojom || {};
+chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 
 
 // Enum: ProtectionType
-chromeos.cdm.cdm.mojom.mojom.ProtectionType = {
+chromeos.cdm.mojom.ProtectionType = {
   NONE: 0,
   HDCP_TYPE_0: 1,
   HDCP_TYPE_1: 2,
 };
-chromeos.cdm.cdm.mojom.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkType
-chromeos.cdm.cdm.mojom.mojom.LinkType = {
+chromeos.cdm.mojom.LinkType = {
   NONE: 0,
   UNKNOWN: 1,
   INTERNAL: 2,
@@ -29,27 +29,52 @@ chromeos.cdm.cdm.mojom.mojom.LinkType = {
   DISPLAYPORT: 6,
   NETWORK: 7,
 };
-chromeos.cdm.cdm.mojom.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: OutputProtection
-chromeos.cdm.cdm.mojom.mojom.OutputProtection = {};
+chromeos.cdm.mojom.OutputProtection = {};
 
-chromeos.cdm.cdm.mojom.mojom.OutputProtectionPendingReceiver = class {
+chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.OutputProtection_QueryStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.OutputProtection_EnableProtection_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'desired_protection', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.ProtectionTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemote = class {
+chromeos.cdm.mojom.OutputProtectionRemote = class {
   static get $interfaceName() {
     return 'chromeos.cdm.mojom.OutputProtection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cdm.cdm.mojom.mojom.OutputProtectionPendingReceiver,
+      chromeos.cdm.mojom.OutputProtectionPendingReceiver,
       handle);
-    this.$ = new chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cdm.mojom.OutputProtectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +86,7 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemote = class {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemoteCallHandler = class {
+chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,8 +95,8 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.OutputProtection_QueryStatus_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
+      chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec,
+      chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
       []);
   }
 
@@ -79,15 +104,15 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.OutputProtection_EnableProtection_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
+      chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec,
+      chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
       [desired_protection]);
   }
 
 };
 
-chromeos.cdm.cdm.mojom.mojom.OutputProtection.getRemote = function() {
-  let remote = new chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemote();
+chromeos.cdm.mojom.OutputProtection.getRemote = function() {
+  let remote = new chromeos.cdm.mojom.OutputProtectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +122,7 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtection.getRemote = function() {
 };
 
 // ParamsSpec for QueryStatus
-chromeos.cdm.cdm.mojom.mojom.OutputProtection_QueryStatus_ParamsSpec = {
+chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.OutputProtection.QueryStatus_Params',
@@ -109,7 +134,7 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtection_QueryStatus_ParamsSpec = {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
+chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.OutputProtection.QueryStatus_ResponseParams',
@@ -125,7 +150,7 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EnableProtection
-chromeos.cdm.cdm.mojom.mojom.OutputProtection_EnableProtection_ParamsSpec = {
+chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.OutputProtection.EnableProtection_Params',
@@ -138,7 +163,7 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtection_EnableProtection_ParamsSpec = {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
+chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.OutputProtection.EnableProtection_ResponseParams',
@@ -152,6 +177,6 @@ chromeos.cdm.cdm.mojom.mojom.OutputProtection_EnableProtection_ResponseParamsSpe
 };
 
 // Legacy compatibility
-chromeos.cdm.cdm.mojom.mojom.OutputProtectionPtr = chromeos.cdm.cdm.mojom.mojom.OutputProtectionRemote;
-chromeos.cdm.cdm.mojom.mojom.OutputProtectionRequest = chromeos.cdm.cdm.mojom.mojom.OutputProtectionPendingReceiver;
+chromeos.cdm.mojom.OutputProtectionPtr = chromeos.cdm.mojom.OutputProtectionRemote;
+chromeos.cdm.mojom.OutputProtectionRequest = chromeos.cdm.mojom.OutputProtectionPendingReceiver;
 

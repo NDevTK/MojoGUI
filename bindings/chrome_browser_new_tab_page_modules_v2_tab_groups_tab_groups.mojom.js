@@ -7,12 +7,12 @@
 // Module namespace
 var ntp = ntp || {};
 ntp.tab_groups = ntp.tab_groups || {};
-ntp.tab_groups.tab_groups.mojom = ntp.tab_groups.tab_groups.mojom || {};
+ntp.tab_groups.mojom = ntp.tab_groups.mojom || {};
 var url = url || {};
 
 
 // Struct: TabGroup
-ntp.tab_groups.tab_groups.mojom.mojom.TabGroupSpec = {
+ntp.tab_groups.mojom.TabGroupSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.TabGroup',
@@ -33,24 +33,85 @@ ntp.tab_groups.tab_groups.mojom.mojom.TabGroupSpec = {
 };
 
 // Interface: PageHandler
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler = {};
+ntp.tab_groups.mojom.PageHandler = {};
 
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerPendingReceiver = class {
+ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.tab_groups.mojom.PageHandler_GetTabGroups_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.tab_groups.mojom.PageHandler_OpenTabGroup_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.tab_groups.mojom.PageHandler_DismissModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.tab_groups.mojom.PageHandler_RestoreModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ntp.tab_groups.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemote = class {
+ntp.tab_groups.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ntp.tab_groups.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerPendingReceiver,
+      ntp.tab_groups.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ntp.tab_groups.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +123,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemote = class {
   }
 };
 
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemoteCallHandler = class {
+ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,7 +132,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_CreateNewTabGroup_ParamsSpec,
+      ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec,
       null,
       []);
   }
@@ -80,8 +141,8 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_GetTabGroups_ParamsSpec,
-      ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
+      ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec,
+      ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
       []);
   }
 
@@ -89,7 +150,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_OpenTabGroup_ParamsSpec,
+      ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
       [id]);
   }
@@ -98,7 +159,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_DismissModule_ParamsSpec,
+      ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -107,15 +168,15 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_RestoreModule_ParamsSpec,
+      ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler.getRemote = function() {
-  let remote = new ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemote();
+ntp.tab_groups.mojom.PageHandler.getRemote = function() {
+  let remote = new ntp.tab_groups.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -125,7 +186,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for CreateNewTabGroup
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
+ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.PageHandler.CreateNewTabGroup_Params',
@@ -138,7 +199,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_CreateNewTabGroup_ParamsSpec =
 };
 
 // ParamsSpec for GetTabGroups
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_GetTabGroups_ParamsSpec = {
+ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.PageHandler.GetTabGroups_Params',
@@ -150,7 +211,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_GetTabGroups_ParamsSpec = {
   }
 };
 
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
+ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.PageHandler.GetTabGroups_ResponseParams',
@@ -165,7 +226,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_GetTabGroups_ResponseParamsSpe
 };
 
 // ParamsSpec for OpenTabGroup
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
+ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.PageHandler.OpenTabGroup_Params',
@@ -179,7 +240,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
 };
 
 // ParamsSpec for DismissModule
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_DismissModule_ParamsSpec = {
+ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.PageHandler.DismissModule_Params',
@@ -192,7 +253,7 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_DismissModule_ParamsSpec = {
 };
 
 // ParamsSpec for RestoreModule
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_RestoreModule_ParamsSpec = {
+ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.PageHandler.RestoreModule_Params',
@@ -205,6 +266,6 @@ ntp.tab_groups.tab_groups.mojom.mojom.PageHandler_RestoreModule_ParamsSpec = {
 };
 
 // Legacy compatibility
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerPtr = ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRemote;
-ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerRequest = ntp.tab_groups.tab_groups.mojom.mojom.PageHandlerPendingReceiver;
+ntp.tab_groups.mojom.PageHandlerPtr = ntp.tab_groups.mojom.PageHandlerRemote;
+ntp.tab_groups.mojom.PageHandlerRequest = ntp.tab_groups.mojom.PageHandlerPendingReceiver;
 

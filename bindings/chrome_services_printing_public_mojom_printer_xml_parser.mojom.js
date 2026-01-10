@@ -10,24 +10,37 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: PrinterXmlParser
-printing.mojom.mojom.PrinterXmlParser = {};
+printing.mojom.PrinterXmlParser = {};
 
-printing.mojom.mojom.PrinterXmlParserPendingReceiver = class {
+printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'capabilities_xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+printing.mojom.PrinterXmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.mojom.PrinterXmlParserRemote = class {
+printing.mojom.PrinterXmlParserRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PrinterXmlParser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.mojom.PrinterXmlParserPendingReceiver,
+      printing.mojom.PrinterXmlParserPendingReceiver,
       handle);
-    this.$ = new printing.mojom.mojom.PrinterXmlParserRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.PrinterXmlParserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ printing.mojom.mojom.PrinterXmlParserRemote = class {
   }
 };
 
-printing.mojom.mojom.PrinterXmlParserRemoteCallHandler = class {
+printing.mojom.PrinterXmlParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ printing.mojom.mojom.PrinterXmlParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec,
+      printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec,
       null,
       [capabilities_xml]);
   }
 
 };
 
-printing.mojom.mojom.PrinterXmlParser.getRemote = function() {
-  let remote = new printing.mojom.mojom.PrinterXmlParserRemote();
+printing.mojom.PrinterXmlParser.getRemote = function() {
+  let remote = new printing.mojom.PrinterXmlParserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ printing.mojom.mojom.PrinterXmlParser.getRemote = function() {
 };
 
 // ParamsSpec for ParseXmlForPrinterCapabilities
-printing.mojom.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
+printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrinterXmlParser.ParseXmlForPrinterCapabilities_Params',
@@ -80,6 +93,6 @@ printing.mojom.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec 
 };
 
 // Legacy compatibility
-printing.mojom.mojom.PrinterXmlParserPtr = printing.mojom.mojom.PrinterXmlParserRemote;
-printing.mojom.mojom.PrinterXmlParserRequest = printing.mojom.mojom.PrinterXmlParserPendingReceiver;
+printing.mojom.PrinterXmlParserPtr = printing.mojom.PrinterXmlParserRemote;
+printing.mojom.PrinterXmlParserRequest = printing.mojom.PrinterXmlParserPendingReceiver;
 

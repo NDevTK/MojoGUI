@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: PluginMimeType
-blink.mojom.mojom.PluginMimeTypeSpec = {
+blink.mojom.PluginMimeTypeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginMimeType',
@@ -26,7 +26,7 @@ blink.mojom.mojom.PluginMimeTypeSpec = {
 };
 
 // Struct: PluginInfo
-blink.mojom.mojom.PluginInfoSpec = {
+blink.mojom.PluginInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginInfo',
@@ -45,24 +45,36 @@ blink.mojom.mojom.PluginInfoSpec = {
 };
 
 // Interface: PluginRegistry
-blink.mojom.mojom.PluginRegistry = {};
+blink.mojom.PluginRegistry = {};
 
-blink.mojom.mojom.PluginRegistryPendingReceiver = class {
+blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PluginRegistry_GetPlugins_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+blink.mojom.PluginRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.PluginRegistryRemote = class {
+blink.mojom.PluginRegistryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PluginRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.PluginRegistryPendingReceiver,
+      blink.mojom.PluginRegistryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.PluginRegistryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.PluginRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +86,7 @@ blink.mojom.mojom.PluginRegistryRemote = class {
   }
 };
 
-blink.mojom.mojom.PluginRegistryRemoteCallHandler = class {
+blink.mojom.PluginRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,15 +95,15 @@ blink.mojom.mojom.PluginRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.PluginRegistry_GetPlugins_ParamsSpec,
-      blink.mojom.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
+      blink.mojom.PluginRegistry_GetPlugins_ParamsSpec,
+      blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.mojom.PluginRegistry.getRemote = function() {
-  let remote = new blink.mojom.mojom.PluginRegistryRemote();
+blink.mojom.PluginRegistry.getRemote = function() {
+  let remote = new blink.mojom.PluginRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -101,7 +113,7 @@ blink.mojom.mojom.PluginRegistry.getRemote = function() {
 };
 
 // ParamsSpec for GetPlugins
-blink.mojom.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
+blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginRegistry.GetPlugins_Params',
@@ -113,7 +125,7 @@ blink.mojom.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
+blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginRegistry.GetPlugins_ResponseParams',
@@ -127,6 +139,6 @@ blink.mojom.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.PluginRegistryPtr = blink.mojom.mojom.PluginRegistryRemote;
-blink.mojom.mojom.PluginRegistryRequest = blink.mojom.mojom.PluginRegistryPendingReceiver;
+blink.mojom.PluginRegistryPtr = blink.mojom.PluginRegistryRemote;
+blink.mojom.PluginRegistryRequest = blink.mojom.PluginRegistryPendingReceiver;
 

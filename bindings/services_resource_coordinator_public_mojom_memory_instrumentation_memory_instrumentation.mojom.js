@@ -9,39 +9,39 @@ var memory_instrumentation = memory_instrumentation || {};
 memory_instrumentation.mojom = memory_instrumentation.mojom || {};
 
 
-memory_instrumentation.mojom.mojom.kProtectionFlagsRead = 4;
+memory_instrumentation.mojom.kProtectionFlagsRead = 4;
 
-memory_instrumentation.mojom.mojom.kProtectionFlagsWrite = 2;
+memory_instrumentation.mojom.kProtectionFlagsWrite = 2;
 
-memory_instrumentation.mojom.mojom.kProtectionFlagsExec = 1;
+memory_instrumentation.mojom.kProtectionFlagsExec = 1;
 
-memory_instrumentation.mojom.mojom.kProtectionFlagsMayshare = 128;
+memory_instrumentation.mojom.kProtectionFlagsMayshare = 128;
 
 // Enum: DumpType
-memory_instrumentation.mojom.mojom.DumpType = {
+memory_instrumentation.mojom.DumpType = {
   PERIODIC_INTERVAL: 0,
   EXPLICITLY_TRIGGERED: 1,
   SUMMARY_ONLY: 2,
 };
-memory_instrumentation.mojom.mojom.DumpTypeSpec = { $: mojo.internal.Enum() };
+memory_instrumentation.mojom.DumpTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LevelOfDetail
-memory_instrumentation.mojom.mojom.LevelOfDetail = {
+memory_instrumentation.mojom.LevelOfDetail = {
   BACKGROUND: 0,
   LIGHT: 1,
   DETAILED: 2,
 };
-memory_instrumentation.mojom.mojom.LevelOfDetailSpec = { $: mojo.internal.Enum() };
+memory_instrumentation.mojom.LevelOfDetailSpec = { $: mojo.internal.Enum() };
 
 // Enum: Determinism
-memory_instrumentation.mojom.mojom.Determinism = {
+memory_instrumentation.mojom.Determinism = {
   NONE: 0,
   FORCE_GC: 1,
 };
-memory_instrumentation.mojom.mojom.DeterminismSpec = { $: mojo.internal.Enum() };
+memory_instrumentation.mojom.DeterminismSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProcessType
-memory_instrumentation.mojom.mojom.ProcessType = {
+memory_instrumentation.mojom.ProcessType = {
   OTHER: 0,
   BROWSER: 1,
   RENDERER: 2,
@@ -50,26 +50,26 @@ memory_instrumentation.mojom.mojom.ProcessType = {
   PLUGIN: 5,
   ARC: 6,
 };
-memory_instrumentation.mojom.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
+memory_instrumentation.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MemoryMapOption
-memory_instrumentation.mojom.mojom.MemoryMapOption = {
+memory_instrumentation.mojom.MemoryMapOption = {
   NONE: 0,
   MODULES: 1,
   FULL: 2,
 };
-memory_instrumentation.mojom.mojom.MemoryMapOptionSpec = { $: mojo.internal.Enum() };
+memory_instrumentation.mojom.MemoryMapOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: MemDumpFlags
-memory_instrumentation.mojom.mojom.MemDumpFlags = {
+memory_instrumentation.mojom.MemDumpFlags = {
   MEM_DUMP_COUNT_MAPPINGS: 0,
   MEM_DUMP_PSS: 1,
   MEM_DUMP_PAGES_BITMAP: 2,
 };
-memory_instrumentation.mojom.mojom.MemDumpFlagsSpec = { $: mojo.internal.Enum() };
+memory_instrumentation.mojom.MemDumpFlagsSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestOutcome
-memory_instrumentation.mojom.mojom.RequestOutcome = {
+memory_instrumentation.mojom.RequestOutcome = {
   kSuccess: 0,
   kRedundant: 1,
   kFillOsMemoryDumpFailed: 2,
@@ -81,10 +81,10 @@ memory_instrumentation.mojom.mojom.RequestOutcome = {
   kTimeout: 8,
   kInProcessMemoryDumpFailed: 9,
 };
-memory_instrumentation.mojom.mojom.RequestOutcomeSpec = { $: mojo.internal.Enum() };
+memory_instrumentation.mojom.RequestOutcomeSpec = { $: mojo.internal.Enum() };
 
 // Union: RawAllocatorDumpEntryValue
-memory_instrumentation.mojom.mojom.RawAllocatorDumpEntryValueSpec = { $: mojo.internal.Union(
+memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec = { $: mojo.internal.Union(
     'memory_instrumentation.mojom.RawAllocatorDumpEntryValue', {
       'value_uint64': {
         'ordinal': 0,
@@ -98,7 +98,7 @@ memory_instrumentation.mojom.mojom.RawAllocatorDumpEntryValueSpec = { $: mojo.in
 };
 
 // Struct: RequestArgs
-memory_instrumentation.mojom.mojom.RequestArgsSpec = {
+memory_instrumentation.mojom.RequestArgsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RequestArgs',
@@ -115,7 +115,7 @@ memory_instrumentation.mojom.mojom.RequestArgsSpec = {
 };
 
 // Struct: RawAllocatorDumpEdge
-memory_instrumentation.mojom.mojom.RawAllocatorDumpEdgeSpec = {
+memory_instrumentation.mojom.RawAllocatorDumpEdgeSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawAllocatorDumpEdge',
@@ -132,7 +132,7 @@ memory_instrumentation.mojom.mojom.RawAllocatorDumpEdgeSpec = {
 };
 
 // Struct: RawAllocatorDumpEntry
-memory_instrumentation.mojom.mojom.RawAllocatorDumpEntrySpec = {
+memory_instrumentation.mojom.RawAllocatorDumpEntrySpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawAllocatorDumpEntry',
@@ -148,7 +148,7 @@ memory_instrumentation.mojom.mojom.RawAllocatorDumpEntrySpec = {
 };
 
 // Struct: RawAllocatorDump
-memory_instrumentation.mojom.mojom.RawAllocatorDumpSpec = {
+memory_instrumentation.mojom.RawAllocatorDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawAllocatorDump',
@@ -166,7 +166,7 @@ memory_instrumentation.mojom.mojom.RawAllocatorDumpSpec = {
 };
 
 // Struct: RawProcessMemoryDump
-memory_instrumentation.mojom.mojom.RawProcessMemoryDumpSpec = {
+memory_instrumentation.mojom.RawProcessMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawProcessMemoryDump',
@@ -182,7 +182,7 @@ memory_instrumentation.mojom.mojom.RawProcessMemoryDumpSpec = {
 };
 
 // Struct: VmRegion
-memory_instrumentation.mojom.mojom.VmRegionSpec = {
+memory_instrumentation.mojom.VmRegionSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.VmRegion',
@@ -213,7 +213,7 @@ memory_instrumentation.mojom.mojom.VmRegionSpec = {
 };
 
 // Struct: PlatformPrivateFootprint
-memory_instrumentation.mojom.mojom.PlatformPrivateFootprintSpec = {
+memory_instrumentation.mojom.PlatformPrivateFootprintSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.PlatformPrivateFootprint',
@@ -232,7 +232,7 @@ memory_instrumentation.mojom.mojom.PlatformPrivateFootprintSpec = {
 };
 
 // Struct: RawOSMemDump
-memory_instrumentation.mojom.mojom.RawOSMemDumpSpec = {
+memory_instrumentation.mojom.RawOSMemDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawOSMemDump',
@@ -254,7 +254,7 @@ memory_instrumentation.mojom.mojom.RawOSMemDumpSpec = {
 };
 
 // Struct: OSMemDump
-memory_instrumentation.mojom.mojom.OSMemDumpSpec = {
+memory_instrumentation.mojom.OSMemDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.OSMemDump',
@@ -276,7 +276,7 @@ memory_instrumentation.mojom.mojom.OSMemDumpSpec = {
 };
 
 // Struct: AllocatorMemDump
-memory_instrumentation.mojom.mojom.AllocatorMemDumpSpec = {
+memory_instrumentation.mojom.AllocatorMemDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.AllocatorMemDump',
@@ -291,7 +291,7 @@ memory_instrumentation.mojom.mojom.AllocatorMemDumpSpec = {
 };
 
 // Struct: ProcessMemoryDump
-memory_instrumentation.mojom.mojom.ProcessMemoryDumpSpec = {
+memory_instrumentation.mojom.ProcessMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.ProcessMemoryDump',
@@ -309,7 +309,7 @@ memory_instrumentation.mojom.mojom.ProcessMemoryDumpSpec = {
 };
 
 // Struct: AggregatedMetrics
-memory_instrumentation.mojom.mojom.AggregatedMetricsSpec = {
+memory_instrumentation.mojom.AggregatedMetricsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.AggregatedMetrics',
@@ -325,7 +325,7 @@ memory_instrumentation.mojom.mojom.AggregatedMetricsSpec = {
 };
 
 // Struct: GlobalMemoryDump
-memory_instrumentation.mojom.mojom.GlobalMemoryDumpSpec = {
+memory_instrumentation.mojom.GlobalMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.GlobalMemoryDump',
@@ -341,7 +341,7 @@ memory_instrumentation.mojom.mojom.GlobalMemoryDumpSpec = {
 };
 
 // Struct: HeapProfileResult
-memory_instrumentation.mojom.mojom.HeapProfileResultSpec = {
+memory_instrumentation.mojom.HeapProfileResultSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.HeapProfileResult',
@@ -356,24 +356,52 @@ memory_instrumentation.mojom.mojom.HeapProfileResultSpec = {
 };
 
 // Interface: ClientProcess
-memory_instrumentation.mojom.mojom.ClientProcess = {};
+memory_instrumentation.mojom.ClientProcess = {};
 
-memory_instrumentation.mojom.mojom.ClientProcessPendingReceiver = class {
+memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.RequestArgsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'option', packedOffset: 16, packedBitOffset: 0, type: memory_instrumentation.mojom.MemoryMapOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(memory_instrumentation.mojom.MemDumpFlagsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'pids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ProcessIdSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.ClientProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-memory_instrumentation.mojom.mojom.ClientProcessRemote = class {
+memory_instrumentation.mojom.ClientProcessRemote = class {
   static get $interfaceName() {
     return 'memory_instrumentation.mojom.ClientProcess';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      memory_instrumentation.mojom.mojom.ClientProcessPendingReceiver,
+      memory_instrumentation.mojom.ClientProcessPendingReceiver,
       handle);
-    this.$ = new memory_instrumentation.mojom.mojom.ClientProcessRemoteCallHandler(this.proxy);
+    this.$ = new memory_instrumentation.mojom.ClientProcessRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -385,7 +413,7 @@ memory_instrumentation.mojom.mojom.ClientProcessRemote = class {
   }
 };
 
-memory_instrumentation.mojom.mojom.ClientProcessRemoteCallHandler = class {
+memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -394,8 +422,8 @@ memory_instrumentation.mojom.mojom.ClientProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
-      memory_instrumentation.mojom.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
+      memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
+      memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
       [args]);
   }
 
@@ -403,15 +431,15 @@ memory_instrumentation.mojom.mojom.ClientProcessRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      memory_instrumentation.mojom.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
-      memory_instrumentation.mojom.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
+      memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
+      memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
       [option, flags, pids]);
   }
 
 };
 
-memory_instrumentation.mojom.mojom.ClientProcess.getRemote = function() {
-  let remote = new memory_instrumentation.mojom.mojom.ClientProcessRemote();
+memory_instrumentation.mojom.ClientProcess.getRemote = function() {
+  let remote = new memory_instrumentation.mojom.ClientProcessRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -421,7 +449,7 @@ memory_instrumentation.mojom.mojom.ClientProcess.getRemote = function() {
 };
 
 // ParamsSpec for RequestChromeMemoryDump
-memory_instrumentation.mojom.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = {
+memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.ClientProcess.RequestChromeMemoryDump_Params',
@@ -434,7 +462,7 @@ memory_instrumentation.mojom.mojom.ClientProcess_RequestChromeMemoryDump_ParamsS
   }
 };
 
-memory_instrumentation.mojom.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec = {
+memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.ClientProcess.RequestChromeMemoryDump_ResponseParams',
@@ -450,7 +478,7 @@ memory_instrumentation.mojom.mojom.ClientProcess_RequestChromeMemoryDump_Respons
 };
 
 // ParamsSpec for RequestOSMemoryDump
-memory_instrumentation.mojom.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
+memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.ClientProcess.RequestOSMemoryDump_Params',
@@ -465,7 +493,7 @@ memory_instrumentation.mojom.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec 
   }
 };
 
-memory_instrumentation.mojom.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec = {
+memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.ClientProcess.RequestOSMemoryDump_ResponseParams',
@@ -480,29 +508,43 @@ memory_instrumentation.mojom.mojom.ClientProcess_RequestOSMemoryDump_ResponsePar
 };
 
 // Legacy compatibility
-memory_instrumentation.mojom.mojom.ClientProcessPtr = memory_instrumentation.mojom.mojom.ClientProcessRemote;
-memory_instrumentation.mojom.mojom.ClientProcessRequest = memory_instrumentation.mojom.mojom.ClientProcessPendingReceiver;
+memory_instrumentation.mojom.ClientProcessPtr = memory_instrumentation.mojom.ClientProcessRemote;
+memory_instrumentation.mojom.ClientProcessRequest = memory_instrumentation.mojom.ClientProcessPendingReceiver;
 
 
 // Interface: HeapProfiler
-memory_instrumentation.mojom.mojom.HeapProfiler = {};
+memory_instrumentation.mojom.HeapProfiler = {};
 
-memory_instrumentation.mojom.mojom.HeapProfilerPendingReceiver = class {
+memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'strip_path_from_mapped_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'write_proto', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.HeapProfilerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-memory_instrumentation.mojom.mojom.HeapProfilerRemote = class {
+memory_instrumentation.mojom.HeapProfilerRemote = class {
   static get $interfaceName() {
     return 'memory_instrumentation.mojom.HeapProfiler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      memory_instrumentation.mojom.mojom.HeapProfilerPendingReceiver,
+      memory_instrumentation.mojom.HeapProfilerPendingReceiver,
       handle);
-    this.$ = new memory_instrumentation.mojom.mojom.HeapProfilerRemoteCallHandler(this.proxy);
+    this.$ = new memory_instrumentation.mojom.HeapProfilerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -514,7 +556,7 @@ memory_instrumentation.mojom.mojom.HeapProfilerRemote = class {
   }
 };
 
-memory_instrumentation.mojom.mojom.HeapProfilerRemoteCallHandler = class {
+memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -523,15 +565,15 @@ memory_instrumentation.mojom.mojom.HeapProfilerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
-      memory_instrumentation.mojom.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
+      memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
+      memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
       [strip_path_from_mapped_files, write_proto]);
   }
 
 };
 
-memory_instrumentation.mojom.mojom.HeapProfiler.getRemote = function() {
-  let remote = new memory_instrumentation.mojom.mojom.HeapProfilerRemote();
+memory_instrumentation.mojom.HeapProfiler.getRemote = function() {
+  let remote = new memory_instrumentation.mojom.HeapProfilerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -541,7 +583,7 @@ memory_instrumentation.mojom.mojom.HeapProfiler.getRemote = function() {
 };
 
 // ParamsSpec for DumpProcessesForTracing
-memory_instrumentation.mojom.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
+memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.HeapProfiler.DumpProcessesForTracing_Params',
@@ -555,7 +597,7 @@ memory_instrumentation.mojom.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSp
   }
 };
 
-memory_instrumentation.mojom.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec = {
+memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.HeapProfiler.DumpProcessesForTracing_ResponseParams',
@@ -569,29 +611,42 @@ memory_instrumentation.mojom.mojom.HeapProfiler_DumpProcessesForTracing_Response
 };
 
 // Legacy compatibility
-memory_instrumentation.mojom.mojom.HeapProfilerPtr = memory_instrumentation.mojom.mojom.HeapProfilerRemote;
-memory_instrumentation.mojom.mojom.HeapProfilerRequest = memory_instrumentation.mojom.mojom.HeapProfilerPendingReceiver;
+memory_instrumentation.mojom.HeapProfilerPtr = memory_instrumentation.mojom.HeapProfilerRemote;
+memory_instrumentation.mojom.HeapProfilerRequest = memory_instrumentation.mojom.HeapProfilerPendingReceiver;
 
 
 // Interface: HeapProfilerHelper
-memory_instrumentation.mojom.mojom.HeapProfilerHelper = {};
+memory_instrumentation.mojom.HeapProfilerHelper = {};
 
-memory_instrumentation.mojom.mojom.HeapProfilerHelperPendingReceiver = class {
+memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ProcessIdSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-memory_instrumentation.mojom.mojom.HeapProfilerHelperRemote = class {
+memory_instrumentation.mojom.HeapProfilerHelperRemote = class {
   static get $interfaceName() {
     return 'memory_instrumentation.mojom.HeapProfilerHelper';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      memory_instrumentation.mojom.mojom.HeapProfilerHelperPendingReceiver,
+      memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver,
       handle);
-    this.$ = new memory_instrumentation.mojom.mojom.HeapProfilerHelperRemoteCallHandler(this.proxy);
+    this.$ = new memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -603,7 +658,7 @@ memory_instrumentation.mojom.mojom.HeapProfilerHelperRemote = class {
   }
 };
 
-memory_instrumentation.mojom.mojom.HeapProfilerHelperRemoteCallHandler = class {
+memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -612,15 +667,15 @@ memory_instrumentation.mojom.mojom.HeapProfilerHelperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
-      memory_instrumentation.mojom.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
+      memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
+      memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
       [pids]);
   }
 
 };
 
-memory_instrumentation.mojom.mojom.HeapProfilerHelper.getRemote = function() {
-  let remote = new memory_instrumentation.mojom.mojom.HeapProfilerHelperRemote();
+memory_instrumentation.mojom.HeapProfilerHelper.getRemote = function() {
+  let remote = new memory_instrumentation.mojom.HeapProfilerHelperRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -630,7 +685,7 @@ memory_instrumentation.mojom.mojom.HeapProfilerHelper.getRemote = function() {
 };
 
 // ParamsSpec for GetVmRegionsForHeapProfiler
-memory_instrumentation.mojom.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec = {
+memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.HeapProfilerHelper.GetVmRegionsForHeapProfiler_Params',
@@ -643,7 +698,7 @@ memory_instrumentation.mojom.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfile
   }
 };
 
-memory_instrumentation.mojom.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec = {
+memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.HeapProfilerHelper.GetVmRegionsForHeapProfiler_ResponseParams',
@@ -657,29 +712,87 @@ memory_instrumentation.mojom.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfile
 };
 
 // Legacy compatibility
-memory_instrumentation.mojom.mojom.HeapProfilerHelperPtr = memory_instrumentation.mojom.mojom.HeapProfilerHelperRemote;
-memory_instrumentation.mojom.mojom.HeapProfilerHelperRequest = memory_instrumentation.mojom.mojom.HeapProfilerHelperPendingReceiver;
+memory_instrumentation.mojom.HeapProfilerHelperPtr = memory_instrumentation.mojom.HeapProfilerHelperRemote;
+memory_instrumentation.mojom.HeapProfilerHelperRequest = memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver;
 
 
 // Interface: Coordinator
-memory_instrumentation.mojom.mojom.Coordinator = {};
+memory_instrumentation.mojom.Coordinator = {};
 
-memory_instrumentation.mojom.mojom.CoordinatorPendingReceiver = class {
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'dump_type', packedOffset: 8, packedBitOffset: 0, type: memory_instrumentation.mojom.DumpTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'level_of_detail', packedOffset: 12, packedBitOffset: 0, type: memory_instrumentation.mojom.LevelOfDetailSpec, nullable: false, minVersion: 0 },
+        { name: 'determinism', packedOffset: 16, packedBitOffset: 0, type: memory_instrumentation.mojom.DeterminismSpec, nullable: false, minVersion: 0 },
+        { name: 'allocator_dump_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
+        { name: 'allocator_dump_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'dump_type', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.DumpTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'level_of_detail', packedOffset: 4, packedBitOffset: 0, type: memory_instrumentation.mojom.LevelOfDetailSpec, nullable: false, minVersion: 0 },
+        { name: 'determinism', packedOffset: 8, packedBitOffset: 0, type: memory_instrumentation.mojom.DeterminismSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.CoordinatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-memory_instrumentation.mojom.mojom.CoordinatorRemote = class {
+memory_instrumentation.mojom.CoordinatorRemote = class {
   static get $interfaceName() {
     return 'memory_instrumentation.mojom.Coordinator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      memory_instrumentation.mojom.mojom.CoordinatorPendingReceiver,
+      memory_instrumentation.mojom.CoordinatorPendingReceiver,
       handle);
-    this.$ = new memory_instrumentation.mojom.mojom.CoordinatorRemoteCallHandler(this.proxy);
+    this.$ = new memory_instrumentation.mojom.CoordinatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -691,7 +804,7 @@ memory_instrumentation.mojom.mojom.CoordinatorRemote = class {
   }
 };
 
-memory_instrumentation.mojom.mojom.CoordinatorRemoteCallHandler = class {
+memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -700,8 +813,8 @@ memory_instrumentation.mojom.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
-      memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
       [dump_type, level_of_detail, determinism, allocator_dump_names]);
   }
 
@@ -709,8 +822,8 @@ memory_instrumentation.mojom.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
-      memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
       [pid, allocator_dump_names]);
   }
 
@@ -718,8 +831,8 @@ memory_instrumentation.mojom.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      memory_instrumentation.mojom.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
-      memory_instrumentation.mojom.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
       [pid]);
   }
 
@@ -727,15 +840,15 @@ memory_instrumentation.mojom.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
-      memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
       [dump_type, level_of_detail, determinism]);
   }
 
 };
 
-memory_instrumentation.mojom.mojom.Coordinator.getRemote = function() {
-  let remote = new memory_instrumentation.mojom.mojom.CoordinatorRemote();
+memory_instrumentation.mojom.Coordinator.getRemote = function() {
+  let remote = new memory_instrumentation.mojom.CoordinatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -745,7 +858,7 @@ memory_instrumentation.mojom.mojom.Coordinator.getRemote = function() {
 };
 
 // ParamsSpec for RequestGlobalMemoryDump
-memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDump_Params',
@@ -761,7 +874,7 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpe
   }
 };
 
-memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDump_ResponseParams',
@@ -776,7 +889,7 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDump_ResponseP
 };
 
 // ParamsSpec for RequestGlobalMemoryDumpForPid
-memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpForPid_Params',
@@ -790,7 +903,7 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpForPid_Par
   }
 };
 
-memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpForPid_ResponseParams',
@@ -805,7 +918,7 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpForPid_Res
 };
 
 // ParamsSpec for RequestPrivateMemoryFootprint
-memory_instrumentation.mojom.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestPrivateMemoryFootprint_Params',
@@ -818,7 +931,7 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestPrivateMemoryFootprint_Par
   }
 };
 
-memory_instrumentation.mojom.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestPrivateMemoryFootprint_ResponseParams',
@@ -833,7 +946,7 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestPrivateMemoryFootprint_Res
 };
 
 // ParamsSpec for RequestGlobalMemoryDumpAndAppendToTrace
-memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpAndAppendToTrace_Params',
@@ -848,7 +961,7 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendT
   }
 };
 
-memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec = {
+memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpAndAppendToTrace_ResponseParams',
@@ -863,29 +976,43 @@ memory_instrumentation.mojom.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendT
 };
 
 // Legacy compatibility
-memory_instrumentation.mojom.mojom.CoordinatorPtr = memory_instrumentation.mojom.mojom.CoordinatorRemote;
-memory_instrumentation.mojom.mojom.CoordinatorRequest = memory_instrumentation.mojom.mojom.CoordinatorPendingReceiver;
+memory_instrumentation.mojom.CoordinatorPtr = memory_instrumentation.mojom.CoordinatorRemote;
+memory_instrumentation.mojom.CoordinatorRequest = memory_instrumentation.mojom.CoordinatorPendingReceiver;
 
 
 // Interface: CoordinatorConnector
-memory_instrumentation.mojom.mojom.CoordinatorConnector = {};
+memory_instrumentation.mojom.CoordinatorConnector = {};
 
-memory_instrumentation.mojom.mojom.CoordinatorConnectorPendingReceiver = class {
+memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(memory_instrumentation.mojom.CoordinatorRemote), nullable: false, minVersion: 0 },
+        { name: 'client_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(memory_instrumentation.mojom.ClientProcessRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-memory_instrumentation.mojom.mojom.CoordinatorConnectorRemote = class {
+memory_instrumentation.mojom.CoordinatorConnectorRemote = class {
   static get $interfaceName() {
     return 'memory_instrumentation.mojom.CoordinatorConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      memory_instrumentation.mojom.mojom.CoordinatorConnectorPendingReceiver,
+      memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver,
       handle);
-    this.$ = new memory_instrumentation.mojom.mojom.CoordinatorConnectorRemoteCallHandler(this.proxy);
+    this.$ = new memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -897,7 +1024,7 @@ memory_instrumentation.mojom.mojom.CoordinatorConnectorRemote = class {
   }
 };
 
-memory_instrumentation.mojom.mojom.CoordinatorConnectorRemoteCallHandler = class {
+memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -906,15 +1033,15 @@ memory_instrumentation.mojom.mojom.CoordinatorConnectorRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
+      memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
       null,
       [receiver, client_process]);
   }
 
 };
 
-memory_instrumentation.mojom.mojom.CoordinatorConnector.getRemote = function() {
-  let remote = new memory_instrumentation.mojom.mojom.CoordinatorConnectorRemote();
+memory_instrumentation.mojom.CoordinatorConnector.getRemote = function() {
+  let remote = new memory_instrumentation.mojom.CoordinatorConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -924,7 +1051,7 @@ memory_instrumentation.mojom.mojom.CoordinatorConnector.getRemote = function() {
 };
 
 // ParamsSpec for RegisterCoordinatorClient
-memory_instrumentation.mojom.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec = {
+memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.CoordinatorConnector.RegisterCoordinatorClient_Params',
@@ -939,6 +1066,6 @@ memory_instrumentation.mojom.mojom.CoordinatorConnector_RegisterCoordinatorClien
 };
 
 // Legacy compatibility
-memory_instrumentation.mojom.mojom.CoordinatorConnectorPtr = memory_instrumentation.mojom.mojom.CoordinatorConnectorRemote;
-memory_instrumentation.mojom.mojom.CoordinatorConnectorRequest = memory_instrumentation.mojom.mojom.CoordinatorConnectorPendingReceiver;
+memory_instrumentation.mojom.CoordinatorConnectorPtr = memory_instrumentation.mojom.CoordinatorConnectorRemote;
+memory_instrumentation.mojom.CoordinatorConnectorRequest = memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver;
 

@@ -10,15 +10,15 @@ viz.mojom = viz.mojom || {};
 
 
 // Enum: BeginFrameArgsType
-viz.mojom.mojom.BeginFrameArgsType = {
+viz.mojom.BeginFrameArgsType = {
   INVALID: 0,
   NORMAL: 1,
   MISSED: 2,
 };
-viz.mojom.mojom.BeginFrameArgsTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.BeginFrameArgsTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: BeginFrameId
-viz.mojom.mojom.BeginFrameIdSpec = {
+viz.mojom.BeginFrameIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BeginFrameId',
@@ -33,7 +33,7 @@ viz.mojom.mojom.BeginFrameIdSpec = {
 };
 
 // Struct: BeginFrameArgs
-viz.mojom.mojom.BeginFrameArgsSpec = {
+viz.mojom.BeginFrameArgsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BeginFrameArgs',
@@ -57,7 +57,7 @@ viz.mojom.mojom.BeginFrameArgsSpec = {
 };
 
 // Struct: BeginFrameAck
-viz.mojom.mojom.BeginFrameAckSpec = {
+viz.mojom.BeginFrameAckSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BeginFrameAck',
@@ -74,7 +74,7 @@ viz.mojom.mojom.BeginFrameAckSpec = {
 };
 
 // Struct: CADisplayLinkParams
-viz.mojom.mojom.CADisplayLinkParamsSpec = {
+viz.mojom.CADisplayLinkParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CADisplayLinkParams',

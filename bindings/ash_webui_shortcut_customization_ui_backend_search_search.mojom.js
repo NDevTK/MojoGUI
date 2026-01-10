@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.shortcut_customization = ash.shortcut_customization || {};
-ash.shortcut_customization.shortcut_customization.mojom = ash.shortcut_customization.shortcut_customization.mojom || {};
+ash.shortcut_customization.mojom = ash.shortcut_customization.mojom || {};
 
 
 // Struct: SearchResult
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultSpec = {
+ash.shortcut_customization.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.SearchResult',
@@ -27,24 +27,36 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultSpec =
 };
 
 // Interface: SearchResultsAvailabilityObserver
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserver = {};
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = {};
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverPendingReceiver = class {
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverRemote = class {
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote = class {
   static get $interfaceName() {
     return 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverPendingReceiver,
+      ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver,
       handle);
-    this.$ = new ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +68,7 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvail
   }
 };
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverRemoteCallHandler = class {
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,15 +77,15 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvail
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec,
+      ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserver.getRemote = function() {
-  let remote = new ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverRemote();
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.getRemote = function() {
+  let remote = new ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +95,7 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvail
 };
 
 // ParamsSpec for OnSearchResultsAvailabilityChanged
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = {
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.OnSearchResultsAvailabilityChanged_Params',
@@ -96,29 +108,56 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvail
 };
 
 // Legacy compatibility
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverPtr = ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverRemote;
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverRequest = ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchResultsAvailabilityObserverPendingReceiver;
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPtr = ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote;
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRequest = ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver;
 
 
 // Interface: SearchHandler
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler = {};
+ash.shortcut_customization.mojom.SearchHandler = {};
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerPendingReceiver = class {
+ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shortcut_customization.mojom.SearchHandler_Search_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.shortcut_customization.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemote = class {
+ash.shortcut_customization.mojom.SearchHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.shortcut_customization.mojom.SearchHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerPendingReceiver,
+      ash.shortcut_customization.mojom.SearchHandlerPendingReceiver,
       handle);
-    this.$ = new ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,7 +169,7 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemot
   }
 };
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemoteCallHandler = class {
+ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -139,8 +178,8 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemot
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_Search_ParamsSpec,
-      ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_Search_ResponseParamsSpec,
+      ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec,
+      ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec,
       [query, max_num_results]);
   }
 
@@ -148,15 +187,15 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemot
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec,
+      ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler.getRemote = function() {
-  let remote = new ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemote();
+ash.shortcut_customization.mojom.SearchHandler.getRemote = function() {
+  let remote = new ash.shortcut_customization.mojom.SearchHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -166,7 +205,7 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler.getR
 };
 
 // ParamsSpec for Search
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_Search_ParamsSpec = {
+ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.SearchHandler.Search_Params',
@@ -180,7 +219,7 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_Sear
   }
 };
 
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_Search_ResponseParamsSpec = {
+ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.SearchHandler.Search_ResponseParams',
@@ -194,7 +233,7 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_Sear
 };
 
 // ParamsSpec for AddSearchResultsAvailabilityObserver
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = {
+ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.SearchHandler.AddSearchResultsAvailabilityObserver_Params',
@@ -208,6 +247,6 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_AddS
 };
 
 // Legacy compatibility
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerPtr = ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRemote;
-ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerRequest = ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandlerPendingReceiver;
+ash.shortcut_customization.mojom.SearchHandlerPtr = ash.shortcut_customization.mojom.SearchHandlerRemote;
+ash.shortcut_customization.mojom.SearchHandlerRequest = ash.shortcut_customization.mojom.SearchHandlerPendingReceiver;
 

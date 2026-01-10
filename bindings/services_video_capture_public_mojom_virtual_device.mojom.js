@@ -14,24 +14,53 @@ var gfx = gfx || {};
 
 
 // Interface: SharedMemoryVirtualDevice
-video_capture.mojom.mojom.SharedMemoryVirtualDevice = {};
+video_capture.mojom.SharedMemoryVirtualDevice = {};
 
-video_capture.mojom.mojom.SharedMemoryVirtualDevicePendingReceiver = class {
+video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'dimension', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'pixel_format', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'strides', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PlaneStridesSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.SharedMemoryVirtualDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemote = class {
+video_capture.mojom.SharedMemoryVirtualDeviceRemote = class {
   static get $interfaceName() {
     return 'video_capture.mojom.SharedMemoryVirtualDevice';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      video_capture.mojom.mojom.SharedMemoryVirtualDevicePendingReceiver,
+      video_capture.mojom.SharedMemoryVirtualDevicePendingReceiver,
       handle);
-    this.$ = new video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemoteCallHandler(this.proxy);
+    this.$ = new video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -43,7 +72,7 @@ video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemote = class {
   }
 };
 
-video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
+video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -52,8 +81,8 @@ video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec,
-      video_capture.mojom.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec,
+      video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec,
+      video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec,
       [dimension, pixel_format, strides]);
   }
 
@@ -61,15 +90,15 @@ video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
+      video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
       [buffer_id, frame_info]);
   }
 
 };
 
-video_capture.mojom.mojom.SharedMemoryVirtualDevice.getRemote = function() {
-  let remote = new video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemote();
+video_capture.mojom.SharedMemoryVirtualDevice.getRemote = function() {
+  let remote = new video_capture.mojom.SharedMemoryVirtualDeviceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -79,7 +108,7 @@ video_capture.mojom.mojom.SharedMemoryVirtualDevice.getRemote = function() {
 };
 
 // ParamsSpec for RequestFrameBuffer
-video_capture.mojom.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
+video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.SharedMemoryVirtualDevice.RequestFrameBuffer_Params',
@@ -94,7 +123,7 @@ video_capture.mojom.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpe
   }
 };
 
-video_capture.mojom.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec = {
+video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.SharedMemoryVirtualDevice.RequestFrameBuffer_ResponseParams',
@@ -108,7 +137,7 @@ video_capture.mojom.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseP
 };
 
 // ParamsSpec for OnFrameReadyInBuffer
-video_capture.mojom.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
+video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.SharedMemoryVirtualDevice.OnFrameReadyInBuffer_Params',
@@ -123,29 +152,83 @@ video_capture.mojom.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsS
 };
 
 // Legacy compatibility
-video_capture.mojom.mojom.SharedMemoryVirtualDevicePtr = video_capture.mojom.mojom.SharedMemoryVirtualDeviceRemote;
-video_capture.mojom.mojom.SharedMemoryVirtualDeviceRequest = video_capture.mojom.mojom.SharedMemoryVirtualDevicePendingReceiver;
+video_capture.mojom.SharedMemoryVirtualDevicePtr = video_capture.mojom.SharedMemoryVirtualDeviceRemote;
+video_capture.mojom.SharedMemoryVirtualDeviceRequest = video_capture.mojom.SharedMemoryVirtualDevicePendingReceiver;
 
 
 // Interface: TextureVirtualDevice
-video_capture.mojom.mojom.TextureVirtualDevice = {};
+video_capture.mojom.TextureVirtualDevice = {};
 
-video_capture.mojom.mojom.TextureVirtualDevicePendingReceiver = class {
+video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'shared_image_handle', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SharedImageBufferHandleSetSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameAccessHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.TextureVirtualDevice_OnBufferRetired_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+video_capture.mojom.TextureVirtualDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-video_capture.mojom.mojom.TextureVirtualDeviceRemote = class {
+video_capture.mojom.TextureVirtualDeviceRemote = class {
   static get $interfaceName() {
     return 'video_capture.mojom.TextureVirtualDevice';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      video_capture.mojom.mojom.TextureVirtualDevicePendingReceiver,
+      video_capture.mojom.TextureVirtualDevicePendingReceiver,
       handle);
-    this.$ = new video_capture.mojom.mojom.TextureVirtualDeviceRemoteCallHandler(this.proxy);
+    this.$ = new video_capture.mojom.TextureVirtualDeviceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -157,7 +240,7 @@ video_capture.mojom.mojom.TextureVirtualDeviceRemote = class {
   }
 };
 
-video_capture.mojom.mojom.TextureVirtualDeviceRemoteCallHandler = class {
+video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -166,7 +249,7 @@ video_capture.mojom.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec,
+      video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec,
       null,
       [buffer_id, shared_image_handle]);
   }
@@ -175,7 +258,7 @@ video_capture.mojom.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
+      video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
       [frame_access_handler]);
   }
@@ -184,7 +267,7 @@ video_capture.mojom.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
+      video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
       [buffer_id, frame_info]);
   }
@@ -193,15 +276,15 @@ video_capture.mojom.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec,
+      video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
       [buffer_id]);
   }
 
 };
 
-video_capture.mojom.mojom.TextureVirtualDevice.getRemote = function() {
-  let remote = new video_capture.mojom.mojom.TextureVirtualDeviceRemote();
+video_capture.mojom.TextureVirtualDevice.getRemote = function() {
+  let remote = new video_capture.mojom.TextureVirtualDeviceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -211,7 +294,7 @@ video_capture.mojom.mojom.TextureVirtualDevice.getRemote = function() {
 };
 
 // ParamsSpec for OnNewSharedImageBufferHandle
-video_capture.mojom.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec = {
+video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.TextureVirtualDevice.OnNewSharedImageBufferHandle_Params',
@@ -226,7 +309,7 @@ video_capture.mojom.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_Para
 };
 
 // ParamsSpec for OnFrameAccessHandlerReady
-video_capture.mojom.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
+video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.TextureVirtualDevice.OnFrameAccessHandlerReady_Params',
@@ -240,7 +323,7 @@ video_capture.mojom.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsS
 };
 
 // ParamsSpec for OnFrameReadyInBuffer
-video_capture.mojom.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
+video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.TextureVirtualDevice.OnFrameReadyInBuffer_Params',
@@ -255,7 +338,7 @@ video_capture.mojom.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec =
 };
 
 // ParamsSpec for OnBufferRetired
-video_capture.mojom.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
+video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.TextureVirtualDevice.OnBufferRetired_Params',
@@ -269,29 +352,83 @@ video_capture.mojom.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
 };
 
 // Legacy compatibility
-video_capture.mojom.mojom.TextureVirtualDevicePtr = video_capture.mojom.mojom.TextureVirtualDeviceRemote;
-video_capture.mojom.mojom.TextureVirtualDeviceRequest = video_capture.mojom.mojom.TextureVirtualDevicePendingReceiver;
+video_capture.mojom.TextureVirtualDevicePtr = video_capture.mojom.TextureVirtualDeviceRemote;
+video_capture.mojom.TextureVirtualDeviceRequest = video_capture.mojom.TextureVirtualDevicePendingReceiver;
 
 
 // Interface: GpuMemoryBufferVirtualDevice
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice = {};
+video_capture.mojom.GpuMemoryBufferVirtualDevice = {};
 
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevicePendingReceiver = class {
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'gmb_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameAccessHandlerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+video_capture.mojom.GpuMemoryBufferVirtualDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemote = class {
+video_capture.mojom.GpuMemoryBufferVirtualDeviceRemote = class {
   static get $interfaceName() {
     return 'video_capture.mojom.GpuMemoryBufferVirtualDevice';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      video_capture.mojom.mojom.GpuMemoryBufferVirtualDevicePendingReceiver,
+      video_capture.mojom.GpuMemoryBufferVirtualDevicePendingReceiver,
       handle);
-    this.$ = new video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler(this.proxy);
+    this.$ = new video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -303,7 +440,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemote = class {
   }
 };
 
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
+video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -312,7 +449,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec,
       null,
       [buffer_id, gmb_handle]);
   }
@@ -321,7 +458,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
       [frame_access_handler]);
   }
@@ -330,7 +467,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
       [buffer_id, frame_info]);
   }
@@ -339,15 +476,15 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
       [buffer_id]);
   }
 
 };
 
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice.getRemote = function() {
-  let remote = new video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemote();
+video_capture.mojom.GpuMemoryBufferVirtualDevice.getRemote = function() {
+  let remote = new video_capture.mojom.GpuMemoryBufferVirtualDeviceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -357,7 +494,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice.getRemote = function() {
 };
 
 // ParamsSpec for OnNewGpuMemoryBufferHandle
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec = {
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnNewGpuMemoryBufferHandle_Params',
@@ -372,7 +509,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandl
 };
 
 // ParamsSpec for OnFrameAccessHandlerReady
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnFrameAccessHandlerReady_Params',
@@ -386,7 +523,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady
 };
 
 // ParamsSpec for OnFrameReadyInBuffer
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnFrameReadyInBuffer_Params',
@@ -401,7 +538,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_Para
 };
 
 // ParamsSpec for OnBufferRetired
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = {
+video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnBufferRetired_Params',
@@ -415,6 +552,6 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpe
 };
 
 // Legacy compatibility
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDevicePtr = video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRemote;
-video_capture.mojom.mojom.GpuMemoryBufferVirtualDeviceRequest = video_capture.mojom.mojom.GpuMemoryBufferVirtualDevicePendingReceiver;
+video_capture.mojom.GpuMemoryBufferVirtualDevicePtr = video_capture.mojom.GpuMemoryBufferVirtualDeviceRemote;
+video_capture.mojom.GpuMemoryBufferVirtualDeviceRequest = video_capture.mojom.GpuMemoryBufferVirtualDevicePendingReceiver;
 

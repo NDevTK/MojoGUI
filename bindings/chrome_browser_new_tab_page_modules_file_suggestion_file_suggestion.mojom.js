@@ -11,15 +11,15 @@ var url = url || {};
 
 
 // Enum: RecommendationType
-file_suggestion.mojom.mojom.RecommendationType = {
+file_suggestion.mojom.RecommendationType = {
   kUsed: 0,
   kShared: 1,
   kTrending: 2,
 };
-file_suggestion.mojom.mojom.RecommendationTypeSpec = { $: mojo.internal.Enum() };
+file_suggestion.mojom.RecommendationTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: File
-file_suggestion.mojom.mojom.FileSpec = {
+file_suggestion.mojom.FileSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.File',

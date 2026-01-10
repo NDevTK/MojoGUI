@@ -10,24 +10,37 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoDecodePerfHistory
-media.mojom.mojom.VideoDecodePerfHistory = {};
+media.mojom.VideoDecodePerfHistory = {};
 
-media.mojom.mojom.VideoDecodePerfHistoryPendingReceiver = class {
+media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+media.mojom.VideoDecodePerfHistoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.mojom.VideoDecodePerfHistoryRemote = class {
+media.mojom.VideoDecodePerfHistoryRemote = class {
   static get $interfaceName() {
     return 'media.mojom.VideoDecodePerfHistory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.mojom.VideoDecodePerfHistoryPendingReceiver,
+      media.mojom.VideoDecodePerfHistoryPendingReceiver,
       handle);
-    this.$ = new media.mojom.mojom.VideoDecodePerfHistoryRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.VideoDecodePerfHistoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ media.mojom.mojom.VideoDecodePerfHistoryRemote = class {
   }
 };
 
-media.mojom.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
+media.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ media.mojom.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec,
-      media.mojom.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec,
+      media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec,
+      media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec,
       [features]);
   }
 
 };
 
-media.mojom.mojom.VideoDecodePerfHistory.getRemote = function() {
-  let remote = new media.mojom.mojom.VideoDecodePerfHistoryRemote();
+media.mojom.VideoDecodePerfHistory.getRemote = function() {
+  let remote = new media.mojom.VideoDecodePerfHistoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ media.mojom.mojom.VideoDecodePerfHistory.getRemote = function() {
 };
 
 // ParamsSpec for GetPerfInfo
-media.mojom.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
+media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_Params',
@@ -79,7 +92,7 @@ media.mojom.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
   }
 };
 
-media.mojom.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
+media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_ResponseParams',
@@ -94,6 +107,6 @@ media.mojom.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.mojom.VideoDecodePerfHistoryPtr = media.mojom.mojom.VideoDecodePerfHistoryRemote;
-media.mojom.mojom.VideoDecodePerfHistoryRequest = media.mojom.mojom.VideoDecodePerfHistoryPendingReceiver;
+media.mojom.VideoDecodePerfHistoryPtr = media.mojom.VideoDecodePerfHistoryRemote;
+media.mojom.VideoDecodePerfHistoryRequest = media.mojom.VideoDecodePerfHistoryPendingReceiver;
 

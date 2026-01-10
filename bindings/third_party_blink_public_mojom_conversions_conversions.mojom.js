@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Struct: Impression
-blink.mojom.mojom.ImpressionSpec = {
+blink.mojom.ImpressionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Impression',
@@ -27,24 +27,68 @@ blink.mojom.mojom.ImpressionSpec = {
 };
 
 // Interface: AttributionHost
-blink.mojom.mojom.AttributionHost = {};
+blink.mojom.AttributionHost = {};
 
-blink.mojom.mojom.AttributionHostPendingReceiver = class {
+blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AttributionHost_RegisterDataHost_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), nullable: false, minVersion: 0 },
+        { name: 'registration_eligibility', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false, minVersion: 0 },
+        { name: 'is_for_background_requests', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reporting_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AttributionHost_RegisterNavigationDataHost_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), nullable: false, minVersion: 0 },
+        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+blink.mojom.AttributionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.AttributionHostRemote = class {
+blink.mojom.AttributionHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AttributionHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.AttributionHostPendingReceiver,
+      blink.mojom.AttributionHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.AttributionHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.AttributionHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +100,7 @@ blink.mojom.mojom.AttributionHostRemote = class {
   }
 };
 
-blink.mojom.mojom.AttributionHostRemoteCallHandler = class {
+blink.mojom.AttributionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,7 +109,7 @@ blink.mojom.mojom.AttributionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.AttributionHost_RegisterDataHost_ParamsSpec,
+      blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec,
       null,
       [data_host, registration_eligibility, is_for_background_requests, reporting_origins]);
   }
@@ -74,7 +118,7 @@ blink.mojom.mojom.AttributionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec,
+      blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec,
       null,
       [data_host, attribution_src_token]);
   }
@@ -83,15 +127,15 @@ blink.mojom.mojom.AttributionHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec,
+      blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec,
       null,
       [attribution_src_token, expected_registrations]);
   }
 
 };
 
-blink.mojom.mojom.AttributionHost.getRemote = function() {
-  let remote = new blink.mojom.mojom.AttributionHostRemote();
+blink.mojom.AttributionHost.getRemote = function() {
+  let remote = new blink.mojom.AttributionHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -101,7 +145,7 @@ blink.mojom.mojom.AttributionHost.getRemote = function() {
 };
 
 // ParamsSpec for RegisterDataHost
-blink.mojom.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
+blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AttributionHost.RegisterDataHost_Params',
@@ -118,7 +162,7 @@ blink.mojom.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterNavigationDataHost
-blink.mojom.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
+blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AttributionHost.RegisterNavigationDataHost_Params',
@@ -133,7 +177,7 @@ blink.mojom.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyNavigationWithBackgroundRegistrationsWillStart
-blink.mojom.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = {
+blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AttributionHost.NotifyNavigationWithBackgroundRegistrationsWillStart_Params',
@@ -148,6 +192,6 @@ blink.mojom.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWil
 };
 
 // Legacy compatibility
-blink.mojom.mojom.AttributionHostPtr = blink.mojom.mojom.AttributionHostRemote;
-blink.mojom.mojom.AttributionHostRequest = blink.mojom.mojom.AttributionHostPendingReceiver;
+blink.mojom.AttributionHostPtr = blink.mojom.AttributionHostRemote;
+blink.mojom.AttributionHostRequest = blink.mojom.AttributionHostPendingReceiver;
 

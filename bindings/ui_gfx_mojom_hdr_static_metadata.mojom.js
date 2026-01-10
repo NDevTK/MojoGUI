@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: HDRStaticMetadata
-gfx.mojom.mojom.HDRStaticMetadataSpec = {
+gfx.mojom.HDRStaticMetadataSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.HDRStaticMetadata',

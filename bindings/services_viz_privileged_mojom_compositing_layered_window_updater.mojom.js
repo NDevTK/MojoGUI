@@ -12,24 +12,50 @@ var gfx = gfx || {};
 
 
 // Interface: LayeredWindowUpdater
-viz.mojom.mojom.LayeredWindowUpdater = {};
+viz.mojom.LayeredWindowUpdater = {};
 
-viz.mojom.mojom.LayeredWindowUpdaterPendingReceiver = class {
+viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'pixel_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayeredWindowUpdater_Draw_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.LayeredWindowUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.LayeredWindowUpdaterRemote = class {
+viz.mojom.LayeredWindowUpdaterRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.LayeredWindowUpdater';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.LayeredWindowUpdaterPendingReceiver,
+      viz.mojom.LayeredWindowUpdaterPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.LayeredWindowUpdaterRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.LayeredWindowUpdaterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +67,7 @@ viz.mojom.mojom.LayeredWindowUpdaterRemote = class {
   }
 };
 
-viz.mojom.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
+viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,7 +76,7 @@ viz.mojom.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec,
+      viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec,
       null,
       [pixel_size, region]);
   }
@@ -59,15 +85,15 @@ viz.mojom.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
+      viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
       null,
       []);
   }
 
 };
 
-viz.mojom.mojom.LayeredWindowUpdater.getRemote = function() {
-  let remote = new viz.mojom.mojom.LayeredWindowUpdaterRemote();
+viz.mojom.LayeredWindowUpdater.getRemote = function() {
+  let remote = new viz.mojom.LayeredWindowUpdaterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -77,7 +103,7 @@ viz.mojom.mojom.LayeredWindowUpdater.getRemote = function() {
 };
 
 // ParamsSpec for OnAllocatedSharedMemory
-viz.mojom.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
+viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayeredWindowUpdater.OnAllocatedSharedMemory_Params',
@@ -92,7 +118,7 @@ viz.mojom.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
 };
 
 // ParamsSpec for Draw
-viz.mojom.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
+viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayeredWindowUpdater.Draw_Params',
@@ -105,6 +131,6 @@ viz.mojom.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.LayeredWindowUpdaterPtr = viz.mojom.mojom.LayeredWindowUpdaterRemote;
-viz.mojom.mojom.LayeredWindowUpdaterRequest = viz.mojom.mojom.LayeredWindowUpdaterPendingReceiver;
+viz.mojom.LayeredWindowUpdaterPtr = viz.mojom.LayeredWindowUpdaterRemote;
+viz.mojom.LayeredWindowUpdaterRequest = viz.mojom.LayeredWindowUpdaterPendingReceiver;
 

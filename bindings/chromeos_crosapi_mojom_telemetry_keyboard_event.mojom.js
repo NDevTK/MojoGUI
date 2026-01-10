@@ -10,40 +10,40 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: TelemetryKeyboardConnectionType
-crosapi.mojom.mojom.TelemetryKeyboardConnectionType = {
+crosapi.mojom.TelemetryKeyboardConnectionType = {
   kInternal: 0,
   kUsb: 1,
   kBluetooth: 2,
   kUnknown: 3,
 };
-crosapi.mojom.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardPhysicalLayout
-crosapi.mojom.mojom.TelemetryKeyboardPhysicalLayout = {
+crosapi.mojom.TelemetryKeyboardPhysicalLayout = {
   kUnknown: 0,
   kChromeOS: 1,
 };
-crosapi.mojom.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardMechanicalLayout
-crosapi.mojom.mojom.TelemetryKeyboardMechanicalLayout = {
+crosapi.mojom.TelemetryKeyboardMechanicalLayout = {
   kUnknown: 0,
   kAnsi: 1,
   kIso: 2,
   kJis: 3,
 };
-crosapi.mojom.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardNumberPadPresence
-crosapi.mojom.mojom.TelemetryKeyboardNumberPadPresence = {
+crosapi.mojom.TelemetryKeyboardNumberPadPresence = {
   kUnknown: 0,
   kPresent: 1,
   kNotPresent: 2,
 };
-crosapi.mojom.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardTopRowKey
-crosapi.mojom.mojom.TelemetryKeyboardTopRowKey = {
+crosapi.mojom.TelemetryKeyboardTopRowKey = {
   kNone: 0,
   kUnknown: 1,
   kBack: 2,
@@ -68,19 +68,19 @@ crosapi.mojom.mojom.TelemetryKeyboardTopRowKey = {
   kScreenMirror: 21,
   kDelete: 22,
 };
-crosapi.mojom.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardTopRightKey
-crosapi.mojom.mojom.TelemetryKeyboardTopRightKey = {
+crosapi.mojom.TelemetryKeyboardTopRightKey = {
   kUnknown: 0,
   kPower: 1,
   kLock: 2,
   kControlPanel: 3,
 };
-crosapi.mojom.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum() };
 
 // Struct: TelemetryKeyboardInfo
-crosapi.mojom.mojom.TelemetryKeyboardInfoSpec = {
+crosapi.mojom.TelemetryKeyboardInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryKeyboardInfo',
@@ -103,7 +103,7 @@ crosapi.mojom.mojom.TelemetryKeyboardInfoSpec = {
 };
 
 // Struct: TelemetryKeyboardDiagnosticEventInfo
-crosapi.mojom.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = {
+crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryKeyboardDiagnosticEventInfo',

@@ -7,38 +7,38 @@
 // Module namespace
 var actor = actor || {};
 actor.webui = actor.webui || {};
-actor.webui.webui.mojom = actor.webui.webui.mojom || {};
+actor.webui.mojom = actor.webui.mojom || {};
 var skia = skia || {};
 var url = url || {};
 
 
 // Enum: UserGrantedPermissionDuration
-actor.webui.webui.mojom.mojom.UserGrantedPermissionDuration = {
+actor.webui.mojom.UserGrantedPermissionDuration = {
   kAlwaysAllow: 0,
 };
-actor.webui.webui.mojom.mojom.UserGrantedPermissionDurationSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.UserGrantedPermissionDurationSpec = { $: mojo.internal.Enum() };
 
 // Enum: SelectCredentialDialogErrorReason
-actor.webui.webui.mojom.mojom.SelectCredentialDialogErrorReason = {
+actor.webui.mojom.SelectCredentialDialogErrorReason = {
 };
-actor.webui.webui.mojom.mojom.SelectCredentialDialogErrorReasonSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SelectAutofillSuggestionsDialogErrorReason
-actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogErrorReason = {
+actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReason = {
   kDialogPromiseNoSubscriber: 0,
   kMismatchedTaskId: 1,
   kNoActorTaskDelegate: 2,
 };
-actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConfirmationRequestErrorReason
-actor.webui.webui.mojom.mojom.ConfirmationRequestErrorReason = {
+actor.webui.mojom.ConfirmationRequestErrorReason = {
   kPreemptedByNewRequest: 0,
 };
-actor.webui.webui.mojom.mojom.ConfirmationRequestErrorReasonSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.ConfirmationRequestErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: SelectAutofillSuggestionsDialogResult
-actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogResultSpec = { $: mojo.internal.Union(
+actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec = { $: mojo.internal.Union(
     'actor.webui.mojom.SelectAutofillSuggestionsDialogResult', {
       'error_reason': {
         'ordinal': 0,
@@ -52,7 +52,7 @@ actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogResultSpec = { $: m
 };
 
 // Union: UserConfirmationDialogResult
-actor.webui.webui.mojom.mojom.UserConfirmationDialogResultSpec = { $: mojo.internal.Union(
+actor.webui.mojom.UserConfirmationDialogResultSpec = { $: mojo.internal.Union(
     'actor.webui.mojom.UserConfirmationDialogResult', {
       'permission_granted': {
         'ordinal': 0,
@@ -66,7 +66,7 @@ actor.webui.webui.mojom.mojom.UserConfirmationDialogResultSpec = { $: mojo.inter
 };
 
 // Union: ConfirmationRequestResult
-actor.webui.webui.mojom.mojom.ConfirmationRequestResultSpec = { $: mojo.internal.Union(
+actor.webui.mojom.ConfirmationRequestResultSpec = { $: mojo.internal.Union(
     'actor.webui.mojom.ConfirmationRequestResult', {
       'permission_granted': {
         'ordinal': 0,
@@ -80,7 +80,7 @@ actor.webui.webui.mojom.mojom.ConfirmationRequestResultSpec = { $: mojo.internal
 };
 
 // Struct: TaskOptions
-actor.webui.webui.mojom.mojom.TaskOptionsSpec = {
+actor.webui.mojom.TaskOptionsSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.TaskOptions',
@@ -94,7 +94,7 @@ actor.webui.webui.mojom.mojom.TaskOptionsSpec = {
 };
 
 // Struct: Credential
-actor.webui.webui.mojom.mojom.CredentialSpec = {
+actor.webui.mojom.CredentialSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.Credential',
@@ -112,7 +112,7 @@ actor.webui.webui.mojom.mojom.CredentialSpec = {
 };
 
 // Struct: SelectCredentialDialogRequest
-actor.webui.webui.mojom.mojom.SelectCredentialDialogRequestSpec = {
+actor.webui.mojom.SelectCredentialDialogRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectCredentialDialogRequest',
@@ -129,7 +129,7 @@ actor.webui.webui.mojom.mojom.SelectCredentialDialogRequestSpec = {
 };
 
 // Struct: SelectCredentialDialogResponse
-actor.webui.webui.mojom.mojom.SelectCredentialDialogResponseSpec = {
+actor.webui.mojom.SelectCredentialDialogResponseSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectCredentialDialogResponse',
@@ -147,7 +147,7 @@ actor.webui.webui.mojom.mojom.SelectCredentialDialogResponseSpec = {
 };
 
 // Struct: AutofillSuggestion
-actor.webui.webui.mojom.mojom.AutofillSuggestionSpec = {
+actor.webui.mojom.AutofillSuggestionSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.AutofillSuggestion',
@@ -164,7 +164,7 @@ actor.webui.webui.mojom.mojom.AutofillSuggestionSpec = {
 };
 
 // Struct: FormFillingRequest
-actor.webui.webui.mojom.mojom.FormFillingRequestSpec = {
+actor.webui.mojom.FormFillingRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.FormFillingRequest',
@@ -179,7 +179,7 @@ actor.webui.webui.mojom.mojom.FormFillingRequestSpec = {
 };
 
 // Struct: SelectAutofillSuggestionsDialogRequest
-actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogRequestSpec = {
+actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectAutofillSuggestionsDialogRequest',
@@ -194,7 +194,7 @@ actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogRequestSpec = {
 };
 
 // Struct: FormFillingResponse
-actor.webui.webui.mojom.mojom.FormFillingResponseSpec = {
+actor.webui.mojom.FormFillingResponseSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.FormFillingResponse',
@@ -208,7 +208,7 @@ actor.webui.webui.mojom.mojom.FormFillingResponseSpec = {
 };
 
 // Struct: SelectAutofillSuggestionsDialogResponse
-actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogResponseSpec = {
+actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectAutofillSuggestionsDialogResponse',
@@ -223,7 +223,7 @@ actor.webui.webui.mojom.mojom.SelectAutofillSuggestionsDialogResponseSpec = {
 };
 
 // Struct: UserConfirmationDialogPayload
-actor.webui.webui.mojom.mojom.UserConfirmationDialogPayloadSpec = {
+actor.webui.mojom.UserConfirmationDialogPayloadSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.UserConfirmationDialogPayload',
@@ -238,7 +238,7 @@ actor.webui.webui.mojom.mojom.UserConfirmationDialogPayloadSpec = {
 };
 
 // Struct: UserConfirmationDialogRequest
-actor.webui.webui.mojom.mojom.UserConfirmationDialogRequestSpec = {
+actor.webui.mojom.UserConfirmationDialogRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.UserConfirmationDialogRequest',
@@ -252,7 +252,7 @@ actor.webui.webui.mojom.mojom.UserConfirmationDialogRequestSpec = {
 };
 
 // Struct: UserConfirmationDialogResponse
-actor.webui.webui.mojom.mojom.UserConfirmationDialogResponseSpec = {
+actor.webui.mojom.UserConfirmationDialogResponseSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.UserConfirmationDialogResponse',
@@ -266,7 +266,7 @@ actor.webui.webui.mojom.mojom.UserConfirmationDialogResponseSpec = {
 };
 
 // Struct: NavigationConfirmationRequest
-actor.webui.webui.mojom.mojom.NavigationConfirmationRequestSpec = {
+actor.webui.mojom.NavigationConfirmationRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.NavigationConfirmationRequest',
@@ -281,7 +281,7 @@ actor.webui.webui.mojom.mojom.NavigationConfirmationRequestSpec = {
 };
 
 // Struct: NavigationConfirmationResponse
-actor.webui.webui.mojom.mojom.NavigationConfirmationResponseSpec = {
+actor.webui.mojom.NavigationConfirmationResponseSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.NavigationConfirmationResponse',

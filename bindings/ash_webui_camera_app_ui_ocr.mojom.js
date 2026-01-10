@@ -7,20 +7,20 @@
 // Module namespace
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
-ash.camera_app.camera_app.mojom = ash.camera_app.camera_app.mojom || {};
+ash.camera_app.mojom = ash.camera_app.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
 
 // Enum: WordDirection
-ash.camera_app.camera_app.mojom.mojom.WordDirection = {
+ash.camera_app.mojom.WordDirection = {
   kLeftToRight: 0,
   kRightToLeft: 1,
 };
-ash.camera_app.camera_app.mojom.mojom.WordDirectionSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.WordDirectionSpec = { $: mojo.internal.Enum() };
 
 // Struct: OcrResult
-ash.camera_app.camera_app.mojom.mojom.OcrResultSpec = {
+ash.camera_app.mojom.OcrResultSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.OcrResult',
@@ -34,7 +34,7 @@ ash.camera_app.camera_app.mojom.mojom.OcrResultSpec = {
 };
 
 // Struct: Line
-ash.camera_app.camera_app.mojom.mojom.LineSpec = {
+ash.camera_app.mojom.LineSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.Line',
@@ -53,7 +53,7 @@ ash.camera_app.camera_app.mojom.mojom.LineSpec = {
 };
 
 // Struct: Word
-ash.camera_app.camera_app.mojom.mojom.WordSpec = {
+ash.camera_app.mojom.WordSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.Word',

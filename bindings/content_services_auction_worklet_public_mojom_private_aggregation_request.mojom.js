@@ -12,7 +12,7 @@ var blink = blink || {};
 
 
 // Enum: BaseValue
-auction_worklet.mojom.mojom.BaseValue = {
+auction_worklet.mojom.BaseValue = {
   kWinningBid: 0,
   kHighestScoringOtherBid: 1,
   kScriptRunTime: 2,
@@ -30,19 +30,19 @@ auction_worklet.mojom.mojom.BaseValue = {
   kInterestGroupStorageUsed: 14,
   kPercentInterestGroupStorageQuotaUsed: 15,
 };
-auction_worklet.mojom.mojom.BaseValueSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.BaseValueSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReservedNonErrorEventType
-auction_worklet.mojom.mojom.ReservedNonErrorEventType = {
+auction_worklet.mojom.ReservedNonErrorEventType = {
   kReservedAlways: 0,
   kReservedWin: 1,
   kReservedLoss: 2,
   kReservedOnce: 3,
 };
-auction_worklet.mojom.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReservedErrorEventType
-auction_worklet.mojom.mojom.ReservedErrorEventType = {
+auction_worklet.mojom.ReservedErrorEventType = {
   kReportSuccess: 0,
   kTooManyContributions: 1,
   kEmptyReportDropped: 2,
@@ -50,10 +50,10 @@ auction_worklet.mojom.mojom.ReservedErrorEventType = {
   kInsufficientBudget: 4,
   kUncaughtError: 5,
 };
-auction_worklet.mojom.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: ForEventSignalBucket
-auction_worklet.mojom.mojom.ForEventSignalBucketSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.ForEventSignalBucketSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.ForEventSignalBucket', {
       'id_bucket': {
         'ordinal': 0,
@@ -67,7 +67,7 @@ auction_worklet.mojom.mojom.ForEventSignalBucketSpec = { $: mojo.internal.Union(
 };
 
 // Union: ForEventSignalValue
-auction_worklet.mojom.mojom.ForEventSignalValueSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.ForEventSignalValueSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.ForEventSignalValue', {
       'int_value': {
         'ordinal': 0,
@@ -81,7 +81,7 @@ auction_worklet.mojom.mojom.ForEventSignalValueSpec = { $: mojo.internal.Union(
 };
 
 // Union: EventType
-auction_worklet.mojom.mojom.EventTypeSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.EventTypeSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.EventType', {
       'reserved_non_error': {
         'ordinal': 0,
@@ -99,7 +99,7 @@ auction_worklet.mojom.mojom.EventTypeSpec = { $: mojo.internal.Union(
 };
 
 // Union: AggregatableReportContribution
-auction_worklet.mojom.mojom.AggregatableReportContributionSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.AggregatableReportContributionSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.AggregatableReportContribution', {
       'histogram_contribution': {
         'ordinal': 0,
@@ -113,7 +113,7 @@ auction_worklet.mojom.mojom.AggregatableReportContributionSpec = { $: mojo.inter
 };
 
 // Struct: BucketOffset
-auction_worklet.mojom.mojom.BucketOffsetSpec = {
+auction_worklet.mojom.BucketOffsetSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BucketOffset',
@@ -128,7 +128,7 @@ auction_worklet.mojom.mojom.BucketOffsetSpec = {
 };
 
 // Struct: SignalBucket
-auction_worklet.mojom.mojom.SignalBucketSpec = {
+auction_worklet.mojom.SignalBucketSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SignalBucket',
@@ -144,7 +144,7 @@ auction_worklet.mojom.mojom.SignalBucketSpec = {
 };
 
 // Struct: SignalValue
-auction_worklet.mojom.mojom.SignalValueSpec = {
+auction_worklet.mojom.SignalValueSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SignalValue',
@@ -160,7 +160,7 @@ auction_worklet.mojom.mojom.SignalValueSpec = {
 };
 
 // Struct: AggregatableReportForEventContribution
-auction_worklet.mojom.mojom.AggregatableReportForEventContributionSpec = {
+auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AggregatableReportForEventContribution',
@@ -178,7 +178,7 @@ auction_worklet.mojom.mojom.AggregatableReportForEventContributionSpec = {
 };
 
 // Struct: PrivateAggregationRequest
-auction_worklet.mojom.mojom.PrivateAggregationRequestSpec = {
+auction_worklet.mojom.PrivateAggregationRequestSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.PrivateAggregationRequest',
@@ -193,7 +193,7 @@ auction_worklet.mojom.mojom.PrivateAggregationRequestSpec = {
 };
 
 // Struct: FinalizedPrivateAggregationRequest
-auction_worklet.mojom.mojom.FinalizedPrivateAggregationRequestSpec = {
+auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.FinalizedPrivateAggregationRequest',

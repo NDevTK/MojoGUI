@@ -12,7 +12,7 @@ var url = url || {};
 
 
 // Union: DataElement
-network.mojom.mojom.DataElementSpec = { $: mojo.internal.Union(
+network.mojom.DataElementSpec = { $: mojo.internal.Union(
     'network.mojom.DataElement', {
       'bytes': {
         'ordinal': 0,
@@ -34,7 +34,7 @@ network.mojom.mojom.DataElementSpec = { $: mojo.internal.Union(
 };
 
 // Struct: EnabledClientHints
-network.mojom.mojom.EnabledClientHintsSpec = {
+network.mojom.EnabledClientHintsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EnabledClientHints',
@@ -51,7 +51,7 @@ network.mojom.mojom.EnabledClientHintsSpec = {
 };
 
 // Struct: TrustedUrlRequestParams
-network.mojom.mojom.TrustedUrlRequestParamsSpec = {
+network.mojom.TrustedUrlRequestParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedUrlRequestParams',
@@ -78,7 +78,7 @@ network.mojom.mojom.TrustedUrlRequestParamsSpec = {
 };
 
 // Struct: WebBundleTokenParams
-network.mojom.mojom.WebBundleTokenParamsSpec = {
+network.mojom.WebBundleTokenParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebBundleTokenParams',
@@ -95,7 +95,7 @@ network.mojom.mojom.WebBundleTokenParamsSpec = {
 };
 
 // Struct: URLRequest
-network.mojom.mojom.URLRequestSpec = {
+network.mojom.URLRequestSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLRequest',
@@ -173,7 +173,7 @@ network.mojom.mojom.URLRequestSpec = {
 };
 
 // Struct: URLRequestBody
-network.mojom.mojom.URLRequestBodySpec = {
+network.mojom.URLRequestBodySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLRequestBody',
@@ -190,7 +190,7 @@ network.mojom.mojom.URLRequestBodySpec = {
 };
 
 // Struct: DataElementBytes
-network.mojom.mojom.DataElementBytesSpec = {
+network.mojom.DataElementBytesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataElementBytes',
@@ -204,7 +204,7 @@ network.mojom.mojom.DataElementBytesSpec = {
 };
 
 // Struct: DataElementFile
-network.mojom.mojom.DataElementFileSpec = {
+network.mojom.DataElementFileSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataElementFile',
@@ -221,7 +221,7 @@ network.mojom.mojom.DataElementFileSpec = {
 };
 
 // Struct: DataElementDataPipe
-network.mojom.mojom.DataElementDataPipeSpec = {
+network.mojom.DataElementDataPipeSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataElementDataPipe',
@@ -235,7 +235,7 @@ network.mojom.mojom.DataElementDataPipeSpec = {
 };
 
 // Struct: DataElementChunkedDataPipe
-network.mojom.mojom.DataElementChunkedDataPipeSpec = {
+network.mojom.DataElementChunkedDataPipeSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataElementChunkedDataPipe',
@@ -250,7 +250,7 @@ network.mojom.mojom.DataElementChunkedDataPipeSpec = {
 };
 
 // Struct: SocketTag
-network.mojom.mojom.SocketTagSpec = {
+network.mojom.SocketTagSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SocketTag',

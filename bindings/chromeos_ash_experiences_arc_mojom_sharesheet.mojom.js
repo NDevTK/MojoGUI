@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: SharesheetHost
-arc.mojom.mojom.SharesheetHost = {};
+arc.mojom.SharesheetHost = {};
 
-arc.mojom.mojom.SharesheetHostPendingReceiver = class {
+arc.mojom.SharesheetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.SharesheetHostRemote = class {
+arc.mojom.SharesheetHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.SharesheetHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.SharesheetHostPendingReceiver,
+      arc.mojom.SharesheetHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.SharesheetHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.SharesheetHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ arc.mojom.mojom.SharesheetHostRemote = class {
   }
 };
 
-arc.mojom.mojom.SharesheetHostRemoteCallHandler = class {
+arc.mojom.SharesheetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-arc.mojom.mojom.SharesheetHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.SharesheetHostRemote();
+arc.mojom.SharesheetHost.getRemote = function() {
+  let remote = new arc.mojom.SharesheetHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,29 +57,42 @@ arc.mojom.mojom.SharesheetHost.getRemote = function() {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.SharesheetHostPtr = arc.mojom.mojom.SharesheetHostRemote;
-arc.mojom.mojom.SharesheetHostRequest = arc.mojom.mojom.SharesheetHostPendingReceiver;
+arc.mojom.SharesheetHostPtr = arc.mojom.SharesheetHostRemote;
+arc.mojom.SharesheetHostRequest = arc.mojom.SharesheetHostPendingReceiver;
 
 
 // Interface: SharesheetInstance
-arc.mojom.mojom.SharesheetInstance = {};
+arc.mojom.SharesheetInstance = {};
 
-arc.mojom.mojom.SharesheetInstancePendingReceiver = class {
+arc.mojom.SharesheetInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SharesheetInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SharesheetHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.SharesheetInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.SharesheetInstanceRemote = class {
+arc.mojom.SharesheetInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.SharesheetInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.SharesheetInstancePendingReceiver,
+      arc.mojom.SharesheetInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.SharesheetInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.SharesheetInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -91,7 +104,7 @@ arc.mojom.mojom.SharesheetInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.SharesheetInstanceRemoteCallHandler = class {
+arc.mojom.SharesheetInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -100,15 +113,15 @@ arc.mojom.mojom.SharesheetInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.SharesheetInstance_Init_ParamsSpec,
+      arc.mojom.SharesheetInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.mojom.SharesheetInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.SharesheetInstanceRemote();
+arc.mojom.SharesheetInstance.getRemote = function() {
+  let remote = new arc.mojom.SharesheetInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -118,7 +131,7 @@ arc.mojom.mojom.SharesheetInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.SharesheetInstance_Init_ParamsSpec = {
+arc.mojom.SharesheetInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SharesheetInstance.Init_Params',
@@ -132,6 +145,6 @@ arc.mojom.mojom.SharesheetInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.SharesheetInstancePtr = arc.mojom.mojom.SharesheetInstanceRemote;
-arc.mojom.mojom.SharesheetInstanceRequest = arc.mojom.mojom.SharesheetInstancePendingReceiver;
+arc.mojom.SharesheetInstancePtr = arc.mojom.SharesheetInstanceRemote;
+arc.mojom.SharesheetInstanceRequest = arc.mojom.SharesheetInstancePendingReceiver;
 

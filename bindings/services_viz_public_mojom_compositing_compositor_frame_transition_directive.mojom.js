@@ -13,15 +13,15 @@ var gfx = gfx || {};
 
 
 // Enum: CompositorFrameTransitionDirectiveType
-viz.mojom.mojom.CompositorFrameTransitionDirectiveType = {
+viz.mojom.CompositorFrameTransitionDirectiveType = {
   kSave: 0,
   kAnimateRenderer: 1,
   kRelease: 2,
 };
-viz.mojom.mojom.CompositorFrameTransitionDirectiveTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.CompositorFrameTransitionDirectiveTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CompositorFrameTransitionDirectiveSharedElement
-viz.mojom.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
+viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameTransitionDirectiveSharedElement',
@@ -36,7 +36,7 @@ viz.mojom.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
 };
 
 // Struct: CompositorFrameTransitionDirective
-viz.mojom.mojom.CompositorFrameTransitionDirectiveSpec = {
+viz.mojom.CompositorFrameTransitionDirectiveSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameTransitionDirective',

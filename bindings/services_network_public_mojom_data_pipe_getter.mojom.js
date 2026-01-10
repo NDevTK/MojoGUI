@@ -10,24 +10,50 @@ network.mojom = network.mojom || {};
 
 
 // Interface: DataPipeGetter
-network.mojom.mojom.DataPipeGetter = {};
+network.mojom.DataPipeGetter = {};
 
-network.mojom.mojom.DataPipeGetterPendingReceiver = class {
+network.mojom.DataPipeGetter_Read_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DataPipeGetter_Read_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.DataPipeGetter_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DataPipeGetter_Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DataPipeGetterRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+network.mojom.DataPipeGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.mojom.DataPipeGetterRemote = class {
+network.mojom.DataPipeGetterRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DataPipeGetter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.mojom.DataPipeGetterPendingReceiver,
+      network.mojom.DataPipeGetterPendingReceiver,
       handle);
-    this.$ = new network.mojom.mojom.DataPipeGetterRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.DataPipeGetterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +65,7 @@ network.mojom.mojom.DataPipeGetterRemote = class {
   }
 };
 
-network.mojom.mojom.DataPipeGetterRemoteCallHandler = class {
+network.mojom.DataPipeGetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +74,8 @@ network.mojom.mojom.DataPipeGetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.mojom.DataPipeGetter_Read_ParamsSpec,
-      network.mojom.mojom.DataPipeGetter_Read_ResponseParamsSpec,
+      network.mojom.DataPipeGetter_Read_ParamsSpec,
+      network.mojom.DataPipeGetter_Read_ResponseParamsSpec,
       [pipe]);
   }
 
@@ -57,15 +83,15 @@ network.mojom.mojom.DataPipeGetterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.mojom.DataPipeGetter_Clone_ParamsSpec,
+      network.mojom.DataPipeGetter_Clone_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-network.mojom.mojom.DataPipeGetter.getRemote = function() {
-  let remote = new network.mojom.mojom.DataPipeGetterRemote();
+network.mojom.DataPipeGetter.getRemote = function() {
+  let remote = new network.mojom.DataPipeGetterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +101,7 @@ network.mojom.mojom.DataPipeGetter.getRemote = function() {
 };
 
 // ParamsSpec for Read
-network.mojom.mojom.DataPipeGetter_Read_ParamsSpec = {
+network.mojom.DataPipeGetter_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataPipeGetter.Read_Params',
@@ -88,7 +114,7 @@ network.mojom.mojom.DataPipeGetter_Read_ParamsSpec = {
   }
 };
 
-network.mojom.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
+network.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataPipeGetter.Read_ResponseParams',
@@ -103,7 +129,7 @@ network.mojom.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Clone
-network.mojom.mojom.DataPipeGetter_Clone_ParamsSpec = {
+network.mojom.DataPipeGetter_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataPipeGetter.Clone_Params',
@@ -117,6 +143,6 @@ network.mojom.mojom.DataPipeGetter_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.mojom.DataPipeGetterPtr = network.mojom.mojom.DataPipeGetterRemote;
-network.mojom.mojom.DataPipeGetterRequest = network.mojom.mojom.DataPipeGetterPendingReceiver;
+network.mojom.DataPipeGetterPtr = network.mojom.DataPipeGetterRemote;
+network.mojom.DataPipeGetterRequest = network.mojom.DataPipeGetterPendingReceiver;
 

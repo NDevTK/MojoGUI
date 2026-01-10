@@ -10,16 +10,16 @@ network.mojom = network.mojom || {};
 
 
 // Enum: Type
-network.mojom.mojom.Type = {
+network.mojom.Type = {
   kName: 0,
   kRequest: 1,
   kStrictStructuredFieldSerialization: 2,
   kBinaryRepresentation: 3,
 };
-network.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SRIMessageSignatureError
-network.mojom.mojom.SRIMessageSignatureError = {
+network.mojom.SRIMessageSignatureError = {
   kMissingSignatureHeader: 0,
   kMissingSignatureInputHeader: 1,
   kInvalidSignatureHeader: 2,
@@ -42,10 +42,10 @@ network.mojom.mojom.SRIMessageSignatureError = {
   kValidationFailedSignatureMismatch: 19,
   kValidationFailedIntegrityMismatch: 20,
 };
-network.mojom.mojom.SRIMessageSignatureErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.SRIMessageSignatureErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: SRIMessageSignatureComponentParameter
-network.mojom.mojom.SRIMessageSignatureComponentParameterSpec = {
+network.mojom.SRIMessageSignatureComponentParameterSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SRIMessageSignatureComponentParameter',
@@ -59,7 +59,7 @@ network.mojom.mojom.SRIMessageSignatureComponentParameterSpec = {
 };
 
 // Struct: SRIMessageSignatureComponent
-network.mojom.mojom.SRIMessageSignatureComponentSpec = {
+network.mojom.SRIMessageSignatureComponentSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SRIMessageSignatureComponent',
@@ -74,7 +74,7 @@ network.mojom.mojom.SRIMessageSignatureComponentSpec = {
 };
 
 // Struct: SRIMessageSignature
-network.mojom.mojom.SRIMessageSignatureSpec = {
+network.mojom.SRIMessageSignatureSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SRIMessageSignature',
@@ -98,7 +98,7 @@ network.mojom.mojom.SRIMessageSignatureSpec = {
 };
 
 // Struct: SRIMessageSignatureIssue
-network.mojom.mojom.SRIMessageSignatureIssueSpec = {
+network.mojom.SRIMessageSignatureIssueSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SRIMessageSignatureIssue',
@@ -114,7 +114,7 @@ network.mojom.mojom.SRIMessageSignatureIssueSpec = {
 };
 
 // Struct: SRIMessageSignatures
-network.mojom.mojom.SRIMessageSignaturesSpec = {
+network.mojom.SRIMessageSignaturesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SRIMessageSignatures',

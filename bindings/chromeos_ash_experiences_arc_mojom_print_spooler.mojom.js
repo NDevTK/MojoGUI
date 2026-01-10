@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: PrintSessionHost
-arc.mojom.mojom.PrintSessionHost = {};
+arc.mojom.PrintSessionHost = {};
 
-arc.mojom.mojom.PrintSessionHostPendingReceiver = class {
+arc.mojom.PrintSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.PrintSessionHostRemote = class {
+arc.mojom.PrintSessionHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PrintSessionHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.PrintSessionHostPendingReceiver,
+      arc.mojom.PrintSessionHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.PrintSessionHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.PrintSessionHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ arc.mojom.mojom.PrintSessionHostRemote = class {
   }
 };
 
-arc.mojom.mojom.PrintSessionHostRemoteCallHandler = class {
+arc.mojom.PrintSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-arc.mojom.mojom.PrintSessionHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.PrintSessionHostRemote();
+arc.mojom.PrintSessionHost.getRemote = function() {
+  let remote = new arc.mojom.PrintSessionHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,29 +57,54 @@ arc.mojom.mojom.PrintSessionHost.getRemote = function() {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.PrintSessionHostPtr = arc.mojom.mojom.PrintSessionHostRemote;
-arc.mojom.mojom.PrintSessionHostRequest = arc.mojom.mojom.PrintSessionHostPendingReceiver;
+arc.mojom.PrintSessionHostPtr = arc.mojom.PrintSessionHostRemote;
+arc.mojom.PrintSessionHostRequest = arc.mojom.PrintSessionHostPendingReceiver;
 
 
 // Interface: PrintSessionInstance
-arc.mojom.mojom.PrintSessionInstance = {};
+arc.mojom.PrintSessionInstance = {};
 
-arc.mojom.mojom.PrintSessionInstancePendingReceiver = class {
+arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PrintDocumentRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.PrintSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.PrintSessionInstanceRemote = class {
+arc.mojom.PrintSessionInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PrintSessionInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.PrintSessionInstancePendingReceiver,
+      arc.mojom.PrintSessionInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.PrintSessionInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.PrintSessionInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -91,7 +116,7 @@ arc.mojom.mojom.PrintSessionInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.PrintSessionInstanceRemoteCallHandler = class {
+arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -100,7 +125,7 @@ arc.mojom.mojom.PrintSessionInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec,
+      arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec,
       null,
       []);
   }
@@ -109,15 +134,15 @@ arc.mojom.mojom.PrintSessionInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec,
-      arc.mojom.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec,
+      arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec,
+      arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-arc.mojom.mojom.PrintSessionInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.PrintSessionInstanceRemote();
+arc.mojom.PrintSessionInstance.getRemote = function() {
+  let remote = new arc.mojom.PrintSessionInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -127,7 +152,7 @@ arc.mojom.mojom.PrintSessionInstance.getRemote = function() {
 };
 
 // ParamsSpec for OnPrintPreviewClosed
-arc.mojom.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = {
+arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintSessionInstance.OnPrintPreviewClosed_Params',
@@ -140,7 +165,7 @@ arc.mojom.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = {
 };
 
 // ParamsSpec for CreatePreviewDocument
-arc.mojom.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = {
+arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintSessionInstance.CreatePreviewDocument_Params',
@@ -153,7 +178,7 @@ arc.mojom.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = {
+arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintSessionInstance.CreatePreviewDocument_ResponseParams',
@@ -168,29 +193,44 @@ arc.mojom.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-arc.mojom.mojom.PrintSessionInstancePtr = arc.mojom.mojom.PrintSessionInstanceRemote;
-arc.mojom.mojom.PrintSessionInstanceRequest = arc.mojom.mojom.PrintSessionInstancePendingReceiver;
+arc.mojom.PrintSessionInstancePtr = arc.mojom.PrintSessionInstanceRemote;
+arc.mojom.PrintSessionInstanceRequest = arc.mojom.PrintSessionInstancePendingReceiver;
 
 
 // Interface: PrintSpoolerHost
-arc.mojom.mojom.PrintSpoolerHost = {};
+arc.mojom.PrintSpoolerHost = {};
 
-arc.mojom.mojom.PrintSpoolerHostPendingReceiver = class {
+arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'scoped_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'instance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrintSessionInstanceRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.PrintSpoolerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.PrintSpoolerHostRemote = class {
+arc.mojom.PrintSpoolerHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PrintSpoolerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.PrintSpoolerHostPendingReceiver,
+      arc.mojom.PrintSpoolerHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.PrintSpoolerHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.PrintSpoolerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -202,7 +242,7 @@ arc.mojom.mojom.PrintSpoolerHostRemote = class {
   }
 };
 
-arc.mojom.mojom.PrintSpoolerHostRemoteCallHandler = class {
+arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -211,15 +251,15 @@ arc.mojom.mojom.PrintSpoolerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec,
-      arc.mojom.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec,
+      arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec,
+      arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec,
       [scoped_handle, task_id, instance]);
   }
 
 };
 
-arc.mojom.mojom.PrintSpoolerHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.PrintSpoolerHostRemote();
+arc.mojom.PrintSpoolerHost.getRemote = function() {
+  let remote = new arc.mojom.PrintSpoolerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +269,7 @@ arc.mojom.mojom.PrintSpoolerHost.getRemote = function() {
 };
 
 // ParamsSpec for StartPrintInCustomTab
-arc.mojom.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = {
+arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintSpoolerHost.StartPrintInCustomTab_Params',
@@ -244,7 +284,7 @@ arc.mojom.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = {
   }
 };
 
-arc.mojom.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = {
+arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintSpoolerHost.StartPrintInCustomTab_ResponseParams',
@@ -258,29 +298,42 @@ arc.mojom.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.PrintSpoolerHostPtr = arc.mojom.mojom.PrintSpoolerHostRemote;
-arc.mojom.mojom.PrintSpoolerHostRequest = arc.mojom.mojom.PrintSpoolerHostPendingReceiver;
+arc.mojom.PrintSpoolerHostPtr = arc.mojom.PrintSpoolerHostRemote;
+arc.mojom.PrintSpoolerHostRequest = arc.mojom.PrintSpoolerHostPendingReceiver;
 
 
 // Interface: PrintSpoolerInstance
-arc.mojom.mojom.PrintSpoolerInstance = {};
+arc.mojom.PrintSpoolerInstance = {};
 
-arc.mojom.mojom.PrintSpoolerInstancePendingReceiver = class {
+arc.mojom.PrintSpoolerInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSpoolerInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.PrintSpoolerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.PrintSpoolerInstanceRemote = class {
+arc.mojom.PrintSpoolerInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PrintSpoolerInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.PrintSpoolerInstancePendingReceiver,
+      arc.mojom.PrintSpoolerInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.PrintSpoolerInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.PrintSpoolerInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -292,7 +345,7 @@ arc.mojom.mojom.PrintSpoolerInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
+arc.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -301,15 +354,15 @@ arc.mojom.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.mojom.PrintSpoolerInstance_Init_ParamsSpec,
+      arc.mojom.PrintSpoolerInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.mojom.PrintSpoolerInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.PrintSpoolerInstanceRemote();
+arc.mojom.PrintSpoolerInstance.getRemote = function() {
+  let remote = new arc.mojom.PrintSpoolerInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -319,7 +372,7 @@ arc.mojom.mojom.PrintSpoolerInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.PrintSpoolerInstance_Init_ParamsSpec = {
+arc.mojom.PrintSpoolerInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintSpoolerInstance.Init_Params',
@@ -333,6 +386,6 @@ arc.mojom.mojom.PrintSpoolerInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.PrintSpoolerInstancePtr = arc.mojom.mojom.PrintSpoolerInstanceRemote;
-arc.mojom.mojom.PrintSpoolerInstanceRequest = arc.mojom.mojom.PrintSpoolerInstancePendingReceiver;
+arc.mojom.PrintSpoolerInstancePtr = arc.mojom.PrintSpoolerInstanceRemote;
+arc.mojom.PrintSpoolerInstanceRequest = arc.mojom.PrintSpoolerInstancePendingReceiver;
 

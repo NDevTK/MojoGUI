@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
+chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 
 // Union: ValueList
-chromeos.machine_learning.machine_learning.mojom.mojom.ValueListSpec = { $: mojo.internal.Union(
+chromeos.machine_learning.mojom.ValueListSpec = { $: mojo.internal.Union(
     'chromeos.machine_learning.mojom.ValueList', {
       'string_list': {
         'ordinal': 0,
@@ -29,7 +29,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.ValueListSpec = { $: mojo
 };
 
 // Struct: StringList
-chromeos.machine_learning.machine_learning.mojom.mojom.StringListSpec = {
+chromeos.machine_learning.mojom.StringListSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.StringList',
@@ -43,7 +43,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.StringListSpec = {
 };
 
 // Struct: FloatList
-chromeos.machine_learning.machine_learning.mojom.mojom.FloatListSpec = {
+chromeos.machine_learning.mojom.FloatListSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.FloatList',
@@ -57,7 +57,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.FloatListSpec = {
 };
 
 // Struct: Int64List
-chromeos.machine_learning.machine_learning.mojom.mojom.Int64ListSpec = {
+chromeos.machine_learning.mojom.Int64ListSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.Int64List',
@@ -71,7 +71,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.Int64ListSpec = {
 };
 
 // Struct: Tensor
-chromeos.machine_learning.machine_learning.mojom.mojom.TensorSpec = {
+chromeos.machine_learning.mojom.TensorSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.Tensor',

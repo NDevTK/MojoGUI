@@ -13,7 +13,7 @@ var url = url || {};
 
 
 // Enum: PaintPreviewStatus
-paint_preview.mojom.mojom.PaintPreviewStatus = {
+paint_preview.mojom.PaintPreviewStatus = {
   kOk: 0,
   kAlreadyCapturing: 1,
   kCaptureFailed: 2,
@@ -22,10 +22,10 @@ paint_preview.mojom.mojom.PaintPreviewStatus = {
   kPartialSuccess: 5,
   kFailed: 6,
 };
-paint_preview.mojom.mojom.PaintPreviewStatusSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.PaintPreviewStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PaintPreviewCaptureParams
-paint_preview.mojom.mojom.PaintPreviewCaptureParamsSpec = {
+paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCaptureParams',
@@ -47,7 +47,7 @@ paint_preview.mojom.mojom.PaintPreviewCaptureParamsSpec = {
 };
 
 // Struct: LinkData
-paint_preview.mojom.mojom.LinkDataSpec = {
+paint_preview.mojom.LinkDataSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.LinkData',
@@ -62,7 +62,7 @@ paint_preview.mojom.mojom.LinkDataSpec = {
 };
 
 // Struct: PaintPreviewCaptureResponse
-paint_preview.mojom.mojom.PaintPreviewCaptureResponseSpec = {
+paint_preview.mojom.PaintPreviewCaptureResponseSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCaptureResponse',
@@ -82,7 +82,7 @@ paint_preview.mojom.mojom.PaintPreviewCaptureResponseSpec = {
 };
 
 // Struct: GeometryMetadataParams
-paint_preview.mojom.mojom.GeometryMetadataParamsSpec = {
+paint_preview.mojom.GeometryMetadataParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.GeometryMetadataParams',
@@ -99,7 +99,7 @@ paint_preview.mojom.mojom.GeometryMetadataParamsSpec = {
 };
 
 // Struct: GeometryMetadataResponse
-paint_preview.mojom.mojom.GeometryMetadataResponseSpec = {
+paint_preview.mojom.GeometryMetadataResponseSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.GeometryMetadataResponse',
@@ -114,24 +114,50 @@ paint_preview.mojom.mojom.GeometryMetadataResponseSpec = {
 };
 
 // Interface: PaintPreviewRecorder
-paint_preview.mojom.mojom.PaintPreviewRecorder = {};
+paint_preview.mojom.PaintPreviewRecorder = {};
 
-paint_preview.mojom.mojom.PaintPreviewRecorderPendingReceiver = class {
+paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewCaptureParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+paint_preview.mojom.PaintPreviewRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-paint_preview.mojom.mojom.PaintPreviewRecorderRemote = class {
+paint_preview.mojom.PaintPreviewRecorderRemote = class {
   static get $interfaceName() {
     return 'paint_preview.mojom.PaintPreviewRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      paint_preview.mojom.mojom.PaintPreviewRecorderPendingReceiver,
+      paint_preview.mojom.PaintPreviewRecorderPendingReceiver,
       handle);
-    this.$ = new paint_preview.mojom.mojom.PaintPreviewRecorderRemoteCallHandler(this.proxy);
+    this.$ = new paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -143,7 +169,7 @@ paint_preview.mojom.mojom.PaintPreviewRecorderRemote = class {
   }
 };
 
-paint_preview.mojom.mojom.PaintPreviewRecorderRemoteCallHandler = class {
+paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -152,7 +178,7 @@ paint_preview.mojom.mojom.PaintPreviewRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      paint_preview.mojom.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
+      paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
       null,
       [params]);
   }
@@ -161,15 +187,15 @@ paint_preview.mojom.mojom.PaintPreviewRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
-      paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
+      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
+      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
       [params]);
   }
 
 };
 
-paint_preview.mojom.mojom.PaintPreviewRecorder.getRemote = function() {
-  let remote = new paint_preview.mojom.mojom.PaintPreviewRecorderRemote();
+paint_preview.mojom.PaintPreviewRecorder.getRemote = function() {
+  let remote = new paint_preview.mojom.PaintPreviewRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -179,7 +205,7 @@ paint_preview.mojom.mojom.PaintPreviewRecorder.getRemote = function() {
 };
 
 // ParamsSpec for CapturePaintPreview
-paint_preview.mojom.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
+paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewRecorder.CapturePaintPreview_Params',
@@ -193,7 +219,7 @@ paint_preview.mojom.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = 
 };
 
 // ParamsSpec for GetGeometryMetadata
-paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
+paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_Params',
@@ -206,7 +232,7 @@ paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = 
   }
 };
 
-paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = {
+paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_ResponseParams',
@@ -220,6 +246,6 @@ paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParam
 };
 
 // Legacy compatibility
-paint_preview.mojom.mojom.PaintPreviewRecorderPtr = paint_preview.mojom.mojom.PaintPreviewRecorderRemote;
-paint_preview.mojom.mojom.PaintPreviewRecorderRequest = paint_preview.mojom.mojom.PaintPreviewRecorderPendingReceiver;
+paint_preview.mojom.PaintPreviewRecorderPtr = paint_preview.mojom.PaintPreviewRecorderRemote;
+paint_preview.mojom.PaintPreviewRecorderRequest = paint_preview.mojom.PaintPreviewRecorderPendingReceiver;
 

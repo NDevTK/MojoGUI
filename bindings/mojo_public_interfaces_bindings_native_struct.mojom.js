@@ -10,17 +10,17 @@ mojo.native = mojo.native || {};
 
 
 // Enum: SerializedHandleType
-mojo.native.native.SerializedHandleType = {
+mojo.native.SerializedHandleType = {
   MOJO_HANDLE: 0,
   PLATFORM_FILE: 1,
   WIN_HANDLE: 2,
   MACH_PORT: 3,
   FUCHSIA_HANDLE: 4,
 };
-mojo.native.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum() };
+mojo.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SerializedHandle
-mojo.native.native.SerializedHandleSpec = {
+mojo.native.SerializedHandleSpec = {
   $: {
     structSpec: {
       name: 'mojo.native.SerializedHandle',
@@ -35,7 +35,7 @@ mojo.native.native.SerializedHandleSpec = {
 };
 
 // Struct: NativeStruct
-mojo.native.native.NativeStructSpec = {
+mojo.native.NativeStructSpec = {
   $: {
     structSpec: {
       name: 'mojo.native.NativeStruct',

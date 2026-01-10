@@ -18,24 +18,76 @@ var gfx = gfx || {};
 
 
 // Interface: TraitsTestService
-gfx.mojom.mojom.TraitsTestService = {};
+gfx.mojom.TraitsTestService = {};
 
-gfx.mojom.mojom.TraitsTestServicePendingReceiver = class {
+gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.TraitsTestService_EchoSelectionBound_Params',
+      packedSize: 16,
+      fields: [
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.TraitsTestService_EchoTransform_Params',
+      packedSize: 16,
+      fields: [
+        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.TraitsTestService_EchoRRectF_Params',
+      packedSize: 16,
+      fields: [
+        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+gfx.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gfx.mojom.mojom.TraitsTestServiceRemote = class {
+gfx.mojom.TraitsTestServiceRemote = class {
   static get $interfaceName() {
     return 'gfx.mojom.TraitsTestService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gfx.mojom.mojom.TraitsTestServicePendingReceiver,
+      gfx.mojom.TraitsTestServicePendingReceiver,
       handle);
-    this.$ = new gfx.mojom.mojom.TraitsTestServiceRemoteCallHandler(this.proxy);
+    this.$ = new gfx.mojom.TraitsTestServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +99,7 @@ gfx.mojom.mojom.TraitsTestServiceRemote = class {
   }
 };
 
-gfx.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
+gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,8 +108,8 @@ gfx.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec,
-      gfx.mojom.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
+      gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
       [s]);
   }
 
@@ -65,8 +117,8 @@ gfx.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.mojom.TraitsTestService_EchoTransform_ParamsSpec,
-      gfx.mojom.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
+      gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
       [t]);
   }
 
@@ -74,8 +126,8 @@ gfx.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gfx.mojom.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec,
-      gfx.mojom.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
+      gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
       [g]);
   }
 
@@ -83,15 +135,15 @@ gfx.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gfx.mojom.mojom.TraitsTestService_EchoRRectF_ParamsSpec,
-      gfx.mojom.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
+      gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
       [t]);
   }
 
 };
 
-gfx.mojom.mojom.TraitsTestService.getRemote = function() {
-  let remote = new gfx.mojom.mojom.TraitsTestServiceRemote();
+gfx.mojom.TraitsTestService.getRemote = function() {
+  let remote = new gfx.mojom.TraitsTestServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -101,7 +153,7 @@ gfx.mojom.mojom.TraitsTestService.getRemote = function() {
 };
 
 // ParamsSpec for EchoSelectionBound
-gfx.mojom.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
+gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoSelectionBound_Params',
@@ -114,7 +166,7 @@ gfx.mojom.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
   }
 };
 
-gfx.mojom.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
+gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoSelectionBound_ResponseParams',
@@ -128,7 +180,7 @@ gfx.mojom.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoTransform
-gfx.mojom.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
+gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoTransform_Params',
@@ -141,7 +193,7 @@ gfx.mojom.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
   }
 };
 
-gfx.mojom.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
+gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoTransform_ResponseParams',
@@ -155,7 +207,7 @@ gfx.mojom.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoGpuMemoryBufferHandle
-gfx.mojom.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
+gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoGpuMemoryBufferHandle_Params',
@@ -168,7 +220,7 @@ gfx.mojom.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
   }
 };
 
-gfx.mojom.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = {
+gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoGpuMemoryBufferHandle_ResponseParams',
@@ -182,7 +234,7 @@ gfx.mojom.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec =
 };
 
 // ParamsSpec for EchoRRectF
-gfx.mojom.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
+gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoRRectF_Params',
@@ -195,7 +247,7 @@ gfx.mojom.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
   }
 };
 
-gfx.mojom.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
+gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.TraitsTestService.EchoRRectF_ResponseParams',
@@ -209,6 +261,6 @@ gfx.mojom.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-gfx.mojom.mojom.TraitsTestServicePtr = gfx.mojom.mojom.TraitsTestServiceRemote;
-gfx.mojom.mojom.TraitsTestServiceRequest = gfx.mojom.mojom.TraitsTestServicePendingReceiver;
+gfx.mojom.TraitsTestServicePtr = gfx.mojom.TraitsTestServiceRemote;
+gfx.mojom.TraitsTestServiceRequest = gfx.mojom.TraitsTestServicePendingReceiver;
 

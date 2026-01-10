@@ -10,9 +10,9 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: FileSystemAccessPermissionMode
-blink.mojom.mojom.FileSystemAccessPermissionMode = {
+blink.mojom.FileSystemAccessPermissionMode = {
   kRead: 0,
   kReadWrite: 1,
   kWrite: 2,
 };
-blink.mojom.mojom.FileSystemAccessPermissionModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FileSystemAccessPermissionModeSpec = { $: mojo.internal.Enum() };

@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: ViewType
-extensions.mojom.mojom.ViewType = {
+extensions.mojom.ViewType = {
   kInvalid: 0,
   kAppWindow: 1,
   kBackgroundContents: 2,
@@ -23,4 +23,4 @@ extensions.mojom.mojom.ViewType = {
   kExtensionSidePanel: 9,
   kDeveloperTools: 10,
 };
-extensions.mojom.mojom.ViewTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.ViewTypeSpec = { $: mojo.internal.Enum() };

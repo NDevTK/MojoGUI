@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Struct: MemoryConsumerTraits
-content.mojom.mojom.MemoryConsumerTraitsSpec = {
+content.mojom.MemoryConsumerTraitsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MemoryConsumerTraits',
@@ -33,24 +33,49 @@ content.mojom.mojom.MemoryConsumerTraitsSpec = {
 };
 
 // Interface: ChildMemoryConsumer
-content.mojom.mojom.ChildMemoryConsumer = {};
+content.mojom.ChildMemoryConsumer = {};
 
-content.mojom.mojom.ChildMemoryConsumerPendingReceiver = class {
+content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.mojom.ChildMemoryConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.ChildMemoryConsumerRemote = class {
+content.mojom.ChildMemoryConsumerRemote = class {
   static get $interfaceName() {
     return 'content.mojom.ChildMemoryConsumer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.ChildMemoryConsumerPendingReceiver,
+      content.mojom.ChildMemoryConsumerPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.ChildMemoryConsumerRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.ChildMemoryConsumerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +87,7 @@ content.mojom.mojom.ChildMemoryConsumerRemote = class {
   }
 };
 
-content.mojom.mojom.ChildMemoryConsumerRemoteCallHandler = class {
+content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,7 +96,7 @@ content.mojom.mojom.ChildMemoryConsumerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
+      content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
       null,
       []);
   }
@@ -80,15 +105,15 @@ content.mojom.mojom.ChildMemoryConsumerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
+      content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
       null,
       [percentage]);
   }
 
 };
 
-content.mojom.mojom.ChildMemoryConsumer.getRemote = function() {
-  let remote = new content.mojom.mojom.ChildMemoryConsumerRemote();
+content.mojom.ChildMemoryConsumer.getRemote = function() {
+  let remote = new content.mojom.ChildMemoryConsumerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -98,7 +123,7 @@ content.mojom.mojom.ChildMemoryConsumer.getRemote = function() {
 };
 
 // ParamsSpec for NotifyReleaseMemory
-content.mojom.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
+content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ChildMemoryConsumer.NotifyReleaseMemory_Params',
@@ -111,7 +136,7 @@ content.mojom.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyUpdateMemoryLimit
-content.mojom.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
+content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ChildMemoryConsumer.NotifyUpdateMemoryLimit_Params',
@@ -125,29 +150,44 @@ content.mojom.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.mojom.ChildMemoryConsumerPtr = content.mojom.mojom.ChildMemoryConsumerRemote;
-content.mojom.mojom.ChildMemoryConsumerRequest = content.mojom.mojom.ChildMemoryConsumerPendingReceiver;
+content.mojom.ChildMemoryConsumerPtr = content.mojom.ChildMemoryConsumerRemote;
+content.mojom.ChildMemoryConsumerRequest = content.mojom.ChildMemoryConsumerPendingReceiver;
 
 
 // Interface: BrowserMemoryConsumerRegistry
-content.mojom.mojom.BrowserMemoryConsumerRegistry = {};
+content.mojom.BrowserMemoryConsumerRegistry = {};
 
-content.mojom.mojom.BrowserMemoryConsumerRegistryPendingReceiver = class {
+content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'consumer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'traits', packedOffset: 8, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
+        { name: 'child_consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+content.mojom.BrowserMemoryConsumerRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.mojom.BrowserMemoryConsumerRegistryRemote = class {
+content.mojom.BrowserMemoryConsumerRegistryRemote = class {
   static get $interfaceName() {
     return 'content.mojom.BrowserMemoryConsumerRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.mojom.BrowserMemoryConsumerRegistryPendingReceiver,
+      content.mojom.BrowserMemoryConsumerRegistryPendingReceiver,
       handle);
-    this.$ = new content.mojom.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -159,7 +199,7 @@ content.mojom.mojom.BrowserMemoryConsumerRegistryRemote = class {
   }
 };
 
-content.mojom.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
+content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -168,15 +208,15 @@ content.mojom.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
+      content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
       null,
       [consumer_id, traits, child_consumer]);
   }
 
 };
 
-content.mojom.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
-  let remote = new content.mojom.mojom.BrowserMemoryConsumerRegistryRemote();
+content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
+  let remote = new content.mojom.BrowserMemoryConsumerRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -186,7 +226,7 @@ content.mojom.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
 };
 
 // ParamsSpec for RegisterChildMemoryConsumer
-content.mojom.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = {
+content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.BrowserMemoryConsumerRegistry.RegisterChildMemoryConsumer_Params',
@@ -202,6 +242,6 @@ content.mojom.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Pa
 };
 
 // Legacy compatibility
-content.mojom.mojom.BrowserMemoryConsumerRegistryPtr = content.mojom.mojom.BrowserMemoryConsumerRegistryRemote;
-content.mojom.mojom.BrowserMemoryConsumerRegistryRequest = content.mojom.mojom.BrowserMemoryConsumerRegistryPendingReceiver;
+content.mojom.BrowserMemoryConsumerRegistryPtr = content.mojom.BrowserMemoryConsumerRegistryRemote;
+content.mojom.BrowserMemoryConsumerRegistryRequest = content.mojom.BrowserMemoryConsumerRegistryPendingReceiver;
 

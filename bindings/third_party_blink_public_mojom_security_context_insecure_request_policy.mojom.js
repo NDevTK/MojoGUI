@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: InsecureRequestPolicy
-blink.mojom.mojom.InsecureRequestPolicy = {
+blink.mojom.InsecureRequestPolicy = {
   kLeaveInsecureRequestsAlone: 0,
   kUpgradeInsecureRequests: 1,
   kBlockAllMixedContent: 2,
   kMaxInsecureRequestPolicy: 3,
 };
-blink.mojom.mojom.InsecureRequestPolicySpec = { $: mojo.internal.Enum() };
+blink.mojom.InsecureRequestPolicySpec = { $: mojo.internal.Enum() };

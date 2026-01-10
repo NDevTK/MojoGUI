@@ -14,24 +14,62 @@ var gfx = gfx || {};
 
 
 // Interface: Gpu
-viz.mojom.mojom.Gpu = {};
+viz.mojom.Gpu = {};
 
-viz.mojom.mojom.GpuPendingReceiver = class {
+viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.Gpu_EstablishGpuChannel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.Gpu_CreateJpegDecodeAccelerator_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoEncodeAcceleratorProviderRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+viz.mojom.GpuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.GpuRemote = class {
+viz.mojom.GpuRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.Gpu';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.GpuPendingReceiver,
+      viz.mojom.GpuPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.GpuRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.GpuRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -43,7 +81,7 @@ viz.mojom.mojom.GpuRemote = class {
   }
 };
 
-viz.mojom.mojom.GpuRemoteCallHandler = class {
+viz.mojom.GpuRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -52,8 +90,8 @@ viz.mojom.mojom.GpuRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.Gpu_EstablishGpuChannel_ParamsSpec,
-      viz.mojom.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec,
+      viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec,
+      viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec,
       []);
   }
 
@@ -61,7 +99,7 @@ viz.mojom.mojom.GpuRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec,
+      viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
       [jda]);
   }
@@ -70,15 +108,15 @@ viz.mojom.mojom.GpuRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
+      viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
       [vea_provider]);
   }
 
 };
 
-viz.mojom.mojom.Gpu.getRemote = function() {
-  let remote = new viz.mojom.mojom.GpuRemote();
+viz.mojom.Gpu.getRemote = function() {
+  let remote = new viz.mojom.GpuRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -88,7 +126,7 @@ viz.mojom.mojom.Gpu.getRemote = function() {
 };
 
 // ParamsSpec for EstablishGpuChannel
-viz.mojom.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
+viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Gpu.EstablishGpuChannel_Params',
@@ -100,7 +138,7 @@ viz.mojom.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
   }
 };
 
-viz.mojom.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
+viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Gpu.EstablishGpuChannel_ResponseParams',
@@ -118,7 +156,7 @@ viz.mojom.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateJpegDecodeAccelerator
-viz.mojom.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
+viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Gpu.CreateJpegDecodeAccelerator_Params',
@@ -132,7 +170,7 @@ viz.mojom.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
 };
 
 // ParamsSpec for CreateVideoEncodeAcceleratorProvider
-viz.mojom.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
+viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Gpu.CreateVideoEncodeAcceleratorProvider_Params',
@@ -146,6 +184,6 @@ viz.mojom.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.GpuPtr = viz.mojom.mojom.GpuRemote;
-viz.mojom.mojom.GpuRequest = viz.mojom.mojom.GpuPendingReceiver;
+viz.mojom.GpuPtr = viz.mojom.GpuRemote;
+viz.mojom.GpuRequest = viz.mojom.GpuPendingReceiver;
 

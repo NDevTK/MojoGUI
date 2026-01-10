@@ -7,36 +7,36 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
-chromeos.cdm.cdm.mojom = chromeos.cdm.cdm.mojom || {};
+chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 
 
 // Enum: EmeInitDataType
-chromeos.cdm.cdm.mojom.mojom.EmeInitDataType = {
+chromeos.cdm.mojom.EmeInitDataType = {
   UNKNOWN: 0,
   WEBM: 1,
   CENC: 2,
   KEYIDS: 3,
 };
-chromeos.cdm.cdm.mojom.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CdmSessionType
-chromeos.cdm.cdm.mojom.mojom.CdmSessionType = {
+chromeos.cdm.mojom.CdmSessionType = {
   kTemporary: 0,
   kPersistentLicense: 1,
 };
-chromeos.cdm.cdm.mojom.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CdmMessageType
-chromeos.cdm.cdm.mojom.mojom.CdmMessageType = {
+chromeos.cdm.mojom.CdmMessageType = {
   LICENSE_REQUEST: 0,
   LICENSE_RENEWAL: 1,
   LICENSE_RELEASE: 2,
   INDIVIDUALIZATION_REQUEST: 3,
 };
-chromeos.cdm.cdm.mojom.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CdmKeyStatus
-chromeos.cdm.cdm.mojom.mojom.CdmKeyStatus = {
+chromeos.cdm.mojom.CdmKeyStatus = {
   USABLE: 0,
   INTERNAL_ERROR: 1,
   EXPIRED: 2,
@@ -45,10 +45,10 @@ chromeos.cdm.cdm.mojom.mojom.CdmKeyStatus = {
   KEY_STATUS_PENDING: 5,
   RELEASED: 6,
 };
-chromeos.cdm.cdm.mojom.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: HdcpVersion
-chromeos.cdm.cdm.mojom.mojom.HdcpVersion = {
+chromeos.cdm.mojom.HdcpVersion = {
   kHdcpVersionNone: 0,
   kHdcpVersion1_0: 1,
   kHdcpVersion1_1: 2,
@@ -60,34 +60,34 @@ chromeos.cdm.cdm.mojom.mojom.HdcpVersion = {
   kHdcpVersion2_2: 8,
   kHdcpVersion2_3: 9,
 };
-chromeos.cdm.cdm.mojom.mojom.HdcpVersionSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.HdcpVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: PromiseException
-chromeos.cdm.cdm.mojom.mojom.PromiseException = {
+chromeos.cdm.mojom.PromiseException = {
   NOT_SUPPORTED_ERROR: 0,
   INVALID_STATE_ERROR: 1,
   QUOTA_EXCEEDED_ERROR: 2,
   TYPE_ERROR: 3,
 };
-chromeos.cdm.cdm.mojom.mojom.PromiseExceptionSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.PromiseExceptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionScheme
-chromeos.cdm.cdm.mojom.mojom.EncryptionScheme = {
+chromeos.cdm.mojom.EncryptionScheme = {
   kCenc: 0,
   kCbcs: 1,
 };
-chromeos.cdm.cdm.mojom.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DecryptStatus
-chromeos.cdm.cdm.mojom.mojom.DecryptStatus = {
+chromeos.cdm.mojom.DecryptStatus = {
   kSuccess: 0,
   kNoKey: 1,
   kFailure: 2,
 };
-chromeos.cdm.cdm.mojom.mojom.DecryptStatusSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.DecryptStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: CdmPromiseResult
-chromeos.cdm.cdm.mojom.mojom.CdmPromiseResultSpec = {
+chromeos.cdm.mojom.CdmPromiseResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmPromiseResult',
@@ -104,7 +104,7 @@ chromeos.cdm.cdm.mojom.mojom.CdmPromiseResultSpec = {
 };
 
 // Struct: CdmKeyInformation
-chromeos.cdm.cdm.mojom.mojom.CdmKeyInformationSpec = {
+chromeos.cdm.mojom.CdmKeyInformationSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmKeyInformation',
@@ -120,7 +120,7 @@ chromeos.cdm.cdm.mojom.mojom.CdmKeyInformationSpec = {
 };
 
 // Struct: EncryptionPattern
-chromeos.cdm.cdm.mojom.mojom.EncryptionPatternSpec = {
+chromeos.cdm.mojom.EncryptionPatternSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.EncryptionPattern',
@@ -135,7 +135,7 @@ chromeos.cdm.cdm.mojom.mojom.EncryptionPatternSpec = {
 };
 
 // Struct: SubsampleEntry
-chromeos.cdm.cdm.mojom.mojom.SubsampleEntrySpec = {
+chromeos.cdm.mojom.SubsampleEntrySpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.SubsampleEntry',
@@ -150,7 +150,7 @@ chromeos.cdm.cdm.mojom.mojom.SubsampleEntrySpec = {
 };
 
 // Struct: DecryptConfig
-chromeos.cdm.cdm.mojom.mojom.DecryptConfigSpec = {
+chromeos.cdm.mojom.DecryptConfigSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.DecryptConfig',
@@ -168,24 +168,163 @@ chromeos.cdm.cdm.mojom.mojom.DecryptConfigSpec = {
 };
 
 // Interface: ContentDecryptionModule
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule = {};
+chromeos.cdm.mojom.ContentDecryptionModule = {};
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModulePendingReceiver = class {
+chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'certificate_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'min_hdcp_version', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.HdcpVersionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_type', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.CdmSessionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'init_data_type', packedOffset: 12, packedBitOffset: 0, type: chromeos.cdm.mojom.EmeInitDataTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'init_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_type', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.CdmSessionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'encrypted_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'decrypt_config', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.DecryptConfigSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'decrypt_config', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.DecryptConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'encrypted_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'decrypt_config_in', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.DecryptConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'is_video', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'secure_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 3 },
+      ],
+      versions: [{version: 0, packedSize: 32}, {version: 3, packedSize: 40}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemote = class {
+chromeos.cdm.mojom.ContentDecryptionModuleRemote = class {
   static get $interfaceName() {
     return 'chromeos.cdm.mojom.ContentDecryptionModule';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModulePendingReceiver,
+      chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver,
       handle);
-    this.$ = new chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -197,7 +336,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemote = class {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
+chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -206,8 +345,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
       [certificate_data]);
   }
 
@@ -215,8 +354,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
       [min_hdcp_version]);
   }
 
@@ -224,8 +363,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
       [session_type, init_data_type, init_data]);
   }
 
@@ -233,8 +372,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_LoadSession_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
       [session_type, session_id]);
   }
 
@@ -242,8 +381,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
       [session_id, response]);
   }
 
@@ -251,8 +390,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CloseSession_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
       [session_id]);
   }
 
@@ -260,8 +399,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
       [session_id]);
   }
 
@@ -269,8 +408,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec,
       [encrypted_data, decrypt_config]);
   }
 
@@ -278,8 +417,8 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec,
       [decrypt_config, hw_identifier]);
   }
 
@@ -287,15 +426,15 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_Decrypt_ParamsSpec,
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec,
       [encrypted_data, decrypt_config_in, is_video, secure_handle]);
   }
 
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule.getRemote = function() {
-  let remote = new chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemote();
+chromeos.cdm.mojom.ContentDecryptionModule.getRemote = function() {
+  let remote = new chromeos.cdm.mojom.ContentDecryptionModuleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -305,7 +444,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule.getRemote = function() {
 };
 
 // ParamsSpec for SetServerCertificate
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.SetServerCertificate_Params',
@@ -318,7 +457,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_SetServerCertificate_Params
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.SetServerCertificate_ResponseParams',
@@ -332,7 +471,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_SetServerCertificate_Respon
 };
 
 // ParamsSpec for GetStatusForPolicy
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.GetStatusForPolicy_Params',
@@ -345,7 +484,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSp
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.GetStatusForPolicy_ResponseParams',
@@ -360,7 +499,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetStatusForPolicy_Response
 };
 
 // ParamsSpec for CreateSessionAndGenerateRequest
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_Params',
@@ -375,7 +514,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CreateSessionAndGenerateReq
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_ResponseParams',
@@ -390,7 +529,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CreateSessionAndGenerateReq
 };
 
 // ParamsSpec for LoadSession
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.LoadSession_Params',
@@ -404,7 +543,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.LoadSession_ResponseParams',
@@ -419,7 +558,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_LoadSession_ResponseParamsS
 };
 
 // ParamsSpec for UpdateSession
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.UpdateSession_Params',
@@ -433,7 +572,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = 
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.UpdateSession_ResponseParams',
@@ -447,7 +586,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_UpdateSession_ResponseParam
 };
 
 // ParamsSpec for CloseSession
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.CloseSession_Params',
@@ -460,7 +599,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.CloseSession_ResponseParams',
@@ -474,7 +613,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_CloseSession_ResponseParams
 };
 
 // ParamsSpec for RemoveSession
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.RemoveSession_Params',
@@ -487,7 +626,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = 
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.RemoveSession_ResponseParams',
@@ -501,7 +640,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_RemoveSession_ResponseParam
 };
 
 // ParamsSpec for DecryptDeprecated
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.DecryptDeprecated_Params',
@@ -515,7 +654,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpe
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.DecryptDeprecated_ResponseParams',
@@ -530,7 +669,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseP
 };
 
 // ParamsSpec for GetHwKeyData
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.GetHwKeyData_Params',
@@ -544,7 +683,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec = {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.GetHwKeyData_ResponseParams',
@@ -559,7 +698,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParams
 };
 
 // ParamsSpec for Decrypt
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_Decrypt_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.Decrypt_Params',
@@ -575,7 +714,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_Decrypt_ParamsSpec = {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModule.Decrypt_ResponseParams',
@@ -591,29 +730,86 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModulePtr = chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRemote;
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleRequest = chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModulePendingReceiver;
+chromeos.cdm.mojom.ContentDecryptionModulePtr = chromeos.cdm.mojom.ContentDecryptionModuleRemote;
+chromeos.cdm.mojom.ContentDecryptionModuleRequest = chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver;
 
 
 // Interface: ContentDecryptionModuleClient
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient = {};
+chromeos.cdm.mojom.ContentDecryptionModuleClient = {};
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientPendingReceiver = class {
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message_type', packedOffset: 16, packedBitOffset: 0, type: chromeos.cdm.mojom.CdmMessageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'has_additional_usable_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'keys_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.cdm.mojom.CdmKeyInformationSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'new_expiry_time_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemote = class {
+chromeos.cdm.mojom.ContentDecryptionModuleClientRemote = class {
   static get $interfaceName() {
     return 'chromeos.cdm.mojom.ContentDecryptionModuleClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientPendingReceiver,
+      chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver,
       handle);
-    this.$ = new chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -625,7 +821,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemote = class {
   }
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
+chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -634,7 +830,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec,
       null,
       [session_id, message_type, message]);
   }
@@ -643,7 +839,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec,
       null,
       [session_id]);
   }
@@ -652,7 +848,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemoteCallHandler = cl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec,
       null,
       [session_id, has_additional_usable_key, keys_info]);
   }
@@ -661,15 +857,15 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemoteCallHandler = cl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec,
+      chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec,
       null,
       [session_id, new_expiry_time_sec]);
   }
 
 };
 
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient.getRemote = function() {
-  let remote = new chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemote();
+chromeos.cdm.mojom.ContentDecryptionModuleClient.getRemote = function() {
+  let remote = new chromeos.cdm.mojom.ContentDecryptionModuleClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -679,7 +875,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient.getRemote = function(
 };
 
 // ParamsSpec for OnSessionMessage
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient.OnSessionMessage_Params',
@@ -695,7 +891,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionMessage_Para
 };
 
 // ParamsSpec for OnSessionClosed
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient.OnSessionClosed_Params',
@@ -709,7 +905,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionClosed_Param
 };
 
 // ParamsSpec for OnSessionKeysChange
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient.OnSessionKeysChange_Params',
@@ -725,7 +921,7 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_P
 };
 
 // ParamsSpec for OnSessionExpirationUpdate
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = {
+chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.ContentDecryptionModuleClient.OnSessionExpirationUpdate_Params',
@@ -740,6 +936,6 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClient_OnSessionExpirationUp
 };
 
 // Legacy compatibility
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientPtr = chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRemote;
-chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientRequest = chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModuleClientPendingReceiver;
+chromeos.cdm.mojom.ContentDecryptionModuleClientPtr = chromeos.cdm.mojom.ContentDecryptionModuleClientRemote;
+chromeos.cdm.mojom.ContentDecryptionModuleClientRequest = chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver;
 

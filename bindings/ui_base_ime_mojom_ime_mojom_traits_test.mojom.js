@@ -11,24 +11,37 @@ var ui = ui || {};
 
 
 // Interface: IMEStructTraitsTest
-ui.mojom.mojom.IMEStructTraitsTest = {};
+ui.mojom.IMEStructTraitsTest = {};
 
-ui.mojom.mojom.IMEStructTraitsTestPendingReceiver = class {
+ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ui.mojom.IMEStructTraitsTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ui.mojom.mojom.IMEStructTraitsTestRemote = class {
+ui.mojom.IMEStructTraitsTestRemote = class {
   static get $interfaceName() {
     return 'ui.mojom.IMEStructTraitsTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ui.mojom.mojom.IMEStructTraitsTestPendingReceiver,
+      ui.mojom.IMEStructTraitsTestPendingReceiver,
       handle);
-    this.$ = new ui.mojom.mojom.IMEStructTraitsTestRemoteCallHandler(this.proxy);
+    this.$ = new ui.mojom.IMEStructTraitsTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ ui.mojom.mojom.IMEStructTraitsTestRemote = class {
   }
 };
 
-ui.mojom.mojom.IMEStructTraitsTestRemoteCallHandler = class {
+ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ ui.mojom.mojom.IMEStructTraitsTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.mojom.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec,
-      ui.mojom.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec,
+      ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec,
+      ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec,
       [in]);
   }
 
 };
 
-ui.mojom.mojom.IMEStructTraitsTest.getRemote = function() {
-  let remote = new ui.mojom.mojom.IMEStructTraitsTestRemote();
+ui.mojom.IMEStructTraitsTest.getRemote = function() {
+  let remote = new ui.mojom.IMEStructTraitsTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ ui.mojom.mojom.IMEStructTraitsTest.getRemote = function() {
 };
 
 // ParamsSpec for EchoTextInputType
-ui.mojom.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
+ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_Params',
@@ -80,7 +93,7 @@ ui.mojom.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
   }
 };
 
-ui.mojom.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
+ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_ResponseParams',
@@ -94,6 +107,6 @@ ui.mojom.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ui.mojom.mojom.IMEStructTraitsTestPtr = ui.mojom.mojom.IMEStructTraitsTestRemote;
-ui.mojom.mojom.IMEStructTraitsTestRequest = ui.mojom.mojom.IMEStructTraitsTestPendingReceiver;
+ui.mojom.IMEStructTraitsTestPtr = ui.mojom.IMEStructTraitsTestRemote;
+ui.mojom.IMEStructTraitsTestRequest = ui.mojom.IMEStructTraitsTestPendingReceiver;
 

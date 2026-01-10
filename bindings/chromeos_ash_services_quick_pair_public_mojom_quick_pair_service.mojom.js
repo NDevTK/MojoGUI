@@ -7,28 +7,41 @@
 // Module namespace
 var ash = ash || {};
 ash.quick_pair = ash.quick_pair || {};
-ash.quick_pair.quick_pair.mojom = ash.quick_pair.quick_pair.mojom || {};
+ash.quick_pair.mojom = ash.quick_pair.mojom || {};
 
 
 // Interface: QuickPairService
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairService = {};
+ash.quick_pair.mojom.QuickPairService = {};
 
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairServicePendingReceiver = class {
+ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.QuickPairService_Connect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'fast_pair_data_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.quick_pair.mojom.FastPairDataParserRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.quick_pair.mojom.QuickPairServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRemote = class {
+ash.quick_pair.mojom.QuickPairServiceRemote = class {
   static get $interfaceName() {
     return 'ash.quick_pair.mojom.QuickPairService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.quick_pair.quick_pair.mojom.mojom.QuickPairServicePendingReceiver,
+      ash.quick_pair.mojom.QuickPairServicePendingReceiver,
       handle);
-    this.$ = new ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +53,7 @@ ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRemote = class {
   }
 };
 
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRemoteCallHandler = class {
+ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +62,15 @@ ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.quick_pair.quick_pair.mojom.mojom.QuickPairService_Connect_ParamsSpec,
+      ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec,
       null,
       [fast_pair_data_parser]);
   }
 
 };
 
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairService.getRemote = function() {
-  let remote = new ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRemote();
+ash.quick_pair.mojom.QuickPairService.getRemote = function() {
+  let remote = new ash.quick_pair.mojom.QuickPairServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +80,7 @@ ash.quick_pair.quick_pair.mojom.mojom.QuickPairService.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairService_Connect_ParamsSpec = {
+ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.QuickPairService.Connect_Params',
@@ -81,6 +94,6 @@ ash.quick_pair.quick_pair.mojom.mojom.QuickPairService_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairServicePtr = ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRemote;
-ash.quick_pair.quick_pair.mojom.mojom.QuickPairServiceRequest = ash.quick_pair.quick_pair.mojom.mojom.QuickPairServicePendingReceiver;
+ash.quick_pair.mojom.QuickPairServicePtr = ash.quick_pair.mojom.QuickPairServiceRemote;
+ash.quick_pair.mojom.QuickPairServiceRequest = ash.quick_pair.mojom.QuickPairServicePendingReceiver;
 

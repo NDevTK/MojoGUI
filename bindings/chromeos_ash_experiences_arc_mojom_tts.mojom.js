@@ -10,17 +10,17 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: TtsEventType
-arc.mojom.mojom.TtsEventType = {
+arc.mojom.TtsEventType = {
   START: 0,
   END: 1,
   INTERRUPTED: 2,
   ERROR: 3,
   WORD: 4,
 };
-arc.mojom.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TtsUtterance
-arc.mojom.mojom.TtsUtteranceSpec = {
+arc.mojom.TtsUtteranceSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsUtterance',
@@ -38,7 +38,7 @@ arc.mojom.mojom.TtsUtteranceSpec = {
 };
 
 // Struct: TtsVoice
-arc.mojom.mojom.TtsVoiceSpec = {
+arc.mojom.TtsVoiceSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsVoice',
@@ -55,24 +55,54 @@ arc.mojom.mojom.TtsVoiceSpec = {
 };
 
 // Interface: TtsHost
-arc.mojom.mojom.TtsHost = {};
+arc.mojom.TtsHost = {};
 
-arc.mojom.mojom.TtsHostPendingReceiver = class {
+arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsHost_OnVoicesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.TtsVoiceSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.TtsHost_OnTtsEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsHost_OnTtsEvent_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'utteranceId', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'event_type', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.TtsEventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'char_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'error_msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.TtsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.TtsHostRemote = class {
+arc.mojom.TtsHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.TtsHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.TtsHostPendingReceiver,
+      arc.mojom.TtsHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.TtsHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.TtsHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -84,7 +114,7 @@ arc.mojom.mojom.TtsHostRemote = class {
   }
 };
 
-arc.mojom.mojom.TtsHostRemoteCallHandler = class {
+arc.mojom.TtsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -93,7 +123,7 @@ arc.mojom.mojom.TtsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.TtsHost_OnVoicesChanged_ParamsSpec,
+      arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec,
       null,
       [voices]);
   }
@@ -102,15 +132,15 @@ arc.mojom.mojom.TtsHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.TtsHost_OnTtsEvent_ParamsSpec,
+      arc.mojom.TtsHost_OnTtsEvent_ParamsSpec,
       null,
       [utteranceId, event_type, char_index, length, error_msg]);
   }
 
 };
 
-arc.mojom.mojom.TtsHost.getRemote = function() {
-  let remote = new arc.mojom.mojom.TtsHostRemote();
+arc.mojom.TtsHost.getRemote = function() {
+  let remote = new arc.mojom.TtsHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +150,7 @@ arc.mojom.mojom.TtsHost.getRemote = function() {
 };
 
 // ParamsSpec for OnVoicesChanged
-arc.mojom.mojom.TtsHost_OnVoicesChanged_ParamsSpec = {
+arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsHost.OnVoicesChanged_Params',
@@ -134,7 +164,7 @@ arc.mojom.mojom.TtsHost_OnVoicesChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnTtsEvent
-arc.mojom.mojom.TtsHost_OnTtsEvent_ParamsSpec = {
+arc.mojom.TtsHost_OnTtsEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsHost.OnTtsEvent_Params',
@@ -152,29 +182,79 @@ arc.mojom.mojom.TtsHost_OnTtsEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.TtsHostPtr = arc.mojom.mojom.TtsHostRemote;
-arc.mojom.mojom.TtsHostRequest = arc.mojom.mojom.TtsHostPendingReceiver;
+arc.mojom.TtsHostPtr = arc.mojom.TtsHostRemote;
+arc.mojom.TtsHostRequest = arc.mojom.TtsHostPendingReceiver;
 
 
 // Interface: TtsInstance
-arc.mojom.mojom.TtsInstance = {};
+arc.mojom.TtsInstance = {};
 
-arc.mojom.mojom.TtsInstancePendingReceiver = class {
+arc.mojom.TtsInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance_Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TtsHostRemote), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.TtsInstance_Speak_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance_Speak_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.TtsUtteranceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.TtsInstance_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance_Stop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.TtsInstance_RefreshVoices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance_RefreshVoices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.TtsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.mojom.TtsInstanceRemote = class {
+arc.mojom.TtsInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.TtsInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.mojom.TtsInstancePendingReceiver,
+      arc.mojom.TtsInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.mojom.TtsInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.TtsInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -186,7 +266,7 @@ arc.mojom.mojom.TtsInstanceRemote = class {
   }
 };
 
-arc.mojom.mojom.TtsInstanceRemoteCallHandler = class {
+arc.mojom.TtsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -195,7 +275,7 @@ arc.mojom.mojom.TtsInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.mojom.TtsInstance_Init_ParamsSpec,
+      arc.mojom.TtsInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -204,7 +284,7 @@ arc.mojom.mojom.TtsInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.mojom.TtsInstance_Speak_ParamsSpec,
+      arc.mojom.TtsInstance_Speak_ParamsSpec,
       null,
       [utterance]);
   }
@@ -213,7 +293,7 @@ arc.mojom.mojom.TtsInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.mojom.TtsInstance_Stop_ParamsSpec,
+      arc.mojom.TtsInstance_Stop_ParamsSpec,
       null,
       []);
   }
@@ -222,15 +302,15 @@ arc.mojom.mojom.TtsInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.mojom.TtsInstance_RefreshVoices_ParamsSpec,
+      arc.mojom.TtsInstance_RefreshVoices_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.mojom.TtsInstance.getRemote = function() {
-  let remote = new arc.mojom.mojom.TtsInstanceRemote();
+arc.mojom.TtsInstance.getRemote = function() {
+  let remote = new arc.mojom.TtsInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -240,7 +320,7 @@ arc.mojom.mojom.TtsInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.mojom.TtsInstance_Init_ParamsSpec = {
+arc.mojom.TtsInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsInstance.Init_Params',
@@ -254,7 +334,7 @@ arc.mojom.mojom.TtsInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for Speak
-arc.mojom.mojom.TtsInstance_Speak_ParamsSpec = {
+arc.mojom.TtsInstance_Speak_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsInstance.Speak_Params',
@@ -268,7 +348,7 @@ arc.mojom.mojom.TtsInstance_Speak_ParamsSpec = {
 };
 
 // ParamsSpec for Stop
-arc.mojom.mojom.TtsInstance_Stop_ParamsSpec = {
+arc.mojom.TtsInstance_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsInstance.Stop_Params',
@@ -281,7 +361,7 @@ arc.mojom.mojom.TtsInstance_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for RefreshVoices
-arc.mojom.mojom.TtsInstance_RefreshVoices_ParamsSpec = {
+arc.mojom.TtsInstance_RefreshVoices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsInstance.RefreshVoices_Params',
@@ -294,6 +374,6 @@ arc.mojom.mojom.TtsInstance_RefreshVoices_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.mojom.TtsInstancePtr = arc.mojom.mojom.TtsInstanceRemote;
-arc.mojom.mojom.TtsInstanceRequest = arc.mojom.mojom.TtsInstancePendingReceiver;
+arc.mojom.TtsInstancePtr = arc.mojom.TtsInstanceRemote;
+arc.mojom.TtsInstanceRequest = arc.mojom.TtsInstancePendingReceiver;
 

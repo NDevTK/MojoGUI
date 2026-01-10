@@ -10,24 +10,48 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VideoDetectorObserver
-viz.mojom.mojom.VideoDetectorObserver = {};
+viz.mojom.VideoDetectorObserver = {};
 
-viz.mojom.mojom.VideoDetectorObserverPendingReceiver = class {
+viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+viz.mojom.VideoDetectorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.mojom.VideoDetectorObserverRemote = class {
+viz.mojom.VideoDetectorObserverRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.VideoDetectorObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.mojom.VideoDetectorObserverPendingReceiver,
+      viz.mojom.VideoDetectorObserverPendingReceiver,
       handle);
-    this.$ = new viz.mojom.mojom.VideoDetectorObserverRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.VideoDetectorObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +63,7 @@ viz.mojom.mojom.VideoDetectorObserverRemote = class {
   }
 };
 
-viz.mojom.mojom.VideoDetectorObserverRemoteCallHandler = class {
+viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +72,7 @@ viz.mojom.mojom.VideoDetectorObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec,
+      viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec,
       null,
       []);
   }
@@ -57,15 +81,15 @@ viz.mojom.mojom.VideoDetectorObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec,
+      viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec,
       null,
       []);
   }
 
 };
 
-viz.mojom.mojom.VideoDetectorObserver.getRemote = function() {
-  let remote = new viz.mojom.mojom.VideoDetectorObserverRemote();
+viz.mojom.VideoDetectorObserver.getRemote = function() {
+  let remote = new viz.mojom.VideoDetectorObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +99,7 @@ viz.mojom.mojom.VideoDetectorObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnVideoActivityStarted
-viz.mojom.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
+viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VideoDetectorObserver.OnVideoActivityStarted_Params',
@@ -88,7 +112,7 @@ viz.mojom.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnVideoActivityEnded
-viz.mojom.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
+viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VideoDetectorObserver.OnVideoActivityEnded_Params',
@@ -101,6 +125,6 @@ viz.mojom.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.mojom.VideoDetectorObserverPtr = viz.mojom.mojom.VideoDetectorObserverRemote;
-viz.mojom.mojom.VideoDetectorObserverRequest = viz.mojom.mojom.VideoDetectorObserverPendingReceiver;
+viz.mojom.VideoDetectorObserverPtr = viz.mojom.VideoDetectorObserverRemote;
+viz.mojom.VideoDetectorObserverRequest = viz.mojom.VideoDetectorObserverPendingReceiver;
 

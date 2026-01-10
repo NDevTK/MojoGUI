@@ -12,7 +12,7 @@ var gfx = gfx || {};
 
 
 // Struct: FontAttribute
-ui.mojom.mojom.FontAttributeSpec = {
+ui.mojom.FontAttributeSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.FontAttribute',
@@ -28,7 +28,7 @@ ui.mojom.mojom.FontAttributeSpec = {
 };
 
 // Struct: AttributedString
-ui.mojom.mojom.AttributedStringSpec = {
+ui.mojom.AttributedStringSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.AttributedString',

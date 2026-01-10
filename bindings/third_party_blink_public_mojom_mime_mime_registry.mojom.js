@@ -10,24 +10,37 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: MimeRegistry
-blink.mojom.mojom.MimeRegistry = {};
+blink.mojom.MimeRegistry = {};
 
-blink.mojom.mojom.MimeRegistryPendingReceiver = class {
+blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MimeRegistry_GetMimeTypeFromExtension_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+blink.mojom.MimeRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.mojom.MimeRegistryRemote = class {
+blink.mojom.MimeRegistryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MimeRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.mojom.MimeRegistryPendingReceiver,
+      blink.mojom.MimeRegistryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.mojom.MimeRegistryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.MimeRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +52,7 @@ blink.mojom.mojom.MimeRegistryRemote = class {
   }
 };
 
-blink.mojom.mojom.MimeRegistryRemoteCallHandler = class {
+blink.mojom.MimeRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +61,15 @@ blink.mojom.mojom.MimeRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
-      blink.mojom.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
+      blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
+      blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
       [extension]);
   }
 
 };
 
-blink.mojom.mojom.MimeRegistry.getRemote = function() {
-  let remote = new blink.mojom.mojom.MimeRegistryRemote();
+blink.mojom.MimeRegistry.getRemote = function() {
+  let remote = new blink.mojom.MimeRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +79,7 @@ blink.mojom.mojom.MimeRegistry.getRemote = function() {
 };
 
 // ParamsSpec for GetMimeTypeFromExtension
-blink.mojom.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
+blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MimeRegistry.GetMimeTypeFromExtension_Params',
@@ -79,7 +92,7 @@ blink.mojom.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
   }
 };
 
-blink.mojom.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
+blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MimeRegistry.GetMimeTypeFromExtension_ResponseParams',
@@ -93,6 +106,6 @@ blink.mojom.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.mojom.MimeRegistryPtr = blink.mojom.mojom.MimeRegistryRemote;
-blink.mojom.mojom.MimeRegistryRequest = blink.mojom.mojom.MimeRegistryPendingReceiver;
+blink.mojom.MimeRegistryPtr = blink.mojom.MimeRegistryRemote;
+blink.mojom.MimeRegistryRequest = blink.mojom.MimeRegistryPendingReceiver;
 
