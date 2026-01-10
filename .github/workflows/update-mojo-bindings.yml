@@ -128,7 +128,8 @@ jobs:
               content_no_comments = re.sub(r'/\*.*?\*/', '', content_no_comments, flags=re.DOTALL)
 
               # Extract interfaces with their methods
-              interface_pattern = r'interface\s+(\w+)\s*\{'
+              # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
+              interface_pattern = r'interface\s+(\w+)[^{]*\{'
               for match in re.finditer(interface_pattern, content_no_comments):
                   interface_name = match.group(1)
                   start_pos = match.end()
@@ -147,7 +148,8 @@ jobs:
                   
                   methods = []
                   # Capture optional Ordinal: Name@123(...)
-                  method_pattern = r'([A-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
+                  # Fix: Allow lowercase method names (camelCase) which is standard usage
+                  method_pattern = r'([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
                   for method_match in re.finditer(method_pattern, interface_body):
                       method_name = method_match.group(1)
                       ordinal_str = method_match.group(2)
@@ -563,8 +565,7 @@ jobs:
                   # 2. Sort by Ordinal (Temporary, will resort by size for packing)
                   expanded_params.sort(key=lambda x: (x['ordinal'], x['sub_ordinal']))
                   
-                  # 3. Best Fit Algorithm
-                  packed_fields = []
+                  # 3. Best Fit Algorithm: Sort by Version -> Size (desc) -> Ordinal
                   
                   def get_size_alignment(p_type):
                       if p_type == 'mojo.internal.Bool': return 1, 1 # Bit packed later
@@ -588,9 +589,21 @@ jobs:
 
                   if not expanded_params:
                       return [], 8, "[[0, 8]]"
+                      
+                  # Pre-calculate size/align for sorting
+                  for p in expanded_params:
+                      s, a = get_size_alignment(p['type'])
+                      p['size'] = s
+                      p['alignment'] = a
 
-                  # Linear packing: sort by min_version, then ordinal (definition order)
-                  expanded_params.sort(key=lambda x: (x['min_version'], x['ordinal'] or 0, x['sub_ordinal'] or 0))
+                  # Sort: Version (asc), Size (desc), Ordinal (asc)
+                  # This minimizes padding by placing larger primitives first
+                  expanded_params.sort(key=lambda x: (
+                      x.get('min_version', 0), 
+                      -x.get('size', 0), 
+                      x.get('ordinal', 0), 
+                      x.get('sub_ordinal', 0)
+                  ))
                   
                   packed_fields = []
                   current_offset = 0
@@ -598,9 +611,8 @@ jobs:
                   current_bool_bit = 0
                   
                   for p in expanded_params:
-                      size, align = get_size_alignment(p['type'])
-                      p['size'] = size
-                      p['alignment'] = align
+                      size = p['size']
+                      align = p['alignment']
                       
                       if p['type'] == 'mojo.internal.Bool':
                           if current_bool_byte != -1 and current_bool_bit < 7:
