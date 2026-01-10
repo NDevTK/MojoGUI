@@ -108,6 +108,31 @@
     };
 
     // ========================================
+    // MojoParser Helpers (Restored)
+    // ========================================
+    const MojoParser = {
+        getDefaultValue(type) {
+            if (!type) return undefined;
+            if (type.includes('[]') || type.includes('array')) return [];
+            if (type.includes('{}') || type.includes('map') || type.includes('object')) return {};
+            if (type.includes('int') || type === 'number' || type === 'double' || type === 'float') return 0;
+            if (type === 'bool') return false;
+            if (type === 'string') return "";
+            if (type.includes('handle')) return null;
+            return undefined;
+        },
+
+        getInputType(type) {
+            if (!type) return 'text';
+            if (type === 'bool') return 'checkbox';
+            if (type.includes('int') || type === 'number' || type === 'double' || type === 'float') return 'number';
+            if (type === 'string') return 'text';
+            if (type === 'json' || type.includes('array') || type.includes('map') || type.includes('object') || type.includes('spec')) return 'textarea';
+            return 'text';
+        }
+    };
+
+    // ========================================
     // Initialization
     // ========================================
     async function init() {
