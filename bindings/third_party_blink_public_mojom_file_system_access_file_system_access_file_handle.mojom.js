@@ -115,7 +115,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_AsBlob_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParams', [
@@ -168,7 +168,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Remove_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParams', [
@@ -212,7 +212,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetUniqueId_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParams', [
@@ -224,7 +224,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParams', [

@@ -24,7 +24,7 @@ content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
@@ -133,12 +133,12 @@ content_capture.mojom.ContentCaptureReceiverRequest = content_capture.mojom.Cont
 mojo.internal.Struct(
     content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StartCapture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StopCapture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content_capture.mojom.ContentCaptureSenderPendingReceiver = class {
   constructor(handle) {

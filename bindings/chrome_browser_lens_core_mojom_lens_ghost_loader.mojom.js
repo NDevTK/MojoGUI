@@ -83,7 +83,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRequest = lens.mojom.LensGhostLoader
 mojo.internal.Struct(
     lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec, 'lens.mojom.LensGhostLoaderPage_ShowErrorState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 lens.mojom.LensGhostLoaderPagePendingReceiver = class {
   constructor(handle) {

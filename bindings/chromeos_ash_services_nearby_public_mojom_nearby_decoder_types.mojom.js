@@ -207,4 +207,4 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     sharing.mojom.CancelFrameSpec, 'sharing.mojom.CancelFrame', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);

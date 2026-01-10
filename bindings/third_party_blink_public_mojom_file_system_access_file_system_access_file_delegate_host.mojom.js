@@ -52,7 +52,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec, 'blink.mojom.FileSystemAccessFileDelegateHost_GetLength_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParams', [

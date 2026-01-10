@@ -91,7 +91,7 @@ infobar_internals.mojom.PageRequest = infobar_internals.mojom.PagePendingReceive
 mojo.internal.Struct(
     infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec, 'infobar_internals.mojom.PageHandler_GetInfoBars_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec, 'infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParams', [

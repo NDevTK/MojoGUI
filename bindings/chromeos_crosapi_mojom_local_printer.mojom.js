@@ -408,13 +408,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.OAuthNotNeededSpec, 'crosapi.mojom.OAuthNotNeeded', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: OAuthError
 mojo.internal.Struct(
     crosapi.mojom.OAuthErrorSpec, 'crosapi.mojom.OAuthError', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: OAuthAccessToken
 mojo.internal.Struct(
@@ -433,7 +433,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec, 'crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 crosapi.mojom.PrintServerObserverPendingReceiver = class {
   constructor(handle) {
@@ -652,7 +652,7 @@ crosapi.mojom.LocalPrintersObserverRequest = crosapi.mojom.LocalPrintersObserver
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrinters_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrinters_ResponseParams', [
@@ -699,12 +699,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec, 'crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec, 'crosapi.mojom.LocalPrinter_CreatePrintJob_Params', [
@@ -715,7 +715,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec, 'crosapi.mojom.LocalPrinter_CancelPrintJob_Params', [
@@ -733,7 +733,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrintServersConfig_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParams', [
@@ -750,7 +750,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintServerObserver_Params', [
@@ -761,12 +761,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetPolicies_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPolicies_ResponseParams', [
@@ -777,7 +777,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParams', [
@@ -788,7 +788,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParams', [
@@ -806,7 +806,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetOAuthAccessToken_Params', [

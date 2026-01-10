@@ -695,7 +695,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.XRDepthDataStillValidSpec, 'device.mojom.XRDepthDataStillValid', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: XRDepthDataUpdated
 mojo.internal.Struct(
@@ -737,7 +737,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.XRProjectionLayerDataSpec, 'device.mojom.XRProjectionLayerData', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: XRQuadLayerData
 mojo.internal.Struct(
@@ -901,12 +901,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.VRService_ExitPresent_ParamsSpec, 'device.mojom.VRService_ExitPresent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.VRService_ExitPresent_ResponseParamsSpec, 'device.mojom.VRService_ExitPresent_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.VRService_SetFramesThrottled_ParamsSpec, 'device.mojom.VRService_SetFramesThrottled_Params', [
@@ -917,7 +917,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.VRService_MakeXrCompatible_ParamsSpec, 'device.mojom.VRService_MakeXrCompatible_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec, 'device.mojom.VRService_MakeXrCompatible_ResponseParams', [
@@ -1095,7 +1095,7 @@ device.mojom.XRSessionMetricsRecorderRequest = device.mojom.XRSessionMetricsReco
 mojo.internal.Struct(
     device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec, 'device.mojom.VRServiceClient_OnDeviceChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.VRServiceClientPendingReceiver = class {
   constructor(handle) {
@@ -1531,7 +1531,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec, 'device.mojom.XRPresentationClient_OnSubmitFrameRendered_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec, 'device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_Params', [
@@ -1618,7 +1618,7 @@ device.mojom.XRPresentationClientRequest = device.mojom.XRPresentationClientPend
 mojo.internal.Struct(
     device.mojom.XRSessionClient_OnExitPresent_ParamsSpec, 'device.mojom.XRSessionClient_OnExitPresent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec, 'device.mojom.XRSessionClient_OnVisibilityStateChanged_Params', [

@@ -42,7 +42,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnChunksEnd_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 optimization_guide.mojom.PageTextConsumerPendingReceiver = class {
   constructor(handle) {

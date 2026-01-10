@@ -62,7 +62,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec, 'arc.mojom.DiskSpaceHost_IsQuotaSupported_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec, 'arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParams', [
@@ -123,7 +123,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec, 'arc.mojom.DiskSpaceHost_GetFreeDiskSpace_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec, 'arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParams', [
@@ -243,12 +243,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec, 'arc.mojom.DiskSpaceInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec, 'arc.mojom.DiskSpaceInstance_GetApplicationsSize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec, 'arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParams', [

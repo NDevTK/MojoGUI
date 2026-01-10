@@ -259,7 +259,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParams', [
@@ -313,7 +313,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParams', [
@@ -324,12 +324,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParams', [
@@ -340,12 +340,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParams', [
@@ -356,7 +356,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.personalization_app.mojom.SeaPenProviderPendingReceiver = class {
   constructor(handle) {

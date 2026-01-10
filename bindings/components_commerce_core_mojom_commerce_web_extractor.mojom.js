@@ -17,7 +17,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParams
 mojo.internal.Struct(
     commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec, 'commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec, 'commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParams', [

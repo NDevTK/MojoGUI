@@ -114,12 +114,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec, 'arc.mojom.EnterpriseReportingInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec, 'arc.mojom.EnterpriseReportingInstance_GetStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec, 'arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParams', [

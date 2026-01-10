@@ -179,12 +179,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec, 'media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec, 'media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_Params', [
@@ -303,7 +303,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec, 'media_session.mojom.AudioFocusManager_GetFocusRequests_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec, 'media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParams', [
@@ -364,17 +364,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec, 'media_session.mojom.AudioFocusManager_StopDuckingAllAudio_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec, 'media_session.mojom.AudioFocusManager_FlushForTesting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec, 'media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media_session.mojom.AudioFocusManagerPendingReceiver = class {
   constructor(handle) {

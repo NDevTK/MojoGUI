@@ -94,7 +94,7 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRequest = omnibox_popup_aim.mojom.Page
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_RequestClose_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_Params', [
@@ -184,7 +184,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec, 'omnibox_popup_aim.mojom.Page_OnPopupHidden_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec, 'omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParams', [

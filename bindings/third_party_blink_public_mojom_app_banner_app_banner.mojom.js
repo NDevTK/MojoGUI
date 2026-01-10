@@ -109,7 +109,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec, 'blink.mojom.AppBannerEvent_BannerDismissed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.AppBannerEventPendingReceiver = class {
   constructor(handle) {
@@ -181,7 +181,7 @@ blink.mojom.AppBannerEventRequest = blink.mojom.AppBannerEventPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec, 'blink.mojom.AppBannerService_DisplayAppBanner_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.AppBannerServicePendingReceiver = class {
   constructor(handle) {

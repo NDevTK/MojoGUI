@@ -101,7 +101,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessCountInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParams', [
@@ -112,7 +112,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec, 'mojom.ProcessInternalsHandler_GetIsolationMode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParams', [
@@ -123,7 +123,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessPerSiteMode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParams', [
@@ -134,7 +134,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec, 'mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParams', [
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec, 'mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParams', [
@@ -156,7 +156,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec, 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParams', [
@@ -167,7 +167,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec, 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParams', [

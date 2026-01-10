@@ -308,7 +308,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.NormalVideoDetailsSpec, 'ash.camera_app.mojom.NormalVideoDetails', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: GifVideoDetails
 mojo.internal.Struct(
@@ -396,7 +396,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.MipiCameraModuleSpec, 'ash.camera_app.mojom.MipiCameraModule', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: UsbCameraModule
 mojo.internal.Struct(
@@ -522,7 +522,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec, 'ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_Params', [

@@ -501,7 +501,7 @@ printing.mojom.PrintPreviewUIRequest = printing.mojom.PrintPreviewUIPendingRecei
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintRequestedPages_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintWithParams_Params', [
@@ -512,7 +512,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintForSystemDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec, 'printing.mojom.PrintRenderFrame_InitiatePrintPreview_Params', [
@@ -536,7 +536,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec, 'printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_Params', [
@@ -554,7 +554,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec, 'printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintingDone_Params', [
@@ -565,7 +565,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 printing.mojom.PrintRenderFramePendingReceiver = class {
   constructor(handle) {
@@ -725,7 +725,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec, 'printing.mojom.PrintManagerHost_GetDefaultPrintSettings_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParams', [
@@ -736,7 +736,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec, 'printing.mojom.PrintManagerHost_DidShowPrintDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec, 'printing.mojom.PrintManagerHost_DidPrintDocument_Params', [
@@ -753,7 +753,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec, 'printing.mojom.PrintManagerHost_IsPrintingEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParams', [
@@ -795,12 +795,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_Params', [

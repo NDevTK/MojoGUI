@@ -121,7 +121,7 @@ sharing.mojom.IncomingMessagesListenerRequest = sharing.mojom.IncomingMessagesLi
 mojo.internal.Struct(
     sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec, 'sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 sharing.mojom.ReceiveMessagesSessionPendingReceiver = class {
   constructor(handle) {

@@ -463,12 +463,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec, 'remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec, 'remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 remoting.mojom.DesktopSessionRequestHandlerPendingReceiver = class {
   constructor(handle) {
@@ -730,7 +730,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.FileWriter_CloseFile_ParamsSpec, 'remoting.mojom.FileWriter_CloseFile_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec, 'remoting.mojom.FileWriter_CloseFile_ResponseParams', [
@@ -896,12 +896,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec, 'remoting.mojom.DesktopSessionControl_LockWorkstation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectClipboardEvent_Params', [
@@ -936,17 +936,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec, 'remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec, 'remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec, 'remoting.mojom.DesktopSessionControl_BeginFileRead_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec, 'remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParams', [
@@ -969,7 +969,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec, 'remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 remoting.mojom.DesktopSessionControlPendingReceiver = class {
   constructor(handle) {
@@ -1149,7 +1149,7 @@ remoting.mojom.DesktopSessionControlRequest = remoting.mojom.DesktopSessionContr
 mojo.internal.Struct(
     remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec, 'remoting.mojom.VideoCapturer_CaptureFrame_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec, 'remoting.mojom.VideoCapturer_SetComposeEnabled_Params', [

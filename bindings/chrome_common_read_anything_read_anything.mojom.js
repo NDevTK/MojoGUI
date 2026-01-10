@@ -202,7 +202,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec, 'read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 read_anything.mojom.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -274,7 +274,7 @@ read_anything.mojom.UntrustedPageHandlerFactoryRequest = read_anything.mojom.Unt
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec, 'read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParams', [
@@ -285,7 +285,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_GetPresentationState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_Params', [
@@ -308,7 +308,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnCopy_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_Params', [
@@ -375,7 +375,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_LogExtensionState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_Params', [
@@ -422,12 +422,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_Params', [
@@ -446,27 +446,27 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_CloseUI_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_TogglePinState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_TogglePresentation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 read_anything.mojom.UntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -855,12 +855,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnDeviceLocked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec, 'read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_Params', [
@@ -888,7 +888,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec, 'read_anything.mojom.UntrustedPage_ScreenAIServiceReady_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnReadingModeHidden_Params', [
@@ -899,7 +899,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnTabWillDetach_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnTabMuteStateChange_Params', [

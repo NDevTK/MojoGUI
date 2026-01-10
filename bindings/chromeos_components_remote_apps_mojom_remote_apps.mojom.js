@@ -106,7 +106,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParams', [

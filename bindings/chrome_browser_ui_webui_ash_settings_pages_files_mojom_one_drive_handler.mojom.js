@@ -97,7 +97,7 @@ ash.settings.one_drive.mojom.PageHandlerFactoryRequest = ash.settings.one_drive.
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParams', [
@@ -108,7 +108,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParams', [
@@ -119,7 +119,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParams', [
@@ -130,7 +130,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParams', [
@@ -226,7 +226,7 @@ ash.settings.one_drive.mojom.PageHandlerRequest = ash.settings.one_drive.mojom.P
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec, 'ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec, 'ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_Params', [

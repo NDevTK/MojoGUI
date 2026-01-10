@@ -54,7 +54,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec, 'service_manager.mojom.Service_OnBindInterface_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec, 'service_manager.mojom.Service_CreatePackagedServiceInstance_Params', [

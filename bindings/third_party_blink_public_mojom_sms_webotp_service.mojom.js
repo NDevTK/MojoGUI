@@ -29,7 +29,7 @@ blink.mojom.SmsStatus = {
 mojo.internal.Struct(
     blink.mojom.WebOTPService_Receive_ParamsSpec, 'blink.mojom.WebOTPService_Receive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WebOTPService_Receive_ResponseParamsSpec, 'blink.mojom.WebOTPService_Receive_ResponseParams', [
@@ -41,7 +41,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WebOTPService_Abort_ParamsSpec, 'blink.mojom.WebOTPService_Abort_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.WebOTPServicePendingReceiver = class {
   constructor(handle) {

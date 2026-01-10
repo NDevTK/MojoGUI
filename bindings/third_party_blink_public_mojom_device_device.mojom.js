@@ -49,7 +49,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec, 'blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.ManagedConfigurationObserverPendingReceiver = class {
   constructor(handle) {
@@ -112,7 +112,7 @@ blink.mojom.ManagedConfigurationObserverRequest = blink.mojom.ManagedConfigurati
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec, 'blink.mojom.DeviceAPIService_GetDirectoryId_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParams', [
@@ -123,7 +123,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetHostname_ParamsSpec, 'blink.mojom.DeviceAPIService_GetHostname_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetHostname_ResponseParams', [
@@ -134,7 +134,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec, 'blink.mojom.DeviceAPIService_GetSerialNumber_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParams', [
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParams', [
@@ -156,7 +156,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParams', [

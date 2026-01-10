@@ -39,7 +39,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_GetUsage_ParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_ResponseParams', [
@@ -56,27 +56,27 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_DeleteStorage_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec, 'storage.mojom.LocalStorageControl_CleanUpStorage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_Flush_ParamsSpec, 'storage.mojom.LocalStorageControl_Flush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec, 'storage.mojom.LocalStorageControl_PurgeMemory_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.LocalStorageControl_ApplyPolicyUpdates_Params', [
@@ -87,7 +87,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec, 'storage.mojom.LocalStorageControl_ForceKeepSessionState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 storage.mojom.LocalStorageControlPendingReceiver = class {
   constructor(handle) {

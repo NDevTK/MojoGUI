@@ -19,7 +19,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponsePara
 mojo.internal.Struct(
     viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams', [
@@ -33,7 +33,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParams', [

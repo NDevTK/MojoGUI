@@ -133,7 +133,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.VideoFramePoolClientPendingReceiver = class {
   constructor(handle) {

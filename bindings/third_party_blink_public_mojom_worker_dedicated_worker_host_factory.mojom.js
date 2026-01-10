@@ -61,7 +61,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver = class {
   constructor(handle) {

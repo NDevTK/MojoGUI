@@ -36,7 +36,7 @@ media.mojom.DisconnectReason = {
 mojo.internal.Struct(
     media.mojom.AudioInputStream_Record_ParamsSpec, 'media.mojom.AudioInputStream_Record_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioInputStream_SetVolume_ParamsSpec, 'media.mojom.AudioInputStream_SetVolume_Params', [
@@ -193,7 +193,7 @@ media.mojom.AudioInputStreamClientRequest = media.mojom.AudioInputStreamClientPe
 mojo.internal.Struct(
     media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec, 'media.mojom.AudioInputStreamObserver_DidStartRecording_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media.mojom.AudioInputStreamObserverPendingReceiver = class {
   constructor(handle) {

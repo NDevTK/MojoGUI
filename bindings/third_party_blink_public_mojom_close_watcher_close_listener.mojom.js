@@ -16,7 +16,7 @@ blink.mojom.CloseListener_Signal_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.CloseListener_Signal_ParamsSpec, 'blink.mojom.CloseListener_Signal_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.CloseListenerPendingReceiver = class {
   constructor(handle) {

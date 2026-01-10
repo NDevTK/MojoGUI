@@ -89,7 +89,7 @@ history_clusters_internals.mojom.PageHandlerFactoryRequest = history_clusters_in
 mojo.internal.Struct(
     history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParams', [
@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 history_clusters_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

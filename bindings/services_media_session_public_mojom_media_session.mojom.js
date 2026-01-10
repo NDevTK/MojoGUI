@@ -364,7 +364,7 @@ media_session.mojom.MediaSessionObserverRequest = media_session.mojom.MediaSessi
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec, 'media_session.mojom.MediaSession_GetMediaSessionInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParams', [
@@ -375,7 +375,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec, 'media_session.mojom.MediaSession_GetDebugInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetDebugInfo_ResponseParams', [
@@ -386,12 +386,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaSession_StartDucking_ParamsSpec, 'media_session.mojom.MediaSession_StartDucking_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_StopDucking_ParamsSpec, 'media_session.mojom.MediaSession_StopDucking_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_Suspend_ParamsSpec, 'media_session.mojom.MediaSession_Suspend_Params', [
@@ -414,12 +414,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaSession_PreviousTrack_ParamsSpec, 'media_session.mojom.MediaSession_PreviousTrack_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_NextTrack_ParamsSpec, 'media_session.mojom.MediaSession_NextTrack_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_Seek_ParamsSpec, 'media_session.mojom.MediaSession_Seek_Params', [
@@ -436,7 +436,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaSession_SkipAd_ParamsSpec, 'media_session.mojom.MediaSession_SkipAd_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec, 'media_session.mojom.MediaSession_GetMediaImageBitmap_Params', [
@@ -467,12 +467,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_EnterPictureInPicture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_ExitPictureInPicture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec, 'media_session.mojom.MediaSession_SetAudioSinkId_Params', [
@@ -483,22 +483,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec, 'media_session.mojom.MediaSession_ToggleMicrophone_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_ToggleCamera_ParamsSpec, 'media_session.mojom.MediaSession_ToggleCamera_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_HangUp_ParamsSpec, 'media_session.mojom.MediaSession_HangUp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_Raise_ParamsSpec, 'media_session.mojom.MediaSession_Raise_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_SetMute_ParamsSpec, 'media_session.mojom.MediaSession_SetMute_Params', [
@@ -509,27 +509,27 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec, 'media_session.mojom.MediaSession_RequestMediaRemoting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_PreviousSlide_ParamsSpec, 'media_session.mojom.MediaSession_PreviousSlide_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_NextSlide_ParamsSpec, 'media_session.mojom.MediaSession_NextSlide_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_EnterAutoPictureInPicture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetVisibility_ParamsSpec, 'media_session.mojom.MediaSession_GetVisibility_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetVisibility_ResponseParams', [

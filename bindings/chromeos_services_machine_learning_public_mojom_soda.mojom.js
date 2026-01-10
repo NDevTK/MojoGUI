@@ -225,12 +225,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnStart_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnStop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_Params', [
@@ -323,17 +323,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_Start_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver = class {
   constructor(handle) {

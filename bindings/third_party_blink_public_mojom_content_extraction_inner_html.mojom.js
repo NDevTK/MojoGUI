@@ -17,7 +17,7 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParams', [

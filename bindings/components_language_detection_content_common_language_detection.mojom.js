@@ -27,7 +27,7 @@ language_detection.mojom.LanguageDetectionModelStatus = {
 mojo.internal.Struct(
     language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParams', [
@@ -38,7 +38,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParams', [

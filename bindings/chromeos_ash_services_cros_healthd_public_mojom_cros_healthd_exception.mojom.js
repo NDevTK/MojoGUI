@@ -71,7 +71,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.SupportedSpec, 'ash.cros_healthd.mojom.Supported', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: Unsupported
 mojo.internal.Struct(

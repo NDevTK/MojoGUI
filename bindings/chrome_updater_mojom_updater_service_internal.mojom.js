@@ -19,22 +19,22 @@ updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     updater.mojom.UpdateServiceInternal_Run_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateServiceInternal_Hello_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 updater.mojom.UpdateServiceInternalPendingReceiver = class {
   constructor(handle) {

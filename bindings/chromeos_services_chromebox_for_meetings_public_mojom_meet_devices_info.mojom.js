@@ -69,7 +69,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParams', [
@@ -80,7 +80,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParams', [
@@ -91,7 +91,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParams', [

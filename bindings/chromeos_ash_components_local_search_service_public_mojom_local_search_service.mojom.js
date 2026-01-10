@@ -51,7 +51,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec, 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.local_search_service.mojom.SearchMetricsReporterPendingReceiver = class {
   constructor(handle) {

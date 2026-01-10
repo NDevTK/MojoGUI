@@ -128,7 +128,7 @@ ash.focus_mode.mojom.MediaClientRequest = ash.focus_mode.mojom.MediaClientPendin
 mojo.internal.Struct(
     ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec, 'ash.focus_mode.mojom.TrackProvider_GetTrack_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec, 'ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParams', [
@@ -151,7 +151,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec, 'ash.focus_mode.mojom.TrackProvider_ReportPlayerError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.focus_mode.mojom.TrackProviderPendingReceiver = class {
   constructor(handle) {

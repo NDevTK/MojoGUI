@@ -26,7 +26,7 @@ viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsS
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParams', [
@@ -43,7 +43,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_Params', [
@@ -66,7 +66,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 viz.mojom.FrameSinkManagerTestApiPendingReceiver = class {
   constructor(handle) {

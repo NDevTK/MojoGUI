@@ -25,7 +25,7 @@ test.mojom.Baz_GetBaz_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     test.mojom.Foo_GetFoo_ParamsSpec, 'test.mojom.Foo_GetFoo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     test.mojom.Foo_GetFoo_ResponseParamsSpec, 'test.mojom.Foo_GetFoo_ResponseParams', [
@@ -94,7 +94,7 @@ test.mojom.FooRequest = test.mojom.FooPendingReceiver;
 mojo.internal.Struct(
     test.mojom.Bar_GetBar_ParamsSpec, 'test.mojom.Bar_GetBar_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     test.mojom.Bar_GetBar_ResponseParamsSpec, 'test.mojom.Bar_GetBar_ResponseParams', [
@@ -163,7 +163,7 @@ test.mojom.BarRequest = test.mojom.BarPendingReceiver;
 mojo.internal.Struct(
     test.mojom.Baz_GetBaz_ParamsSpec, 'test.mojom.Baz_GetBaz_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     test.mojom.Baz_GetBaz_ResponseParamsSpec, 'test.mojom.Baz_GetBaz_ResponseParams', [

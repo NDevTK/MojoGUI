@@ -99,7 +99,7 @@ ash.media_app_ui.mojom.PageHandlerFactoryRequest = ash.media_app_ui.mojom.PageHa
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParams', [
@@ -110,22 +110,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_Params', [
@@ -161,7 +161,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_Params', [
@@ -174,7 +174,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.media_app_ui.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

@@ -224,7 +224,7 @@ safe_browsing.mojom.SafeBrowsingRequest = safe_browsing.mojom.SafeBrowsingPendin
 mojo.internal.Struct(
     safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParams', [
@@ -386,7 +386,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_ClearScorer_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_Params', [
@@ -397,7 +397,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 safe_browsing.mojom.PhishingModelSetterPendingReceiver = class {
   constructor(handle) {
@@ -496,7 +496,7 @@ safe_browsing.mojom.PhishingModelSetterRequest = safe_browsing.mojom.PhishingMod
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver = class {
   constructor(handle) {

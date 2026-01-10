@@ -61,25 +61,25 @@ mojo.internal.Union(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeTypeAppearedSpec, 'blink.mojom.FileSystemAccessChangeTypeAppeared', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FileSystemAccessChangeTypeDisappeared
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeTypeDisappearedSpec, 'blink.mojom.FileSystemAccessChangeTypeDisappeared', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FileSystemAccessChangeTypeErrored
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeTypeErroredSpec, 'blink.mojom.FileSystemAccessChangeTypeErrored', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FileSystemAccessChangeTypeModified
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeTypeModifiedSpec, 'blink.mojom.FileSystemAccessChangeTypeModified', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FileSystemAccessChangeTypeMoved
 mojo.internal.Struct(
@@ -92,7 +92,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeTypeUnknownSpec, 'blink.mojom.FileSystemAccessChangeTypeUnknown', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FileSystemAccessChangeMetadata
 mojo.internal.Struct(

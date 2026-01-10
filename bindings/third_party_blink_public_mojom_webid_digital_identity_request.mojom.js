@@ -78,7 +78,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Abort_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.DigitalIdentityRequestPendingReceiver = class {
   constructor(handle) {

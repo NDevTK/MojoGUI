@@ -369,7 +369,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticFanRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticFanRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticLedLitUpRoutineArgument
 mojo.internal.Struct(
@@ -383,25 +383,25 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticCameraFrameAnalysisRoutineArgument
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticKeyboardBacklightRoutineArgument
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticRoutineStateInitialized
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineStateInitializedSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateInitialized', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo
 mojo.internal.Struct(
@@ -435,13 +435,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquirySpec, 'crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquiry', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticCheckKeyboardBacklightStateInquiry
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquirySpec, 'crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquiry', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticRoutineStateWaiting
 mojo.internal.Struct(
@@ -470,7 +470,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetailSpec, 'crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetail', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryDiagnosticFanRoutineDetail
 mojo.internal.Struct(
@@ -516,7 +516,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParams', [
@@ -527,7 +527,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_Params', [

@@ -102,7 +102,7 @@ metrics.mojom.ChildHistogramFetcherFactoryRequest = metrics.mojom.ChildHistogram
 mojo.internal.Struct(
     metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParams', [
@@ -119,7 +119,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 metrics.mojom.ChildHistogramFetcherPendingReceiver = class {
   constructor(handle) {

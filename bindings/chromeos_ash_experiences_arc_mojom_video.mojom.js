@@ -41,7 +41,7 @@ arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec = { 
 mojo.internal.Struct(
     arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParams', [
@@ -53,7 +53,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParams', [
@@ -137,7 +137,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoInstance_Init_ResponseParamsSpec, 'arc.mojom.VideoInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.VideoInstancePendingReceiver = class {
   constructor(handle) {

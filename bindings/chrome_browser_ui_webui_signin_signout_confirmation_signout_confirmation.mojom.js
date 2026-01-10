@@ -132,12 +132,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec, 'signout_confirmation.mojom.PageHandler_PerformReauth_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     signout_confirmation.mojom.PageHandler_Close_ParamsSpec, 'signout_confirmation.mojom.PageHandler_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 signout_confirmation.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

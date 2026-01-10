@@ -137,7 +137,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetAllDeviceIds_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParams', [
@@ -267,12 +267,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_StopReadingSamples_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParams', [

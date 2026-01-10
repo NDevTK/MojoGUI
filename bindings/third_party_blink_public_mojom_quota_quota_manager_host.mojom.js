@@ -18,7 +18,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = { $:
 mojo.internal.Struct(
     blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParams', [

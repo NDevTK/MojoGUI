@@ -42,12 +42,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec, 'mirroring.mojom.MirroringService_SwitchMirroringSourceTab_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_ResponseParams', [

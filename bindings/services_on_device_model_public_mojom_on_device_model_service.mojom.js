@@ -275,7 +275,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParams', [
@@ -398,7 +398,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParams', [

@@ -141,7 +141,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     batch_upload.mojom.PageHandler_Close_ParamsSpec, 'batch_upload.mojom.PageHandler_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 batch_upload.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

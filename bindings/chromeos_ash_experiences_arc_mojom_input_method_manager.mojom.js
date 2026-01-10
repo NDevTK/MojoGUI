@@ -87,12 +87,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.InputConnection_FinishComposingText_ParamsSpec, 'arc.mojom.InputConnection_FinishComposingText_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.InputConnection_RequestTextInputState_ParamsSpec, 'arc.mojom.InputConnection_RequestTextInputState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec, 'arc.mojom.InputConnection_RequestTextInputState_ResponseParams', [
@@ -350,7 +350,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec, 'arc.mojom.InputMethodManagerInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec, 'arc.mojom.InputMethodManagerInstance_EnableIme_Params', [
@@ -393,12 +393,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec, 'arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec, 'arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.InputMethodManagerInstancePendingReceiver = class {
   constructor(handle) {

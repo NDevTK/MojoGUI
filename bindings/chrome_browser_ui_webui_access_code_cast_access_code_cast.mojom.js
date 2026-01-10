@@ -130,7 +130,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec, 'access_code_cast.mojom.PageHandler_CastToSink_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec, 'access_code_cast.mojom.PageHandler_CastToSink_ResponseParams', [

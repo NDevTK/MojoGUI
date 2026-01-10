@@ -322,7 +322,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParams', [
@@ -504,7 +504,7 @@ ash.firmware_update.mojom.InstallControllerRequest = ash.firmware_update.mojom.I
 mojo.internal.Struct(
     ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec, 'ash.firmware_update.mojom.SystemUtils_Restart_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.firmware_update.mojom.SystemUtilsPendingReceiver = class {
   constructor(handle) {

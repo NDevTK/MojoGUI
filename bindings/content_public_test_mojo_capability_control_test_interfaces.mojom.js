@@ -26,12 +26,12 @@ content.mojom.MojoContextProvider_GrantAll_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     content.mojom.TestInterfaceForDefer_Ping_ParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.TestInterfaceForDeferPendingReceiver = class {
   constructor(handle) {
@@ -241,7 +241,7 @@ content.mojom.TestInterfaceForUnexpectedRequest = content.mojom.TestInterfaceFor
 mojo.internal.Struct(
     content.mojom.MojoContextProvider_GrantAll_ParamsSpec, 'content.mojom.MojoContextProvider_GrantAll_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.MojoContextProviderPendingReceiver = class {
   constructor(handle) {

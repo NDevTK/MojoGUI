@@ -19,7 +19,7 @@ chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParams', [
@@ -36,7 +36,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_ResetHighScore_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.NetworkEasterEggPendingReceiver = class {
   constructor(handle) {

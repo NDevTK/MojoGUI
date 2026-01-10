@@ -33,7 +33,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParams', [

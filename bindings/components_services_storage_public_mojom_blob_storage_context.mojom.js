@@ -72,7 +72,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec, 'storage.mojom.BlobDataItemReader_ReadSideData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec, 'storage.mojom.BlobDataItemReader_ReadSideData_ResponseParams', [

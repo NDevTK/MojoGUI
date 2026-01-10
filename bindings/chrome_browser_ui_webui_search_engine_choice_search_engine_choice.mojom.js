@@ -95,7 +95,7 @@ search_engine_choice.mojom.PageHandlerFactoryRequest = search_engine_choice.mojo
 mojo.internal.Struct(
     search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec, 'search_engine_choice.mojom.PageHandler_DisplayDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_Params', [
@@ -107,12 +107,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec, 'search_engine_choice.mojom.PageHandler_RecordScrollState_Params', [

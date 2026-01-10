@@ -23,7 +23,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 cast_streaming.mojom.RendererControllerPendingReceiver = class {
   constructor(handle) {

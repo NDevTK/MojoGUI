@@ -84,7 +84,7 @@ chrome.mojom.FontPrewarmerRequest = chrome.mojom.FontPrewarmerPendingReceiver;
 mojo.internal.Struct(
     chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParams', [

@@ -111,7 +111,7 @@ ash.cfm.mojom.DataWatchDogRequest = ash.cfm.mojom.DataWatchDogPendingReceiver;
 mojo.internal.Struct(
     ash.cfm.mojom.DataSource_Fetch_ParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_ResponseParams', [
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cfm.mojom.DataSource_Flush_ParamsSpec, 'ash.cfm.mojom.DataSource_Flush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cfm.mojom.DataSourcePendingReceiver = class {
   constructor(handle) {
@@ -216,7 +216,7 @@ ash.cfm.mojom.DataSourceRequest = ash.cfm.mojom.DataSourcePendingReceiver;
 mojo.internal.Struct(
     ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParams', [

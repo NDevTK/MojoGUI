@@ -108,19 +108,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterNetworkSourceSpec, 'blink.mojom.ServiceWorkerRouterNetworkSource', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: ServiceWorkerRouterRaceNetworkAndFetchEventSource
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec, 'blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSource', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: ServiceWorkerRouterFetchEventSource
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterFetchEventSourceSpec, 'blink.mojom.ServiceWorkerRouterFetchEventSource', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: ServiceWorkerRouterCacheSource
 mojo.internal.Struct(

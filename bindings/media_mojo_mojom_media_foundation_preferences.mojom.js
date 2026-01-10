@@ -17,7 +17,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Respons
 mojo.internal.Struct(
     media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParams', [

@@ -110,7 +110,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec, 'ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.common.mojom.ShortcutInputProviderPendingReceiver = class {
   constructor(handle) {

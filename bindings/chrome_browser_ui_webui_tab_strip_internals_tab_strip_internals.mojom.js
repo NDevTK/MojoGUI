@@ -361,7 +361,7 @@ tab_strip_internals.mojom.PageHandlerFactoryRequest = tab_strip_internals.mojom.
 mojo.internal.Struct(
     tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParams', [

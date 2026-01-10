@@ -93,7 +93,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.SharedStorageClearMethodSpec, 'network.mojom.SharedStorageClearMethod', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: SharedStorageModifierMethodWithOptions
 mojo.internal.Struct(

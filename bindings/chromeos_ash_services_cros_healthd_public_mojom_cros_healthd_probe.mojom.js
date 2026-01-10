@@ -1246,7 +1246,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec, 'ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilities', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: SystemInfo
 mojo.internal.Struct(
@@ -1730,9 +1730,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('graphics_result', 256, 0, ash.cros_healthd.mojom.GraphicsResultSpec, null, true, 0, undefined),
       mojo.internal.StructField('display_result', 272, 0, ash.cros_healthd.mojom.DisplayResultSpec, null, true, 1, undefined),
       mojo.internal.StructField('network_interface_result', 288, 0, ash.cros_healthd.mojom.NetworkInterfaceResultSpec, null, true, 2, undefined),
-      mojo.internal.StructField('input_result', 304, 0, ash.cros_healthd.mojom.InputResultSpec, null, true, 3, undefined),
-      mojo.internal.StructField('audio_hardware_result', 320, 0, ash.cros_healthd.mojom.AudioHardwareResultSpec, null, true, 4, undefined),
-      mojo.internal.StructField('sensor_result', 336, 0, ash.cros_healthd.mojom.SensorResultSpec, null, true, 5, undefined),
-      mojo.internal.StructField('thermal_result', 352, 0, ash.cros_healthd.mojom.ThermalResultSpec, null, true, 6, undefined),
+      mojo.internal.StructField('input_result', 296, 0, ash.cros_healthd.mojom.InputResultSpec, null, true, 3, undefined),
+      mojo.internal.StructField('audio_hardware_result', 312, 0, ash.cros_healthd.mojom.AudioHardwareResultSpec, null, true, 4, undefined),
+      mojo.internal.StructField('sensor_result', 328, 0, ash.cros_healthd.mojom.SensorResultSpec, null, true, 5, undefined),
+      mojo.internal.StructField('thermal_result', 344, 0, ash.cros_healthd.mojom.ThermalResultSpec, null, true, 6, undefined),
     ],
-    [[0, 280], [1, 296], [2, 312], [3, 328], [4, 344], [5, 360], [6, 376]]);
+    [[0, 280], [1, 296], [2, 304], [3, 320], [4, 336], [5, 352], [6, 368]]);

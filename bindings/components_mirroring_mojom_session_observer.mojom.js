@@ -47,12 +47,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mirroring.mojom.SessionObserver_DidStart_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStart_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mirroring.mojom.SessionObserver_DidStop_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec, 'mirroring.mojom.SessionObserver_LogInfoMessage_Params', [
@@ -69,7 +69,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnSourceChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnRemotingStateChanged_Params', [

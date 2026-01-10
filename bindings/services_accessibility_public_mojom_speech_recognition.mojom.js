@@ -93,7 +93,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec, 'ax.mojom.SpeechRecognitionEventObserver_OnStop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec, 'ax.mojom.SpeechRecognitionEventObserver_OnResult_Params', [

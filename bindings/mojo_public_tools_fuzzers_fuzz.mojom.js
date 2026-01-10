@@ -179,7 +179,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec, 'fuzz.mojom.FuzzDummyInterface_Ping_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 fuzz.mojom.FuzzDummyInterfacePendingReceiver = class {
   constructor(handle) {
@@ -242,27 +242,27 @@ fuzz.mojom.FuzzDummyInterfaceRequest = fuzz.mojom.FuzzDummyInterfacePendingRecei
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzBasic_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzBasicResp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzArgs_Params', [
@@ -281,7 +281,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_Params', [
@@ -293,7 +293,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzAssociated_Params', [

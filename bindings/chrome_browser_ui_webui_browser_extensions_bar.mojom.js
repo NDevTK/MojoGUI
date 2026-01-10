@@ -119,7 +119,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec, 'extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 extensions_bar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -212,12 +212,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec, 'extensions_bar.mojom.Page_ActionPoppedOut_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec, 'extensions_bar.mojom.Page_ActionPoppedOut_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 extensions_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {

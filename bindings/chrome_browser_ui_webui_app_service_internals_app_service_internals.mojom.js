@@ -66,7 +66,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec, 'mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec, 'mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParams', [

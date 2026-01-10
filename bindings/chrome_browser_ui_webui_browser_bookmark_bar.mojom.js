@@ -114,7 +114,7 @@ bookmark_bar.mojom.PageHandlerFactoryRequest = bookmark_bar.mojom.PageHandlerFac
 mojo.internal.Struct(
     bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParams', [
@@ -198,7 +198,7 @@ bookmark_bar.mojom.PageHandlerRequest = bookmark_bar.mojom.PageHandlerPendingRec
 mojo.internal.Struct(
     bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec, 'bookmark_bar.mojom.Page_BookmarkLoaded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec, 'bookmark_bar.mojom.Page_FavIconChanged_Params', [
@@ -209,12 +209,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     bookmark_bar.mojom.Page_Show_ParamsSpec, 'bookmark_bar.mojom.Page_Show_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     bookmark_bar.mojom.Page_Hide_ParamsSpec, 'bookmark_bar.mojom.Page_Hide_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 bookmark_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {

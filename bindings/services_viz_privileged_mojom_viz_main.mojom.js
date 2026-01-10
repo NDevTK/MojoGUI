@@ -93,7 +93,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec, 'viz.mojom.VizMain_NotifyWorkloadIncrease_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.VizMain_StartDebugStream_ParamsSpec, 'viz.mojom.VizMain_StartDebugStream_Params', [
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.VizMain_StopDebugStream_ParamsSpec, 'viz.mojom.VizMain_StopDebugStream_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 viz.mojom.VizMainPendingReceiver = class {
   constructor(handle) {

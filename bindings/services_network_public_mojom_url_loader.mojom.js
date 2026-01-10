@@ -154,7 +154,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec, 'network.mojom.URLLoaderClient_OnUploadProgress_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec, 'network.mojom.URLLoaderClient_OnTransferSizeUpdated_Params', [

@@ -167,7 +167,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec, 'device.mojom.XRRuntimeEventListener_OnExitPresent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.XRRuntimeEventListenerPendingReceiver = class {
   constructor(handle) {
@@ -251,12 +251,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.XRRuntime_ShutdownSession_ParamsSpec, 'device.mojom.XRRuntime_ShutdownSession_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec, 'device.mojom.XRRuntime_ShutdownSession_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec, 'device.mojom.XRRuntime_ListenToDeviceChanges_Params', [
@@ -343,7 +343,7 @@ device.mojom.XRRuntimeRequest = device.mojom.XRRuntimePendingReceiver;
 mojo.internal.Struct(
     device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec, 'device.mojom.ImmersiveOverlay_RequestNextOverlayPose_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec, 'device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParams', [
@@ -377,12 +377,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec, 'device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec, 'device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.ImmersiveOverlayPendingReceiver = class {
   constructor(handle) {
@@ -486,7 +486,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.IsolatedXRRuntimeProviderClientPendingReceiver = class {
   constructor(handle) {

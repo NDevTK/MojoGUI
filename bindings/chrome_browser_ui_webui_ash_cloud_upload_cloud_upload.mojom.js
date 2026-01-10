@@ -144,7 +144,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.ConnectToOneDriveDialogArgs', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FileHandlerDialogArgs
 mojo.internal.Struct(
@@ -231,7 +231,7 @@ ash.cloud_upload.mojom.PageHandlerFactoryRequest = ash.cloud_upload.mojom.PageHa
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParams', [
@@ -242,7 +242,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParams', [
@@ -253,7 +253,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParams', [
@@ -264,7 +264,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParams', [
@@ -275,7 +275,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParams', [
@@ -298,12 +298,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParams', [
@@ -320,7 +320,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams', [
@@ -337,7 +337,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParams', [
@@ -348,7 +348,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParams', [

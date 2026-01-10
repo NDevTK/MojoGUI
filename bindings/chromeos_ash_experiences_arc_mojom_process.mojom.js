@@ -129,7 +129,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec, 'arc.mojom.ProcessInstance_RequestProcessList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec, 'arc.mojom.ProcessInstance_RequestProcessList_ResponseParams', [
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec, 'arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec, 'arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParams', [
@@ -191,7 +191,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec, 'arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec, 'arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParams', [

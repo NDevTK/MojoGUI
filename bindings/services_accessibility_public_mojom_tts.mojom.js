@@ -181,22 +181,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ax.mojom.Tts_Stop_ParamsSpec, 'ax.mojom.Tts_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ax.mojom.Tts_Pause_ParamsSpec, 'ax.mojom.Tts_Pause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ax.mojom.Tts_Resume_ParamsSpec, 'ax.mojom.Tts_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ax.mojom.Tts_IsSpeaking_ParamsSpec, 'ax.mojom.Tts_IsSpeaking_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ax.mojom.Tts_IsSpeaking_ResponseParamsSpec, 'ax.mojom.Tts_IsSpeaking_ResponseParams', [
@@ -207,7 +207,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ax.mojom.Tts_GetVoices_ParamsSpec, 'ax.mojom.Tts_GetVoices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ax.mojom.Tts_GetVoices_ResponseParamsSpec, 'ax.mojom.Tts_GetVoices_ResponseParams', [

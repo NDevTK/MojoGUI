@@ -123,7 +123,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParams', [
@@ -147,7 +147,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParams', [
@@ -158,7 +158,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParams', [
@@ -175,17 +175,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 parent_access_ui.mojom.ParentAccessUiHandlerPendingReceiver = class {
   constructor(handle) {

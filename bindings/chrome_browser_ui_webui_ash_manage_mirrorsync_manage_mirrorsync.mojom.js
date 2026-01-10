@@ -107,7 +107,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParams', [

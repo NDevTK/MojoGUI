@@ -53,7 +53,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec, 'remote_cocoa.mojom.AlertBridge_Dismiss_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 remote_cocoa.mojom.AlertBridgePendingReceiver = class {
   constructor(handle) {

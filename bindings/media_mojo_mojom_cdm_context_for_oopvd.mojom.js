@@ -132,7 +132,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec, 'media.mojom.CdmContextForOOPVD_GetHwConfigData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParams', [
@@ -144,7 +144,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec, 'media.mojom.CdmContextForOOPVD_GetScreenResolutions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParams', [

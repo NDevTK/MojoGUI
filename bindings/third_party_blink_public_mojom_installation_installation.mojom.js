@@ -16,7 +16,7 @@ blink.mojom.InstallationService_OnInstall_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.InstallationService_OnInstall_ParamsSpec, 'blink.mojom.InstallationService_OnInstall_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.InstallationServicePendingReceiver = class {
   constructor(handle) {

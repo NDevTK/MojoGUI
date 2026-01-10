@@ -274,7 +274,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.UsbDevice_Open_ParamsSpec, 'device.mojom.UsbDevice_Open_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDevice_Open_ResponseParamsSpec, 'device.mojom.UsbDevice_Open_ResponseParams', [
@@ -285,12 +285,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.UsbDevice_Close_ParamsSpec, 'device.mojom.UsbDevice_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDevice_Close_ResponseParamsSpec, 'device.mojom.UsbDevice_Close_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDevice_SetConfiguration_ParamsSpec, 'device.mojom.UsbDevice_SetConfiguration_Params', [
@@ -344,7 +344,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.UsbDevice_Reset_ParamsSpec, 'device.mojom.UsbDevice_Reset_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDevice_Reset_ResponseParamsSpec, 'device.mojom.UsbDevice_Reset_ResponseParams', [
@@ -631,12 +631,12 @@ device.mojom.UsbDeviceRequest = device.mojom.UsbDevicePendingReceiver;
 mojo.internal.Struct(
     device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec, 'device.mojom.UsbDeviceClient_OnDeviceOpened_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec, 'device.mojom.UsbDeviceClient_OnDeviceClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.UsbDeviceClientPendingReceiver = class {
   constructor(handle) {

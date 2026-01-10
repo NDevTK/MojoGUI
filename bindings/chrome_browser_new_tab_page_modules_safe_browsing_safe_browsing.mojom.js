@@ -21,7 +21,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = { $: {} }
 mojo.internal.Struct(
     ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec, 'ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec, 'ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParams', [
@@ -32,17 +32,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec, 'ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec, 'ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec, 'ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ntp.safe_browsing.mojom.SafeBrowsingHandlerPendingReceiver = class {
   constructor(handle) {

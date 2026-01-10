@@ -267,7 +267,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec, 'network.mojom.WebSocketClient_OnClosingHandshake_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.WebSocketClientPendingReceiver = class {
   constructor(handle) {
@@ -355,7 +355,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.WebSocket_StartReceiving_ParamsSpec, 'network.mojom.WebSocket_StartReceiving_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.WebSocket_StartClosingHandshake_ParamsSpec, 'network.mojom.WebSocket_StartClosingHandshake_Params', [

@@ -231,7 +231,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AILanguageModel_Destroy_ParamsSpec, 'blink.mojom.AILanguageModel_Destroy_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec, 'blink.mojom.AILanguageModel_MeasureInputUsage_Params', [

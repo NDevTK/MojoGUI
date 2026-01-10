@@ -93,12 +93,12 @@ ash.settings.date_time.mojom.PageHandlerFactoryRequest = ash.settings.date_time.
 mojo.internal.Struct(
     ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_GetTimezones_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec, 'ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParams', [
@@ -109,7 +109,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.settings.date_time.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

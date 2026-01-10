@@ -75,7 +75,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec, 'translate.mojom.TranslateAgent_RevertTranslation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 translate.mojom.TranslateAgentPendingReceiver = class {
   constructor(handle) {

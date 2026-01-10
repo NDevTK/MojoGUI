@@ -95,7 +95,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_Params', [

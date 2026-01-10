@@ -52,7 +52,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParams', [
@@ -76,7 +76,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_Params', [
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParams', [

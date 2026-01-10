@@ -98,7 +98,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec, 'blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec, 'blink.mojom.PageBroadcast_AudioStateChanged_Params', [
@@ -115,7 +115,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec, 'blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateWebPreferences_Params', [

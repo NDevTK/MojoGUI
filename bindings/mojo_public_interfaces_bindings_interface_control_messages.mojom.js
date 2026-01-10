@@ -94,7 +94,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.interface_control.QueryVersionSpec, 'mojo.interface_control.QueryVersion', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: QueryVersionResult
 mojo.internal.Struct(
@@ -107,7 +107,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.interface_control.FlushForTestingSpec, 'mojo.interface_control.FlushForTesting', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: RunOrClosePipeMessageParams
 mojo.internal.Struct(
@@ -134,10 +134,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.interface_control.MessageAckSpec, 'mojo.interface_control.MessageAck', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: NotifyIdle
 mojo.internal.Struct(
     mojo.interface_control.NotifyIdleSpec, 'mojo.interface_control.NotifyIdle', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);

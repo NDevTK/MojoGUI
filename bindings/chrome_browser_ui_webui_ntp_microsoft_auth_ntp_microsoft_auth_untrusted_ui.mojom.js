@@ -113,12 +113,12 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRequest = new_
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_Params', [

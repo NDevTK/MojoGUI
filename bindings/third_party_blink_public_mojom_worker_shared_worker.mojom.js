@@ -25,7 +25,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SharedWorker_Terminate_ParamsSpec, 'blink.mojom.SharedWorker_Terminate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.SharedWorkerPendingReceiver = class {
   constructor(handle) {

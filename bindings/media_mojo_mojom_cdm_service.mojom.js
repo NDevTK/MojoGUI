@@ -89,7 +89,7 @@ media.mojom.CdmServiceRequest = media.mojom.CdmServicePendingReceiver;
 mojo.internal.Struct(
     media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [

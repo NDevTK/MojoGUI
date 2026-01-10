@@ -177,7 +177,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_Params', [
@@ -188,7 +188,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_Params', [
@@ -225,12 +225,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_CancelPrerender_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParams', [
@@ -465,7 +465,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec, 'most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 most_visited.mojom.MostVisitedPagePendingReceiver = class {
   constructor(handle) {

@@ -28,17 +28,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, 'device.mojom.VibrationManager_Vibrate_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.VibrationManager_Cancel_ParamsSpec, 'device.mojom.VibrationManager_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.VibrationManager_Cancel_ResponseParamsSpec, 'device.mojom.VibrationManager_Cancel_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.VibrationManagerPendingReceiver = class {
   constructor(handle) {
@@ -110,7 +110,7 @@ device.mojom.VibrationManagerRequest = device.mojom.VibrationManagerPendingRecei
 mojo.internal.Struct(
     device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec, 'device.mojom.VibrationManagerListener_OnVibrate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.VibrationManagerListenerPendingReceiver = class {
   constructor(handle) {

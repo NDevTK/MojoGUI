@@ -16,7 +16,7 @@ video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = { $: {}
 mojo.internal.Struct(
     video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec, 'video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 video_capture.mojom.DevicesChangedObserverPendingReceiver = class {
   constructor(handle) {

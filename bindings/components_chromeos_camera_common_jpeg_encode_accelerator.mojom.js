@@ -34,7 +34,7 @@ chromeos_camera.mojom.EncodeStatus = {
 mojo.internal.Struct(
     chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParams', [

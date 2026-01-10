@@ -26,12 +26,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnCompleted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnAborted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.ServiceWorkerStreamCallbackPendingReceiver = class {
   constructor(handle) {

@@ -31,7 +31,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParams', [
@@ -42,7 +42,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams', [

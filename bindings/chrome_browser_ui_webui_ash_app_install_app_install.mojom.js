@@ -86,13 +86,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.app_install.mojom.NoAppErrorArgsSpec, 'ash.app_install.mojom.NoAppErrorArgs', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Interface: AppInfoActions
 mojo.internal.Struct(
     ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParams', [
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.app_install.mojom.AppInfoActionsPendingReceiver = class {
   constructor(handle) {
@@ -175,7 +175,7 @@ ash.app_install.mojom.AppInfoActionsRequest = ash.app_install.mojom.AppInfoActio
 mojo.internal.Struct(
     ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec, 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.app_install.mojom.ConnectionErrorActionsPendingReceiver = class {
   constructor(handle) {
@@ -302,7 +302,7 @@ ash.app_install.mojom.PageHandlerFactoryRequest = ash.app_install.mojom.PageHand
 mojo.internal.Struct(
     ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParams', [
@@ -313,7 +313,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.app_install.mojom.PageHandler_CloseDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.app_install.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

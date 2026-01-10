@@ -30,7 +30,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParams', [

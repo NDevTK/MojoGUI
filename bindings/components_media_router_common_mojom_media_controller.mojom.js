@@ -23,12 +23,12 @@ media_router.mojom.MediaController_PreviousTrack_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     media_router.mojom.MediaController_Play_ParamsSpec, 'media_router.mojom.MediaController_Play_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaController_Pause_ParamsSpec, 'media_router.mojom.MediaController_Pause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaController_SetMute_ParamsSpec, 'media_router.mojom.MediaController_SetMute_Params', [
@@ -51,12 +51,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_router.mojom.MediaController_NextTrack_ParamsSpec, 'media_router.mojom.MediaController_NextTrack_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaController_PreviousTrack_ParamsSpec, 'media_router.mojom.MediaController_PreviousTrack_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media_router.mojom.MediaControllerPendingReceiver = class {
   constructor(handle) {

@@ -60,7 +60,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetVariationsData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParams', [
@@ -74,7 +74,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParams', [

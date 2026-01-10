@@ -18,7 +18,7 @@ content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Para
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Params', [

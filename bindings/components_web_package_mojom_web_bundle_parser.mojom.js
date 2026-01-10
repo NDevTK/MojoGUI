@@ -175,7 +175,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     web_package.mojom.SignatureInfoUnknownSpec, 'web_package.mojom.SignatureInfoUnknown', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: BundleIntegrityBlockSignatureStackEntry
 mojo.internal.Struct(
@@ -298,7 +298,7 @@ web_package.mojom.WebBundleParserFactoryRequest = web_package.mojom.WebBundlePar
 mojo.internal.Struct(
     web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec, 'web_package.mojom.WebBundleParser_ParseIntegrityBlock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec, 'web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParams', [
@@ -338,12 +338,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     web_package.mojom.WebBundleParser_Close_ParamsSpec, 'web_package.mojom.WebBundleParser_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     web_package.mojom.WebBundleParser_Close_ResponseParamsSpec, 'web_package.mojom.WebBundleParser_Close_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 web_package.mojom.WebBundleParserPendingReceiver = class {
   constructor(handle) {
@@ -446,7 +446,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     web_package.mojom.BundleDataSource_Length_ParamsSpec, 'web_package.mojom.BundleDataSource_Length_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     web_package.mojom.BundleDataSource_Length_ResponseParamsSpec, 'web_package.mojom.BundleDataSource_Length_ResponseParams', [
@@ -457,7 +457,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec, 'web_package.mojom.BundleDataSource_IsRandomAccessContext_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec, 'web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParams', [
@@ -468,12 +468,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     web_package.mojom.BundleDataSource_Close_ParamsSpec, 'web_package.mojom.BundleDataSource_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     web_package.mojom.BundleDataSource_Close_ResponseParamsSpec, 'web_package.mojom.BundleDataSource_Close_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 web_package.mojom.BundleDataSourcePendingReceiver = class {
   constructor(handle) {

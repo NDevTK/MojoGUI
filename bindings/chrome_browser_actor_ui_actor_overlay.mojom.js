@@ -116,7 +116,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParams', [
@@ -218,17 +218,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 actor.ui.mojom.ActorOverlayPagePendingReceiver = class {
   constructor(handle) {

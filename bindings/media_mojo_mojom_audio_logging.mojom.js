@@ -41,22 +41,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioLog_OnStarted_ParamsSpec, 'media.mojom.AudioLog_OnStarted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioLog_OnStopped_ParamsSpec, 'media.mojom.AudioLog_OnStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioLog_OnClosed_ParamsSpec, 'media.mojom.AudioLog_OnClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioLog_OnError_ParamsSpec, 'media.mojom.AudioLog_OnError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioLog_OnSetVolume_ParamsSpec, 'media.mojom.AudioLog_OnSetVolume_Params', [

@@ -16,7 +16,7 @@ audio.mojom.TestingApi_Crash_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     audio.mojom.TestingApi_Crash_ParamsSpec, 'audio.mojom.TestingApi_Crash_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 audio.mojom.TestingApiPendingReceiver = class {
   constructor(handle) {

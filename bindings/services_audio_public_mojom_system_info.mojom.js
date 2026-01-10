@@ -56,7 +56,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     audio.mojom.SystemInfo_HasInputDevices_ParamsSpec, 'audio.mojom.SystemInfo_HasInputDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec, 'audio.mojom.SystemInfo_HasInputDevices_ResponseParams', [
@@ -67,7 +67,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec, 'audio.mojom.SystemInfo_HasOutputDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec, 'audio.mojom.SystemInfo_HasOutputDevices_ResponseParams', [
@@ -78,7 +78,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec, 'audio.mojom.SystemInfo_GetInputDeviceDescriptions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParams', [
@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec, 'audio.mojom.SystemInfo_GetOutputDeviceDescriptions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParams', [

@@ -25,7 +25,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.Producer_OnBufferRetired_ParamsSpec, 'video_capture.mojom.Producer_OnBufferRetired_Params', [

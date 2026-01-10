@@ -79,7 +79,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec, 'blink.mojom.SpeculationHost_OnLCPPredicted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec, 'blink.mojom.SpeculationHost_InitiatePreview_Params', [

@@ -38,7 +38,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec, 'blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec, 'blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_Params', [

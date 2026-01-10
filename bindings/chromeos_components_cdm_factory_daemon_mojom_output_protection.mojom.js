@@ -41,7 +41,7 @@ chromeos.cdm.mojom.LinkType = {
 mojo.internal.Struct(
     chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParams', [

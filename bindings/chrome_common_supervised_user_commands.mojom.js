@@ -22,12 +22,12 @@ supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec = { $:
 mojo.internal.Struct(
     supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_GoBack_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParams', [
@@ -38,7 +38,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParams', [
@@ -49,12 +49,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_LearnMore_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 supervised_user.mojom.SupervisedUserCommandsPendingReceiver = class {
   constructor(handle) {

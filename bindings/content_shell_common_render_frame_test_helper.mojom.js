@@ -19,7 +19,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = { $: {
 mojo.internal.Struct(
     content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParams', [

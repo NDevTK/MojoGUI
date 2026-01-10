@@ -56,7 +56,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_RequestPromos_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromosShown_Params', [
@@ -74,22 +74,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_DisableSetupList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ntp_promo.mojom.NtpPromoHandlerPendingReceiver = class {
   constructor(handle) {

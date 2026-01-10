@@ -101,7 +101,7 @@ mojom.DebugLogsChangeHandlerRequest = mojom.DebugLogsChangeHandlerPendingReceive
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec, 'mojom.BluetoothInternalsHandler_GetAdapter_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetAdapter_ResponseParams', [
@@ -112,7 +112,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParams', [
@@ -124,7 +124,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec, 'mojom.BluetoothInternalsHandler_CheckSystemPermissions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParams', [
@@ -138,37 +138,37 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec, 'mojom.BluetoothInternalsHandler_RequestSystemPermissions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec, 'mojom.BluetoothInternalsHandler_RequestLocationServices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec, 'mojom.BluetoothInternalsHandler_RestartSystemBluetooth_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParams', [
@@ -179,7 +179,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec, 'mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParams', [
@@ -311,7 +311,7 @@ mojom.BluetoothInternalsHandlerRequest = mojom.BluetoothInternalsHandlerPendingR
 mojo.internal.Struct(
     mojom.BluetoothBtsnoop_Stop_ParamsSpec, 'mojom.BluetoothBtsnoop_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec, 'mojom.BluetoothBtsnoop_Stop_ResponseParams', [

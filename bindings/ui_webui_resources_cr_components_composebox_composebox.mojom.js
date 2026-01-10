@@ -114,7 +114,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec, 'composebox.mojom.PageHandler_HandleLensButtonClick_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec, 'composebox.mojom.PageHandler_HandleFileUpload_Params', [

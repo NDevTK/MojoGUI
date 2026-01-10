@@ -87,7 +87,7 @@ updater_ui.mojom.PageHandlerFactoryRequest = updater_ui.mojom.PageHandlerFactory
 mojo.internal.Struct(
     updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec, 'updater_ui.mojom.PageHandler_GetAllUpdaterEvents_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec, 'updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParams', [

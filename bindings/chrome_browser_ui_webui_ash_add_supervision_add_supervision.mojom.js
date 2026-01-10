@@ -31,7 +31,7 @@ add_supervision.mojom.OAuthTokenFetchStatus = {
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_RequestClose_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParams', [
@@ -42,7 +42,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParams', [
@@ -53,7 +53,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParams', [
@@ -65,12 +65,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_LogOut_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_Params', [

@@ -39,7 +39,7 @@ media.mojom.LinkType = {
 mojo.internal.Struct(
     media.mojom.OutputProtection_QueryStatus_ParamsSpec, 'media.mojom.OutputProtection_QueryStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'media.mojom.OutputProtection_QueryStatus_ResponseParams', [

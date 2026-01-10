@@ -19,7 +19,7 @@ ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
 mojo.internal.Struct(
     ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec, 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec, 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParams', [

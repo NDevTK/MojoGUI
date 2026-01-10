@@ -102,7 +102,7 @@ ash.mojom.sample_swa.PageHandlerFactoryRequest = ash.mojom.sample_swa.PageHandle
 mojo.internal.Struct(
     ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParams', [
@@ -119,7 +119,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_DoSomething_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.mojom.sample_swa.PageHandlerPendingReceiver = class {
   constructor(handle) {

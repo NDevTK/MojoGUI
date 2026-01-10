@@ -32,7 +32,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     legion.mojom.OakSession_InitiateHandshake_ParamsSpec, 'legion.mojom.OakSession_InitiateHandshake_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec, 'legion.mojom.OakSession_InitiateHandshake_ResponseParams', [

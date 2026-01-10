@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PowerHost_IsDisplayOn_ParamsSpec, 'arc.mojom.PowerHost_IsDisplayOn_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec, 'arc.mojom.PowerHost_IsDisplayOn_ResponseParams', [
@@ -129,7 +129,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec, 'arc.mojom.PowerHost_GetBatterySaverModeState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec, 'arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParams', [
@@ -267,7 +267,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PowerInstance_Init_ResponseParamsSpec, 'arc.mojom.PowerInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec, 'arc.mojom.PowerInstance_SetInteractiveDeprecated_Params', [
@@ -278,17 +278,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PowerInstance_Suspend_ParamsSpec, 'arc.mojom.PowerInstance_Suspend_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerInstance_Suspend_ResponseParamsSpec, 'arc.mojom.PowerInstance_Suspend_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerInstance_Resume_ParamsSpec, 'arc.mojom.PowerInstance_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec, 'arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_Params', [
@@ -299,12 +299,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec, 'arc.mojom.PowerInstance_PowerSupplyInfoChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec, 'arc.mojom.PowerInstance_GetWakefulnessMode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec, 'arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParams', [

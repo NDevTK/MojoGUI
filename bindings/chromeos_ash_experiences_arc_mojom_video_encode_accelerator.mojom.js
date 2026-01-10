@@ -122,7 +122,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec, 'arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParams', [
@@ -156,7 +156,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Encode_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_Params', [
@@ -191,7 +191,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Flush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Flush_ResponseParams', [

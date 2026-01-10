@@ -26,7 +26,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParams', [

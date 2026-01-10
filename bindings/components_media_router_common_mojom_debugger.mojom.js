@@ -19,7 +19,7 @@ media_router.mojom.Debugger_BindReceiver_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParams', [

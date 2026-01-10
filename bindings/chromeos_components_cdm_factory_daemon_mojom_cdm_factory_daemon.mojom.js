@@ -179,7 +179,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_Params', [
@@ -192,12 +192,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParams', [
@@ -209,12 +209,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParams', [

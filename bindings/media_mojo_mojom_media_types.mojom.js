@@ -503,7 +503,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.EosVideoFrameDataSpec, 'media.mojom.EosVideoFrameData', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: SharedMemoryVideoFrameData
 mojo.internal.Struct(
@@ -528,7 +528,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.OpaqueVideoFrameDataSpec, 'media.mojom.OpaqueVideoFrameData', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: ColorPlaneLayout
 mojo.internal.Struct(

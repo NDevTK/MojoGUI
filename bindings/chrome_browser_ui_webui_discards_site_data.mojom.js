@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParams', [

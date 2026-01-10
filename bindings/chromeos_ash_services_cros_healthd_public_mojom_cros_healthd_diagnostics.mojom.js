@@ -210,7 +210,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParams', [

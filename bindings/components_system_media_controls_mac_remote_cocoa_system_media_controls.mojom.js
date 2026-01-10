@@ -113,7 +113,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_ClearMetadata_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 system_media_controls.mojom.SystemMediaControlsPendingReceiver = class {
   constructor(handle) {
@@ -275,32 +275,32 @@ system_media_controls.mojom.SystemMediaControlsRequest = system_media_controls.m
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnNext_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnStop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_Params', [
@@ -311,12 +311,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 system_media_controls.mojom.SystemMediaControlsObserverPendingReceiver = class {
   constructor(handle) {

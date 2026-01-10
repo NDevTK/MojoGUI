@@ -56,27 +56,27 @@ mojo.internal.Union(
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Activate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Suspend_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParams', [
@@ -99,7 +99,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_TakePhoto_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParams', [
@@ -110,12 +110,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_Params', [

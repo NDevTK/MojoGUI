@@ -183,17 +183,17 @@ cros.mojom.CrosLidObserverRequest = cros.mojom.CrosLidObserverPendingReceiver;
 mojo.internal.Struct(
     cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemResume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 cros.mojom.CrosPowerObserverPendingReceiver = class {
   constructor(handle) {

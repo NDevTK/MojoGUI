@@ -244,13 +244,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     actor.mojom.MouseMoveActionSpec, 'actor.mojom.MouseMoveAction', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: ScrollToAction
 mojo.internal.Struct(
     actor.mojom.ScrollToActionSpec, 'actor.mojom.ScrollToAction', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TypeAction
 mojo.internal.Struct(
@@ -410,7 +410,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec, 'actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 actor.mojom.PageStabilityMonitorPendingReceiver = class {
   constructor(handle) {

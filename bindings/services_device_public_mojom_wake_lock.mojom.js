@@ -38,12 +38,12 @@ device.mojom.WakeLockReason = {
 mojo.internal.Struct(
     device.mojom.WakeLock_RequestWakeLock_ParamsSpec, 'device.mojom.WakeLock_RequestWakeLock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.WakeLock_CancelWakeLock_ParamsSpec, 'device.mojom.WakeLock_CancelWakeLock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.WakeLock_AddClient_ParamsSpec, 'device.mojom.WakeLock_AddClient_Params', [
@@ -66,7 +66,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec, 'device.mojom.WakeLock_HasWakeLockForTests_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec, 'device.mojom.WakeLock_HasWakeLockForTests_ResponseParams', [

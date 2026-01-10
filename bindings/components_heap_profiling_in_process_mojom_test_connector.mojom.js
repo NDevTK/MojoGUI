@@ -28,7 +28,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_Params', [
@@ -39,12 +39,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec, 'heap_profiling.mojom.TestConnector_Disconnect_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 heap_profiling.mojom.TestConnectorPendingReceiver = class {
   constructor(handle) {

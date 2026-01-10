@@ -108,7 +108,7 @@ mantis.mojom.PlatformModelProgressObserverRequest = mantis.mojom.PlatformModelPr
 mojo.internal.Struct(
     mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [

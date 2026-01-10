@@ -194,7 +194,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetVersion_ParamsSpec, 'updater.mojom.UpdateService_GetVersion_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetVersion_ResponseParamsSpec, 'updater.mojom.UpdateService_GetVersion_ResponseParams', [
@@ -229,7 +229,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetAppStates_ParamsSpec, 'updater.mojom.UpdateService_GetAppStates_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec, 'updater.mojom.UpdateService_GetAppStates_ResponseParams', [
@@ -240,17 +240,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec, 'updater.mojom.UpdateService_RunPeriodicTasks_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec, 'updater.mojom.UpdateService_RunPeriodicTasks_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_UpdateAll_ParamsSpec, 'updater.mojom.UpdateService_UpdateAll_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec, 'updater.mojom.UpdateService_UpdateAll_ResponseParams', [
@@ -332,7 +332,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetUpdaterState_ParamsSpec, 'updater.mojom.UpdateService_GetUpdaterState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec, 'updater.mojom.UpdateService_GetUpdaterState_ResponseParams', [
@@ -343,7 +343,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec, 'updater.mojom.UpdateService_GetUpdaterPolicies_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec, 'updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParams', [
@@ -354,7 +354,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetAppPolicies_ParamsSpec, 'updater.mojom.UpdateService_GetAppPolicies_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec, 'updater.mojom.UpdateService_GetAppPolicies_ResponseParams', [

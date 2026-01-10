@@ -341,7 +341,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec, 'content.mojom.FrameHTMLSerializerHandler_Done_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.FrameHTMLSerializerHandlerPendingReceiver = class {
   constructor(handle) {
@@ -432,7 +432,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec, 'content.mojom.Frame_SetWantErrorMessageStackTrace_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.Frame_Unload_ParamsSpec, 'content.mojom.Frame_Unload_Params', [
@@ -731,7 +731,7 @@ content.mojom.FrameBindingsControlRequest = content.mojom.FrameBindingsControlPe
 mojo.internal.Struct(
     content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec, 'content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.NavigationRendererCancellationListenerPendingReceiver = class {
   constructor(handle) {
@@ -876,7 +876,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec, 'content.mojom.FrameHost_CancelInitialHistoryLoad_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.FrameHost_UpdateEncoding_ParamsSpec, 'content.mojom.FrameHost_UpdateEncoding_Params', [
@@ -887,7 +887,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec, 'content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.FrameHost_UpdateState_ParamsSpec, 'content.mojom.FrameHost_UpdateState_Params', [
@@ -904,7 +904,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.FrameHost_DidStopLoading_ParamsSpec, 'content.mojom.FrameHost_DidStopLoading_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.FrameHostPendingReceiver = class {
   constructor(handle) {

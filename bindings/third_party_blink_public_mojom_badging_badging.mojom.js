@@ -39,7 +39,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.BadgeService_ClearBadge_ParamsSpec, 'blink.mojom.BadgeService_ClearBadge_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.BadgeServicePendingReceiver = class {
   constructor(handle) {

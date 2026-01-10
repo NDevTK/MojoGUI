@@ -185,7 +185,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     attribution_internals.mojom.EmptySpec, 'attribution_internals.mojom.Empty', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: WebUIReport
 mojo.internal.Struct(
@@ -486,7 +486,7 @@ attribution_internals.mojom.ObserverRequest = attribution_internals.mojom.Observ
 mojo.internal.Struct(
     attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec, 'attribution_internals.mojom.Handler_IsAttributionReportingEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec, 'attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParams', [
@@ -504,17 +504,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec, 'attribution_internals.mojom.Handler_SendReport_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     attribution_internals.mojom.Handler_ClearStorage_ParamsSpec, 'attribution_internals.mojom.Handler_ClearStorage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, 'attribution_internals.mojom.Handler_ClearStorage_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 attribution_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {

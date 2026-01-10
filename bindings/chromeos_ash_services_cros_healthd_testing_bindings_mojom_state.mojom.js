@@ -26,7 +26,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Pa
 mojo.internal.Struct(
     ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParams', [
@@ -37,17 +37,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_WaitLastCall_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cros_healthd.connectivity.mojom.StatePendingReceiver = class {
   constructor(handle) {

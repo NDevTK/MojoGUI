@@ -67,7 +67,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec, 'image_annotation.mojom.ImageProcessor_GetJpgImageData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec, 'image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParams', [

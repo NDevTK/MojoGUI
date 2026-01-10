@@ -23,7 +23,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec, 'web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 web.mojom.WebUsageControllerPendingReceiver = class {
   constructor(handle) {

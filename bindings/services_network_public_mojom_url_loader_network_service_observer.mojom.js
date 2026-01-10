@@ -91,12 +91,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec, 'network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec, 'network.mojom.ClientCertificateResponder_CancelRequest_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.ClientCertificateResponderPendingReceiver = class {
   constructor(handle) {
@@ -371,7 +371,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_Params', [
@@ -382,7 +382,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_Params', [
@@ -403,7 +403,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_Params', [

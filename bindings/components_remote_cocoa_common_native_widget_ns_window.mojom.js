@@ -171,12 +171,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_Params', [
@@ -187,7 +187,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParams', [
@@ -207,17 +207,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_Params', [
@@ -281,7 +281,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_Params', [
@@ -356,7 +356,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_Params', [
@@ -367,22 +367,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_Params', [
@@ -412,7 +412,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_Params', [
@@ -429,12 +429,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_Params', [

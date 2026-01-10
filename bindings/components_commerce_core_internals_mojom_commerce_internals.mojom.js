@@ -142,7 +142,7 @@ commerce.mojom.CommerceInternalsHandlerFactoryRequest = commerce.mojom.CommerceI
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParams', [
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_Params', [
@@ -170,7 +170,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParams', [
@@ -181,7 +181,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParams', [
@@ -192,12 +192,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParams', [

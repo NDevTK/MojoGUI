@@ -125,7 +125,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParams', [
@@ -136,7 +136,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParams', [

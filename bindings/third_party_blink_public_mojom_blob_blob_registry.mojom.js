@@ -101,7 +101,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.BlobRegistry_Register_ResponseParamsSpec, 'blink.mojom.BlobRegistry_Register_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_Params', [

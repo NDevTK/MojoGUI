@@ -66,7 +66,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParams', [
@@ -135,7 +135,7 @@ remoting.mojom.WebAuthnRequestCancellerRequest = remoting.mojom.WebAuthnRequestC
 mojo.internal.Struct(
     remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams', [

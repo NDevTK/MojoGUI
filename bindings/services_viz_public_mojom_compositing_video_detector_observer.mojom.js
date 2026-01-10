@@ -17,12 +17,12 @@ viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 viz.mojom.VideoDetectorObserverPendingReceiver = class {
   constructor(handle) {

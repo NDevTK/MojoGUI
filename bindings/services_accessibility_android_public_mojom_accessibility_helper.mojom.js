@@ -620,7 +620,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ax.android.mojom.AccessibilityHelperInstance_Init_ResponseParamsSpec, 'ax.android.mojom.AccessibilityHelperInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec, 'ax.android.mojom.AccessibilityHelperInstance_SetFilter_Params', [

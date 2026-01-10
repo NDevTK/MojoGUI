@@ -149,7 +149,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragTargetDrop_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec, 'blink.mojom.FrameWidget_DragSourceEndedAt_Params', [
@@ -162,12 +162,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec, 'blink.mojom.FrameWidget_DragSourceSystemDragEnded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec, 'blink.mojom.FrameWidget_OnStartStylusWriting_Params', [
@@ -248,7 +248,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec, 'blink.mojom.FrameWidget_DisableDeviceEmulation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec, 'blink.mojom.FrameWidget_BindWidgetCompositor_Params', [
@@ -266,7 +266,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec, 'blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.FrameWidgetPendingReceiver = class {
   constructor(handle) {
@@ -537,7 +537,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec, 'blink.mojom.FrameWidgetHost_AutoscrollEnd_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.FrameWidgetHostPendingReceiver = class {
   constructor(handle) {
@@ -654,7 +654,7 @@ blink.mojom.FrameWidgetHostRequest = blink.mojom.FrameWidgetHostPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec, 'blink.mojom.PopupWidgetHost_RequestClosePopup_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec, 'blink.mojom.PopupWidgetHost_ShowPopup_Params', [
@@ -666,7 +666,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec, 'blink.mojom.PopupWidgetHost_ShowPopup_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec, 'blink.mojom.PopupWidgetHost_SetPopupBounds_Params', [
@@ -677,7 +677,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec, 'blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.PopupWidgetHostPendingReceiver = class {
   constructor(handle) {

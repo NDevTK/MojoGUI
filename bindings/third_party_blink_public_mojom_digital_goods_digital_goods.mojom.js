@@ -41,7 +41,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.DigitalGoods_ListPurchases_ParamsSpec, 'payments.mojom.DigitalGoods_ListPurchases_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec, 'payments.mojom.DigitalGoods_ListPurchases_ResponseParams', [
@@ -53,7 +53,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec, 'payments.mojom.DigitalGoods_ListPurchaseHistory_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec, 'payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParams', [

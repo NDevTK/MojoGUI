@@ -15,7 +15,7 @@ mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec, 'mojom.ResetPasswordHandler_HandlePasswordReset_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojom.ResetPasswordHandlerPendingReceiver = class {
   constructor(handle) {

@@ -22,7 +22,7 @@ ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSp
 mojo.internal.Struct(
     ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params', [

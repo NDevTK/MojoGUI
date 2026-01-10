@@ -85,7 +85,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRequest = ash.mojom.demo_mode.Unt
 mojo.internal.Struct(
     ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_Params', [

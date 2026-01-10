@@ -102,7 +102,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver = class {
   constructor(handle) {

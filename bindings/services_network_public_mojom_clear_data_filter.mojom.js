@@ -22,4 +22,4 @@ network.mojom.Type = {
 mojo.internal.Struct(
     network.mojom.ClearDataFilterSpec, 'network.mojom.ClearDataFilter', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);

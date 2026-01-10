@@ -189,7 +189,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec, 'ash.language.mojom.LanguagePacks_UninstallPack_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec, 'ash.language.mojom.LanguagePacks_AddObserver_Params', [

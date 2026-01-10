@@ -65,27 +65,27 @@ ash.screens_login.mojom.UIState = {
 mojo.internal.Struct(
     ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -324,27 +324,27 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRequest = ash.screens_login.mojom.
 mojo.internal.Struct(
     ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_login.mojom.EncryptionMigrationPageHandlerPendingReceiver = class {
   constructor(handle) {

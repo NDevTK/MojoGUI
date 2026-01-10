@@ -104,7 +104,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.LockRequest_Failed_ParamsSpec, 'blink.mojom.LockRequest_Failed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.LockRequestPendingReceiver = class {
   constructor(handle) {
@@ -185,7 +185,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.LockManager_QueryState_ParamsSpec, 'blink.mojom.LockManager_QueryState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.LockManager_QueryState_ResponseParamsSpec, 'blink.mojom.LockManager_QueryState_ResponseParams', [

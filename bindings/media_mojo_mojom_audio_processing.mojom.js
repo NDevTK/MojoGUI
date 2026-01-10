@@ -50,7 +50,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioProcessorControls_GetStats_ParamsSpec, 'media.mojom.AudioProcessorControls_GetStats_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec, 'media.mojom.AudioProcessorControls_GetStats_ResponseParams', [

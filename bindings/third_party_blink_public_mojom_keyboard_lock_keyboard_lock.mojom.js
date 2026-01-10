@@ -59,12 +59,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec, 'blink.mojom.KeyboardLockService_CancelKeyboardLock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec, 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec, 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParams', [

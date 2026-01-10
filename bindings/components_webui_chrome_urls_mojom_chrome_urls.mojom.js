@@ -110,7 +110,7 @@ chrome_urls.mojom.PageHandlerFactoryRequest = chrome_urls.mojom.PageHandlerFacto
 mojo.internal.Struct(
     chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec, 'chrome_urls.mojom.PageHandler_GetUrls_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec, 'chrome_urls.mojom.PageHandler_GetUrls_ResponseParams', [
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec, 'chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome_urls.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

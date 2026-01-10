@@ -140,7 +140,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec, 'chrome.mojom.MediaParser_GetCpuInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec, 'chrome.mojom.MediaParser_GetCpuInfo_ResponseParams', [

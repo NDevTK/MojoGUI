@@ -156,7 +156,7 @@ ash.diagnostics.mojom.RoutineRunnerRequest = ash.diagnostics.mojom.RoutineRunner
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParams', [

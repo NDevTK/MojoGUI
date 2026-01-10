@@ -159,7 +159,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_SendMessage_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.Channel_RegisterPayloadFile_Params', [
@@ -178,7 +178,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec, 'ash.secure_channel.mojom.Channel_GetConnectionMetadata_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParams', [

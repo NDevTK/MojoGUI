@@ -24,7 +24,7 @@ arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_ResponseParams', [
@@ -42,7 +42,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetDefaultWallpaper_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.WallpaperHostPendingReceiver = class {
   constructor(handle) {
@@ -129,7 +129,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.WallpaperInstance_Init_ResponseParamsSpec, 'arc.mojom.WallpaperInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec, 'arc.mojom.WallpaperInstance_OnWallpaperChanged_Params', [

@@ -160,7 +160,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_Params', [
@@ -171,7 +171,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_Params', [
@@ -182,7 +182,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_Params', [
@@ -193,7 +193,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_Params', [
@@ -204,7 +204,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.InputInjectorPendingReceiver = class {
   constructor(handle) {

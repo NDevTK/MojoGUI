@@ -37,7 +37,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.PictureInPictureSessionObserverPendingReceiver = class {
   constructor(handle) {
@@ -119,12 +119,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PictureInPictureSession_Stop_ParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec, 'blink.mojom.PictureInPictureSession_UpdateMediaPosition_Params', [

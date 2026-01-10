@@ -259,7 +259,7 @@ ash.scanning.mojom.ScanJobObserverRequest = ash.scanning.mojom.ScanJobObserverPe
 mojo.internal.Struct(
     ash.scanning.mojom.ScanService_GetScanners_ParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_ResponseParams', [
@@ -310,7 +310,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.scanning.mojom.ScanService_CancelScan_ParamsSpec, 'ash.scanning.mojom.ScanService_CancelScan_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.scanning.mojom.ScanServicePendingReceiver = class {
   constructor(handle) {
@@ -442,7 +442,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.scanning.mojom.MultiPageScanControllerPendingReceiver = class {
   constructor(handle) {

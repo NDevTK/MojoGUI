@@ -104,7 +104,7 @@ new_tab_page_third_party.mojom.PageHandlerFactoryRequest = new_tab_page_third_pa
 mojo.internal.Struct(
     new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandler_UpdateTheme_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 new_tab_page_third_party.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

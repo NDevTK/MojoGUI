@@ -120,7 +120,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec, 'browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec, 'browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParams', [
@@ -143,7 +143,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec, 'browsing_topics.mojom.PageHandler_GetModelInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec, 'browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParams', [

@@ -21,12 +21,12 @@ arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec, 'arc.mojom.AdbdMonitorHost_AdbdStarted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec, 'arc.mojom.AdbdMonitorHost_AdbdStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.AdbdMonitorHostPendingReceiver = class {
   constructor(handle) {
@@ -104,7 +104,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec, 'arc.mojom.AdbdMonitorInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.AdbdMonitorInstancePendingReceiver = class {
   constructor(handle) {

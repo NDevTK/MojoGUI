@@ -39,7 +39,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.OfflinePageAutoFetcherPendingReceiver = class {
   constructor(handle) {

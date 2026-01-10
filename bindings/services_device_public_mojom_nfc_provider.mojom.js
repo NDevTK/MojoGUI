@@ -26,12 +26,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_SuspendNFCOperations_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_ResumeNFCOperations_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.NFCProviderPendingReceiver = class {
   constructor(handle) {

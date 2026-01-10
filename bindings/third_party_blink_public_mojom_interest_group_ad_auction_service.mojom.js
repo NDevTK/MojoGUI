@@ -156,7 +156,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AbortableAdAuction_Abort_ParamsSpec, 'blink.mojom.AbortableAdAuction_Abort_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.AbortableAdAuctionPendingReceiver = class {
   constructor(handle) {
@@ -373,7 +373,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec, 'blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec, 'blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_Params', [
@@ -391,7 +391,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec, 'blink.mojom.AdAuctionService_UpdateAdInterestGroups_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_Params', [
@@ -416,7 +416,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec, 'blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_Params', [

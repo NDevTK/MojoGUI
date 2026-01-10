@@ -54,12 +54,12 @@ blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = { $: {} }
 mojo.internal.Struct(
     blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec, 'blink.mojom.WidgetCompositor_VisualStateRequest_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec, 'blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.WidgetCompositorPendingReceiver = class {
   constructor(handle) {
@@ -143,7 +143,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec, 'blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec, 'blink.mojom.WidgetHost_TextInputStateChanged_Params', [
@@ -301,12 +301,12 @@ blink.mojom.WidgetHostRequest = blink.mojom.WidgetHostPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.Widget_ForceRedraw_ParamsSpec, 'blink.mojom.Widget_ForceRedraw_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Widget_ForceRedraw_ResponseParamsSpec, 'blink.mojom.Widget_ForceRedraw_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Widget_UpdateVisualProperties_ParamsSpec, 'blink.mojom.Widget_UpdateVisualProperties_Params', [
@@ -324,12 +324,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec, 'blink.mojom.Widget_UpdateScreenRects_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Widget_WasHidden_ParamsSpec, 'blink.mojom.Widget_WasHidden_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Widget_WasShown_ParamsSpec, 'blink.mojom.Widget_WasShown_Params', [
@@ -347,7 +347,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec, 'blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec, 'blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_Params', [

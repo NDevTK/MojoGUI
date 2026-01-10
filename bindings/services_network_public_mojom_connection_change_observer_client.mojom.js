@@ -38,7 +38,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnSessionClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_Params', [
@@ -49,7 +49,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.ConnectionChangeObserverClientPendingReceiver = class {
   constructor(handle) {

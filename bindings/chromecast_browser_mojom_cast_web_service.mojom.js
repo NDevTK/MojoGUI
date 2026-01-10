@@ -104,17 +104,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec, 'chromecast.mojom.CastWebService_FlushDomLocalStorage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec, 'chromecast.mojom.CastWebService_ClearLocalStorage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec, 'chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromecast.mojom.CastWebServicePendingReceiver = class {
   constructor(handle) {

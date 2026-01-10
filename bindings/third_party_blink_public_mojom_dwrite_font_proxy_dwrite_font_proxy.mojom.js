@@ -70,7 +70,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec, 'blink.mojom.DWriteFontProxy_GetFamilyCount_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec, 'blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParams', [

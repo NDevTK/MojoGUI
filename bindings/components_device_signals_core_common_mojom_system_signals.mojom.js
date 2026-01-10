@@ -102,7 +102,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParams', [
@@ -113,7 +113,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetHotfixSignals_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParams', [

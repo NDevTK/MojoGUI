@@ -140,7 +140,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRequest = chrome.mojom.BoundSess
 mojo.internal.Struct(
     chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec, 'chrome.mojom.ChromeOSListener_MergeSessionComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.ChromeOSListenerPendingReceiver = class {
   constructor(handle) {

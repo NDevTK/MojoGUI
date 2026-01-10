@@ -21,7 +21,7 @@ arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec, 'arc.mojom.TracingInstance_QueryAvailableCategories_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec, 'arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParams', [
@@ -45,7 +45,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.TracingInstance_StopTracing_ParamsSpec, 'arc.mojom.TracingInstance_StopTracing_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec, 'arc.mojom.TracingInstance_StopTracing_ResponseParams', [

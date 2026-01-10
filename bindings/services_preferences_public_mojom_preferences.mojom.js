@@ -62,7 +62,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec, 'prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 prefs.mojom.ResetOnLoadObserverPendingReceiver = class {
   constructor(handle) {

@@ -86,7 +86,7 @@ comments.mojom.PageHandlerFactoryRequest = comments.mojom.PageHandlerFactoryPend
 mojo.internal.Struct(
     comments.mojom.PageHandler_ShowUI_ParamsSpec, 'comments.mojom.PageHandler_ShowUI_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 comments.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

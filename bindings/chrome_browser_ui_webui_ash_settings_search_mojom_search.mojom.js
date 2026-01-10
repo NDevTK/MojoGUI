@@ -87,7 +87,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec, 'ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.settings.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {

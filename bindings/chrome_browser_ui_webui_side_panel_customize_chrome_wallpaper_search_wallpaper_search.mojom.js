@@ -238,7 +238,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRequest = side_pa
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParams', [
@@ -249,7 +249,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParams', [
@@ -302,7 +302,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_Params', [
@@ -313,12 +313,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver = class {
   constructor(handle) {

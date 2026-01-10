@@ -19,7 +19,7 @@ file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = { $: {} 
 mojo.internal.Struct(
     file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParams', [
@@ -30,12 +30,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_DismissModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver = class {
   constructor(handle) {

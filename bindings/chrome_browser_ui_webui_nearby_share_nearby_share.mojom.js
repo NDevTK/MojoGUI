@@ -304,7 +304,7 @@ nearby_share.mojom.TransferUpdateListenerRequest = nearby_share.mojom.TransferUp
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_Params', [
@@ -400,12 +400,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_Params', [
@@ -424,7 +424,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParams', [
@@ -529,7 +529,7 @@ nearby_share.mojom.DiscoveryManagerRequest = nearby_share.mojom.DiscoveryManager
 mojo.internal.Struct(
     nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_ResponseParams', [
@@ -540,7 +540,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_ResponseParams', [
@@ -551,7 +551,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_ResponseParams', [
@@ -651,12 +651,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 nearby_share.mojom.ReceiveObserverPendingReceiver = class {
   constructor(handle) {
@@ -752,7 +752,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParams', [
@@ -763,7 +763,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParams', [
@@ -774,7 +774,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParams', [

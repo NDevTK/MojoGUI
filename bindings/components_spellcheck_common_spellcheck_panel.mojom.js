@@ -27,7 +27,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec, 'spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 spellcheck.mojom.SpellCheckPanelPendingReceiver = class {
   constructor(handle) {

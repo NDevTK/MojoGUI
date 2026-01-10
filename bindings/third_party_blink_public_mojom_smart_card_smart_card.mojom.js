@@ -18,7 +18,7 @@ blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.SmartCardService_CreateContext_ParamsSpec, 'blink.mojom.SmartCardService_CreateContext_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec, 'blink.mojom.SmartCardService_CreateContext_ResponseParams', [

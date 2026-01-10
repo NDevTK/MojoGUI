@@ -145,7 +145,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params', [

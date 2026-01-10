@@ -75,7 +75,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParams', [
@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParams', [
@@ -235,7 +235,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver = class {
   constructor(handle) {

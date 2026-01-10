@@ -154,12 +154,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec, 'mac_notifications.mojom.MacNotificationService_CloseAllNotifications_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec, 'mac_notifications.mojom.MacNotificationService_OkayToTerminateService_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec, 'mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParams', [

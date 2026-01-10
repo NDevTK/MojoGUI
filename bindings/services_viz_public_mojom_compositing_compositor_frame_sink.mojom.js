@@ -99,7 +99,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec, 'viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec, 'viz.mojom.CompositorFrameSink_BindLayerContext_Params', [

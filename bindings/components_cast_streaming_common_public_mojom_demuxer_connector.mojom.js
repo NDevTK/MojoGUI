@@ -98,7 +98,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_GetBuffer_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParams', [
@@ -109,7 +109,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParams', [
@@ -187,7 +187,7 @@ cast_streaming.mojom.AudioBufferRequesterRequest = cast_streaming.mojom.AudioBuf
 mojo.internal.Struct(
     cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_GetBuffer_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParams', [
@@ -198,7 +198,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParams', [
@@ -276,12 +276,12 @@ cast_streaming.mojom.VideoBufferRequesterRequest = cast_streaming.mojom.VideoBuf
 mojo.internal.Struct(
     cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec, 'cast_streaming.mojom.DemuxerConnector_EnableReceiver_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec, 'cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec, 'cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_Params', [

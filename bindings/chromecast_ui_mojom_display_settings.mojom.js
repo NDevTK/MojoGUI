@@ -40,7 +40,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec, 'chromecast.mojom.DisplaySettings_ResetColorTemperature_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetBrightness_Params', [
@@ -58,7 +58,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec, 'chromecast.mojom.DisplaySettings_ResetBrightness_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetScreenOn_Params', [

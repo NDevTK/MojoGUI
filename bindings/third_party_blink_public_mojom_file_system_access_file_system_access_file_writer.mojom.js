@@ -50,7 +50,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Close_ResponseParams', [
@@ -61,7 +61,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Abort_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParams', [

@@ -259,12 +259,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec, 'blink.mojom.RemoteFrameHost_DidFocusFrame_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec, 'blink.mojom.RemoteFrameHost_CheckCompleted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec, 'blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_Params', [
@@ -311,7 +311,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrameHost_Detach_ParamsSpec, 'blink.mojom.RemoteFrameHost_Detach_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec, 'blink.mojom.RemoteFrameHost_UpdateViewportIntersection_Params', [
@@ -563,7 +563,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec, 'blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec, 'blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_Params', [
@@ -580,7 +580,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_Focus_ParamsSpec, 'blink.mojom.RemoteFrame_Focus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec, 'blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_Params', [
@@ -617,7 +617,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec, 'blink.mojom.RemoteFrame_RenderFallbackContent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec, 'blink.mojom.RemoteFrame_AddResourceTimingFromChild_Params', [
@@ -635,12 +635,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec, 'blink.mojom.RemoteFrame_DidStartLoading_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec, 'blink.mojom.RemoteFrame_DidStopLoading_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec, 'blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_Params', [
@@ -670,7 +670,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec, 'blink.mojom.RemoteFrame_DetachAndDispose_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec, 'blink.mojom.RemoteFrame_EnableAutoResize_Params', [
@@ -682,7 +682,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec, 'blink.mojom.RemoteFrame_DisableAutoResize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec, 'blink.mojom.RemoteFrame_DidUpdateVisualProperties_Params', [
@@ -700,7 +700,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec, 'blink.mojom.RemoteFrame_ChildProcessGone_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec, 'blink.mojom.RemoteFrame_CreateRemoteChild_Params', [
@@ -1150,7 +1150,7 @@ blink.mojom.RemoteMainFrameRequest = blink.mojom.RemoteMainFramePendingReceiver;
 mojo.internal.Struct(
     blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec, 'blink.mojom.RemoteMainFrameHost_FocusPage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec, 'blink.mojom.RemoteMainFrameHost_TakeFocus_Params', [
@@ -1167,12 +1167,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec, 'blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec, 'blink.mojom.RemoteMainFrameHost_RouteCloseEvent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.RemoteMainFrameHostPendingReceiver = class {
   constructor(handle) {

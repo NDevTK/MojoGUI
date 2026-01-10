@@ -150,7 +150,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.InputDeviceManager_GetDevices_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_ResponseParams', [

@@ -51,7 +51,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec, 'ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.help_app.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.help_app.mojom.SearchHandler_Observe_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Observe_Params', [

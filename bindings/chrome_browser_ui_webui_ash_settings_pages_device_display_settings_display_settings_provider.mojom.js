@@ -159,7 +159,7 @@ ash.settings.mojom.TabletModeObserverRequest = ash.settings.mojom.TabletModeObse
 mojo.internal.Struct(
     ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec, 'ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.settings.mojom.DisplayConfigurationObserverPendingReceiver = class {
   constructor(handle) {
@@ -418,12 +418,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParams', [

@@ -116,17 +116,17 @@ history_sync_optin.mojom.PageHandlerFactoryRequest = history_sync_optin.mojom.Pa
 mojo.internal.Struct(
     history_sync_optin.mojom.PageHandler_Accept_ParamsSpec, 'history_sync_optin.mojom.PageHandler_Accept_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     history_sync_optin.mojom.PageHandler_Reject_ParamsSpec, 'history_sync_optin.mojom.PageHandler_Reject_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec, 'history_sync_optin.mojom.PageHandler_RequestAccountInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec, 'history_sync_optin.mojom.PageHandler_UpdateDialogHeight_Params', [

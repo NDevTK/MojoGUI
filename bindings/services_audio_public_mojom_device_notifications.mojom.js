@@ -19,7 +19,7 @@ audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     audio.mojom.DeviceListener_DevicesChanged_ParamsSpec, 'audio.mojom.DeviceListener_DevicesChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 audio.mojom.DeviceListenerPendingReceiver = class {
   constructor(handle) {

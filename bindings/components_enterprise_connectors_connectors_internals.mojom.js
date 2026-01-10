@@ -172,7 +172,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetDeviceTrustState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParams', [
@@ -183,17 +183,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec, 'connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetClientCertificateState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParams', [
@@ -204,7 +204,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetSignalsReportingState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParams', [

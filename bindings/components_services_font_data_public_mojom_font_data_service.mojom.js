@@ -122,7 +122,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec, 'font_data_service.mojom.FontDataService_GetAllFamilyNames_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParams', [

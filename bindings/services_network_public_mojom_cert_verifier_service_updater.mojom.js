@@ -61,12 +61,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_Params', [

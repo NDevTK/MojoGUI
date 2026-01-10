@@ -52,7 +52,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_ResponseParams', [

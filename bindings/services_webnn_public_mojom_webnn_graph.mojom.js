@@ -654,13 +654,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     webnn.mojom.EdgePaddingSpec, 'webnn.mojom.EdgePadding', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: ReflectionPadding
 mojo.internal.Struct(
     webnn.mojom.ReflectionPaddingSpec, 'webnn.mojom.ReflectionPadding', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: InstanceNormalization
 mojo.internal.Struct(

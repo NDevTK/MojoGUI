@@ -115,7 +115,7 @@ policy.local_user_files.mojom.PageHandlerFactoryRequest = policy.local_user_file
 mojo.internal.Struct(
     policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParams', [
@@ -128,12 +128,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     policy.local_user_files.mojom.PageHandler_Close_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 policy.local_user_files.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

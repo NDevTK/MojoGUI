@@ -383,7 +383,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.mojom.StylusSpec, 'ash.mojom.Stylus', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: GraphicsTablet
 mojo.internal.Struct(

@@ -32,7 +32,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParams', [

@@ -197,7 +197,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParams', [
@@ -234,7 +234,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParams', [

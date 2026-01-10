@@ -142,12 +142,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.NFC_CancelPush_ParamsSpec, 'device.mojom.NFC_CancelPush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.NFC_MakeReadOnly_ParamsSpec, 'device.mojom.NFC_MakeReadOnly_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.NFC_MakeReadOnly_ResponseParamsSpec, 'device.mojom.NFC_MakeReadOnly_ResponseParams', [
@@ -158,7 +158,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.NFC_CancelMakeReadOnly_ParamsSpec, 'device.mojom.NFC_CancelMakeReadOnly_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.NFC_Watch_ParamsSpec, 'device.mojom.NFC_Watch_Params', [

@@ -131,12 +131,12 @@ sensor.mojom.PageHandlerFactoryRequest = sensor.mojom.PageHandlerFactoryPendingR
 mojo.internal.Struct(
     sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StartRecordingUpdate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StopRecordingUpdate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 sensor.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

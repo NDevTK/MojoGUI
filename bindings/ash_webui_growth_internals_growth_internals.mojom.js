@@ -19,7 +19,7 @@ ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParams', [
@@ -30,7 +30,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec, 'ash.growth.mojom.PageHandler_ClearAllEvents_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.growth.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

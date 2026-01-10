@@ -135,7 +135,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Reset_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Reset_ResponseParams', [
@@ -146,7 +146,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Flush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Flush_ResponseParams', [

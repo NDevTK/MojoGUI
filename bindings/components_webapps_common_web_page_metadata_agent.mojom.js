@@ -18,7 +18,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = { $: 
 mojo.internal.Struct(
     webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParams', [

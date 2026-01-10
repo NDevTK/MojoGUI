@@ -232,7 +232,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_FinishComposition_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DeleteSurroundingText_Params', [

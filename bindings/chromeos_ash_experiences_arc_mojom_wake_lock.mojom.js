@@ -23,7 +23,7 @@ arc.mojom.WakeLockInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec, 'arc.mojom.WakeLockHost_AcquirePartialWakeLock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec, 'arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParams', [
@@ -34,7 +34,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec, 'arc.mojom.WakeLockHost_ReleasePartialWakeLock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec, 'arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParams', [
@@ -118,7 +118,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.WakeLockInstance_Init_ResponseParamsSpec, 'arc.mojom.WakeLockInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.WakeLockInstancePendingReceiver = class {
   constructor(handle) {

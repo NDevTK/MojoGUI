@@ -102,7 +102,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.SystemStateInstance_Init_ResponseParamsSpec, 'arc.mojom.SystemStateInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.SystemStateInstancePendingReceiver = class {
   constructor(handle) {

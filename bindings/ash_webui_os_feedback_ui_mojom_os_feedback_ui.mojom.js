@@ -239,7 +239,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderRequest = ash.os_feedback_ui.mojom.H
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParams', [
@@ -250,7 +250,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParams', [
@@ -273,22 +273,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_Params', [

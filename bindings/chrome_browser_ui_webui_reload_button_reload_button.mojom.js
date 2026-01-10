@@ -104,7 +104,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     reload_button.mojom.PageHandler_StopReload_ParamsSpec, 'reload_button.mojom.PageHandler_StopReload_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'reload_button.mojom.PageHandler_ShowContextMenu_Params', [

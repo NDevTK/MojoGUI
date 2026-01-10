@@ -540,32 +540,32 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver = class {
   constructor(handle) {
@@ -673,12 +673,12 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRequest = ash.cros_healthd.mo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver = class {
   constructor(handle) {
@@ -750,22 +750,22 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRequest = ash.cros_healthd.mojom.Cr
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver = class {
   constructor(handle) {
@@ -855,12 +855,12 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRequest = ash.cros_healthd.mojom.
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver = class {
   constructor(handle) {
@@ -932,22 +932,22 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRequest = ash.cros_healthd.mojom.
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver = class {
   constructor(handle) {
@@ -1116,12 +1116,12 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRequest = ash.cros_healthd.mojom.Cr
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver = class {
   constructor(handle) {

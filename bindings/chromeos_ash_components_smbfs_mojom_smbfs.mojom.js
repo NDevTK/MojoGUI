@@ -196,7 +196,7 @@ smbfs.mojom.SmbFsBootstrapRequest = smbfs.mojom.SmbFsBootstrapPendingReceiver;
 mojo.internal.Struct(
     smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParams', [
@@ -286,7 +286,7 @@ smbfs.mojom.SmbFsRequest = smbfs.mojom.SmbFsPendingReceiver;
 mojo.internal.Struct(
     smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParams', [

@@ -126,12 +126,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec, 'media.mojom.RemotingDataStreamSender_SendFrame_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec, 'media.mojom.RemotingDataStreamSender_CancelInFlightData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media.mojom.RemotingDataStreamSenderPendingReceiver = class {
   constructor(handle) {
@@ -203,12 +203,12 @@ media.mojom.RemotingDataStreamSenderRequest = media.mojom.RemotingDataStreamSend
 mojo.internal.Struct(
     media.mojom.Remoter_Start_ParamsSpec, 'media.mojom.Remoter_Start_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec, 'media.mojom.Remoter_StartWithPermissionAlreadyGranted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.Remoter_StartDataStreams_ParamsSpec, 'media.mojom.Remoter_StartDataStreams_Params', [
@@ -234,7 +234,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec, 'media.mojom.Remoter_EstimateTransmissionCapacity_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec, 'media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParams', [
@@ -354,12 +354,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.RemotingSource_OnSinkGone_ParamsSpec, 'media.mojom.RemotingSource_OnSinkGone_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.RemotingSource_OnStarted_ParamsSpec, 'media.mojom.RemotingSource_OnStarted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.RemotingSource_OnStartFailed_ParamsSpec, 'media.mojom.RemotingSource_OnStartFailed_Params', [

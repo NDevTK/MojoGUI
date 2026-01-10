@@ -100,7 +100,7 @@ ash.extended_updates.mojom.PageHandlerFactoryRequest = ash.extended_updates.mojo
 mojo.internal.Struct(
     ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParams', [
@@ -111,12 +111,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_CloseDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParams', [

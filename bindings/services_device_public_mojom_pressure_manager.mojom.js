@@ -50,7 +50,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec, 'device.mojom.PressureManager_AddVirtualPressureSource_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec, 'device.mojom.PressureManager_RemoveVirtualPressureSource_Params', [
@@ -62,7 +62,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec, 'device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceData_Params', [
@@ -76,7 +76,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.PressureManager_AddClient_ParamsSpec, 'device.mojom.PressureManager_AddClient_Params', [

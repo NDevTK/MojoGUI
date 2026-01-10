@@ -63,12 +63,12 @@ autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec =
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec, 'autofill.mojom.AutofillAgent_TriggerFormExtraction_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec, 'autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec, 'autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParams', [
@@ -130,12 +130,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec, 'autofill.mojom.AutofillAgent_ExposeDomNodeIds_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec, 'autofill.mojom.AutofillAgent_ClearPreviewedForm_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec, 'autofill.mojom.AutofillAgent_TriggerSuggestions_Params', [
@@ -174,7 +174,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec, 'autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec, 'autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParams', [
@@ -479,7 +479,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_Params', [
@@ -674,12 +674,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec, 'autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec, 'autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec, 'autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParams', [
@@ -696,7 +696,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec, 'autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 autofill.mojom.PasswordGenerationAgentPendingReceiver = class {
   constructor(handle) {

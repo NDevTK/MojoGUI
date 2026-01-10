@@ -52,7 +52,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParams', [
@@ -63,7 +63,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParams', [

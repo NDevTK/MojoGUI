@@ -33,7 +33,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec, 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver = class {
   constructor(handle) {

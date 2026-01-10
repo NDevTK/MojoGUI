@@ -60,7 +60,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec, 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec, 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParams', [

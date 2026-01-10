@@ -257,7 +257,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec, 'tracing.mojom.ProducerHost_CommitData_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec, 'tracing.mojom.ProducerHost_RegisterDataSource_Params', [
@@ -381,7 +381,7 @@ tracing.mojom.ProducerHostRequest = tracing.mojom.ProducerHostPendingReceiver;
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec, 'tracing.mojom.ProducerClient_OnTracingStart_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_StartDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_Params', [
@@ -393,7 +393,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_StopDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StopDataSource_Params', [
@@ -404,7 +404,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec, 'tracing.mojom.ProducerClient_StopDataSource_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_Flush_ParamsSpec, 'tracing.mojom.ProducerClient_Flush_Params', [
@@ -416,7 +416,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec, 'tracing.mojom.ProducerClient_ClearIncrementalState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 tracing.mojom.ProducerClientPendingReceiver = class {
   constructor(handle) {
@@ -681,7 +681,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracing_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec, 'tracing.mojom.TracingSessionHost_ReadBuffers_Params', [
@@ -692,12 +692,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParams', [
@@ -718,7 +718,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 tracing.mojom.TracingSessionHostPendingReceiver = class {
   constructor(handle) {
@@ -817,7 +817,7 @@ tracing.mojom.TracingSessionHostRequest = tracing.mojom.TracingSessionHostPendin
 mojo.internal.Struct(
     tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec, 'tracing.mojom.TracingSessionClient_OnTracingEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec, 'tracing.mojom.TracingSessionClient_OnTracingDisabled_Params', [

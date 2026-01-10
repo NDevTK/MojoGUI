@@ -54,12 +54,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParams', [

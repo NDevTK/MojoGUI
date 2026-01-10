@@ -227,7 +227,7 @@ chrome.mojom.SafeArchiveAnalyzerRequest = chrome.mojom.SafeArchiveAnalyzerPendin
 mojo.internal.Struct(
     chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParams', [

@@ -33,7 +33,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifest_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_ResponseParams', [
@@ -46,12 +46,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestAndErrors_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParams', [

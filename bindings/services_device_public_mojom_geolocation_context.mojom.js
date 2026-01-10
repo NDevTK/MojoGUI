@@ -54,7 +54,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.GeolocationContext_ClearOverride_ParamsSpec, 'device.mojom.GeolocationContext_ClearOverride_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.GeolocationContextPendingReceiver = class {
   constructor(handle) {

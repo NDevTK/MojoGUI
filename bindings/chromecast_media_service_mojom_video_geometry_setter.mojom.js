@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromecast.media.mojom.VideoGeometryChangeSubscriberPendingReceiver = class {
   constructor(handle) {

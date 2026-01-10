@@ -23,7 +23,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 audio.mojom.MlModelManagerPendingReceiver = class {
   constructor(handle) {

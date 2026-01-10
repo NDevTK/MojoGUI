@@ -104,12 +104,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoDecoder_Reset_ParamsSpec, 'arc.mojom.VideoDecoder_Reset_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecoder_Reset_ResponseParamsSpec, 'arc.mojom.VideoDecoder_Reset_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec, 'arc.mojom.VideoDecoder_ReleaseVideoFrame_Params', [

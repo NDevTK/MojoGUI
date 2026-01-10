@@ -142,12 +142,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec, 'blink.mojom.SynchronousCompositor_WillSkipDraw_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec, 'blink.mojom.SynchronousCompositor_ZeroSharedMemory_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec, 'blink.mojom.SynchronousCompositor_ZoomBy_Params', [
@@ -370,7 +370,7 @@ blink.mojom.SynchronousCompositorRequest = blink.mojom.SynchronousCompositorPend
 mojo.internal.Struct(
     blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_UpdateState_Params', [

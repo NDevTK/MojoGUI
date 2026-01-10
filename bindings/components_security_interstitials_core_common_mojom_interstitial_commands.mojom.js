@@ -36,107 +36,107 @@ security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionS
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DontProceed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_Proceed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ShowMoreSection_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_Reload_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDateSettings_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenLogin_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DoReport_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DontReport_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ReportPhishingError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 security_interstitials.mojom.InterstitialCommandsPendingReceiver = class {
   constructor(handle) {

@@ -33,7 +33,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     network.mojom.EmptyNetworkAnonymizationKeySpec, 'network.mojom.EmptyNetworkAnonymizationKey', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: NonEmptyNetworkAnonymizationKey
 mojo.internal.Struct(

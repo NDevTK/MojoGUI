@@ -17,7 +17,7 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = { $:
 mojo.internal.Struct(
     chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParams', [

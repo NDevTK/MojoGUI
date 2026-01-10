@@ -234,7 +234,7 @@ dlp_internals.mojom.ReportingObserverRequest = dlp_internals.mojom.ReportingObse
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec, 'dlp_internals.mojom.PageHandler_GetClipboardDataSource_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParams', [
@@ -245,7 +245,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec, 'dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParams', [
@@ -262,7 +262,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec, 'dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParams', [

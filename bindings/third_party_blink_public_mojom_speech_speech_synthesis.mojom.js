@@ -138,7 +138,7 @@ blink.mojom.SpeechSynthesisVoiceListObserverRequest = blink.mojom.SpeechSynthesi
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_Params', [
@@ -149,12 +149,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_Params', [
@@ -173,7 +173,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.SpeechSynthesisClientPendingReceiver = class {
   constructor(handle) {
@@ -303,17 +303,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesis_Pause_ParamsSpec, 'blink.mojom.SpeechSynthesis_Pause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesis_Resume_ParamsSpec, 'blink.mojom.SpeechSynthesis_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesis_Cancel_ParamsSpec, 'blink.mojom.SpeechSynthesis_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.SpeechSynthesisPendingReceiver = class {
   constructor(handle) {

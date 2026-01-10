@@ -45,32 +45,32 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageFocus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageBlur_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordClick_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordNavigation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSearch_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChange_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [

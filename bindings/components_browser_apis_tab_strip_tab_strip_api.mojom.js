@@ -69,7 +69,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_GetTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTabs_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_GetTab_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTab_Params', [

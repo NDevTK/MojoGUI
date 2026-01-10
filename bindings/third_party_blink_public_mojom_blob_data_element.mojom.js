@@ -76,7 +76,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.BytesProvider_RequestAsReply_ParamsSpec, 'blink.mojom.BytesProvider_RequestAsReply_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec, 'blink.mojom.BytesProvider_RequestAsReply_ResponseParams', [

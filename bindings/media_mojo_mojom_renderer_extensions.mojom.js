@@ -114,7 +114,7 @@ media.mojom.FlingingRendererClientExtensionRequest = media.mojom.FlingingRendere
 mojo.internal.Struct(
     media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParams', [

@@ -85,7 +85,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRequest = ash.settings.
 mojo.internal.Struct(
     ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec, 'ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.settings.magic_boost_handler.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

@@ -105,7 +105,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParams', [
@@ -192,7 +192,7 @@ ash.wifi_direct.mojom.WifiDirectManagerRequest = ash.wifi_direct.mojom.WifiDirec
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParams', [

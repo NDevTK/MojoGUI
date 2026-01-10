@@ -35,7 +35,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_ResponseParams', [

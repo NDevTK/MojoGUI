@@ -57,7 +57,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_Params', [
@@ -143,7 +143,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RenderAccessibility_FatalError_ParamsSpec, 'blink.mojom.RenderAccessibility_FatalError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RenderAccessibility_HitTest_ParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_Params', [

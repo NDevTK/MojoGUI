@@ -54,7 +54,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec, 'action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 action_chips.mojom.ActionChipsHandlerPendingReceiver = class {
   constructor(handle) {

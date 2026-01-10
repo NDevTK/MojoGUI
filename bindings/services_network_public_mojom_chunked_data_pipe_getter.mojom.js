@@ -18,7 +18,7 @@ network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParams', [

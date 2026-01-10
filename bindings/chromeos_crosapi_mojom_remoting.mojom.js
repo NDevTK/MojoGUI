@@ -19,7 +19,7 @@ crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParams', [

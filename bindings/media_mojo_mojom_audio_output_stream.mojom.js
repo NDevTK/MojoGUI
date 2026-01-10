@@ -43,17 +43,17 @@ media.mojom.DisconnectReason = {
 mojo.internal.Struct(
     media.mojom.AudioOutputStream_Play_ParamsSpec, 'media.mojom.AudioOutputStream_Play_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioOutputStream_Pause_ParamsSpec, 'media.mojom.AudioOutputStream_Pause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioOutputStream_Flush_ParamsSpec, 'media.mojom.AudioOutputStream_Flush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioOutputStream_SetVolume_ParamsSpec, 'media.mojom.AudioOutputStream_SetVolume_Params', [
@@ -149,12 +149,12 @@ media.mojom.AudioOutputStreamRequest = media.mojom.AudioOutputStreamPendingRecei
 mojo.internal.Struct(
     media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidStartPlaying_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidStopPlaying_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_Params', [

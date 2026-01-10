@@ -266,7 +266,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnHostShutdown_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 remoting.mojom.HostStatusObserverPendingReceiver = class {
   constructor(handle) {

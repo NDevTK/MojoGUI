@@ -25,7 +25,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 gfx.mojom.DelegatedInkPointRendererPendingReceiver = class {
   constructor(handle) {

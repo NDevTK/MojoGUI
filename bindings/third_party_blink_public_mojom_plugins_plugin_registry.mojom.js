@@ -40,7 +40,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PluginRegistry_GetPlugins_ParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_ResponseParams', [

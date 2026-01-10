@@ -16,7 +16,7 @@ video_capture.mojom.TestingControls_Crash_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     video_capture.mojom.TestingControls_Crash_ParamsSpec, 'video_capture.mojom.TestingControls_Crash_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 video_capture.mojom.TestingControlsPendingReceiver = class {
   constructor(handle) {

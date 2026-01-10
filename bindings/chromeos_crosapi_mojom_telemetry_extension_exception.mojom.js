@@ -70,7 +70,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryExtensionSupportedSpec, 'crosapi.mojom.TelemetryExtensionSupported', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: TelemetryExtensionUnsupported
 mojo.internal.Struct(

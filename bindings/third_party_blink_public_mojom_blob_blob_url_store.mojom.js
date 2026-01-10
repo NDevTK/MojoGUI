@@ -35,7 +35,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.BlobURLStore_Register_ResponseParamsSpec, 'blink.mojom.BlobURLStore_Register_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.BlobURLStore_Revoke_ParamsSpec, 'blink.mojom.BlobURLStore_Revoke_Params', [
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.BlobURLToken_GetToken_ParamsSpec, 'blink.mojom.BlobURLToken_GetToken_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec, 'blink.mojom.BlobURLToken_GetToken_ResponseParams', [

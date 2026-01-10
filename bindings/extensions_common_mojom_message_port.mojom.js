@@ -216,7 +216,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec, 'extensions.mojom.MessagePortHost_ResponsePending_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 extensions.mojom.MessagePortHostPendingReceiver = class {
   constructor(handle) {

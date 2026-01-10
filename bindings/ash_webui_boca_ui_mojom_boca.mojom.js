@@ -454,7 +454,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec, 'ash.boca.mojom.PageHandler_AuthenticateWebview_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParams', [
@@ -465,7 +465,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec, 'ash.boca.mojom.PageHandler_GetWindowsTabsList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParams', [
@@ -476,7 +476,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ListCourses_ParamsSpec, 'ash.boca.mojom.PageHandler_ListCourses_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_ListCourses_ResponseParams', [
@@ -523,7 +523,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetSession_ParamsSpec, 'ash.boca.mojom.PageHandler_GetSession_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetSession_ResponseParams', [
@@ -534,7 +534,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_EndSession_ParamsSpec, 'ash.boca.mojom.PageHandler_EndSession_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_EndSession_ResponseParams', [
@@ -696,7 +696,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_SetUserPref_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec, 'ash.boca.mojom.PageHandler_SetSitePermission_Params', [
@@ -727,27 +727,27 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.boca.mojom.PageHandler_OpenFeedbackDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec, 'ash.boca.mojom.PageHandler_RefreshWorkbook_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec, 'ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParams', [
@@ -764,7 +764,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_StartSpotlight_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec, 'ash.boca.mojom.PageHandler_PresentStudentScreen_Params', [
@@ -782,7 +782,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec, 'ash.boca.mojom.PageHandler_StopPresentingStudentScreen_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParams', [
@@ -805,7 +805,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec, 'ash.boca.mojom.PageHandler_StopPresentingOwnScreen_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParams', [
@@ -1162,7 +1162,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec, 'ash.boca.mojom.Page_OnLocalCaptionDisabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec, 'ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_Params', [
@@ -1191,12 +1191,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec, 'ash.boca.mojom.Page_OnPresentStudentScreenEnded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec, 'ash.boca.mojom.Page_OnPresentOwnScreenEnded_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.boca.mojom.PagePendingReceiver = class {
   constructor(handle) {

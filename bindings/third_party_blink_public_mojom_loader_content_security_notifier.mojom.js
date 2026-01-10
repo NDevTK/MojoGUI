@@ -19,12 +19,12 @@ blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = { $: {
 mojo.internal.Struct(
     blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec, 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec, 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec, 'blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_Params', [

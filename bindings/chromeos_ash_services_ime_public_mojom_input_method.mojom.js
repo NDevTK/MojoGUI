@@ -668,7 +668,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnBlur_ParamsSpec, 'ash.ime.mojom.InputMethod_OnBlur_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec, 'ash.ime.mojom.InputMethod_ProcessKeyEvent_Params', [
@@ -693,7 +693,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec, 'ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec, 'ash.ime.mojom.InputMethod_OnCandidateSelected_Params', [
@@ -710,7 +710,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec, 'ash.ime.mojom.InputMethod_IsReadyForTesting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParams', [

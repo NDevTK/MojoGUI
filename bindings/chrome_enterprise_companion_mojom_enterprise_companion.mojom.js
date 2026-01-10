@@ -29,7 +29,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParams', [

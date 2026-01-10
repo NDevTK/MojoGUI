@@ -154,7 +154,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec, 'device.mojom.SensorProvider_GetVirtualSensorInformation_Params', [

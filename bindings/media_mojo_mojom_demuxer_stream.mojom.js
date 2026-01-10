@@ -20,7 +20,7 @@ media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     media.mojom.DemuxerStream_Initialize_ParamsSpec, 'media.mojom.DemuxerStream_Initialize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
@@ -49,7 +49,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec, 'media.mojom.DemuxerStream_EnableBitstreamConverter_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media.mojom.DemuxerStreamPendingReceiver = class {
   constructor(handle) {

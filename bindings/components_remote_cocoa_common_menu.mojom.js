@@ -106,7 +106,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec, 'remote_cocoa.mojom.MenuHost_MenuClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 remote_cocoa.mojom.MenuHostPendingReceiver = class {
   constructor(handle) {
@@ -178,7 +178,7 @@ remote_cocoa.mojom.MenuHostRequest = remote_cocoa.mojom.MenuHostPendingReceiver;
 mojo.internal.Struct(
     remote_cocoa.mojom.Menu_Cancel_ParamsSpec, 'remote_cocoa.mojom.Menu_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec, 'remote_cocoa.mojom.Menu_UpdateMenuItem_Params', [

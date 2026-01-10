@@ -494,7 +494,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec, 'ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver = class {
   constructor(handle) {
@@ -840,7 +840,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_GetWindowState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParams', [
@@ -851,52 +851,52 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Minimize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Minimize_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Restore_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Restore_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Maximize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Maximize_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Fullscreen_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Focus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Focus_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.camera_app.mojom.WindowStateControllerPendingReceiver = class {
   constructor(handle) {
@@ -1027,7 +1027,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsTabletMode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParams', [
@@ -1074,7 +1074,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParams', [
@@ -1115,7 +1115,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParams', [
@@ -1151,7 +1151,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParams', [
@@ -1162,7 +1162,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParams', [
@@ -1199,7 +1199,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_Params', [
@@ -1216,12 +1216,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_Params', [
@@ -1256,7 +1256,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetEventsSender_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParams', [
@@ -1321,7 +1321,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParams', [

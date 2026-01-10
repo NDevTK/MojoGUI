@@ -16,7 +16,7 @@ device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = { $:
 mojo.internal.Struct(
     device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec, 'device.mojom.GeolocationControl_UserDidOptIntoLocationServices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.GeolocationControlPendingReceiver = class {
   constructor(handle) {

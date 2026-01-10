@@ -568,7 +568,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.AudioDriverRoutineArgumentSpec, 'ash.cros_healthd.mojom.AudioDriverRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: CpuStressRoutineArgument
 mojo.internal.Struct(
@@ -581,7 +581,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.UfsLifetimeRoutineArgumentSpec, 'ash.cros_healthd.mojom.UfsLifetimeRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: DiskReadRoutineArgument
 mojo.internal.Struct(
@@ -625,7 +625,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.KeyboardBacklightRoutineArgumentSpec, 'ash.cros_healthd.mojom.KeyboardBacklightRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FloatingPointRoutineArgument
 mojo.internal.Struct(
@@ -638,19 +638,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothPowerRoutineArgumentSpec, 'ash.cros_healthd.mojom.BluetoothPowerRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: BluetoothDiscoveryRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothDiscoveryRoutineArgumentSpec, 'ash.cros_healthd.mojom.BluetoothDiscoveryRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FanRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.FanRoutineArgumentSpec, 'ash.cros_healthd.mojom.FanRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: BluetoothScanningRoutineArgument
 mojo.internal.Struct(
@@ -685,19 +685,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.NetworkBandwidthRoutineArgumentSpec, 'ash.cros_healthd.mojom.NetworkBandwidthRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: SensitiveSensorRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.SensitiveSensorRoutineArgumentSpec, 'ash.cros_healthd.mojom.SensitiveSensorRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: CameraFrameAnalysisRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CameraFrameAnalysisRoutineArgumentSpec, 'ash.cros_healthd.mojom.CameraFrameAnalysisRoutineArgument', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: BatteryDischargeRoutineArgument
 mojo.internal.Struct(
@@ -719,7 +719,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineStateInitializedSpec, 'ash.cros_healthd.mojom.RoutineStateInitialized', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: RoutineStateRunning
 mojo.internal.Struct(
@@ -746,7 +746,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CheckLedLitUpStateInquirySpec, 'ash.cros_healthd.mojom.CheckLedLitUpStateInquiry', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: CheckLedLitUpStateReply
 mojo.internal.Struct(
@@ -759,19 +759,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.UnplugAcAdapterInquirySpec, 'ash.cros_healthd.mojom.UnplugAcAdapterInquiry', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: UnplugAcAdapterReply
 mojo.internal.Struct(
     ash.cros_healthd.mojom.UnplugAcAdapterReplySpec, 'ash.cros_healthd.mojom.UnplugAcAdapterReply', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: CheckKeyboardBacklightStateInquiry
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CheckKeyboardBacklightStateInquirySpec, 'ash.cros_healthd.mojom.CheckKeyboardBacklightStateInquiry', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: CheckKeyboardBacklightStateReply
 mojo.internal.Struct(
@@ -1045,7 +1045,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRequest = ash.cros_healthd.mojo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec, 'ash.cros_healthd.mojom.RoutineControl_GetState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec, 'ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParams', [
@@ -1056,7 +1056,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec, 'ash.cros_healthd.mojom.RoutineControl_Start_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec, 'ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_Params', [

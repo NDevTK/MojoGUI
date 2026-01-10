@@ -99,7 +99,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.ime.mojom.JpUnused_Unused_ParamsSpec, 'ash.ime.mojom.JpUnused_Unused_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec, 'ash.ime.mojom.JpUnused_Unused_ResponseParams', [

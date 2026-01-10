@@ -54,7 +54,7 @@ arc.mojom.AudioDeviceType = {
 mojo.internal.Struct(
     arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec, 'arc.mojom.AudioHost_ShowVolumeControls_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec, 'arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_Params', [
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.AudioInstance_Init_ResponseParamsSpec, 'arc.mojom.AudioInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec, 'arc.mojom.AudioInstance_NotifySwitchState_Params', [

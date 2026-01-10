@@ -33,7 +33,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     network.mojom.EmptyNetworkIsolationKeySpec, 'network.mojom.EmptyNetworkIsolationKey', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: NonEmptyNetworkIsolationKey
 mojo.internal.Struct(

@@ -17,7 +17,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParams', [

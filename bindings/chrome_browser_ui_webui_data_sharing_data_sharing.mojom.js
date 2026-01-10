@@ -192,7 +192,7 @@ data_sharing.mojom.PageHandlerFactoryRequest = data_sharing.mojom.PageHandlerFac
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_ShowUI_ParamsSpec, 'data_sharing.mojom.PageHandler_ShowUI_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_CloseUI_ParamsSpec, 'data_sharing.mojom.PageHandler_CloseUI_Params', [
@@ -203,7 +203,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec, 'data_sharing.mojom.PageHandler_ApiInitComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec, 'data_sharing.mojom.PageHandler_MakeTabGroupShared_Params', [

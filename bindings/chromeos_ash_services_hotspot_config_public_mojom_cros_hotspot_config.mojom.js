@@ -157,7 +157,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParams', [
@@ -180,7 +180,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParams', [
@@ -191,7 +191,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParams', [
@@ -305,7 +305,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRequest = ash.hotspot_config.mojom.Cro
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.hotspot_config.mojom.CrosHotspotConfigObserverPendingReceiver = class {
   constructor(handle) {
@@ -368,7 +368,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverRequest = ash.hotspot_config.m
 mojo.internal.Struct(
     ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec, 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec, 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_Params', [

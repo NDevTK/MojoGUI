@@ -57,12 +57,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec, 'content.mojom.FakeBluetoothChooser_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec, 'content.mojom.FakeBluetoothChooser_Rescan_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.FakeBluetoothChooserPendingReceiver = class {
   constructor(handle) {
@@ -150,7 +150,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.FakeBluetoothChooserFactoryPendingReceiver = class {
   constructor(handle) {

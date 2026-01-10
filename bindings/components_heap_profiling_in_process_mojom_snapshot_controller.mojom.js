@@ -24,7 +24,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec, 'heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 heap_profiling.mojom.SnapshotControllerPendingReceiver = class {
   constructor(handle) {

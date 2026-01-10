@@ -14,4 +14,4 @@ mojo_base.mojom.EmptySpec = { $: {} };
 mojo.internal.Struct(
     mojo_base.mojom.EmptySpec, 'mojo_base.mojom.Empty', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);

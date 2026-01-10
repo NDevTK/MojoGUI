@@ -148,7 +148,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.AppfuseInstance_Init_ResponseParamsSpec, 'arc.mojom.AppfuseInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.AppfuseInstancePendingReceiver = class {
   constructor(handle) {

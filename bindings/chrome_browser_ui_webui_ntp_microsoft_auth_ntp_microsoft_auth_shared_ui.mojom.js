@@ -25,17 +25,17 @@ new_tab_page.mojom.AuthType = {
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver = class {
   constructor(handle) {

@@ -23,7 +23,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec, 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver = class {
   constructor(handle) {

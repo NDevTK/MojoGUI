@@ -32,7 +32,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnInitialized_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params', [

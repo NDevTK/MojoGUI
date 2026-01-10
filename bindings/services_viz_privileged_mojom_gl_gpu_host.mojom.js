@@ -53,12 +53,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.GpuHost_DidFailInitialize_ParamsSpec, 'viz.mojom.GpuHost_DidFailInitialize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec, 'viz.mojom.GpuHost_DidCreateContextSuccessfully_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec, 'viz.mojom.GpuHost_DidCreateOffscreenContext_Params', [
@@ -81,7 +81,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyAllChannels_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_DidLoseContext_ParamsSpec, 'viz.mojom.GpuHost_DidLoseContext_Params', [
@@ -111,7 +111,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec, 'viz.mojom.GpuHost_DisableGpuCompositing_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_GetIsolationKey_ParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_Params', [
@@ -137,12 +137,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec, 'viz.mojom.GpuHost_ClearGrShaderDiskCache_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec, 'viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec, 'viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParams', [
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParams', [

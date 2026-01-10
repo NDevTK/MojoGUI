@@ -38,7 +38,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec, 'media.mojom.AudioDecoder_GetSupportedConfigs_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParams', [
@@ -89,12 +89,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Reset_ParamsSpec, 'media.mojom.AudioDecoder_Reset_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Reset_ResponseParamsSpec, 'media.mojom.AudioDecoder_Reset_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media.mojom.AudioDecoderPendingReceiver = class {
   constructor(handle) {

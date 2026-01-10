@@ -28,7 +28,7 @@ codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     codelabs.mojom.ObjectA_DoA_ParamsSpec, 'codelabs.mojom.ObjectA_DoA_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 codelabs.mojom.ObjectAPendingReceiver = class {
   constructor(handle) {
@@ -91,7 +91,7 @@ codelabs.mojom.ObjectARequest = codelabs.mojom.ObjectAPendingReceiver;
 mojo.internal.Struct(
     codelabs.mojom.ObjectB_DoB_ParamsSpec, 'codelabs.mojom.ObjectB_DoB_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 codelabs.mojom.ObjectBPendingReceiver = class {
   constructor(handle) {
@@ -267,7 +267,7 @@ codelabs.mojom.GenericInterfaceRequest = codelabs.mojom.GenericInterfacePendingR
 mojo.internal.Struct(
     codelabs.mojom.Process_SayHello_ParamsSpec, 'codelabs.mojom.Process_SayHello_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec, 'codelabs.mojom.Process_GetAssociatedInterface_Params', [

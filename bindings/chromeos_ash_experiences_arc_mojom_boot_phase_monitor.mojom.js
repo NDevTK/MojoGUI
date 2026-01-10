@@ -20,7 +20,7 @@ arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec, 'arc.mojom.BootPhaseMonitorHost_OnBootCompleted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.BootPhaseMonitorHostPendingReceiver = class {
   constructor(handle) {
@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec, 'arc.mojom.BootPhaseMonitorInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.BootPhaseMonitorInstancePendingReceiver = class {
   constructor(handle) {

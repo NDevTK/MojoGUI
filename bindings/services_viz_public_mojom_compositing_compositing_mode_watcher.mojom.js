@@ -19,7 +19,7 @@ viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = { $: {}
 mojo.internal.Struct(
     viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec, 'viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 viz.mojom.CompositingModeWatcherPendingReceiver = class {
   constructor(handle) {

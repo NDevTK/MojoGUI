@@ -39,7 +39,7 @@ payments.mojom.SecurePaymentConfirmationAvailabilityEnum = {
 mojo.internal.Struct(
     payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParams', [

@@ -58,7 +58,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_ResponseParams', [
@@ -75,7 +75,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ExportTensor_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ImportTensor_Params', [

@@ -20,17 +20,17 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParam
 mojo.internal.Struct(
     ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParams', [

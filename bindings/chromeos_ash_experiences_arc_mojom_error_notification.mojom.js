@@ -123,7 +123,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec, 'arc.mojom.ErrorNotificationInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ErrorNotificationInstancePendingReceiver = class {
   constructor(handle) {
@@ -186,7 +186,7 @@ arc.mojom.ErrorNotificationInstanceRequest = arc.mojom.ErrorNotificationInstance
 mojo.internal.Struct(
     arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec, 'arc.mojom.ErrorNotificationItem_CloseErrorNotification_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ErrorNotificationItemPendingReceiver = class {
   constructor(handle) {
@@ -255,7 +255,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec, 'arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ErrorNotificationActionHandlerPendingReceiver = class {
   constructor(handle) {

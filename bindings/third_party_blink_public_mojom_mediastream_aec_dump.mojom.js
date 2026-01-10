@@ -26,7 +26,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AecDumpAgent_Stop_ParamsSpec, 'blink.mojom.AecDumpAgent_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.AecDumpAgentPendingReceiver = class {
   constructor(handle) {

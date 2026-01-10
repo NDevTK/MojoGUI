@@ -238,7 +238,7 @@ cert_verifier.mojom.CertVerifierServiceRequest = cert_verifier.mojom.CertVerifie
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 cert_verifier.mojom.CertVerifierServiceClientPendingReceiver = class {
   constructor(handle) {

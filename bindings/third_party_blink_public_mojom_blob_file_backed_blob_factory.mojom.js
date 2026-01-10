@@ -38,7 +38,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.FileBackedBlobFactoryPendingReceiver = class {
   constructor(handle) {

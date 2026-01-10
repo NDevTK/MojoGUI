@@ -103,7 +103,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParams', [
@@ -139,7 +139,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 crosapi.mojom.VideoConferenceManagerClientPendingReceiver = class {
   constructor(handle) {

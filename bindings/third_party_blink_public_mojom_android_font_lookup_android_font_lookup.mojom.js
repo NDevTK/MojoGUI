@@ -21,7 +21,7 @@ blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec, 'blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParams', [
@@ -44,7 +44,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParams', [

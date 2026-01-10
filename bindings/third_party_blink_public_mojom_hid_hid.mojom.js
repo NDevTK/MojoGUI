@@ -81,7 +81,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.HidService_GetDevices_ParamsSpec, 'blink.mojom.HidService_GetDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.HidService_GetDevices_ResponseParamsSpec, 'blink.mojom.HidService_GetDevices_ResponseParams', [
@@ -124,7 +124,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.HidService_Forget_ResponseParamsSpec, 'blink.mojom.HidService_Forget_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.HidServicePendingReceiver = class {
   constructor(handle) {

@@ -301,7 +301,7 @@ app_management.mojom.PageHandlerFactoryRequest = app_management.mojom.PageHandle
 mojo.internal.Struct(
     app_management.mojom.PageHandler_GetApps_ParamsSpec, 'app_management.mojom.PageHandler_GetApps_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     app_management.mojom.PageHandler_GetApps_ResponseParamsSpec, 'app_management.mojom.PageHandler_GetApps_ResponseParams', [
@@ -324,7 +324,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec, 'app_management.mojom.PageHandler_GetSubAppToParentMap_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec, 'app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParams', [
@@ -426,7 +426,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec, 'app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     app_management.mojom.PageHandler_OpenStorePage_ParamsSpec, 'app_management.mojom.PageHandler_OpenStorePage_Params', [

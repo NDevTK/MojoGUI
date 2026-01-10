@@ -548,7 +548,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec, 'blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, 'blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams', [
@@ -559,7 +559,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec, 'blink.mojom.Authenticator_IsConditionalMediationAvailable_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec, 'blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParams', [
@@ -583,7 +583,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec, 'blink.mojom.Authenticator_GetClientCapabilities_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec, 'blink.mojom.Authenticator_GetClientCapabilities_ResponseParams', [
@@ -594,7 +594,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Authenticator_Cancel_ParamsSpec, 'blink.mojom.Authenticator_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.AuthenticatorPendingReceiver = class {
   constructor(handle) {

@@ -484,7 +484,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerRequest = ash.bluetooth_config.mojom
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParams', [
@@ -495,7 +495,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParams', [
@@ -532,7 +532,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParams', [
@@ -744,7 +744,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec, 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec, 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_Params', [
@@ -855,7 +855,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_Params', [

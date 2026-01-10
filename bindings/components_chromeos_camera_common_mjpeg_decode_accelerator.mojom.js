@@ -51,7 +51,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParams', [
@@ -94,7 +94,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver = class {
   constructor(handle) {

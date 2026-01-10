@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec, 'watermark.mojom.PageHandler_ShowNotificationToast_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 watermark.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

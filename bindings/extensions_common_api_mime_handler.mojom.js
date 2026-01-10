@@ -44,7 +44,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParams', [
@@ -134,7 +134,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec, 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 extensions.mime_handler.BeforeUnloadControlPendingReceiver = class {
   constructor(handle) {

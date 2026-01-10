@@ -177,7 +177,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec, 'network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.GssapiLibraryLoadObserverPendingReceiver = class {
   constructor(handle) {
@@ -287,7 +287,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkService_DisableQuic_ParamsSpec, 'network.mojom.NetworkService_DisableQuic_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec, 'network.mojom.NetworkService_SetUpHttpAuth_Params', [
@@ -347,12 +347,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec, 'network.mojom.NetworkService_OnTrustStoreChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec, 'network.mojom.NetworkService_OnClientCertStoreChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_SetEncryptionKey_ParamsSpec, 'network.mojom.NetworkService_SetEncryptionKey_Params', [
@@ -381,12 +381,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec, 'network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec, 'network.mojom.NetworkService_ClearSCTAuditingCache_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec, 'network.mojom.NetworkService_ConfigureSCTAuditing_Params', [
@@ -403,7 +403,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkService_UpdateCtLogList_ResponseParamsSpec, 'network.mojom.NetworkService_UpdateCtLogList_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec, 'network.mojom.NetworkService_UpdateCtKnownPopularSCTs_Params', [
@@ -414,7 +414,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParamsSpec, 'network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec, 'network.mojom.NetworkService_SetCtEnforcementEnabled_Params', [
@@ -425,7 +425,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParamsSpec, 'network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec, 'network.mojom.NetworkService_UpdateKeyPinsList_Params', [
@@ -966,7 +966,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DurableMessageCollector_Configure_ResponseParamsSpec, 'network.mojom.DurableMessageCollector_Configure_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec, 'network.mojom.DurableMessageCollector_EnableForProfile_Params', [
@@ -977,7 +977,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DurableMessageCollector_EnableForProfile_ResponseParamsSpec, 'network.mojom.DurableMessageCollector_EnableForProfile_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec, 'network.mojom.DurableMessageCollector_DisableForProfile_Params', [
@@ -988,7 +988,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DurableMessageCollector_DisableForProfile_ResponseParamsSpec, 'network.mojom.DurableMessageCollector_DisableForProfile_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.DurableMessageCollector_Retrieve_ParamsSpec, 'network.mojom.DurableMessageCollector_Retrieve_Params', [

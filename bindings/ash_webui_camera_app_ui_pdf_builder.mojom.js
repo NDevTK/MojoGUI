@@ -43,7 +43,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_Save_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec, 'ash.camera_app.mojom.PdfBuilder_Save_ResponseParams', [
@@ -54,7 +54,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_SaveInline_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec, 'ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParams', [

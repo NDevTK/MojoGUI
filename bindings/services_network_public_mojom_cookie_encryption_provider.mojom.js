@@ -18,7 +18,7 @@ network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = { $: {}
 mojo.internal.Struct(
     network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParams', [

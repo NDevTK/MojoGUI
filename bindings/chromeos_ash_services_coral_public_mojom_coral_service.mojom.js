@@ -182,7 +182,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     coral.mojom.CacheEmbeddingsResponseSpec, 'coral.mojom.CacheEmbeddingsResponse', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Interface: TitleObserver
 mojo.internal.Struct(
@@ -370,7 +370,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     coral.mojom.CoralService_PrepareResource_ParamsSpec, 'coral.mojom.CoralService_PrepareResource_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [

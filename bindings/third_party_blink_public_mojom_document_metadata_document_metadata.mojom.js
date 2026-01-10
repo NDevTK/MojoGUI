@@ -29,7 +29,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DocumentMetadata_GetEntities_ParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_ResponseParams', [

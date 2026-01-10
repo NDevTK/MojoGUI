@@ -155,7 +155,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params', [
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ScreenCaptureSessionPendingReceiver = class {
   constructor(handle) {
@@ -247,7 +247,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec, 'arc.mojom.ScreenCaptureInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ScreenCaptureInstancePendingReceiver = class {
   constructor(handle) {
@@ -310,7 +310,7 @@ arc.mojom.ScreenCaptureInstanceRequest = arc.mojom.ScreenCaptureInstancePendingR
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec, 'arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ScreenCaptureSessionNotifierPendingReceiver = class {
   constructor(handle) {

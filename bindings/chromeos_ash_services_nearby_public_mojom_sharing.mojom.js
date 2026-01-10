@@ -95,12 +95,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     sharing.mojom.Sharing_ShutDown_ParamsSpec, 'sharing.mojom.Sharing_ShutDown_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, 'sharing.mojom.Sharing_ShutDown_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 sharing.mojom.SharingPendingReceiver = class {
   constructor(handle) {

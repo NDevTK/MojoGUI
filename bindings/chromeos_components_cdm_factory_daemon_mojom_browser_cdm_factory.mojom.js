@@ -55,7 +55,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParams', [
@@ -67,7 +67,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParams', [

@@ -530,7 +530,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec, 'arc.mojom.MetricsHost_ReportProvisioningPreSignIn_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_Params', [
@@ -542,7 +542,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec, 'arc.mojom.MetricsHost_ReportWebViewProcessStarted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_Params', [
@@ -966,7 +966,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.MetricsInstance_Init_ResponseParamsSpec, 'arc.mojom.MetricsInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_Params', [

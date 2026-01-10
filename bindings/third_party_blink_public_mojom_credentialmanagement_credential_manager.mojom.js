@@ -68,17 +68,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.CredentialManager_Store_ResponseParamsSpec, 'blink.mojom.CredentialManager_Store_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.CredentialManager_Get_ParamsSpec, 'blink.mojom.CredentialManager_Get_Params', [

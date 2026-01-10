@@ -35,7 +35,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_UnlockOrientation_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.ScreenOrientationPendingReceiver = class {
   constructor(handle) {
@@ -107,7 +107,7 @@ device.mojom.ScreenOrientationRequest = device.mojom.ScreenOrientationPendingRec
 mojo.internal.Struct(
     device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParams', [

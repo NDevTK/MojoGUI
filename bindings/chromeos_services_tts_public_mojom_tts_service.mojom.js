@@ -181,7 +181,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_SetVolume_Params', [
@@ -192,12 +192,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Pause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromeos.tts.mojom.GoogleTtsStreamPendingReceiver = class {
   constructor(handle) {
@@ -314,7 +314,7 @@ chromeos.tts.mojom.GoogleTtsStreamRequest = chromeos.tts.mojom.GoogleTtsStreamPe
 mojo.internal.Struct(
     chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Play_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParams', [
@@ -333,7 +333,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_SetVolume_Params', [
@@ -344,12 +344,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Pause_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver = class {
   constructor(handle) {
@@ -457,7 +457,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRequest = chromeos.tts.mojom.PlaybackTtsStre
 mojo.internal.Struct(
     chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnStart_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnTimepoint_Params', [
@@ -468,12 +468,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnEnd_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromeos.tts.mojom.TtsEventObserverPendingReceiver = class {
   constructor(handle) {

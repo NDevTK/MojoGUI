@@ -46,7 +46,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParams', [
@@ -57,7 +57,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParams', [
@@ -74,7 +74,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.graduation_ui.mojom.GraduationUiHandlerPendingReceiver = class {
   constructor(handle) {

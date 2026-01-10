@@ -19,7 +19,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
 mojo.internal.Struct(
     blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParams', [
@@ -31,7 +31,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParams', [

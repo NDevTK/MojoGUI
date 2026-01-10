@@ -70,7 +70,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnRequestStorageModified_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params', [
@@ -148,7 +148,7 @@ private_aggregation_internals.mojom.ObserverRequest = private_aggregation_intern
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_ResponseParams', [
@@ -165,17 +165,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 private_aggregation_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {

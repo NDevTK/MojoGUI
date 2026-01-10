@@ -109,7 +109,7 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRequest = unexportable_keys_
 mojo.internal.Struct(
     unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParams', [

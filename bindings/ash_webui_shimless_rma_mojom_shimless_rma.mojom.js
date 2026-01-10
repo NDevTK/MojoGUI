@@ -551,7 +551,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.PassHardwareVerificationResultSpec, 'ash.shimless_rma.mojom.PassHardwareVerificationResult', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: FailHardwareVerificationResult
 mojo.internal.Struct(
@@ -564,7 +564,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.SkipHardwareVerificationResultSpec, 'ash.shimless_rma.mojom.SkipHardwareVerificationResult', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: UpdateDeviceInfoStateProperty
 mojo.internal.Struct(
@@ -1245,7 +1245,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRequest = ash.shimless_rma.mojom.
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParams', [
@@ -1256,7 +1256,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParams', [
@@ -1267,7 +1267,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParams', [
@@ -1278,7 +1278,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParams', [
@@ -1289,7 +1289,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParams', [
@@ -1300,12 +1300,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParams', [
@@ -1316,7 +1316,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParams', [
@@ -1327,7 +1327,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParams', [
@@ -1339,7 +1339,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParams', [
@@ -1350,7 +1350,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParams', [
@@ -1361,7 +1361,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParams', [
@@ -1372,7 +1372,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParams', [
@@ -1395,7 +1395,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParams', [
@@ -1406,7 +1406,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParams', [
@@ -1417,7 +1417,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParams', [
@@ -1428,7 +1428,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParams', [
@@ -1439,7 +1439,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParams', [
@@ -1462,7 +1462,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParams', [
@@ -1473,7 +1473,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParams', [
@@ -1484,7 +1484,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParams', [
@@ -1495,7 +1495,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParams', [
@@ -1518,7 +1518,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParams', [
@@ -1529,7 +1529,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParams', [
@@ -1540,7 +1540,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParams', [
@@ -1551,7 +1551,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParams', [
@@ -1562,7 +1562,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParams', [
@@ -1573,7 +1573,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParams', [
@@ -1584,7 +1584,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParams', [
@@ -1595,7 +1595,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParams', [
@@ -1606,7 +1606,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParams', [
@@ -1617,7 +1617,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParams', [
@@ -1628,7 +1628,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParams', [
@@ -1639,7 +1639,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParams', [
@@ -1650,7 +1650,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParams', [
@@ -1661,7 +1661,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParams', [
@@ -1690,7 +1690,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParams', [
@@ -1701,7 +1701,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParams', [
@@ -1724,7 +1724,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParams', [
@@ -1735,7 +1735,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParams', [
@@ -1746,7 +1746,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParams', [
@@ -1757,7 +1757,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParams', [
@@ -1768,7 +1768,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParams', [
@@ -1779,7 +1779,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParams', [
@@ -1790,7 +1790,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParams', [
@@ -1801,7 +1801,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParams', [
@@ -1812,7 +1812,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetLog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParams', [
@@ -1824,7 +1824,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParams', [
@@ -1836,7 +1836,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParams', [
@@ -1847,7 +1847,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_EndRma_Params', [
@@ -1864,12 +1864,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParams', [
@@ -1880,7 +1880,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParams', [
@@ -1891,7 +1891,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParams', [
@@ -1902,7 +1902,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParams', [
@@ -1913,7 +1913,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParams', [
@@ -1930,12 +1930,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParams', [

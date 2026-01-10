@@ -137,7 +137,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParams', [
@@ -172,7 +172,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParams', [

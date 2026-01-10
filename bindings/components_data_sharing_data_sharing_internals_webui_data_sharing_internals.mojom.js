@@ -92,7 +92,7 @@ data_sharing_internals.mojom.PageHandlerFactoryRequest = data_sharing_internals.
 mojo.internal.Struct(
     data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec, 'data_sharing_internals.mojom.PageHandler_IsEmptyService_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec, 'data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParams', [
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec, 'data_sharing_internals.mojom.PageHandler_GetAllGroups_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec, 'data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParams', [

@@ -241,7 +241,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.VersionedStructV0Spec, 'content.optional_numerics_unittest.mojom.VersionedStructV0', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: VersionedStructV2
 mojo.internal.Struct(
@@ -283,7 +283,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint8_Params', [
@@ -295,7 +295,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt8_Params', [
@@ -307,7 +307,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint16_Params', [
@@ -319,7 +319,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16_Params', [
@@ -331,7 +331,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32_Params', [
@@ -343,7 +343,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt32_Params', [
@@ -355,7 +355,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint64_Params', [
@@ -367,7 +367,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt64_Params', [
@@ -379,7 +379,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullFloat_Params', [
@@ -391,7 +391,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDouble_Params', [
@@ -403,7 +403,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_Params', [
@@ -414,7 +414,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBools_Params', [
@@ -425,7 +425,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16s_Params', [
@@ -436,7 +436,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32s_Params', [
@@ -447,7 +447,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubles_Params', [
@@ -458,7 +458,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_Params', [
@@ -469,7 +469,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_Params', [
@@ -480,7 +480,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_Params', [
@@ -491,7 +491,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_Params', [
@@ -502,7 +502,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBool_Params', [
@@ -764,7 +764,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_Params', [
@@ -775,7 +775,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_Params', [
@@ -1239,7 +1239,7 @@ content.optional_numerics_unittest.mojom.ParamsRequest = content.optional_numeri
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParams', [
@@ -1251,7 +1251,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParams', [
@@ -1263,7 +1263,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParams', [
@@ -1275,7 +1275,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParams', [
@@ -1287,7 +1287,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParams', [
@@ -1299,7 +1299,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParams', [
@@ -1311,7 +1311,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParams', [
@@ -1323,7 +1323,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParams', [
@@ -1335,7 +1335,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParams', [
@@ -1347,7 +1347,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParams', [
@@ -1359,7 +1359,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParams', [
@@ -1371,7 +1371,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParams', [
@@ -1382,7 +1382,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParams', [
@@ -1393,7 +1393,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParams', [
@@ -1404,7 +1404,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParams', [
@@ -1415,7 +1415,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParams', [
@@ -1426,7 +1426,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParams', [
@@ -1437,7 +1437,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParams', [
@@ -1448,7 +1448,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParams', [
@@ -1459,7 +1459,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParams', [
@@ -1724,7 +1724,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParams', [
@@ -1735,7 +1735,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParams', [
@@ -2205,12 +2205,12 @@ content.optional_numerics_unittest.mojom.ResponseParamsRequest = content.optiona
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_Params', [

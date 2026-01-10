@@ -140,7 +140,7 @@ media.mojom.VideoFrameHandleReleaserRequest = media.mojom.VideoFrameHandleReleas
 mojo.internal.Struct(
     media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParams', [
@@ -193,12 +193,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Reset_ParamsSpec, 'media.mojom.VideoDecoder_Reset_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Reset_ResponseParamsSpec, 'media.mojom.VideoDecoder_Reset_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec, 'media.mojom.VideoDecoder_OnOverlayInfoChanged_Params', [
@@ -326,7 +326,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec, 'media.mojom.VideoDecoderClient_RequestOverlayInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media.mojom.VideoDecoderClientPendingReceiver = class {
   constructor(handle) {

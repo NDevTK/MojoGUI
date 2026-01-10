@@ -16,7 +16,7 @@ service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec, 'service_manager.mojom.ServiceControl_RequestQuit_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 service_manager.mojom.ServiceControlPendingReceiver = class {
   constructor(handle) {

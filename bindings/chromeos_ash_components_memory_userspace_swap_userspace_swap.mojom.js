@@ -41,7 +41,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec, 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver = class {
   constructor(handle) {

@@ -69,12 +69,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec, 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParams', [

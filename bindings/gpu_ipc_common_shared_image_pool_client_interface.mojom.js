@@ -16,7 +16,7 @@ gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec, 'gpu.mojom.SharedImagePoolClientInterface_OnClearPool_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 gpu.mojom.SharedImagePoolClientInterfacePendingReceiver = class {
   constructor(handle) {

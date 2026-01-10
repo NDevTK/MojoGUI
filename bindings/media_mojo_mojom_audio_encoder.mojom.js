@@ -87,7 +87,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Flush_ParamsSpec, 'media.mojom.AudioEncoder_Flush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Flush_ResponseParamsSpec, 'media.mojom.AudioEncoder_Flush_ResponseParams', [

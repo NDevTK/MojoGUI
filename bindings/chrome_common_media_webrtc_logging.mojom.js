@@ -36,7 +36,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.WebRtcLoggingClientPendingReceiver = class {
   constructor(handle) {
@@ -114,7 +114,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec, 'chrome.mojom.WebRtcLoggingAgent_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.WebRtcLoggingAgentPendingReceiver = class {
   constructor(handle) {

@@ -84,7 +84,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec, 'blink.mojom.FileSystemCancellableOperation_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec, 'blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParams', [
@@ -249,7 +249,7 @@ blink.mojom.FileSystemOperationListenerRequest = blink.mojom.FileSystemOperation
 mojo.internal.Struct(
     blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec, 'blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.ReceivedSnapshotListenerPendingReceiver = class {
   constructor(handle) {

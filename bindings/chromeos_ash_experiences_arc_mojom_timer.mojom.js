@@ -167,7 +167,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.TimerInstance_Init_ResponseParamsSpec, 'arc.mojom.TimerInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.TimerInstancePendingReceiver = class {
   constructor(handle) {

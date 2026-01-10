@@ -30,7 +30,7 @@ storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kService;
 mojo.internal.Struct(
     storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec, 'storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.StorageService_SetDataDirectory_ParamsSpec, 'storage.mojom.StorageService_SetDataDirectory_Params', [

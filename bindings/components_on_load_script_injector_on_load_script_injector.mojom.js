@@ -23,7 +23,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 on_load_script_injector.mojom.OnLoadScriptInjectorPendingReceiver = class {
   constructor(handle) {

@@ -357,7 +357,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_GetAllSessions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParams', [
@@ -384,7 +384,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddObserver_Params', [

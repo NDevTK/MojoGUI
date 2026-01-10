@@ -56,7 +56,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromecast.mojom.CastContentWindowObserverPendingReceiver = class {
   constructor(handle) {
@@ -141,12 +141,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_GrantScreenAccess_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_RevokeScreenAccess_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec, 'chromecast.mojom.CastContentWindow_RequestVisibility_Params', [

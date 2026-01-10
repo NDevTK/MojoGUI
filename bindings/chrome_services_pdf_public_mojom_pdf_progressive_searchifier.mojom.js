@@ -33,7 +33,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParams', [

@@ -106,7 +106,7 @@ aim_eligibility.mojom.PageRequest = aim_eligibility.mojom.PagePendingReceiver;
 mojo.internal.Struct(
     aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec, 'aim_eligibility.mojom.PageHandler_GetEligibilityState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec, 'aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParams', [
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec, 'aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec, 'aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_Params', [

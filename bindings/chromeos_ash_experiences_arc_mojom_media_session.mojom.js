@@ -24,7 +24,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_DisableAudioFocus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.MediaSessionInstancePendingReceiver = class {
   constructor(handle) {

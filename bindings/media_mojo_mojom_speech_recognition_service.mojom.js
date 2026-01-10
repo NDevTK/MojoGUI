@@ -234,7 +234,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioSourceFetcher_Stop_ParamsSpec, 'media.mojom.AudioSourceFetcher_Stop_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 media.mojom.AudioSourceFetcherPendingReceiver = class {
   constructor(handle) {

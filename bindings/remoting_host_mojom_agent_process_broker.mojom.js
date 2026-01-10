@@ -21,12 +21,12 @@ remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec, 'remoting.mojom.AgentProcess_ResumeProcess_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec, 'remoting.mojom.AgentProcess_SuspendProcess_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec, 'remoting.mojom.AgentProcess_BindRemotingHostControl_Params', [

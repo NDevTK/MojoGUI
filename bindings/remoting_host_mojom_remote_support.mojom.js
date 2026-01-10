@@ -80,12 +80,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateStarting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_Params', [
@@ -97,7 +97,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateConnecting_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateConnected_Params', [
@@ -126,12 +126,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnPolicyError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnInvalidDomainError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 remoting.mojom.SupportHostObserverPendingReceiver = class {
   constructor(handle) {

@@ -30,7 +30,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParams', [
@@ -41,7 +41,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_Params', [

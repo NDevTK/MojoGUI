@@ -36,7 +36,7 @@ arc.mojom.GetArcSafetySessionResult = {
 mojo.internal.Struct(
     arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec, 'arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec, 'arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParams', [
@@ -123,7 +123,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.OnDeviceSafetyInstancePendingReceiver = class {
   constructor(handle) {

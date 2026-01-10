@@ -39,7 +39,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParams', [
@@ -62,12 +62,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 storage.mojom.QuotaClientPendingReceiver = class {
   constructor(handle) {

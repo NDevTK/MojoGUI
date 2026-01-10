@@ -280,7 +280,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnAbort_Params', [
@@ -303,7 +303,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec, 'payments.mojom.PaymentRequestClient_WarnNoFavicon_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec, 'payments.mojom.PaymentRequestClient_AllowConnectToSource_Params', [
@@ -501,12 +501,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec, 'payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentRequest_Abort_ParamsSpec, 'payments.mojom.PaymentRequest_Abort_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentRequest_Complete_ParamsSpec, 'payments.mojom.PaymentRequest_Complete_Params', [
@@ -523,12 +523,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec, 'payments.mojom.PaymentRequest_CanMakePayment_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec, 'payments.mojom.PaymentRequest_HasEnrolledInstrument_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 payments.mojom.PaymentRequestPendingReceiver = class {
   constructor(handle) {

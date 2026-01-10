@@ -230,7 +230,7 @@ blink.mojom.ColorChooserClientRequest = blink.mojom.ColorChooserClientPendingRec
 mojo.internal.Struct(
     blink.mojom.EyeDropperChooser_Choose_ParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_ResponseParams', [

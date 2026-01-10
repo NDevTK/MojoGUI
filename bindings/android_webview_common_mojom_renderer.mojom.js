@@ -17,7 +17,7 @@ android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     android_webview.mojom.Renderer_ClearCache_ParamsSpec, 'android_webview.mojom.Renderer_ClearCache_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec, 'android_webview.mojom.Renderer_SetJsOnlineProperty_Params', [

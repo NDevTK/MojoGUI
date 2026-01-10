@@ -83,7 +83,7 @@ color_change_listener.mojom.PageHandlerRequest = color_change_listener.mojom.Pag
 mojo.internal.Struct(
     color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec, 'color_change_listener.mojom.Page_OnColorProviderChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 color_change_listener.mojom.PagePendingReceiver = class {
   constructor(handle) {

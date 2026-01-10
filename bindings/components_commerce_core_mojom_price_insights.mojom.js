@@ -21,12 +21,12 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHan
 mojo.internal.Struct(
     commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 commerce.price_insights.mojom.PriceInsightsHandlerPendingReceiver = class {
   constructor(handle) {

@@ -35,7 +35,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WebUsbService_GetDevices_ParamsSpec, 'blink.mojom.WebUsbService_GetDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec, 'blink.mojom.WebUsbService_GetDevices_ResponseParams', [
@@ -71,7 +71,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec, 'blink.mojom.WebUsbService_ForgetDevice_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WebUsbService_SetClient_ParamsSpec, 'blink.mojom.WebUsbService_SetClient_Params', [

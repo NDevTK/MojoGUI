@@ -90,7 +90,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromecast.mojom.BluetoothDeviceAccessProviderClientPendingReceiver = class {
   constructor(handle) {

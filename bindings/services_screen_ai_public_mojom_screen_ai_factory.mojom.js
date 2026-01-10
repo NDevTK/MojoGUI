@@ -25,7 +25,7 @@ screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = { $: {} 
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {
   constructor(handle) {

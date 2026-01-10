@@ -35,7 +35,7 @@ video_capture.mojom.GetSourceInfosResult = {
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParams', [
@@ -82,12 +82,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_Close_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_Close_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 video_capture.mojom.VideoSourceProviderPendingReceiver = class {
   constructor(handle) {

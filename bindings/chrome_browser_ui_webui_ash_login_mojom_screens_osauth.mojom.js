@@ -20,22 +20,22 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = { $
 mojo.internal.Struct(
     ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver = class {
   constructor(handle) {

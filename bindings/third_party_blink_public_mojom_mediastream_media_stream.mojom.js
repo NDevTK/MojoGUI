@@ -178,7 +178,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     blink.mojom.SearchOnlyByDeviceIdSpec, 'blink.mojom.SearchOnlyByDeviceId', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: SearchBySessionId
 mojo.internal.Struct(

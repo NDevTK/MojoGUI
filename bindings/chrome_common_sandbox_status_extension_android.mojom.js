@@ -16,7 +16,7 @@ chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec = { $: 
 mojo.internal.Struct(
     chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec, 'chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.SandboxStatusExtensionPendingReceiver = class {
   constructor(handle) {

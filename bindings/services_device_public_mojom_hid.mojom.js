@@ -465,7 +465,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.HidManager_GetDevices_ParamsSpec, 'device.mojom.HidManager_GetDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.HidManager_GetDevices_ResponseParamsSpec, 'device.mojom.HidManager_GetDevices_ResponseParams', [
@@ -583,7 +583,7 @@ device.mojom.HidManagerRequest = device.mojom.HidManagerPendingReceiver;
 mojo.internal.Struct(
     device.mojom.HidConnection_Read_ParamsSpec, 'device.mojom.HidConnection_Read_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.HidConnection_Read_ResponseParamsSpec, 'device.mojom.HidConnection_Read_ResponseParams', [

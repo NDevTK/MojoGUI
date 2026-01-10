@@ -93,7 +93,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.IioSensorInstance_Init_ResponseParamsSpec, 'arc.mojom.IioSensorInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec, 'arc.mojom.IioSensorInstance_OnTabletModeChanged_Params', [

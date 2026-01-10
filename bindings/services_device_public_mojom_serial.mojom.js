@@ -187,7 +187,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SerialPortManager_GetDevices_ParamsSpec, 'device.mojom.SerialPortManager_GetDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec, 'device.mojom.SerialPortManager_GetDevices_ResponseParams', [
@@ -402,22 +402,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SerialPort_Flush_ResponseParamsSpec, 'device.mojom.SerialPort_Flush_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPort_Drain_ParamsSpec, 'device.mojom.SerialPort_Drain_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPort_Drain_ResponseParamsSpec, 'device.mojom.SerialPort_Drain_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPort_GetControlSignals_ParamsSpec, 'device.mojom.SerialPort_GetControlSignals_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec, 'device.mojom.SerialPort_GetControlSignals_ResponseParams', [
@@ -452,7 +452,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SerialPort_GetPortInfo_ParamsSpec, 'device.mojom.SerialPort_GetPortInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec, 'device.mojom.SerialPort_GetPortInfo_ResponseParams', [
@@ -469,7 +469,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SerialPort_Close_ResponseParamsSpec, 'device.mojom.SerialPort_Close_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.SerialPortPendingReceiver = class {
   constructor(handle) {

@@ -110,7 +110,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec, 'chromeos.mojo_service_manager.mojom.UnregisteredServiceState', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: ServiceEvent
 mojo.internal.Struct(

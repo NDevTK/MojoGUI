@@ -73,12 +73,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableForceRebootAction_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_Params', [
@@ -243,7 +243,7 @@ ash.heartd.mojom.HeartbeatServiceRequest = ash.heartd.mojom.HeartbeatServicePend
 mojo.internal.Struct(
     ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParams', [
@@ -254,12 +254,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.heartd.mojom.PacemakerPendingReceiver = class {
   constructor(handle) {

@@ -72,7 +72,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec, 'feed_internals.mojom.PageHandler_GetGeneralProperties_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParams', [
@@ -83,7 +83,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec, 'feed_internals.mojom.PageHandler_GetLastFetchProperties_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParams', [
@@ -94,22 +94,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec, 'feed_internals.mojom.PageHandler_RefreshForYouFeed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec, 'feed_internals.mojom.PageHandler_RefreshFollowingFeed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec, 'feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec, 'feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParams', [
@@ -120,7 +120,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec, 'feed_internals.mojom.PageHandler_GetFeedHistograms_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParams', [

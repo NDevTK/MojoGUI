@@ -66,7 +66,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_ResponseParams', [
@@ -95,12 +95,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.Sensor_Suspend_ParamsSpec, 'device.mojom.Sensor_Suspend_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.Sensor_Resume_ParamsSpec, 'device.mojom.Sensor_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec, 'device.mojom.Sensor_ConfigureReadingChangeNotifications_Params', [
@@ -214,12 +214,12 @@ device.mojom.SensorRequest = device.mojom.SensorPendingReceiver;
 mojo.internal.Struct(
     device.mojom.SensorClient_RaiseError_ParamsSpec, 'device.mojom.SensorClient_RaiseError_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SensorClient_SensorReadingChanged_ParamsSpec, 'device.mojom.SensorClient_SensorReadingChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.SensorClientPendingReceiver = class {
   constructor(handle) {

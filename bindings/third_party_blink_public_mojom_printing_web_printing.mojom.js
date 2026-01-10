@@ -388,7 +388,7 @@ blink.mojom.WebPrintJobStateObserverRequest = blink.mojom.WebPrintJobStateObserv
 mojo.internal.Struct(
     blink.mojom.WebPrintJobController_Cancel_ParamsSpec, 'blink.mojom.WebPrintJobController_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.WebPrintJobControllerPendingReceiver = class {
   constructor(handle) {
@@ -451,7 +451,7 @@ blink.mojom.WebPrintJobControllerRequest = blink.mojom.WebPrintJobControllerPend
 mojo.internal.Struct(
     blink.mojom.WebPrinter_FetchAttributes_ParamsSpec, 'blink.mojom.WebPrinter_FetchAttributes_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec, 'blink.mojom.WebPrinter_FetchAttributes_ResponseParams', [
@@ -542,7 +542,7 @@ blink.mojom.WebPrinterRequest = blink.mojom.WebPrinterPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.WebPrintingService_GetPrinters_ParamsSpec, 'blink.mojom.WebPrintingService_GetPrinters_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec, 'blink.mojom.WebPrintingService_GetPrinters_ResponseParams', [

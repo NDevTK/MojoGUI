@@ -213,7 +213,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec, 'auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec, 'auction_worklet.mojom.SellerWorklet_ReportResult_Params', [

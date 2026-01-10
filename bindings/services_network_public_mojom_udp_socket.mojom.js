@@ -187,7 +187,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.UDPSocket_Close_ParamsSpec, 'network.mojom.UDPSocket_Close_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.UDPSocketPendingReceiver = class {
   constructor(handle) {

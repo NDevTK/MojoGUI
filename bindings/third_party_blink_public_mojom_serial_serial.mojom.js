@@ -60,7 +60,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SerialService_GetPorts_ParamsSpec, 'blink.mojom.SerialService_GetPorts_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.SerialService_GetPorts_ResponseParamsSpec, 'blink.mojom.SerialService_GetPorts_ResponseParams', [
@@ -104,7 +104,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SerialService_ForgetPort_ResponseParamsSpec, 'blink.mojom.SerialService_ForgetPort_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.SerialServicePendingReceiver = class {
   constructor(handle) {

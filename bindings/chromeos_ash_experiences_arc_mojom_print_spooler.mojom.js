@@ -79,7 +79,7 @@ arc.mojom.PrintSessionHostRequest = arc.mojom.PrintSessionHostPendingReceiver;
 mojo.internal.Struct(
     arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec, 'arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_Params', [
@@ -242,7 +242,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec, 'arc.mojom.PrintSpoolerInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.PrintSpoolerInstancePendingReceiver = class {
   constructor(handle) {

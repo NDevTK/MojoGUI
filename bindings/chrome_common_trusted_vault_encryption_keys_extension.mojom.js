@@ -35,7 +35,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params', [
@@ -48,7 +48,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver = class {
   constructor(handle) {

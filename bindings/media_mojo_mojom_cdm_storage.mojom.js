@@ -109,7 +109,7 @@ media.mojom.CdmStorageRequest = media.mojom.CdmStoragePendingReceiver;
 mojo.internal.Struct(
     media.mojom.CdmFile_Read_ParamsSpec, 'media.mojom.CdmFile_Read_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.CdmFile_Read_ResponseParamsSpec, 'media.mojom.CdmFile_Read_ResponseParams', [

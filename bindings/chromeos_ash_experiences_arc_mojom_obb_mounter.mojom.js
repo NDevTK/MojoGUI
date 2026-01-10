@@ -122,7 +122,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec, 'arc.mojom.ObbMounterInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ObbMounterInstancePendingReceiver = class {
   constructor(handle) {

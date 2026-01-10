@@ -164,7 +164,7 @@ js_injection.mojom.JsToBrowserMessagingRequest = js_injection.mojom.JsToBrowserM
 mojo.internal.Struct(
     js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec, 'js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 js_injection.mojom.JsObjectsClientPendingReceiver = class {
   constructor(handle) {

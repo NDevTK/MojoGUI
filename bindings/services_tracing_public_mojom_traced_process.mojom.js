@@ -32,7 +32,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 tracing.mojom.TracedProcessPendingReceiver = class {
   constructor(handle) {

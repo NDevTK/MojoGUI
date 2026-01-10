@@ -17,7 +17,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = { $: 
 mojo.internal.Struct(
     tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParams', [

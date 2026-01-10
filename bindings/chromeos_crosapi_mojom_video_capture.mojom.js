@@ -202,7 +202,7 @@ crosapi.mojom.ScopedAccessPermissionRequest = crosapi.mojom.ScopedAccessPermissi
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnNewBuffer_Params', [
@@ -263,7 +263,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnLog_Params', [
@@ -274,17 +274,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnStarted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnStopped_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 crosapi.mojom.VideoFrameHandlerPendingReceiver = class {
   constructor(handle) {
@@ -480,17 +480,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_MaybeSuspend_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_Resume_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_GetPhotoState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec, 'crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParams', [
@@ -513,7 +513,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_TakePhoto_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec, 'crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParams', [
@@ -530,7 +530,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 crosapi.mojom.VideoCaptureDevicePendingReceiver = class {
   constructor(handle) {
@@ -656,7 +656,7 @@ crosapi.mojom.VideoCaptureDeviceRequest = crosapi.mojom.VideoCaptureDevicePendin
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec, 'crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec, 'crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParams', [

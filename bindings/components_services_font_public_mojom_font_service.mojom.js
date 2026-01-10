@@ -150,7 +150,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     font_service.mojom.FontService_ListFamilies_ParamsSpec, 'font_service.mojom.FontService_ListFamilies_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     font_service.mojom.FontService_ListFamilies_ResponseParamsSpec, 'font_service.mojom.FontService_ListFamilies_ResponseParams', [

@@ -204,7 +204,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.ExternalBitrateSpec, 'media.mojom.ExternalBitrate', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 // Struct: VideoEncodeAcceleratorConfig
 mojo.internal.Struct(
@@ -304,7 +304,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec, 'media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec, 'media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParams', [
@@ -467,7 +467,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec, 'media.mojom.VideoEncodeAccelerator_Encode_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_Params', [
@@ -495,7 +495,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_IsFlushSupported_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec, 'media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParams', [
@@ -506,7 +506,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_Flush_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec, 'media.mojom.VideoEncodeAccelerator_Flush_ResponseParams', [

@@ -46,7 +46,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParams', [

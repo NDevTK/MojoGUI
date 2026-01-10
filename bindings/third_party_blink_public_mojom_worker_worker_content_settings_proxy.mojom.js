@@ -23,7 +23,7 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParam
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParams', [
@@ -34,7 +34,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParams', [
@@ -45,7 +45,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParams', [
@@ -56,7 +56,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParams', [

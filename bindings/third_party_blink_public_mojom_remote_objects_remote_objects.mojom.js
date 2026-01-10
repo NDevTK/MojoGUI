@@ -261,7 +261,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteObject_GetMethods_ParamsSpec, 'blink.mojom.RemoteObject_GetMethods_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec, 'blink.mojom.RemoteObject_GetMethods_ResponseParams', [
@@ -285,7 +285,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec, 'blink.mojom.RemoteObject_NotifyReleasedObject_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.RemoteObjectPendingReceiver = class {
   constructor(handle) {

@@ -42,7 +42,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec, 'storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec, 'storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParams', [

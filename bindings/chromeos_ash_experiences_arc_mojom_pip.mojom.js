@@ -98,12 +98,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PipInstance_Init_ResponseParamsSpec, 'arc.mojom.PipInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PipInstance_ClosePip_ParamsSpec, 'arc.mojom.PipInstance_ClosePip_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec, 'arc.mojom.PipInstance_SetPipSuppressionStatus_Params', [

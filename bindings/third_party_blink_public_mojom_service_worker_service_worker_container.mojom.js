@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistrations_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParams', [
@@ -102,7 +102,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParams', [
@@ -126,7 +126,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_Params', [
@@ -137,12 +137,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.ServiceWorkerContainerHostPendingReceiver = class {
   constructor(handle) {

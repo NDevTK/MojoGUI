@@ -52,7 +52,7 @@ arc.mojom.CommandResultType = {
 mojo.internal.Struct(
     arc.mojom.PolicyHost_GetPolicies_ParamsSpec, 'arc.mojom.PolicyHost_GetPolicies_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec, 'arc.mojom.PolicyHost_GetPolicies_ResponseParams', [
@@ -179,12 +179,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PolicyInstance_Init_ResponseParamsSpec, 'arc.mojom.PolicyInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec, 'arc.mojom.PolicyInstance_OnPolicyUpdated_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec, 'arc.mojom.PolicyInstance_OnCommandReceived_Params', [

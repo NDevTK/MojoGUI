@@ -42,12 +42,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec, 'network.mojom.ProxyConfigClient_FlushProxyConfig_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec, 'network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.ProxyConfigClientPendingReceiver = class {
   constructor(handle) {
@@ -119,7 +119,7 @@ network.mojom.ProxyConfigClientRequest = network.mojom.ProxyConfigClientPendingR
 mojo.internal.Struct(
     network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec, 'network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.ProxyConfigPollerClientPendingReceiver = class {
   constructor(handle) {

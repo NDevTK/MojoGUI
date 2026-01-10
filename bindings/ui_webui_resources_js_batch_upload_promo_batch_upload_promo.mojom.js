@@ -89,7 +89,7 @@ batch_upload_promo.mojom.PageHandlerFactoryRequest = batch_upload_promo.mojom.Pa
 mojo.internal.Struct(
     batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParams', [
@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 batch_upload_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

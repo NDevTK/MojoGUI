@@ -266,7 +266,7 @@ device.mojom.GamepadObserverRequest = device.mojom.GamepadObserverPendingReceive
 mojo.internal.Struct(
     device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec, 'device.mojom.GamepadMonitor_GamepadStartPolling_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec, 'device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParams', [
@@ -277,12 +277,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec, 'device.mojom.GamepadMonitor_GamepadStopPolling_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec, 'device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.GamepadMonitor_SetObserver_ParamsSpec, 'device.mojom.GamepadMonitor_SetObserver_Params', [

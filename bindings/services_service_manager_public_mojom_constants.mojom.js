@@ -20,4 +20,4 @@ service_manager.mojom.kSystemInstanceGroupLow = 0x82B0A84F50CF8D84;
 mojo.internal.Struct(
     service_manager.mojom.Constants_UnusedStruct_InternalSpec, 'service_manager.mojom.Constants_UnusedStruct_Internal', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);

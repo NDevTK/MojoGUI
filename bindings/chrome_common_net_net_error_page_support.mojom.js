@@ -18,7 +18,7 @@ chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_DownloadPageLater_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_Params', [
@@ -29,7 +29,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_ShowPortalSignin_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chrome.mojom.NetErrorPageSupportPendingReceiver = class {
   constructor(handle) {

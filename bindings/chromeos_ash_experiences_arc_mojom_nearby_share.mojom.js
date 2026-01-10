@@ -98,7 +98,7 @@ arc.mojom.NearbyShareSessionHostRequest = arc.mojom.NearbyShareSessionHostPendin
 mojo.internal.Struct(
     arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec, 'arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.NearbyShareSessionInstancePendingReceiver = class {
   constructor(handle) {
@@ -239,7 +239,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec, 'arc.mojom.NearbyShareInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.NearbyShareInstancePendingReceiver = class {
   constructor(handle) {

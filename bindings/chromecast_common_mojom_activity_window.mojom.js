@@ -17,12 +17,12 @@ chromecast.mojom.ActivityWindow_Hide_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     chromecast.mojom.ActivityWindow_Show_ParamsSpec, 'chromecast.mojom.ActivityWindow_Show_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromecast.mojom.ActivityWindow_Hide_ParamsSpec, 'chromecast.mojom.ActivityWindow_Hide_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 chromecast.mojom.ActivityWindowPendingReceiver = class {
   constructor(handle) {

@@ -176,7 +176,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec, 'auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec, 'auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_Params', [
@@ -362,7 +362,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec, 'auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec, 'auction_worklet.mojom.BidderWorklet_ReportWin_Params', [

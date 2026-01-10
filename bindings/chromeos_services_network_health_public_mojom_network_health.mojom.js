@@ -132,7 +132,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParams', [
@@ -143,7 +143,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParams', [
@@ -154,7 +154,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParams', [

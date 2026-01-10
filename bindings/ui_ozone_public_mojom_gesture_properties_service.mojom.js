@@ -66,7 +66,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_ListDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParams', [

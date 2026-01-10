@@ -77,7 +77,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [

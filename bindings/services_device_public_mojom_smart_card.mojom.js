@@ -460,7 +460,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SmartCardConnection_Status_ParamsSpec, 'device.mojom.SmartCardConnection_Status_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SmartCardConnection_Status_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Status_ResponseParams', [
@@ -471,7 +471,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec, 'device.mojom.SmartCardConnection_BeginTransaction_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec, 'device.mojom.SmartCardConnection_BeginTransaction_ResponseParams', [
@@ -594,7 +594,7 @@ device.mojom.SmartCardConnectionRequest = device.mojom.SmartCardConnectionPendin
 mojo.internal.Struct(
     device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec, 'device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 device.mojom.SmartCardConnectionWatcherPendingReceiver = class {
   constructor(handle) {
@@ -657,7 +657,7 @@ device.mojom.SmartCardConnectionWatcherRequest = device.mojom.SmartCardConnectio
 mojo.internal.Struct(
     device.mojom.SmartCardContext_ListReaders_ParamsSpec, 'device.mojom.SmartCardContext_ListReaders_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec, 'device.mojom.SmartCardContext_ListReaders_ResponseParams', [
@@ -681,7 +681,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SmartCardContext_Cancel_ParamsSpec, 'device.mojom.SmartCardContext_Cancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SmartCardContext_Cancel_ResponseParamsSpec, 'device.mojom.SmartCardContext_Cancel_ResponseParams', [
@@ -792,7 +792,7 @@ device.mojom.SmartCardContextRequest = device.mojom.SmartCardContextPendingRecei
 mojo.internal.Struct(
     device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec, 'device.mojom.SmartCardContextFactory_CreateContext_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec, 'device.mojom.SmartCardContextFactory_CreateContext_ResponseParams', [

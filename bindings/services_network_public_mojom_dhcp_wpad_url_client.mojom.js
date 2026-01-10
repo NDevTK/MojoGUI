@@ -17,7 +17,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParams', [

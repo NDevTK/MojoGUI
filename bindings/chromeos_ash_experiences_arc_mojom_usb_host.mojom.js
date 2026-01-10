@@ -150,7 +150,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.UsbHostInstance_Init_ResponseParamsSpec, 'arc.mojom.UsbHostInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceAdded_Params', [

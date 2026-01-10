@@ -221,7 +221,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParams', [
@@ -457,7 +457,7 @@ crosapi.mojom.CrosDisplayConfigControllerRequest = crosapi.mojom.CrosDisplayConf
 mojo.internal.Struct(
     crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec, 'crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 crosapi.mojom.CrosDisplayConfigObserverPendingReceiver = class {
   constructor(handle) {

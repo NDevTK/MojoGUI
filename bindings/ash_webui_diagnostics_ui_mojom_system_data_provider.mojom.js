@@ -394,7 +394,7 @@ ash.diagnostics.mojom.CpuUsageObserverRequest = ash.diagnostics.mojom.CpuUsageOb
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParams', [
@@ -405,7 +405,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParams', [

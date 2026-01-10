@@ -65,7 +65,7 @@ ash.screens_common.mojom.GesturePages = {
 mojo.internal.Struct(
     ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_common.mojom.AiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -192,7 +192,7 @@ ash.screens_common.mojom.AiIntroPageRequest = ash.screens_common.mojom.AiIntroPa
 mojo.internal.Struct(
     ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec, 'ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_common.mojom.AppDownloadingPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -399,7 +399,7 @@ ash.screens_common.mojom.DrivePinningPageRequest = ash.screens_common.mojom.Driv
 mojo.internal.Struct(
     ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec, 'ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_common.mojom.FjordStationSetupPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -462,7 +462,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerRequest = ash.screens_commo
 mojo.internal.Struct(
     ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_Params', [
@@ -540,7 +540,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRequest = ash.screens_common.mojom.G
 mojo.internal.Struct(
     ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_common.mojom.GaiaInfoPagePendingReceiver = class {
   constructor(handle) {
@@ -609,12 +609,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_common.mojom.GestureNavigationPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -695,12 +695,12 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRequest = ash.screens_commo
 mojo.internal.Struct(
     ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.screens_common.mojom.GeminiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {

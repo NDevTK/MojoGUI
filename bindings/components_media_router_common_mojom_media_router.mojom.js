@@ -290,7 +290,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec, 'media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec, 'media_router.mojom.MediaRouteProvider_DetachRoute_Params', [
@@ -301,7 +301,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec, 'media_router.mojom.MediaRouteProvider_DiscoverSinksNow_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec, 'media_router.mojom.MediaRouteProvider_BindMediaController_Params', [
@@ -320,7 +320,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_router.mojom.MediaRouteProvider_GetState_ParamsSpec, 'media_router.mojom.MediaRouteProvider_GetState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_GetState_ResponseParams', [
@@ -545,7 +545,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec, 'media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec, 'media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParams', [
@@ -568,7 +568,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec, 'media_router.mojom.MediaRouter_GetLogsAsString_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec, 'media_router.mojom.MediaRouter_GetLogsAsString_ResponseParams', [

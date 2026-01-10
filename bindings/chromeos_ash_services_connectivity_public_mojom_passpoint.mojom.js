@@ -131,7 +131,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec, 'chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParams', [

@@ -133,7 +133,7 @@ arc.mojom.MidisClientRequest = arc.mojom.MidisClientPendingReceiver;
 mojo.internal.Struct(
     arc.mojom.MidisServer_ListDevices_ParamsSpec, 'arc.mojom.MidisServer_ListDevices_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.MidisServer_ListDevices_ResponseParamsSpec, 'arc.mojom.MidisServer_ListDevices_ResponseParams', [
@@ -309,7 +309,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.MidisInstance_Init_ResponseParamsSpec, 'arc.mojom.MidisInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.MidisInstancePendingReceiver = class {
   constructor(handle) {

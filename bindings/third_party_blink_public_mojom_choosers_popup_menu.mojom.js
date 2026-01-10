@@ -41,7 +41,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PopupMenuClient_DidCancel_ParamsSpec, 'blink.mojom.PopupMenuClient_DidCancel_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 blink.mojom.PopupMenuClientPendingReceiver = class {
   constructor(handle) {

@@ -102,12 +102,12 @@ actor_internals.mojom.PageRequest = actor_internals.mojom.PagePendingReceiver;
 mojo.internal.Struct(
     actor_internals.mojom.PageHandler_StartLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StartLogging_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     actor_internals.mojom.PageHandler_StopLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StopLogging_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 actor_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {

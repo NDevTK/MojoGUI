@@ -42,7 +42,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec, 'arc.mojom.ArcWifiHost_GetWifiEnabledState_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParams', [
@@ -65,12 +65,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ArcWifiHost_StartScan_ParamsSpec, 'arc.mojom.ArcWifiHost_StartScan_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec, 'arc.mojom.ArcWifiHost_GetScanResults_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec, 'arc.mojom.ArcWifiHost_GetScanResults_ResponseParams', [
@@ -172,7 +172,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec, 'arc.mojom.ArcWifiInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec, 'arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_Params', [
@@ -183,7 +183,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec, 'arc.mojom.ArcWifiInstance_ScanCompleted_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.ArcWifiInstancePendingReceiver = class {
   constructor(handle) {

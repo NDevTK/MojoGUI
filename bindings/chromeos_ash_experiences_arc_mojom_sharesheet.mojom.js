@@ -74,7 +74,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.SharesheetInstance_Init_ResponseParamsSpec, 'arc.mojom.SharesheetInstance_Init_ResponseParams', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 arc.mojom.SharesheetInstancePendingReceiver = class {
   constructor(handle) {

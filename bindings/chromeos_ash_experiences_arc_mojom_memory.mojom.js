@@ -43,7 +43,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.MemoryInstance_DropCaches_ParamsSpec, 'arc.mojom.MemoryInstance_DropCaches_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec, 'arc.mojom.MemoryInstance_DropCaches_ResponseParams', [

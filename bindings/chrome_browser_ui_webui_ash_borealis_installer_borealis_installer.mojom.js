@@ -96,32 +96,32 @@ ash.borealis_installer.mojom.PageHandlerFactoryRequest = ash.borealis_installer.
 mojo.internal.Struct(
     ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Install_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_ShutDown_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Launch_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_CancelInstall_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OnPageClosed_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OpenStoragePage_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.borealis_installer.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -242,7 +242,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec, 'ash.borealis_installer.mojom.Page_RequestClose_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 ash.borealis_installer.mojom.PagePendingReceiver = class {
   constructor(handle) {

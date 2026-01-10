@@ -541,7 +541,7 @@ network.mojom.HostResolverRequest = network.mojom.HostResolverPendingReceiver;
 mojo.internal.Struct(
     network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec, 'network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_Params', [
     ],
-    [{version: 0, packedSize: 8}]);
+    [[0, 8]]);
 
 network.mojom.DnsConfigChangeManagerClientPendingReceiver = class {
   constructor(handle) {
