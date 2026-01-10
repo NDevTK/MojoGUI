@@ -353,6 +353,7 @@ jobs:
               
               module = parsed['module']
               current_ns = module # Used for local references
+              module_parts = module.split('.') # Used for namespace generation
               
               # Build set of valid types for this module
               valid_types = set()
