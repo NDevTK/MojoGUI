@@ -93,10 +93,12 @@
                     const handler = origGetHandler(endpoint);
                     if (handler && !handler._interceptor_patched) {
                         handler._interceptor_patched = true;
+                        // console.log('[Interceptor] Patching ControlMessageHandler for endpoint:', endpoint.router_?.handle_ || 'unknown');
                         const origDecode = handler.decodeMessageHeader;
                         handler.decodeMessageHeader = function (message) {
                             const header = origDecode.call(this, message);
                             if (header) {
+                                // console.log(`[Interceptor] Decoded header for ordinal ${header.ordinal} (expectsResponse: ${header.expectsResponse})`);
                                 // Fix the missing property that causes generated code to skip responses
                                 if (header.expectsResponse === undefined) {
                                     header.expectsResponse = !!(header.flags & 1);

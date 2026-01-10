@@ -187,47 +187,48 @@ device.mojom.VibrationManagerReceiver = class {
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(
-      new mojo.internal.interfaceSupport.Router(handle, false),
-      this.onMessageReceived.bind(this));
-  }
-
-  onMessageReceived(message) {
-    const header = mojo.internal.interfaceSupport.getControlMessageHandler(this.endpoint).decodeMessageHeader(message);
-    if (header.controlMessage) {
-      mojo.internal.interfaceSupport.getControlMessageHandler(this.endpoint).handleMessage(header, message);
-    } else {
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-        // Fallback discovery if scrambler failed
-        console.warn('[GeneratedReceiver] Unknown ordinal ' + header.ordinal);
-        return;
-      }
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec);
-          const result = this.impl.vibrate(params.milliseconds);
-          if (header.expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, header.ordinal);
-              responder(response);
-            });
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({
+      onMessageReceived: (message) => {
+        const header = mojo.internal.interfaceSupport.getControlMessageHandler(this.endpoint).decodeMessageHeader(message);
+        if (header.controlMessage) {
+          mojo.internal.interfaceSupport.getControlMessageHandler(this.endpoint).handleMessage(header, message);
+        } else {
+          let dispatchId = this.ordinalMap.get(header.ordinal);
+          if (dispatchId === undefined) {
+            console.warn('[GeneratedReceiver] Unknown ordinal ' + header.ordinal);
+            return;
           }
-          break;
-        }
-        case 1: {
-          const result = this.impl.cancel();
-          if (header.expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec, header.ordinal);
-              responder(response);
-            });
+          switch (dispatchId) {
+            case 0: {
+              const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+              const params = decoder.decodeStructInline(device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec);
+              const result = this.impl.vibrate(params.milliseconds);
+              if (header.expectsResponse) {
+                Promise.resolve(result).then(response => {
+                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, header.ordinal);
+                  responder(response);
+                });
+              }
+              break;
+            }
+            case 1: {
+              const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+              const params = decoder.decodeStructInline(device.mojom.VibrationManager_Cancel_ParamsSpec.$.structSpec);
+              const result = this.impl.cancel();
+              if (header.expectsResponse) {
+                Promise.resolve(result).then(response => {
+                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec, header.ordinal);
+                  responder(response);
+                });
+              }
+              break;
+            }
           }
-          break;
         }
       }
-    }
+    });
   }
 };
 
