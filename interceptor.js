@@ -90,9 +90,9 @@
                     return function (response) {
                         try {
                             const structSpec = responseParamsSpec.$.structSpec;
-                            const header = typeof headerOrOrdinal === 'object' ? headerOrOrdinal : { ordinal: headerOrOrdinal };
+                            const reqHeader = typeof headerOrOrdinal === 'object' ? headerOrOrdinal : { ordinal: headerOrOrdinal };
 
-                            const headerSize = 32; // V1 Header (necessary for RequestID)
+                            const headerSize = 32; // Always send V1 Header (requestId at offset 24)
                             const payloadSize = structSpec.packedSize;
                             const totalSize = headerSize + payloadSize;
 
@@ -100,19 +100,20 @@
                             const view = new DataView(buffer);
 
                             // 1. Build Mojo Message Header V1
-                            // We use values from the original request header if provided
-                            const ordinal = header.ordinal || 0;
-                            const interfaceId = (header.interfaceId !== undefined) ? header.interfaceId : (endpoint.interfaceId_ || 0);
-                            const version = (header.version !== undefined && header.version > 1) ? header.version : 1;
+                            // CRITICAL: We MUST set version to 1 if we only send 32 bytes. 
+                            // If we set it to 3 (from request), browser expects 56 bytes and hangs.
+                            const ordinal = reqHeader.ordinal || 0;
+                            const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
+                            const version = 1;
 
                             view.setUint32(0, totalSize, true);     // num_bytes
-                            view.setUint32(4, version, true);       // version (at least 1 for requestId)
-                            view.setUint32(8, interfaceId, true);   // interface_id (MATCH REQUEST)
-                            view.setUint32(12, ordinal, true);      // ordinal (MATCH REQUEST)
+                            view.setUint32(4, version, true);       // version 1
+                            view.setUint32(8, interfaceId, true);   // interface_id
+                            view.setUint32(12, ordinal, true);      // ordinal
                             view.setUint32(16, 2, true);            // flags (2 = kMessageIsResponse)
-                            view.setUint32(20, 0, true);            // padding (aligned to 8 bytes)
+                            view.setUint32(20, 0, true);            // padding
 
-                            // requestId (uint64)
+                            // requestId (uint64) at offset 24
                             if (typeof requestId === 'bigint') {
                                 view.setBigUint64(24, requestId, true);
                             } else {
@@ -121,16 +122,19 @@
                             }
 
                             // 2. Encode Struct Payload
-                            // We use the native Encoder but point its DataView to the payload area
                             const encoder = new mojo.internal.Encoder(payloadSize, 0);
                             encoder.buffer_ = buffer;
                             encoder.data_ = new DataView(buffer, headerSize);
-
                             encoder.encodeStructInline(structSpec, response);
+
+                            // DEBUG: Log Hex
+                            const hex = Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join(' ');
+                            // console.log('[Interceptor] Responder Packet:', hex);
 
                             // 3. Send using "Cascade of Doom"
                             let sent = false;
                             const pipe = endpoint.router_.pipe_ || endpoint.router_.handle_;
+                            const dataView = new Uint8Array(buffer);
 
                             // Try 1: Instance method (observed in probe)
                             if (pipe && typeof pipe.writeMessage === 'function') {
