@@ -72,10 +72,29 @@
     // MojoProxy
     // ========================================
     class MojoProxy {
-        constructor(interfaceName, remote, receiver) {
+        constructor(interfaceName, realHandle, comps) {
             this.interfaceName = interfaceName;
-            this.realRemote = remote;
-            this.receiver = receiver;
+            this.realHandle = realHandle;
+            this.realRemote = null;
+            this.eventTarget = new EventTarget();
+
+            // Initialize the real remote using provided components
+            if (comps && comps.Remote) {
+                try {
+                    this.realRemote = new comps.Remote(realHandle);
+                } catch (e) {
+                    console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e);
+                }
+            } else {
+                // Fallback: try finding it again
+                const resolved = MojoProxy.getInterfaceComponents(interfaceName);
+                if (resolved.Remote) {
+                    this.realRemote = new resolved.Remote(realHandle);
+                } else {
+                    console.error(`[MojoProxy] Could not find Remote class for ${interfaceName}`);
+                }
+            }
+
             this.pendingMessages = new Map(); // id -> { resolve, reject, args }
             this.id = Math.random().toString(36).substr(2, 9);
 
@@ -84,6 +103,101 @@
                 global.MojoProxyRegistry = new Map();
             }
             global.MojoProxyRegistry.set(this.id, this);
+
+            // We need to return a proxy that traps all method calls
+            return new Proxy(this, {
+                get: (target, prop, receiver) => {
+                    // unexpected props
+                    if (prop in target) return target[prop];
+
+                    // If it's a known method or generally a function call
+                    if (typeof prop === 'string' && target.realRemote) {
+                        // Check if it's a function on the remote
+                        if (typeof target.realRemote[prop] === 'function') {
+                            return (...args) => target.interceptCall(prop, args);
+                        }
+                    }
+
+                    return Reflect.get(target, prop, receiver);
+                }
+            });
+        }
+
+        async interceptCall(methodName, args) {
+            const callId = Math.random().toString(36).substr(2, 9);
+
+            // Notify UI
+            const event = new CustomEvent('mojo-intercept', {
+                detail: {
+                    id: callId,
+                    interface: this.interfaceName,
+                    method: methodName,
+                    params: args,
+                    timestamp: Date.now(),
+                    proxyId: this.id
+                }
+            });
+            window.dispatchEvent(event);
+
+            console.log(`[MojoProxy] Intercepted ${this.interfaceName}.${methodName}`, args);
+
+            // Create a Promise that we will manually resolve later
+            // This effectively PAUSES execution here until the UI calls resume
+            return new Promise((resolve, reject) => {
+                this.pendingMessages.set(callId, {
+                    resolve,
+                    reject,
+                    methodName,
+                    originalArgs: args
+                });
+            });
+        }
+
+        resumeCall(callId, modifiedArgs, shouldDrop = false) {
+            const pending = this.pendingMessages.get(callId);
+            if (!pending) {
+                console.warn(`[MojoProxy] No pending call found for ID ${callId}`);
+                return;
+            }
+
+            this.pendingMessages.delete(callId);
+            const { resolve, reject, methodName, originalArgs } = pending;
+
+            if (shouldDrop) {
+                console.log(`[MojoProxy] Dropped ${callId}`);
+                resolve(undefined);
+                return;
+            }
+
+            const argsToUse = modifiedArgs || originalArgs;
+
+            // Execute on real implementation
+            (async () => {
+                try {
+                    console.log(`[MojoProxy] Resuming ${callId} with`, argsToUse);
+                    const result = await this.realRemote[methodName](...argsToUse);
+
+                    // Notify UI of response
+                    window.dispatchEvent(new CustomEvent('mojo-response', {
+                        detail: {
+                            id: callId,
+                            result: result,
+                            timestamp: Date.now()
+                        }
+                    }));
+
+                    resolve(result);
+                } catch (err) {
+                    window.dispatchEvent(new CustomEvent('mojo-error', {
+                        detail: {
+                            id: callId,
+                            error: err.toString(),
+                            timestamp: Date.now()
+                        }
+                    }));
+                    reject(err);
+                }
+            })();
         }
 
         cleanup() {
@@ -139,7 +253,7 @@
             const pipe = Mojo.createMessagePipe();
 
             // 3. Create the Proxy object that implements the interface
-            const proxyImpl = new MojoProxyImpl(interfaceName, pipe.handle0, comps);
+            const proxyImpl = new MojoProxy(interfaceName, pipe.handle0, comps);
 
             // 4. Bind the *intercepted* handle `handle` to our Proxy implementation
             try {
@@ -240,134 +354,7 @@
         }
     }
 
-    class MojoProxyImpl {
-        constructor(interfaceName, realHandle, comps) {
-            this.interfaceName = interfaceName;
-            this.realHandle = realHandle;
-            this.realRemote = null;
-            this.eventTarget = new EventTarget();
 
-            // Initialize the real remote using provided components
-            if (comps && comps.Remote) {
-                try {
-                    this.realRemote = new comps.Remote(realHandle);
-                } catch (e) {
-                    console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e);
-                }
-            } else {
-                // Fallback: try finding it again
-                const resolved = MojoProxy.getInterfaceComponents(interfaceName);
-                if (resolved.Remote) {
-                    this.realRemote = new resolved.Remote(realHandle);
-                } else {
-                    console.error(`[MojoProxy] Could not find Remote class for ${interfaceName}`);
-                }
-            }
-
-            // We need to return a proxy that traps all method calls
-            return new Proxy(this, {
-                get: (target, prop, receiver) => {
-                    // unexpected props
-                    if (prop in target) return target[prop];
-
-                    // If it's a known method or generally a function call
-                    if (typeof prop === 'string' && target.realRemote) {
-                        // Check if it's a function on the remote
-                        if (typeof target.realRemote[prop] === 'function') {
-                            return (...args) => target.interceptCall(prop, args);
-                        }
-                        // Or if legacy bindings, it might be heavily prototyped. 
-                        // Assume any string prop that isn't on target is a method?
-                        // Safer to check remote.
-                    }
-
-                    return Reflect.get(target, prop, receiver);
-                }
-            });
-        }
-
-        async interceptCall(methodName, args) {
-            const callId = Math.random().toString(36).substr(2, 9);
-
-            // Notify UI
-            const event = new CustomEvent('mojo-intercept', {
-                detail: {
-                    id: callId,
-                    interface: this.interfaceName,
-                    method: methodName,
-                    params: args,
-                    timestamp: Date.now(),
-                    proxyId: this.id
-                }
-            });
-            window.dispatchEvent(event);
-
-            console.log(`[MojoProxy] Intercepted ${this.interfaceName}.${methodName}`, args);
-
-            // Create a Promise that we will manually resolve later
-            // This effectively PAUSES execution here until the UI calls resume
-            return new Promise((resolve, reject) => {
-                this.pendingMessages.set(callId, {
-                    resolve,
-                    reject,
-                    methodName,
-                    originalArgs: args
-                });
-            });
-        }
-
-        resumeCall(callId, modifiedArgs, shouldDrop = false) {
-            const pending = this.pendingMessages.get(callId);
-            if (!pending) {
-                console.warn(`[MojoProxy] No pending call found for ID ${callId}`);
-                return;
-            }
-
-            this.pendingMessages.delete(callId);
-            const { resolve, reject, methodName, originalArgs } = pending;
-
-            if (shouldDrop) {
-                // To "drop", we can either never resolve (hanging the caller) 
-                // or reject with a specific error, or resolve with null (if void).
-                // Hanging might be bad for resource usage but is "true" drop.
-                // Safest for stability is usually to return typical void/default.
-                console.log(`[MojoProxy] Dropped ${callId}`);
-                // Let's resolve with undefined; hopefully caller handles void
-                resolve(undefined);
-                return;
-            }
-
-            const argsToUse = modifiedArgs || originalArgs;
-
-            // Execute on real implementation
-            (async () => {
-                try {
-                    console.log(`[MojoProxy] Resuming ${callId} with`, argsToUse);
-                    const result = await this.realRemote[methodName](...argsToUse);
-
-                    // Notify UI of response
-                    window.dispatchEvent(new CustomEvent('mojo-response', {
-                        detail: {
-                            id: callId,
-                            result: result,
-                            timestamp: Date.now()
-                        }
-                    }));
-
-                    resolve(result);
-                } catch (err) {
-                    window.dispatchEvent(new CustomEvent('mojo-error', {
-                        detail: {
-                            id: callId,
-                            error: err.toString(),
-                            timestamp: Date.now()
-                        }
-                    }));
-                    reject(err);
-                }
-            })();
-        }
-    }
 
     // ========================================
     // Interceptor Manager
