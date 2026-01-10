@@ -201,9 +201,19 @@
 
             // Execute on real implementation
             (async () => {
+                const startTime = Date.now();
                 try {
                     console.log(`[MojoProxy] Resuming ${callId} with`, argsToUse);
-                    const result = await this.realRemote[methodName](...argsToUse);
+                    console.log(`[MojoProxy] Calling realRemote.${methodName}`);
+
+                    let result = await this.realRemote[methodName](...argsToUse);
+
+                    console.log(`[MojoProxy] realRemote.${methodName} resolved in ${Date.now() - startTime}ms`, result);
+
+                    // Defensive: If result is undefined but expected to be an empty struct, default to {}
+                    if (result === undefined) {
+                        result = {};
+                    }
 
                     // Notify UI of response
                     window.dispatchEvent(new CustomEvent('mojo-response', {
@@ -215,15 +225,16 @@
                     }));
 
                     resolve(result);
-                } catch (err) {
+                } catch (e) {
+                    console.error(`[MojoProxy] realRemote.${methodName} FAILED`, e);
                     window.dispatchEvent(new CustomEvent('mojo-error', {
                         detail: {
                             id: callId,
-                            error: err.toString(),
+                            error: e.toString(),
                             timestamp: Date.now()
                         }
                     }));
-                    reject(err);
+                    reject(e);
                 }
             })();
         }
