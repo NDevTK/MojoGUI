@@ -107,33 +107,38 @@
                 if (handler && !handler._interceptor_patched) {
                     handler._interceptor_patched = true;
 
+                    // Helper to get raw ArrayBuffer from message.buffer (could be Uint8Array, etc)
+                    const normalizeBuffer = (buf) => {
+                        if (!buf) return null;
+                        if (buf instanceof ArrayBuffer) return buf;
+                        if (buf.buffer instanceof ArrayBuffer) return buf.buffer;
+                        return null;
+                    };
+
                     // Ensure decodeMessageHeader exists (Polyfill if missing on the handler)
                     if (typeof handler.decodeMessageHeader !== 'function') {
                         handler.decodeMessageHeader = function (message) {
                             try {
-                                const view = new DataView(message.buffer);
+                                const rawBuf = normalizeBuffer(message.buffer || message);
+                                if (!rawBuf) throw new Error('Invalid buffer');
+                                const view = new DataView(rawBuf);
                                 const headerSize = view.getUint32(0, true);
                                 const headerVersion = view.getUint32(4, true);
                                 const interfaceId = view.getUint32(8, true);
                                 const ordinal = view.getUint32(12, true);
                                 const flags = view.getUint32(16, true);
-                                // requestId is optional (uint64 at 24)
                                 let requestId = 0n;
                                 if (headerSize >= 32) {
                                     requestId = view.getBigUint64(24, true);
                                 }
                                 return {
-                                    headerSize,
-                                    headerVersion,
-                                    interfaceId,
-                                    ordinal,
-                                    flags,
-                                    requestId,
-                                    expectsResponse: !!(flags & 1)
+                                    headerSize, headerVersion, interfaceId, ordinal, flags, requestId,
+                                    expectsResponse: !!(flags & 1),
+                                    controlMessage: false
                                 };
                             } catch (e) {
                                 console.error('[Interceptor] Robust decodeMessageHeader failed:', e);
-                                return null;
+                                return { headerSize: 32, ordinal: 0, flags: 0, controlMessage: false, expectsResponse: false };
                             }
                         };
                     }
@@ -145,9 +150,10 @@
                             if (header.expectsResponse === undefined) {
                                 header.expectsResponse = !!(header.flags & 1);
                             }
+                            const rawBuf = normalizeBuffer(message.buffer || message);
                             _endpointContexts.set(endpoint, {
                                 header: header,
-                                rawHeader: message.buffer ? message.buffer.slice(0, header.headerSize) : null
+                                rawHeader: rawBuf ? rawBuf.slice(0, header.headerSize) : null
                             });
                         }
                         return header;
