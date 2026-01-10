@@ -1013,14 +1013,17 @@ jobs:
                   js_code += "    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);\n"
                   js_code += "    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);\n"
                   js_code += "    this.endpoint.start({ onMessageReceived: (...args) => {\n"
-                  js_code += "      console.log('[GeneratedReceiver] Args received:', args);\n"
-                  js_code += "      const message = args[0];\n"
-                  js_code += "      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }\n"
+                  js_code += "      let message = args[0];\n"
+                  js_code += "      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)\n"
+                  js_code += "      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {\n"
+                  js_code += "        message = {\n"
+                  js_code += "          header: args[1],\n"
+                  js_code += "          buffer: args[2],\n"
+                  js_code += "          handles: args[3] || []\n"
+                  js_code += "        };\n"
+                  js_code += "      }\n"
                   js_code += "      const header = message && message.header;\n"
-                  js_code += "      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }\n"
-                  # Original switch logic continues, assuming message might be right or we find it in arg1 later
-                  js_code += "      if (header) {\n"
-                  js_code += "      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);\n"
+                  js_code += "      if (!header) return;\n"
                   js_code += "      switch (header.ordinal) {\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
@@ -1056,7 +1059,6 @@ jobs:
                       js_code += "        }\n"
                   
                   js_code += "      }\n" # End switch
-                  js_code += "      }\n" # End header check
                   js_code += "    }});\n" # End start
                   js_code += "  }\n"
                   js_code += "};\n\n"
