@@ -371,20 +371,41 @@
 
                 if (proxyData) {
                     // Connect the "Real" side of the proxy to the browser
-                    // Mojo.bindInterface requests the interface from the browser
-                    Mojo.bindInterface(interfaceName, proxyData.realHandle);
+                    // CRITICAL: Temporarily stop interception to prevent recursion
+                    // Mojo.bindInterface triggers a new request which we would catch again!
+                    const interceptor = this.interceptors.get(interfaceName);
+                    if (interceptor) interceptor.stop();
+
+                    try {
+                        Mojo.bindInterface(interfaceName, proxyData.realHandle);
+                    } finally {
+                        if (interceptor) interceptor.start();
+                    }
 
                     // Keep track of active proxies
                     this.activeProxies.push(proxyData.proxy);
                 } else {
                     // Fallback: Connect client directly to browser if proxy creation fails
                     console.warn(`[Interceptor] Proxy creation failed, bypassing for ${interfaceName}`);
-                    Mojo.bindInterface(interfaceName, clientHandle);
+
+                    const interceptor = this.interceptors.get(interfaceName);
+                    if (interceptor) interceptor.stop();
+                    try {
+                        Mojo.bindInterface(interfaceName, clientHandle);
+                    } finally {
+                        if (interceptor) interceptor.start();
+                    }
                 }
             } catch (err) {
                 console.error(`[Interceptor] Error handling request for ${interfaceName}:`, err);
                 // Attempt to fallback
-                Mojo.bindInterface(interfaceName, clientHandle);
+                const interceptor = this.interceptors.get(interfaceName);
+                if (interceptor) interceptor.stop();
+                try {
+                    Mojo.bindInterface(interfaceName, clientHandle);
+                } finally {
+                    if (interceptor) interceptor.start();
+                }
             }
         },
 
