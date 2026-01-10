@@ -6,6 +6,17 @@
 (function (global) {
     'use strict';
 
+    // Polyfill for missing PipeControlMessage in some MojoJS environments
+    if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.interfaceSupport) {
+        if (!mojo.internal.interfaceSupport.PipeControlMessage) {
+            console.warn('[Interceptor] Polyfilling missing PipeControlMessage for Router compatibility');
+            mojo.internal.interfaceSupport.PipeControlMessage = {
+                // RUN_OR_CLOSE_PIPE_MESSAGE_ID
+                RUN_OR_CLOSE_PIPE_MESSAGE_ID: -2 // 0xFFFFFFFE cast to signed int32
+            };
+        }
+    }
+
     // ========================================
     // MojoProxy
     // ========================================
