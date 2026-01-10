@@ -530,7 +530,8 @@ jobs:
                               'ordinal': ordinal,
                               'sub_ordinal': 0,
                               'min_version': min_version,
-                              'nullable': is_nullable
+                              'nullable': is_nullable,
+                              'default_value': param.get('default_value')
                           })
                   
                   # 2. Sort by Ordinal (Temporary, will resort by size for packing)
@@ -892,7 +893,8 @@ jobs:
                           js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
                       else:
                           js_code += "      null,\n"
-                      js_code += f"      [{params_str}]);\n"
+                      js_code += f"      [{params_str}],\n"
+                      js_code += "      false);\n"
                       js_code += "  }\n\n"
                   
                   js_code += "};\n\n"
