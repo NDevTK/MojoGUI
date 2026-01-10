@@ -497,7 +497,13 @@
         }
 
         return paramsDef.map((param, index) => {
-            return renderInput(param, values[index], { isInterceptor: true, index, interceptId });
+            let value;
+            if (Array.isArray(values)) {
+                value = values[index];
+            } else if (values && typeof values === 'object') {
+                value = values[param.name];
+            }
+            return renderInput(param, value, { isInterceptor: true, index, interceptId });
         }).join('');
     }
 
@@ -1054,6 +1060,10 @@
                     <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Forward</button>
                     <button class="btn btn-small" onclick="resumeIntercept('${id}', true)">Drop</button>
                 </div>
+                ` : (!isPending) ? `
+                <div class="action-buttons">
+                    <button class="btn btn-primary btn-small" onclick="replayIntercept('${id}')">Forward (Replay)</button>
+                </div>
                 ` : ''}
             </div>
             <div class="code-block" style="margin-top: 10px;">
@@ -1117,6 +1127,81 @@
                     row.__details.params = params;
                 }
             }
+        }
+    }
+
+    window.replayIntercept = function (id) {
+        let params = null;
+        try {
+            // Gather params from the UI (interceptForm or textarea)
+            const formContainer = document.getElementById(`interceptForm_${id}`);
+            if (formContainer) {
+                params = getInterceptorFormValues(id);
+            } else {
+                const textarea = document.getElementById(`interceptParams_${id}`);
+                if (textarea) params = safeParse(textarea.value);
+            }
+        } catch (e) {
+            alert('Error parsing form values: ' + e.message);
+            return;
+        }
+
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        if (!row || !row.__details) return;
+
+        const detail = row.__details;
+        const proxyId = detail.proxyId;
+        const method = detail.method;
+
+        const proxy = MojoProxyRegistry.get(proxyId);
+        if (!proxy) {
+            alert('Proxy connection lost. Cannot replay.');
+            return;
+        }
+
+        // Replay using the proxy's remote
+        if (proxy.realRemote && typeof proxy.realRemote[method] === 'function') {
+            try {
+                const newId = 'replay_' + Date.now();
+                // Add new activity row for the replay
+                addActivityRow({
+                    id: newId,
+                    interface: detail.interface,
+                    method: method,
+                    params: params,
+                    timestamp: Date.now(),
+                    type: 'MANUAL',
+                    status: 'Replaying...',
+                    proxyId: proxyId
+                });
+
+                // Show details for the new Replay row
+                showInterceptDetails({ ...detail, id: newId, params: params, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
+
+                const resultPromise = proxy.realRemote[method](...params);
+
+                if (resultPromise && resultPromise.then) {
+                    resultPromise.then(res => {
+                        updateActivityRow(newId, 'Done', res);
+                        const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
+                        if (activeRow && activeRow.classList.contains('active')) {
+                            showInterceptDetails({ ...detail, id: newId, params: params, result: res, status: 'Done', type: 'MANUAL' });
+                        }
+                    }).catch(err => {
+                        updateActivityRow(newId, 'Error', { error: err.toString() });
+                        const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
+                        if (activeRow && activeRow.classList.contains('active')) {
+                            showInterceptDetails({ ...detail, id: newId, params: params, error: err.toString(), status: 'Error', type: 'MANUAL' });
+                        }
+                    });
+                } else {
+                    updateActivityRow(newId, 'Done', { result: 'Sent (No Response)' });
+                }
+            } catch (e) {
+                alert('Execution failed: ' + e.message);
+            }
+        } else {
+            alert(`Method ${method} not found on remote.`);
         }
     }
 
