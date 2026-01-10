@@ -133,6 +133,7 @@ media.mojom.SpeechRecognizerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognizer_Start_ParamsSpec.$.decode(message.payload);
@@ -249,6 +250,7 @@ media.mojom.OnDeviceSpeechRecognitionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec.$.decode(message.payload);
@@ -384,6 +386,7 @@ media.mojom.SpeechRecognitionSessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSession_Abort_ParamsSpec.$.decode(message.payload);
@@ -588,6 +591,7 @@ media.mojom.SpeechRecognitionSessionClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec.$.decode(message.payload);

@@ -114,6 +114,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec.$.decode(message.payload);

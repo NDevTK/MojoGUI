@@ -131,6 +131,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.decode(message.payload);
@@ -243,6 +244,7 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.decode(message.payload);

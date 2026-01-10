@@ -113,6 +113,7 @@ IPC.mojom.ChannelReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = IPC.mojom.Channel_SetPeerPid_ParamsSpec.$.decode(message.payload);
@@ -190,6 +191,7 @@ IPC.mojom.ChannelBootstrapReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});

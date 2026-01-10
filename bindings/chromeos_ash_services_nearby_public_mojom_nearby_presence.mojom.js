@@ -232,6 +232,7 @@ ash.nearby.presence.mojom.ScanSessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -347,6 +348,7 @@ ash.nearby.presence.mojom.ScanObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.decode(message.payload);
@@ -553,6 +555,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.decode(message.payload);

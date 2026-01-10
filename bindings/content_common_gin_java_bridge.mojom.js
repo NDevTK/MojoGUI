@@ -146,6 +146,7 @@ content.mojom.GinJavaBridgeReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$.decode(message.payload);
@@ -295,6 +296,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$.decode(message.payload);
@@ -428,6 +430,7 @@ content.mojom.GinJavaBridgeHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$.decode(message.payload);

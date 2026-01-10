@@ -126,6 +126,7 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.decode(message.payload);
@@ -243,6 +244,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.decode(message.payload);

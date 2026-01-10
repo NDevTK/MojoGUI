@@ -90,6 +90,7 @@ commerce_web_extractor.mojom.CommerceWebExtractorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec.$.decode(message.payload);

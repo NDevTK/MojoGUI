@@ -117,6 +117,7 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$.decode(message.payload);
@@ -229,6 +230,7 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.decode(message.payload);
@@ -324,6 +326,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.decode(message.payload);

@@ -138,6 +138,7 @@ blink.mojom.AnnotationAgentReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$.decode(message.payload);
@@ -227,6 +228,7 @@ blink.mojom.AnnotationAgentHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$.decode(message.payload);
@@ -360,6 +362,7 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$.decode(message.payload);

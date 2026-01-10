@@ -147,6 +147,7 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.decode(message.payload);
@@ -325,6 +326,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.decode(message.payload);

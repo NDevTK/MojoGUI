@@ -309,6 +309,7 @@ nearby_share.mojom.NearbyShareSettingsObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec.$.decode(message.payload);
@@ -740,6 +741,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec.$.decode(message.payload);
@@ -985,6 +987,7 @@ nearby_share.mojom.DownloadContactsObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec.$.decode(message.payload);
@@ -1109,6 +1112,7 @@ nearby_share.mojom.ContactManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec.$.decode(message.payload);

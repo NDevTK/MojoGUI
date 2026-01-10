@@ -98,6 +98,7 @@ pdf.mojom.OcrReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.decode(message.payload);
@@ -226,6 +227,7 @@ pdf.mojom.PdfServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$.decode(message.payload);

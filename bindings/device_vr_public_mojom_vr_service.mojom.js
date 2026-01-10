@@ -1036,6 +1036,7 @@ device.mojom.VRServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.VRService_SetClient_ParamsSpec.$.decode(message.payload);
@@ -1173,6 +1174,7 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$.decode(message.payload);
@@ -1260,6 +1262,7 @@ device.mojom.VRServiceClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$.decode(message.payload);
@@ -1436,6 +1439,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$.decode(message.payload);
@@ -1584,6 +1588,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$.decode(message.payload);
@@ -1757,6 +1762,7 @@ device.mojom.XRPresentationProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$.decode(message.payload);
@@ -1896,6 +1902,7 @@ device.mojom.XRPresentationClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$.decode(message.payload);
@@ -2009,6 +2016,7 @@ device.mojom.XRSessionClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$.decode(message.payload);
@@ -2157,6 +2165,7 @@ device.mojom.XRLayerManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$.decode(message.payload);
@@ -2282,6 +2291,7 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$.decode(message.payload);

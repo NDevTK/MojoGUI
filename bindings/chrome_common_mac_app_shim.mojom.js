@@ -336,6 +336,7 @@ chrome.mojom.AppShimReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.decode(message.payload);
@@ -610,6 +611,7 @@ chrome.mojom.AppShimHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$.decode(message.payload);
@@ -752,6 +754,7 @@ chrome.mojom.AppShimHostBootstrapReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.decode(message.payload);

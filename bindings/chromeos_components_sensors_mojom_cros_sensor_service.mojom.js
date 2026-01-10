@@ -87,6 +87,7 @@ chromeos.sensors.mojom.SensorHalServerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec.$.decode(message.payload);
@@ -175,6 +176,7 @@ chromeos.sensors.mojom.SensorHalClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec.$.decode(message.payload);

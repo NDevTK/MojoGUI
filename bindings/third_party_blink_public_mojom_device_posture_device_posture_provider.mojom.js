@@ -133,6 +133,7 @@ blink.mojom.DevicePostureProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.decode(message.payload);
@@ -237,6 +238,7 @@ blink.mojom.DevicePostureClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$.decode(message.payload);

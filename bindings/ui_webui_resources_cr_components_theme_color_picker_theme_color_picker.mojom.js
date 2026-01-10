@@ -132,6 +132,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.decode(message.payload);
@@ -319,6 +320,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.decode(message.payload);
@@ -443,6 +445,7 @@ theme_color_picker.mojom.ThemeColorPickerClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.decode(message.payload);

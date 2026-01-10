@@ -282,6 +282,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$.decode(message.payload);
@@ -407,6 +408,7 @@ mac_notifications.mojom.MacNotificationActionHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$.decode(message.payload);
@@ -496,6 +498,7 @@ mac_notifications.mojom.MacNotificationProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$.decode(message.payload);

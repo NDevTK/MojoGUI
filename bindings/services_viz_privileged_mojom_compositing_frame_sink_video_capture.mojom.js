@@ -161,6 +161,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$.decode(message.payload);
@@ -319,6 +320,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$.decode(message.payload);
@@ -591,6 +593,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$.decode(message.payload);
@@ -762,6 +765,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$.decode(message.payload);

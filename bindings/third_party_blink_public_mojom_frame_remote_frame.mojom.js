@@ -210,6 +210,7 @@ blink.mojom.NavigationStateKeepAliveHandleReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -523,6 +524,7 @@ blink.mojom.RemoteFrameHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec.$.decode(message.payload);
@@ -1217,6 +1219,7 @@ blink.mojom.RemoteFrameReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec.$.decode(message.payload);
@@ -1470,6 +1473,7 @@ blink.mojom.RemoteMainFrameReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec.$.decode(message.payload);
@@ -1609,6 +1613,7 @@ blink.mojom.RemoteMainFrameHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec.$.decode(message.payload);

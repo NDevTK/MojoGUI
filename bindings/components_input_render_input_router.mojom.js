@@ -204,6 +204,7 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.decode(message.payload);
@@ -384,6 +385,7 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.decode(message.payload);

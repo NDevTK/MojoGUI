@@ -162,6 +162,7 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
@@ -251,6 +252,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
@@ -373,6 +375,7 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.decode(message.payload);
@@ -520,6 +523,7 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.decode(message.payload);

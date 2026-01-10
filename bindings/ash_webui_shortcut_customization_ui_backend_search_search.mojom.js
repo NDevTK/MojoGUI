@@ -99,6 +99,7 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverReceiver = cla
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec.$.decode(message.payload);
@@ -210,6 +211,7 @@ ash.shortcut_customization.mojom.SearchHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec.$.decode(message.payload);

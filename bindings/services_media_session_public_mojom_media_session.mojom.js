@@ -371,6 +371,7 @@ media_session.mojom.MediaSessionObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$.decode(message.payload);
@@ -919,6 +920,7 @@ media_session.mojom.MediaSessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec.$.decode(message.payload);

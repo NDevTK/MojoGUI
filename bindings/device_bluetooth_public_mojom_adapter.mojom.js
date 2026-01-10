@@ -231,6 +231,7 @@ bluetooth.mojom.AdvertisementReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.Advertisement_Unregister_ParamsSpec.$.decode(message.payload);
@@ -351,6 +352,7 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec.$.decode(message.payload);
@@ -460,6 +462,7 @@ bluetooth.mojom.SocketReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.Socket_Disconnect_ParamsSpec.$.decode(message.payload);
@@ -579,6 +582,7 @@ bluetooth.mojom.ServerSocketReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.ServerSocket_Accept_ParamsSpec.$.decode(message.payload);
@@ -713,6 +717,7 @@ bluetooth.mojom.GattServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec.$.decode(message.payload);
@@ -827,6 +832,7 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec.$.decode(message.payload);
@@ -1173,6 +1179,7 @@ bluetooth.mojom.AdapterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec.$.decode(message.payload);
@@ -1484,6 +1491,7 @@ bluetooth.mojom.AdapterObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec.$.decode(message.payload);

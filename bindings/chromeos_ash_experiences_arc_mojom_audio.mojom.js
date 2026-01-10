@@ -136,6 +136,7 @@ arc.mojom.AudioHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$.decode(message.payload);
@@ -299,6 +300,7 @@ arc.mojom.AudioInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 3: {
           const params = arc.mojom.AudioInstance_Init_ParamsSpec.$.decode(message.payload);

@@ -97,6 +97,7 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.decode(message.payload);
@@ -268,6 +269,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.decode(message.payload);

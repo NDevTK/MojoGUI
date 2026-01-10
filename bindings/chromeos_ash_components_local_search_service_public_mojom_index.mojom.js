@@ -233,6 +233,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$.decode(message.payload);

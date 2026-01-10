@@ -208,6 +208,7 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.decode(message.payload);
@@ -331,6 +332,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$.decode(message.payload);

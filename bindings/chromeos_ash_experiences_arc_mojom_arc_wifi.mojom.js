@@ -170,6 +170,7 @@ arc.mojom.ArcWifiHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$.decode(message.payload);
@@ -327,6 +328,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.ArcWifiInstance_Init_ParamsSpec.$.decode(message.payload);

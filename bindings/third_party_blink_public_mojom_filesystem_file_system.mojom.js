@@ -153,6 +153,7 @@ blink.mojom.FileSystemCancellableOperationReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec.$.decode(message.payload);
@@ -281,6 +282,7 @@ blink.mojom.FileSystemOperationListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec.$.decode(message.payload);
@@ -378,6 +380,7 @@ blink.mojom.ReceivedSnapshotListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec.$.decode(message.payload);
@@ -844,6 +847,7 @@ blink.mojom.FileSystemManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FileSystemManager_Open_ParamsSpec.$.decode(message.payload);

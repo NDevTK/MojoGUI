@@ -385,6 +385,7 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec.$.decode(message.payload);
@@ -484,6 +485,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.decode(message.payload);
@@ -697,6 +699,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
@@ -890,6 +893,7 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec.$.decode(message.payload);

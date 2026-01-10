@@ -207,6 +207,7 @@ extensions.mojom.MessagePortReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$.decode(message.payload);
@@ -332,6 +333,7 @@ extensions.mojom.MessagePortHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$.decode(message.payload);

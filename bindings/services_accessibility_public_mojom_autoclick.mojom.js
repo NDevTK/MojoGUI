@@ -89,6 +89,7 @@ ax.mojom.AutoclickReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$.decode(message.payload);
@@ -198,6 +199,7 @@ ax.mojom.AutoclickClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$.decode(message.payload);

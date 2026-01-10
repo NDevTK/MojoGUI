@@ -132,6 +132,7 @@ batch_upload.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec.$.decode(message.payload);
@@ -251,6 +252,7 @@ batch_upload.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.decode(message.payload);
@@ -349,6 +351,7 @@ batch_upload.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec.$.decode(message.payload);

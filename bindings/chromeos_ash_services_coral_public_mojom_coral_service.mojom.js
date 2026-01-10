@@ -256,6 +256,7 @@ coral.mojom.TitleObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.decode(message.payload);
@@ -373,6 +374,7 @@ coral.mojom.CoralProcessorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = coral.mojom.CoralProcessor_Group_ParamsSpec.$.decode(message.payload);
@@ -540,6 +542,7 @@ coral.mojom.CoralServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.decode(message.payload);

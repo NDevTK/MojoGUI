@@ -147,6 +147,7 @@ updater.mojom.PostRequestObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.decode(message.payload);
@@ -281,6 +282,7 @@ updater.mojom.FileDownloadObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.decode(message.payload);
@@ -411,6 +413,7 @@ updater.mojom.FetchServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.FetchService_PostRequest_ParamsSpec.$.decode(message.payload);

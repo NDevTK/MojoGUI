@@ -495,6 +495,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$.decode(message.payload);
@@ -863,6 +864,7 @@ media_router.mojom.MediaRouterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$.decode(message.payload);

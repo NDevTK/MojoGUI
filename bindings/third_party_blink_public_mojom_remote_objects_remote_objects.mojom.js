@@ -255,6 +255,7 @@ blink.mojom.RemoteObjectHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$.decode(message.payload);
@@ -418,6 +419,7 @@ blink.mojom.RemoteObjectReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObject_HasMethod_ParamsSpec.$.decode(message.payload);
@@ -540,6 +542,7 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$.decode(message.payload);
@@ -645,6 +648,7 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$.decode(message.payload);

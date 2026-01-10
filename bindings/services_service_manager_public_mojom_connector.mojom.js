@@ -129,6 +129,7 @@ service_manager.mojom.ProcessMetadataReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$.decode(message.payload);
@@ -312,6 +313,7 @@ service_manager.mojom.ConnectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = service_manager.mojom.Connector_BindInterface_ParamsSpec.$.decode(message.payload);

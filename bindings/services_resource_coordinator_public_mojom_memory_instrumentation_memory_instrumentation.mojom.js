@@ -405,6 +405,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.decode(message.payload);
@@ -517,6 +518,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.decode(message.payload);
@@ -617,6 +619,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.decode(message.payload);
@@ -793,6 +796,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.decode(message.payload);
@@ -921,6 +925,7 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.decode(message.payload);

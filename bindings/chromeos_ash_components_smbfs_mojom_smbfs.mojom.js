@@ -193,6 +193,7 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.decode(message.payload);
@@ -314,6 +315,7 @@ smbfs.mojom.SmbFsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$.decode(message.payload);
@@ -424,6 +426,7 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$.decode(message.payload);

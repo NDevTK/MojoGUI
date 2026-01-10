@@ -92,6 +92,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$.decode(message.payload);
@@ -228,6 +229,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.decode(message.payload);

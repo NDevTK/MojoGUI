@@ -1047,6 +1047,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$.decode(message.payload);
@@ -1182,6 +1183,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$.decode(message.payload);
@@ -1286,6 +1288,7 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$.decode(message.payload);

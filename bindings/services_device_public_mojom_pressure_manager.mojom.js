@@ -186,6 +186,7 @@ device.mojom.PressureManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$.decode(message.payload);
@@ -313,6 +314,7 @@ device.mojom.PressureClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$.decode(message.payload);

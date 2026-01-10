@@ -106,6 +106,7 @@ blink.mojom.AppBannerControllerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$.decode(message.payload);
@@ -215,6 +216,7 @@ blink.mojom.AppBannerEventReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$.decode(message.payload);
@@ -307,6 +309,7 @@ blink.mojom.AppBannerServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$.decode(message.payload);

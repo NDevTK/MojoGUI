@@ -88,6 +88,7 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -201,6 +202,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.decode(message.payload);
@@ -306,6 +308,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.decode(message.payload);

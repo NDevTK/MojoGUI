@@ -303,6 +303,7 @@ web_package.mojom.WebBundleParserFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$.decode(message.payload);
@@ -470,6 +471,7 @@ web_package.mojom.WebBundleParserReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$.decode(message.payload);
@@ -666,6 +668,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = web_package.mojom.BundleDataSource_Read_ParamsSpec.$.decode(message.payload);

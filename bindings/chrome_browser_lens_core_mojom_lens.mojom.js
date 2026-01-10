@@ -189,6 +189,7 @@ lens.mojom.LensPageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -722,6 +723,7 @@ lens.mojom.LensPageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec.$.decode(message.payload);
@@ -1241,6 +1243,7 @@ lens.mojom.LensPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec.$.decode(message.payload);

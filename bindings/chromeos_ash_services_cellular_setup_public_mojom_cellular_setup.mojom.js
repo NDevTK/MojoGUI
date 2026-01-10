@@ -123,6 +123,7 @@ ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$.decode(message.payload);
@@ -227,6 +228,7 @@ ash.cellular_setup.mojom.ActivationDelegateReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$.decode(message.payload);
@@ -326,6 +328,7 @@ ash.cellular_setup.mojom.CellularSetupReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$.decode(message.payload);

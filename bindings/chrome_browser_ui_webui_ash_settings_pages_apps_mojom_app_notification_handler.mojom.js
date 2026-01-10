@@ -213,6 +213,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.decode(message.payload);
@@ -354,6 +355,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.decode(message.payload);

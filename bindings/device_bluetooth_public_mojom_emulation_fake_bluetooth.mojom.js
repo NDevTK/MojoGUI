@@ -306,6 +306,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec.$.decode(message.payload);
@@ -1033,6 +1034,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec.$.decode(message.payload);
@@ -1434,6 +1436,7 @@ bluetooth.mojom.FakeCentralClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec.$.decode(message.payload);

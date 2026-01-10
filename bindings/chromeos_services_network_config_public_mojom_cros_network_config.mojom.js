@@ -1912,6 +1912,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec.$.decode(message.payload);
@@ -2353,6 +2354,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec.$.decode(message.payload);

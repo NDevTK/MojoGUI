@@ -225,6 +225,7 @@ midi.mojom.MidiSessionClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.decode(message.payload);
@@ -344,6 +345,7 @@ midi.mojom.MidiSessionProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.decode(message.payload);
@@ -434,6 +436,7 @@ midi.mojom.MidiSessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = midi.mojom.MidiSession_SendData_ParamsSpec.$.decode(message.payload);

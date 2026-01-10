@@ -143,6 +143,7 @@ network.mojom.NetLogExporterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetLogExporter_Start_ParamsSpec.$.decode(message.payload);
@@ -248,6 +249,7 @@ network.mojom.NetLogProxySourceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$.decode(message.payload);
@@ -340,6 +342,7 @@ network.mojom.NetLogProxySinkReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$.decode(message.payload);

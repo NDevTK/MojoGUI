@@ -588,6 +588,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$.decode(message.payload);
@@ -925,6 +926,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$.decode(message.payload);
@@ -1051,6 +1053,7 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$.decode(message.payload);

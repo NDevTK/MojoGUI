@@ -135,6 +135,7 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$.decode(message.payload);

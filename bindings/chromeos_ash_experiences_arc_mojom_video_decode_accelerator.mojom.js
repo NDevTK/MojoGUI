@@ -275,6 +275,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
@@ -460,6 +461,7 @@ arc.mojom.VideoDecodeClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec.$.decode(message.payload);

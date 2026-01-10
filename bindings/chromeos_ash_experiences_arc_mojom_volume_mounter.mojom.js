@@ -160,6 +160,7 @@ arc.mojom.VolumeMounterHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec.$.decode(message.payload);
@@ -307,6 +308,7 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.VolumeMounterInstance_Init_ParamsSpec.$.decode(message.payload);

@@ -167,6 +167,7 @@ arc.mojom.TimerHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.TimerHost_CreateTimers_ParamsSpec.$.decode(message.payload);
@@ -288,6 +289,7 @@ arc.mojom.TimerInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.TimerInstance_Init_ParamsSpec.$.decode(message.payload);

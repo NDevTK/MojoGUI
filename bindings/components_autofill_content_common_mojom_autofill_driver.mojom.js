@@ -378,6 +378,7 @@ autofill.mojom.AutofillDriverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec.$.decode(message.payload);
@@ -738,6 +739,7 @@ autofill.mojom.PasswordManagerDriverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec.$.decode(message.payload);
@@ -983,6 +985,7 @@ autofill.mojom.PasswordGenerationDriverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec.$.decode(message.payload);

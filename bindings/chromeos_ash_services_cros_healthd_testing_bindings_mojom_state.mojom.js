@@ -133,6 +133,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec.$.decode(message.payload);
@@ -261,6 +262,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec.$.decode(message.payload);

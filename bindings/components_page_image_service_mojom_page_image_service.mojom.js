@@ -122,6 +122,7 @@ page_image_service.mojom.PageImageServiceHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$.decode(message.payload);

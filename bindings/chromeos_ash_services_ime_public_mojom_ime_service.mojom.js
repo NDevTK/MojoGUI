@@ -130,6 +130,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.decode(message.payload);
@@ -242,6 +243,7 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.decode(message.payload);
@@ -368,6 +370,7 @@ ash.ime.mojom.ImeServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.decode(message.payload);

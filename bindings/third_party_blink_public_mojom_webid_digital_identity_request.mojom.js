@@ -165,6 +165,7 @@ blink.mojom.DigitalIdentityRequestReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DigitalIdentityRequest_Get_ParamsSpec.$.decode(message.payload);

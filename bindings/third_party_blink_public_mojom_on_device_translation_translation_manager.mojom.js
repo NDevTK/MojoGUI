@@ -154,6 +154,7 @@ blink.mojom.TranslationManagerCreateTranslatorClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$.decode(message.payload);
@@ -266,6 +267,7 @@ blink.mojom.TranslationManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$.decode(message.payload);

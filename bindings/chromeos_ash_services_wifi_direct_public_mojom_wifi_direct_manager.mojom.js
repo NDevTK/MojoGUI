@@ -197,6 +197,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$.decode(message.payload);
@@ -340,6 +341,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$.decode(message.payload);

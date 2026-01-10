@@ -113,6 +113,7 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$.decode(message.payload);
@@ -246,6 +247,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PictureInPictureSession_Update_ParamsSpec.$.decode(message.payload);
@@ -363,6 +365,7 @@ blink.mojom.PictureInPictureServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$.decode(message.payload);

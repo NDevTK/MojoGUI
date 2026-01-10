@@ -104,6 +104,7 @@ tabs_api.mojom.TabStripExperimentServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec.$.decode(message.payload);

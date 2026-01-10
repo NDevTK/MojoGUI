@@ -114,6 +114,7 @@ blink.mojom.SurfaceEmbedderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$.decode(message.payload);
@@ -207,6 +208,7 @@ blink.mojom.EmbeddedFrameSinkClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$.decode(message.payload);
@@ -421,6 +423,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$.decode(message.payload);

@@ -121,6 +121,7 @@ remote_cocoa.mojom.SelectFileDialogReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$.decode(message.payload);

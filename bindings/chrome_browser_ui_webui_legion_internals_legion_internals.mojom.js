@@ -146,6 +146,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$.decode(message.payload);

@@ -114,6 +114,7 @@ media.mojom.CdmContextEventCallbackReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.decode(message.payload);
@@ -341,6 +342,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.decode(message.payload);

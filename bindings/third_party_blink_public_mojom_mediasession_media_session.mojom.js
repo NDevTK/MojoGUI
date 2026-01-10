@@ -157,6 +157,7 @@ blink.mojom.MediaSessionClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$.decode(message.payload);
@@ -357,6 +358,7 @@ blink.mojom.MediaSessionServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.MediaSessionService_SetClient_ParamsSpec.$.decode(message.payload);

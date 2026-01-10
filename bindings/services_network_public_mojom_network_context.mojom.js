@@ -545,6 +545,7 @@ network.mojom.CustomProxyConnectionObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec.$.decode(message.payload);
@@ -643,6 +644,7 @@ network.mojom.CustomProxyConfigClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec.$.decode(message.payload);
@@ -770,6 +772,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec.$.decode(message.payload);
@@ -893,6 +896,7 @@ network.mojom.TrustedURLLoaderHeaderClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec.$.decode(message.payload);
@@ -970,6 +974,7 @@ network.mojom.PreloadedSharedDictionaryInfoHandleReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -2906,6 +2911,7 @@ network.mojom.NetworkContextReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetworkContext_SetClient_ParamsSpec.$.decode(message.payload);

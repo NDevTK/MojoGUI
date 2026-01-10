@@ -323,6 +323,7 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$.decode(message.payload);
@@ -466,6 +467,7 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.decode(message.payload);

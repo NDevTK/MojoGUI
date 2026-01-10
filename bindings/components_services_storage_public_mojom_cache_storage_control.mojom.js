@@ -115,6 +115,7 @@ storage.mojom.CacheStorageObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.decode(message.payload);
@@ -246,6 +247,7 @@ storage.mojom.CacheStorageControlReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.decode(message.payload);

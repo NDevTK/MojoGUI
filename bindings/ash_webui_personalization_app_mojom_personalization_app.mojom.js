@@ -586,6 +586,7 @@ ash.personalization_app.mojom.WallpaperObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec.$.decode(message.payload);
@@ -1197,6 +1198,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec.$.decode(message.payload);
@@ -1628,6 +1630,7 @@ ash.personalization_app.mojom.ThemeObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec.$.decode(message.payload);
@@ -1972,6 +1975,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec.$.decode(message.payload);
@@ -2210,6 +2214,7 @@ ash.personalization_app.mojom.UserImageObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec.$.decode(message.payload);
@@ -2432,6 +2437,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec.$.decode(message.payload);
@@ -2712,6 +2718,7 @@ ash.personalization_app.mojom.AmbientObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec.$.decode(message.payload);
@@ -3102,6 +3109,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec.$.decode(message.payload);
@@ -3305,6 +3313,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec.$.decode(message.payload);
@@ -3467,6 +3476,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec.$.decode(message.payload);

@@ -94,6 +94,7 @@ media.mojom.CdmServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.decode(message.payload);
@@ -187,6 +188,7 @@ media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec.$.decode(message.payload);
@@ -283,6 +285,7 @@ media.mojom.CdmServiceBrokerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.decode(message.payload);

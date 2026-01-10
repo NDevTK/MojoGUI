@@ -373,6 +373,7 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$.decode(message.payload);
@@ -618,6 +619,7 @@ content.mojom.FrameReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$.decode(message.payload);
@@ -807,6 +809,7 @@ content.mojom.FrameBindingsControlReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$.decode(message.payload);
@@ -909,6 +912,7 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$.decode(message.payload);
@@ -1246,6 +1250,7 @@ content.mojom.FrameHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$.decode(message.payload);

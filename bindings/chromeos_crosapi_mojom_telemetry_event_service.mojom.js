@@ -435,6 +435,7 @@ crosapi.mojom.TelemetryEventObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$.decode(message.payload);
@@ -546,6 +547,7 @@ crosapi.mojom.TelemetryEventServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$.decode(message.payload);

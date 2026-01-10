@@ -1168,6 +1168,7 @@ glic.mojom.PreloadPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$.decode(message.payload);
@@ -1287,6 +1288,7 @@ glic.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.Page_IntentToShow_ParamsSpec.$.decode(message.payload);
@@ -1390,6 +1392,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$.decode(message.payload);
@@ -1485,6 +1488,7 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$.decode(message.payload);
@@ -1574,6 +1578,7 @@ glic.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -1839,6 +1844,7 @@ glic.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$.decode(message.payload);
@@ -2001,6 +2007,7 @@ glic.mojom.PinCandidatesObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$.decode(message.payload);
@@ -3673,6 +3680,7 @@ glic.mojom.WebClientHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$.decode(message.payload);
@@ -4408,6 +4416,7 @@ glic.mojom.TabDataHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$.decode(message.payload);
@@ -5045,6 +5054,7 @@ glic.mojom.WebClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$.decode(message.payload);
@@ -5330,6 +5340,7 @@ glic.mojom.CaptureRegionObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$.decode(message.payload);

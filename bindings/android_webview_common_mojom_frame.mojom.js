@@ -192,6 +192,7 @@ android_webview.mojom.LocalMainFrameReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.decode(message.payload);
@@ -347,6 +348,7 @@ android_webview.mojom.FrameHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.decode(message.payload);

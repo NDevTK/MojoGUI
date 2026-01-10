@@ -110,6 +110,7 @@ device.mojom.ScreenOrientationReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.decode(message.payload);
@@ -214,6 +215,7 @@ device.mojom.ScreenOrientationListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$.decode(message.payload);

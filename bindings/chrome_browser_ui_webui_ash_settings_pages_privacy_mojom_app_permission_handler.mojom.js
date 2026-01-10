@@ -222,6 +222,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.decode(message.payload);
@@ -374,6 +375,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.decode(message.payload);

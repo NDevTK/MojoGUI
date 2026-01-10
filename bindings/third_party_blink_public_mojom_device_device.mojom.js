@@ -115,6 +115,7 @@ blink.mojom.ManagedConfigurationObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$.decode(message.payload);
@@ -292,6 +293,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$.decode(message.payload);
@@ -452,6 +454,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.decode(message.payload);

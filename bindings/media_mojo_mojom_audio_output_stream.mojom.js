@@ -155,6 +155,7 @@ media.mojom.AudioOutputStreamReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioOutputStream_Play_ParamsSpec.$.decode(message.payload);
@@ -288,6 +289,7 @@ media.mojom.AudioOutputStreamObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec.$.decode(message.payload);
@@ -387,6 +389,7 @@ media.mojom.AudioOutputStreamProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$.decode(message.payload);
@@ -476,6 +479,7 @@ media.mojom.AudioOutputStreamProviderClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$.decode(message.payload);
@@ -564,6 +568,7 @@ media.mojom.DeviceSwitchInterfaceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$.decode(message.payload);

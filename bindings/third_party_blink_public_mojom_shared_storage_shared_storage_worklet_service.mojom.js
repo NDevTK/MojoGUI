@@ -162,6 +162,7 @@ blink.mojom.SharedStorageEntriesListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec.$.decode(message.payload);
@@ -436,6 +437,7 @@ blink.mojom.SharedStorageWorkletServiceClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec.$.decode(message.payload);
@@ -689,6 +691,7 @@ blink.mojom.SharedStorageWorkletServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec.$.decode(message.payload);

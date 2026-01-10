@@ -174,6 +174,7 @@ ash.recorder_app.mojom.ModelStateMonitorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$.decode(message.payload);
@@ -262,6 +263,7 @@ ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$.decode(message.payload);
@@ -696,6 +698,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$.decode(message.payload);

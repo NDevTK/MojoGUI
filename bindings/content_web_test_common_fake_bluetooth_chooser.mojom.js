@@ -148,6 +148,7 @@ content.mojom.FakeBluetoothChooserReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$.decode(message.payload);
@@ -252,6 +253,7 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$.decode(message.payload);
@@ -346,6 +348,7 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$.decode(message.payload);

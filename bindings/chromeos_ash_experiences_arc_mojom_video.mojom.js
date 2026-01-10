@@ -125,6 +125,7 @@ arc.mojom.VideoHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$.decode(message.payload);
@@ -235,6 +236,7 @@ arc.mojom.VideoInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoInstance_Init_ParamsSpec.$.decode(message.payload);
@@ -379,6 +381,7 @@ arc.mojom.VideoAcceleratorFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$.decode(message.payload);

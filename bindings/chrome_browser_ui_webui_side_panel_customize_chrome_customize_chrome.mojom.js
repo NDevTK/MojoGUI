@@ -253,6 +253,7 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -806,6 +807,7 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
@@ -1194,6 +1196,7 @@ side_panel.mojom.CustomizeChromePageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec.$.decode(message.payload);

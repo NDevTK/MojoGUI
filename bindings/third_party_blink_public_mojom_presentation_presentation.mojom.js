@@ -221,6 +221,7 @@ blink.mojom.PresentationConnectionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.decode(message.payload);
@@ -464,6 +465,7 @@ blink.mojom.PresentationServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationService_SetController_ParamsSpec.$.decode(message.payload);
@@ -656,6 +658,7 @@ blink.mojom.PresentationControllerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.decode(message.payload);
@@ -759,6 +762,7 @@ blink.mojom.PresentationReceiverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.decode(message.payload);

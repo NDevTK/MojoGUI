@@ -297,6 +297,7 @@ device.mojom.SerialPortManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPortManager_SetClient_ParamsSpec.$.decode(message.payload);
@@ -439,6 +440,7 @@ device.mojom.SerialPortManagerClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$.decode(message.payload);
@@ -701,6 +703,7 @@ device.mojom.SerialPortReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPort_StartWriting_ParamsSpec.$.decode(message.payload);
@@ -887,6 +890,7 @@ device.mojom.SerialPortClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPortClient_OnReadError_ParamsSpec.$.decode(message.payload);
@@ -964,6 +968,7 @@ device.mojom.SerialPortConnectionWatcherReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});

@@ -84,6 +84,7 @@ metrics.dwa.mojom.DwaRecorderClientInterfaceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -167,6 +168,7 @@ metrics.dwa.mojom.DwaRecorderInterfaceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$.decode(message.payload);
@@ -256,6 +258,7 @@ metrics.dwa.mojom.DwaRecorderFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$.decode(message.payload);

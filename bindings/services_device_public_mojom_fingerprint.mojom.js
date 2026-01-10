@@ -230,6 +230,7 @@ device.mojom.FingerprintObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$.decode(message.payload);
@@ -544,6 +545,7 @@ device.mojom.FingerprintReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$.decode(message.payload);

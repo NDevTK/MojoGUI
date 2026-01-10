@@ -136,6 +136,7 @@ passage_embeddings.mojom.PassageEmbedderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$.decode(message.payload);
@@ -238,6 +239,7 @@ passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$.decode(message.payload);

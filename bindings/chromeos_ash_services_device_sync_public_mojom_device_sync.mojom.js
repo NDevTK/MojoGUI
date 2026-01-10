@@ -225,6 +225,7 @@ ash.device_sync.mojom.DeviceSyncObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$.decode(message.payload);
@@ -588,6 +589,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$.decode(message.payload);

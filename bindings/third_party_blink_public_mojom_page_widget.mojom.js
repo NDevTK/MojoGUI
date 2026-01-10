@@ -511,6 +511,7 @@ blink.mojom.FrameWidgetReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec.$.decode(message.payload);
@@ -826,6 +827,7 @@ blink.mojom.FrameWidgetHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec.$.decode(message.payload);
@@ -986,6 +988,7 @@ blink.mojom.PopupWidgetHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec.$.decode(message.payload);

@@ -192,6 +192,7 @@ ash.diagnostics.mojom.KeyboardObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$.decode(message.payload);
@@ -290,6 +291,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$.decode(message.payload);
@@ -378,6 +380,7 @@ ash.diagnostics.mojom.TabletModeObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.decode(message.payload);
@@ -466,6 +469,7 @@ ash.diagnostics.mojom.LidStateObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
@@ -602,6 +606,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$.decode(message.payload);
@@ -850,6 +855,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$.decode(message.payload);
