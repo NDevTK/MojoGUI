@@ -252,57 +252,60 @@
         interceptors: new Map(), // interfaceName -> MojoInterfaceInterceptor
         activeProxies: [],
 
+        handleRequest(interfaceName, clientHandle) {
+            console.log(`[Interceptor] Caught request for ${interfaceName}`);
+            try {
+                // Create the proxy: Client -> Proxy -> Real
+                const proxyData = MojoProxy.create(interfaceName, clientHandle);
+
+                if (proxyData) {
+                    // Connect the "Real" side of the proxy to the browser
+                    // Mojo.bindInterface requests the interface from the browser
+                    Mojo.bindInterface(interfaceName, proxyData.realHandle);
+
+                    // Keep track of active proxies
+                    this.activeProxies.push(proxyData.proxy);
+                } else {
+                    // Fallback: Connect client directly to browser if proxy creation fails
+                    console.warn(`[Interceptor] Proxy creation failed, bypassing for ${interfaceName}`);
+                    Mojo.bindInterface(interfaceName, clientHandle);
+                }
+            } catch (err) {
+                console.error(`[Interceptor] Error handling request for ${interfaceName}:`, err);
+                // Attempt to fallback
+                Mojo.bindInterface(interfaceName, clientHandle);
+            }
+        },
+
         start(interfaceName) {
-            if (this.interceptors.has(interfaceName)) return;
+            if (this.interceptors.has(interfaceName)) return true;
 
             if (typeof MojoInterfaceInterceptor === 'undefined') {
                 console.error('MojoInterfaceInterceptor not available. usage: --enable-blink-features=MojoJS,MojoJSTest');
-                return;
+                return false;
             }
 
             try {
-                const interceptor = new MojoInterfaceInterceptor(interfaceName, "process");
+                let interceptor;
+                let scope = "context";
+
+                // Try "context" scope first (safer for frame-specific interfaces like VibrationManager)
+                try {
+                    interceptor = new MojoInterfaceInterceptor(interfaceName, "context");
+                } catch (contextError) {
+                    console.warn(`[Interceptor] 'context' scope failed for ${interfaceName}, trying 'process'...`, contextError);
+                    scope = "process";
+                    interceptor = new MojoInterfaceInterceptor(interfaceName, "process");
+                }
 
                 interceptor.oninterfacerequest = (e) => {
-                    console.log(`[Interceptor] Caught request for ${interfaceName}`);
-
-                    // Prevent infinite loops: Stop interceptor while we connect to real impl
-                    interceptor.stop();
-
-                    try {
-                        // Create proxy logic
-                        // 1. e.handle is the client's handle (receiver)
-                        // 2. We create a proxy that binds to e.handle
-                        // 3. We create a connection to the REAL implementation
-
-                        const proxyData = MojoProxy.create(interfaceName, e.handle);
-
-                        if (proxyData) {
-                            // Find the interface class to get the Remote definition for strict typing if needed
-                            // But mostly we just need to pass the handle to the real implementation
-
-                            // Re-bind to the expected name for the real implementation
-                            // We need to use Mojo.bindInterface to connect our "realHandle" to the browser
-                            Mojo.bindInterface(interfaceName, proxyData.realHandle);
-
-                            this.activeProxies.push(proxyData.proxy);
-                        } else {
-                            // Fallback if proxy creation failed: just pass handle through
-                            Mojo.bindInterface(interfaceName, e.handle);
-                        }
-                    } catch (err) {
-                        console.error('[Interceptor] Error during proxy setup:', err);
-                        // Try to recover connection
-                        Mojo.bindInterface(interfaceName, e.handle);
-                    } finally {
-                        // Restart interceptor for next request
-                        interceptor.start();
-                    }
+                    // e.handle is the pipe endpoint from the client (renderer)
+                    this.handleRequest(interfaceName, e.handle);
                 };
 
                 interceptor.start();
                 this.interceptors.set(interfaceName, interceptor);
-                console.log(`[Interceptor] Started for ${interfaceName}`);
+                console.log(`[Interceptor] Started for ${interfaceName} (scope: ${scope})`);
                 return true;
             } catch (e) {
                 console.error(`[Interceptor] Failed to start for ${interfaceName}:`, e);
