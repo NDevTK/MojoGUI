@@ -133,7 +133,7 @@ device.mojom.VibrationManagerReceiver = class {
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
-        case 0: {
+        case 929088604: {
           const params = device.mojom.VibrationManager_Vibrate_ParamsSpec.$.decode(message.payload);
           console.log('[GeneratedReceiver] Calling impl.vibrate');
           const result = this.impl.vibrate(params.milliseconds);
@@ -145,7 +145,7 @@ device.mojom.VibrationManagerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 436128439: {
           const params = device.mojom.VibrationManager_Cancel_ParamsSpec.$.decode(message.payload);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
