@@ -140,8 +140,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
           const result = this.impl.allocateProtectedSharedMemory(params.handle_fd, params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -152,8 +151,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
           const result = this.impl.allocateProtectedNativePixmap(params.handle_fd, params.pixel_format, params.picture_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec);
                responder(response);
             }});
           }

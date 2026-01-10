@@ -258,8 +258,7 @@ media.mojom.SpeechRecognitionContextReceiver = class {
           const result = this.impl.bindRecognizer(params.receiver, params.client, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -580,8 +579,7 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
           const result = this.impl.onSpeechRecognitionRecognitionEvent(params.result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -843,8 +841,7 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
           const result = this.impl.getBounds();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec);
                responder(response);
             }});
           }

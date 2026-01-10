@@ -323,8 +323,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
           const result = this.impl.getChromeColors(params.is_dark_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec);
                responder(response);
             }});
           }

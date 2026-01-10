@@ -106,8 +106,7 @@ blink.mojom.DocumentMetadataReceiver = class {
           const result = this.impl.getEntities();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec);
                responder(response);
             }});
           }

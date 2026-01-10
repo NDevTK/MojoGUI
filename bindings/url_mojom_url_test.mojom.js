@@ -119,8 +119,7 @@ url.mojom.UrlTestReceiver = class {
           const result = this.impl.bounceUrl(params.in);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, url.mojom.UrlTest_BounceUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, url.mojom.UrlTest_BounceUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -131,8 +130,7 @@ url.mojom.UrlTestReceiver = class {
           const result = this.impl.bounceOrigin(params.in);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec);
                responder(response);
             }});
           }

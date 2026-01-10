@@ -123,8 +123,7 @@ emoji_search.mojom.EmojiSearchReceiver = class {
           const result = this.impl.searchEmoji(params.query, params.language_codes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec);
                responder(response);
             }});
           }

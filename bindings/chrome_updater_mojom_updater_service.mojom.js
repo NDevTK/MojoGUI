@@ -563,8 +563,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.getVersion();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_GetVersion_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetVersion_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -575,8 +574,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.fetchPolicies(params.reason);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -587,8 +585,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.registerApp(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -599,8 +596,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.getAppStates();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -611,8 +607,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.runPeriodicTasks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -623,8 +618,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.updateAll();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -635,8 +629,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.update(params.app_id, params.install_data_index, params.priority, params.policy_same_version_update, params.do_update_check_only, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_Update_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_Update_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -647,8 +640,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.install(params.registration, params.client_install_data, params.install_data_index, params.priority, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_Install_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_Install_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -664,8 +656,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.runInstaller(params.app_id, params.installer_path, params.install_args, params.install_data, params.install_settings, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -676,8 +667,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.checkForUpdate(params.app_id, params.priority, params.policy_same_version_update, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -688,8 +678,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.getUpdaterState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -700,8 +689,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.getUpdaterPolicies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -712,8 +700,7 @@ updater.mojom.UpdateServiceReceiver = class {
           const result = this.impl.getAppPolicies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec);
                responder(response);
             }});
           }

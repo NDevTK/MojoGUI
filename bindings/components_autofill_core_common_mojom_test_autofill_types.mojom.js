@@ -263,8 +263,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passFormData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -275,8 +274,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passFormFieldData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -287,8 +285,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passFormDataPredictions(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -299,8 +296,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passFormFieldDataPredictions(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -311,8 +307,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passPasswordFormFillData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -323,8 +318,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passPasswordFormGenerationData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -335,8 +329,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passPasswordGenerationUIData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -347,8 +340,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           const result = this.impl.passPasswordSuggestionRequest(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec);
                responder(response);
             }});
           }

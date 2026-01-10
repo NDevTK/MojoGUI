@@ -292,8 +292,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
           const result = this.impl.getDisplayedNotifications(params.profile, params.origin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -319,8 +318,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
           const result = this.impl.okayToTerminateService();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec);
                responder(response);
             }});
           }

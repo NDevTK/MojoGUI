@@ -216,8 +216,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
           const result = this.impl.challengePlatform(params.service_id, params.challenge);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -228,8 +227,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
           const result = this.impl.getStorageId(params.version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -240,8 +238,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
           const result = this.impl.isVerifiedAccessEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -252,8 +249,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
           const result = this.impl.getMediaFoundationCdmData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec);
                responder(response);
             }});
           }

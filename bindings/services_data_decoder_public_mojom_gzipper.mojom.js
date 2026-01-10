@@ -169,8 +169,7 @@ data_decoder.mojom.GzipperReceiver = class {
           const result = this.impl.deflate(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -181,8 +180,7 @@ data_decoder.mojom.GzipperReceiver = class {
           const result = this.impl.inflate(params.data, params.max_uncompressed_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -193,8 +191,7 @@ data_decoder.mojom.GzipperReceiver = class {
           const result = this.impl.compress(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -205,8 +202,7 @@ data_decoder.mojom.GzipperReceiver = class {
           const result = this.impl.uncompress(params.compressed_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec);
                responder(response);
             }});
           }

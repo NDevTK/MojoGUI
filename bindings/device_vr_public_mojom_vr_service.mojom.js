@@ -1046,8 +1046,7 @@ device.mojom.VRServiceReceiver = class {
           const result = this.impl.requestSession(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.VRService_RequestSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_RequestSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1058,8 +1057,7 @@ device.mojom.VRServiceReceiver = class {
           const result = this.impl.supportsSession(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.VRService_SupportsSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_SupportsSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1070,8 +1068,7 @@ device.mojom.VRServiceReceiver = class {
           const result = this.impl.exitPresent();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.VRService_ExitPresent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_ExitPresent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1087,8 +1084,7 @@ device.mojom.VRServiceReceiver = class {
           const result = this.impl.makeXrCompatible();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1442,8 +1438,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
           const result = this.impl.subscribeToHitTest(params.native_origin_information, params.entity_types, params.ray);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1454,8 +1449,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
           const result = this.impl.subscribeToHitTestForTransientInput(params.profile_name, params.entity_types, params.ray);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1471,8 +1465,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
           const result = this.impl.createAnchor(params.native_origin_information, params.native_origin_from_anchor, params.plane_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1592,8 +1585,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
           const result = this.impl.getFrameData(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2162,8 +2154,7 @@ device.mojom.XRLayerManagerReceiver = class {
           const result = this.impl.createCompositionLayer(params.create_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec);
                responder(response);
             }});
           }

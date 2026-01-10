@@ -243,8 +243,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
           const result = this.impl.matchFamilyName(params.family_name, params.style);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -255,8 +254,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
           const result = this.impl.matchFamilyNameCharacter(params.family_name, params.style, params.bcp47s, params.character);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -267,8 +265,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
           const result = this.impl.getAllFamilyNames();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -279,8 +276,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
           const result = this.impl.legacyMakeTypeface(params.family_name, params.style);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec);
                responder(response);
             }});
           }

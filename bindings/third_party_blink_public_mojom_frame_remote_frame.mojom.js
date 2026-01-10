@@ -1620,8 +1620,7 @@ blink.mojom.RemoteMainFrameHostReceiver = class {
           const result = this.impl.updateTargetURL(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec);
                responder(response);
             }});
           }

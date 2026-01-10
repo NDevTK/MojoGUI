@@ -377,8 +377,7 @@ coral.mojom.CoralProcessorReceiver = class {
           const result = this.impl.group(params.request, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, coral.mojom.CoralProcessor_Group_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralProcessor_Group_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -389,8 +388,7 @@ coral.mojom.CoralProcessorReceiver = class {
           const result = this.impl.cacheEmbeddings(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -545,8 +543,7 @@ coral.mojom.CoralServiceReceiver = class {
           const result = this.impl.groupDeprecated(params.request, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -557,8 +554,7 @@ coral.mojom.CoralServiceReceiver = class {
           const result = this.impl.cacheEmbeddingsDeprecated(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec);
                responder(response);
             }});
           }

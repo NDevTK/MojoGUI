@@ -95,8 +95,7 @@ pdf.mojom.PdfSearchifierReceiver = class {
           const result = this.impl.searchify(params.pdf);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec);
                responder(response);
             }});
           }

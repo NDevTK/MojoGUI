@@ -112,8 +112,7 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
           const result = this.impl.getSize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec);
                responder(response);
             }});
           }

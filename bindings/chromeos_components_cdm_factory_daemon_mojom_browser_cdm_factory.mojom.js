@@ -239,8 +239,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const result = this.impl.createFactory(params.key_system);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -256,8 +255,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -268,8 +266,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const result = this.impl.getScreenResolutions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -280,8 +277,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -292,8 +288,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -304,8 +299,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec);
                responder(response);
             }});
           }

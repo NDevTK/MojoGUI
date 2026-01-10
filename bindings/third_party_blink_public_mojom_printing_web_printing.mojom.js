@@ -595,8 +595,7 @@ blink.mojom.WebPrinterReceiver = class {
           const result = this.impl.fetchAttributes();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -607,8 +606,7 @@ blink.mojom.WebPrinterReceiver = class {
           const result = this.impl.print(params.document, params.attributes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebPrinter_Print_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebPrinter_Print_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -706,8 +704,7 @@ blink.mojom.WebPrintingServiceReceiver = class {
           const result = this.impl.getPrinters();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec);
                responder(response);
             }});
           }

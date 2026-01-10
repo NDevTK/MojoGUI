@@ -711,8 +711,7 @@ on_device_model.mojom.SessionReceiver = class {
           const result = this.impl.getSizeInTokens(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -723,8 +722,7 @@ on_device_model.mojom.SessionReceiver = class {
           const result = this.impl.score(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.Session_Score_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.Session_Score_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -740,8 +738,7 @@ on_device_model.mojom.SessionReceiver = class {
           const result = this.impl.getProbabilitiesBlocking(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -917,8 +914,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
           const result = this.impl.classifyTextSafety(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -929,8 +925,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
           const result = this.impl.detectLanguage(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -941,8 +936,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
           const result = this.impl.loadAdaptation(params.params, params.model);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1079,8 +1073,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
           const result = this.impl.classifyTextSafety(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1091,8 +1084,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
           const result = this.impl.detectLanguage(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -108,8 +108,7 @@ media.mojom.MediaDrmSupportReceiver = class {
           const result = this.impl.isKeySystemSupported(params.key_system, params.is_secure);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec);
                responder(response);
             }});
           }

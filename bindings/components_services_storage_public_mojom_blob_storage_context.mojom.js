@@ -161,8 +161,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
           const result = this.impl.read(params.offset, params.length, params.pipe);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -173,8 +172,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
           const result = this.impl.readSideData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -338,8 +336,7 @@ storage.mojom.BlobStorageContextReceiver = class {
           const result = this.impl.writeBlobToFile(params.blob, params.path, params.flush_on_write, params.last_modified);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec);
                responder(response);
             }});
           }

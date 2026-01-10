@@ -266,8 +266,7 @@ device.mojom.InputDeviceManagerReceiver = class {
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -278,8 +277,7 @@ device.mojom.InputDeviceManagerReceiver = class {
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec);
                responder(response);
             }});
           }

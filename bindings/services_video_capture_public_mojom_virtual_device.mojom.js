@@ -129,8 +129,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceReceiver = class {
           const result = this.impl.requestFrameBuffer(params.dimension, params.pixel_format, params.strides);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }

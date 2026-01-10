@@ -885,8 +885,7 @@ ash.ime.mojom.InputMethodReceiver = class {
           const result = this.impl.onFocus(params.input_field_info, params.deprecated_settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -902,8 +901,7 @@ ash.ime.mojom.InputMethodReceiver = class {
           const result = this.impl.processKeyEvent(params.event);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -934,8 +932,7 @@ ash.ime.mojom.InputMethodReceiver = class {
           const result = this.impl.isReadyForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }

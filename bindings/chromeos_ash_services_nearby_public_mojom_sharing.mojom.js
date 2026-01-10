@@ -156,8 +156,7 @@ sharing.mojom.SharingReceiver = class {
           const result = this.impl.shutDown();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, sharing.mojom.Sharing_ShutDown_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.Sharing_ShutDown_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -1100,8 +1100,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
           const result = this.impl.initCompositorView();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec);
                responder(response);
             }});
           }

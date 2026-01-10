@@ -140,8 +140,7 @@ media.mojom.DemuxerStreamReceiver = class {
           const result = this.impl.initialize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.DemuxerStream_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.DemuxerStream_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -152,8 +151,7 @@ media.mojom.DemuxerStreamReceiver = class {
           const result = this.impl.read(params.count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.DemuxerStream_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.DemuxerStream_Read_ResponseParamsSpec);
                responder(response);
             }});
           }

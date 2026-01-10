@@ -101,8 +101,7 @@ chrome.mojom.SingleFileExtractorReceiver = class {
           const result = this.impl.extract(params.src_file, params.dst_file, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec);
                responder(response);
             }});
           }

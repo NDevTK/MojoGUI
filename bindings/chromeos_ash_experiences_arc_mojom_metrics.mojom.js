@@ -1273,8 +1273,7 @@ arc.mojom.MetricsInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.MetricsInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MetricsInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1285,8 +1284,7 @@ arc.mojom.MetricsInstanceReceiver = class {
           const result = this.impl.getGfxMetrics(params.packageName);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -129,8 +129,7 @@ content.mojom.ResourceUsageReporterReceiver = class {
           const result = this.impl.getUsageData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec);
                responder(response);
             }});
           }

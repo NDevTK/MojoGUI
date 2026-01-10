@@ -541,8 +541,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.getDebugInfoAsJsonString();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -553,8 +552,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.installIsolatedWebAppFromDevProxy(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -565,8 +563,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.selectFileAndInstallIsolatedWebAppFromDevBundle();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -577,8 +574,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.parseUpdateManifestFromUrl(params.update_manifest_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -589,8 +585,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.installIsolatedWebAppFromBundleUrl(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -601,8 +596,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.updateDevProxyIsolatedWebApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -613,8 +607,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.selectFileAndUpdateIsolatedWebAppFromDevBundle(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -625,8 +618,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.updateManifestInstalledIsolatedWebApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -637,8 +629,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.deleteIsolatedWebApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -649,8 +640,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.setUpdateChannelForIsolatedWebApp(params.app_id, params.update_channel);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -661,8 +651,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.setPinnedVersionForIsolatedWebApp(params.app_id, params.pinned_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -683,8 +672,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.searchForIsolatedWebAppUpdates();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -695,8 +683,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           const result = this.impl.getIsolatedWebAppDevModeAppInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -157,8 +157,7 @@ translate.mojom.TranslateAgentReceiver = class {
           const result = this.impl.translateFrame(params.translate_script, params.source_lang, params.target_lang);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec);
                responder(response);
             }});
           }

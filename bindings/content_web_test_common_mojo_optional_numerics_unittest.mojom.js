@@ -1289,8 +1289,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullBool(params.optional_bool);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1301,8 +1300,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullUint8(params.optional_uint8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1313,8 +1311,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullInt8(params.optional_int8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1325,8 +1322,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullUint16(params.optional_uint16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1337,8 +1333,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullInt16(params.optional_int16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1349,8 +1344,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullUint32(params.optional_uint32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1361,8 +1355,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullInt32(params.optional_int32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1373,8 +1366,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullUint64(params.optional_uint64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1385,8 +1377,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullInt64(params.optional_int64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1397,8 +1388,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullFloat(params.optional_float);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1409,8 +1399,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullDouble(params.optional_double);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1421,8 +1410,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullEnum(params.optional_enum);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1433,8 +1421,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullBools(params.optional_bools);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1445,8 +1432,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullInt16s(params.optional_int16s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1457,8 +1443,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1469,8 +1454,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullDoubles(params.optional_doubles);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1481,8 +1465,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullEnums(params.optional_enums);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1493,8 +1476,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullBoolMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1505,8 +1487,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullDoubleMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1517,8 +1498,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullEnumMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1529,8 +1509,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalBool(params.optional_bool);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1541,8 +1520,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalUint8(params.optional_uint8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1553,8 +1531,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalInt8(params.optional_int8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1565,8 +1542,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalUint16(params.optional_uint16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1577,8 +1553,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalInt16(params.optional_int16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1589,8 +1564,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalUint32(params.optional_uint32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1601,8 +1575,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalInt32(params.optional_int32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1613,8 +1586,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalUint64(params.optional_uint64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1625,8 +1597,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalInt64(params.optional_int64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1637,8 +1608,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalFloat(params.optional_float);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1649,8 +1619,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalDouble(params.optional_double);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1661,8 +1630,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalEnum(params.optional_enum);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1673,8 +1641,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalBools(params.optional_enums);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1685,8 +1652,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalInt16s(params.optional_int16s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1697,8 +1663,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1709,8 +1674,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalDoubles(params.optional_doubles);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1721,8 +1685,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalEnums(params.optional_enums);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1733,8 +1696,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalBoolMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1745,8 +1707,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalDoubleMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1757,8 +1718,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendOptionalEnumMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1769,8 +1729,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendNullStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1781,8 +1740,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendStructWithNullOptionalNumerics(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1793,8 +1751,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           const result = this.impl.sendStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2831,8 +2788,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullBool();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2843,8 +2799,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullUint8();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2855,8 +2810,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullInt8();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2867,8 +2821,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullUint16();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2879,8 +2832,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullInt16();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2891,8 +2843,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullUint32();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2903,8 +2854,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullInt32();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2915,8 +2865,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullUint64();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2927,8 +2876,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullInt64();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2939,8 +2887,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullFloat();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2951,8 +2898,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullDouble();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2963,8 +2909,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullEnum();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2975,8 +2920,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullBools();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2987,8 +2931,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullInt16s();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2999,8 +2942,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullUint32s();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3011,8 +2953,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullDoubles();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3023,8 +2964,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullEnums();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3035,8 +2975,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullBoolMap();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3047,8 +2986,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullInt32Map();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3059,8 +2997,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullEnumMap();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3071,8 +3008,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalBool(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3083,8 +3019,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalUint8(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3095,8 +3030,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalInt8(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3107,8 +3041,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalUint16(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3119,8 +3052,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalInt16(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3131,8 +3063,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalUint32(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3143,8 +3074,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalInt32(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3155,8 +3085,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalUint64(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3167,8 +3096,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalInt64(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3179,8 +3107,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalFloat(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3191,8 +3118,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalDouble(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3203,8 +3129,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalEnum(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3215,8 +3140,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalBools(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3227,8 +3151,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalInt16s(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3239,8 +3162,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalUint32s(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3251,8 +3173,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalDoubles(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3263,8 +3184,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalEnums(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3275,8 +3195,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalBoolMap(params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3287,8 +3206,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalFloatMap(params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3299,8 +3217,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getOptionalEnumMap(params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3311,8 +3228,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getNullStructWithOptionalNumerics();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3323,8 +3239,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getStructWithNullOptionalNumerics();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3335,8 +3250,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           const result = this.impl.getStructWithOptionalNumerics(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3455,8 +3369,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
           const result = this.impl.methodWithVersionedParams();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3467,8 +3380,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3633,8 +3545,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
           const result = this.impl.methodWithVersionedParams(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3645,8 +3556,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec);
                responder(response);
             }});
           }

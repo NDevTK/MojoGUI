@@ -175,8 +175,7 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
           const result = this.impl.authenticateWebview();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -187,8 +186,7 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
           const result = this.impl.getProfileInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

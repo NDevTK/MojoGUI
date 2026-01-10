@@ -222,8 +222,7 @@ blink.mojom.SerialServiceReceiver = class {
           const result = this.impl.getPorts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SerialService_GetPorts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_GetPorts_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -234,8 +233,7 @@ blink.mojom.SerialServiceReceiver = class {
           const result = this.impl.requestPort(params.filters, params.allowed_bluetooth_service_class_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SerialService_RequestPort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_RequestPort_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -246,8 +244,7 @@ blink.mojom.SerialServiceReceiver = class {
           const result = this.impl.openPort(params.token, params.options, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SerialService_OpenPort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_OpenPort_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -258,8 +255,7 @@ blink.mojom.SerialServiceReceiver = class {
           const result = this.impl.forgetPort(params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SerialService_ForgetPort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SerialService_ForgetPort_ResponseParamsSpec);
                responder(response);
             }});
           }

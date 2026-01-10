@@ -113,8 +113,7 @@ network.mojom.DataPipeGetterReceiver = class {
           const result = this.impl.read(params.pipe);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.DataPipeGetter_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DataPipeGetter_Read_ResponseParamsSpec);
                responder(response);
             }});
           }

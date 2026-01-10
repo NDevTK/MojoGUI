@@ -232,8 +232,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
           const result = this.impl.initializeOCR(params.library_path, params.model_files, params.ocr_service_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -244,8 +243,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
           const result = this.impl.initializeMainContentExtraction(params.library_path, params.model_files, params.main_content_extractor_service);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec);
                responder(response);
             }});
           }

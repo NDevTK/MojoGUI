@@ -144,8 +144,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
           const result = this.impl.parseItem(params.header);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -156,8 +155,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
           const result = this.impl.parseList(params.header);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -168,8 +166,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
           const result = this.impl.parseDictionary(params.header);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -191,8 +191,7 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
           const result = this.impl.getGeometryMetadata(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }

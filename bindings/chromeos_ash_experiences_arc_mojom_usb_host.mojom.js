@@ -154,8 +154,7 @@ arc.mojom.UsbHostHostReceiver = class {
           const result = this.impl.openDevice(params.guid, params.pkg_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -166,8 +165,7 @@ arc.mojom.UsbHostHostReceiver = class {
           const result = this.impl.getDeviceInfo(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -178,8 +176,7 @@ arc.mojom.UsbHostHostReceiver = class {
           const result = this.impl.requestPermission(params.guid, params.pkg_name, params.interactive);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -311,8 +308,7 @@ arc.mojom.UsbHostInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.UsbHostInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.UsbHostInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

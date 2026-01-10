@@ -104,8 +104,7 @@ payments.facilitated.mojom.PixCodeValidatorReceiver = class {
           const result = this.impl.validatePixCode(params.input_text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -300,8 +300,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
           const result = this.impl.getIsContextualSearchbox();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec);
                responder(response);
             }});
           }

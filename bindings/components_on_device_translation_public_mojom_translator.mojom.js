@@ -119,8 +119,7 @@ on_device_translation.mojom.TranslatorReceiver = class {
           const result = this.impl.translate(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_translation.mojom.Translator_Translate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.Translator_Translate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -131,8 +130,7 @@ on_device_translation.mojom.TranslatorReceiver = class {
           const result = this.impl.splitSentences(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec);
                responder(response);
             }});
           }

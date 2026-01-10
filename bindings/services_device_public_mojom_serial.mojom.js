@@ -307,8 +307,7 @@ device.mojom.SerialPortManagerReceiver = class {
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -319,8 +318,7 @@ device.mojom.SerialPortManagerReceiver = class {
           const result = this.impl.openPort(params.token, params.use_alternate_path, params.options, params.client, params.watcher);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -716,8 +714,7 @@ device.mojom.SerialPortReceiver = class {
           const result = this.impl.flush(params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPort_Flush_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPort_Flush_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -728,8 +725,7 @@ device.mojom.SerialPortReceiver = class {
           const result = this.impl.drain();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPort_Drain_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPort_Drain_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -740,8 +736,7 @@ device.mojom.SerialPortReceiver = class {
           const result = this.impl.getControlSignals();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -752,8 +747,7 @@ device.mojom.SerialPortReceiver = class {
           const result = this.impl.setControlSignals(params.signals);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -764,8 +758,7 @@ device.mojom.SerialPortReceiver = class {
           const result = this.impl.configurePort(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -776,8 +769,7 @@ device.mojom.SerialPortReceiver = class {
           const result = this.impl.getPortInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -788,8 +780,7 @@ device.mojom.SerialPortReceiver = class {
           const result = this.impl.close(params.flush);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SerialPort_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SerialPort_Close_ResponseParamsSpec);
                responder(response);
             }});
           }

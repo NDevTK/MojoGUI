@@ -187,8 +187,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           const result = this.impl.stopFrameCounting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -204,8 +203,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           const result = this.impl.stopOverdrawTracking(params.root_frame_sink_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -125,8 +125,7 @@ blink.mojom.WidgetCompositorReceiver = class {
           const result = this.impl.visualStateRequest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -584,8 +583,7 @@ blink.mojom.WidgetReceiver = class {
           const result = this.impl.forceRedraw();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Widget_ForceRedraw_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Widget_ForceRedraw_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -601,8 +599,7 @@ blink.mojom.WidgetReceiver = class {
           const result = this.impl.updateScreenRects(params.widget_screen_rect, params.window_screen_rect);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec);
                responder(response);
             }});
           }

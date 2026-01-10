@@ -158,8 +158,7 @@ blink.mojom.FileSystemCancellableOperationReceiver = class {
           const result = this.impl.cancel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -847,8 +846,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.open(params.origin, params.file_system_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_Open_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_Open_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -859,8 +857,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.resolveURL(params.filesystem_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -871,8 +868,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.move(params.src_path, params.dest_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_Move_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_Move_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -883,8 +879,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.copy(params.src_path, params.dest_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_Copy_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_Copy_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -895,8 +890,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.remove(params.path, params.recursive);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_Remove_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_Remove_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -907,8 +901,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.readMetadata(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -919,8 +912,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.create(params.path, params.exclusive, params.is_directory, params.recursive);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_Create_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_Create_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -931,8 +923,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.exists(params.path, params.is_directory);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_Exists_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_Exists_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -948,8 +939,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.readDirectorySync(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -965,8 +955,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.writeSync(params.file_path, params.blob, params.position);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -977,8 +966,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.truncate(params.file_path, params.length, params.op_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -989,8 +977,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.truncateSync(params.file_path, params.length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1001,8 +988,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.createSnapshotFile(params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1013,8 +999,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.getPlatformPath(params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1025,8 +1010,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           const result = this.impl.registerBlob(params.content_type, params.url, params.length, params.expected_modification_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec);
                responder(response);
             }});
           }

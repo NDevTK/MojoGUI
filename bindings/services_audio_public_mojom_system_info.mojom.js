@@ -262,8 +262,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.getInputStreamParameters(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -274,8 +273,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.getOutputStreamParameters(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -286,8 +284,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.hasInputDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -298,8 +295,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.hasOutputDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -310,8 +306,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.getInputDeviceDescriptions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -322,8 +317,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.getOutputDeviceDescriptions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -334,8 +328,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.getAssociatedOutputDeviceID(params.input_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -346,8 +339,7 @@ audio.mojom.SystemInfoReceiver = class {
           const result = this.impl.getInputDeviceInfo(params.input_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

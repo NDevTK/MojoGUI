@@ -308,8 +308,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.connect(params.device_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -320,8 +319,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.disconnect();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_Disconnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_Disconnect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -332,8 +330,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.streamOn(params.width, params.height, params.pixel_format, params.frame_rate);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_StreamOn_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_StreamOn_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -344,8 +341,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.streamOff();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_StreamOff_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_StreamOff_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -356,8 +352,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.getNextFrameBuffer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -368,8 +363,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.reuseFrameBuffer(params.buffer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -380,8 +374,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.getDeviceSupportedFormats(params.device_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -392,8 +385,7 @@ arc.mojom.CameraServiceReceiver = class {
           const result = this.impl.getCameraDeviceInfos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -529,8 +521,7 @@ arc.mojom.CameraHostReceiver = class {
           const result = this.impl.startCameraService();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -546,8 +537,7 @@ arc.mojom.CameraHostReceiver = class {
           const result = this.impl.registerCameraHalClient(params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -645,8 +635,7 @@ arc.mojom.CameraInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CameraInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CameraInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

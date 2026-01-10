@@ -95,8 +95,7 @@ blink.mojom.PointerLockContextReceiver = class {
           const result = this.impl.requestMouseLockChange(params.unadjusted_movement);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec);
                responder(response);
             }});
           }

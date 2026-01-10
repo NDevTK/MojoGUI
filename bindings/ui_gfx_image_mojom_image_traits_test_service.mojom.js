@@ -119,8 +119,7 @@ gfx.mojom.ImageTraitsTestServiceReceiver = class {
           const result = this.impl.echoImageSkiaRep(params.in);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -131,8 +130,7 @@ gfx.mojom.ImageTraitsTestServiceReceiver = class {
           const result = this.impl.echoImageSkia(params.in);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec);
                responder(response);
             }});
           }

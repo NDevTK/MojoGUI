@@ -145,8 +145,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
           const result = this.impl.decodeImage(params.encoded_data, params.codec, params.shrink_to_fit, params.max_size_in_bytes, params.desired_image_frame_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -157,8 +156,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
           const result = this.impl.decodeAnimation(params.encoded_data, params.shrink_to_fit, params.max_size_in_bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec);
                responder(response);
             }});
           }

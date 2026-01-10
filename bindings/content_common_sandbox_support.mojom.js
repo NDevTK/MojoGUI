@@ -226,8 +226,7 @@ content.mojom.SandboxSupportReceiver = class {
           const result = this.impl.getSystemColors();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -238,8 +237,7 @@ content.mojom.SandboxSupportReceiver = class {
           const result = this.impl.lcidAndFirstDayOfWeek(params.locale, params.default_language, params.defaults);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -250,8 +248,7 @@ content.mojom.SandboxSupportReceiver = class {
           const result = this.impl.digitsAndSigns(params.lcid, params.defaults);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -262,8 +259,7 @@ content.mojom.SandboxSupportReceiver = class {
           const result = this.impl.localeString(params.lcid, params.defaults, params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -274,8 +270,7 @@ content.mojom.SandboxSupportReceiver = class {
           const result = this.impl.localeStrings(params.lcid, params.defaults, params.collection);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec);
                responder(response);
             }});
           }

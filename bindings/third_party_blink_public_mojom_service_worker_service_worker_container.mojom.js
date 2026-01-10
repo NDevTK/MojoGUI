@@ -285,8 +285,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const result = this.impl.register(params.script_url, params.options, params.outside_fetch_client_settings_object);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -297,8 +296,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const result = this.impl.getRegistration(params.client_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -309,8 +307,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const result = this.impl.getRegistrations();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -321,8 +318,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const result = this.impl.getRegistrationForReady();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -348,8 +344,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const result = this.impl.ensureFileAccess(params.files);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec);
                responder(response);
             }});
           }

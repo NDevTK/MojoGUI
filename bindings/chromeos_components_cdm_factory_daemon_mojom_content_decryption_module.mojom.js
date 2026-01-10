@@ -462,8 +462,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.setServerCertificate(params.certificate_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -474,8 +473,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.getStatusForPolicy(params.min_hdcp_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -486,8 +484,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.createSessionAndGenerateRequest(params.session_type, params.init_data_type, params.init_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -498,8 +495,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.loadSession(params.session_type, params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -510,8 +506,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.updateSession(params.session_id, params.response);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -522,8 +517,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.closeSession(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -534,8 +528,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.removeSession(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -546,8 +539,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.decryptDeprecated(params.encrypted_data, params.decrypt_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -558,8 +550,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.getHwKeyData(params.decrypt_config, params.hw_identifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -570,8 +561,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.decrypt(params.encrypted_data, params.decrypt_config_in, params.is_video, params.secure_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec);
                responder(response);
             }});
           }

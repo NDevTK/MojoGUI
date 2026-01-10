@@ -174,8 +174,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
           const result = this.impl.extractContent(params.extraction_request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -186,8 +185,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
           const result = this.impl.getContentSize(params.extraction_request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec);
                responder(response);
             }});
           }

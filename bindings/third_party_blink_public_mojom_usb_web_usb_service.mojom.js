@@ -186,8 +186,7 @@ blink.mojom.WebUsbServiceReceiver = class {
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -203,8 +202,7 @@ blink.mojom.WebUsbServiceReceiver = class {
           const result = this.impl.getPermission(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -215,8 +213,7 @@ blink.mojom.WebUsbServiceReceiver = class {
           const result = this.impl.forgetDevice(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec);
                responder(response);
             }});
           }

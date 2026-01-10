@@ -100,8 +100,7 @@ blink.mojom.WebPressureManagerReceiver = class {
           const result = this.impl.addClient(params.source, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -267,8 +267,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
           const result = this.impl.sendMessage(params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -279,8 +278,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
           const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -291,8 +289,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
           const result = this.impl.getConnectionMetadata();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -793,8 +790,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
           const result = this.impl.getLastSeenTimestamp(params.remote_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec);
                responder(response);
             }});
           }

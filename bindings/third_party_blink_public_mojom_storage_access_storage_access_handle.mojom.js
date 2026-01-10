@@ -238,8 +238,7 @@ blink.mojom.StorageAccessHandleReceiver = class {
           const result = this.impl.getDirectory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -250,8 +249,7 @@ blink.mojom.StorageAccessHandleReceiver = class {
           const result = this.impl.estimate();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec);
                responder(response);
             }});
           }

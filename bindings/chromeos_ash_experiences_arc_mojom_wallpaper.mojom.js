@@ -133,8 +133,7 @@ arc.mojom.WallpaperHostReceiver = class {
           const result = this.impl.getWallpaper();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -258,8 +257,7 @@ arc.mojom.WallpaperInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.WallpaperInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.WallpaperInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

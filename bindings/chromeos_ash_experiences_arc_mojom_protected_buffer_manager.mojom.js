@@ -170,8 +170,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
           const result = this.impl.deprecatedGetProtectedSharedMemoryFromHandle(params.dummy_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -182,8 +181,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
           const result = this.impl.getProtectedSharedMemoryFromHandle(params.dummy_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -194,8 +192,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
           const result = this.impl.getProtectedNativePixmapHandleFromHandle(params.dummy_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -206,8 +203,7 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
           const result = this.impl.isProtectedNativePixmapHandle(params.dummy_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec);
                responder(response);
             }});
           }

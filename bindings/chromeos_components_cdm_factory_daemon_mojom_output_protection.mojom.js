@@ -142,8 +142,7 @@ chromeos.cdm.mojom.OutputProtectionReceiver = class {
           const result = this.impl.queryStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -154,8 +153,7 @@ chromeos.cdm.mojom.OutputProtectionReceiver = class {
           const result = this.impl.enableProtection(params.desired_protection);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec);
                responder(response);
             }});
           }

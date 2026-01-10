@@ -724,8 +724,7 @@ blink.mojom.AuthenticatorReceiver = class {
           const result = this.impl.makeCredential(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -736,8 +735,7 @@ blink.mojom.AuthenticatorReceiver = class {
           const result = this.impl.getCredential(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Authenticator_GetCredential_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_GetCredential_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -748,8 +746,7 @@ blink.mojom.AuthenticatorReceiver = class {
           const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -760,8 +757,7 @@ blink.mojom.AuthenticatorReceiver = class {
           const result = this.impl.isConditionalMediationAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -772,8 +768,7 @@ blink.mojom.AuthenticatorReceiver = class {
           const result = this.impl.report(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Authenticator_Report_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_Report_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -784,8 +779,7 @@ blink.mojom.AuthenticatorReceiver = class {
           const result = this.impl.getClientCapabilities();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec);
                responder(response);
             }});
           }

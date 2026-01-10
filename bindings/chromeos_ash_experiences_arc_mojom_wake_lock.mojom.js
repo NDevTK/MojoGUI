@@ -121,8 +121,7 @@ arc.mojom.WakeLockHostReceiver = class {
           const result = this.impl.acquirePartialWakeLock();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -133,8 +132,7 @@ arc.mojom.WakeLockHostReceiver = class {
           const result = this.impl.releasePartialWakeLock();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -232,8 +230,7 @@ arc.mojom.WakeLockInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.WakeLockInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.WakeLockInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

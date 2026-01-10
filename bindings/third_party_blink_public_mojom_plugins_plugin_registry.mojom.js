@@ -118,8 +118,7 @@ blink.mojom.PluginRegistryReceiver = class {
           const result = this.impl.getPlugins();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec);
                responder(response);
             }});
           }

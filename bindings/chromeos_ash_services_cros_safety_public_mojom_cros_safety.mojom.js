@@ -155,8 +155,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -167,8 +166,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
           const result = this.impl.classifyImageSafety(params.rules, params.prompt, params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -291,8 +289,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -303,8 +300,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
           const result = this.impl.classifyImageSafety(params.rules, params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec);
                responder(response);
             }});
           }

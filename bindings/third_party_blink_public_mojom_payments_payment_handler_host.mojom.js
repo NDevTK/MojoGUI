@@ -174,8 +174,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
           const result = this.impl.changePaymentMethod(params.method_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -186,8 +185,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
           const result = this.impl.changeShippingOption(params.shipping_option_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -198,8 +196,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
           const result = this.impl.changeShippingAddress(params.shipping_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec);
                responder(response);
             }});
           }

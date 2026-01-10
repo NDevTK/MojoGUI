@@ -1393,8 +1393,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1845,8 +1844,7 @@ glic.mojom.PageHandlerReceiver = class {
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1862,8 +1860,7 @@ glic.mojom.PageHandlerReceiver = class {
           const result = this.impl.closePanel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1889,8 +1886,7 @@ glic.mojom.PageHandlerReceiver = class {
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1911,8 +1907,7 @@ glic.mojom.PageHandlerReceiver = class {
           const result = this.impl.getProfileEnablement();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3676,8 +3671,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.webClientCreated(params.web_client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3698,8 +3692,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.createTab(params.url, params.open_in_background, params.window_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3755,8 +3748,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getModelQualityClientId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3767,8 +3759,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getContextFromFocusedTab(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3779,8 +3770,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getContextFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3791,8 +3781,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getContextForActorFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3803,8 +3792,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setMaximumNumberOfPinnedTabs(params.requested_max);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3815,8 +3803,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.pinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3827,8 +3814,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.unpinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3844,8 +3830,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.createSkill(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3856,8 +3841,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.updateSkill(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3868,8 +3852,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getSkill(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3895,8 +3878,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.cancelActions(params.task_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3917,8 +3899,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.resumeActorTask(params.task_id, params.context_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3939,8 +3920,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.createActorTab(params.task_id, params.open_in_background, params.initiator_tab_id, params.initiator_window_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3956,8 +3936,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3968,8 +3947,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.captureScreenshot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3985,8 +3963,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setAudioDucking(params.enable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3997,8 +3974,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setPanelDraggableAreas(params.draggable_areas);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4014,8 +3990,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setMicrophonePermissionState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4026,8 +4001,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setLocationPermissionState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4038,8 +4012,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setTabContextPermissionState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4050,8 +4023,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setClosedCaptioningSetting(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4062,8 +4034,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.setActuationOnWebSetting(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4074,8 +4045,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.shouldAllowMediaPermissionRequest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4086,8 +4056,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.shouldAllowGeolocationPermissionRequest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4103,8 +4072,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getUserProfileInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4115,8 +4083,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.syncCookies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4147,8 +4114,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.journalSnapshot(params.clear_journal);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4234,8 +4200,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.scrollTo(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4261,8 +4226,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getOsMicrophonePermissionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4273,8 +4237,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getZeroStateSuggestionsAndSubscribe(params.is_live, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4285,8 +4248,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.getZeroStateSuggestionsForFocusedTab(params.is_first_run);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4302,8 +4264,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.isDebuggerAttached();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4319,8 +4280,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.subscribeToPageMetadata(params.tab_id, params.names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4331,8 +4291,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.switchConversation(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4343,8 +4302,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.registerConversation(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -5083,8 +5041,7 @@ glic.mojom.WebClientReceiver = class {
           const result = this.impl.notifyPanelWillOpen(params.panel_opening_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -5095,8 +5052,7 @@ glic.mojom.WebClientReceiver = class {
           const result = this.impl.notifyPanelWasClosed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -5222,8 +5178,7 @@ glic.mojom.WebClientReceiver = class {
           const result = this.impl.requestToShowCredentialSelectionDialog(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -5234,8 +5189,7 @@ glic.mojom.WebClientReceiver = class {
           const result = this.impl.requestToShowAutofillSuggestionsDialog(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -5246,8 +5200,7 @@ glic.mojom.WebClientReceiver = class {
           const result = this.impl.requestToShowUserConfirmationDialog(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -5258,8 +5211,7 @@ glic.mojom.WebClientReceiver = class {
           const result = this.impl.requestToConfirmNavigation(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec);
                responder(response);
             }});
           }

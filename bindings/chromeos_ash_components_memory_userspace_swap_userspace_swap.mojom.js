@@ -112,8 +112,7 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
           const result = this.impl.transferUserfaultFD(params.uffd_error, params.uffd_handle, params.mmap_error, params.swap_area);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -255,8 +254,7 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
           const result = this.impl.getPartitionAllocSuperPagesUsed(params.max_superpages);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -129,8 +129,7 @@ media_router.mojom.DebuggerReceiver = class {
           const result = this.impl.shouldFetchMirroringStats();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec);
                responder(response);
             }});
           }

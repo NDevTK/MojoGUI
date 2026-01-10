@@ -131,8 +131,7 @@ unzip.mojom.UnzipFilterReceiver = class {
           const result = this.impl.shouldUnzipFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -389,8 +388,7 @@ unzip.mojom.UnzipperReceiver = class {
           const result = this.impl.unzip(params.zip_file, params.output_dir, params.options, params.filter, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, unzip.mojom.Unzipper_Unzip_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_Unzip_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -401,8 +399,7 @@ unzip.mojom.UnzipperReceiver = class {
           const result = this.impl.detectEncoding(params.zip_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -413,8 +410,7 @@ unzip.mojom.UnzipperReceiver = class {
           const result = this.impl.getExtractedInfo(params.zip_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -425,8 +421,7 @@ unzip.mojom.UnzipperReceiver = class {
           const result = this.impl.decodeXz(params.in_file, params.out_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec);
                responder(response);
             }});
           }

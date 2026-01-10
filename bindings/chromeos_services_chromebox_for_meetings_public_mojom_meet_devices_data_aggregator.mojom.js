@@ -249,8 +249,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
           const result = this.impl.fetch();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -261,8 +260,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
           const result = this.impl.addWatchDog(params.filter, params.watch_dog);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -412,8 +410,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
           const result = this.impl.getDataSourceNames();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -424,8 +421,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
           const result = this.impl.addDataSource(params.source_name, params.data_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -436,8 +432,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
           const result = this.impl.addWatchDog(params.source_name, params.filter, params.watch_dog);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec);
                responder(response);
             }});
           }

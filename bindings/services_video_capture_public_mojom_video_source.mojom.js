@@ -267,8 +267,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           const result = this.impl.suspend();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -284,8 +283,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -296,8 +294,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -308,8 +305,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -320,8 +316,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -429,8 +424,7 @@ video_capture.mojom.VideoSourceReceiver = class {
           const result = this.impl.createPushSubscription(params.subscriber, params.requested_settings, params.force_reopen_with_new_settings, params.subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec);
                responder(response);
             }});
           }

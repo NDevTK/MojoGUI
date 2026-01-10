@@ -137,8 +137,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
           const result = this.impl.getStreamInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -241,8 +240,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
           const result = this.impl.setShowBeforeUnloadDialog(params.show_dialog);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec);
                responder(response);
             }});
           }

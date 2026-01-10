@@ -233,8 +233,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
           const result = this.impl.annotate(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -245,8 +244,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
           const result = this.impl.findLanguages(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -257,8 +255,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
           const result = this.impl.rEMOVED_1(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -148,8 +148,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
           const result = this.impl.handleRequestBlockedOnCookie(params.untrusted_request_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec);
                responder(response);
             }});
           }

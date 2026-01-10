@@ -102,8 +102,7 @@ tracing.mojom.TracedProcessReceiver = class {
           const result = this.impl.connectToTracingService(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec);
                responder(response);
             }});
           }

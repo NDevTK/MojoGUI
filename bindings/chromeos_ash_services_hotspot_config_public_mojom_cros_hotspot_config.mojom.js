@@ -328,8 +328,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
           const result = this.impl.getHotspotInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -340,8 +339,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
           const result = this.impl.setHotspotConfig(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -352,8 +350,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
           const result = this.impl.enableHotspot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -364,8 +361,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
           const result = this.impl.disableHotspot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec);
                responder(response);
             }});
           }

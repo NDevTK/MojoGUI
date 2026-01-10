@@ -232,8 +232,7 @@ chromecast.mojom.GestureHandlerReceiver = class {
           const result = this.impl.onBackGesture();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec);
                responder(response);
             }});
           }

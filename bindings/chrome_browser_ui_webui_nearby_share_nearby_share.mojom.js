@@ -624,8 +624,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           const result = this.impl.startDiscovery(params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -636,8 +635,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           const result = this.impl.stopDiscovery();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -648,8 +646,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           const result = this.impl.selectShareTarget(params.share_target_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -660,8 +657,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           const result = this.impl.getPayloadPreview();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -801,8 +797,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
           const result = this.impl.accept();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -813,8 +808,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
           const result = this.impl.reject();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -825,8 +819,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
           const result = this.impl.cancel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1196,8 +1189,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           const result = this.impl.isInHighVisibility();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1208,8 +1200,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           const result = this.impl.registerForegroundReceiveSurface();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1220,8 +1211,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           const result = this.impl.unregisterForegroundReceiveSurface();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1232,8 +1222,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           const result = this.impl.accept(params.share_target_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1244,8 +1233,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           const result = this.impl.reject(params.share_target_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec);
                responder(response);
             }});
           }

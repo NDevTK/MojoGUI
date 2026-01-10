@@ -140,8 +140,7 @@ chromeos.machine_learning.mojom.GrammarCheckerReceiver = class {
           const result = this.impl.check(params.query);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -386,8 +386,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
           const result = this.impl.demandDrawHw(params.draw_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -398,8 +397,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
           const result = this.impl.setSharedMemory(params.shm_region);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -410,8 +408,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
           const result = this.impl.demandDrawSw(params.draw_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -432,8 +429,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
           const result = this.impl.zoomBy(params.delta, params.anchor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -121,8 +121,7 @@ network.mojom.SocketBrokerReceiver = class {
           const result = this.impl.createTcpSocket(params.address_family);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -133,8 +132,7 @@ network.mojom.SocketBrokerReceiver = class {
           const result = this.impl.createUdpSocket(params.address_family);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec);
                responder(response);
             }});
           }

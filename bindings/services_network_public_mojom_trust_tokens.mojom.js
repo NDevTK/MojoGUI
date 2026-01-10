@@ -303,8 +303,7 @@ network.mojom.TrustTokenQueryAnswererReceiver = class {
           const result = this.impl.hasTrustTokens(params.issuer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -315,8 +314,7 @@ network.mojom.TrustTokenQueryAnswererReceiver = class {
           const result = this.impl.hasRedemptionRecord(params.issuer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec);
                responder(response);
             }});
           }

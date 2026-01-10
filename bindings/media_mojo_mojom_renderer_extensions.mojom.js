@@ -251,8 +251,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
           const result = this.impl.getDCOMPSurface();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -268,8 +267,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
           const result = this.impl.setOutputRect(params.rect);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec);
                responder(response);
             }});
           }

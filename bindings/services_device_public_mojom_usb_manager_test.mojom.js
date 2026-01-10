@@ -156,8 +156,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
           const result = this.impl.addDeviceForTesting(params.name, params.serial_number, params.landing_page);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -168,8 +167,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
           const result = this.impl.removeDeviceForTesting(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -180,8 +178,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
           const result = this.impl.getTestDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec);
                responder(response);
             }});
           }

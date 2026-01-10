@@ -122,8 +122,7 @@ printing.mojom.PdfFlattenerReceiver = class {
           const result = this.impl.flattenPdf(params.src_pdf_region);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -402,8 +402,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
           const result = this.impl.getThreadUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -414,8 +413,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
           const result = this.impl.getUrlForTask(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -431,8 +429,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
           const result = this.impl.isZeroState(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -458,8 +455,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
           const result = this.impl.isShownInTab();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -500,8 +496,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
           const result = this.impl.getCommonSearchParams(params.is_dark_mode, params.is_side_panel);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec);
                responder(response);
             }});
           }

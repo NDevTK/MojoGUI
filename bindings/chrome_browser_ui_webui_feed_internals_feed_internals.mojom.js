@@ -354,8 +354,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getGeneralProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -366,8 +365,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getLastFetchProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -393,8 +391,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getFeedProcessScopeDump();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -405,8 +402,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getFeedHistograms();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec);
                responder(response);
             }});
           }

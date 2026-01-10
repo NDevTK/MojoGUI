@@ -132,8 +132,7 @@ shape_detection.mojom.FaceDetectionReceiver = class {
           const result = this.impl.detect(params.bitmap_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec);
                responder(response);
             }});
           }

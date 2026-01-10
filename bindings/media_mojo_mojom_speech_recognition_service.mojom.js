@@ -110,8 +110,7 @@ media.mojom.AudioSourceSpeechRecognitionContextReceiver = class {
           const result = this.impl.bindAudioSourceFetcher(params.fetcher_receiver, params.client, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec);
                responder(response);
             }});
           }

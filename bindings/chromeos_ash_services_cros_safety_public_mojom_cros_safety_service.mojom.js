@@ -143,8 +143,7 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
           const result = this.impl.createOnDeviceSafetySession(params.session);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -155,8 +154,7 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
           const result = this.impl.createCloudSafetySession(params.session);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec);
                responder(response);
             }});
           }

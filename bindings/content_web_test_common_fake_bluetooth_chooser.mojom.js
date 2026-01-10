@@ -256,8 +256,7 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
           const result = this.impl.createFakeBluetoothChooser(params.fake_chooser, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec);
                responder(response);
             }});
           }

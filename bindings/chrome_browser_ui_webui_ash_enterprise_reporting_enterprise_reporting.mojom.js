@@ -261,8 +261,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDebugState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -273,8 +272,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
           const result = this.impl.getErpHistoryData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec);
                responder(response);
             }});
           }

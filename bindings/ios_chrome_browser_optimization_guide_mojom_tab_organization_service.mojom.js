@@ -96,8 +96,7 @@ ai.mojom.TabOrganizationServiceReceiver = class {
           const result = this.impl.executeGroupTabs(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec);
                responder(response);
             }});
           }

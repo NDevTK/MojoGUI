@@ -228,8 +228,7 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
           const result = this.impl.getTimezones();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -1444,8 +1444,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1486,8 +1485,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.requestAppIcon(params.package_name, params.activity, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1498,8 +1496,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getAppIcon(params.package_name, params.activity, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1510,8 +1507,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.requestShortcutIcon(params.icon_resource_id, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1522,8 +1518,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getAppShortcutIcon(params.icon_resource_id, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1534,8 +1529,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.requestPackageIcon(params.package_name, params.pixel_size, params.normalize);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1546,8 +1540,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getPackageIcon(params.package_name, params.pixel_size, params.normalize);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1588,8 +1581,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.startPaiFlow();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1615,8 +1607,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getAndroidId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1627,8 +1618,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getAppShortcutGlobalQueryItems(params.query, params.max_results);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1639,8 +1629,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getAppShortcutItems(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1651,8 +1640,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getRecentAndSuggestedAppsFromPlayStore(params.query, params.max_results);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1663,8 +1651,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.isInstallable(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1675,8 +1662,7 @@ arc.mojom.AppInstanceReceiver = class {
           const result = this.impl.getAppCategory(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec);
                responder(response);
             }});
           }

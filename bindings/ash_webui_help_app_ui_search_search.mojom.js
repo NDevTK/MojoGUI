@@ -254,8 +254,7 @@ ash.help_app.mojom.SearchHandlerReceiver = class {
           const result = this.impl.search(params.query, params.max_num_results);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -266,8 +265,7 @@ ash.help_app.mojom.SearchHandlerReceiver = class {
           const result = this.impl.update(params.concepts);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec);
                responder(response);
             }});
           }

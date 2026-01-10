@@ -554,8 +554,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           const result = this.impl.isInitialized();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -566,8 +565,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           const result = this.impl.addObserver();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -578,8 +576,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           const result = this.impl.getAccounts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -590,8 +587,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           const result = this.impl.showAddAccountDialog(params.add_account_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -602,8 +598,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           const result = this.impl.showReauthAccountDialog(params.email);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -619,8 +614,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           const result = this.impl.getPersistentErrorForAccount(params.account);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -631,8 +625,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           const result = this.impl.createAccessTokenFetcher(params.account_key, params.oauth_consumer_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -736,8 +729,7 @@ crosapi.mojom.AccessTokenFetcherReceiver = class {
           const result = this.impl.start(params.scopes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec);
                responder(response);
             }});
           }

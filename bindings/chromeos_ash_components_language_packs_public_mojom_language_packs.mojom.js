@@ -329,8 +329,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
           const result = this.impl.getPackInfo(params.feature_id, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -341,8 +340,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
           const result = this.impl.installPack(params.feature_id, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -353,8 +351,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
           const result = this.impl.installBasePack(params.feature_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -365,8 +362,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
           const result = this.impl.uninstallPack(params.feature_id, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec);
                responder(response);
             }});
           }

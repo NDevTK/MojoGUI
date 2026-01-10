@@ -111,8 +111,7 @@ blink.mojom.FileSystemAccessFileModificationHostReceiver = class {
           const result = this.impl.requestCapacityChange(params.capacity_delta);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec);
                responder(response);
             }});
           }

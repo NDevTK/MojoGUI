@@ -240,8 +240,7 @@ blink.mojom.HidServiceReceiver = class {
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.HidService_GetDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_GetDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -252,8 +251,7 @@ blink.mojom.HidServiceReceiver = class {
           const result = this.impl.requestDevice(params.filters, params.exclusion_filters);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.HidService_RequestDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_RequestDevice_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -264,8 +262,7 @@ blink.mojom.HidServiceReceiver = class {
           const result = this.impl.connect(params.device_guid, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.HidService_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -276,8 +273,7 @@ blink.mojom.HidServiceReceiver = class {
           const result = this.impl.forget(params.device_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.HidService_Forget_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.HidService_Forget_ResponseParamsSpec);
                responder(response);
             }});
           }

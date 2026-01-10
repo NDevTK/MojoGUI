@@ -277,8 +277,7 @@ arc.mojom.InputConnectionReceiver = class {
           const result = this.impl.requestTextInputState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -633,8 +632,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -645,8 +643,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
           const result = this.impl.enableIme(params.ime_id, params.enable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -657,8 +654,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
           const result = this.impl.switchImeTo(params.ime_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec);
                responder(response);
             }});
           }

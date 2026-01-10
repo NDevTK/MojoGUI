@@ -194,8 +194,7 @@ blink.mojom.BytesProviderReceiver = class {
           const result = this.impl.requestAsReply();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -211,8 +210,7 @@ blink.mojom.BytesProviderReceiver = class {
           const result = this.impl.requestAsFile(params.source_offset, params.source_size, params.file, params.file_offset);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec);
                responder(response);
             }});
           }

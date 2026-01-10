@@ -198,8 +198,7 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
           const result = this.impl.mountShare(params.options, params.delegate);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -319,8 +318,7 @@ smbfs.mojom.SmbFsReceiver = class {
           const result = this.impl.removeSavedCredentials();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -331,8 +329,7 @@ smbfs.mojom.SmbFsReceiver = class {
           const result = this.impl.deleteRecursively(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -430,8 +427,7 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
           const result = this.impl.requestCredentials();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec);
                responder(response);
             }});
           }

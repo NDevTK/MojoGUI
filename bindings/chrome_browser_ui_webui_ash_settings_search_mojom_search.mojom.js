@@ -267,8 +267,7 @@ ash.settings.mojom.SearchHandlerReceiver = class {
           const result = this.impl.search(params.query, params.max_num_results, params.parent_result_behavior);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec);
                responder(response);
             }});
           }

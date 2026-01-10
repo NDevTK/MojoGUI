@@ -629,8 +629,7 @@ device.mojom.HidManagerReceiver = class {
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -641,8 +640,7 @@ device.mojom.HidManagerReceiver = class {
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.HidManager_GetDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidManager_GetDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -653,8 +651,7 @@ device.mojom.HidManagerReceiver = class {
           const result = this.impl.connect(params.device_guid, params.connection_client, params.watcher, params.allow_protected_reports, params.allow_fido_reports);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.HidManager_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidManager_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -828,8 +825,7 @@ device.mojom.HidConnectionReceiver = class {
           const result = this.impl.read();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.HidConnection_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_Read_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -840,8 +836,7 @@ device.mojom.HidConnectionReceiver = class {
           const result = this.impl.write(params.report_id, params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.HidConnection_Write_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_Write_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -852,8 +847,7 @@ device.mojom.HidConnectionReceiver = class {
           const result = this.impl.getFeatureReport(params.report_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -864,8 +858,7 @@ device.mojom.HidConnectionReceiver = class {
           const result = this.impl.sendFeatureReport(params.report_id, params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec);
                responder(response);
             }});
           }

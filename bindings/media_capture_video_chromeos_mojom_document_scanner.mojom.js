@@ -106,8 +106,7 @@ cros.mojom.CrosDocumentScannerReceiver = class {
           const result = this.impl.detectCornersFromNV12Image(params.nv12_image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec);
                responder(response);
             }});
           }

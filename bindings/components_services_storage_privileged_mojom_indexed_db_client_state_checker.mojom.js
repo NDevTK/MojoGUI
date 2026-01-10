@@ -125,8 +125,7 @@ storage.mojom.IndexedDBClientStateCheckerReceiver = class {
           const result = this.impl.disallowInactiveClient(params.connection_id, params.reason, params.keep_active);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec);
                responder(response);
             }});
           }

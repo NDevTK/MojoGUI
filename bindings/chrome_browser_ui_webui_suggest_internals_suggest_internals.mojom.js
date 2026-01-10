@@ -149,8 +149,7 @@ suggest_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.hardcodeResponse(params.response, params.delay);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec);
                responder(response);
             }});
           }

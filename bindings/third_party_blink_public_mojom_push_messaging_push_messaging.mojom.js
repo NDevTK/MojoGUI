@@ -184,8 +184,7 @@ blink.mojom.PushMessagingReceiver = class {
           const result = this.impl.subscribe(params.service_worker_registration_id, params.options, params.user_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -196,8 +195,7 @@ blink.mojom.PushMessagingReceiver = class {
           const result = this.impl.unsubscribe(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -208,8 +206,7 @@ blink.mojom.PushMessagingReceiver = class {
           const result = this.impl.getSubscription(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec);
                responder(response);
             }});
           }

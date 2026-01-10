@@ -231,8 +231,7 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
           const result = this.impl.getCurrentBorderGlowVisibility();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -413,8 +412,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
           const result = this.impl.moveCursorTo(params.point);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -425,8 +423,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
           const result = this.impl.triggerClickAnimation();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec);
                responder(response);
             }});
           }

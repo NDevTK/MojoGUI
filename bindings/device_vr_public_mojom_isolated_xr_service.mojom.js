@@ -404,8 +404,7 @@ device.mojom.XRRuntimeReceiver = class {
           const result = this.impl.requestSession(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.XRRuntime_RequestSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRRuntime_RequestSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -416,8 +415,7 @@ device.mojom.XRRuntimeReceiver = class {
           const result = this.impl.shutdownSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -583,8 +581,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
           const result = this.impl.requestNextOverlayPose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -595,8 +592,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
           const result = this.impl.submitOverlayTexture(params.frame_id, params.texture, params.sync_token, params.left_bounds, params.right_bounds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -612,8 +608,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
           const result = this.impl.requestNotificationOnWebXrSubmitted();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec);
                responder(response);
             }});
           }

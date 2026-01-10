@@ -185,8 +185,7 @@ arc.mojom.PolicyHostReceiver = class {
           const result = this.impl.getPolicies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -197,8 +196,7 @@ arc.mojom.PolicyHostReceiver = class {
           const result = this.impl.reportCompliance(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -343,8 +341,7 @@ arc.mojom.PolicyInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.PolicyInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -360,8 +357,7 @@ arc.mojom.PolicyInstanceReceiver = class {
           const result = this.impl.onCommandReceived(params.command);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -166,8 +166,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
           const result = this.impl.fileExists(params.package_index, params.relative_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -178,8 +177,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
           const result = this.impl.open(params.package_index, params.relative_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -324,8 +322,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
           const result = this.impl.createTranslator(params.source_lang, params.target_lang, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -336,8 +333,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
           const result = this.impl.canTranslate(params.source_lang, params.target_lang);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec);
                responder(response);
             }});
           }

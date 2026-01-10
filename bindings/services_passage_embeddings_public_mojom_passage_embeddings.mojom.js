@@ -141,8 +141,7 @@ passage_embeddings.mojom.PassageEmbedderReceiver = class {
           const result = this.impl.generateEmbeddings(params.passages, params.priority);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -243,8 +242,7 @@ passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = class {
           const result = this.impl.loadModels(params.model_params, params.params, params.model);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec);
                responder(response);
             }});
           }

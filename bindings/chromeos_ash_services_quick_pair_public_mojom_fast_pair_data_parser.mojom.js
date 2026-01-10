@@ -364,8 +364,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const result = this.impl.getHexModelIdFromServiceData(params.service_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -376,8 +375,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const result = this.impl.parseDecryptedResponse(params.aes_key, params.encrypted_response_bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -388,8 +386,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const result = this.impl.parseDecryptedPasskey(params.aes_key, params.encrypted_passkey_bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -400,8 +397,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const result = this.impl.parseNotDiscoverableAdvertisement(params.service_data, params.address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -412,8 +408,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const result = this.impl.parseMessageStreamMessages(params.message_bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -122,8 +122,7 @@ blink.mojom.ContactsManagerReceiver = class {
           const result = this.impl.select(params.multiple, params.include_names, params.include_emails, params.include_tel, params.include_addresses, params.include_icons);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ContactsManager_Select_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContactsManager_Select_ResponseParamsSpec);
                responder(response);
             }});
           }

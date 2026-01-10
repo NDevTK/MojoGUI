@@ -111,8 +111,7 @@ blink.mojom.AppBannerControllerReceiver = class {
           const result = this.impl.bannerPromptRequest(params.service, params.event_receiver, params.platform);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec);
                responder(response);
             }});
           }

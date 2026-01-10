@@ -136,8 +136,7 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
           const result = this.impl.createTCPServerSocket(params.local_addr, params.port, params.backlog, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -148,8 +147,7 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
           const result = this.impl.createTCPConnectedSocket(params.timeout, params.local_addr, params.remote_addr_list, params.tcp_connected_socket_options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -177,8 +177,7 @@ webui_browser.mojom.PageHandlerFactoryReceiver = class {
           const result = this.impl.getTabStripInset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -607,8 +606,7 @@ webui_browser.mojom.PageHandlerReceiver = class {
           const result = this.impl.getGuestIdForTabId(params.tab_id, params.handler);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -619,8 +617,7 @@ webui_browser.mojom.PageHandlerReceiver = class {
           const result = this.impl.loadTabSearch();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -901,8 +898,7 @@ webui_browser.mojom.GuestHandlerReceiver = class {
           const result = this.impl.canGoBack();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -918,8 +914,7 @@ webui_browser.mojom.GuestHandlerReceiver = class {
           const result = this.impl.canGoForward();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -950,8 +945,7 @@ webui_browser.mojom.GuestHandlerReceiver = class {
           const result = this.impl.getSecurityIcon();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec);
                responder(response);
             }});
           }

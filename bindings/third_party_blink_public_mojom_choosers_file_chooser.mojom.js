@@ -184,8 +184,7 @@ blink.mojom.FileChooserReceiver = class {
           const result = this.impl.openFileChooser(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -196,8 +195,7 @@ blink.mojom.FileChooserReceiver = class {
           const result = this.impl.enumerateChosenDirectory(params.directory_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec);
                responder(response);
             }});
           }

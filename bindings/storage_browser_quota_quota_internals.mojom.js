@@ -223,8 +223,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           const result = this.impl.getDiskAvailabilityAndTempPoolSize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -235,8 +234,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           const result = this.impl.getStatistics();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -252,8 +250,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           const result = this.impl.retrieveBucketsTable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -264,8 +261,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           const result = this.impl.getGlobalUsageForInternals();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -276,8 +272,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           const result = this.impl.isSimulateStoragePressureAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }

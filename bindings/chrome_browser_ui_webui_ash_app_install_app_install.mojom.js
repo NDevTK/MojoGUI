@@ -183,8 +183,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
           const result = this.impl.installApp();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -475,8 +474,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDialogArgs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec);
                responder(response);
             }});
           }

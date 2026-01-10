@@ -448,8 +448,7 @@ viz.mojom.GpuHostReceiver = class {
           const result = this.impl.getIsolationKey(params.client_id, params.wgpu_context_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -470,8 +469,7 @@ viz.mojom.GpuHostReceiver = class {
           const result = this.impl.ensureWebNNExecutionProvidersReady();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -482,8 +480,7 @@ viz.mojom.GpuHostReceiver = class {
           const result = this.impl.createWebNNWeightsFile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec);
                responder(response);
             }});
           }

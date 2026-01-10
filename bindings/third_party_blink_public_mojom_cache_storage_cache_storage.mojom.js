@@ -330,8 +330,7 @@ blink.mojom.CacheStorageCacheReceiver = class {
           const result = this.impl.batch(params.batch_operations, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -342,8 +341,7 @@ blink.mojom.CacheStorageCacheReceiver = class {
           const result = this.impl.writeSideData(params.url, params.expected_response_time, params.data, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -525,8 +523,7 @@ blink.mojom.CacheStorageReceiver = class {
           const result = this.impl.has(params.cache_name, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CacheStorage_Has_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorage_Has_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -537,8 +534,7 @@ blink.mojom.CacheStorageReceiver = class {
           const result = this.impl.delete(params.cache_name, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CacheStorage_Delete_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorage_Delete_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -549,8 +545,7 @@ blink.mojom.CacheStorageReceiver = class {
           const result = this.impl.keys(params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CacheStorage_Keys_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorage_Keys_ResponseParamsSpec);
                responder(response);
             }});
           }

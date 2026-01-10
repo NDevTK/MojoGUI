@@ -951,8 +951,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           const result = this.impl.getMostVisitedSettings();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -963,8 +962,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDoodle();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1020,8 +1018,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           const result = this.impl.getModulesIdNames();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1032,8 +1029,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           const result = this.impl.getModulesEligibleForRemoval();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1049,8 +1045,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           const result = this.impl.getModulesOrder();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1116,8 +1111,7 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           const result = this.impl.onDoodleImageRendered(params.type, params.time, params.log_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec);
                responder(response);
             }});
           }

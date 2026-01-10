@@ -296,8 +296,7 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
           const result = this.impl.getReports();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -308,8 +307,7 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
           const result = this.impl.sendReports(params.ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -320,8 +318,7 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
           const result = this.impl.clearStorage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -276,8 +276,7 @@ network.mojom.P2PSocketManagerReceiver = class {
           const result = this.impl.getHostAddress(params.host_name, params.address_family, params.enable_mdns);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -478,8 +478,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
           const result = this.impl.getDisplayLayoutInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -490,8 +489,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
           const result = this.impl.setDisplayLayoutInfo(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -502,8 +500,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
           const result = this.impl.getDisplayUnitInfoList(params.single_unified);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -514,8 +511,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
           const result = this.impl.setDisplayProperties(params.id, params.properties, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -531,8 +527,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
           const result = this.impl.overscanCalibration(params.display_id, params.op, params.delta);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -543,8 +538,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
           const result = this.impl.touchCalibration(params.display_id, params.op, params.calibration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec);
                responder(response);
             }});
           }

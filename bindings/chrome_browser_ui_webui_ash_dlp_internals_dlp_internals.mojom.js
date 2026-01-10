@@ -414,8 +414,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getClipboardDataSource();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -426,8 +425,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getContentRestrictionsInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -443,8 +441,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getFilesDatabaseEntries();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -455,8 +452,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getFileInode(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec);
                responder(response);
             }});
           }

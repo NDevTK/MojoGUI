@@ -402,8 +402,7 @@ blink.mojom.AILanguageModelReceiver = class {
           const result = this.impl.measureInputUsage(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec);
                responder(response);
             }});
           }

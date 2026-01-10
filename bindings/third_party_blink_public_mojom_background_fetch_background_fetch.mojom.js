@@ -409,8 +409,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
           const result = this.impl.fetch(params.service_worker_registration_id, params.developer_id, params.requests, params.options, params.icon, params.ukm_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -421,8 +420,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
           const result = this.impl.getRegistration(params.service_worker_registration_id, params.developer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -433,8 +431,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
           const result = this.impl.getDeveloperIds(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -445,8 +442,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
           const result = this.impl.getIconDisplaySize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -607,8 +603,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
           const result = this.impl.updateUI(params.title, params.icon);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -619,8 +614,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
           const result = this.impl.abort();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -631,8 +625,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
           const result = this.impl.matchRequests(params.request_to_match, params.cache_query_options, params.match_all);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec);
                responder(response);
             }});
           }

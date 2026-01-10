@@ -194,8 +194,7 @@ blink.mojom.SubAppsServiceReceiver = class {
           const result = this.impl.add(params.sub_apps_to_add);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SubAppsService_Add_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SubAppsService_Add_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -206,8 +205,7 @@ blink.mojom.SubAppsServiceReceiver = class {
           const result = this.impl.list();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SubAppsService_List_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SubAppsService_List_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -218,8 +216,7 @@ blink.mojom.SubAppsServiceReceiver = class {
           const result = this.impl.remove(params.manifest_id_paths);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SubAppsService_Remove_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SubAppsService_Remove_ResponseParamsSpec);
                responder(response);
             }});
           }

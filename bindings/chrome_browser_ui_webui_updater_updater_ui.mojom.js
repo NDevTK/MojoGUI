@@ -187,8 +187,7 @@ updater_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.getAllUpdaterEvents();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec);
                responder(response);
             }});
           }

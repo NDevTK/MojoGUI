@@ -312,8 +312,7 @@ device.mojom.NFCReceiver = class {
           const result = this.impl.push(params.message, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.NFC_Push_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.NFC_Push_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -329,8 +328,7 @@ device.mojom.NFCReceiver = class {
           const result = this.impl.makeReadOnly();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.NFC_MakeReadOnly_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.NFC_MakeReadOnly_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -346,8 +344,7 @@ device.mojom.NFCReceiver = class {
           const result = this.impl.watch(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.NFC_Watch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.NFC_Watch_ResponseParamsSpec);
                responder(response);
             }});
           }

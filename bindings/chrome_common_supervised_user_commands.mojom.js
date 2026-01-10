@@ -160,8 +160,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
           const result = this.impl.requestUrlAccessRemote();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -172,8 +171,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
           const result = this.impl.requestUrlAccessLocal();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -184,8 +182,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
           const result = this.impl.learnMore();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec);
                responder(response);
             }});
           }

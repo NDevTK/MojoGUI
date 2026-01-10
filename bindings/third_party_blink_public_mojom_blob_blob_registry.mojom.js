@@ -217,8 +217,7 @@ blink.mojom.BlobRegistryReceiver = class {
           const result = this.impl.register(params.blob, params.uuid, params.content_type, params.content_disposition, params.elements);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BlobRegistry_Register_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BlobRegistry_Register_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -229,8 +228,7 @@ blink.mojom.BlobRegistryReceiver = class {
           const result = this.impl.registerFromStream(params.content_type, params.content_disposition, params.length_hint, params.data, params.progress_client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec);
                responder(response);
             }});
           }

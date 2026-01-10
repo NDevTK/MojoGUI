@@ -251,8 +251,7 @@ chrome.mojom.MediaParserReceiver = class {
           const result = this.impl.parseMediaMetadata(params.mime_type, params.total_size, params.get_attached_images, params.media_data_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -263,8 +262,7 @@ chrome.mojom.MediaParserReceiver = class {
           const result = this.impl.extractVideoFrame(params.mime_type, params.total_size, params.media_data_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -275,8 +273,7 @@ chrome.mojom.MediaParserReceiver = class {
           const result = this.impl.checkMediaFile(params.decode_time, params.file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -287,8 +284,7 @@ chrome.mojom.MediaParserReceiver = class {
           const result = this.impl.getCpuInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -388,8 +384,7 @@ chrome.mojom.MediaParserFactoryReceiver = class {
           const result = this.impl.createMediaParser(params.libyuv_cpu_flags, params.libavutil_cpu_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -489,8 +484,7 @@ chrome.mojom.MediaDataSourceReceiver = class {
           const result = this.impl.read(params.position, params.length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.MediaDataSource_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaDataSource_Read_ResponseParamsSpec);
                responder(response);
             }});
           }

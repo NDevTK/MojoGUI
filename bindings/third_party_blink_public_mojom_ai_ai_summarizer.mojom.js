@@ -159,8 +159,7 @@ blink.mojom.AISummarizerReceiver = class {
           const result = this.impl.measureUsage(params.input, params.context);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec);
                responder(response);
             }});
           }

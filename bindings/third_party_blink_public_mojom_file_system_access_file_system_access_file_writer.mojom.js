@@ -167,8 +167,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
           const result = this.impl.write(params.offset, params.stream);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -179,8 +178,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
           const result = this.impl.truncate(params.length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -191,8 +189,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -203,8 +200,7 @@ blink.mojom.FileSystemAccessFileWriterReceiver = class {
           const result = this.impl.abort();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -173,8 +173,7 @@ blink.mojom.ManifestManagerReceiver = class {
           const result = this.impl.requestManifest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -190,8 +189,7 @@ blink.mojom.ManifestManagerReceiver = class {
           const result = this.impl.requestManifestDebugInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -202,8 +200,7 @@ blink.mojom.ManifestManagerReceiver = class {
           const result = this.impl.parseManifestFromString(params.document_url, params.manifest_url, params.manifest_content);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec);
                responder(response);
             }});
           }

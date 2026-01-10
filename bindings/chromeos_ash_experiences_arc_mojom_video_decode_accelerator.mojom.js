@@ -280,8 +280,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
           const result = this.impl.initialize(params.config, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -312,8 +311,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -324,8 +322,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec);
                responder(response);
             }});
           }

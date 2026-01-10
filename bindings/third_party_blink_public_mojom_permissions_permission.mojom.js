@@ -604,8 +604,7 @@ blink.mojom.PermissionServiceReceiver = class {
           const result = this.impl.hasPermission(params.permission);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PermissionService_HasPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_HasPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -621,8 +620,7 @@ blink.mojom.PermissionServiceReceiver = class {
           const result = this.impl.requestPageEmbeddedPermission(params.permissions, params.descriptor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -633,8 +631,7 @@ blink.mojom.PermissionServiceReceiver = class {
           const result = this.impl.requestPermission(params.permission, params.user_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -645,8 +642,7 @@ blink.mojom.PermissionServiceReceiver = class {
           const result = this.impl.requestPermissions(params.permission, params.user_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -657,8 +653,7 @@ blink.mojom.PermissionServiceReceiver = class {
           const result = this.impl.revokePermission(params.permission);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec);
                responder(response);
             }});
           }

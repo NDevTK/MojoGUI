@@ -141,8 +141,7 @@ ash.babelorca.mojom.TachyonParsingServiceReceiver = class {
           const result = this.impl.parse(params.stream_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec);
                responder(response);
             }});
           }

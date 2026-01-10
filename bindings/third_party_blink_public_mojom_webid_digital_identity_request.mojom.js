@@ -170,8 +170,7 @@ blink.mojom.DigitalIdentityRequestReceiver = class {
           const result = this.impl.get(params.digital_credential_requests);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -182,8 +181,7 @@ blink.mojom.DigitalIdentityRequestReceiver = class {
           const result = this.impl.create(params.digital_credential_requests);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec);
                responder(response);
             }});
           }

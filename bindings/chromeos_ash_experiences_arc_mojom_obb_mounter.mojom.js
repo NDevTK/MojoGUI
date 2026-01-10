@@ -125,8 +125,7 @@ arc.mojom.ObbMounterHostReceiver = class {
           const result = this.impl.mountObb(params.obb_file, params.target_path, params.owner_gid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -137,8 +136,7 @@ arc.mojom.ObbMounterHostReceiver = class {
           const result = this.impl.unmountObb(params.target_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -236,8 +234,7 @@ arc.mojom.ObbMounterInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

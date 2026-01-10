@@ -323,8 +323,7 @@ mojom.OmniboxPageHandlerReceiver = class {
           const result = this.impl.getMlModelVersion();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -335,8 +334,7 @@ mojom.OmniboxPageHandlerReceiver = class {
           const result = this.impl.startMl(params.signals);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec);
                responder(response);
             }});
           }

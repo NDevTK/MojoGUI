@@ -368,8 +368,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.doSomething();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_DoSomething_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_DoSomething_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -380,8 +379,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.doTerminateProcess();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -392,8 +390,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.doCrashImmediately();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -404,8 +401,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.createFolder();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_CreateFolder_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateFolder_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -416,8 +412,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.getRequestorName();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_GetRequestorName_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_GetRequestorName_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -428,8 +423,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.createReadOnlySharedMemoryRegion(params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -440,8 +434,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.createWritableSharedMemoryRegion(params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -452,8 +445,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.createUnsafeSharedMemoryRegion(params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -464,8 +456,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.cloneSharedMemoryContents(params.region);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -476,8 +467,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.isProcessSandboxed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -488,8 +478,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.pseudonymizeString(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_PseudonymizeString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_PseudonymizeString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -500,8 +489,7 @@ content.mojom.TestServiceReceiver = class {
           const result = this.impl.passWriteableFile(params.file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.TestService_PassWriteableFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_PassWriteableFile_ResponseParamsSpec);
                responder(response);
             }});
           }

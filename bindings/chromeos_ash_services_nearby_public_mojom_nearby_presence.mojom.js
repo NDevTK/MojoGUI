@@ -556,8 +556,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           const result = this.impl.startScan(params.scan_request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -578,8 +577,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.metadata);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -590,8 +588,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           const result = this.impl.updateRemoteSharedCredentials(params.shared_credentials, params.account_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -602,8 +599,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           const result = this.impl.getLocalSharedCredentials(params.account_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec);
                responder(response);
             }});
           }

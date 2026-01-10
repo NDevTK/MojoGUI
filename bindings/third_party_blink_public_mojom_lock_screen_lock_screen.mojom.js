@@ -127,8 +127,7 @@ blink.mojom.LockScreenServiceReceiver = class {
           const result = this.impl.getKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -139,8 +138,7 @@ blink.mojom.LockScreenServiceReceiver = class {
           const result = this.impl.setData(params.key, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LockScreenService_SetData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LockScreenService_SetData_ResponseParamsSpec);
                responder(response);
             }});
           }

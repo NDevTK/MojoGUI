@@ -152,8 +152,7 @@ arc.mojom.AppfuseHostReceiver = class {
           const result = this.impl.mount(params.uid, params.mount_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppfuseHost_Mount_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseHost_Mount_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -164,8 +163,7 @@ arc.mojom.AppfuseHostReceiver = class {
           const result = this.impl.unmount(params.uid, params.mount_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -176,8 +174,7 @@ arc.mojom.AppfuseHostReceiver = class {
           const result = this.impl.openFile(params.uid, params.mount_id, params.file_id, params.flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -275,8 +272,7 @@ arc.mojom.AppfuseInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AppfuseInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AppfuseInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

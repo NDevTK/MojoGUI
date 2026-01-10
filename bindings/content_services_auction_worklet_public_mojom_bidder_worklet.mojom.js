@@ -267,8 +267,7 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
           const result = this.impl.onBiddingSignalsReceived(params.priority_vector, params.trusted_signals_fetch_latency, params.update_if_older_than);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -578,8 +577,7 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
           const result = this.impl.reportWin(params.is_for_additional_bid, params.interest_group_name_reporting_id, params.buyer_reporting_id, params.buyer_and_seller_reporting_id, params.selected_buyer_and_seller_reporting_id, params.auction_signals_json, params.per_buyer_signals_json, params.direct_from_seller_per_buyer_signals, params.direct_from_seller_per_buyer_signals_header_ad_slot, params.direct_from_seller_auction_signals, params.direct_from_seller_auction_signals_header_ad_slot, params.seller_signals_json, params.kanon_status, params.browser_signal_render_url, params.browser_signal_bid, params.browser_signal_bid_currency, params.browser_signal_highest_scoring_other_bid, params.browser_signal_highest_scoring_other_bid_currency, params.browser_signal_made_highest_scoring_other_bid, params.browser_signal_ad_cost, params.browser_signal_modeling_signals, params.browser_signal_join_count, params.browser_signal_recency, params.browser_signal_seller_origin, params.browser_signal_top_level_seller_origin, params.browser_signal_reporting_timeout, params.bidding_signals_data_version, params.aggregate_win_signals, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec);
                responder(response);
             }});
           }

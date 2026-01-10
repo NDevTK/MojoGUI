@@ -444,8 +444,7 @@ ash.eche_app.mojom.SystemInfoProviderReceiver = class {
           const result = this.impl.getSystemInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -720,8 +719,7 @@ ash.eche_app.mojom.AccessibilityProviderReceiver = class {
           const result = this.impl.isAccessibilityEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -884,8 +882,7 @@ ash.eche_app.mojom.AccessibilityObserverReceiver = class {
           const result = this.impl.performAction(params.serialized_proto);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -896,8 +893,7 @@ ash.eche_app.mojom.AccessibilityObserverReceiver = class {
           const result = this.impl.refreshWithExtraData(params.refresh_data_proto);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -995,8 +991,7 @@ ash.eche_app.mojom.UidGeneratorReceiver = class {
           const result = this.impl.getUid();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec);
                responder(response);
             }});
           }

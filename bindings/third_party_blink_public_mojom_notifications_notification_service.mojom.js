@@ -155,8 +155,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
           const result = this.impl.onClick();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -167,8 +166,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
           const result = this.impl.onClose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -366,8 +364,7 @@ blink.mojom.NotificationServiceReceiver = class {
           const result = this.impl.getPermissionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -388,8 +385,7 @@ blink.mojom.NotificationServiceReceiver = class {
           const result = this.impl.displayPersistentNotification(params.service_worker_registration_id, params.notification_data, params.notification_resources);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -405,8 +401,7 @@ blink.mojom.NotificationServiceReceiver = class {
           const result = this.impl.getNotifications(params.service_worker_registration_id, params.filter_tag, params.include_triggered);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -286,8 +286,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
           const result = this.impl.sign(params.algorithm, params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -695,8 +694,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
           const result = this.impl.onSSLCertificateError(params.url, params.net_error, params.ssl_info, params.fatal);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -717,8 +715,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
           const result = this.impl.onLocalNetworkAccessPermissionRequired(params.transport_type, params.ip_address_space);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -729,8 +726,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
           const result = this.impl.onClearSiteData(params.url, params.header_value, params.load_flags, params.cookie_partition_key, params.partitioned_state_allowed_only);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -741,8 +737,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
           const result = this.impl.onLoadingStateUpdate(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -758,8 +753,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
           const result = this.impl.onSharedStorageHeaderReceived(params.request_origin, params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec);
                responder(response);
             }});
           }

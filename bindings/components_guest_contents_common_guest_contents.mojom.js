@@ -98,8 +98,7 @@ guest_contents.mojom.GuestContentsHostReceiver = class {
           const result = this.impl.attach(params.frame_to_swap, params.guest_contents_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec);
                responder(response);
             }});
           }

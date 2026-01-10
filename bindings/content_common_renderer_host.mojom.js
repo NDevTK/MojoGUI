@@ -169,8 +169,7 @@ content.mojom.RendererHostReceiver = class {
           const result = this.impl.getBrowserHistogram(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -196,8 +195,7 @@ content.mojom.RendererHostReceiver = class {
           const result = this.impl.hasGpuProcess();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec);
                responder(response);
             }});
           }

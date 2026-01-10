@@ -127,8 +127,7 @@ page_image_service.mojom.PageImageServiceHandlerReceiver = class {
           const result = this.impl.getPageImageUrl(params.client_id, params.page_url, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec);
                responder(response);
             }});
           }

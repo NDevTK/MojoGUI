@@ -148,8 +148,7 @@ network.mojom.NetLogExporterReceiver = class {
           const result = this.impl.start(params.destination, params.extra_constants, params.capture_mode, params.max_file_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetLogExporter_Start_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetLogExporter_Start_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -160,8 +159,7 @@ network.mojom.NetLogExporterReceiver = class {
           const result = this.impl.stop(params.polled_values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetLogExporter_Stop_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetLogExporter_Stop_ResponseParamsSpec);
                responder(response);
             }});
           }

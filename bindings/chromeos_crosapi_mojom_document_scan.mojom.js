@@ -587,8 +587,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           const result = this.impl.openScanner(params.client_id, params.scanner_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -599,8 +598,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           const result = this.impl.closeScanner(params.scanner_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -611,8 +609,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           const result = this.impl.startPreparedScan(params.scanner_handle, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -623,8 +620,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           const result = this.impl.readScanData(params.job_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -635,8 +631,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           const result = this.impl.setOptions(params.scanner_handle, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -647,8 +642,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           const result = this.impl.getOptionGroups(params.scanner_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -659,8 +653,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           const result = this.impl.cancelScan(params.job_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec);
                responder(response);
             }});
           }

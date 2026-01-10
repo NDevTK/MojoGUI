@@ -410,8 +410,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
           const result = this.impl.requestChromeMemoryDump(params.args);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -422,8 +421,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
           const result = this.impl.requestOSMemoryDump(params.option, params.flags, params.pids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -523,8 +521,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
           const result = this.impl.dumpProcessesForTracing(params.strip_path_from_mapped_files, params.write_proto);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -623,8 +620,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
           const result = this.impl.getVmRegionsForHeapProfiler(params.pids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -799,8 +795,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           const result = this.impl.requestGlobalMemoryDump(params.dump_type, params.level_of_detail, params.determinism, params.allocator_dump_names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -811,8 +806,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           const result = this.impl.requestGlobalMemoryDumpForPid(params.pid, params.allocator_dump_names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -823,8 +817,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           const result = this.impl.requestPrivateMemoryFootprint(params.pid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -835,8 +828,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.dump_type, params.level_of_detail, params.determinism);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec);
                responder(response);
             }});
           }

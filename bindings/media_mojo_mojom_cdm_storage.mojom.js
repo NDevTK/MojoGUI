@@ -117,8 +117,7 @@ media.mojom.CdmStorageReceiver = class {
           const result = this.impl.open(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmStorage_Open_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmStorage_Open_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -239,8 +238,7 @@ media.mojom.CdmFileReceiver = class {
           const result = this.impl.read();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmFile_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmFile_Read_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -251,8 +249,7 @@ media.mojom.CdmFileReceiver = class {
           const result = this.impl.write(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmFile_Write_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmFile_Write_ResponseParamsSpec);
                responder(response);
             }});
           }

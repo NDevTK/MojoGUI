@@ -315,8 +315,7 @@ content.mojom.InputInjectorReceiver = class {
           const result = this.impl.queueSyntheticSmoothDrag(params.drag);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -327,8 +326,7 @@ content.mojom.InputInjectorReceiver = class {
           const result = this.impl.queueSyntheticSmoothScroll(params.scroll);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -339,8 +337,7 @@ content.mojom.InputInjectorReceiver = class {
           const result = this.impl.queueSyntheticPinch(params.pinch);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -351,8 +348,7 @@ content.mojom.InputInjectorReceiver = class {
           const result = this.impl.queueSyntheticTap(params.tap);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -363,8 +359,7 @@ content.mojom.InputInjectorReceiver = class {
           const result = this.impl.queueSyntheticPointerAction(params.pointer_action);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec);
                responder(response);
             }});
           }

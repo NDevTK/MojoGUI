@@ -135,8 +135,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
           const result = this.impl.connectToImeEngine(params.ime_spec, params.to_engine_request, params.from_engine, params.extra);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -147,8 +146,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
           const result = this.impl.initializeConnectionFactory(params.connection_factory);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -248,8 +246,7 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
           const result = this.impl.downloadImeFileTo(params.url, params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -961,8 +961,7 @@ blink.mojom.IDBCursorReceiver = class {
           const result = this.impl.advance(params.count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBCursor_Advance_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBCursor_Advance_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -973,8 +972,7 @@ blink.mojom.IDBCursorReceiver = class {
           const result = this.impl.continue(params.key, params.primary_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBCursor_Continue_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBCursor_Continue_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -985,8 +983,7 @@ blink.mojom.IDBCursorReceiver = class {
           const result = this.impl.prefetch(params.count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1188,8 +1185,7 @@ blink.mojom.IDBTransactionReceiver = class {
           const result = this.impl.put(params.object_store_id, params.value, params.key, params.mode, params.index_keys);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBTransaction_Put_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBTransaction_Put_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1739,8 +1735,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           const result = this.impl.get(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.key_only);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBDatabase_Get_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_Get_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1751,8 +1746,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           const result = this.impl.getAll(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.result_type, params.max_count, params.direction);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1763,8 +1757,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           const result = this.impl.openCursor(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.direction, params.key_only, params.task_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1775,8 +1768,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           const result = this.impl.count(params.transaction_id, params.object_store_id, params.index_id, params.key_range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBDatabase_Count_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_Count_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1787,8 +1779,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           const result = this.impl.deleteRange(params.transaction_id, params.object_store_id, params.key_range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1799,8 +1790,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           const result = this.impl.getKeyGeneratorCurrentNumber(params.transaction_id, params.object_store_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1811,8 +1801,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           const result = this.impl.clear(params.transaction_id, params.object_store_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBDatabase_Clear_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_Clear_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1981,8 +1970,7 @@ blink.mojom.IDBFactoryReceiver = class {
           const result = this.impl.getDatabaseInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

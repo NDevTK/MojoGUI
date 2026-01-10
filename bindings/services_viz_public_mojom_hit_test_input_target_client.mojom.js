@@ -98,8 +98,7 @@ viz.mojom.InputTargetClientReceiver = class {
           const result = this.impl.frameSinkIdAt(params.point, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec);
                responder(response);
             }});
           }

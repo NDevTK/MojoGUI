@@ -182,8 +182,7 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
           const result = this.impl.detectCornersFromNV12Image(params.nv12_image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -194,8 +193,7 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
           const result = this.impl.detectCornersFromJPEGImage(params.jpeg_image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -206,8 +204,7 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
           const result = this.impl.doPostProcessing(params.jpeg_image, params.corners, params.rotation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec);
                responder(response);
             }});
           }

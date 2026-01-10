@@ -142,8 +142,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
           const result = this.impl.getUniqueNameLookupTable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -154,8 +153,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
           const result = this.impl.matchLocalFontByUniqueName(params.font_unique_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -166,8 +164,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
           const result = this.impl.fetchAllFontFiles();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -607,8 +607,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
           const result = this.impl.requestMouseLock(params.from_user_gesture, params.unadjusted_movement);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1280,8 +1279,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const result = this.impl.handleStylusWritingGestureAction(params.gesture_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1372,8 +1370,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const result = this.impl.selectAroundCaret(params.granularity, params.should_show_handle, params.should_show_context_menu);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1394,8 +1391,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const result = this.impl.waitForPageScaleAnimationForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1421,8 +1417,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const result = this.impl.rectForEditFieldChars(params.range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1816,8 +1811,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
           const result = this.impl.imeSetComposition(params.text, params.ime_text_spans, params.range, params.start, params.end, params.ime_state);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1828,8 +1822,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
           const result = this.impl.imeCommitText(params.text, params.ime_text_spans, params.range, params.relative_cursor_position);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1855,8 +1848,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
           const result = this.impl.dispatchEvent(params.event, params.original_event_for_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1872,8 +1864,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
           const result = this.impl.waitForInputProcessed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1884,8 +1875,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
           const result = this.impl.pingMainThread();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec);
                responder(response);
             }});
           }

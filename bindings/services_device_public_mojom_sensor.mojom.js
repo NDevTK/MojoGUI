@@ -227,8 +227,7 @@ device.mojom.SensorReceiver = class {
           const result = this.impl.getDefaultConfiguration();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -239,8 +238,7 @@ device.mojom.SensorReceiver = class {
           const result = this.impl.addConfiguration(params.configuration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.Sensor_AddConfiguration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Sensor_AddConfiguration_ResponseParamsSpec);
                responder(response);
             }});
           }

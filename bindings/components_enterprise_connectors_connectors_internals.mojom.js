@@ -311,8 +311,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDeviceTrustState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -323,8 +322,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.deleteDeviceTrustKey();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -335,8 +333,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getClientCertificateState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -347,8 +344,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getSignalsReportingState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec);
                responder(response);
             }});
           }

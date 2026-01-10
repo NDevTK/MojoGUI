@@ -235,8 +235,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const result = this.impl.addFolder(params.name, params.add_to_front);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -247,8 +246,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const result = this.impl.addApp(params.source_id, params.name, params.folder_id, params.icon_url, params.add_to_front);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -259,8 +257,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const result = this.impl.deleteApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -271,8 +268,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const result = this.impl.sortLauncherWithRemoteAppsFirst();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -283,8 +279,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const result = this.impl.setPinnedApps(params.app_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec);
                responder(response);
             }});
           }

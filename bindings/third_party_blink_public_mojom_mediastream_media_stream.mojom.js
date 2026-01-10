@@ -800,8 +800,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const result = this.impl.generateStreams(params.request_id, params.controls, params.user_gesture, params.audio_stream_selection_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -827,8 +826,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const result = this.impl.openDevice(params.request_id, params.device_id, params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -849,8 +847,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const result = this.impl.applySubCaptureTarget(params.session_id, params.type, params.sub_capture_target, params.sub_capture_target_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -866,8 +863,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const result = this.impl.updateZoomLevel(params.session_id, params.action);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -878,8 +874,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const result = this.impl.requestCapturedSurfaceControlPermission(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -890,8 +885,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const result = this.impl.getOpenDevice(params.request_id, params.session_id, params.transfer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -902,8 +896,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const result = this.impl.keepDeviceAliveForTransfer(params.session_id, params.transfer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec);
                responder(response);
             }});
           }

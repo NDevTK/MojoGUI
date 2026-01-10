@@ -406,8 +406,7 @@ reading_list.mojom.PageHandlerReceiver = class {
           const result = this.impl.getReadLaterEntries();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -463,8 +462,7 @@ reading_list.mojom.PageHandlerReceiver = class {
           const result = this.impl.getWindowData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec);
                responder(response);
             }});
           }

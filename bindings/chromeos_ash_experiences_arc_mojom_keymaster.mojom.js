@@ -362,8 +362,7 @@ arc.mojom.KeymasterHostReceiver = class {
           const result = this.impl.getServer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -461,8 +460,7 @@ arc.mojom.KeymasterInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -846,8 +844,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.addRngEntropy(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -858,8 +855,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.getKeyCharacteristics(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -870,8 +866,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.generateKey(params.key_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -882,8 +877,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.importKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -894,8 +888,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.exportKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -906,8 +899,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.attestKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -918,8 +910,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.upgradeKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -930,8 +921,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.deleteKey(params.key_blob);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -942,8 +932,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.deleteAllKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -954,8 +943,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.begin(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_Begin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Begin_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -966,8 +954,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.update(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_Update_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Update_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -978,8 +965,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.finish(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_Finish_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Finish_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -990,8 +976,7 @@ arc.mojom.KeymasterServerReceiver = class {
           const result = this.impl.abort(params.op_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.KeymasterServer_Abort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.KeymasterServer_Abort_ResponseParamsSpec);
                responder(response);
             }});
           }

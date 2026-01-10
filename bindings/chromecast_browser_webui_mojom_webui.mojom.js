@@ -304,8 +304,7 @@ chromecast.mojom.ResourcesReceiver = class {
           const result = this.impl.requestResourceBytes(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec);
                responder(response);
             }});
           }

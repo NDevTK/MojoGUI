@@ -251,8 +251,7 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
           const result = this.impl.enqueue(params.record, params.priority);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec);
                responder(response);
             }});
           }

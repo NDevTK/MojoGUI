@@ -95,8 +95,7 @@ tracing.mojom.SystemTracingServiceReceiver = class {
           const result = this.impl.openProducerSocket();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec);
                responder(response);
             }});
           }

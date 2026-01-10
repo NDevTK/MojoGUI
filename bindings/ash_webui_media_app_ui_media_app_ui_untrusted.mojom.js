@@ -235,8 +235,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
           const result = this.impl.isMantisAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -247,8 +246,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
           const result = this.impl.createMantisUntrustedService(params.page, params.dlc_uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -509,8 +507,7 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
           const result = this.impl.requestBitmap(params.requestedPageId);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -788,8 +785,7 @@ ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
           const result = this.impl.getPdfContent(params.limit);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1006,8 +1002,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           const result = this.impl.segmentImage(params.image, params.selection);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1018,8 +1013,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           const result = this.impl.generativeFillImage(params.image, params.mask, params.text, params.seed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1030,8 +1024,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           const result = this.impl.inpaintImage(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1042,8 +1035,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           const result = this.impl.outpaintImage(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1054,8 +1046,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           const result = this.impl.classifyImageSafety(params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1066,8 +1057,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           const result = this.impl.inferSegmentationMode(params.gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -719,8 +719,7 @@ app_management.mojom.PageHandlerReceiver = class {
           const result = this.impl.getApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_management.mojom.PageHandler_GetApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetApps_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -731,8 +730,7 @@ app_management.mojom.PageHandlerReceiver = class {
           const result = this.impl.getApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_management.mojom.PageHandler_GetApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -743,8 +741,7 @@ app_management.mojom.PageHandlerReceiver = class {
           const result = this.impl.getSubAppToParentMap();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -755,8 +752,7 @@ app_management.mojom.PageHandlerReceiver = class {
           const result = this.impl.getExtensionAppPermissionMessages(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -797,8 +793,7 @@ app_management.mojom.PageHandlerReceiver = class {
           const result = this.impl.getOverlappingPreferredApps(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec);
                responder(response);
             }});
           }

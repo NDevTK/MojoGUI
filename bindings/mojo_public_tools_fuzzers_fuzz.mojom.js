@@ -458,8 +458,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
           const result = this.impl.fuzzBasicResp();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -470,8 +469,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
           const result = this.impl.fuzzBasicSyncResp();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -487,8 +485,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
           const result = this.impl.fuzzArgsResp(params.a, params.b);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -499,8 +496,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
           const result = this.impl.fuzzArgsSyncResp(params.a, params.b);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec);
                responder(response);
             }});
           }

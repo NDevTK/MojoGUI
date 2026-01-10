@@ -413,8 +413,7 @@ autofill.mojom.AutofillAgentReceiver = class {
           const result = this.impl.triggerFormExtractionWithResponse();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -435,8 +434,7 @@ autofill.mojom.AutofillAgentReceiver = class {
           const result = this.impl.extractFormWithField(params.field_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -447,8 +445,7 @@ autofill.mojom.AutofillAgentReceiver = class {
           const result = this.impl.extractLabeledTextNodeValue(params.value_regex, params.label_regex, params.number_of_ancestor_levels_to_search);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -499,8 +496,7 @@ autofill.mojom.AutofillAgentReceiver = class {
           const result = this.impl.getPotentialLastFourCombinationsForStandaloneCvc();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -834,8 +830,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
           const result = this.impl.fillPasswordSuggestion(params.username, params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -871,8 +866,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
           const result = this.impl.fillField(params.field_id, params.value, params.field_properties);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -883,8 +877,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
           const result = this.impl.fillChangePasswordForm(params.password_element_id, params.new_password_element_id, params.confirm_password_element_id, params.old_password, params.new_password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -910,8 +903,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
           const result = this.impl.checkViewAreaVisible(params.field_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1081,8 +1073,7 @@ autofill.mojom.PasswordGenerationAgentReceiver = class {
           const result = this.impl.triggeredGeneratePassword();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec);
                responder(response);
             }});
           }

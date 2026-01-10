@@ -275,8 +275,7 @@ blink.mojom.TranslationManagerReceiver = class {
           const result = this.impl.translationAvailable(params.source_lang, params.target_lang);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }

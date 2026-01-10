@@ -114,8 +114,7 @@ network.mojom.AcceptCHFrameObserverReceiver = class {
           const result = this.impl.onAcceptCHFrameReceived(params.origin, params.accept_ch_frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec);
                responder(response);
             }});
           }

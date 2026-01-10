@@ -406,8 +406,7 @@ device.mojom.SmartCardTransactionReceiver = class {
           const result = this.impl.endTransaction(params.disposition);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -639,8 +638,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           const result = this.impl.disconnect(params.disposition);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -651,8 +649,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           const result = this.impl.transmit(params.protocol, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -663,8 +660,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           const result = this.impl.control(params.control_code, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Control_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Control_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -675,8 +671,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           const result = this.impl.getAttrib(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -687,8 +682,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           const result = this.impl.setAttrib(params.id, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -699,8 +693,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           const result = this.impl.status();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Status_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_Status_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -711,8 +704,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           const result = this.impl.beginTransaction();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -965,8 +957,7 @@ device.mojom.SmartCardContextReceiver = class {
           const result = this.impl.listReaders();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -977,8 +968,7 @@ device.mojom.SmartCardContextReceiver = class {
           const result = this.impl.getStatusChange(params.timeout, params.reader_states);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -989,8 +979,7 @@ device.mojom.SmartCardContextReceiver = class {
           const result = this.impl.cancel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardContext_Cancel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_Cancel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1001,8 +990,7 @@ device.mojom.SmartCardContextReceiver = class {
           const result = this.impl.connect(params.reader, params.share_mode, params.preferred_protocols, params.connection_watcher);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardContext_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContext_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1100,8 +1088,7 @@ device.mojom.SmartCardContextFactoryReceiver = class {
           const result = this.impl.createContext();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec);
                responder(response);
             }});
           }

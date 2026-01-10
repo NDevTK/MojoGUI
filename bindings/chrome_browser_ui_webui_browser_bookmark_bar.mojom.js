@@ -230,8 +230,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
           const result = this.impl.getBookmarkBar();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec);
                responder(response);
             }});
           }

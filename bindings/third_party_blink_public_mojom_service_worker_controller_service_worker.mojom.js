@@ -149,8 +149,7 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
           const result = this.impl.dispatchFetchEventForSubresource(params.params, params.response_callback);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -97,8 +97,7 @@ data_decoder.mojom.CborParserReceiver = class {
           const result = this.impl.parse(params.cbor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_decoder.mojom.CborParser_Parse_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.CborParser_Parse_ResponseParamsSpec);
                responder(response);
             }});
           }

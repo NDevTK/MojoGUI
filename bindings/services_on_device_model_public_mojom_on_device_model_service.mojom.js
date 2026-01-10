@@ -407,8 +407,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
           const result = this.impl.loadModel(params.params, params.model);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -419,8 +418,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
           const result = this.impl.getCapabilities(params.weights);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -436,8 +434,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
           const result = this.impl.getDeviceAndPerformanceInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -629,8 +626,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           const result = this.impl.loadPlatformModel(params.uuid, params.model, params.progress_observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -641,8 +637,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           const result = this.impl.getPlatformModelState(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -653,8 +648,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           const result = this.impl.getEstimatedPerformanceClass();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -665,8 +659,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           const result = this.impl.formatInput(params.uuid, params.feature, params.fields);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -677,8 +670,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec);
                responder(response);
             }});
           }

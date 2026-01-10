@@ -846,8 +846,7 @@ arc.mojom.IntentHelperHostReceiver = class {
           const result = this.impl.onOpenCustomTab(params.url, params.task_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -898,8 +897,7 @@ arc.mojom.IntentHelperHostReceiver = class {
           const result = this.impl.isChromeAppEnabled(params.app);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1339,8 +1337,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1351,8 +1348,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           const result = this.impl.requestActivityIcons(params.activities, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1363,8 +1359,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           const result = this.impl.requestIntentHandlerList(params.intent);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1375,8 +1370,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           const result = this.impl.requestUrlHandlerList(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1387,8 +1381,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           const result = this.impl.requestUrlListHandlerList(params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1404,8 +1397,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           const result = this.impl.requestTextSelectionActions(params.text, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1416,8 +1408,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec);
                responder(response);
             }});
           }

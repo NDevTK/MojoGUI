@@ -176,8 +176,7 @@ discards.mojom.SiteDataProviderReceiver = class {
           const result = this.impl.getSiteDataArray(params.explicitly_requested_origins);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -188,8 +187,7 @@ discards.mojom.SiteDataProviderReceiver = class {
           const result = this.impl.getSiteDataDatabaseSize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec);
                responder(response);
             }});
           }

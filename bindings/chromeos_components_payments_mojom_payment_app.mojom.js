@@ -168,8 +168,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
           const result = this.impl.isPaymentImplemented(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -180,8 +179,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
           const result = this.impl.isReadyToPay(params.parameters);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -192,8 +190,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
           const result = this.impl.invokePaymentApp(params.parameters);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -204,8 +201,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
           const result = this.impl.abortPaymentApp(params.request_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec);
                responder(response);
             }});
           }

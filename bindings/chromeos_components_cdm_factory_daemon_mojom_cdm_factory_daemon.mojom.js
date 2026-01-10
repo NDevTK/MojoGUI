@@ -178,8 +178,7 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
           const result = this.impl.createCdm(params.client, params.storage, params.output_protection, params.host, params.cdm);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -455,8 +454,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const result = this.impl.createFactory(params.key_system);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -482,8 +480,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -499,8 +496,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const result = this.impl.getHdcp14Key();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -511,8 +507,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -523,8 +518,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -535,8 +529,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec);
                responder(response);
             }});
           }

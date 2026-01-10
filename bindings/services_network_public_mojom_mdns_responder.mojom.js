@@ -121,8 +121,7 @@ network.mojom.MdnsResponderReceiver = class {
           const result = this.impl.createNameForAddress(params.address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -133,8 +132,7 @@ network.mojom.MdnsResponderReceiver = class {
           const result = this.impl.removeNameForAddress(params.address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec);
                responder(response);
             }});
           }

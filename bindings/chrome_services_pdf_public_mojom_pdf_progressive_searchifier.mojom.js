@@ -140,8 +140,7 @@ pdf.mojom.PdfProgressiveSearchifierReceiver = class {
           const result = this.impl.save();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec);
                responder(response);
             }});
           }

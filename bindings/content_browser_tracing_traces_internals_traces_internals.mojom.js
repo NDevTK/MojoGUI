@@ -707,8 +707,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.startTraceSession(params.config_pb, params.enable_privacy_filters);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -719,8 +718,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.cloneTraceSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -731,8 +729,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.stopTraceSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -743,8 +740,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getTrackEventCategories();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -755,8 +751,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getBufferUsage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -767,8 +762,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getAllTraceReports();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -779,8 +773,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.deleteSingleTrace(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -791,8 +784,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.deleteAllTraces();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -803,8 +795,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.userUploadSingleTrace(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -815,8 +806,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.downloadTrace(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -827,8 +817,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getAllScenarios();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -839,8 +828,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.setEnabledScenarios(params.new_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -851,8 +839,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.setScenariosConfigFromString(params.config_string);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -863,8 +850,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.setScenariosConfigFromBuffer(params.config_pb);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -875,8 +861,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getPrivacyFilterEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -892,8 +877,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getSystemTracingState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -904,8 +888,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getSecurityShieldIconUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -916,8 +899,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.enableSystemTracing();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -928,8 +910,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.disableSystemTracing();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec);
                responder(response);
             }});
           }

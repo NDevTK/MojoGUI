@@ -130,8 +130,7 @@ content.mojom.RenderMessageFilterReceiver = class {
           const result = this.impl.generateSingleFrameRoutingInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -142,8 +141,7 @@ content.mojom.RenderMessageFilterReceiver = class {
           const result = this.impl.generateFrameRoutingInfos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec);
                responder(response);
             }});
           }

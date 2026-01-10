@@ -1211,8 +1211,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.fetchCollections();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1223,8 +1222,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.fetchImagesForCollection(params.collection_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1235,8 +1233,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.fetchGooglePhotosAlbums(params.resume_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1247,8 +1244,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.fetchGooglePhotosSharedAlbums(params.resume_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1259,8 +1255,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.fetchGooglePhotosEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1271,8 +1266,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.fetchGooglePhotosPhotos(params.item_id, params.album_id, params.resume_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1283,8 +1277,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.getLocalImages();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1295,8 +1288,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.getDefaultImageThumbnail();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1307,8 +1299,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.getLocalImageThumbnail(params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1324,8 +1315,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.selectWallpaper(params.unit_id, params.preview_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1336,8 +1326,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.selectDefaultImage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1348,8 +1337,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.selectLocalImage(params.path, params.layout, params.preview_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1360,8 +1348,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.selectGooglePhotosPhoto(params.id, params.layout, params.preview_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1372,8 +1359,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.selectGooglePhotosAlbum(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1384,8 +1370,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.getGooglePhotosDailyRefreshAlbumId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1401,8 +1386,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.setDailyRefreshCollectionId(params.collection_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1413,8 +1397,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.getDailyRefreshCollectionId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1425,8 +1408,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.updateDailyRefreshWallpaper();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1437,8 +1419,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.isInTabletMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1459,8 +1440,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           const result = this.impl.shouldShowTimeOfDayWallpaperDialog();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2024,8 +2004,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           const result = this.impl.getColorScheme();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2036,8 +2015,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           const result = this.impl.getStaticColor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2048,8 +2026,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           const result = this.impl.generateSampleColorSchemes();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2060,8 +2037,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           const result = this.impl.isColorModeAutoScheduleEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2072,8 +2048,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           const result = this.impl.isDarkModeEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2084,8 +2059,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           const result = this.impl.isGeolocationEnabledForSystemServices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2096,8 +2070,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           const result = this.impl.isGeolocationUserModifiable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2464,8 +2437,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
           const result = this.impl.getUserInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2476,8 +2448,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
           const result = this.impl.getDefaultUserImages();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3129,8 +3100,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
           const result = this.impl.isAmbientModeEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3191,8 +3161,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
           const result = this.impl.shouldShowTimeOfDayBanner();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3208,8 +3177,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
           const result = this.impl.isGeolocationEnabledForSystemServices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3220,8 +3188,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
           const result = this.impl.isGeolocationUserModifiable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3511,8 +3478,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
           const result = this.impl.shouldShowNudge();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec);
                responder(response);
             }});
           }

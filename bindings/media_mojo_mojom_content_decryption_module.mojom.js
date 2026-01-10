@@ -335,8 +335,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.setServerCertificate(params.certificate_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -347,8 +346,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.getStatusForPolicy(params.min_hdcp_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -359,8 +357,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.createSessionAndGenerateRequest(params.session_type, params.init_data_type, params.init_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -371,8 +368,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.loadSession(params.session_type, params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -383,8 +379,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.updateSession(params.session_id, params.response);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -395,8 +390,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.closeSession(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -407,8 +401,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           const result = this.impl.removeSession(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -665,8 +658,7 @@ media.mojom.CdmFactoryReceiver = class {
           const result = this.impl.createCdm(params.cdm_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec);
                responder(response);
             }});
           }

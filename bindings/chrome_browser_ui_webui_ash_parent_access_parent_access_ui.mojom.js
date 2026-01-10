@@ -307,8 +307,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           const result = this.impl.getOauthToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -319,8 +318,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           const result = this.impl.onParentAccessCallbackReceived(params.encoded_parent_access_callback_proto);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -331,8 +329,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           const result = this.impl.getParentAccessParams();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -343,8 +340,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           const result = this.impl.getParentAccessUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -355,8 +351,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           const result = this.impl.onParentAccessDone(params.result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -367,8 +362,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           const result = this.impl.onBeforeScreenDone();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -164,8 +164,7 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
           const result = this.impl.securePaymentConfirmationAvailability();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -176,8 +175,7 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
           const result = this.impl.storePaymentCredential(params.credential_id, params.rp_id, params.user_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -188,8 +186,7 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
           const result = this.impl.makePaymentCredential(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec);
                responder(response);
             }});
           }

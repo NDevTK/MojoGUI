@@ -97,8 +97,7 @@ ash.mall.mojom.PageHandlerReceiver = class {
           const result = this.impl.getMallEmbedUrl(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec);
                responder(response);
             }});
           }

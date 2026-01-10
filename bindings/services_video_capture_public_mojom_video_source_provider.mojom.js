@@ -215,8 +215,7 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
           const result = this.impl.getSourceInfos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -252,8 +251,7 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec);
                responder(response);
             }});
           }

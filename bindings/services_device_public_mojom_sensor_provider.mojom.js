@@ -277,8 +277,7 @@ device.mojom.SensorProviderReceiver = class {
           const result = this.impl.getSensor(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SensorProvider_GetSensor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_GetSensor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -289,8 +288,7 @@ device.mojom.SensorProviderReceiver = class {
           const result = this.impl.createVirtualSensor(params.type, params.metadata);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -301,8 +299,7 @@ device.mojom.SensorProviderReceiver = class {
           const result = this.impl.updateVirtualSensor(params.type, params.reading);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -313,8 +310,7 @@ device.mojom.SensorProviderReceiver = class {
           const result = this.impl.removeVirtualSensor(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -325,8 +321,7 @@ device.mojom.SensorProviderReceiver = class {
           const result = this.impl.getVirtualSensorInformation(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec);
                responder(response);
             }});
           }

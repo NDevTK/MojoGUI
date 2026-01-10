@@ -291,8 +291,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
           const result = this.impl.getAllForUrl(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.options, params.is_ad_tagged, params.apply_devtools_overrides, params.force_disable_third_party_cookies);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -303,8 +302,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
           const result = this.impl.setCanonicalCookie(params.cookie, params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.status, params.is_ad_tagged, params.apply_devtools_overrides);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -315,8 +313,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
           const result = this.impl.addChangeListener(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -327,8 +324,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
           const result = this.impl.setCookieFromString(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.get_version_shared_memory, params.is_ad_tagged, params.apply_devtools_overrides, params.cookie);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -339,8 +335,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
           const result = this.impl.getCookiesString(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.get_version_shared_memory, params.is_ad_tagged, params.apply_devtools_overrides, params.force_disable_third_party_cookies);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -351,8 +346,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
           const result = this.impl.cookiesEnabledFor(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.apply_devtools_overrides);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec);
                responder(response);
             }});
           }

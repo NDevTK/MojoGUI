@@ -394,8 +394,7 @@ tracing.mojom.ProducerHostReceiver = class {
           const result = this.impl.commitData(params.data_request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -587,8 +586,7 @@ tracing.mojom.ProducerClientReceiver = class {
           const result = this.impl.startDataSource(params.id, params.data_source_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -599,8 +597,7 @@ tracing.mojom.ProducerClientReceiver = class {
           const result = this.impl.stopDataSource(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -828,8 +825,7 @@ tracing.mojom.ConsumerHostReceiver = class {
           const result = this.impl.cloneSession(params.tracing_session_host, params.tracing_session_client, params.unguessable_name, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1014,8 +1010,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
           const result = this.impl.readBuffers(params.stream);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1026,8 +1021,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
           const result = this.impl.requestBufferUsage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1038,8 +1032,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
           const result = this.impl.disableTracingAndEmitJson(params.agent_label_filter, params.stream, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec);
                responder(response);
             }});
           }

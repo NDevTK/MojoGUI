@@ -374,8 +374,7 @@ blink.mojom.BlobReceiver = class {
           const result = this.impl.readSideData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Blob_ReadSideData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Blob_ReadSideData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -386,8 +385,7 @@ blink.mojom.BlobReceiver = class {
           const result = this.impl.captureSnapshot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -398,8 +396,7 @@ blink.mojom.BlobReceiver = class {
           const result = this.impl.getInternalUUID();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec);
                responder(response);
             }});
           }

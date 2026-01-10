@@ -313,8 +313,7 @@ printing.mojom.PrintRendererReceiver = class {
           const result = this.impl.createPreviewDocument(params.job_settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -872,8 +871,7 @@ printing.mojom.PrintRenderFrameReceiver = class {
           const result = this.impl.printFrameContent(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1219,8 +1217,7 @@ printing.mojom.PrintManagerHostReceiver = class {
           const result = this.impl.getDefaultPrintSettings();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1236,8 +1233,7 @@ printing.mojom.PrintManagerHostReceiver = class {
           const result = this.impl.didPrintDocument(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1248,8 +1244,7 @@ printing.mojom.PrintManagerHostReceiver = class {
           const result = this.impl.isPrintingEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1260,8 +1255,7 @@ printing.mojom.PrintManagerHostReceiver = class {
           const result = this.impl.scriptedPrint(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1277,8 +1271,7 @@ printing.mojom.PrintManagerHostReceiver = class {
           const result = this.impl.updatePrintSettings(params.job_settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1289,8 +1282,7 @@ printing.mojom.PrintManagerHostReceiver = class {
           const result = this.impl.setupScriptedPrintPreview();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1311,8 +1303,7 @@ printing.mojom.PrintManagerHostReceiver = class {
           const result = this.impl.checkForCancel(params.preview_ui_id, params.request_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec);
                responder(response);
             }});
           }

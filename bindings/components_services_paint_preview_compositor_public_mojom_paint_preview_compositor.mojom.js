@@ -258,8 +258,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           const result = this.impl.beginSeparatedFrameComposite(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -270,8 +269,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           const result = this.impl.bitmapForSeparatedFrame(params.frame_guid, params.clip_rect, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -282,8 +280,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           const result = this.impl.beginMainFrameComposite(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -294,8 +291,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           const result = this.impl.bitmapForMainFrame(params.clip_rect, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -441,8 +437,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
           const result = this.impl.createCompositor(params.compositor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -453,8 +448,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
           const result = this.impl.listCompositors();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec);
                responder(response);
             }});
           }

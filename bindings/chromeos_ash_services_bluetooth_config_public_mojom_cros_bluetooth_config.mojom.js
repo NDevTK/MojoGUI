@@ -764,8 +764,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
           const result = this.impl.requestPinCode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -776,8 +775,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
           const result = this.impl.requestPasskey();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -798,8 +796,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
           const result = this.impl.confirmPasskey(params.passkey);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -810,8 +807,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
           const result = this.impl.authorizePairing();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -933,8 +929,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
           const result = this.impl.pairDevice(params.device_id, params.delegate);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -945,8 +940,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
           const result = this.impl.fetchDevice(params.device_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1380,8 +1374,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
           const result = this.impl.connect(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1392,8 +1385,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
           const result = this.impl.disconnect(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1404,8 +1396,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
           const result = this.impl.forget(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec);
                responder(response);
             }});
           }

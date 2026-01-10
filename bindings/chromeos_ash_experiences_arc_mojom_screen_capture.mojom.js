@@ -153,8 +153,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
           const result = this.impl.requestPermission(params.display_name, params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -170,8 +169,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
           const result = this.impl.openSession(params.notifier, params.package_name, params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -294,8 +292,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
           const result = this.impl.setOutputBufferDeprecated(params.graphics_buffer, params.stride);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -306,8 +303,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
           const result = this.impl.setOutputBuffer(params.graphics_buffer, params.buffer_format, params.buffer_format_modifier, params.stride);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -405,8 +401,7 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

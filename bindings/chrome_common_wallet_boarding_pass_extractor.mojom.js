@@ -94,8 +94,7 @@ wallet.mojom.BoardingPassExtractorReceiver = class {
           const result = this.impl.extractBoardingPass();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec);
                responder(response);
             }});
           }

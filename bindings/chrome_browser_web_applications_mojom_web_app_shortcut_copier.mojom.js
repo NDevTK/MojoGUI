@@ -97,8 +97,7 @@ web_app.mojom.WebAppShortcutCopierReceiver = class {
           const result = this.impl.copyWebAppShortcut(params.source_path, params.destination_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec);
                responder(response);
             }});
           }

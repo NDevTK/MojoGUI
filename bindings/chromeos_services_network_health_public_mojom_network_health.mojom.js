@@ -299,8 +299,7 @@ chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
           const result = this.impl.getNetworkList();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -311,8 +310,7 @@ chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
           const result = this.impl.getHealthSnapshot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -323,8 +321,7 @@ chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
           const result = this.impl.getRecentlyActiveNetworks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec);
                responder(response);
             }});
           }

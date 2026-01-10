@@ -118,8 +118,7 @@ mojom.WebEngineMediaResourceProviderReceiver = class {
           const result = this.impl.shouldUseAudioConsumer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec);
                responder(response);
             }});
           }

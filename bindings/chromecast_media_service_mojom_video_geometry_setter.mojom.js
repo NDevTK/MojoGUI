@@ -192,8 +192,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
           const result = this.impl.subscribeToVideoGeometryChange(params.overlay_plane_id, params.client_pending_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec);
                responder(response);
             }});
           }

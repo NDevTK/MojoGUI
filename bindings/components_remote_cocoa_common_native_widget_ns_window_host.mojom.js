@@ -1129,8 +1129,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getSheetOffsetY();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1171,8 +1170,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.dispatchKeyEventRemote(params.event);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1183,8 +1181,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.dispatchKeyEventToMenuControllerRemote(params.event);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1195,8 +1192,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.dispatchMonitorEvent(params.event, params.target_is_this_window);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1207,8 +1203,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getHasMenuController();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1219,8 +1214,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getHitTestResult(params.location_in_content);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1231,8 +1225,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getTooltipTextAt(params.location_in_content);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1243,8 +1236,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getWidgetIsModal();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1255,8 +1247,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getIsFocusedViewTextual();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1357,8 +1348,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getDialogButtonInfo(params.button);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1369,8 +1359,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getDoDialogButtonsExist();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1381,8 +1370,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getShouldShowWindowTitle();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1393,8 +1381,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getCanWindowBecomeKey();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1405,8 +1392,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getAlwaysRenderWindowAsKey();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1417,8 +1403,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.onWindowCloseRequested();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1429,8 +1414,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getWindowFrameTitlebarHeight();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1451,8 +1435,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.getRootViewAccessibilityToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1463,8 +1446,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.validateUserInterfaceItem(params.command);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1475,8 +1457,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.willExecuteCommand(params.command, params.window_open_disposition, params.is_before_first_responder);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1487,8 +1468,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.executeCommand(params.command, params.window_open_disposition, params.is_before_first_responder);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1499,8 +1479,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           const result = this.impl.handleAccelerator(params.accelerator, params.require_priority_handler);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -533,8 +533,7 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
           const result = this.impl.getAllSessions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -550,8 +549,7 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
           const result = this.impl.deleteAllSessions(params.reason, params.created_after_time, params.created_before_time, params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -572,8 +570,7 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
           const result = this.impl.createBoundSessions(params.params, params.wrapped_key, params.cookies_to_set, params.cookie_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec);
                responder(response);
             }});
           }

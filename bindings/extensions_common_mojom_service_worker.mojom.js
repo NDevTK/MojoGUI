@@ -124,8 +124,7 @@ extensions.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchOnConnect(params.port_id, params.channel_type, params.channel_name, params.tab_info, params.external_connection_info, params.port, params.port_host);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec);
                responder(response);
             }});
           }

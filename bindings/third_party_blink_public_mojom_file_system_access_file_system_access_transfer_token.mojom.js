@@ -112,8 +112,7 @@ blink.mojom.FileSystemAccessTransferTokenReceiver = class {
           const result = this.impl.getInternalID();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec);
                responder(response);
             }});
           }
